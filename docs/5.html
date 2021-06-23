@@ -388,6 +388,38 @@ but that cost considerably less than the S3 storage classes.
 leverage
 &#x7F8E;[&#x2C8;lev&#x259;r&#x26A;d&#x292;]
 v. &#x53D1;&#x6325;&#x6760;&#x6746;&#x4F5C;&#x7528;&#xFF1B;&#x5229;&#x7528;
+</code></pre><h4 id="chapter-8-the-domain-name-system-and-network-routing-amazon-route-53-and-amazon-cloudfront">Chapter 8 The Domain Name System and Network Routing: Amazon Route 53 and Amazon CloudFront</h4>
+<pre><code>Routing Policies
+
+1. Simple is the default routing policy for new record sets.
+2. Weighted Routing 
+3. Latency Routing. Base on your resources running in multiple AWS regions
+4. Failover Routing. Set to redirect traffic to a backup resource when primary resource is offline
+5. Geolocation Routing. Restrict content to regions where it&#x2019;s legally permitted
+6. Multivalue Answer Routing. &#x6BCF;&#x4E2A;A&#x8BB0;&#x5F55;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;ip&#x548C;&#x4E00;&#x4E2A;healthCheck, failover&#x5C31;&#x5254;&#x9664;&#xFF0C;&#x7C7B;&#x4F3C;ALB
+</code></pre><pre><code>Summary
+
+Weighted routing policies let you direct traffic among multiple parallel resources proportionally according to their ability to handle it. Latency routing policies send traffic to 
+multiple resources to provide the lowest-latency service possible. Failover routing monitors a resource and, on failure, reroutes subsequent traffic to a backup resource. Geolocation routing assesses the location of a request source and directs responses to appropriate 
+resources.
+
+Amazon CloudFront is a CDN that caches content at edge locations to provide lowlatency delivery of websites and digital media.
+
+parallel
+&#x7F8E;[&#x2C8;p&#xE6;r&#x259;lel]
+adj. &#x5E76;&#x884C;&#x7684;
+
+subsequent
+&#x7F8E;[&#x2C8;s&#x28C;bs&#x26A;kw&#x259;nt]
+adj. &#x968F;&#x540E;&#x7684;
+
+appropriate
+&#x7F8E;[&#x259;&#x2C8;pro&#x28A;prie&#x26A;t]
+adj. &#x9002;&#x5F53;&#x7684;
+
+edge
+&#x7F8E;[ed&#x292;]
+n. &#x8FB9;&#x7EBF;&#xFF1B;&#x5200;&#x950B;
 </code></pre>
                                 
                                 </section>
@@ -427,7 +459,7 @@ v. &#x53D1;&#x6325;&#x6760;&#x6746;&#x4F5C;&#x7528;&#xFF1B;&#x5229;&#x7528;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"previous":{"title":"4.AWS认证","level":"1.5","depth":1,"path":"docs/4.md","ref":"docs/4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/5.md","mtime":"2021-06-21T08:35:55.830Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-21T08:36:18.391Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"previous":{"title":"4.AWS认证","level":"1.5","depth":1,"path":"docs/4.md","ref":"docs/4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/5.md","mtime":"2021-06-23T07:34:08.298Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-23T07:34:32.233Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
