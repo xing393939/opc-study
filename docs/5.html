@@ -420,6 +420,48 @@ adj. &#x9002;&#x5F53;&#x7684;
 edge
 &#x7F8E;[ed&#x292;]
 n. &#x8FB9;&#x7EBF;&#xFF1B;&#x5200;&#x950B;
+</code></pre><h4 id="chapter-9-simple-queue-service-and-kinesis">Chapter 9 Simple Queue Service and Kinesis</h4>
+<pre><code>Kinesis Data Firehose vs. Kinesis Data Streams
+
+Kinesis Data Firehose, on the other hand, is not an open-ended producer-consumer 
+model where a consumer can simply subscribe to a stream. Instead, you must specify one or 
+more destinations for the data.
+
+Kinesis Data Firehose is tightly integrated with managed AWS services and third-party 
+applications, so it&#x2019;s generally more appropriate for streaming data to services such
+as Redshift, S3, or Splunk. Kinesis Data Streams, on the other hand, is usually the better 
+choice for streaming data to a custom application. Refer to Table 9.1 for a comparison of 
+SQS and Kinesis services.
+
+open-ended
+&#x7F8E;[&#x2C8;op&#x259;n&#x2C8;&#x25B;nd&#x26A;d]
+adj. &#x5E7F;&#x6CDB;&#x7684;&#xFF0C;&#x65E0;&#x9650;&#x5EA6;&#x7684;
+
+specify
+&#x7F8E;[&#x2C8;spes&#x26A;fa&#x26A;]
+vt. &#x6307;&#x5B9A;
+
+tightly
+&#x7F8E;[&#x2C8;ta&#x26A;tli]
+adv. &#x7D27;&#x7D27;&#x5730;
+
+integrated
+&#x7F8E;[&#x2C8;&#x26A;nt&#x26A;&#x261;re&#x26A;t&#x26A;d]
+adj. &#x7ED3;&#x5408;&#x7684;
+</code></pre><pre><code>Summary
+
+SQS acts as a highly available buffer for data that must move between different application 
+components. On the other hand, the Kinesis services collect, process, and store streaming, 
+real-time binary data such as audio and video. Both SQS and the Kinesis services enable 
+loose coupling.
+
+loose
+&#x7F8E;[lu&#x2D0;s]
+adj. &#x677E;&#x6563;&#x7684;
+
+coupling
+&#x7F8E;[&#x2C8;k&#x28C;pl&#x26A;&#x14B;]
+n. &#x8026;&#x5408;
 </code></pre>
                                 
                                 </section>
@@ -459,7 +501,7 @@ n. &#x8FB9;&#x7EBF;&#xFF1B;&#x5200;&#x950B;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"previous":{"title":"4.AWS认证","level":"1.5","depth":1,"path":"docs/4.md","ref":"docs/4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/5.md","mtime":"2021-06-23T07:34:08.298Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-23T07:34:32.233Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"previous":{"title":"4.AWS认证","level":"1.5","depth":1,"path":"docs/4.md","ref":"docs/4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/5.md","mtime":"2021-06-24T02:56:00.500Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-24T02:56:32.105Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
