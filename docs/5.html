@@ -57,6 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="6.html" />
+    
     
     <link rel="prev" href="4.html" />
     
@@ -160,6 +162,19 @@
             
                     
                     5.AWS认证英语学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="6.html">
+            
+                <a href="6.html">
+            
+                    
+                    6.AWS实践
             
                 </a>
             
@@ -388,6 +403,30 @@ but that cost considerably less than the S3 storage classes.
 leverage
 &#x7F8E;[&#x2C8;lev&#x259;r&#x26A;d&#x292;]
 v. &#x53D1;&#x6325;&#x6760;&#x6746;&#x4F5C;&#x7528;&#xFF1B;&#x5229;&#x7528;
+</code></pre><h4 id="chapter-5-database-services">Chapter 5 Database Services</h4>
+<pre><code>General-Purpose SSD
+Burst duration in seconds = Credit balance / 3000 - 3 * (size in GB)
+&#x5982;&#x679C;&#x6709;200GB&#x7684;gp2&#x78C1;&#x76D8;&#xFF0C;&#x57FA;&#x51C6;&#x53EF;&#x8FBE;&#x5230;600IOPS&#xFF0C;Credit balance&#x4E0A;&#x9650;&#x662F;5400000
+&#x5982;&#x679C;Credit balance&#x4E3A;0&#xFF0C;&#x6BCF;&#x79D2;&#x53EF;&#x4EE5;&#x79EF;&#x7D2F;600&#x4E2A;
+&#x5982;&#x679C;Credit balance&#x4E3A;5400000&#xFF0C;&#x8981;&#x7A81;&#x53D1;&#x5230;3000IOPS&#xFF0C;&#x53EF;&#x4EE5;&#x6301;&#x7EED;2250&#x79D2;
+
+Provisioned IOPS SSD (io1)
+The ratio of storage in gigabytes to IOPS must be at least 50:1. For example, if you want 32,000 IOPS, 
+you must provision at least 640 GB of storage.
+
+The st1 and sc1 volume types are appropriate for frequent, sequential reads 
+and writes, such as you might see with data warehousing, extract, transform, 
+and load (ETL), and Elastic MapReduce (EMR) applications. These 
+volume types are not appropriate for random I/O. For that, gp2 is a better 
+choice.
+
+Both RDS MySQL and Aurora MySQL support Cross-Region.
+Aurora MySQL support maximum of 4 instances in a multi-master cluster, can&apos;t enable cross-Region replicas.
+IAM authentication isn&#x2019;t supported for Oracle.
+Multi-region failover, isn&#x2019;t supported for MS-SQL, PostgreSQL, or Oracle.
+Multi-region failover, standby instance is not a read replica and cannot serve read traffic. When a failover occurs, RDS changes the DNS record of the endpoint to point to the standby.
+Point-in-time recovery for RDS, should enable automatic backups, recovery to fixed backup snapshot.
+Point-in-time recovery for Aurora, recovery to any time with-in the backup retention period.
 </code></pre><h4 id="chapter-8-the-domain-name-system-and-network-routing-amazon-route-53-and-amazon-cloudfront">Chapter 8 The Domain Name System and Network Routing: Amazon Route 53 and Amazon CloudFront</h4>
 <pre><code>Routing Policies
 
@@ -489,10 +528,14 @@ n. &#x8026;&#x5408;
 
             
                 
-                <a href="4.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 4.AWS认证">
+                <a href="4.html" class="navigation navigation-prev " aria-label="Previous page: 4.AWS认证">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="6.html" class="navigation navigation-next " aria-label="Next page: 6.AWS实践">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -501,7 +544,7 @@ n. &#x8026;&#x5408;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"previous":{"title":"4.AWS认证","level":"1.5","depth":1,"path":"docs/4.md","ref":"docs/4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/5.md","mtime":"2021-06-24T02:56:00.500Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-24T02:56:32.105Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"next":{"title":"6.AWS实践","level":"1.7","depth":1,"path":"docs/6.md","ref":"docs/6.md","articles":[]},"previous":{"title":"4.AWS认证","level":"1.5","depth":1,"path":"docs/4.md","ref":"docs/4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/5.md","mtime":"2021-06-25T08:18:05.024Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-25T08:18:30.409Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
