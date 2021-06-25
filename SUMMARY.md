@@ -7,3 +7,4 @@
 * [3.高性能MySQL](docs/3.md)
 * [4.AWS认证](docs/4.md)
 * [5.AWS认证英语学习](docs/5.md)
+* [6.AWS实践](docs/6.md)
