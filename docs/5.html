@@ -427,6 +427,47 @@ Multi-region failover, isn&#x2019;t supported for MS-SQL, PostgreSQL, or Oracle.
 Multi-region failover, standby instance is not a read replica and cannot serve read traffic. When a failover occurs, RDS changes the DNS record of the endpoint to point to the standby.
 Point-in-time recovery for RDS, should enable automatic backups, recovery to fixed backup snapshot.
 Point-in-time recovery for Aurora, recovery to any time with-in the backup retention period.
+</code></pre><pre><code>DynamoDB
+https://www.modb.pro/db/65288
+https://stackoverflow.com/questions/56051481
+
+&#x8868;&#x6709;&#x4E09;&#x79CD;&#x7D22;&#x5F15;&#xFF1A;
+Table Primary Key&#xFF08;&#x5FC5;&#x987B;&#xFF09;
+Global Secondary Index&#xFF08;&#x53EF;&#x9009;&#xFF0C;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x4EFB;&#x610F;&#x5C5E;&#x6027;&#x4F5C;&#x4E3A;HashKey&#x548C;RangeKey&#xFF09;
+Local Secondary Index&#xFF08;&#x53EF;&#x9009;&#xFF0C;&#x53EA;&#x80FD;&#x9009;&#x62E9;&#x4E0E;&#x8868;&#x76F8;&#x540C;&#x7684;HashKey&#xFF0C;&#x521B;&#x5EFA;&#x8868;&#x65F6;&#x6307;&#x5B9A;&#xFF0C;&#x548C;&#x8868;&#x5171;&#x4EAB;&#x541E;&#x5410;&#x91CF;&#xFF0C;&#x6700;&#x5927;10G&#xFF09;
+
+&#x7D22;&#x5F15;&#x7684;&#x4E24;&#x79CD;&#x7EC4;&#x6210;&#x7C7B;&#x578B;&#xFF1A;
+&#x53EA;&#x5305;&#x542B;HashKey&#xFF1A;HashKey&#x53C8;&#x79F0;&#x4E3A;&#x5206;&#x533A;&#x952E;
+&#x5305;&#x542B;HashKey+RangeKey&#x7EC4;&#x5408;&#xFF0C;RangeKey&#x4E5F;&#x79F0;&#x6392;&#x5E8F;&#x952E;
+
+HashKey&#x3001;RangeKey&#x7684;&#x7C7B;&#x578B;&#x53EA;&#x80FD;&#x662F;String&#x3001;Number&#x3001;Binary
+
+DynamoDB&#x7684;where&#x67E5;&#x8BE2;&#x8D85;&#x8FC7;2&#x4E2A;&#x5B57;&#x6BB5;&#xFF0C;&#x5219;&#x5EFA;&#x4E00;&#x4E2A;&#x5197;&#x4F59;&#x7684;&#x8054;&#x5408;&#x5B57;&#x6BB5;&#xFF0C;&#x7136;&#x540E;&#x8BBE;&#x7F6E;Global Secondary Index&#x6216;Local Secondary Index
+</code></pre><pre><code>DynamoDB Global Tables 
+
+To use global tables, your table must be configured in on-demand mode or provisioned 
+mode with Auto Scaling enabled. A global table is a collection of replica tables, and 
+a global table can have only one replica table per region. Whenever you write an item to a 
+replica table, it&#x2019;s replicated to replica tables in other regions. Global tables don&#x2019;t support 
+strongly consistent read across regions.
+</code></pre><pre><code>Summary
+
+Whether you implement a relational or nonrelational database depends solely on the 
+application that will use it. Relational databases have been around a long time, and many 
+application developers default to modeling their data to fit into a relational database. Applications 
+use database-specific SDKs to interact with the database, so often the needs of the 
+application mandate the specific database engine required. This is why AWS RDS offers six 
+of the most popular database engines and sports compatibility with a wide range of versions. 
+The idea is to let you take an existing database and port it to RDS without having to 
+make any changes to the application.
+
+solely
+&#x7F8E;[&#x2C8;so&#x28A;lli]
+adv. &#x552F;&#x4E00;&#x5730;
+
+mandate
+&#x7F8E;[&#x2C8;m&#xE6;nde&#x26A;t]
+vt. &#x6258;&#x7BA1;&#xFF1B;&#x6279;&#x51C6;
 </code></pre><h4 id="chapter-8-the-domain-name-system-and-network-routing-amazon-route-53-and-amazon-cloudfront">Chapter 8 The Domain Name System and Network Routing: Amazon Route 53 and Amazon CloudFront</h4>
 <pre><code>Routing Policies
 
@@ -544,7 +585,7 @@ n. &#x8026;&#x5408;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"next":{"title":"6.AWS实践","level":"1.7","depth":1,"path":"docs/6.md","ref":"docs/6.md","articles":[]},"previous":{"title":"4.AWS认证","level":"1.5","depth":1,"path":"docs/4.md","ref":"docs/4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/5.md","mtime":"2021-06-25T08:18:05.024Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-25T08:18:30.409Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"next":{"title":"6.AWS实践","level":"1.7","depth":1,"path":"docs/6.md","ref":"docs/6.md","articles":[]},"previous":{"title":"4.AWS认证","level":"1.5","depth":1,"path":"docs/4.md","ref":"docs/4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/5.md","mtime":"2021-06-27T10:43:10.709Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-27T10:43:38.589Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
