@@ -468,6 +468,86 @@ adv. &#x552F;&#x4E00;&#x5730;
 mandate
 &#x7F8E;[&#x2C8;m&#xE6;nde&#x26A;t]
 vt. &#x6258;&#x7BA1;&#xFF1B;&#x6279;&#x51C6;
+</code></pre><h4 id="chapter-7-cloudtrail-cloudwatch-and-aws-config">Chapter 7 CloudTrail, CloudWatch, and AWS Config</h4>
+<pre><code>Introduction
+
+CloudTrail, CloudWatch, and AWS Config are three services that can help you ensure the 
+health, performance, and security of your AWS resources and applications. These services 
+collectively help you keep an eye on your AWS environment by performing the following 
+operational tasks:
+1. Tracking Performance
+2. Detecting Application Problems
+3. Detecting Security Problems 
+4. Logging Events 
+5. Maintaining an Inventory of AWS Resources 
+
+trail
+&#x7F8E;[tre&#x26A;l]
+n. &#x8E2A;&#x8FF9;
+
+detect
+&#x7F8E;[d&#x26A;&#x2C8;tekt]
+v. &#x53D1;&#x73B0;&#xFF1B;&#x67E5;&#x660E;
+
+inventory
+&#x7F8E;[&#x2C8;&#x26A;nv&#x259;nt&#x254;&#x2D0;ri]
+n. &#x5B58;&#x8D27;&#x6E05;&#x5355;&#xFF1B;&#x8D22;&#x4EA7;&#x76EE;&#x5F55;
+</code></pre><pre><code>Metric Filters
+
+You would create a metric filter to track the number of times the string &#x201C;404&#x201D; appears in the HTTP 
+status code section of the log. Every time CloudWatch Logs receives a log event that matches the filter, 
+it increments a custom metric. You might name such a metric HTTP404Errors and store it in the custom 
+Apache namespace.
+</code></pre><pre><code>CloudWatch Alarms - Threshold
+
+Static Threshold. You define a static threshold by specifying a value and a condition. 
+If you want to trigger an alarm when CPUUtilization meets or exceeds 50 percent, 
+you would set the threshold for that alarm to &gt;= 50. Or if you want to know when 
+CPUCreditBalance falls below 800, you would set the threshold to &lt; 800.
+
+Anomaly Detection. Anomaly detection is based on whether a metric falls outside of 
+a range of values called a band. You define the size of the band based on the number 
+of standard deviations. For example, if you set an anomaly detection threshold of 2, 
+the alarm would trigger when a value is outside of two standard deviations from the
+average of the values.
+
+threshold
+&#x7F8E;[&#x2C8;&#x3B8;re&#x283;ho&#x28A;ld]
+n. &#x95E8;&#x69DB;
+
+anomaly
+&#x7F8E;[&#x259;&#x2C8;n&#x251;m&#x259;li]
+n. &#x5F02;&#x5E38;
+</code></pre><pre><code>CloudWatch Alarms - Alarm States
+
+As an example, if the period is five minutes and the data points to alarm is 3, then the  
+data points to monitor must cross and remain crossing the threshold for 15 minutes before the 
+alarm goes into an ALARM state.
+</code></pre><pre><code>CloudWatch Alarms - Data Points to Alarm and Evaluation Period
+
+To give an illustration, let&#x2019;s say you create an alarm with a threshold of &gt;= 40. The 
+data points to alarm is 2, and the evaluation period is 3, so this is a 2 out of 3 alarm. Now 
+suppose CloudWatch evaluates the following three consecutive data points: 46, 39, and 
+41. Two of the three data points exceed the threshold, so the alarm will transition to the 
+ALARM state.
+
+Following that, CloudWatch evaluates the consecutive data points 45, 30, and 25. Two 
+of the three data points fall below the threshold, so the alarm transitions to an OK state. 
+Notice that CloudWatch must evaluate three data points (the evaluation period) before it 
+changes the alarm state.
+
+evaluation
+&#x7F8E;[&#x26A;&#x2CC;v&#xE6;lju&#x2C8;e&#x26A;&#x283;n]
+n. &#x8BC4;&#x4F30;
+
+transition
+&#x7F8E;[tr&#xE6;n&#x2C8;z&#x26A;&#x283;n]
+v. &#x8F6C;&#x53D8;&#xFF0C;&#x8FC7;&#x6E21;
+</code></pre><pre><code>Amazon EventBridge (CloudWatch Events)
+
+For example, a running EC2 instance entering the stopped state would be an event. An IAM user 
+logging into the AWS Management Console would be another event. EventBridge can automatically take 
+immediate action in response to such events.
 </code></pre><h4 id="chapter-8-the-domain-name-system-and-network-routing-amazon-route-53-and-amazon-cloudfront">Chapter 8 The Domain Name System and Network Routing: Amazon Route 53 and Amazon CloudFront</h4>
 <pre><code>Routing Policies
 
@@ -585,7 +665,7 @@ n. &#x8026;&#x5408;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"next":{"title":"6.AWS实践","level":"1.7","depth":1,"path":"docs/6.md","ref":"docs/6.md","articles":[]},"previous":{"title":"4.AWS认证","level":"1.5","depth":1,"path":"docs/4.md","ref":"docs/4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/5.md","mtime":"2021-06-27T10:43:10.709Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-27T10:43:38.589Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"next":{"title":"6.AWS实践","level":"1.7","depth":1,"path":"docs/6.md","ref":"docs/6.md","articles":[]},"previous":{"title":"4.AWS认证","level":"1.5","depth":1,"path":"docs/4.md","ref":"docs/4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/5.md","mtime":"2021-06-29T09:44:54.909Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-29T09:45:26.514Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
