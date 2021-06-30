@@ -548,6 +548,35 @@ v. &#x8F6C;&#x53D8;&#xFF0C;&#x8FC7;&#x6E21;
 For example, a running EC2 instance entering the stopped state would be an event. An IAM user 
 logging into the AWS Management Console would be another event. EventBridge can automatically take 
 immediate action in response to such events.
+</code></pre><pre><code>Summary
+
+You must configure CloudWatch and AWS Config before they can begin monitoring your 
+resources. CloudTrail automatically logs only the last 90 days of management events even if 
+you don&#x2019;t configure it. It&#x2019;s therefore a good idea to configure these services early on in your 
+AWS deployment.
+
+CloudWatch, CloudTrail, and AWS Config serve different purposes, and it&#x2019;s important 
+to know the differences among them and when each is appropriate for a given use case.
+CloudWatch tracks performance metrics and can take some action in response to those 
+metrics. It can also collect and consolidate logs from multiple sources for storage and 
+searching, as well as extract metrics from them.
+
+CloudTrail keeps a detailed record of activities performed on your AWS account for 
+security or auditing purposes. You can choose to log read-only or write-only management 
+or data events.
+
+AWS Config records resource configurations and relationships past, present, and future. 
+You can look back in time to see how a resource was configured at any point. AWS Config 
+can also compare current resource configurations against rules to ensure that you&#x2019;re in 
+compliance with whatever baseline you define.
+
+consolidate
+&#x7F8E;[k&#x259;n&#x2C8;s&#x251;&#x2D0;l&#x26A;de&#x26A;t]
+v. &#x5408;&#x5E76;
+
+compliance
+&#x7F8E;[k&#x259;m&#x2C8;pla&#x26A;&#x259;ns]
+n. &#x9075;&#x5B88;
 </code></pre><h4 id="chapter-8-the-domain-name-system-and-network-routing-amazon-route-53-and-amazon-cloudfront">Chapter 8 The Domain Name System and Network Routing: Amazon Route 53 and Amazon CloudFront</h4>
 <pre><code>Routing Policies
 
@@ -665,7 +694,7 @@ n. &#x8026;&#x5408;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"next":{"title":"6.AWS实践","level":"1.7","depth":1,"path":"docs/6.md","ref":"docs/6.md","articles":[]},"previous":{"title":"4.AWS认证","level":"1.5","depth":1,"path":"docs/4.md","ref":"docs/4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/5.md","mtime":"2021-06-29T09:44:54.909Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-29T09:45:26.514Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"next":{"title":"6.AWS实践","level":"1.7","depth":1,"path":"docs/6.md","ref":"docs/6.md","articles":[]},"previous":{"title":"4.AWS认证","level":"1.5","depth":1,"path":"docs/4.md","ref":"docs/4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/5.md","mtime":"2021-06-30T10:20:41.456Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-30T10:21:14.613Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
