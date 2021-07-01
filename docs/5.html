@@ -468,6 +468,84 @@ adv. &#x552F;&#x4E00;&#x5730;
 mandate
 &#x7F8E;[&#x2C8;m&#xE6;nde&#x26A;t]
 vt. &#x6258;&#x7BA1;&#xFF1B;&#x6279;&#x51C6;
+</code></pre><h4 id="chapter-6-authentication-and-authorization&#x2014;aws-identity-and-access-management">Chapter 6 Authentication and Authorization&#x2014;AWS Identity and Access Management</h4>
+<pre><code>User and Root Accounts
+
+You may be forgiven for wondering why giving a user the AdministratorAccess 
+policy is any safer than leaving your root account in active service. 
+After all, both seem to have complete control over all your resources, right? 
+Wrong. There are some powers that even an AdministratorAccess holder 
+doesn&#x2019;t have, including the ability to create or delete account-wide budgets 
+and enable MFA Delete on an S3 bucket.
+</code></pre><pre><code>Roles
+
+You create a new role by defining the trusted entity you want given access. There are 
+four categories of trusted entity: an AWS service; another AWS account (identified by its 
+account ID); a web identity who authenticates using a login with Amazon, Amazon Cognito, 
+Facebook, or Google; and Security Assertion Markup Language (SAML) 2.0 federation with 
+a SAML provider you define separately.
+
+Once your entity is defined, you give it permissions by creating and attaching your own 
+policy document or assigning one or more preset IAM policies. When a trusted entity 
+assumes its new role, AWS issues it a time-limited security token using the AWS Security 
+Token Service (STS).
+
+authenticate
+&#x82F1;[&#x254;:&#x2C8;&#x3B8;ent&#x26A;ke&#x26A;t]
+vt. &#x8BC1;&#x660E;&#x662F;&#x771F;&#x5B9E;&#x7684;
+
+federation
+&#x7F8E;[&#x2CC;fed&#x259;&#x2C8;re&#x26A;&#x283;n]
+n. &#x8054;&#x90A6;
+
+assume
+&#x7F8E;[&#x259;&#x2C8;su&#x2D0;m]
+v. &#x5047;&#x8BBE;
+</code></pre><pre><code>Authentication Tools
+
+&#x767B;&#x5F55;&#x534F;&#x8BAE;&#x6709;&#xFF08;https://zhuanlan.zhihu.com/p/105674989&#xFF09;&#xFF1A;
+LDAP&#xFF1A;&#x89D2;&#x8272;&#x6709;&#x7528;&#x6237;&#x3001;&#x5E94;&#x7528;Server&#x3001;LADP server&#x3002;LADP server&#x53EA;&#x8D1F;&#x8D23;&#x8BA4;&#x8BC1;&#x767B;&#x5F55;&#x3002;
+SAML 2.0&#xFF1A;&#x89D2;&#x8272;&#x6709;&#x7528;&#x6237;&#x3001;&#x5E94;&#x7528;Server&#x3001;LDP server&#x3002;LDP server&#x8D1F;&#x8D23;&#x767B;&#x5F55;&#x8BA4;&#x8BC1;&#x548C;&#x6388;&#x6743;&#x3002;
+OAuth 2.0&#xFF1A;&#x89D2;&#x8272;&#x6709;&#x7528;&#x6237;&#x3001;&#x5E94;&#x7528;Server&#x3001;&#x7B2C;&#x4E09;&#x65B9;Server&#x3002;&#x7B2C;&#x4E09;&#x65B9;Server&#x8D1F;&#x8D23;&#x767B;&#x5F55;&#x8BA4;&#x8BC1;&#x548C;&#x6388;&#x6743;&#x3002;
+OpenID&#xFF1A;&#x89D2;&#x8272;&#x6709;&#x7528;&#x6237;&#x3001;&#x5E94;&#x7528;Server&#x3001;&#x7528;&#x6237;&#x7684;LDP Server&#x3002;&#x7528;&#x6237;&#x7684;LDP Server&#x53EA;&#x8D1F;&#x8D23;&#x8BA4;&#x8BC1;&#x767B;&#x5F55;&#x3002;
+
+Handling user authentication
+1. Amazon Cognito
+2. AWS Managed Microsoft AD
+3. AWS Single Sign-On
+
+Administration of encryption keys and authentication secrets
+1. AWS Key Management Service (KMS)
+2. AWS Secrets Manager
+3. AWS CloudHSM
+</code></pre><pre><code>Summary
+
+The IAM root user that&#x2019;s automatically enabled on a new AWS account should ideally be 
+locked down and not used for day-to-day account operations. Instead, you should give 
+individual users the precise permissions they&#x2019;ll need to perform their jobs.
+
+All user accounts should be protected by strong passwords, multifactor authentication, 
+and the use of encryption certificates and access keys for resource access.
+
+Once authenticated, a user can be authorized to access a defined set of AWS resources 
+using IAM policies. It&#x2019;s a good practice to associate users with overlapping access needs 
+into IAM groups, where their permissions can be centrally and easily updated. Users can 
+also be assigned temporary IAM roles to give them the access they need, when they need it.
+Access keys should be regularly audited to ensure that unused keys are deleted and active 
+keys are rotated at set intervals.
+
+Identities (including users, groups, and roles) can be authenticated using a number of 
+AWS services, including Cognito, Managed Microsoft AD, and Single Sign-On. Authentication 
+secrets are managed by services such as AWS Key Management Service (KMS), AWS 
+Secrets Manager, and AWS CloudHSM.
+
+precise
+&#x7F8E;[pr&#x26A;&#x2C8;sa&#x26A;s]
+adj. &#x6E05;&#x6670;&#x7684;
+
+associate
+&#x82F1;[&#x259;&#x2C8;s&#x259;&#x28A;&#x283;ie&#x26A;t]
+v. &#x4F7F;&#x4E0E;&#x6709;&#x5173;&#x7CFB;
 </code></pre><h4 id="chapter-7-cloudtrail-cloudwatch-and-aws-config">Chapter 7 CloudTrail, CloudWatch, and AWS Config</h4>
 <pre><code>Introduction
 
@@ -694,7 +772,7 @@ n. &#x8026;&#x5408;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"next":{"title":"6.AWS实践","level":"1.7","depth":1,"path":"docs/6.md","ref":"docs/6.md","articles":[]},"previous":{"title":"4.AWS认证","level":"1.5","depth":1,"path":"docs/4.md","ref":"docs/4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/5.md","mtime":"2021-06-30T10:20:41.456Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-30T10:21:14.613Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"next":{"title":"6.AWS实践","level":"1.7","depth":1,"path":"docs/6.md","ref":"docs/6.md","articles":[]},"previous":{"title":"4.AWS认证","level":"1.5","depth":1,"path":"docs/4.md","ref":"docs/4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/5.md","mtime":"2021-07-01T08:52:02.914Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-01T08:52:34.525Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
