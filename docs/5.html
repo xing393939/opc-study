@@ -416,6 +416,48 @@ but that cost considerably less than the S3 storage classes.
 leverage
 &#x7F8E;[&#x2C8;lev&#x259;r&#x26A;d&#x292;]
 v. &#x53D1;&#x6325;&#x6760;&#x6746;&#x4F5C;&#x7528;&#xFF1B;&#x5229;&#x7528;
+</code></pre><h4 id="chapter-4-amazon-virtual-private-cloud">Chapter 4 Amazon Virtual Private Cloud</h4>
+<pre><code>Introduction
+
+If you&#x2019;re familiar with the components of a traditional network, you&#x2019;ll recognize many 
+VPC components. But although VPCs function like a traditional TCP/IP network, they are 
+scalable, allowing you to expand and extend your network without having to add physical 
+hardware. To make this scalability possible, some components that you&#x2019;d find in a 
+traditional network&#x2014;such as routers, switches, and VLANs&#x2014;don&#x2019;t exist in VPCs. Instead, 
+they&#x2019;re abstracted into software functions and called by different names.
+
+traditional
+&#x7F8E;[tr&#x259;&#x2C8;d&#x26A;&#x283;&#x259;nl]
+adj. &#x4F20;&#x7EDF;&#x7684;
+
+recognize
+&#x7F8E;[&#x2C8;rek&#x259;&#x261;na&#x26A;z]
+vt. &#x8BA4;&#x51FA;
+
+scalable
+&#x7F8E;[&apos;ske&#x26A;l&#x259;b&#x259;l]
+adj. &#x53EF;&#x6500;&#x767B;&#x7684;&#xFF0C;&#x53EF;&#x5347;&#x7EA7;&#x7684;
+</code></pre><pre><code>Subnet CIDR Blocks
+
+A subnet can&#x2019;t have multiple CIDRs. Unlike a VPC that can have secondary CIDRs, a 
+subnet can have only one. However, if a VPC has a primary CIDR and a secondary CIDR, 
+your subnet&#x2019;s CIDR can be derived from either. For example, if your VPC has the primary 
+CIDR of 172.16.0.0/16 and a secondary CIDR of 172.17.0.0/16, a subnet in that VPC 
+could be 172.17.12.0/24, as it&#x2019;s derived from the secondary VPC CIDR.
+
+derive
+&#x7F8E;[d&#x26A;&#x2C8;ra&#x26A;v]
+v. &#x83B7;&#x5F97;
+</code></pre><pre><code>Using Network Access Control Lists and Security Groups Together
+
+You may want to use an NACL in addition to a security group so that you aren&#x2019;t dependent 
+on AWS administrators to specify the correct security group when they launch an instance. 
+Because an NACL is applied to the subnet, the rules of the NACL apply to all traffic 
+ingressing and egressing the subnet, regardless of how the security groups are configured.
+
+regardless
+&#x7F8E;[r&#x26A;&#x2C8;&#x261;&#x251;&#x2D0;rdl&#x259;s]
+adv. &#x4E0D;&#x987E;&#x540E;&#x679C;&#x5730;
 </code></pre><h4 id="chapter-5-database-services">Chapter 5 Database Services</h4>
 <pre><code>General-Purpose SSD
 Burst duration in seconds = Credit balance / 3000 - 3 * (size in GB)
@@ -531,6 +573,11 @@ Administration of encryption keys and authentication secrets
 1. AWS Key Management Service (KMS)
 2. AWS Secrets Manager
 3. AWS CloudHSM
+
+&#x4EE3;&#x7801;&#x4FDD;&#x5B58;db password&#x7684;&#x65B9;&#x6CD5;&#x6709;&#xFF1A;
+1. &#x4F7F;&#x7528;AWS Secrets Manager
+2. &#x4F7F;&#x7528;AWS Systen Manager&#x7684;Parameter Store&#xFF0C;&#x53EF;&#x5B58;&#x660E;&#x6587;&#x6216;&#x8005;KMS&#x52A0;&#x5BC6;&#x7684;&#x5BC6;&#x6587;&#xFF0C;&#x514D;&#x8D39;
+3. &#x4F7F;&#x7528;AWS Systen Manager&#x7684;AppConfig
 </code></pre><pre><code>Summary
 
 The IAM root user that&#x2019;s automatically enabled on a new AWS account should ideally be 
@@ -785,7 +832,7 @@ n. &#x8026;&#x5408;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"next":{"title":"6.AWS实践","level":"1.7","depth":1,"path":"docs/6.md","ref":"docs/6.md","articles":[]},"previous":{"title":"4.AWS认证","level":"1.5","depth":1,"path":"docs/4.md","ref":"docs/4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/5.md","mtime":"2021-07-02T13:04:47.935Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-02T13:05:11.635Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"next":{"title":"6.AWS实践","level":"1.7","depth":1,"path":"docs/6.md","ref":"docs/6.md","articles":[]},"previous":{"title":"4.AWS认证","level":"1.5","depth":1,"path":"docs/4.md","ref":"docs/4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/5.md","mtime":"2021-07-04T10:01:05.923Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-04T10:01:38.103Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
