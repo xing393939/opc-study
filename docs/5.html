@@ -288,6 +288,8 @@ ways to do that: a NAT instance and a NAT gateway (see Figure 2.2). They&#x2019;
 job, but since a NAT gateway is a managed service, it doesn&#x2019;t require that you manually 
 launch and maintain an instance. Both approaches will incur monthly charges.
 
+NAT Gateway &#x662F;VPC&#x5171;&#x4EAB;&#x7684;&#xFF0C;AZ1&#x548C;AZ2&#x90FD;&#x80FD;&#x7528;&#xFF0C;&#x53EA;&#x9700;&#x5EFA;&#x4E00;&#x4E2A;&#xFF0C;&#x5982;&#x679C;&#x8003;&#x8651;&#x5BB9;&#x707E;&#x53EF;&#x4EE5;&#x6BCF;&#x4E2A;AZ&#x90FD;&#x5EFA;&#x4E00;&#x4E2A;&#x3002;
+
 approach
 &#x7F8E;[&#x259;&#x2C8;pro&#x28A;t&#x283;]
 n. &#x65B9;&#x6CD5;
@@ -530,7 +532,7 @@ choice.
 
 Both RDS MySQL and Aurora MySQL support Cross-Region.
 Aurora MySQL support maximum of 4 instances in a multi-master cluster, can&apos;t enable cross-Region replicas.
-IAM authentication isn&#x2019;t supported for Oracle.
+IAM authentication isn&#x2019;t supported for MS-SQL, Oracle.
 Multi-region failover, isn&#x2019;t supported for MS-SQL, PostgreSQL, or Oracle.
 Multi-region failover, standby instance is not a read replica and cannot serve read traffic. When a failover occurs, RDS changes the DNS record of the endpoint to point to the standby.
 Point-in-time recovery for RDS, should enable automatic backups, recovery to fixed backup snapshot.
@@ -623,7 +625,7 @@ Handling user authentication
 3. AWS Single Sign-On
 
 Administration of encryption keys and authentication secrets
-1. AWS Key Management Service (KMS)
+1. AWS Key Management Service (KMS)&#x3002;CMK &#x4EC5;&#x4EC5;&#x652F;&#x6301;&#x5BFC;&#x5165;&#x5BF9;&#x79F0;&#x5BC6;&#x94A5;&#xFF0C;&#x4E0D;&#x652F;&#x6301;&#x975E;&#x5BF9;&#x79F0;&#x5BC6;&#x94A5;&#x3002;
 2. AWS Secrets Manager
 3. AWS CloudHSM
 
@@ -671,6 +673,8 @@ operational tasks:
 3. Detecting Security Problems 
 4. Logging Events 
 5. Maintaining an Inventory of AWS Resources 
+
+CloudWatch does not automatically provide memory and disk utilization metrics of your instances.
 
 trail
 &#x7F8E;[tre&#x26A;l]
@@ -885,7 +889,7 @@ n. &#x8026;&#x5408;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"next":{"title":"6.AWS的其他服务","level":"1.7","depth":1,"path":"docs/6.md","ref":"docs/6.md","articles":[]},"previous":{"title":"4.AWS认证","level":"1.5","depth":1,"path":"docs/4.md","ref":"docs/4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/5.md","mtime":"2021-07-05T08:10:36.680Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-05T08:11:03.982Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"next":{"title":"6.AWS的其他服务","level":"1.7","depth":1,"path":"docs/6.md","ref":"docs/6.md","articles":[]},"previous":{"title":"4.AWS认证","level":"1.5","depth":1,"path":"docs/4.md","ref":"docs/4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/5.md","mtime":"2021-07-05T11:23:38.065Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-05T11:24:09.368Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
