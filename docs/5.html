@@ -174,7 +174,7 @@
                 <a href="6.html">
             
                     
-                    6.AWS实践
+                    6.AWS的其他服务
             
                 </a>
             
@@ -458,6 +458,59 @@ ingressing and egressing the subnet, regardless of how the security groups are c
 regardless
 &#x7F8E;[r&#x26A;&#x2C8;&#x261;&#x251;&#x2D0;rdl&#x259;s]
 adv. &#x4E0D;&#x987E;&#x540E;&#x679C;&#x5730;
+</code></pre><pre><code>NAT Instance
+
+One advantage of a NAT instance is that you can use it as a bastion host, sometimes 
+called a jump host, to connect to instances that don&#x2019;t have a public IP. You can&#x2019;t do this 
+with a NAT gateway.
+
+You must create a default route to direct Internet-bound traffic to the NAT instance. 
+The target of the default route will be the NAT instance&#x2019;s ID, which follows the format 
+i-0a1674fe5671dcb00.
+
+advantage
+&#x7F8E;[&#x259;d&#x2C8;v&#xE6;nt&#x26A;d&#x292;]
+n. &#x4F18;&#x70B9;
+
+bastion
+&#x7F8E;[&#x2C8;b&#xE6;st&#x283;&#x259;n]
+n. &#x5821;&#x5792;
+</code></pre><pre><code>Hybrid Cloud Networking
+
+1. Site to Site VPN (Internet Protocol security, IPsec)
+2. AWS Transit Gateway
+3. AWS Direct Connect (DX)
+
+However, if you want to connect a large number of VPCs to your on-premises network, 
+or if you need to connect many on-premises networks to a VPC, creating a separate VPN 
+connection for each one can become cumbersome. In that case, you&#x2019;ll want to use AWS 
+Transit Gateway
+
+Hybrid
+&#x7F8E;[&#x2C8;ha&#x26A;br&#x26A;d]
+adj. &#x6DF7;&#x5408;
+
+on-premises
+&#x5185;&#x90E8;&#x90E8;&#x7F72;&#x7684;
+
+transit
+&#x7F8E;[&#x2C8;tr&#xE6;nz&#x26A;t]
+adj. &#x4E2D;&#x8F6C;&#x7684;
+</code></pre><pre><code>Summary
+
+In each region, AWS automatically provides a default VPC with default subnets, a main 
+route table, a default security group, and a default NACL. Many use a default VPC for a 
+long time without ever having to configure a VPC from scratch. This makes it all the more 
+important that you as an AWS architect understand how to configure a virtual network 
+infrastructure from scratch. There&#x2019;s a good chance you won&#x2019;t be allowed to modify an 
+infrastructure that was built on top of a default VPC. Instead, you may be tasked with 
+replicating it from the ground up&#x2014;troubleshooting various issues along the way. Practice what 
+you&#x2019;ve learned in this chapter until creating fully functional VPCs becomes second nature 
+to you.
+
+infrastructure
+&#x7F8E;[&#x2C8;&#x26A;nfr&#x259;str&#x28C;kt&#x283;&#x259;r]
+n. &#x57FA;&#x7840;&#x8BBE;&#x65BD;
 </code></pre><h4 id="chapter-5-database-services">Chapter 5 Database Services</h4>
 <pre><code>General-Purpose SSD
 Burst duration in seconds = Credit balance / 3000 - 3 * (size in GB)
@@ -821,7 +874,7 @@ n. &#x8026;&#x5408;
                 </a>
                 
                 
-                <a href="6.html" class="navigation navigation-next " aria-label="Next page: 6.AWS实践">
+                <a href="6.html" class="navigation navigation-next " aria-label="Next page: 6.AWS的其他服务">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -832,7 +885,7 @@ n. &#x8026;&#x5408;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"next":{"title":"6.AWS实践","level":"1.7","depth":1,"path":"docs/6.md","ref":"docs/6.md","articles":[]},"previous":{"title":"4.AWS认证","level":"1.5","depth":1,"path":"docs/4.md","ref":"docs/4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/5.md","mtime":"2021-07-04T10:01:05.923Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-04T10:01:38.103Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"next":{"title":"6.AWS的其他服务","level":"1.7","depth":1,"path":"docs/6.md","ref":"docs/6.md","articles":[]},"previous":{"title":"4.AWS认证","level":"1.5","depth":1,"path":"docs/4.md","ref":"docs/4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/5.md","mtime":"2021-07-05T08:10:36.680Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-05T08:11:03.982Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
