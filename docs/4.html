@@ -275,7 +275,20 @@
 <li>Amazon FSx For Lustre&#xFF1A;high-performance</li>
 </ol>
 </li>
-<li>object storage&#xFF1A;S3&#xFF0C;&#x5982;&#x679C;&#x51FA;&#x73B0;file storage&#x5219;&#x4E0D;&#x80FD;&#x9009;S3</li>
+<li>object storage&#xFF1A;S3&#xFF0C;&#x5982;&#x679C;&#x51FA;&#x73B0;file storage&#x5219;&#x4E0D;&#x80FD;&#x9009;S3<ol>
+<li>Standard</li>
+<li>Intelligent&#xFF1A;&#x667A;&#x80FD;</li>
+<li>Standard-IA&#xFF1A;&#x4E0D;&#x7ECF;&#x5E38;&#x8BBF;&#x95EE;&#x3001;&#x53D6;&#x56DE;&#x6709;&#x8D39;&#x7528;</li>
+<li>One Zone-IA&#xFF1A;&#x5355;AZ</li>
+<li>Glacier&#xFF1A;&gt;90&#x5929;&#xFF0C;&#x53D6;&#x56DE;&#x65F6;&#x95F4;1m~12h</li>
+<li>Glacier Deep Archive&#xFF1A;&gt;180&#x5929;&#xFF0C;&#x53D6;&#x56DE;&#x65F6;&#x95F4;12h~48h</li>
+</ol>
+</li>
+<li>EBS &#x7684;&#x4F18;&#x70B9;&#xFF1A;<ol>
+<li>&#x81EA;&#x52A8;&#x5728;&#x5F53;&#x524D;AZ&#x5907;&#x4EFD;&#xFF0C;&#x5355;block failure&#x540E;&#x81EA;&#x52A8;&#x66FF;&#x6362;</li>
+<li>&#x4E0D;&#x505C;&#x673A;&#x7684;&#x66F4;&#x6362; type, size, IOPS capacity</li>
+</ol>
+</li>
 </ol>
 </li>
 <li>Auto Scaling Group scaling &#x7B56;&#x7565;<ol>
@@ -292,6 +305,45 @@
 </ol>
 </li>
 <li>Access AWS resources using on-premises credentials stored in Active Directory &#xFF01;&#xFF01;&#xFF01;    </li>
+<li>RDS<ol>
+<li>When failing over, Amazon RDS points CNAME to the standby, promoted it an new primary</li>
+<li>Amazon RDS automatically performs a fail-over when&#xFF1A;<ol>
+<li>Loss of availability in primary Availability Zone.</li>
+<li>Loss of network connectivity to primary.</li>
+<li>Compute unit failure on primary.</li>
+<li>Storage failure on primary.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>SQS&#x3001;SNS&#x3001;SWF<ol>
+<li>Amazon SQS retention period is from 1 minute to 14 days</li>
+<li>Amazon Simple Workflow Service (SWF)&#xFF1A;creating a decoupled architecture in AWS </li>
+</ol>
+</li>
+<li>&#x9632;&#x706B;&#x5899;<ol>
+<li>AWS Firewall Manager&#xFF1A;simplifies your AWS WAF and AWS Shield Advanced administration and maintenance tasks across multiple accounts and resources.</li>
+<li>Amazon GuardDuty&#xFF1A;&#x4E00;&#x79CD;&#x667A;&#x80FD;&#x5A01;&#x80C1;&#x68C0;&#x6D4B;&#x670D;&#x52A1;&#xFF0C;&#x901A;&#x8FC7; CloudTrail &#x65E5;&#x5FD7;&#x3001;VPC &#x6D41;&#x65E5;&#x5FD7;&#x3001;DNS &#x65E5;&#x5FD7;&#x5206;&#x6790;&#x51FA;&#x8D26;&#x6237;&#x76D7;&#x7528;&#x3001;&#x5B58;&#x50A8;&#x6876;&#x5165;&#x4FB5;&#x3001;&#x5F02;&#x5E38; API &#x8C03;&#x7528;&#x3001;&#x6076;&#x610F; IP &#x7B49;&#x6D3B;&#x52A8;&#xFF0C;&#x5E76;&#x81EA;&#x52A8;&#x5316;&#x54CD;&#x5E94;&#x3002;</li>
+<li>AWS WAF&#xFF1A;&#x4E03;&#x5C42;&#x534F;&#x8BAE;&#x7684;&#x9632;&#x62A4;&#xFF08;ALB, API Gateway, CloudFront&#xFF09;&#xFF0C;&#x529F;&#x80FD;&#x6709;ACL&#xFF08;&#x5C01;ip&#x3001;header&#x3001;url&#xFF09;&#x3001;SQL&#x6CE8;&#x5165;&#x3001;XSS&#x3001;XSS&#x3001;Rate-based for DDoS&#x3002;</li>
+<li>AWS Shield&#xFF1A;&#x4E09;&#x5C42;/&#x56DB;&#x5C42;&#x534F;&#x8BAE;&#x3001;&#x9AD8;&#x7EA7;&#x7684;DDoS&#x9632;&#x62A4;&#xFF0C;&#x6807;&#x51C6;&#x7248;&#x514D;&#x8D39;&#x3001;&#x9AD8;&#x7EA7;&#x7248;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;EIP&#x3001;ELB&#x3001;CloudFront&#x3001;Global Accelerator&#x3001;Route 53&#x3002;</li>
+</ol>
+</li>
+<li>&#x5B58;&#x50A8;&#x6570;&#x636E;&#x5E93;&#x5BC6;&#x7801;&#x3001;API&#x5BC6;&#x94A5;&#x7684;&#x65B9;&#x6848;&#xFF1A;<ol>
+<li>AWS Secrets Manager&#xFF1A;manage database credentials, passwords, API keys, arbitrary text. encrypted and regular rotated.</li>
+<li>Systems Manager Parameter Store&#xFF1A;&#x53EF;&#x4EE5;&#x5B58;&#x660E;&#x6587;&#x3001;&#x5BC6;&#x6587;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x4F1A; regular rotated.</li>
+</ol>
+</li>
+<li>&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x5668;<ol>
+<li>&#x540C;ip&#x591A;&#x57DF;&#x540D;https&#x652F;&#x6301;(SNI)&#xFF1A;CLB&#x4E0D;&#x652F;&#x6301;&#xFF0C;ALB&#x3001;ELB&#x3001;CloudFront&#x652F;&#x6301;</li>
+<li>&#x652F;&#x6301;websocket&#xFF1A;ALB&#x652F;&#x6301;&#xFF1B;ELB&#x4EC5;&#x652F;&#x6301;HTTP&#x3001;HTTPs&#x3001;TCP&#x3001;UDP&#x3001;TLS&#xFF0C;&#x53EF;&#x4EE5;&#x5728;ec2&#x5C42;&#x5B9E;&#x73B0;websocket&#xFF0C;&#x7136;&#x540E;&#x7528;TCP-&gt;ws&#xFF0C;TLS-&gt;wss&#x3002;</li>
+<li>&#x53EA;&#x6709;ALB&#x652F;&#x6301; path-based and host-based routing</li>
+</ol>
+</li>
+<li>&#x4F20;&#x8F93;<ol>
+<li>Snowball&#xFF1A;80T&#xFF0C;&#x53EF;&#x7528;&#x591A;&#x4E2A;&#xFF1B;&#x5982;&#x679C;&#x7528;100Mb&#x5E26;&#x5BBD;&#x4F20;&#xFF0C;&#x5F97;200&#x5929;  </li>
+<li>Snowmobile&#xFF1A;100P</li>
+</ol>
+</li>
 </ol>
 
                                 
@@ -336,7 +388,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.AWS认证","level":"1.5","depth":1,"next":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"path":"docs/5.md","ref":"docs/5.md","articles":[]},"previous":{"title":"3.高性能MySQL","level":"1.4","depth":1,"path":"docs/3.md","ref":"docs/3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/4.md","mtime":"2021-07-05T11:23:38.065Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-05T11:24:09.368Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.AWS认证","level":"1.5","depth":1,"next":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"path":"docs/5.md","ref":"docs/5.md","articles":[]},"previous":{"title":"3.高性能MySQL","level":"1.4","depth":1,"path":"docs/3.md","ref":"docs/3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/4.md","mtime":"2021-07-06T09:29:02.883Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-06T09:29:34.297Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
