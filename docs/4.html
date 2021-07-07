@@ -314,6 +314,7 @@
 <li>Storage failure on primary.</li>
 </ol>
 </li>
+<li>&#x4FEE;&#x6539;&#x5B58;&#x50A8;&#x5927;&#x5C0F;&#x9700;&#x8981;&#x91CD;&#x542F;&#x3001;&#x800C;&#x8BBE;&#x7F6E;&#x81EA;&#x52A8;&#x6269;&#x5BB9;&#x4E0D;&#x9700;&#x8981;  </li>
 </ol>
 </li>
 <li>SQS&#x3001;SNS&#x3001;SWF<ol>
@@ -339,9 +340,38 @@
 <li>&#x53EA;&#x6709;ALB&#x652F;&#x6301; path-based and host-based routing</li>
 </ol>
 </li>
-<li>&#x4F20;&#x8F93;<ol>
+<li>&#x52A0;&#x901F;&#x4F20;&#x8F93;<ol>
 <li>Snowball&#xFF1A;80T&#xFF0C;&#x53EF;&#x7528;&#x591A;&#x4E2A;&#xFF1B;&#x5982;&#x679C;&#x7528;100Mb&#x5E26;&#x5BBD;&#x4F20;&#xFF0C;&#x5F97;200&#x5929;  </li>
 <li>Snowmobile&#xFF1A;100P</li>
+<li>S3 Transfer Acceleration&#xFF1A;&#x5168;&#x7403;&#x5404;&#x5730;&#x7684;&#x5BA2;&#x6237;&#x9700;&#x8981;&#x4E0A;&#x4F20;S3</li>
+<li>AWS Direct Connect&#xFF08;DX&#xFF09;&#xFF1A;&#x9700;&#x8981;&#x6700;&#x5C11;&#x4E00;&#x6708;&#x7684;&#x642D;&#x5EFA;</li>
+<li>AWS Site to Site VPN&#xFF08;IPsec&#xFF09;</li>
+</ol>
+</li>
+<li>&#x52A0;&#x901F;&#x5168;&#x7403;&#x8BBF;&#x95EE;<ol>
+<li>AWS Global Accelerator&#xFF1A;&#x7ED9;&#x8282;&#x70B9;&#xFF08;NLB&#x3001;ALB&#x3001;EC2&#x3001;EIP&#xFF09;&#x52A0;&#x901F;</li>
+<li>AWS CloudFront</li>
+</ol>
+</li>
+<li>&#x7F51;&#x7EDC;&#x8FDE;&#x901A;<ol>
+<li>AWS Storage Gateway&#xFF1A;&#x4F7F;&#x7528;S3&#x3001;FSx&#x7B49;&#x6269;&#x5C55;&#x672C;&#x5730;&#x673A;&#x623F;&#x7684;&#x5B58;&#x50A8;&#xFF1B;local caching&#x53EF;&#x4EE5;&#x52A0;&#x901F;&#x8BBF;&#x95EE;</li>
+<li>Private Link&#xFF08;VPC Endpoint Services&#xFF09;&#xFF1A;&#x628A;S3&#x3001;DynamoDB&#x7B49;&#x670D;&#x52A1;&#x53D8;&#x6210;&#x79C1;&#x7F51;&#x670D;&#x52A1;</li>
+<li>Direct Connect Gateway&#xFF1A;&#x6253;&#x901A;&#x4E00;&#x4E2A;&#x672C;&#x5730;&#x673A;&#x623F;&#x5230;&#x591A;&#x4E2A; AWS &#x7684;&#x533A;&#x57DF;</li>
+<li>AWS VPN CloudHub&#xFF1A;&#x6253;&#x901A;&#x591A;&#x4E2A;&#x672C;&#x5730;&#x673A;&#x623F;&#x7684;&#x8FDE;&#x63A5;&#xFF08;&#x4F9D;&#x8D56;VPN&#x6216;DX&#xFF09;</li>
+<li>AWS Transit Gateway&#xFF1A;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x4E91;&#x4E0A;&#x7684;&#x8DEF;&#x7531;&#x5668;&#xFF0C;&#x5728;&#x6BCF;&#x4E00;&#x4E2A; Region &#x4E2D;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; TGW&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x5C06;&#x5B83;&#x4EEC; Peering &#x8D77;&#x6765;</li>
+</ol>
+</li>
+<li>&#x5927;&#x6570;&#x636E;<ol>
+<li>AWS Kinesis Firehose&#xFF1A;&#x662F;&#x4E00;&#x4E2A;&#x6D88;&#x5316;&#x7BA1;&#x9053;&#xFF0C;&#x5EF6;&#x8FDF;60&#x79D2;&#xFF0C;&#x4E0D;&#x52A0;&#x5904;&#x7406;&#x7684;&#x4F20;&#x7ED9;S3&#x3001;Redshift</li>
+<li>AWS Kinesis Streams&#xFF1A;&#x662F;&#x5B9E;&#x65F6;&#x548C;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#xFF0C;&#x5EF6;&#x8FDF;1&#x79D2;&#xFF0C;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x5904;&#x7406;&#x6570;&#x636E;&#xFF1B;&#x9ED8;&#x8BA4;&#x4FDD;&#x7559;&#x6570;&#x636E;1&#x5929;&#xFF1B;&#x5173;&#x952E;&#x5B57;&#xFF1A;real-time analytics</li>
+</ol>
+</li>
+<li>&#x5BB9;&#x707E;<ol>
+<li>active-active&#xFF1A;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x90FD;&#x662F;&#x4E3B;&#x8282;&#x70B9;&#xFF1B;active-passive&#xFF1A;&#x4E00;&#x822C;&#x90FD;&#x662F;&#x4E3B;&#x8282;&#x70B9;&#x63D0;&#x4F9B;&#x670D;&#x52A1;&#xFF0C;&#x4ECE;&#x8282;&#x70B9;&#x5BB9;&#x707E;</li>
+</ol>
+</li>
+<li>&#x8D39;&#x7528;&#x6210;&#x672C;<ol>
+<li>ec2&#xFF1A;&#x4E0D;&#x662F;running&#x72B6;&#x6001;&#x65E0;&#x9700;&#x4ED8;&#x8D39;&#xFF0C;&#x4F46;&#x662F;stopping&#x5230;&#x4F11;&#x7720;&#x72B6;&#x6001;&#x9700;&#x8981;&#xFF1B;&#x9884;&#x7559;&#x5B9E;&#x4F8B;terminated&#x72B6;&#x6001;&#x4E5F;&#x8981;&#x4ED8;&#x8D39;</li>
 </ol>
 </li>
 </ol>
@@ -388,7 +418,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.AWS认证","level":"1.5","depth":1,"next":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"path":"docs/5.md","ref":"docs/5.md","articles":[]},"previous":{"title":"3.高性能MySQL","level":"1.4","depth":1,"path":"docs/3.md","ref":"docs/3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/4.md","mtime":"2021-07-06T09:29:02.883Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-06T09:29:34.297Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.AWS认证","level":"1.5","depth":1,"next":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"path":"docs/5.md","ref":"docs/5.md","articles":[]},"previous":{"title":"3.高性能MySQL","level":"1.4","depth":1,"path":"docs/3.md","ref":"docs/3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/4.md","mtime":"2021-07-07T10:11:44.470Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-07T10:12:11.320Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
