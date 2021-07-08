@@ -261,7 +261,7 @@
 </ol>
 </li>
 <li>&#x5B58;&#x50A8;&#x76F8;&#x5173;&#xFF1A;<ol>
-<li>block storage&#xFF1A;<ol>
+<li>block storage&#xFF08;&#x5BB9;&#x91CF;16T&#xFF09;&#xFF1A;<ol>
 <li>General Purpose SSD &#xFF08;gp2/gp3&#xFF09;&#xFF1A;1.6w IOPS&#xFF0C;&#x9002;&#x5408;&#x968F;&#x673A;IO</li>
 <li>Provisioned SSD&#xFF08;io1/io2&#xFF09;&#xFF1A;6.4w IOPS&#xFF0C;&#x9002;&#x5408;&#x968F;&#x673A;IO&#xFF0C;&#x9002;&#x5408;&#x6570;&#x636E;&#x5E93;</li>
 <li>Throughput Optimized HDD &#xFF08;st1&#xFF09;&#xFF1A;500 IOPS&#xFF0C;&#x9002;&#x5408;&#x987A;&#x5E8F;IO</li>
@@ -270,9 +270,9 @@
 </ol>
 </li>
 <li>file storage&#xFF1A;<ol>
-<li>Amazon Elastic File System&#xFF1A;50w IOPS&#xFF0C;&#x591A;ec2&#x5171;&#x4EAB;</li>
-<li>Amazon FSx for Windows&#xFF1A;network filesystem for Windows</li>
-<li>Amazon FSx For Lustre&#xFF1A;high-performance</li>
+<li>Amazon Elastic File System&#xFF1A;50w IOPS&#xFF0C;&#x591A;ec2&#x5171;&#x4EAB;&#xFF0C;&#x5BB9;&#x91CF;&#x4E0D;&#x9650;</li>
+<li>Amazon FSx for Windows&#xFF1A;network filesystem for Windows&#xFF0C;&#x5BB9;&#x91CF;64T</li>
+<li>Amazon FSx For Lustre&#xFF1A;high-performance&#xFF0C;&#x5BB9;&#x91CF;&#x4E0D;&#x9650;</li>
 </ol>
 </li>
 <li>object storage&#xFF1A;S3&#xFF0C;&#x5982;&#x679C;&#x51FA;&#x73B0;file storage&#x5219;&#x4E0D;&#x80FD;&#x9009;S3<ol>
@@ -304,7 +304,11 @@
 <li>&#x6EE1;&#x8DB3;&#x4EE5;&#x4E0A;&#x6761;&#x4EF6;&#x7684;ec2&#x968F;&#x673A;terminate</li>
 </ol>
 </li>
+<li>&#x8D26;&#x53F7;&#x96C6;&#x6210;&#xFF1A;<ol>
 <li>Access AWS resources using on-premises credentials stored in Active Directory &#xFF01;&#xFF01;&#xFF01;    </li>
+<li>Amazon Cognito &#x7528;&#x6237;&#x6C60;&#x5B89;&#x5168;&#xFF1A;&#x542F;&#x7528;&#x591A;&#x91CD;&#x9A8C;&#x8BC1;(MFA)&#x4F5C;&#x4E3A;&#x4E8C;&#x6B21;&#x9A8C;&#x8BC1;</li>
+</ol>
+</li>
 <li>RDS<ol>
 <li>When failing over, Amazon RDS points CNAME to the standby, promoted it an new primary</li>
 <li>Amazon RDS automatically performs a fail-over when&#xFF1A;<ol>
@@ -315,11 +319,17 @@
 </ol>
 </li>
 <li>&#x4FEE;&#x6539;&#x5B58;&#x50A8;&#x5927;&#x5C0F;&#x9700;&#x8981;&#x91CD;&#x542F;&#x3001;&#x800C;&#x8BBE;&#x7F6E;&#x81EA;&#x52A8;&#x6269;&#x5BB9;&#x4E0D;&#x9700;&#x8981;  </li>
+<li>Amazon RDS Metrics&#xFF1A;<ol>
+<li>regular items&#xFF1A;CPU Utilization, Database Connections, Freeable Memory</li>
+<li>Enhance items&#xFF1A;OS processes, RDS processes, RDS child processes</li>
 </ol>
 </li>
-<li>SQS&#x3001;SNS&#x3001;SWF<ol>
+</ol>
+</li>
+<li>SQS&#x3001;SNS&#x3001;SWF&#x3001;Step functions<ol>
 <li>Amazon SQS retention period is from 1 minute to 14 days</li>
-<li>Amazon Simple Workflow Service (SWF)&#xFF1A;creating a decoupled architecture in AWS </li>
+<li>Amazon Simple Workflow Service (SWF)&#xFF1A;creating a decoupled architecture in AWS&#xFF1B;&#x4E0D;&#x4F1A;&#x91CD;&#x590D;&#x6D88;&#x8D39;&#x4EFB;&#x52A1;&#xFF1B;&#x9002;&#x5408;ec2&#xFF0C;&#x5DF2;&#x8FC7;&#x65F6;&#xFF0C;&#x9664;&#x975E;&#x6709;&#x7236;&#x5B50;&#x8FDB;&#x7A0B;&#x4FE1;&#x53F7;&#x624D;&#x7528;</li>
+<li>Step functions&#xFF1A;&#x9002;&#x5408;lambda&#x3001;ECS&#x3001;API Gateway&#xFF1B;&#x66FF;&#x4EE3;SWF</li>
 </ol>
 </li>
 <li>&#x9632;&#x706B;&#x5899;<ol>
@@ -343,18 +353,19 @@
 <li>&#x52A0;&#x901F;&#x4F20;&#x8F93;<ol>
 <li>Snowball&#xFF1A;80T&#xFF0C;&#x53EF;&#x7528;&#x591A;&#x4E2A;&#xFF1B;&#x5982;&#x679C;&#x7528;100Mb&#x5E26;&#x5BBD;&#x4F20;&#xFF0C;&#x5F97;200&#x5929;  </li>
 <li>Snowmobile&#xFF1A;100P</li>
+<li>AWS Storage Gateway&#xFF1A;&#x4F7F;&#x7528;S3&#x3001;FSx&#x7B49;&#x6269;&#x5C55;&#x672C;&#x5730;&#x673A;&#x623F;&#x7684;&#x5B58;&#x50A8;&#xFF08;&#x4E0D;&#x652F;&#x6301;EFS&#xFF09;&#xFF1B;local caching&#x53EF;&#x4EE5;&#x52A0;&#x901F;&#x8BBF;&#x95EE;</li>
+<li>AWS DataSync&#xFF1A;&#x4E0D;&#x80FD;&#x52A0;&#x901F;&#xFF0C;&#x63A5;&#x53E3;&#x6BD4;&#x8F83;&#x5E7F;&#x6CDB;&#xFF1A;S3, EFS, Fsx for Windows</li>
 <li>S3 Transfer Acceleration&#xFF1A;&#x5168;&#x7403;&#x5404;&#x5730;&#x7684;&#x5BA2;&#x6237;&#x9700;&#x8981;&#x4E0A;&#x4F20;S3</li>
 <li>AWS Direct Connect&#xFF08;DX&#xFF09;&#xFF1A;&#x9700;&#x8981;&#x6700;&#x5C11;&#x4E00;&#x6708;&#x7684;&#x642D;&#x5EFA;</li>
 <li>AWS Site to Site VPN&#xFF08;IPsec&#xFF09;</li>
 </ol>
 </li>
 <li>&#x52A0;&#x901F;&#x5168;&#x7403;&#x8BBF;&#x95EE;<ol>
-<li>AWS Global Accelerator&#xFF1A;&#x7ED9;&#x8282;&#x70B9;&#xFF08;NLB&#x3001;ALB&#x3001;EC2&#x3001;EIP&#xFF09;&#x52A0;&#x901F;</li>
+<li>AWS Global Accelerator&#xFF1A;&#x7ED9;&#x8282;&#x70B9;&#xFF08;NLB&#x3001;ALB&#x3001;EC2&#x3001;EIP&#xFF09;&#x52A0;&#x901F;&#xFF1B;good fit for gaming(UDP), IoT(MQTT), static IP(Http)</li>
 <li>AWS CloudFront</li>
 </ol>
 </li>
 <li>&#x7F51;&#x7EDC;&#x8FDE;&#x901A;<ol>
-<li>AWS Storage Gateway&#xFF1A;&#x4F7F;&#x7528;S3&#x3001;FSx&#x7B49;&#x6269;&#x5C55;&#x672C;&#x5730;&#x673A;&#x623F;&#x7684;&#x5B58;&#x50A8;&#xFF1B;local caching&#x53EF;&#x4EE5;&#x52A0;&#x901F;&#x8BBF;&#x95EE;</li>
 <li>Private Link&#xFF08;VPC Endpoint Services&#xFF09;&#xFF1A;&#x628A;S3&#x3001;DynamoDB&#x7B49;&#x670D;&#x52A1;&#x53D8;&#x6210;&#x79C1;&#x7F51;&#x670D;&#x52A1;</li>
 <li>Direct Connect Gateway&#xFF1A;&#x6253;&#x901A;&#x4E00;&#x4E2A;&#x672C;&#x5730;&#x673A;&#x623F;&#x5230;&#x591A;&#x4E2A; AWS &#x7684;&#x533A;&#x57DF;</li>
 <li>AWS VPN CloudHub&#xFF1A;&#x6253;&#x901A;&#x591A;&#x4E2A;&#x672C;&#x5730;&#x673A;&#x623F;&#x7684;&#x8FDE;&#x63A5;&#xFF08;&#x4F9D;&#x8D56;VPN&#x6216;DX&#xFF09;</li>
@@ -368,6 +379,7 @@
 </li>
 <li>&#x5BB9;&#x707E;<ol>
 <li>active-active&#xFF1A;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x90FD;&#x662F;&#x4E3B;&#x8282;&#x70B9;&#xFF1B;active-passive&#xFF1A;&#x4E00;&#x822C;&#x90FD;&#x662F;&#x4E3B;&#x8282;&#x70B9;&#x63D0;&#x4F9B;&#x670D;&#x52A1;&#xFF0C;&#x4ECE;&#x8282;&#x70B9;&#x5BB9;&#x707E;</li>
+<li>High Availability&#xFF1A;&#x4E0D;&#x95F4;&#x65AD;&#x670D;&#x52A1;&#xFF1B;Fault Tolerance&#xFF1A;&#x5047;&#x8BBE;&#x9700;&#x8981;4&#x4E2A;ec2&#xFF0C;&#x76EE;&#x524D;AZ1&#x6709;2&#x4E2A;&#xFF0C;AZ2&#x6709;2&#x4E2A;&#xFF0C;&#x5982;&#x679C;AZ1&#x6302;&#x4E86;&#xFF0C;&#x867D;&#x7136;&#x662F;&#x4E0D;&#x95F4;&#x65AD;&#xFF0C;&#x4F46;&#x662F;&#x5BB9;&#x9519;&#x80FD;&#x529B;&#x4E0D;&#x591F;&#xFF0C;&#x6700;&#x597D;&#x662F;&#x4E24;&#x4E2A;AZ&#x90FD;4&#x4E2A;ec2</li>
 </ol>
 </li>
 <li>&#x8D39;&#x7528;&#x6210;&#x672C;<ol>
@@ -418,7 +430,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.AWS认证","level":"1.5","depth":1,"next":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"path":"docs/5.md","ref":"docs/5.md","articles":[]},"previous":{"title":"3.高性能MySQL","level":"1.4","depth":1,"path":"docs/3.md","ref":"docs/3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/4.md","mtime":"2021-07-07T10:11:44.470Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-07T10:12:11.320Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.AWS认证","level":"1.5","depth":1,"next":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"path":"docs/5.md","ref":"docs/5.md","articles":[]},"previous":{"title":"3.高性能MySQL","level":"1.4","depth":1,"path":"docs/3.md","ref":"docs/3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/4.md","mtime":"2021-07-08T11:04:32.341Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-08T11:05:00.132Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
