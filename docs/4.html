@@ -259,8 +259,8 @@
 <li>block storage&#xFF08;&#x5BB9;&#x91CF;16T&#xFF09;&#xFF1A;<ol>
 <li>General Purpose SSD &#xFF08;gp2/gp3&#xFF09;&#xFF1A;1.6w IOPS&#xFF0C;&#x9002;&#x5408;&#x968F;&#x673A;IO</li>
 <li>Provisioned SSD&#xFF08;io1/io2&#xFF09;&#xFF1A;6.4w IOPS&#xFF0C;&#x9002;&#x5408;&#x968F;&#x673A;IO&#xFF0C;&#x9002;&#x5408;&#x6570;&#x636E;&#x5E93;</li>
-<li>Throughput Optimized HDD &#xFF08;st1&#xFF09;&#xFF1A;500 IOPS&#xFF0C;&#x9002;&#x5408;&#x987A;&#x5E8F;IO</li>
-<li>Cold HDD &#xFF08;sc1&#xFF09;&#xFF1A;250 IOPS&#xFF0C;&#x9002;&#x5408;&#x987A;&#x5E8F;IO</li>
+<li>Throughput Optimized HDD &#xFF08;st1&#xFF09;&#xFF1A;500 IOPS&#xFF0C;&#x9002;&#x5408;&#x987A;&#x5E8F;IO&#xFF0C;&#x9891;&#x7E41;&#x8BBF;&#x95EE;</li>
+<li>Cold HDD &#xFF08;sc1&#xFF09;&#xFF1A;250 IOPS&#xFF0C;&#x9002;&#x5408;&#x987A;&#x5E8F;IO&#xFF0C;&#x975E;&#x9891;&#x7E41;&#x8BBF;&#x95EE;</li>
 <li>Instance Store&#xFF1A;200w IOPS&#xFF0C;&#x5173;&#x673A;&#x6570;&#x636E;&#x4E22;&#x5931;</li>
 </ol>
 </li>
@@ -273,8 +273,8 @@
 <li>object storage&#xFF1A;S3&#xFF0C;&#x5982;&#x679C;&#x51FA;&#x73B0;file storage&#x5219;&#x4E0D;&#x80FD;&#x9009;S3<ol>
 <li>Standard</li>
 <li>Intelligent&#xFF1A;&#x667A;&#x80FD;</li>
-<li>Standard-IA&#xFF1A;&#x4E0D;&#x7ECF;&#x5E38;&#x8BBF;&#x95EE;&#x3001;&#x53D6;&#x56DE;&#x6709;&#x8D39;&#x7528;</li>
-<li>One Zone-IA&#xFF1A;&#x5355;AZ</li>
+<li>Standard-IA&#xFF1A;&#x4E0D;&#x7ECF;&#x5E38;&#x8BBF;&#x95EE;&#x3001;&#x53D6;&#x56DE;&#x6709;&#x8D39;&#x7528;&#xFF1B;&#x4E0A;&#x4F20;&#x540E;&#x7B49;30&#x5929;&#x3001;&#x6587;&#x4EF6;&gt;128K&#x624D;&#x80FD;&#x5207;&#x5230;&#x6B64;&#x7C7B;&#x578B;</li>
+<li>One Zone-IA&#xFF1A;&#x5355;AZ&#xFF1B;&#x4E0A;&#x4F20;&#x540E;&#x7B49;30&#x5929;&#x3001;&#x6587;&#x4EF6;&gt;128K&#x624D;&#x80FD;&#x5207;&#x5230;&#x6B64;&#x7C7B;&#x578B;</li>
 <li>Glacier&#xFF1A;&gt;90&#x5929;&#xFF0C;&#x53D6;&#x56DE;&#x65F6;&#x95F4;1m~12h</li>
 <li>Glacier Deep Archive&#xFF1A;&gt;180&#x5929;&#xFF0C;&#x53D6;&#x56DE;&#x65F6;&#x95F4;12h~48h</li>
 </ol>
@@ -287,8 +287,9 @@
 </ol>
 </li>
 <li>Auto Scaling Group scaling &#x7B56;&#x7565;<ol>
-<li>simple scaling&#xFF1A;When CloudWatch alarm is triggered&#xFF0C;&#x6709;&#x5EF6;&#x8FDF;</li>
-<li>target tracking scaling&#xFF1A;CPU &#x5229;&#x7528;&#x7387;&#x8D85;&#x8FC7; 40%&#xFF0C;&#x7ACB;&#x5373;&#x751F;&#x6548;</li>
+<li>simple scaling&#xFF1A;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x95E8;&#x69DB;&#xFF0C;&#x8D85;&#x8FC7;&#x4F1A;&#x65B0;&#x589E;&#x5B9E;&#x4F8B;&#xFF0C;&#x4E3A;&#x4E86;&#x9632;&#x6B62;&#x9891;&#x7E41;&#x65B0;&#x589E;&#xFF0C;&#x9ED8;&#x8BA4;&#x6709;&#x51B7;&#x5374;&#x65F6;&#x95F4;&#xFF08;300&#x79D2;&#xFF09;</li>
+<li>step scaling&#xFF1A;&#x53EF;&#x8BBE;&#x591A;&#x4E2A;&#x95E8;&#x69DB;&#xFF0C;&#x4F8B;&#x5982;&gt;50%&#x52A0;1&#x4E2A;&#x5B9E;&#x4F8B;&#xFF0C;&gt;60%&#x52A0;2&#x4E2A;&#x5B9E;&#x4F8B;&#xFF0C;&#x6CA1;&#x6709;&#x51B7;&#x5374;&#x65F6;&#x95F4;</li>
+<li>target tracking&#xFF1A;&#x53EA;&#x8BBE;&#x4E00;&#x4E2A;&#x95E8;&#x69DB;&#xFF08;1&#x5206;&#x949F;&#x68C0;&#x67E5;&#x4E00;&#x6B21;&#xFF0C;3&#x6B21;&#x8D85;&#x6807;&#x5C31;xx&#xFF09;&#xFF0C;&#x50BB;&#x74DC;&#x5F0F;&#x7684;&#xFF0C;&#x76EE;&#x7684;&#x662F;&#x4FDD;&#x6301;&#x5728;&#x8FD9;&#x4E2A;&#x95E8;&#x69DB;&#x503C;&#x9644;&#x8FD1;</li>
 <li>scheduled scaling</li>
 </ol>
 </li>
@@ -319,11 +320,18 @@
 <li>Enhance items&#xFF1A;OS processes, RDS processes, RDS child processes</li>
 </ol>
 </li>
+<li>Aurora failover&#xFF1A;<ol>
+<li>if &#x542F;&#x52A8;&#x4E86; Aurora Replica&#xFF0C;&#x5C06;CNAME&#x6307;&#x5411;&#x4E0D;&#x540C;AZ&#x7684;&#x526F;&#x672C;</li>
+<li>elseif &#x542F;&#x52A8;&#x4E86; Aurora Serverless&#xFF0C;&#x5728;&#x4E0D;&#x540C;AZ&#x91CD;&#x5EFA;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;</li>
+<li>else&#xFF0C;&#x5728;&#x76F8;&#x540C;AZ&#x91CD;&#x5EFA;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;</li>
+</ol>
+</li>
 </ol>
 </li>
 <li>SQS&#x3001;SNS&#x3001;SWF&#x3001;Step functions<ol>
-<li>Amazon SQS retention period is from 1 minute to 14 days</li>
-<li>Amazon Simple Workflow Service (SWF)&#xFF1A;creating a decoupled architecture in AWS&#xFF1B;&#x4E0D;&#x4F1A;&#x91CD;&#x590D;&#x6D88;&#x8D39;&#x4EFB;&#x52A1;&#xFF1B;&#x9002;&#x5408;ec2&#xFF0C;&#x5DF2;&#x8FC7;&#x65F6;&#xFF0C;&#x9664;&#x975E;&#x6709;&#x7236;&#x5B50;&#x8FDB;&#x7A0B;&#x4FE1;&#x53F7;&#x624D;&#x7528;</li>
+<li>SQS retention period is from 1 minute to 14 days</li>
+<li>SQS &#x7684; ReceiveMessageWaitTimeSeconds &#x9ED8;&#x8BA4;&#x662F;0&#xFF0C;&#x8868;&#x793A; Short polling&#xFF0C;&#x5982;&#x679C;&#x5927;&#x4E8E;0&#xFF0C;&#x5219;&#x662F; Long polling</li>
+<li>Simple Workflow Service (SWF)&#xFF1A;creating a decoupled architecture in AWS&#xFF1B;&#x4E0D;&#x4F1A;&#x91CD;&#x590D;&#x6D88;&#x8D39;&#x4EFB;&#x52A1;&#xFF1B;&#x9002;&#x5408;ec2&#xFF0C;&#x5DF2;&#x8FC7;&#x65F6;&#xFF0C;&#x9664;&#x975E;&#x6709;&#x7236;&#x5B50;&#x8FDB;&#x7A0B;&#x4FE1;&#x53F7;&#x624D;&#x7528;</li>
 <li>Step functions&#xFF1A;&#x9002;&#x5408;lambda&#x3001;ECS&#x3001;API Gateway&#xFF1B;&#x66FF;&#x4EE3;SWF</li>
 </ol>
 </li>
@@ -342,13 +350,13 @@
 <li>&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x5668;<ol>
 <li>&#x540C;ip&#x591A;&#x57DF;&#x540D;https&#x652F;&#x6301;(SNI)&#xFF1A;CLB&#x4E0D;&#x652F;&#x6301;&#xFF0C;ALB&#x3001;ELB&#x3001;CloudFront&#x652F;&#x6301;</li>
 <li>&#x652F;&#x6301;websocket&#xFF1A;ALB&#x652F;&#x6301;&#xFF1B;ELB&#x4EC5;&#x652F;&#x6301;HTTP&#x3001;HTTPs&#x3001;TCP&#x3001;UDP&#x3001;TLS&#xFF0C;&#x53EF;&#x4EE5;&#x5728;ec2&#x5C42;&#x5B9E;&#x73B0;websocket&#xFF0C;&#x7136;&#x540E;&#x7528;TCP-&gt;ws&#xFF0C;TLS-&gt;wss&#x3002;</li>
-<li>&#x53EA;&#x6709;ALB&#x652F;&#x6301; path-based and host-based routing</li>
+<li>&#x53EA;&#x6709;ALB&#x652F;&#x6301; path-based and host-based routing&#xFF0C;ELB&#x4E0D;&#x652F;&#x6301;Weighted Target Groups</li>
 </ol>
 </li>
 <li>&#x52A0;&#x901F;&#x4F20;&#x8F93;<ol>
 <li>Snowball&#xFF1A;80T&#xFF0C;&#x53EF;&#x7528;&#x591A;&#x4E2A;&#xFF1B;&#x5982;&#x679C;&#x7528;100Mb&#x5E26;&#x5BBD;&#x4F20;&#xFF0C;&#x5F97;200&#x5929;  </li>
 <li>Snowmobile&#xFF1A;100P</li>
-<li>AWS Storage Gateway&#xFF1A;&#x4F7F;&#x7528;S3&#x3001;FSx&#x7B49;&#x6269;&#x5C55;&#x672C;&#x5730;&#x673A;&#x623F;&#x7684;&#x5B58;&#x50A8;&#xFF08;&#x4E0D;&#x652F;&#x6301;EFS&#xFF09;&#xFF1B;local caching&#x53EF;&#x4EE5;&#x52A0;&#x901F;&#x8BBF;&#x95EE;</li>
+<li>AWS Storage Gateway&#xFF1A;&#x4F7F;&#x7528;S3&#x3001;FSx&#x7B49;&#x6269;&#x5C55;&#x672C;&#x5730;&#x673A;&#x623F;&#x7684;&#x5B58;&#x50A8;&#xFF08;&#x4E0D;&#x652F;&#x6301;EFS&#xFF09;&#xFF1B;local caching&#x53EF;&#x4EE5;&#x52A0;&#x901F;&#x8BBF;&#x95EE;&#xFF1B;Volume Gateway&#x5BF9;&#x5E94;iSCSI&#x8BBE;&#x5907;&#xFF1B;File Gateway&#x5BF9;&#x5E94;NFS/SMB</li>
 <li>AWS DataSync&#xFF1A;&#x4E0D;&#x80FD;&#x52A0;&#x901F;&#xFF0C;&#x63A5;&#x53E3;&#x6BD4;&#x8F83;&#x5E7F;&#x6CDB;&#xFF1A;S3, EFS, Fsx for Windows</li>
 <li>S3 Transfer Acceleration&#xFF1A;&#x5168;&#x7403;&#x5404;&#x5730;&#x7684;&#x5BA2;&#x6237;&#x9700;&#x8981;&#x4E0A;&#x4F20;S3</li>
 <li>AWS Direct Connect&#xFF08;DX&#xFF09;&#xFF1A;&#x9700;&#x8981;&#x6700;&#x5C11;&#x4E00;&#x6708;&#x7684;&#x642D;&#x5EFA;</li>
@@ -361,7 +369,11 @@
 </ol>
 </li>
 <li>&#x7F51;&#x7EDC;&#x8FDE;&#x901A;<ol>
-<li>Private Link&#xFF08;VPC Endpoint Services&#xFF09;&#xFF1A;&#x628A;S3&#x3001;DynamoDB&#x7B49;&#x670D;&#x52A1;&#x53D8;&#x6210;&#x79C1;&#x7F51;&#x670D;&#x52A1;</li>
+<li>VPC endpoints &#x6709;&#x4E09;&#x7C7B;<ol>
+<li>gateway endpoints&#xFF1A;&#x628A;S3&#x3001;DynamoDB&#x53D8;&#x6210;&#x79C1;&#x7F51;&#x670D;&#x52A1;&#xFF0C;&#x514D;&#x8D39;</li>
+<li>Private Link&#xFF08;Interface endpoints, Gateway Load Balance endpoints&#xFF09;&#xFF1A;&#x628A;&#x975E;S3&#x3001;DynamoDB&#x670D;&#x52A1;&#x7B49;&#x53D8;&#x6210;&#x79C1;&#x7F51;&#x670D;&#x52A1;&#xFF0C;&#x4ED8;&#x8D39;</li>
+</ol>
+</li>
 <li>Direct Connect Gateway&#xFF1A;&#x6253;&#x901A;&#x4E00;&#x4E2A;&#x672C;&#x5730;&#x673A;&#x623F;&#x5230;&#x591A;&#x4E2A; AWS &#x7684;&#x533A;&#x57DF;</li>
 <li>AWS VPN CloudHub&#xFF1A;&#x6253;&#x901A;&#x591A;&#x4E2A;&#x672C;&#x5730;&#x673A;&#x623F;&#x7684;&#x8FDE;&#x63A5;&#xFF08;&#x4F9D;&#x8D56;VPN&#x6216;DX&#xFF09;</li>
 <li>AWS Transit Gateway&#xFF1A;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x4E91;&#x4E0A;&#x7684;&#x8DEF;&#x7531;&#x5668;&#xFF0C;&#x5728;&#x6BCF;&#x4E00;&#x4E2A; Region &#x4E2D;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; TGW&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x5C06;&#x5B83;&#x4EEC; Peering &#x8D77;&#x6765;</li>
@@ -379,6 +391,13 @@
 </li>
 <li>&#x8D39;&#x7528;&#x6210;&#x672C;<ol>
 <li>ec2&#xFF1A;&#x4E0D;&#x662F;running&#x72B6;&#x6001;&#x65E0;&#x9700;&#x4ED8;&#x8D39;&#xFF0C;&#x4F46;&#x662F;stopping&#x5230;&#x4F11;&#x7720;&#x72B6;&#x6001;&#x9700;&#x8981;&#xFF1B;&#x9884;&#x7559;&#x5B9E;&#x4F8B;terminated&#x72B6;&#x6001;&#x4E5F;&#x8981;&#x4ED8;&#x8D39;</li>
+</ol>
+</li>
+<li>&#x5176;&#x4ED6;<ol>
+<li>metadata&#x7684;Tags&#x914D;&#x5408;IAM&#x53EF;&#x4EE5;&#x9488;&#x5BF9;&#x7528;&#x6237;&#x533A;&#x5206;&#x8D44;&#x6E90;  </li>
+<li>CloudTrail&#x9ED8;&#x8BA4;&#x628A;&#x65E5;&#x5FD7;&#x5B58;S3&#x4E14;SSE&#x52A0;&#x5BC6;</li>
+<li>&#x5F53;&#x4F7F;&#x7528;&#x4E86;EBS&#x52A0;&#x5BC6;&#x5377;&#xFF0C;&#x5377;&#x4E0E;&#x5B9E;&#x4F8B;&#x4E4B;&#x95F4;&#x7684;&#x4F20;&#x8F93;&#x4E5F;&#x662F;&#x52A0;&#x5BC6;&#x7684;</li>
+<li>EBS&#x5377;&#x53EF;&#x4EE5;&#x4E0D;&#x505C;&#x673A;&#x7684;&#x66F4;&#x6539;&#x7C7B;&#x578B;&#x548C;&#x589E;&#x52A0;size&#xFF0C;&#x9664;&#x4E86;&#x78C1;&#x4ECB;&#x8D28;&#xFF1B;&#x4E5F;&#x4E0D;&#x80FD;&#x51CF;&#x5C0F;size</li>
 </ol>
 </li>
 </ol>
@@ -425,7 +444,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.AWS认证","level":"1.5","depth":1,"next":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"path":"docs/5.md","ref":"docs/5.md","articles":[]},"previous":{"title":"3.高性能MySQL","level":"1.4","depth":1,"path":"docs/3.md","ref":"docs/3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/4.md","mtime":"2021-07-08T11:05:41.597Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-08T11:06:15.304Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.AWS认证","level":"1.5","depth":1,"next":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"path":"docs/5.md","ref":"docs/5.md","articles":[]},"previous":{"title":"3.高性能MySQL","level":"1.4","depth":1,"path":"docs/3.md","ref":"docs/3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/4.md","mtime":"2021-07-09T08:14:44.999Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-09T08:15:09.906Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
