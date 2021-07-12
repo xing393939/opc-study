@@ -1,0 +1,203 @@
+<main role="main"> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="General" class="lb-txt-bold lb-h2 lb-title" style="color:#232f3e;">EBS 一般性问题</h2> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon EBS 卷和快照 ID 的长度在 2018 年会变吗？</b></p> 
+        <p>会，请访问 <a href="/cn/ec2/faqs/#longer-ids">EC2 常见问题</a>页面了解更多详细信息。</p> 
+        <p><b>问：Amazon EC2 实例终止时，会对我的数据产生什么影响？</b></p> 
+        <p>与保存在本地实例存储的数据（只要实例存在，数据就始终存在）不同，保存在 Amazon EBS 卷中的数据的存续不受实例寿命的影响。因此，我们建议您仅将本地实例存储用于临时数据。至于对存储时间有较高要求的数据，我们建议您使用 Amazon EBS 卷，或将数据备份至 Amazon S3。如果将 Amazon EBS 卷用作根分区，而您希望在实例生命周期外保留 Amazon EBS 卷，请将“Delete On Terminate”标志设置为“No”。</p> 
+        <p><b>问：Amazon EBS 卷预计可以给我带来什么样的性能？</b></p> 
+        <p>Amazon EBS 提供六种卷类型：预置 IOPS SSD（io2 和 io1）、通用型 SSD（gp3 和 gp2）、吞吐量优化型 HDD (st1) 和 Cold HDD (sc1)。这些卷类型的性能特点和价格各不相同，您可根据应用程序要求定制您所需的存储性能和相应费用。EC2 实例与 EBS 之间的平均延迟为几毫秒。有关性能的更多信息，请参阅 <a href="/cn/ebs/">EBS 产品详情页面</a>。有关 Amazon EBS 性能指南的更多信息，请参阅<a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSPerformance.html">提升 EBS 性能</a>。</p> 
+        <p>我们当前正在试行可达到亚毫秒级延迟特性的 io2 Block Express 卷。您可以点击<a href="https://pages.awscloud.com/io2-block-express-preview.html">此处</a>注册预览版。</p> 
+        <p><b>问：我应该选择哪种卷？</b></p> 
+        <p>Amazon EBS 提供两种主要存储类别：适用于交易型工作负载的 SSD 型存储（性能主要取决于 IOPS、延迟和持久性），以及适用于吞吐量密集型工作负载的 HDD 型存储（性能主要取决于吞吐量，以 MB/s 为单位）。SSD 型卷专用于交易型和 IOPS 密集型数据库工作负载、启动卷以及需要高 IOPS 的工作负载。SSD 型卷包括预置 IOPS SSD（io1 和 io2）以及通用型 SSD（gp3 和 gp2）。io2 是最新一代预置 IOPS SSD 卷，可提供 100 倍的持久性 (99.999％)，这让它成为需要更高正常运行时间的业务关键型应用程序的理想之选。gp3 是最新一代通用型 SSD 卷，可在不要求最高 IOPS 性能或 99.999% 持久性的大多数应用程序的价格和性能之间达到最佳平衡。HDD 型卷专用于吞吐量密集型和大数据工作负载、大型 I/O 以及连续 I/O 模式。HDD 型卷包括吞吐量优化型 HDD (st1) 和 Cold HDD (sc1)。</p> 
+        <p><b>问：由于 io2 可以提供更高的卷持久性，我是否还应拍摄快照并计划跨可用区 (AZ) 复制 io2 卷以实现更高的持久性？</b></p> 
+        <p>较高的卷持久性、快照和跨可用区复制卷可防止发生不同类型的故障，客户可以根据其数据持久性要求选择使用其中一种、两种或所有方法。较高的卷持久性可以降低丢失数据主副本的可能性。快照可防止发生意外的卷故障事件。跨可用区复制卷可防止发生可用区级别的故障，并可在发生故障时更快地恢复。<br> </p> 
+        <p><b>问：如何修改现有 EBS 卷的容量、性能或类型？</b></p> 
+        <p>更改卷配置的方法非常简单。借助<a href="/cn/ebs/features/#Amazon_EBS_Elastic_Volumes">弹性卷</a>这项功能，您可以通过单个 CLI 调用、API 调用或在控制台中单击几次来增加容量、调整性能或更改卷类型。有关弹性卷的更多信息，请参阅弹性卷文档。</p> 
+        <p><b>问：EBS 标准卷是否仍然可用？</b></p> 
+        <p>EBS 标准卷已更名为 EBS 磁性介质卷。此次更名对于任何现有卷都不会有影响，并且与 EBS 标准卷相比，EBS 磁性介质卷在功能上也不会有任何区别。给该产品更名的目的是为了避免与我们的通用型 SSD (gp2) 卷类型混淆，后者是我们推荐的默认卷类型。</p> 
+        <p><b>问：预置 IOPS SSD（io2 和 io1）卷是否可用于所有 Amazon EC2 实例类型？</b></p> 
+        <p>预置 IOPS SSD io1 卷可用于所有 <a href="/cn/ec2/instance-types/">Amazon EC2 实例类型</a>，而预置 IOPS SSD io2 卷可用于除 R5b 之外的所有 EC2 实例类型。使用 EBS 优化型 EC2 实例在 io2 和 io1 卷上提供一致且可预测的 IOPS。<a href="/cn/ebs/features/#Amazon_EBS-Optimized_instances">EBS 优化型实例</a>可在 Amazon EC2 和 Amazon EBS 之间提供专用吞吐量，选择范围介于 62.5MB/s 到 7500 MB/s 之间，具体取决于所用实例类型。要达到 64000 IOPS 和 1000 MB/s 吞吐量的限制，必须将此卷挂载到基于 Nitro 系统的 EC2 实例。</p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Performance" class="lb-txt-bold lb-h2 lb-title" style="color:#232f3e;"> 性能</h2> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我的预置 IOPS SSD（io2 和 io1）卷有望达到哪种水平的性能一致性？</b></p> 
+        <p>挂载到 EBS 优化型实例后，预置 IOPS SSD （io2 和 io1）卷可以在指定年份 99.9% 的时间内实现 10% 以内的预置 IOPS 性能。确切性能取决于应用程序的 I/O 要求。</p> 
+        <p><b>问：我的预置 IOPS SSD （io2 和 io1）卷有望达到哪种水平的性能延迟？</b></p> 
+        <p>连接到 EBS 优化型实例时，预置 IOPS 卷可以达到个位数毫秒以内的延迟水平。确切性能取决于应用程序的 I/O 要求。</p> 
+        <p><b>问：应用程序读写的 I/O 大小是否会影响我从预置 IOPS SSD （io2 和 io1）卷获得 IOPS 的速率？</b></p> 
+        <p>会。为 io2 或 io1 卷预置 IOPS 时，您获得的 IOPS 速率取决于您应用程序读取和写入操作的 I/O 大小。预置 IOPS 卷的基本 I/O 大小为 16KB。因此，如果您为 16KB 大小的 I/O 预置了 40000 IOPS 的卷，则在该大小下将达到 40000 IOPS。如果 I/O 大小增加到 32 KB，则将达到 20000 IOPS，依此类推。有关更多详细信息，请访问有关预置 IOPS 卷的技术文档。您可以使用 <a href="/cn/cloudwatch/">Amazon CloudWatch</a> 监控您的吞吐量和 I/O 大小。</p> 
+        <p><b>问：哪些因素会影响预置 IOPS SSD（io2 和 io1）卷的性能一致性？</b></p> 
+        <p>挂载到 EBS 优化型实例的预置 IOPS SSD（io2 和 io1）卷可以提供一致性能，能在指定年度 99.9% 的时间内实现 10% 以内的预置 IOPS 性能。为了与从快照创建的新卷保持最大的性能一致性，我们建议在快照上启用快速快照还原 (FSR)。从启用 FSR 的快照还原的 EBS 卷可立刻达到其完整性能。</p> 
+        <p>您的应用程序是否并没有发送足够的 I/O 请求，这是影响性能的另一个因素。这可以通过查看卷的队列深度来监控。队列深度是您的应用程序向卷发起的待处理 I/O 请求的数量。为获得最大的一致性，在一分钟内，对于每 1000 个预配置 IOPS，预配置 IOPS 卷队列长度平均值（四舍五入取整数）必须保持为 1。例如，对于预置了 3000 个 IOPS 的卷，队列长度平均值必须为 3。有关确保稳定的卷性能的更多信息，请参阅<a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSPerformance.html">提高 EBS 性能</a>。</p> 
+        <p><b>问：我的 HDD 型卷有望达到哪种水平的性能一致性？</b></p> 
+        <p>挂载到 EBS 优化型实例后，吞吐量优化型 HDD (st1) 和 Cold HDD (sc1) 卷均可在指定年度 99% 的时间内实现 10% 以内的预期吞吐量性能。确切性能取决于应用程序的 I/O 要求和 EC2 实例的性能。</p> 
+        <p><b>问：应用程序读写的 I/O 大小是否会影响我从 HDD 型卷获得吞吐量的速率？</b></p> 
+        <p>是。您获得的吞吐量速率取决于应用程序读写的 I/O 大小。HDD 型卷以 1MB 的 I/O 大小处理读取和写入操作。连续 I/O 会被合并和处理成 1MB 单元，每个非连续 I/O 也会被处理成 1MB，即使实际 I/O 小于 1MB。因此，虽然拥有小型随机 I/O 的事务型工作负载（如数据库）在 HDD 型卷上无法正常运行，但是连续 I/O 和大型 I/O 也会在较长时间后实现 st1 和 sc1 的预期性能。</p> 
+        <p><b>问：哪些因素会影响 HDD 型卷的性能一致性？</b></p> 
+        <p>挂载到 EBS 优化型实例的吞吐量优化型 HDD (st1) 和 Cold HDD (sc1) 卷均可提供一致性能，能在指定年度 99% 的时间内实现 10% 以内的预期吞吐量性能。有几个因素可能影响您看到的一致性水平。例如，卷上随机 I/O 和连续 I/O 操作的相对平衡就可能会影响性能。如果小型随机 I/O 操作过多，则会快速耗尽 I/O 点数，并将性能降至基准速率。根据所选实例，您的吞吐量速率也可能会更低。虽然 st1 可将吞吐量增至 500MB/s，但 EBS 流量的不同实例水平限制会限制性能。另一个因素是拍摄快照，该操作会将预期写入性能降至基准速率，直到快照拍摄完成。这只适用于 st1 和 sc1。</p> 
+        <p>如果您的应用程序没有发送足够的 I/O 请求，性能也会受到影响。这可以通过查看卷的队列深度和 I/O 大小来进行监控。队列深度是您的应用程序向卷发起的待处理 I/O 请求的数量。为获得最大的一致性，对于每 1MB 连续 I/O，HDD 备份卷队列长度平均值（四舍五入取整数）必须保持为 4 或更多。有关确保稳定的卷性能的更多信息，请参阅<a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSPerformance.html">提高 EBS 性能</a>。</p> 
+        <p><b>问：我能否将多个卷一起条带化以获得更好性能？</b></p> 
+        <p>能。您可以将挂载到较大 EC2 实例的多个卷一起条带化，以达到 260000 IOPS 或 60000 Mbps（或 7500 MB/s）。不过，st1 和 sc1 的性能与卷大小呈线性扩展关系，因此将这些卷一起条带化可能没有多大益处。</p> 
+        <p><b>问：Amazon EBS 如何处理存储争用之类的问题？</b></p> 
+        <p>EBS 是一种多租户数据块存储服务。我们采用速率限制机制来避免资源争用。首先为卷的定义性能标准（我们的卷类型包括 gp2、PIOPS、st1 和 sc1）定义 IOPS 和吞吐量方面的性能特性。下一步是定义实例级的性能。每个 EBS 优化实例都为附加到实例的 EBS 卷集定义了性能（吞吐量和 IOPS）。因此，客户可以调整实例和卷的大小，以获得所需的性能级别。此外，客户可以使用我们报告的指标来观察实例级和卷级性能。他们可以设置警报来确定他们所看到的是否与预期的性能不匹配——指标还可以帮助确定客户是否在正确的实例类型上进行了配置，且是否具有适当的卷级别性能。在 EBS 端，我们使用配置的性能来通知我们如何分配适当的实例和 EBS 基础设施来支持卷。我们通过适当分配基础设施来避免资源争用。此外，我们还持续监控我们的基础设施。在此监控下，我们可以检测基础设施故障（或即将发生的基础设施故障），因此，主动将卷移动到正常运行的硬件中，同时修复或更换底层基础设施（根据需要）。</p> 
+        <p><b>问：我的通用型 SSD（gp3 和 gp2）卷有望达到哪种水平的性能一致性？</b></p> 
+        <p>挂载到 EBS 优化型实例后，通用型 SSD（gp3 和 gp2）卷可以在指定年份 99.9% 的时间内实现 10% 以内的预置 IOPS 性能。确切性能取决于应用程序的 I/O 要求。</p> 
+        <p><b>问：我的通用型 SSD（gp3 和 gp2）卷有望达到哪种水平的性能延迟？</b></p> 
+        <p>挂载到 EBS 优化型实例时，通用型 SSD（gp3 和 gp2）卷可以达到个位数毫秒以内的延迟水平。确切性能取决于应用程序的 I/O 要求。</p> 
+        <p><b>问：通用型 SSD (gp3) 卷是否有突增？</b></p> 
+        <p>没有。所有通用型 SSD (gp3) 卷都包括 3,000 IOPS 和 125 MB/s 的一致性能，无额外收费。卷可以无限期地保持满额 3,000 IOPS 和 125 MB/s。</p> 
+        <p><b>问：突增如何应用于通用型 SSD (gp2) 卷？</b></p> 
+        <p>低于 1,000 GB 的通用型 SSD (gp2) 卷可获得高达 3,000 IOPS 的突增 IOPS 性能，至少保持 30 分钟。此外，gp2 卷可为预置的每 GB 提供 3 IOPS 的一致性能。例如，500 GB 的卷能够一致地驱动 1,500 IOPS，突增到 3,000 IOPS 后持续 60 分钟（3,000 IOPS * 60 秒 * 30 分钟 / 1,500 IOPS / 60 秒）。</p> 
+        <p><b>问：io2 与 io2 Block Express 之间有什么不同？</b></p> 
+        <p>io2 卷在所有 EBS 卷类型中可提供最高的性能。对于要求的性能超出当前 io2 可提供的性能水平的应用程序，您现在可以请求获得预览版 io2 Block Express。这样，您将可从单 io2 卷获得高达 64 TiB 的容量、256,000 IOPS 和 4,000 MB/s 的吞吐量（io2 卷当前可获得水平的 4 倍），并且达到亚毫秒级的平均 IO 延迟。在预览版中，io2 Block Express 不支持有些 EBS 功能，例如多重挂载、弹性卷和快速快照还原。</p> 
+        <p><b>问：什么是 EBS Block Express？</b></p> 
+        <p>EBS Block Express 是下一代 Amazon EBS 存储服务器架构，专为在亚毫秒级延迟下为云规模的数据块存储提供最高级别的性能而构建。为此，Block Express 使用可扩展可靠数据报 (SRD)，通过这种高性能低延迟网络协议与基于 Nitro 系统的 EC2 实例通信。这是相同的高性能低延迟网络接口，在 Elastic Fabric Adapter (EFA) 的实例间通信中用于高性能计算 (HPC) 和 Machine Learning (ML) 工作负载。此外，Block Express 还提供了模块化软件和硬件构建基块，它们可按不同方式组装，让我们能够灵活地设计并以更快的速度获得更高的性能和新功能。</p> 
+        <p><b>哪些工作负载适合 io2 Block Express？</b></p> 
+        <p>io2 Block Express 适合性能和容量密集型工作负载，单个卷中更低的延迟、更高的 IOPS、更高的吞吐量和更大的容量可使其受益。这些工作负载包括关系和 NoSQL 数据库，例如 SAP HANA、Oracle、MS SQL、PostgreSQL、MySQL、MongoDB、Cassandra；关键业务运行工作负载，例如 SAP Business Suite、NetWeaver、Oracle eBusiness、PeopleSoft、Siebel；以及 ERP 工作负载，例如 Infor LN 和 Infor M3。</p> 
+        <p><b>如何注册预览版 io2 Block Express？</b></p> 
+        <p>您可以联系客户代表，或者填充<a href="https://pages.awscloud.com/io2-block-express-preview.html">此处</a>的表格以提供账号以及您要启用 io2 Block Express 的区域。当您启用了自己的账户后，我们将会向您发送确认信息。</p> 
+        <p><b>我如何知道是否已经为我的账户启用了 io2 Block Express？</b></p> 
+        <p>当您的账户启用了访问权限后，您将会看到 EC2 控制面板的控制台中的横幅：“Your account in &lt;region&gt; is enabled for io2 Block Express in preview.（已经为您 &lt;区域&gt; 中的账户启用了预览版 io2 Block Express。）For additional details please click here.（有关其他详情，请单击此处。）” 或者，您还可以通过 CreateVolume API 尝试创建大小超过 16TiB 的 io2 卷。如果 API 调用成功，则表明已在该区域中为您的账户启用了 io2 Block Express 预览版。&nbsp;</p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Snapshots" class="lb-txt-bold lb-h2 lb-title" style="color:#232f3e;"> 快照</h2> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何为快照使用 EBS 直接 API？</b></p> 
+        <p>可通过可以使用 AWS CLI 或通过 AWS 开发工具包调用的以下 API 来使用此功能。<br> </p> 
+        <ul> 
+         <li>列出快照块：ListSnapshotBlocks API 操作返回指定快照中的数据块的块索引和块令牌。<br> </li> 
+         <li>列出已更改块：ListChangedBlocks API 操作返回相同卷/快照沿袭的两个指定快照之间不同的数据块的块索引和块令牌。<br> </li> 
+         <li>获取快照块：GetSnapshotBlock API 操作会返回指定快照 ID 的数据块的数据、块索引和块令牌。<br> </li> 
+         <li>开始快照：StartSnapshot 操作会开始拍照，可以是现有快照的增量快照，或者全新的快照。已开始快照会停留在“待处理”状态，直到通过使用 CompleteSnapshot 操作将其完成。</li> 
+         <li>放置快照块：PutSnapshot 操作会以单独块的格式将数据添加到处于“待处理”状态的已开始快照。您必须为传输的数据块指定一个基于 Base64 的 SHA256 校验和。该服务会在传输完成以后验证校验和。若该服务计算的校验和与您指定的不匹配，请求将会失败。</li> 
+         <li>完成快照：CompleteSnapshot 操作会完成一个处于“待处理”状态的已开始快照。然后，该快照的状态会更改为“已完成”。</li> 
+        </ul> 
+        <div>
+          &nbsp; 
+        </div> 
+        <div>
+          有关更多信息，请参阅 
+         <a href="https://docs.aws.amazon.com/ebs/latest/APIReference/Welcome.html">技术文档</a>。 
+        </div> 
+        <p><b>问：GetSnapshotBlock 和 PutSnapshotBlock API 支持哪些数据块大小？</b></p> 
+        <p>GetSnapshotBlock 和 PutSnapshotBlock API 支持大小为 512 KiB 的数据块。<br> </p> 
+        <p><b>问：是否可以使用常规 Amazon S3 API 访问我的快照？</b></p> 
+        <p>不可以，只能通过 Amazon EC2 API 访问快照。</p> 
+        <p><b>问：是否需要卸载卷才能拍摄快照？</b></p> 
+        <p>否，可以在卷连接和使用期间实时拍摄快照。不过，快照只能捕获已写入 Amazon EBS 卷的数据，可能不包含应用程序或操作系统已在本地缓存的数据。为了确保能为实例连接的卷获得一致的快照，我们建议先彻底地断开卷连接，再发出快照命令，然后重新连接卷。对于用作根设备的 Amazon EBS 卷，我们建议先关闭机器，以便能拍摄完整的快照。</p> 
+        <p><b>问：对 16TB 的卷拍摄完整快照会不会比对 1TB 的卷更花时间？</b></p> 
+        <p>按照设计，对整个 16 TB 卷拍摄 EBS 快照所需的时间不会超过对整个 1 TB 卷拍摄快照所需的时间。但是创建快照所需的实际时间取决于多项因素，其中包括在上次拍摄 EBS 卷快照之后发生更改的数据量。</p> 
+        <p><b>问：快照是否进行版本控制？ 能否读取旧版的快照来执行时间点恢复？</b></p> 
+        <p>每个快照都会获得一个唯一的识别符，客户可以根据任何现有的快照创建卷。</p> 
+        <p><b>问：如何发现已与我共享的 Amazon EBS 快照？</b></p> 
+        <p>从 AWS 管理控制台“快照”部分的列表中选择“私有快照”，即可找到已与您共享的快照。本部分列出了您拥有的快照和与您共享的快照。</p> 
+        <p><b>问：如何了解哪些 Amazon EBS 快照是全局共享的？</b></p> 
+        <p>从 AWS 管理控制台“快照”部分的列表中选择“公有快照”，即可找到全局共享的快照。</p> 
+        <p><b>问：如何查找 Amazon EBS 快照中存储的 Amazon 公有数据集的列表？</b></p> 
+        <p>您可以使用 AWS 管理控制台来查找存储为 Amazon 快照的公有数据集。请登录控制台，选择“Amazon EC2 Service”，再选择“快照”，然后使用<a href="https://console.aws.amazon.com/ec2/v2/home#Snapshots:visibility=public;sort=startTime">公有快照</a>进行筛选。有关公有数据集的所有信息，请参阅我们的 <a href="https://aws.amazon.com/public-datasets/">AWS 公有数据集</a>资源中心。</p> 
+        <p><b>问：我何时应使用快速快照还原 (FSR)？</b></p> 
+        <p>如果您担心将数据从快照还原到卷时存在数据访问延迟，并且希望在初始化过程中避免初始性能下降，则应对快照启用 FSR。FSR 适合在多种使用案例中提供帮助，例如虚拟桌面基础设施 (VDI)、备份和还原、测试/开发卷副本以及从自定义 AMI 启动。通过在您的快照上启用 FSR，当您需要从该快照还原数据时，将会获得提高且可预测的性能。</p> 
+        <p><b>问：为我的快照启用 FSR 是否会加速快照创建？</b></p> 
+        <p>不会。启用 FSR 的快照可改善备份数据从快照还原到卷的流程。启用 FSR 的快照不会加快创建快照的速度。</p> 
+        <p><b>问：如何启用快速快照还原 (FSR)？</b></p> 
+        <p>要使用此功能，在将要还原初始化卷的可用区 (AZ) 内的快照上调用新的 enable-fast-snapshot-restores API。</p> 
+        <p>启用 FSR 的快照可为下面任何一种状态：正在启用、正在优化、已启用、正在禁用、已禁用。状态转换发布为 CloudWatch 事件，FSR 状态可通过 describe-fast-snapshot-restores API 检查。</p> 
+        <p>在快照上启用 FSR 不会改变任何现有的快照 API 交互，现有的工作流程不需要更改。FSR 只能在账户拥有的快照上启用或禁用。FSR 不能应用于共享快照。您可以通过 API 或控制台查看自己的已启用 FSR 的快照列表。</p> 
+        <p><b>问：如何使用快速快照还原 (FSR)？</b></p> 
+        <p>从启用 FSR 的快照创建的卷已完全初始化。但是，创建后立即获得完整性能的卷数量有限制。这些限制表示为与指定可用区中启用了 FSR 的快照关联的信用桶。关于信用需要了解的重要信息：</p> 
+        <p>1.单卷创建操作消耗一个信用积分<br> 2.信用分数是启用了 FSR 的快照大小的函数<br> 3.信用分数过一段时间后可重新恢复<br> 4.最大信用桶为 10</p> 
+        <p>为了估计您的信用桶大小和填充率，使用 1,024 除以您的快照大小。例如，100 GiB 启用了 FSR 的快照的最大余额为 10 个信用分数，填充率为每小时 10 个信用积分。而 4 TiB 快照的最大余额为 1，填充率为每 4 小时 1 个信用积分。</p> 
+        <p>请务必注意，信用桶大小是启用了 FSR 的快照大小的函数，而不是所创建的卷的大小的函数。例如，每次可从 100GiB 快照创建最多十个 1TiB 卷。</p> 
+        <p>最后，快照启用了 FSR 的每个可用区获得各自的信用桶，与其他可用区无关。</p> 
+        <p><b>问：可以创建多少个并发卷？如果超过此限制会发生什么情况？</b></p> 
+        <p>创建信用桶的大小代表最大数量，而信用桶余额代表可用的创建数量。填充时，每次可以从启用了 FSR 的快照创建最多 10 个已初始化的卷。最大信用桶大小和信用桶余额都作为 CloudWatch 指标发布。超出限制的卷创建将像未在快照上启用 FSR 时那样继续。</p> 
+        <p><b>问：我怎样知道何时从启用了 FSR 的快照创建了卷？</b></p> 
+        <p>使用 FSR 时，会在 DescribeVolumes API 中添加 EBS 特有的新属性 (fastRestored) 以指示创建时的状态。当从启用了 FSR 的快照创建卷而没有足够的卷创建信用时，创建仍将继续进行，但是卷将不会初始化。</p> 
+        <p><b>问：在删除快照时，FSR 会发生什么？</b></p> 
+        <p>当您删除快照时，将自动禁用快照的 FSR，并且会终止该快照的 FSR 计费。</p> 
+        <p><b>问：我能否为共享给我的公有和私有快照启用 FSR？</b></p> 
+        <p>可以，您可以为共享给您的账户的公有快照和所有私有快照启用 FSR。您可以使用为自己的快照启用 FSR 时使用过的相同 API 调用来为共享快照启用 FSR。</p> 
+        <p><b>问：在共享给我的快照上启用 FSR 如何计费？</b></p> 
+        <p>当您在共享的快照上启用 FSR 时，将按照 FSR 标准费率向您收费（参阅<a href="/cn/ebs/pricing/">定价页面</a>）。请注意，仅向您的账户收取该共享快照的 FSR 费用。您在共享的快照上启用 FSR 时，不会向该快照的所有者收费。</p> 
+        <p><b>问：当快照的所有者停止分享快照或将其删除时，共享快照的 FSR 会发生什么？</b></p> 
+        <p>当共享快照的所有者删除快照，或者通过撤消您为此快照创建卷的权限来停止与您共享快照时，将自动禁用该共享快照的 FSR，并且会终止该快照的 FSR 计费。<br> </p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Encryption" class="lb-txt-bold lb-h2 lb-title" style="color:#232f3e;"> 加密</h2> 
+       <div class="lb-txt-16 lb-rtxt"> 
+        <p><b>问：什么是 Amazon EBS 加密？</b></p> 
+        <p>Amazon EBS 加密提供 EBS 数据卷、引导卷和快照的无缝加密，无需构建和维护安全密钥管理基础设施。EBS 加密可使用 Amazon 托管的密钥或您使用 <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">AWS Key Management Service (KMS)</a> 创建和管理的密钥来给您的数据加密，从而保障静态数据的安全性。加密还发生在托管 EC2 实例的服务器上，当数据在 EC2 实例和 EBS 存储之间移动时提供数据加密。有关详细信息，请参阅 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EC2 用户指南</a>中的“Amazon EBS”加密。</p> 
+        <p><b>问：什么是 AWS Key Management Service (KMS)？</b></p> 
+        <p><a href="https://aws.amazon.com/kms/">AWS KMS</a> 是一项托管服务，可让您轻松创建和控制加密数据所用的加密密钥。AWS Key Management Service 可与其他 AWS 服务集成，包括 Amazon EBS、Amazon S3 和 Amazon Redshift，可让您轻松使用您管理的加密密钥加密您的数据。AWS Key Management Service 还能与 AWS CloudTrail 集成，从而为您提供所有密钥的使用记录，帮助您满足监管和合规性要求。要了解有关 KMS 的更多信息，请访问 AWS Key Management Service 产品页面。</p> 
+        <p><b>问：为什么我应使用 EBS 加密？</b></p> 
+        <p>您可以使用 Amazon EBS 加密来满足云中静态数据加密的安全性和加密合规性要求。将加密与现有 IAM 访问控制策略配合使用可以提高公司的纵深防御策略。</p> 
+        <p><b>问：如何管理我的 Amazon EBS 加密密钥？</b></p> 
+        <p>Amazon EBS 加密为您处理密钥管理。每个新创建的卷获取唯一的 256 位 AES 密钥；从加密快照创建的卷将共享该密钥。这些密钥受我们自己的密钥管理基础设施的保护，设施将实施强逻辑和物理安全控制来防止未经授权的访问。使用行业标准 AES-256 算法对数据和关联密钥进行加密。</p> 
+        <p><b>问：EBS 加密是否支持启动卷？</b></p> 
+        <p>是。</p> 
+        <p><b>问：我是否可以在实例启动时创建加密数据卷？</b></p> 
+        <p>可以，使用 AWS 进行托管的或客户托管的<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">客户主密钥 (CMK)</a> 创建。您可以通过以下两种方式指定卷详细信息和加密：使用 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BlockDeviceMapping.html">BlockDeviceMapping</a> 参数执行 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances API</a>&nbsp;调用或使用 EC2 控制台中的启动向导。</p> 
+        <p><b>问：我是否可以在实例启动时创建不属于 AMI 的额外加密数据卷？</b></p> 
+        <p>可以，您可以在实例启动时创建采用了默认或自定义 CMK 加密的加密数据卷。您可以通过 <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances API</a> 调用中的 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BlockDeviceMapping.html">BlockDeviceMapping</a> 对象或使用 EC2 控制台中的启动向导指定卷详细信息和进行加密。</p> 
+        <p><b>问：我能否从未加密的 AMI 启动加密的 EBS 实例？</b></p> 
+        <p>可以。请参阅<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">技术文档</a>了解详细信息。</p> 
+        <p><b>问：我能否与其他账户共享加密的快照和 AMI？</b></p> 
+        <p>可以。我可以使用 <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html">客户托管的客户主密钥</a> (CMK) 与其他 AWS 账户共享加密的快照和 AMI。请参阅<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-explicit.html">技术文档</a>了解详细信息。</p> 
+        <p><b>问：我能否确保创建的所有新卷始终处于加密状态？</b></p> 
+        <p>可以，您可以在每个区域使用单个设置，即可在默认情况下启用 EBS 加密。此操作可确保所有新卷始终处于加密状态。有关更多详细信息，请参阅<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html" target="_blank">技术文档</a>。&nbsp;</p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Billing_and_metering" class="lb-txt-bold lb-h2 lb-title" style="color:#232f3e;"> 计费和计量</h2> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：当预配置 IOPS 卷从实例断开连接时，是否会就预配置的 IOPS 向我计费？</b></p> 
+        <p>会，当预配置 IOPS 卷从实例断开连接时，您就会因预配置 IOPS 被计费。当卷断开连接时，我们建议您创建一个快照并删除该卷以减少费用。有关更多信息，请参阅 <a href="http://aws.amazon.com/support/trustedadvisor/">Trusted Advisor</a> 中的“未充分利用的 Amazon EBS 卷”成本优化检查。该项目检查您的 Amazon Elastic Block Store (Amazon EBS) 卷配置并在卷使用不足时发出警告。</p> 
+        <p><b>问：价格是否含税？</b></p> 
+        <p>除非另行说明，否则我们的价格不包含适用的税费和关税（包括增值税和适用的销售税）。使用日本账单地址的客户若要使用 AWS，则需缴纳日本消费税。<a href="/cn/c-tax-faqs/">了解更多</a>。<br> </p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Multi-Attach" class="lb-txt-bold lb-h2 lb-title" style="color:#232f3e;"> 多重挂载</h2> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：启用多重挂载是否要额外收费？</b></p> 
+        <p>否。多重挂载可以在 EBS 预置 IOPS io1 卷上启用，对于预置的存储 (GB-Mo) 和 IOPS (IOPS-Mo) 将会收费。</p> 
+        <p><b>问：我能否使用启用了多重挂载的卷启动 EC2 实例？</b></p> 
+        <p>否。</p> 
+        <p><b>问：如果我所有的挂载实例都没有设置“deleteOnTermination”标记，将发生什么？</b></p> 
+        <p>卷的 deleteOnTermination 行为由终止的最后一个挂载实例的配置决定。要确保对终止行为进行可预测删除，为卷挂载到的所有实例启用或禁用“deleteOnTermination”。</p> 
+        <p>如果您想要在挂载的实例终止时删除卷，为卷挂载到的所有实例启用“deleteOnTermination”。如果您想要在挂载的实例终止时保留卷，请为挂载的所有实例禁用“deleteOnTermination”。有关更多信息，请参阅<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html" target="_blank">多重挂载</a>技术文档。</p> 
+        <p><b>问：我的应用程序能否使用多重挂载？</b></p> 
+        <p>如果您的应用程序不需要写操作的存储层协调（如只读应用程序）或强制进行应用程序级 IO 隔离，则您的应用程序可以使用多重挂载。<br> </p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </main>

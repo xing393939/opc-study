@@ -1,0 +1,448 @@
+<main role="main"> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="General" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;">Aurora 一般性问题</h2> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：什么是 Amazon Aurora？<br> </b></p> 
+        <p>Amazon Aurora 是一种关系数据库引擎，既具有高端商用数据库的速度和和可靠性，又具有开源数据库的简单性和成本效益。Amazon Aurora MySQL 的性能最高可以是 MySQL 的五倍，且无需对大多数 MySQL 应用程序进行任何更改；同样，Amazon Aurora PostgreSQL 的性能最高可以是 PostgreSQL. 的三倍。Amazon RDS 负责管理您的 Amazon Aurora 数据库，同时处理耗时型任务，如预置、修补、备份、恢复、故障检测和修复。您只需为您使用的 Amazon Aurora 数据库实例支付简单的月度费用。没有前期费用或长期承付款。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：“与 MySQL 兼容”是什么意思？</b></p> 
+        <p>它意味着，您已用于 MySQL 数据库的代码、应用程序、驱动程序和工具可与 Aurora 配合使用，只需对其进行少量更改或不需要更改。Amazon Aurora 数据库引擎设计旨在能使用 InnoDB 存储引擎与 MySQL 5.6 和 5.7 连接兼容。MyISAM 存储引擎之类的特定 MySQL 功能不可用于 Amazon Aurora。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：“与 PostgreSQL 兼容”是什么意思？</b></p> 
+        <p>它意味着，您已用于 PostgreSQL 数据库的大多数代码、应用程序、驱动程序和工具可与 Aurora 配合使用，只需对其进行少量更改或无需更改。Amazon Aurora 数据库引擎设计旨在与 PostgreSQL 9.6 和更高版本连接兼容，且支持的 PostgreSQL 扩展与适用于 PostgreSQL 9.6 和更高版本的 RDS 所支持的 PostgreSQL 扩展相同，以便轻松在两个引擎之间移动应用程序。 <br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：怎样才能试用 Amazon Aurora？</b></p> 
+        <p>要试用 Amazon Aurora，请登录 <a href="https://console.aws.amazon.com">AWS 控制台</a>，选择<b>数据库</b>类别下的 <b>RDS</b>，然后选择 Amazon Aurora 作为您的数据库引擎。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon Aurora 如何收费？</b><br> </p> 
+        <p>请参阅我们的<a adhocenable="false" href="/cn/rds/aurora/pricing/" target="_blank">定价页面</a>，了解最新的定价信息。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon Aurora 在三个可用区间以六种方法复制数据库卷的每个组块。这是否意味着我的有效存储价格将是定价页面上所示价格的三到六倍？</b></p> 
+        <p>不是，Amazon Aurora 复制到价格是捆绑的。我们将根据您的数据库在数据库层消耗的存储量向您收费，而非 Amazon Aurora 的虚拟存储层消耗的存储量。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon Aurora 的可用 AWS 区域有哪些？</b></p> 
+        <p>请查看我们的<a href="/cn/rds/aurora/pricing/" target="_blank">定价页面</a>，了解有关区域和价格的最新信息。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何从 MySQL 向 Amazon Aurora 迁移，反之亦然？</b></p> 
+        <p>您有多种选择。您可以使用标准的 mysqldump 实用工具将数据从 MySQL 中导出，并用 mysqlimport 实用工具将数据导入 Amazon Aurora，反之亦然。您还可以使用 Amazon RDS 的数据库快照迁移功能通过 AWS 管理控制台将 RDS MySQL 数据库快照迁移到 Amazon Aurora 中。虽然持续时间取决于格式和数据集大小，但对于大多数客户而言，迁移过程可在一小时内完成。有关更多信息，请参阅<a href="https://d0.awsstatic.com/whitepapers/RDS/Best-Practices-for-Migrating-MySQL-Databases-to-Amazon-Aurora.pdf">将 MySQL 数据库迁移至 Amazon Aurora 的最佳实践</a>。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何从 PostgreSQL 向 Amazon Aurora 迁移，反之亦然？</b></p> 
+        <p>您有多种选择。您可以使用标准的 pg_dump 实用工具将数据从 PostgreSQL 中导出，并用 pg_restore 实用工具将数据导入 Amazon Aurora，反之亦然。您还可以使用 Amazon RDS 的数据库快照迁移功能通过 AWS 管理控制台将 RDS PostgreSQL 数据库快照迁移到 Amazon Aurora 中。虽然持续时间取决于格式和数据集大小，但对于大多数客户而言，迁移过程可在一小时内完成。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：AWS 免费套餐是否包括 Amazon Aurora？</b></p> 
+        <p>目前不提供。Amazon RDS 的 AWS 免费套餐为微型数据库实例带来了许多优势；Amazon Aurora 暂不提供微型数据库实例支持。请参阅我们的<a adhocenable="false" href="http://aws.amazon.com/rds/aurora/pricing/">定价页面</a>，了解最新的定价信息。<a name="mysql-compatible"></a></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon Aurora 中的 I/O 是什么？它们是如何计算的？</b></p> 
+        <p>I/O 是由 Aurora 数据库引擎依靠基于 SSD 的虚拟化存储层执行的输入/输出操作。每个数据库页面读取操作计为一个 I/O。Aurora 数据库引擎依靠存储层发出读取，以获取不在缓存内的存储器中的数据库页面。如果您的查询流量完全可从存储器或缓存中提供，则您从存储器检索任何数据页面的操作都不收取费用。如果您的查询流量无法完全从存储器中提供，则需要从存储中检索的任何数据页面都将产生收费。Aurora MySQL 中的每个数据库页面为 16KB，Aurora PostgreSQL 中的每个数据库页面为 8KB。</p> 
+        <p>Aurora 的目的是消除不必要的 I/O 操作，以降低成本，并确保资源可服务于读/写流量。只有在为了使写入持久而将 Aurora MySQL 中的重做日志记录或 Aurora PostgreSQL 中的写前日志记录永久保存到存储层时，才会使用写入 I/O。写入 I/O 以 4KB 单位计算。例如，1024 字节的日志记录计为一个写入 I/O 操作。但是，如果日志记录超过 4KB，则将需要一个以上写入 I/O 操作才能使其永久存在。如果已永久存在于相同存储保护组中，日志记录小于 4KB 的并发写入操作可一起由 Aurora 数据库引擎进行批处理以优化 I/O 消耗。与传统数据库引擎不同，Aurora 从不会将脏数据页刷新到存储。</p> 
+        <p>您可以在 AWS 控制台看到 Aurora 实例消耗的 I/O 请求数量。要查询 I/O 消耗，请转到控制台的 RDS 部分，查看您的实例列表，选择 Aurora 实例，然后在监控部分查找“计算的读取操作”和“计算的写入操作”指标。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我是否需要更改客户端驱动程序才能使用 Amazon Aurora PostgreSQL？</b></p> 
+        <p>不需要。Amazon Aurora 支持标准 PostgreSQL 数据库驱动程序。</p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Performance" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 性能</h2> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：“MySQL 的五倍性能”是什么意思？</b></p> 
+        <p>Amazon Aurora 通过将数据库引擎与为数据库工作负载构建的基于 SSD 的虚拟化存储层紧密集成，减少存储系统的写入操作，最大程度降低锁竞争并消除数据库进程线程所产生的延迟，使性能大幅超过 MySQL。我们根据 SysBench 对 r3.8xlarge 实例进行的测试表明，Amazon Aurora 每秒提供超过 500000 次选择和 100000 次更新，是在同一硬件上运行相同基准的 MySQL 的五倍。有关此基准的详细说明以及如何自行复制此基准，请参阅<a href="//d1.awsstatic.com/product-marketing/Aurora/RDS_Aurora_Performance_Assessment_Benchmarking_v1-2.pdf" target="_blank">Amazon Aurora MySQL 性能基准指南</a>。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：“PostgreSQL 的三倍性能”是什么意思？</b></p> 
+        <p>Amazon Aurora 通过将数据库引擎与为数据库工作负载构建的基于 SSD 的虚拟化存储层紧密集成，减少存储系统的写入操作，最大程度降低锁竞争并消除数据库进程线程所产生的延迟，使性能大幅超过 PostgreSQL。我们根据 SysBench 对 r4.16xlarge 实例进行的测试表明，Amazon Aurora 每秒提供的选择和更新次数，是在同一硬件上运行相同基准的 PostgreSQL 的三倍。有关此基准的详细说明以及如何自行复制此基准，请参阅<a href="//d1.awsstatic.com/product-marketing/Aurora/RDS_Aurora_PostgreSQL_Performance_Assessment_Benchmarking_V1-0.pdf" target="_blank">Amazon Aurora PostgreSQL 性能基准指南</a>。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何优化 Amazon Aurora MySQL 的数据库工作负载？</b><br> </p> 
+        <p>Amazon Aurora 的设计与 MySQL 兼容，因此现有 MySQL 应用程序和工具无需修改即可运行。然而，Amazon Aurora 优于 MySQL 的一点就是具有大量并行工作负载。为了在 Amazon Aurora 上最大限度地提高您的工作负载吞吐量，我们建议您构建自己的应用程序来支持大量并行查询和事务。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何优化 Amazon Aurora PostgreSQL 的数据库工作负载？</b></p> 
+        <p>由于 Amazon Aurora 与 PostgreSQL 兼容，因此现有 PostgreSQL 应用程序和工具无需修改即可运行。然而，Amazon Aurora 优于 PostgreSQL 的一点就是具有大量并行工作负载。为了在 Amazon Aurora 上最大限度地提高您的工作负载吞吐量，我们建议您构建自己的应用程序来支持大量并行查询和事务。<br> </p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Hardware_and_Scaling" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 硬件和扩展</h2> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon Aurora 数据库的最低存储限制和最大存储限制是什么？</b></p> 
+        <p>最低存储为 10GB。根据您的数据库使用量，您的 Amazon Aurora 存储将以 10GB 的增量自动增长到 128TB，而不会影响数据库的性能。无需提前预置存储。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何扩展与我的 Amazon Aurora 数据库实例相关联的计算资源？</b></p> 
+        <p>在 AWS 管理控制台中，选择所需的数据库实例并单击“修改”按钮，即可扩展分配至数据库实例的计算资源。可通过更改数据库实例类来修改内存和 CPU 资源。</p> 
+        <p>修改数据库实例类时，在指定的维护窗口期间将应用您请求的更改。或者，您可以使用“立即应用”标记立即应用您的扩展请求。当您执行扩展操作时，这两种选项均会造成几分钟的可用性影响。请注意，任何其他待定的系统更改也将同时应用。</p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Backup_and_Restore" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 备份与还原</h2> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我如何启用我的数据库实例备份？</b></p> 
+        <p>Amazon Aurora 数据库实例上始终都会启用自动备份。备份不影响数据库性能。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我能否拍摄数据库快照并将其留在身边在我需要时使用？</b></p> 
+        <p>能，拍摄快照时不影响性能。请注意，从数据库实例中恢复数据需要创建一个新的数据库实例。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如果我的数据库发生故障，应该用什么恢复路径？</b></p> 
+        <p>Amazon Aurora 在 3 个可用区间自动维护 6 个数据副本，并将自动尝试在运行状况正常的可用区恢复您的数据库，而不会产生数据损失。您的数据不太可能在 Amazon Aurora 存储内不可用，您可以从数据库快照中进行恢复或对新实例执行时间点恢复操作。请注意，时间点恢复操作的最迟可恢复时间在过去最高可达 5 分钟。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如果删除数据库实例，我的自动化备份和数据库快照会发生什么状况？</b></p> 
+        <p>您可以选择在删除数据库实例时创建最终的数据库快照。如果您进行了此操作，您可以使用此数据库快照稍后恢复已删除的数据库实例。在您删除数据库实例后，Amazon Aurora 会将用户创建的这个最终数据库快照与其他所有人工创建的数据库快照一起保留。删除数据库实例后只会保留数据库快照（即，为时间点恢复创建的自动备份不会保留）。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我能够将快照共享给其他 AWS 账户？</b></p> 
+        <p>支持。借助 Aurora，您可以创建数据库快照，用于以后恢复数据库。您可以与不同的 AWS 账户共享这一快照，并且对方可以使用您的快照来恢复包含您的数据的数据库。您甚至还可以将您的快照公开，这样，任何人都能恢复包含您的（公开）数据的数据库。您可以使用此功能在拥有不同 AWS 账户的各种环境（生产、开发/测试、分段等）之间共享数据，也可以将所有数据的备份安全保存到一个单独的账户中，以防主 AWS 账户受到安全威胁。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我需要支付共享快照的费用吗？</b></p> 
+        <p>在账户之间共享快照不需要付费。但是，您需要为快照本身以及通过共享快照恢复的任何数据库付费。详细了解 <a href="/rds/aurora/pricing/">Aurora 定价</a>。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我能否自动共享快照？</b></p> 
+        <p>我们不支持自动数据库快照共享。要共享快照，您必须手动创建一个快照，然后共享该快照。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我能将快照共享给多少个账户？</b></p> 
+        <p>您可以将手动快照共享给最多 20 个 AWS 账户 ID。如果您需要将快照共享给 20 个以上的账户，则可以将快照公开，或联系支持人员要求增加配额。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我可以将我的 Aurora 快照共享到哪些区域？</b></p> 
+        <p>您可以将您的 Aurora 快照共享到支持 Aurora 的所有 AWS 区域。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我能否在不同区域之间共享 Aurora 快照？</b></p> 
+        <p>只有与分享快照的账户处于同一区域内的账户才能访问您共享的 Aurora 快照。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我能否共享加密的 Aurora 快照？</b></p> 
+        <p>能，您可以共享加密的 Aurora 快照。</p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="High_Availability_and_Replication" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 高可用性和复制</h2> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon Aurora 如何提高我的数据库对磁盘故障的容错能力？</b></p> 
+        <p>Amazon Aurora 会将您的数据库卷分成分散在很多个磁盘上的 10GB 的区段。每 10GB 的数据库卷组块都能在三个可用区间用六种方法进行复制。Amazon Aurora 的设计可透明应对多达两个数据副本的损失，而不会影响数据库写入可用性，还能在不影响读取可用性的情况下应对多达三个副本。Amazon Aurora 存储还具有自我修复能力。可连续扫描数据块和磁盘有无出错并自动修复之。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Aurora 如何在数据库崩溃后提高恢复时间？</b></p> 
+        <p>与其他数据库不同的是，Amazon Aurora 在数据库崩溃之后不需要重放最后一个数据库检查点（通常为 5 分钟）的重做日志，且不需要在数据库可用于操作之前确认所有更改都已应用。在大多数情况下，这会将数据库的重启时间缩短到 60 秒以下。Amazon Aurora 会将缓冲缓存移出数据库进程，并在重启时使其立即可用。这将防止您限制访问，直到重新填充缓存以避免停止。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Aurora 支持哪些类型的副本？</b></p> 
+        <p>Amazon Aurora MySQL 和 Amazon Aurora PostgreSQL 都支持 Amazon Aurora 副本，这些副本与同一 AWS 区域内的主实例共享相同的底层卷。主实例作出的更新对所有的 Amazon Aurora 副本可见。借助 Amazon Aurora MySQL，您还可以根据 MySQL 基于二进制日志的复制引擎创建跨区域复制的 MySQL 只读副本。在 MySQL 只读副本中，您的主实例中的数据会作为事务在您的副本上重放。对于大多数使用案例，包括读取扩展和高可用性，我们推荐使用 Amazon Aurora 副本。</p> 
+        <p>您可以根据您的应用程序需求灵活地混合搭配这两种副本类型。</p> 
+       </div> 
+       <div class="lb-tbl lb-tbl-p lb-tbl-header-centered" data-is-sticky-header="false"> 
+        <table width="312" height="164" cellspacing="0" cellpadding="1"> 
+         <tbody> 
+          <tr> 
+           <th>功能</th> 
+           <th>Amazon Aurora 副本<br> </th> 
+           <th>MySQL 副本</th> 
+          </tr> 
+          <tr> 
+           <td>副本数量</td> 
+           <td>最多 15 个</td> 
+           <td>最多 5 个</td> 
+          </tr> 
+          <tr> 
+           <td>复制类型</td> 
+           <td>异步（毫秒）</td> 
+           <td>异步（秒）</td> 
+          </tr> 
+          <tr> 
+           <td>对主实例的性能影响</td> 
+           <td>低</td> 
+           <td>高</td> 
+          </tr> 
+          <tr> 
+           <td>副本位置</td> 
+           <td>区域内<br> </td> 
+           <td>跨区域</td> 
+          </tr> 
+          <tr> 
+           <td>作为故障转移目标</td> 
+           <td>是（无数据损失）</td> 
+           <td>是（可能有几分钟的数据损失）</td> 
+          </tr> 
+          <tr> 
+           <td>自动故障转移</td> 
+           <td>是</td> 
+           <td>否</td> 
+          </tr> 
+          <tr> 
+           <td>支持用于定义的复制延迟</td> 
+           <td>否</td> 
+           <td>是</td> 
+          </tr> 
+          <tr> 
+           <td>支持不同的数据或计划与主实例</td> 
+           <td>否</td> 
+           <td>是</td> 
+          </tr> 
+         </tbody> 
+        </table> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p>除了上面列出的选项之外，还有其他两个复制选项。您可以使用 <a href="/cn/rds/aurora/global-database/">Aurora Global Database</a> 在不同区域的 Aurora 集群之间实现更快的物理复制。对于 Aurora 与非 Aurora MySQL 数据库之间的复制（甚至在 AWS 之外），您可以设置自己的自我管理的二进制日志复制。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我能否拥有跨区域 Amazon Aurora 副本？</b></p> 
+        <p>能，您可以通过物理或逻辑复制功能来设置跨区域 Aurora 副本。</p> 
+        <p>物理复制也称为<a href="/cn/rds/aurora/global-database/">Aurora 全球数据库</a>，它使用专用基础设施，使您的数据库完全可用于为应用程序提供服务，并且可以复制到一个辅助区域，典型延迟时间最高五秒。Aurora MySQL 和 Aurora PostgreSQL 均支持此功能。为确保低延迟全球读取和灾难恢复，我们建议使用 Aurora 全球数据库功能。</p> 
+        <p>Aurora 支持各种数据库引擎的原生逻辑复制（MySQL 和 PostgreSQL 的二进制日志以及 PostgreSQL 的复制槽），因此您可以复制到 Aurora 和非 Aurora 数据库，甚至可以跨区域复制。</p> 
+        <p>Aurora MySQL 还提供方便易用的逻辑跨区域只读副本功能，最高可支持五个辅助 AWS 区域。此功能基于单线程的 MySQL 二进制日志复制操作，复制滞后时间会受到更改/应用速度以及所选区域之间的网络通信延迟影响。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我能否在跨区域副本集群上创建 Aurora 副本？</b></p> 
+        <p>能。您可以在每个跨区域集群上添加最多 15 个 Aurora 副本，它们将与跨区域副本共享相同的底层存储。跨区域副本将成为该集群上的主副本，集群上的 Aurora 副本通常比主副本滞后 10 毫秒。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我能否将应用程序从当前的主副本故障转移到跨区域副本？</b></p> 
+        <p>能。您可以通过 RDS 控制台将跨区域副本提升为主副本。对于逻辑 (binlog) 复制，提升过程一般需要几分钟，具体取决于您的工作负载。启动提升过程后，跨区域复制将会停止。</p> 
+        <p>使用 Aurora 全球数据库，您可以在一分钟内提升辅助区域以获取完整的读/写工作负载。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我能否将特定副本指定为优先故障转移目标？</b></p> 
+        <p>是。您可以为群集中的每个实例指定一个提升优先级分层。如果主实例发生故障，Amazon RDS 会将优先级最高的副本提升为主实例。&nbsp;如果两个或多个 Aurora 副本优先级相同，则 Amazon RDS 将提升最大的那个副本。如果两个或多个 Aurora 副本优先级和大小均相同，则 Amazon RDS 将提升同一提升分层中的任意副本。有关故障转移逻辑的更多信息，请阅读 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">Amazon Aurora 用户指南</a>。</p> 
+        <p>&nbsp;</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我能否在实例创建完成后再修改优先级分层？</b></p> 
+        <p>能。您随时可以修改实例的优先级分层。单纯地修改优先级分层并不会触发故障转移。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我能否阻止特定副本被提升为主实例？</b></p> 
+        <p>如果您不希望某个副本被提升为主实例，可为其指定较低的优先级分层。不过，如果群集上优先级较高的副本因为某些原因无法运行或使用，那么 Amazon RDS 将提升优先级较低的副本。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何改进单个 Amazon Aurora 数据库的可用性？</b></p> 
+        <p>您可以添加 Amazon Aurora 副本。同一 AWS 区域中的 Aurora 副本与主实例共享用一个底层存储。任何 Aurora 副本都可在不损失任何数据的情况下被提升为主实例，因此，它可用于在主数据库实例发生故障时提高容错能力。要想提高数据库可用性，只需在 3 个可用区的任何一个创建 1 到 15 个副本，且 Amazon RDS 将在发生数据库运行中断时将其纳入故障转移主选择中。</p> 
+        <p>如果您希望数据库跨越多个 AWS 区域，可以使用 Aurora 全球数据库。这样可以在不影响数据库性能的情况下复制您的数据，并在区域范围的中断中提进行灾难恢复。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：执行故障转移时会发生什么状况？这种情况会持续多长时间？</b></p> 
+        <p>Amazon Aurora 会自动处理故障转移，以便您的应用程序可以尽快恢复数据库操作，而无需人工管理干预。</p> 
+        <ul> 
+         <li>如果您在相同或不同的可用区中有 Amazon Aurora 副本，当进行故障转移时，Aurora 会翻转您的数据库实例的别名记录 (CNAME)，以指向运行状态正常的副本；相应地，此副本会晋升为新的主实例。从开始到结束，故障转移通常会在 30 秒内完成。</li> 
+         <li> 如果您运行的是 Aurora Serverless，当数据库实例或可用区不可用时，Aurora 会自动在不同的可用区重新创建该数据库实例。</li> 
+         <li> 如果您没有 Amazon Aurora 副本（即单个实例），也未运行 Aurora Serverless，则 Aurora 会先尝试在原始实例的可用区中新建数据库实例。原实例会尽量替换，但可能不会成功，例如出现全面影响该可用区的问题时。</li> 
+        </ul> 
+        <p>您的应用程序应会在连接丢失时重试数据库连接。</p> 
+        <p>跨区域进行灾难恢复是一个手动过程，在此期间，您可以提升辅助区域以获取读/写工作负载。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如果我的一个主数据库和 Amazon Aurora 副本主动获取读取流量且发生故障转移，会发生什么？</b></p> 
+        <p> Amazon RDS 将自动检测主实例中的问题并触发故障转移。如果您使用的是集群终端节点，您的读取/写入连接将自动重定向至将被晋升为主实例的 Amazon Aurora 副本。</p> 
+        <p> 此外，您的 Aurora 副本提供的读取流量将短暂中断。如果您使用集群读取器终端节点将读取流量定向至 Aurora 副本，则只读连接将定向至新晋升的 Aurora 副本，直到原主节点恢复为副本时为止。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我的副本将落后主实例多久？</b></p> 
+        <p>Amazon Aurora 副本与同一 AWS 区域内的主实例共享同一个数据卷，因此几乎没有复制滞后。据我们观察，滞后时间一般在 10 毫秒内。对于 MySQL 只读副本，复制滞后可根据更改/应用率以及网络通信的延迟无限增长。不过，一般情况下，1 分钟以内的复制滞后是很常见的。</p> 
+        <p>对于使用逻辑复制的跨区域副本，其滞后时间会受到更改/应用速度以及所选区域之间的网络通信延迟情况的影响。使用 Aurora 全球数据库的跨区域副本通常有不到一秒的滞后时间。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：能否在 Aurora MySQL 数据库和外部 MySQL 数据库之间设置复制？</b></p> 
+        <p>能，您可以在 Aurora MySQL 实例和外部 MySQL 数据库之间设置二进制日志复制。另一个数据库可以在 Amazon RDS 上运行，或作为自我管理的数据库在 AWS 上运行，或完全在 AWS 之外运行。</p> 
+        <p>如果您运行的是 Aurora MySQL 5.7，请考虑设置基于 GTID 的二进制日志复制。这将提供完全一致性，即使在故障转移或停机后，您的复制也不会错过事务或生成冲突。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：什么是 Amazon Aurora Global Database？</b></p> 
+        <p><a href="/cn/rds/aurora/global-database/">Amazon Aurora 全球数据库</a>是一项功能，支持单个 Amazon Aurora 数据库跨越多个 AWS 区域。它可以在不影响数据库性能的情况下复制您的数据，支持在每个区域中实现快速本地读取，典型延迟时间不到一秒，并可从区域范围的中断中进行灾难恢复。在不太可能发生区域性性能下降或中断的情况下，它可以在不到 1 分钟的时间内将辅助区域提升为具有完全读/写功能。</p> 
+        <p>此功能适用于 Aurora MySQL 和 Aurora PostgreSQL。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何创建 Aurora 全球数据库？</b></p> 
+        <p>您只需在 Amazon RDS 管理控制台上单击几下即可创建 Aurora 全球数据库。或者，您也可以使用软件开发工具包或 CLI 进行创建。您需要在 Aurora 全球数据库中为每个区域预置至少一个实例。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Aurora 全球数据库可以有多少个辅助区域？</b></p> 
+        <p>您可以为 Aurora 全球数据库创建最多五个辅助区域。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如果我使用 Aurora 全球数据库，还可以在主数据库上使用逻辑复制 (binlog) 吗？</b></p> 
+        <p>可以。如果您的目标是分析数据库活动，请考虑使用 Aurora 高级审计、常规日志和慢速查询日志，以免影响数据库性能。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Aurora 是否会自动故障转移到 Aurora 全球数据库的辅助区域？</b></p> 
+        <p>不会。如果您的主区域不可用，您可以手动从 Aurora 全球数据库中删除辅助区域，并对其进行提升以获取完全的读取和写入。您还需要将应用程序指向新提升的区域。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：什么是 Amazon Aurora Multi-Master？</b></p> 
+        <p>Amazon Aurora Multi-Master 是一项与 Aurora MySQL 兼容的新功能，增加了跨多个可用区扩展写入性能的功能，支持应用程序将读取/写入工作负载定向到数据库集群中的多个实例，并以更高的可用性运行。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何开始使用 Amazon Aurora Multi-Master？</b></p> 
+        <p>Amazon Aurora Multi-Master 现已全面推出。您可以阅读 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html">Amazon Aurora 文档</a>了解更多信息。只需在 <a href="https://console.aws.amazon.com/rds/home">Amazon RDS 管理控制台</a>中单击几次即可创建 Aurora Multi-Master 集群，或下载最新的 AWS 开发工具包或 CLI。<br> </p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Security" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 安全性</h2> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我能否在 Amazon Virtual Private Cloud (Amazon VPC) 中使用 Amazon Aurora？</b></p> 
+        <p>能，所有 Amazon Aurora 数据库实例都必须在 VPC 中创建。借助 Amazon VPC，您可以定义一个与自己数据中心内运行的传统网络非常相似的虚拟网络拓扑。这样一来，您可以对谁能访问您的 Amazon Aurora 数据库进行完全控制。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon Aurora 会加密我的动态数据和静态数据吗？</b></p> 
+        <p>支持。Amazon Aurora 使用 SSL (AES-256) 保护数据库实例与应用程序之间的连接。Amazon Aurora 可让您使用通过 AWS Key Management Service (KMS) 管理的密钥加密您的数据库。在通过 Amazon Aurora 加密运行的数据库实例上，静态存储于底层存储的数据都将加密，同一群集的自动备份、快照和副本也是如此。加密和解密操作的处理都是无缝的。有关将 KMS 与 Amazon Aurora 一起使用的更多信息，请参阅 <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html">Amazon RDS 用户指南</a>。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我可以加密现有的未加密数据库吗？</b></p> 
+        <p>目前不支持加密现有的未加密 Aurora 实例。要将 Amazon Aurora 加密用于现有的未加密数据库，请在启用加密的情况下创建一个新数据库实例，并将您的数据迁移到该实例中。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何访问我的 Amazon Aurora 数据库？</b></p> 
+        <p>必须通过您在创建数据库时输入的数据库端口访问 Amazon Aurora 数据库。这样做可以为您的数据平添一重安全保障。有关如何连接到 Amazon Aurora 数据库的分步说明，请参阅 <a href="//d1.awsstatic.com/product-marketing/Aurora/RDS_Aurora_Connectivity_Guide_v5-2.pdf">Amazon Aurora 连接指南</a>。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：能否将 Amazon Aurora 用于要求 HIPAA 合规的应用程序？</b></p> 
+        <p>答：可以，与 MySQL 和 PostgreSQL 兼容的 Aurora 版本符合 HIPAA 要求，因此您可以基于与 AWS 签署的《业务合作协议》(BAA)，使用它们构建 HIPAA 合规应用程序并存储医疗保健相关信息（包括受保护的健康信息 [PHI]）。如果您已经有履行的 BAA，可以即刻开始在 BAA 涵盖的账户内使用这些服务。&nbsp;有关在 AWS 上构建合规应用程序的更多信息，请参阅<a href="/cn/health/providers-and-insurers/">医疗保健提供商和保险公司对云的应用</a>。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：在哪里可以访问通用漏洞披露 (CVE) 条目列表，了解 Amazon Aurora 版本中公共已知的网络安全漏洞？</b></p> 
+        <p>现在，您可以在 <a href="/cn/rds/aurora/faqs/security-updates/">Amazon Aurora 安全更新</a>中找到 CVE 列表。<br> </p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Serverless" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 无服务器</h2> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：什么是 Amazon Aurora Serverless？</b></p> 
+        <p><a href="/cn/rds/aurora/serverless/">Amazon Aurora Serverless</a> 是适用于 Amazon Aurora 的 MySQL 兼容版和 PostgreSQL 兼容版的按需 autoscaling 配置。Aurora Serverless 数据库集群会根据您应用程序的需求自动启动、关闭以及扩展或缩减容量。Aurora Serverless 是简单且更具成本效益的选择，适用于不频发的、间歇性的或不可预测的工作负载。在 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html">Amazon Aurora 用户指南</a>中阅读更多内容。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Aurora Serverless 支持哪些版本的 Amazon Aurora？</b></p> 
+        <p>Aurora Serverless 目前可用于兼容 MySQL 5.6 的 Aurora 和兼容 PostgreSQL 10.7+ 的 Aurora。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：能否将现有 Aurora 数据库群集迁移至 Aurora Serverless？</b></p> 
+        <p>能，您可以将快照从现有 Aurora 预置的群集还原到 Aurora Serverless 数据库群集（反之亦然）。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何连接至 Aurora Serverless 数据库群集？</b></p> 
+        <p>您可以通过在相同 Amazon Virtual Private Cloud (VPC) 中运行的客户端应用程序访问 Aurora Serverless 数据库群集。&nbsp;您不能为 Aurora Serverless 数据库群集指定公有 IP 地址。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我能否明确设置 Aurora Serverless 群集的容量？</b></p> 
+        <p>虽然 Aurora Serverless 会根据活动数据库工作负载自动进行扩展，但是在某些情况下，容量的扩展速度可能不足以应对工作负载的突然变化，例如大量新事务。在这种情况下，您可以借助 AWS 管理控制台、AWS CLI 或 RDS API 将容量明确设置为具体的值。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：为什么我的 Aurora Serverless 数据库群集没有自动扩展？</b></p> 
+        <p>扩展操作启动后，Aurora Serverless 会尝试寻找扩展点，数据库可在该时间点安全完成扩展。如果您有长期运行的查询或正在处理的事务，或正在使用临时表或表格锁定，那么 Aurora Serverless 可能无法找到扩展点。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Aurora Serverless 如何计费？</b></p> 
+        <p>在 Aurora Serverless 中，数据库容量按 Aurora 容量单位 (ACU) 计算。以每秒统一费率支付 ACU 的使用量，每次激活数据库后至少使用 5 分钟。预置和无服务器配置的存储和 I/O 价格相同。查看 Aurora Serverless <a href="/rds/aurora/serverless/">定价示例</a>。</p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Parallel_Query" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> Parallel Query</h2> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：什么是 Amazon Aurora Parallel Query？</b></p> 
+        <p><a href="/cn/rds/aurora/parallel-query/">Amazon Aurora Parallel Query</a> 是一项功能，能够将单个查询的计算负载下移并分布到 Aurora 存储层中的数千个 CPU。如果不使用 Parallel Query，则对 Amazon Aurora 数据库发出的查询将全部在数据库集群的一个实例中执行；这与大多数数据库的运作方式类似。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：目标使用场景有哪些？</b></p> 
+        <p>Parallel Query 非常适合需要新数据和良好查询性能的分析工作负载，即使在大型表上也是如此。这种类型的工作负载在本质上通常是可操作的。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：使用 Parallel Query 功能有哪些好处？</b><br> </p> 
+        <p>速度更快：Parallel Query 可将分析查询的运行速度提高多达 2 个数量级。</p> 
+        <p>操作简易性和数据新鲜度：您可以直接对 Aurora 集群中的当前事务数据发出查询。</p> 
+        <p>同一数据库上的事务工作负载和分析工作负载：借助 Parallel Query 功能，Aurora 可以在处理并行分析查询的同时保持较高的事务吞吐量。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：使用 Parallel Query 具体可以提高哪些查询的运行速度？</b></p> 
+        <p>对不在缓冲池中的大型数据集的大多数查询的运行速度都有望提高。初始版本的 Parallel Query 可以下移并扩展超过 200 个 SQL 函数、等值连接和投影的处理。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：性能可以提高到什么程度？</b></p> 
+        <p>特定查询的运行速度提高程度取决于有多少查询计划会被下移到 Aurora 存储层。据客户报告，查询延迟降低了不止一个数量级。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：性能是否有可能会降低？</b></p> 
+        <p>有可能。但我们认为很少会出现这种情况。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：要充分利用 Parallel Query，我需要对查询进行做出哪些更改？</b></p> 
+        <p>不需要更改查询语法。查询优化器可以自动确定是否使用 PQ 来运行特定查询。要查看查询是否在使用 PQ，您可以通过运行 EXPLAIN 命令来查看查询执行计划。如果您想绕过启发式算法并且强制使用 Parallel Query 进行测试，则需要使用 aurora_pq_force 会话变量。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何启用或禁用这项功能？</b></p> 
+        <p>可使用 aurora_pq 参数在全局和会话级别动态启用和禁用 Parallel Query。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Parallel Query 还有其他收费项目吗？</b></p> 
+        <p>没有。除了您已经支付的实例、IO 和存储费用之外，无需再支付任何费用。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：既然 Parallel Query 可以减少 IO，那么启用这一功能会降低 Aurora IO 费用吗？</b></p> 
+        <p>不会。查询产生的 IO 费用在存储层进行计算，启用 Parallel Query 后，IO 费用可能保持不变，也可能会增加。您可以获得的好处是查询性能提高了。</p> 
+        <p>使用 Parallel Query 后，有两个原因可能会导致 IO 费用增加。第一，即使表中的一些数据在缓冲池中，PQ 也要求在存储层扫描所有数据，从而产生 IO。第二，避免缓冲池中资源争用的一个影响是运行 PQ 查询不会预热缓冲池。因此，连续运行相同的 PQ 查询会重复产生 IO 费用。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：哪些版本的 Amazon Aurora 支持 Parallel Query？</b></p> 
+        <p>Parallel Query 适用于兼容 MySQL 5.6 的 Amazon Aurora，从 v1.18.0 开始。我们计划将 Parallel Query 的支持范围扩大到兼容 MySQL 5.7 的 Aurora 和兼容 PostgreSQL 的 Aurora。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：是否所有实例类型都支持 Parallel Query？</b></p> 
+        <p>否。目前，您可以将 Parallel Query 与 R* 实例系列中的实例结合使用。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Parallel Query 是否与所有其他 Aurora 功能兼容？</b></p> 
+        <p>一开始不可以。现在，您只能针对未运行 Serverless 或 Backtrack 功能的数据库集群启用这一功能。此外，Parallel Query 不支持兼容 MySQL 5.7 的 Aurora 的特定功能。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如果 Parallel Query 可以在性能损失非常少的前提下提高查询运行速度，那么我是否应该始终启用这一功能？</b></p> 
+        <p>否。虽然我们预计 Parallel Query 在大多数情况下都可以降低查询延迟，但 IO 费用可能会增加。建议您分别在启用和禁用这一功能的情况下充分测试您的工作负载；如果您确信 Parallel Query 是正确的选择，则可以依靠查询优化器自动确定哪些查询将使用 PQ。在极少数情况下，优化器不能做出最佳选择，此时您可以覆盖这一设置。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Aurora Parallel Query 是否会替换我的数据仓库？</b></p> 
+        <p>Aurora Parallel Query 不是数据仓库，也不提供此类产品通常具有的功能。这项功能旨在提高关系数据库上的查询性能，而且适用于运营分析（当您需要对数据库中的新数据执行快速分析查询时）等使用场景。</p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </main>

@@ -1,0 +1,610 @@
+<main role="main"> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="General_Questions" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;">VPC 一般性问题</h2> 
+       <div class="lb-txt-light lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：什么是 Amazon Virtual Private Cloud？</b></p> 
+        <p>Amazon VPC 允许您在 Amazon Web Services (AWS) 云中预置出一个逻辑隔离的部分，让您在自己定义的虚拟网络中启动 AWS 资源。您可以完全掌控您的虚拟网络环境，包括选择自己的 IP 地址范围、创建子网以及配置路由表和网络网关。您也可以在公司数据中心和 VPC 之间创建硬件虚拟专用网络 (VPN) 连接，将 AWS 云用作公司数据中心的扩展。</p> 
+        <p>您可以轻松自定义 Amazon VPC 的网络配置。例如，您可以为可访问 Internet 的 Web 服务器创建公有子网，而将数据库或应用程序服务器等后端系统放在不能访问 Internet 的私有子网中。您可以利用安全组和网络访问控制列表等多种安全层，帮助对各个子网中 Amazon EC2 实例的访问进行控制。</p> 
+        <p><b>问：Amazon VPC 有哪些组成部分？</b></p> 
+        <p>Amazon VPC 由多个不同的对象组成，它们对拥有现有网络的客户而言并不陌生：</p> 
+        <ul> 
+         <li><b>Virtual Private Cloud</b>：AWS 云中逻辑隔离的虚拟网络。从所选范围内定义 VPC 的 IP 地址空间。</li> 
+         <li><b>子网</b>：VPC 的 IP 地址范围内的一个区段，其中可放置隔离的资源组。</li> 
+         <li><b>互联网网关</b>：公有 Internet 连接的 Amazon VPC 端。</li> 
+         <li><b>NAT 网关</b>：一款高度可用的托管网络地址转换 (NAT) 服务，便于私有子网中的资源访问互联网。</li> 
+         <li><b>虚拟私有网关</b>：VPN 连接的 Amazon VPC 端。</li> 
+         <li><b>对等连接</b>：对等连接使您可以通过私有 IP 地址在两个对等 VPC 之间路由流量。</li> 
+         <li><b>VPC 终端节点</b>：支持建立从您的 VPC 到 AWS 中托管的服务的私有连接，无需使用互联网网关、VPN、网络地址转换 (NAT) 设备或防火墙代理。</li> 
+         <li><b>仅传出互联网网关</b>：有状态网关，仅提供从 VPC 到 Internet 的 IPv6 流量传出访问权限。</li> 
+        </ul> 
+        <div>
+          &nbsp; 
+        </div> 
+        <div> 
+         <b>问：<b>为什么使用 Amazon VPC？</b></b> 
+        </div> 
+        <div>
+          &nbsp; 
+        </div> 
+        <div>
+          Amazon VPC 允许您在 AWS 云中构建虚拟网络，而且不需要 VPN、硬件或物理数据中心。您可以定义自己的网络空间，并控制您的网络以及其中的 Amazon EC2 资源如何在 Internet 上公开。您也可以利用 Amazon VPC 中的增强安全选项，实现对虚拟网络中 Amazon EC2 实例的更为精细的进出访问控制。 
+        </div> 
+        <div>
+          &nbsp; 
+        </div> 
+        <div> 
+         <b>问：如何开始使用 Amazon VPC？</b> 
+        </div> 
+        <div>
+          &nbsp; 
+        </div> 
+        <div>
+          您的 AWS 资源自动预置在一个随时可用的默认 VPC 中。您也可以转至 AWS 管理控制台的“Amazon VPC”页面并选择“启动 VPC 向导”，以创建其他 VPC。 
+        </div> 
+        <div>
+          &nbsp; 
+        </div> 
+        <div>
+          您将会看到用于网络架构的四个基本选项。选择一个选项后，您可以修改 VPC 及其子网的规模和 IP 地址范围。如果选择带有硬件 VPN 访问的选项，您需要指定网络中 VPN 硬件的 IP 地址。您可以修改 VPC 以添加或删除辅助 IP 范围和网关，或将更多子网添加到 IP 范围。 
+        </div> 
+        <div>
+          &nbsp; 
+        </div> 
+        <div>
+          四个选项如下： 
+        </div> 
+        <ol> 
+         <li>仅带有一个公有子网的 Amazon VPC</li> 
+         <li>带有公有和私有子网的 Amazon VPC</li> 
+         <li>带有公有和私有子网以及提供 AWS 站点到站点 VPN 访问的 Amazon VPC</li> 
+         <li>仅带有一个私有子网以及提供 AWS 站点到站点 VPN 访问的 Amazon VPC</li> 
+        </ol> 
+        <div>
+          &nbsp; 
+        </div> 
+        <div> 
+         <b>问：Amazon VPC 上提供哪些不同类型的 VPC 终端节点？</b> 
+        </div> 
+        <div>
+          &nbsp; 
+        </div> 
+        <div>
+          借助 VPC 终端节点，您能够建立从您的 VPC 到 AWS 上托管的服务的私有连接，无需使用互联网网关、NAT 设备、VPN 或防火墙代理。终端节点是可水平扩展且高度可用的虚拟设备，允许 VPC 和 AWS 产品之间的实例进行通信。Amazon VPC 提供两种不同类型的终端节点：网关类终端节点和接口类终端节点。 
+        </div> 
+        <div>
+          &nbsp; 
+        </div> 
+        <div>
+          网关类终端节点仅适用于包括 S3 和 DynamoDB 在内的 AWS 产品。这些终端节点将向您选择的路由表添加一个条目，并通过 Amazon 私有网络将流量路由到支持的服务。 
+        </div> 
+        <div>
+          &nbsp; 
+        </div> 
+        <div>
+          接口类终端节点可建立指向 PrivateLink 支持的服务（如 AWS 产品、您自己的服务或 SaaS 解决方案）的私有连接，并支持通过 Direct Connect 建立连接。将来，这些终端节点将会支持更多 AWS 和 SaaS 解决方案。请参阅“VPC 定价”，了解接口类终端节点的价格。 
+        </div> 
+        <div>
+          &nbsp; 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Billing" class="lb-txt-bold lb-txt-none lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 计费</h2> 
+       <div class="lb-txt-light lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：使用 Amazon VPC 如何收费和计费？</b></p> 
+        <p>创建和使用 VPC 本身不另收费用。对包括 Amazon EC2 在内的其他 Amazon Web Services 的使用依然按照公布的费率收取费用，另外还有数据传输费。如果您使用可选的硬件 VPN 连接将您的 VPC 连接到公司数据中心，定价的依据为 VPN 连接小时数（VPN 连接处于“可用”状态的时长。） 未满一小时的按一小时计费。通过 VPN 连接传输的数据按照标准的 AWS 数据传输费率收取费用。有关 VPC-VPN 的定价信息，请访问 <a href="http://aws.amazon.com/vpc" target="_blank">Amazon VPC 产品页面</a>的<a href="http://aws.amazon.com/vpc/pricing" target="_blank">定价部分</a>。</p> 
+        <p><b>问：从 VPC 中的 Amazon EC2 实例使用 Amazon S3 等其他 AWS 产品会产生哪些使用费？</b></p> 
+        <p>对包括 Amazon EC2 在内的其他 Amazon Web Services 的使用依然按照公布的费率收取费用。通过 VPC 的互联网网关访问 Amazon S3 等 Amazon Web Services 时，不会产生数据传输费用。</p> 
+        <p>如果您通过 VPN 连接访问 AWS，则会产生 Internet 数据传输费用。</p> 
+        <p><b>问：价格是否含税？</b></p> 
+        <p>除非另行说明，否则我们的价格不包含适用的税费和关税（包括增值税和适用的销售税）。使用日本账单地址的客户若要使用 AWS，则需缴纳日本消费税。<a href="https://aws.amazon.com/c-tax-faqs/" target="_blank">了解更多。</a></p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Connectivity" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 连接</h2> 
+       <div class="lb-txt-light lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon VPC 有哪些连接选项？</b></p> 
+        <p>您可以将 Amazon VPC 连接到：</p> 
+        <ul> 
+         <li>互联网（通过互联网网关）</li> 
+         <li>使用 AWS 站点到站点 VPN 连接的公司数据中心（通过虚拟私有网关）</li> 
+         <li>互联网和公司数据中心（同时利用互联网网关和虚拟私有网关）</li> 
+         <li>其他 AWS 服务（通过互联网网关、NAT、虚拟私有网关或 VPC 终端节点）</li> 
+         <li>其他 Amazon VPC（通过 VPC 对等连接）</li> 
+        </ul> 
+        <div>
+          &nbsp; 
+        </div> 
+        <div> 
+         <b>问：如何将 VPC 与 Internet 连接？</b> 
+        </div> 
+        <div>
+          &nbsp; 
+        </div> 
+        <div>
+          Amazon VPC 支持创建互联网网关。此网关可以让 VPC 中的 Amazon EC2 实例能够直接连接 Internet。 
+        </div> 
+        <div>
+          &nbsp; 
+        </div> 
+        <div> 
+         <b>问：对互联网网关是否设有带宽限制？ 我需不需要考虑其可用性？ 会不会成为单点故障？</b> 
+        </div> 
+        <div>
+          &nbsp; 
+        </div> 
+        <div>
+          不会。互联网网关具有水平扩展、冗余和高度可用三大特点。不存在带宽限制。 
+        </div> 
+        <div>
+          &nbsp; 
+        </div> 
+        <div> 
+         <b>问：VPC 中的实例如何访问 Internet？</b> 
+        </div> 
+        <div>
+          &nbsp; 
+        </div> 
+        <div>
+          您可以使用公有 IP 地址（包括弹性 IP 地址 [EIP]）让 VPC 中的实例直接与 Internet 进行出站通信，以及从 Internet（例如 Web 服务器）接收主动提供的入站流量。您也可以使用下一个问题中介绍的解决方案。 
+        </div> 
+        <div>
+          &nbsp; 
+        </div> 
+        <div> 
+         <b>问：没有公有 IP 地址的实例如何访问 Internet？</b> 
+        </div> 
+        <div>
+          &nbsp; 
+        </div> 
+        <div>
+          没有公有 IP 地址的实例可以通过以下两种方式之一访问 Internet： 
+        </div> 
+        <ol> 
+         <li>没有公有 IP 地址的实例可以通过 NAT 网关或 NAT 实例来传输流量，从而访问 Internet。这些实例使用 NAT 网关或 NAT 实例的公有 IP 地址来访问 Internet。NAT 网关或 NAT 实例允许出站通信，但不允许 Internet 上的计算机主动连接具有私有地址的实例。</li> 
+         <li>对于通过硬件 VPN 或 Direct Connect 进行连接的 VPC，实例可以将其 Internet 流量通过虚拟私有网关下传到现有的数据中心。它可从该处借助现有出口点和网络安全/监控设备访问 Internet。</li> 
+        </ol> 
+        <div>
+          &nbsp; 
+        </div> 
+        <div> 
+         <b>问：可否使用软件 VPN 连接 VPC？</b> 
+        </div> 
+        <div>
+          &nbsp; 
+        </div> 
+        <div>
+          可以。您可以使用第三方软件 VPN，利用您的 VPC 经由互联网网关创建站到站或远程访问 VPN 连接。 
+        </div> 
+        <div>
+          &nbsp; 
+        </div> 
+        <div> 
+         <b>问：当两个实例使用公有 IP 地址通信时，或者当实例与一个公有 AWS 服务终端节点通信时，流量是否通过互联网传输？</b> 
+        </div> 
+        <div>
+          &nbsp; 
+        </div> 
+        <div>
+          否。当使用公有地址空间时，托管在 AWS 中的实例与服务之间的所有通信均使用 AWS 的私有网络。来自 AWS 网络且目标在 AWS 网络上的数据包仍留在 AWS 全球网络上，进出 AWS 中国区域的流量除外。 
+        </div> 
+        <div>
+          &nbsp; 
+        </div> 
+        <div>
+          此外，在我们的数据中心和区域互连的 AWS 全球网络中，所有的数据流动在离开我们的安全设施之前，都经过物理层自动加密。另外，还有其他的加密层存在；例如，所有 VPC 跨区域对等流量，以及客户或服务到服务的传输层安全性 (TLS) 连接。 
+         <br> 
+        </div> 
+        <div>
+          &nbsp; 
+        </div> 
+        <div> 
+         <b>问：AWS 站点到站点 VPN 连接如何用于 Amazon VPC？</b> 
+        </div> 
+        <div>
+          &nbsp; 
+        </div> 
+        <div>
+          AWS 站点到站点 VPN 连接将 VPC 与数据中心连接。Amazon 支持互联网协议安全 (IPsec) VPN 连接。在 VPC 与数据中心之间传输的数据通过加密的 VPN 连接路由，以保护动态数据的机密性和完整性。建立 AWS 站点到站点 VPN 连接不需要使用互联网网关。 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="IP_Addressing" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> IP 寻址</h2> 
+       <div class="lb-txt-light lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon VPC 中可以使用哪些 IP 地址范围？</b></p> 
+        <p>您可以使用主 CIDR 块的任意 <a href="http://en.wikipedia.org/wiki/IPv4" target="_blank">IPv4</a> 地址范围，其中包括 <a href="https://tools.ietf.org/html/rfc1918" target="_blank">RFC 1918</a> 或公有可路由 IP 范围。对于辅助 CIDR 块，则存在一些<a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html#add-cidr-block-restrictions" target="_blank">限制</a>。对于公有可路由 IP 数据块，只能通过虚拟私有网关进行访问，无法通过互联网网关从 Internet 访问。AWS 并不向 Internet 公告客户自有的 IP 地址数据块。通过调用相关 API 或通过 AWS 管理控制台，您可以向 VPC 分配 Amazon 提供的 IPv6 CIDR 块。</p> 
+        <p><b>问：如何向 Amazon VPC 分配 IP 地址范围？</b></p> 
+        <p>您可在创建 VPC 时将单个<a href="http://en.wikipedia.org/wiki/CIDR" target="_blank">无类别互联网域路由 (CIDR)</a> IP 地址范围指定为主 CIDR 块，并在 VPC 创建完成后添加最多四 (4) 个辅助 CIDR 块。您可以从这些 CIDR 范围内为 VPC 中的子网寻址。请注意，虽然您可以创建 IP 地址范围重叠的多个 VPC，但这样做会妨碍您通过硬件 VPN 连接将这些 VPC 与常用的家庭网络连接。因此，我们建议您不要使用重叠的 IP 地址范围。您可以向 VPC 分配 Amazon 提供的 IPv6 CIDR 块。</p> 
+        <p><b>问：分配至默认 Amazon VPC 的 IP 地址范围是什么？</b></p> 
+        <p>默认 VPC 分配有 172.31.0.0/16 的 CIDR 范围。每个默认 VPC 中的默认子网分配有 VPC CIDR 范围内的 /20 个网块。&nbsp;</p> 
+        <p><b>问：能否向互联网公告我的 VPC 公有 IP 地址范围，并将通过我的数据中心的流量从 AWS 站点到站点 VPN 路由到我的 Amazon VPC？</b></p> 
+        <p>能。您可以通过 AWS 站点到站点 VPN 连接路由流量，也可从家庭网络公告该地址范围。</p> 
+        <p><b>问：是否可以在 VPC 中使用公有 IPv4 地址并通过 Internet 访问它们？</b></p> 
+        <p>可以。您可以在 AWS VPC 中使用您的公有 IPv4 地址，并将它们静态分配给子网和 EC2 实例。如需通过 Internet 访问这些地址，您必须通过本地网络将它们公告到 Internet。您还必须在 VPC 和本地网络之间使用 AWS DX 或 AWS VPN 连接，路由这些地址上的流量。您可以使用虚拟私有网关路由来自 VPC 的流量。同样，您可以使用路由器将来自本地网络的流量路由回 VPC。</p> 
+        <p><b>问：可以创建多大的 VPC？</b></p> 
+        <p>目前，Amazon VPC 支持五 (5) 个 IP 地址范围，一 (1) 个主和四 (4) 个辅助 IPv4 IP 地址范围。每一个范围的大小都介于 /28（CIDR 表示法）和 /16 之间。VPC 的 IP 地址范围不能与现有网络的 IP 地址范围重叠。</p> 
+        <p>对于 IPv6，VPC 使用 /56 的固定大小（CIDR 表示法）。VPC 可以同时有 IPv4 和 IPv6 CIDR 块与其关联。</p> 
+        <p><b>问：我可以更改 VPC 的大小吗？</b></p> 
+        <p>可以。您可以通过向现有 VPC 添加四 (4) 个辅助 IPv4 IP 范围 (CIDR) 来扩展 VPC。您也可以通过删除已添加到 VPC 的辅助 CIDR 块来缩小 VPC。但您不能更改 VPC 的 IPv6 地址范围的大小。</p> 
+        <p><b>问：每个 VPC 可以创建多少个子网？</b></p> 
+        <p>目前，每个 VPC 可以创建 200 个子网。如果您希望创建更多子网，请<a href="https://aws.amazon.com/contact-us/vpc-request/" target="_blank">在支持中心提交案例</a>。</p> 
+        <p><b>问：子网的大小是否有限制？</b></p> 
+        <p>对于 IPv4，子网的大小下限为 /28（或 14 个 IP 地址）。子网的大小不能超过在其中创建它们的 VPC。</p> 
+        <p>对于 IPv6，子网大小固定为 /64。仅可将一个 IPv6 CIDR 块分配给一个子网。</p> 
+        <p><b>问：可否使用分配给某个子网的所有 IP 地址？</b></p> 
+        <p>不可以。Amazon 会保留各个子网的前面四 (4) 个 IP 地址和最后一 (1) 个 IP 地址，以作 IP 联网之用。&nbsp;</p> 
+        <p><b>问：如何将私有 IP 地址分配给 VPC 中的 Amazon EC2 实例？</b></p> 
+        <p>启动 VPC 中的 Amazon EC2 实例时，您可以选择指定该实例的主要私有 IP 地址。如果不指定主要私有 IP 地址，AWS 将从您分配给该子网的 IP 地址范围中自动寻址。您可以在以下时间分配辅助私有 IP 地址：启动实例时、创建弹性网络接口时，或者启动实例后或创建该接口后的任意时间。</p> 
+        <p><b>问：可否在 VPC 中的 Amazon EC2 实例运行和/或停止时，更改其私有 IP 地址？</b></p> 
+        <p>在实例或接口的生命周期内，主要私有 IP 地址将一直保留。辅助私有 IP 地址则可随时分配、取消分配，或者在接口或实例之间移动。</p> 
+        <p><b>问：如果停止了 VPC 中的 Amazon EC2 实例，可否在同一 VPC 中启动 IP 地址相同的另一实例？</b></p> 
+        <p>只有原先运行的实例处于“已终止”状态时，分配给其的 IP 地址才能用于其他实例。</p> 
+        <p><b>问：可否同时为多个实例分配 IP 地址？</b></p> 
+        <p>不可以，您只能一次为一个实例指定 IP 地址（在启动实例时指定）。</p> 
+        <p><b>问：可否将任意 IP 地址分配给实例？</b></p> 
+        <p>只要 IP 地址满足以下条件，您便可以将其分配给实例：</p> 
+        <ul> 
+         <li>属于相关子网的 IP 地址范围</li> 
+         <li>没有被 Amazon 保留用于 IP 联网目的</li> 
+         <li>当前没有分配给其他接口</li> 
+        </ul> 
+        <p><b>问：可否将多个 IP 地址分配给一个实例？</b></p> 
+        <p>可以。您可以将一个或多个辅助私有 IP 地址分配给 Amazon VPC 中的弹性网络接口或 EC2 实例。您可以分配的辅助私有 IP 地址的数量取决于实例类型。有关可以按不同实例类型分配的辅助私有 IP 地址数量的更多信息，请参阅 <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html" target="_blank">EC2 用户指南</a>。</p> 
+        <p><b>问：可否将一个或多个弹性 IP (EIP) 地址分配给基于 VPC 的 Amazon EC2 实例？</b></p> 
+        <p>可以。不过，这些 EIP 地址只能从 Internet 访问（不能通过 VPN 连接访问）。每个 EIP 地址必须与实例上的一个唯一私有 IP 地址关联。EIP 地址只应该在被配置为将流量直接路由到互联网网关的子网中的实例上使用。EIP 无法用于配置为使用 NAT 网关或 NAT 实例访问 Internet 的子网中的实例。这仅适用于 IPv4。目前，Amazon VPC 不支持用于 IPv6 的 EIP。</p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Topology" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 拓扑</h2> 
+       <div class="lb-txt-light lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：可否指定哪个子网将用哪个网关作为其默认网关？</b></p> 
+        <p>可以。您可以为各个子网创建默认路由。默认路由可以指引流量通过互联网网关、虚拟私有网关或 NAT 网关从 VPC 传出。</p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Security_and_Filtering" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 安全和筛选</h2> 
+       <div class="lb-rtxt"> 
+        <p><b>问：如何确保在 VPC 中运行的 Amazon EC2 实例的安全？</b></p> 
+        <p>Amazon EC2 安全组可用来帮助确保 Amazon VPC 内实例的安全。VPC 中的安全组可用于指定允许进出各个 Amazon EC2 实例的进站和出站网络流量。没有被明确允许进出实例的流量将自动被拒绝。</p> 
+        <p>除了安全组外，也可以通过网络访问控制列表 (ACL) 来允许或拒绝进出各个子网的网络流量。</p> 
+        <p><b>问：VPC 中的安全组和 VPC 中的网络 ACL 有什么区别？</b></p> 
+        <p>VPC 中的安全组指定允许传入或传出 Amazon EC2 实例的流量。网络 ACL 则在子网级别上运作，评估进出某个子网的流量。网络 ACL 可通过设置允许和拒绝规则来进行使用。Network ACL 不能筛选同一子网中实例之间的流量。此外，网络 ACL 执行无状态筛选，而安全组则执行有状态筛选。</p> 
+        <p><b>问：有状态筛选和无状态筛选有什么区别？</b></p> 
+        <p>有状态筛选可跟踪请求的来源，并可自动允许将请求的回复返回到来源计算机。例如，允许入站流量进入 Web 服务器上的 TCP 端口 80 的有状态筛选器将允许返回流量（通常为编号较高的端口，如目标 TCP 端口 63、912）通过客户端与 Web 服务器之间的有状态筛选器。筛选设备维护一个状态表，跟踪来源和目标端口编号与 IP 地址。筛选设备上仅需要一条规则：允许流量进入 Web 服务器的 TCP 端口 80。</p> 
+        <p>无状态筛选则相反，仅检查来源或目标 IP 地址和目标端口，而忽略流量是新请求还是对请求的回复。上例中的筛选设备上需要实施两条规则：一条规则用于允许流量在 TCP 端口 80 上传入 Web 服务器，另一条规则用于允许流量传出 Web 服务器（TCP 端口范围 49、152 到 65、535）。</p> 
+        <p><b>问：是否可以在 Amazon VPC 中使用为 Amazon EC2 中实例创建的 SSH 密钥对，而且反过来也可以？</b></p> 
+        <p>可以。</p> 
+        <p><b>问：VPC 中的 Amazon EC2 实例可否与非 VPC 中的 Amazon EC2 实例通信？</b></p> 
+        <p>可以。如果配置了互联网网关，目标为位于 VPC 外部的 Amazon EC2 实例的 Amazon VPC 流量将遍历互联网网关，然后进入公有 AWS 网络以到达该 EC2 实例。如果没有配置互联网网关，或者如果实例位于被配置为通过虚拟私有网关路由的子网中，流量将遍历 VPN 连接，从您的数据中心中传出，然后再次进入公有 AWS 网络。</p> 
+        <p><b>问：一个区域的 VPC 中的 Amazon EC2 实例可否与另一区域 VPC 中的 Amazon EC2 实例通信？</b></p> 
+        <p>可以。一个区域内的实例可使用区域间 VPC 对等连接、公有 IP 地址、NAT 网关、NAT 实例、VPN 连接或 Direct Connect 连接相互通信。</p> 
+        <p><b>问：VPC 中的 Amazon EC2 实例可否与 Amazon S3 通信？</b></p> 
+        <p>可以。VPC 中的资源可通过多种方式与 Amazon S3 通信。您可以使用 S3 的 VPC 端点，它可确保将所有流量都保持在 Amazon 的网络中，并使您能够将其他访问策略应用于 Amazon S3 流量。您可以使用互联网网关从 VPC 对 Internet 进行访问，并且 VPC 中的实例可以与 Amazon S3 进行通信。您也可以让流向 Amazon S3 的所有流量遍历 Direct Connect 或 VPN 连接，再从数据中心流出，然后重新进入公共 AWS 网络。</p> 
+        <p><b>问：是否可以监控我的 VPC 中的网络流量？</b></p> 
+        <p>可以。您可以使用 Amazon VPC 流量镜像和 Amazon VPC 流日志功能监控 Amazon VPC 中的网络流量。<br> </p> 
+        <p><b>问：什么是 Amazon VPC 流日志？</b></p> 
+        <p>VPC 流日志是一项功能，允许您捕获有关进出 VPC 中网络接口的 IP 流量的信息。流日志数据可以发布到 Amazon CloudWatch Logs 或 Amazon S3 中。您可以监控 VPC 流日志，以获取对网络依赖性和流量模式的操作可见性，检测异常并防止数据泄露，或者对网络连接和配置问题进行故障排除。流日志中丰富的元数据可帮助您进一步了解谁发起了 TCP 连接，以及流经中间层（如 NAT 网关）的流量的实际数据包级源和目的地。您还可以存档流日志，以满足合规性要求。要了解更多有关 Amazon VPC 流日志的信息，请参阅<a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/flow-logs.html" target="_blank">文档</a>。</p> 
+        <p><b>问：如何使用 VPC 流日志？</b></p> 
+        <p>您可以为 VPC、子网或网络接口创建流日志。如果您为子网或 VPC 创建流日志，该子网或 VPC 中的每个网络接口都将被监控。创建流日志订阅时，您可以选择您想要捕获的元数据字段、最大聚合间隔和您的首选日志目的地。您还可以选择捕获所有流量或仅接受或拒绝流量。您可以使用 CloudWatch Log Insights 或 CloudWatch Contributor Insights 等工具分析传输到 CloudWatch Logs 的 VPC 流日志。您可以使用 Amazon Athena 或 AWS QuickSight 等工具查询和可视化传输到 Amazon S3 的 VPC 流日志。您还可以构建自定义下游应用程序以分析您的日志或使用 Splunk、Datadog、Sumo Logic、Cisco StealthWatch、Checkpoint CloudGuard、New Relic 等合作伙伴解决方案。</p> 
+        <p><b>问：使用流日志是否会影响您的网络延迟或性能？</b></p> 
+        <p>流日志数据在网络流量路径之外收集，因此不会影响网络吞吐量或延迟。您可以创建或删除流日志，不会产生任何影响网络性能的风险。</p> 
+        <p><b>问：VPC 流日志的费用是多少？</b></p> 
+        <p>当您将流日志发布到 CloudWatch Logs 或 Amazon S3 时，将收取对公开日志的数据提取和存档费用。有关更多信息和示例，请参阅 <a href="/cn/cloudwatch/pricing/" target="_blank">Amazon CloudWatch 定价</a>。您还可以使用成本分配标签跟踪发布流日志的费用。<br> </p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="VPC_Traffic_Mirroring" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> VPC 流量镜像</h2> 
+       <div class="lb-rtxt"> 
+        <p><b>问：什么是 Amazon VPC 流量镜像？</b></p> 
+        <p>借助 Amazon VPC 流量镜像，客户可以轻松地将网络流量复制到 Amazon EC2 实例以及从中复制，并将这些流量转发给带外安全和监控设备，用于内容检查、威胁监控和故障排除等使用案例。这些设备可以部署在单独的 EC2 实例上，也可以部署在带有用户数据报协议 (UDP) 侦听器的网络负载均衡器 (NLB) 后面的一组实例上。</p> 
+        <p><b>问：Amazon VPC 流量镜像的工作原理是什么？</b></p> 
+        <p>流量镜像功能从 Amazon VPC 中 EC2 实例的弹性网络接口 (ENI) 复制网络流量。您可以将镜像流量发送到其他 EC2 实例，也可以发送到带有 UDP 侦听器的 NLB。流量镜像使用 VXLAN 标头封装所有复制的流量。镜像源和目标（监控设备）可以位于同一 VPC 中，也可以位于不同的 VPC 中，通过 VPC 对等或 AWS Transit Gateway 连接。</p> 
+        <p><b>问：使用 Amazon VPC 流量镜像可以监控哪些资源？</b></p> 
+        <p>流量镜像支持在 EC2 实例的弹性网络接口 (ENI) 级别捕获的网络数据包。目前，所有基于虚拟化 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro 的 EC2 实例</a>均支持此功能。</p> 
+        <p><b>问：Amazon VPC 流量镜像支持哪些类型的设备？</b></p> 
+        <p>客户可以使用开源工具，也可以从 AWS Marketplace 上提供的各种监控解决方案中进行选择。借助流量镜像，客户可以将复制的流量流式传输到任何网络数据包收集器/代理或分析工具，无需安装特定于供应商的代理。&nbsp;</p> 
+        <p><b>问：Amazon VPC 流量镜像与 Amazon VPC 流日志有何不同？</b></p> 
+        <p>借助 Amazon VPC 流日志，客户可以收集、存储和分析网络流日志。流日志中捕获的信息包括关于允许和拒绝的流量、源和目标 IP 地址、端口、协议编号、数据包和字节数以及操作（接受或拒绝）的信息。您可以使用此功能对连接和安全问题进行故障排除，并确保网络访问规则按预期工作。</p> 
+        <p>借助 Amazon VPC 流量镜像，您可以分析实际流量内容（包括负载），从而深入了解网络流量。它的使用案例包括分析实际数据包以确定性能问题的根本原因、对复杂的网络攻击进行逆向工程以及检测并阻止内部滥用或受损的工作负载。<br> </p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Amazon_VPC_and_EC2" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> Amazon VPC 与 Amazon EC2</h2> 
+       <div class="lb-txt-light lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：可以在哪个（些）Amazon EC2 区域中使用 Amazon VPC？</b></p> 
+        <p>Amazon VPC 目前可以在所有 Amazon EC2 区域的多个<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html" target="_blank">可用区</a>中使用。</p> 
+        <p><b>问：一个 VPC 可否跨越多个可用区？</b></p> 
+        <p>可以。&nbsp;</p> 
+        <p><b>问：一个子网可否跨越多个可用区？</b></p> 
+        <p>子网必须位于单个可用区中。</p> 
+        <p><b>问：如何指定在哪个可用区中启动我的 Amazon EC2 实例？</b></p> 
+        <p>启动 Amazon EC2 实例时，您必须指定要在其中启动该实例的子网。该实例将在与指定子网关联的可用区中启动。</p> 
+        <p><b>问：如何确定我的子网所在的可用区？</b></p> 
+        <p>在创建子网时，您必须指定要放置该子网的可用区。使用 VPC 向导时，您可以在向导确认屏幕中选择子网可用区。在使用 API 或 CLI 时，您可以像创建子网时一样指定子网的可用区。如果不指定可用区，则将选取默认的“无首选项”选项，子网也会在相应区域中已有的可用区中创建。</p> 
+        <p><b>问：是否要为不同子网中实例之间的网络带宽支付费用？</b></p> 
+        <p>如果实例驻留在不同可用区中的子网内，每传输 1GB 数据，您将需要支付 0.01 USD 的传输费。</p> 
+        <p><b>问：调用 DescribeInstances() 时，可否看到我的所有 Amazon EC2 实例，包括位于 EC2-Classic 和 EC2-VPC 中的实例？</b></p> 
+        <p>可以。DescribeInstances() 将返回所有运行中的 Amazon EC2 实例。您可以通过子网字段中的条目区别 EC2-Classic 实例与 EC2-VPC 实例。如果列出了子网 ID，则该实例位于 VPC 中。&nbsp;</p> 
+        <p><b>问：调用 DescribeVolumes() 时，可否看到我的所有 Amazon EBS 卷，包括位于 EC2-Classic 和 EC2-VPC 中的卷？</b></p> 
+        <p>可以。DescribeVolumes() 将返回您的所有 EBS 卷。</p> 
+        <p><b>问：一个 VPC 中可使用多少个 Amazon EC2 实例？</b></p> 
+        <p>您可以在一个 VPC 中运行任意数量的 Amazon EC2 实例，只要设置的 VPC 大小足以为每个实例分配一个 IP 地址。初始状态下，限制一次最多启动 20 个 Amazon EC2 实例，并且 VPC 的大小上限为 /16（65 536 个 IP）。如果要提高这些限制，请<a href="http://aws.amazon.com/contact-us/vpc-request/" target="_blank">填写以下表单</a>。</p> 
+        <p><b>问：可否在 Amazon VPC 中使用现有的 AMI？</b></p> 
+        <p>您可以在 Amazon VPC 中使用注册区域与您的 VPC 相同的 AMI。例如，您可以将注册在 us-east-1 的 AMI 用于 us-east-1 中的 VPC。有关更多信息，请参阅 <a href="http://docs.amazonwebservices.com/AWSEC2/latest/UserGuide/FAQ_Regions_Availability_Zones.html" target="_blank">Amazon EC2 区域和可用区常见问题</a>。</p> 
+        <p><b>问：可否使用现有的 Amazon EBS 快照？</b></p> 
+        <p>可以。如果 Amazon EBS 快照与您的 VPC 位于同一区域中，您就可以使用它们。有关更多详情，请参阅 <a href="http://docs.amazonwebservices.com/AWSEC2/latest/UserGuide/FAQ_Regions_Availability_Zones.html" target="_blank">Amazon EC2 区域和可用区常见问题。</a></p> 
+        <p><b>问：可否从 Amazon VPC 中的 Amazon EBS 卷启动 Amazon EC2 实例？</b></p> 
+        <p>可以。不过，VPC 中使用由 Amazon EBS 支持的 AMI 启动的实例将在停止和重新启动后保持相同的 IP 地址。这与相似的实例从 VPC 之外启动时相反，那时会获取新的 IP 地址。子网中任何停止的实例的 IP 地址将视为不可用。</p> 
+        <p><b>问：可否将 Amazon EC2 预留实例用于 Amazon VPC？</b></p> 
+        <p>可以。您可以在购买预留实例时，在 Amazon VPC 中预留实例。计算账单时，AWS 不区分您的实例是在 Amazon VPC 中还是在标准的 Amazon EC2 中运行。AWS 将自动优化确认哪些实例按照更低的预留实例费用收费，确保您始终支付最低的金额。不过，您的实例预留将仅限于 Amazon VPC。有关更多详情，请参阅<a href="http://aws.amazon.com/ec2/reserved-instances" target="_blank">预留实例</a>页面。</p> 
+        <p><b>问：可否在 Amazon VPC 中使用 Amazon CloudWatch？</b></p> 
+        <p>可以。</p> 
+        <p><b>问：可否在 Amazon VPC 中使用 Auto Scaling？</b></p> 
+        <p>可以。&nbsp;</p> 
+        <p><b>问：是否可以在 VPC 中启动 Amazon EC2 群集实例？</b></p> 
+        <p>可以。Amazon VPC 支持群集实例，但是并非所有实例类型在所有区域和所有可用区都可用。</p> 
+        <p>&nbsp;</p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Default_VPCs" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 默认 VPC</h2> 
+       <div class="lb-txt-light lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：什么是默认 VPC？</b></p> 
+        <p>默认 VPC 是 AWS 云中的逻辑独立虚拟网络，在您初次配置 Amazon EC2 资源时，会为您的 AWS 账户自动创建。当您启动实例而未指定子网 ID 时，实例便会在默认 VPC 中启动。</p> 
+        <p><b>问：默认 VPC 有哪些优势？</b></p> 
+        <p>当您在默认 VPC 中启动资源时，Amazon VPC (EC2-VPC) 的高级网络功能以及 Amazon EC2 (EC2-Classic) 的易用性可为您提供诸多益处。您可以享用各种功能，包括运行中更改安全组成员、安全组出口筛选、多 IP 地址以及多网络接口，而无需专门创建 VPC 并在其中启动实例。</p> 
+        <p><b>问：启用默认 VPC 的账户有哪些？</b></p> 
+        <p>如果您的 AWS 账户是在 2013 年 3 月 18 日之后创建的，则可以在默认 VPC 中启动资源。请参阅此<a href="https://forums.aws.amazon.com/ann.jspa?annID=1875" target="_blank">论坛公告</a>以确定哪些区域已经启用默认 VPC 功能集。而对于在所列日期之前创建的账户，则可以在任何已启用默认 VPC 的区域（您未曾在该区域启动过 EC2 实例或预置过 Amazon Elastic Load Balancing、Amazon RDS、Amazon ElastiCache 或 Amazon Redshift 资源）中使用默认 VPC。</p> 
+        <p><b>问：如何确定我的账户是否被配置为使用默认 VPC？</b></p> 
+        <p>Amazon EC2 控制台会显示在所选区域中您可以启动实例的平台，以及在该区域您是否拥有默认 VPC。在导航栏中，确认选定要使用的区域。在 Amazon EC2 控制台仪表板上，从“账户属性”下找到“支持的平台”。如果有两个值，EC2-Classic 和 EC2-VPC，则可以在任一个平台上启动实例。如果有一个值，EC2-VPC，则只能在 EC2-VPC 中启动实例。如果您的账户被配置为使用默认 VPC，则会在“账户属性”下列出您的默认 VPC ID。您还可以使用 EC2 DescribeAccountAttributes API 或 CLI 来描述您的受支持平台。</p> 
+        <p><b>问：是否需要了解一些关于 Amazon VPC 的信息才能使用默认 VPC？</b></p> 
+        <p>不需要。您可以使用 AWS 管理控制台、AWS EC2 CLI 或 Amazon EC2 API 在默认 VPC 中启动和管理 EC2 实例及其他 AWS 资源。AWS 会为您自动创建默认 VPC，并在 AWS 区域中的每个可用区中创建默认子网。您的默认 VPC 将会连接到互联网网关，您的实例会自动接收公有 IP 地址，这与 EC2-Classic 类似。</p> 
+        <p><b>问：在 EC2-Classic 和 EC2-VPC 中启动的实例有何区别？</b></p> 
+        <p>请参阅《EC2 用户指南》中的 <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html" target="_blank">EC2-Classic 与 EC2-VPC 之间的区别</a>。</p> 
+        <p><b>问：是否必须通过 VPN 连接使用默认 VPC？</b></p> 
+        <p>不是。默认 VPC 会连接到 Internet，并且所有在默认 VPC 的默认子网中启动的实例都会自动接收公有 IP 地址。您可以将 VPN 连接添加到您选择的默认 VPC 中。</p> 
+        <p><b>问：可否创建其他 VPC 并与默认 VPC 一同使用？</b></p> 
+        <p>可以。要在非默认 VPC 中启动实例，必须在实例启动期间指定子网 ID。</p> 
+        <p><b>问：可否在默认 VPC 中创建额外的子网，例如私有子网？</b></p> 
+        <p>可以。要启动并进入非默认子网中，您可以使用控制台或者 CLI、API 或 SDK 中的 --subnet 选项设定启动目标。</p> 
+        <p><b>问：最多可以拥有多少个默认 VPC？</b></p> 
+        <p>对于将“支持的平台”属性设为“EC2-VPC”的每个 AWS 区域，可以拥有一个默认 VPC。</p> 
+        <p><b>问：默认 VPC 的 IP 范围是什么？</b></p> 
+        <p>默认 VPC CIDR 为 172.31.0.0/16。默认子网在默认 VPC CIDR 中使用 /20 CIDR。</p> 
+        <p><b>问：一个默认 VPC 包含多少个默认子网？</b></p> 
+        <p>系统会在您的默认 VPC 中为每个可用区创建一个默认子网。</p> 
+        <p><b>问：可否自行指定默认 VPC？</b></p> 
+        <p>目前不可以。</p> 
+        <p><b>问：可否自行指定默认子网？</b></p> 
+        <p>目前不可以。</p> 
+        <p><b>问：可否删除默认 VPC？</b></p> 
+        <p>可以，您可以删除默认 VPC。删除后，您可以直接通过 VPC 控制台或使用 CLI 创建新的默认 VPC。这样做将在相应区域创建一个新的默认 VPC，而不会还原之前删除的 VPC。</p> 
+        <p><b>问：可否删除默认子网？</b></p> 
+        <p>可以，您可以删除默认子网。删除后，您可以使用 CLI 或 SDK 在可用区中创建新的默认子网。这将在指定的可用区中创建新的默认子网，而不会还原之前删除的子网。</p> 
+        <p><b>问：我现在有一个 EC2-Classic 账户。可否获得默认 VPC？</b></p> 
+        <p>获得默认 VPC 的最简单方法是，在已启用默认 VPC 的区域中创建一个新账户，或在从未到过的区域中使用现有账户，只要该区域中该账户的“支持的平台”属性设为“EC2-VPC”即可。</p> 
+        <p><b>问：我很想让我现有的 EC2 账户拥有默认 VPC。是否可行？</b></p> 
+        <p>可以，但是，如果您在该区域的账户中没有任何 EC2-Classic 资源，我们只能为默认 VPC 启用现有账户。此外，您还必须终止该区域中的所有非 VPC 配置的 Elastic Load Balancer、Amazon RDS、Amazon ElastiCache 和 Amazon Redshift 资源。在为您的账户配置默认 VPC 后，所有未来资源启动（包括通过 Auto Scaling 启动实例）都将在您的默认 VPC 中执行。要申请为您的现有账户设置默认 VPC，请转到<i>账户和账单</i> -&gt; <i>服务：账户</i> -&gt; <i>C类别：将 EC2 Classic 转换为 VPC</i>，然后提出申请。我们会审核您的申请、您现有的 AWS 产品以及 EC2-Classic 情况，以指导您完成后续步骤。<br> </p> 
+        <p><b>问：默认 VPC 对 IAM 账户有哪些影响？</b></p> 
+        <p>如果您的 AWS 账户拥有默认 VPC，则与 AWS 账户关联的任何 IAM 账户会使用与 AWS 账户相同的默认 VPC。</p> 
+        <p>&nbsp;</p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Elastic_Network_Interfaces" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 弹性网络接口</h2> 
+       <div class="lb-txt-light lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：可否在 EC2 实例运行时，连接或断开一个或多个网络接口？</b></p> 
+        <p>可以。</p> 
+        <p><b>问：一个 EC2 实例可否连接两个以上网络接口？</b></p> 
+        <p>EC2 实例上可以连接的网络接口总数取决于实例类型。有关不同类型的实例允许的网络接口数量的更多信息，请参阅《EC2 用户指南》。</p> 
+        <p><b>问：可否将一个可用区中的网络接口连接到另一可用区中的实例？</b></p> 
+        <p>网络接口只能连接到位于相同可用区中的实例。</p> 
+        <p><b>问：可否将一个 VPC 中的网络接口连接到另一 VPC 中的实例？</b></p> 
+        <p>网络接口只能连接到该接口所在 VPC 中的实例。</p> 
+        <p><b>问：可否使用弹性网络接口这种方式，在一个实例上托管要求单独 IP 地址的多个网站？</b></p> 
+        <p>可以。不过，这不是符合多接口的最佳使用案例。相反，您应当为实例分配额外的私有 IP 地址，然后根据需要将 EIP 与这些私有 IP 关联。</p> 
+        <p><b>问：弹性 IP 地址与网络接口关联，但该网络接口没有连接运行中的实例时，是否会收取费用？</b></p> 
+        <p>会。</p> 
+        <p><b>问：可否断开 EC2 实例上的主要接口 (eth0)？</b></p> 
+        <p>您可以连接和断开 EC2 实例上的次要接口 (eth1-ethn)，但不能断开 eth0 端口。</p> 
+        <p>&nbsp;</p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Peering_Connections" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 对等连接</h2> 
+       <div class="lb-txt-light lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：可否创建连接到不同区域中的 VPC 的对等连接？</b></p> 
+        <p>可以。可面向不同区域中的 VPC 创建对等连接。&nbsp;区域间 VPC 对等连接已在全球除中国以外的所有商业区域推出。</p> 
+        <p><b>问：可否将我的 VPC 对等连接到其他 AWS 账户的 VPC？</b></p> 
+        <p>可以，只要其他 VPC 的所有者接受您的对等连接请求。</p> 
+        <p><b>问：可否将 IP 地址范围匹配的两个 VPC 进行对等连接？</b></p> 
+        <p>不可以。对等连接的 VPC 必须拥有互不重叠的 IP 范围。</p> 
+        <p><b>问：VPC 对等连接如何收费？</b></p> 
+        <p>创建 VPC 对等连接并不收取费用，但是对等连接点之间的数据传输要收费。如需了解数据传输费率，请参阅 <a href="http://aws.amazon.com/ec2/pricing/" target="_blank">EC2 定价页面</a>中的“数据传输”部分。</p> 
+        <p><b>问：可否使用 AWS Direct Connect 或硬件 VPN 连接访问我已经对等连接的 VPC？</b></p> 
+        <p>不可以。Amazon VPC 不支持“边缘到边缘路由”。有关更多信息，请参阅 <a href="http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/" target="_blank">VPC 对等指南</a>。</p> 
+        <p><b>问：是否需要互联网网关才能使用对等连接？</b></p> 
+        <p>VPC 对等连接不需要互联网网关。</p> 
+        <p><b>问：VPC 对等流量在区域中是否已加密？</b></p> 
+        <p>没有。对等连接的 VPC 中的实例之间的流量始终是私密而隔离的，这类似于相同 VPC 中两个实例之间流量私密而隔离的情形。</p> 
+        <p><b>问：如果我删除我这端的对等连接，另一端还能访问我的 VPC 吗？</b></p> 
+        <p>不可以。对等连接两端的任一端随时可以中断对等连接。中断对等连接意味着流量不会在两个 VPC 之间产生。</p> 
+        <p><b>问：如果将 VPC A 对等连接到 VPC B，再将 VPC B 对等连接到 VPC C，是否表示 VPC A 和 VPC C 已经对等连接？</b></p> 
+        <p>不是。不支持传递对等关系。</p> 
+        <p><b>问：我的对等连接出现故障怎么办？</b></p> 
+        <p>AWS 使用现有 VPC 基础设施创建 VPC 对等连接，既不是网关，也不是 VPN 连接，因此不依赖某个独立的实体硬件。不会发生单点通信故障或带宽瓶颈。</p> 
+        <p>区域间 VPC 对等连接采用当前支持 VPC 的横向扩展、冗余且高度可用的技术。区域间 VPC 对等连接流量经过具有内置冗余和动态带宽分配的 AWS 主干。不会发生单点通信故障。</p> 
+        <p>如果区域间对等连接出现故障，流量将不会通过 Internet 路由。</p> 
+        <p><b>问：对等连接是否设有带宽限制？</b></p> 
+        <p>对等连接的 VPC 中的实例之间的带宽与相同 VPC 中的实例之间的带宽无异。<b>注意</b>：置放群组可跨越多个对等连接的 VPC，但是，您不会在对等连接的 VPC 中的实例之间获取全部的等分带宽。阅读有关<a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html" target="_blank">置放群组</a>的更多信息。</p> 
+        <p><b>问：区域间 VPC 对等连接流量是否加密？</b></p> 
+        <p>流量使用现代 AEAD（带关联数据的加密认证）算法进行加密。密钥协议和密钥管理由 AWS 完成。</p> 
+        <p><b>问：DNS 转换如何使用区域间 VPC 对等连接？</b></p> 
+        <p>默认情况下，如果在不同区域的对等连接 VPC 中查询实例的公有主机名，该查询将解析为公有 IP 地址Route 53 的私有 DNS 可使用区域间 VPC 对等连接解析私有 IP 地址。</p> 
+        <p><b>问：可否通过区域间 VPC 对等连接引用安全组？</b></p> 
+        <p>不可以。安全组无法通过区域间 VPC 对等连接引用。</p> 
+        <p><b>问：区域间 VPC 对等连接是否支持 IPv6？</b></p> 
+        <p>是。区域间 VPC 对等连接支持 IPv6。</p> 
+        <p><b>问：区域间 VPC 对等连接可否与 EC2-Classic Link 结合使用？</b></p> 
+        <p>不可以。区域间 VPC 对等连接无法与 EC2-ClassicLink 结合使用。</p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="ClassicLink" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> ClassicLink</h2> 
+       <div class="lb-txt-light lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：什么是 ClassicLink？</b></p> 
+        <p>Amazon Virtual Private Cloud (VPC) ClassicLink 允许在 EC2-Classic 平台中使用 EC2 实例，以使用私有 IP 地址与 VPC 中的实例进行通信。要使用 ClassicLink，请对账户中的 VPC 启用该功能，然后将 VPC 中的安全组与 EC2-Classic 中的实例进行关联。VPC 安全组的所有规则会应用到 EC2-Classic 中的实例之间的通信，也会应用到 VPC 中的实例之间的通信。&nbsp;</p> 
+        <p><b>问：ClassicLink 如何收费？</b></p> 
+        <p>使用 ClassicLink 不会产生额外的费用，但是现有的可用区之间的数据传输将产生费用。有关更多信息，请参阅 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">EC2 定价页面</a>。</p> 
+        <p><b>问：如何使用 ClassicLink？</b></p> 
+        <p>要使用 ClassicLink，首先要为 ClassicLink 在账户中至少启用一个 VPC。然后将 VPC 中的安全组与目标 EC2-Classic 实例进行关联。EC2-Classic 实例现在已经与 VPC 关联，而且是 VPC 中所选安全组的一部分。EC2-Classic 实例不能同时关联多个 VPC。</p> 
+        <p><b>问：EC2-Classic 实例是否是 VPC 的一部分？</b></p> 
+        <p>EC2-Classic 实例不是 VPC 的一部分，而是与实例关联的 VPC 安全组的一部分。VPC 安全组的所有规则和引用会应用到 EC2-Classic 实例中的实例之间的通信，也会应用到 VPC 中的资源之间的通信。</p> 
+        <p><b>问：可否使用 EC2-Classic 实例和 EC2-VPC 实例中的 EC2 公有 DNS 主机名来使用私有 IP 进行通信？</b></p> 
+        <p>当从 EC2-Classic 实例发起查询时，EC2 公有 DNS 主机名将无法解析 EC2-VPC 实例的私有 IP 地址，反向操作一样行不通。</p> 
+        <p><b>问：有没有无法启用 ClassicLink 的 VPC？</b></p> 
+        <p>有。如果 VPC 使用无类域间路由 (CIDR) 的方式且在 10.0.0.0/8 的范围内（10.0.0.0/16 和 10.1.0.0/16 除外），则该 VPC 无法启用 ClassicLink。此外，如果 VPC 包含的路由表条目指向 10.0.0.0/8 CIDR 空间而非“本地”目标，则该 VPC 无法启用 ClassicLink。</p> 
+        <p><b>问：来自 EC2-Classic 实例的流量可否通过 Amazon VPC 并经互联网网关、虚拟私有网关传出，或传入对等 VPC？</b></p> 
+        <p>从 EC2-Classic 实例出来的流量只能路由到 VPC 中的私有 IP 地址。它们不能路由到 VPC 外部的任何目标，包括互联网网关、虚拟私有网关或对等 VPC 目标。</p> 
+        <p><b>问：ClassicLink 是否会对 EC2-Classic 实例以及 EC2-Classic 平台中的其他实例的访问控制造成影响？</b></p> 
+        <p>ClassicLink 不会改变通过 EC2-Classic 平台中现有的安全组对 EC2-Classic 实例定义的访问控制。</p> 
+        <p><b>问：在停止/开始循环中，EC2-Classic 实例中的 ClassicLink 设置是否会持续存在？</b></p> 
+        <p>ClassicLink 连接在 EC2-Classic 实例的停止/开始循环中不会持续存在。当 EC2-Classic 实例停止再开始后，您需要将其再次与 VPC 进行关联。但是，ClassicLink 连接在实例重启循环中不会中断。</p> 
+        <p><b>问：启用 ClassicLink 后，我的 EC2-Classic 实例会不会分配到新的私有 IP 地址？</b></p> 
+        <p>不存在分配给 EC2-Classic 实例的新的私有 IP 地址。当您对 EC2-Classic 实例启用 ClassicLink 后，实例还会使用既有的私有 IP 地址与 VPC 中的资源进行通信。</p> 
+        <p><b>问：ClassicLink 是否允许 EC2-Classic 安全组规则引用 VPC 安全组，或者反向引用是否可行？</b></p> 
+        <p>ClassicLink 不允许 EC2-Classic 安全组规则引用 VPC 安全组，反向引用也不行。</p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="AWS_PrivateLink" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> AWS PrivateLink</h2> 
+       <div class="lb-txt-light lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：什么是 AWS PrivateLink？</b></p> 
+        <p>AWS PrivateLink 使客户能够通过高度可用且可扩展的方式来访问托管在 AWS 上的服务，同时将所有网络流量限制在 AWS 网络内。服务用户可借此从他们的 Amazon Virtual Private Cloud (VPC) 或本地对 PrivateLink 支持的服务进行私有访问，而无需使用公有 IP，也不需要让流量遍历整个 Internet。服务拥有者可以将自己的网络负载均衡器注册到 PrivateLink 服务中，将服务提供给其他 AWS 客户。</p> 
+        <p><b>问：如何能使用 AWS PrivateLink？</b></p> 
+        <p>作为服务用户，您需要为 PrivateLink 支持的服务创建接口类 VPC 终端节点。这些服务终端节点将在 VPC 中显示为带私有 IP 的弹性网络接口 (ENI)。这些终端节点创建后，目标为这些 IP 的所有流量都将以私有方式路由到相应 AWS 产品。</p> 
+        <p>作为服务拥有者，您可以在您的服务前面部署网络负载均衡器 (NLB) 并创建 PrivateLink 服务以在其中注册 NLB，从而将您的服务加入到 AWS PrivateLink 中。在您将客户的账户和 IAM 角色加入白名单之后，他们能够在他们的 VPC 中建立终端节点以连接到您的服务。</p> 
+        <p><b>问：AWS PrivateLink 目前支持哪些服务？</b></p> 
+        <p>以下 AWS 服务均支持此功能：Amazon Elastic Compute Cloud (EC2)、Elastic Load Balancing (ELB)、Kinesis Streams、Service Catalog、EC2 Systems Manager、Amazon SNS 和 AWS DataSync。许多 SaaS 解决方案也支持此功能。有关 AWS PrivateLink 支持的更多 SaaS 产品的信息，请访问 <a href="https://aws.amazon.com/marketplace" target="_blank">AWS Marketplace</a>。</p> 
+        <p><b>问：可否通过 AWS Direct Connect 对由 AWS PrivateLink 提供支持的服务进行私有访问？</b></p> 
+        <p>可以。您的本地应用程序可通过 AWS Direct Connect 连接到 Amazon VPC 中的服务终端节点。这些服务终端节点会自动将流量定向到由 AWS PrivateLink 提供支持的 AWS 产品。</p> 
+        <p><b>问：哪些 CloudWatch 指标可用于基于接口的 VPC 端点？</b></p> 
+        <p>目前，没有任何 CloudWatch 指标可用于基于接口的 VPC 端点。</p> 
+        <p><b>问：对于通过基于接口的 VPC 端点的流量，由谁支付数据传输费用？</b></p> 
+        <p>数据传输费用的概念类似于 EC2 实例数据传输费用的概念。由于基于接口的 VPC 端点是子网中的一个 ENI，数据传输费用具体取决于流量的来源。如果此接口的流量来源于可用区中的资源，则 EC2 跨可用区数据传输费用由最终的使用者承担。使用者 VPC 中的客户可以使用特定于可用区的 DNS 终端节点，以确保流量在他们配置账户中可用的每个可用区时留在同一可用区内。</p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Bring_Your_Own_IP" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 自带 IP</h2> 
+       <div class="lb-txt-light lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：什么是自带 IP 功能？</b></p> 
+        <p>借助自带 IP (BYOIP)，客户能够将现有可公共路由的全部或部分 IPv4 或 IPv6 地址空间迁移到 AWS，以便与 AWS 资源一起使用。客户将继续拥有 IP 范围。客户可以从他们迁入 AWS 的 IPv4 空间创建弹性 IP，并将其与 EC2 实例、NAT 网关和网络负载均衡器结合使用。此外，客户还可以从他们引入 AWS 的 IPv6 空间将 CIDR 关联到其 VPC。客户将持续拥有访问 Amazon 提供 IP 的权限，并可选择使用 BYOIP 弹性 IP、Amazon 提供的 IP 或同时使用二者。</p> 
+        <p><b>问：问：为什么应该使用 BYOIP？</b></p> 
+        <p>由于以下原因，您可能需要将自己的 IP 地址引入 AWS：<br> IP 声誉：许多客户认为其 IP 地址声誉是一项战略资产，希望在 AWS 上使用这些 IP 及其资源。例如，拥有出站电子邮件 MTA 等服务且 IP 声誉较高的客户现在可以引入自己的 IP 空间，并继续保持其现有发送成功率。</p> 
+        <p>客户白名单：借助 BYOIP，客户还可以将依赖 IP 地址白名单的工作负载迁移到 AWS，而无需使用新的 IP 地址重新建立白名单。</p> 
+        <p>硬编码依赖项：一些客户在设备中使用硬编码 IP 或对其 IP 采用了架构依赖项。BYOIP 使这类客户能够轻松迁移到 AWS。</p> 
+        <p>监管和合规性：出于监管和合规性原因，许多客户必须使用特定 IP。他们也可以使用 BYOIP 来解除这一限制。</p> 
+        <p>本地 IPv6 网络策略：许多客户只能在本地网络上路由其 IPv6。这些客户可以通过 BYOIP 解除这一限制，因为他们可以将自己的 IPv6 范围分配给 VPC，并选择使用 Internet 或 Direct Connect 路由至本地网络。</p> 
+        <p><b>问：问：如何结合使用 BYOIP 前缀中的 IP 地址与 AWS 资源？</b></p> 
+        <p>BYOIP 前缀在您的账户中显示为一个 IP 池。您可以从 IPv4 池创建弹性 IP (EIP)，并像使用常规弹性 IP (EIP) 一样将其与任何 AWS 资源（支持 EIP）结合使用。目前，支持 EIP 的 AWS 资源有 EC2 实例、NAT 网关和网络负载均衡器。您可以通过 IPv6 池将 CIDR 关联到 VPC。通过 BYOIP 引入的 IPv6 地址的工作方式与 Amazon 提供的 IPv6 地址的工作方式完全相同。例如，您可以将这些 IPv6 地址关联到 VPC 内的子网、弹性网络接口 (ENI) 和 EC2 实例。</p> 
+        <p><b>问：问：如果发布 BYOIP 弹性 IP 会怎样？</b></p> 
+        <p>发布 BYOIP 弹性 IP 时，它会返回来源 BYOIP 的 IP 池。</p> 
+        <p><b>问：问：哪些 AWS 区域提供 BYOIP？</b></p> 
+        <p>此功能目前在美国东部（弗吉尼亚北部）、美国东部（俄亥俄）、美国西部（加利福尼亚北部）、美国西部（俄勒冈）、欧洲（都柏林）、欧洲（伦敦）、欧洲（法兰克福）、加拿大（中部）、亚太地区（香港）、亚太地区（孟买）、亚太地区（悉尼）、亚太地区（东京）、亚太地区（新加坡）、南美洲（圣保罗）、GovCloud（美国东部）和 GovCloud（美国西部）AWS 区域提供。</p> 
+        <p><b>问：问：可以与同一账户中的多个 VPC 共享 BYOIP 前缀吗？</b></p> 
+        <p>可以。您可以对同一账户中任意数量的 VPC 使用此 BYOIP 前缀。</p> 
+        <p><b>问：问：我可以通过 BYOIP 引入多少个 IP 范围？</b></p> 
+        <p>您最多可以将五个 IP 范围引入您的账户。</p> 
+        <p><b>问：我可以通过 BYOIP 引入的最具体的前缀是什么？</b></p> 
+        <p>通过 BYOIP，您可以引入的最具体的 IPv4 前缀是 /24 IPv4 前缀和 /56 IPv6 前置。如果想要将 Ipv6 前缀通告至 Internet，则最具体的 IPv6 前缀为 /48。</p> 
+        <p><b>问：我可以将哪些 RIR 前缀用于 BYOIP？</b></p> 
+        <p>您可以使用 ARIN、RIPE 和 APNIC 注册的前缀。</p> 
+        <p><b>问：我可以引入重新分配的前缀吗？</b></p> 
+        <p>我们目前不接受重新分配的前缀。IP 范围应该只是一种直接分配的网络类型。</p> 
+        <p><b>问：我是否可以将 BYOIP 前缀从一个 AWS 区域移动到另一个区域？</b></p> 
+        <p>可以。您可以从当前区域取消 BYOIP 前缀的预置，然后将它预置给新的区域。</p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Additional_Questions" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 其他问题</h2> 
+       <div class="lb-txt-light lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：可否使用 AWS 管理控制台控制和管理 Amazon VPC？</b></p> 
+        <p>可以。您可以使用 AWS 管理控制台管理 Amazon VPC 对象，如 VPC、子网、路由表、互联网网关和 IPSec VPN 连接。此外，您也可以使用一个简单向导来创建 VPC。</p> 
+        <p><b>问：我可以创建多少个 VPC、子网、弹性 IP 地址和互联网网关？</b></p> 
+        <p>数量如下：</p> 
+        <ul> 
+         <li>每个区域每个 AWS 账户 5 个 Amazon VPC</li> 
+         <li>每个 Amazon VPC 200 个子网</li> 
+         <li>每个区域每个 AWS 账户 5 个 Amazon VPC 弹性 IP 地址</li> 
+         <li>每个 Amazon VPC 1 个互联网网关</li> 
+        </ul> 
+        <p>有关 VPC 限制的更多信息，请参阅 <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html" target="_blank">Amazon VPC 用户指南</a>。</p> 
+        <p><b>问：能否为 Amazon VPC 获取 AWS 支持？</b></p> 
+        <p>能。有关 AWS 支持的更多信息，请<a href="http://aws.amazon.com/premiumsupport/" target="_blank">单击此处</a>。</p> 
+        <p><b>问：可否将 <a href="http://sourceforge.net/projects/elasticfox/" target="_blank">ElasticFox</a> 用于 Amazon VPC？</b></p> 
+        <p>通过 ElasticFox 管理 Amazon VPC 不再受官方支持。Amazon VPC 支持可通过 AWS API、命令行工具、AWS 管理控制台以及许多第三方实用程序提供。</p> 
+        <p>&nbsp;</p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </main>
