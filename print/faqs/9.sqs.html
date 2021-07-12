@@ -1,0 +1,548 @@
+<main role="main"> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Overview" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;">SQS 概览</h2> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon SQS 相对于自主或打包式消息队列系统有哪些优势？<br> </b></p> 
+        <p>自行构建软件来管理消息队列或者使用商用或开源消息队列系统在前期需要花费大量的时间进行开发和配置，与其相比，使用 Amazon SQS 具有若干优势。</p> 
+        <p>其他方案需要持续进行硬件维护，并会占用系统管理资源。如果需要冗余消息存储以确保在出现硬件故障时不会丢失消息，那么这些系统的配置和管理将更为复杂。</p> 
+        <p>相反，Amazon SQS 不需要管理开销，而且基本不需要配置。Amazon SQS 可以大规模处理工作，每天处理数十亿条消息。您可以在不进行任何配置的情况下增加或减少向 Amazon SQS 发送的流量。此外，Amazon SQS 还可以实现极高的消息持久性，让您和您的利益相关者更加放心。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon SQS 与 Amazon SNS 有何不同？<br> </b></p> 
+        <p>Amazon SNS 允许应用程序通过“推送”机制向多个订阅者发送时间关键型消息，并且无需定期检查或“轮询”更新。Amazon SQS 是一种供分布式应用程序使用的消息队列服务，通过轮询模式交换消息，可用于分离收发组件。&nbsp;</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon SQS 与 Amazon MQ 有何不同？<br> </b></p> 
+        <p>如果您正在使用现有应用程序中的消息收发功能，并且想要快速轻松地将消息收发功能移至云中，我们建议您考虑使用 <a href="/cn/amazon-mq/">Amazon MQ</a>。它支持多种行业标准 API 和协议，因此您可以从任何基于标准的消息代理切换到 Amazon MQ，无需重新编写应用程序中的消息收发代码。如果您要在云中构建全新的应用程序，我们建议您考虑使用 Amazon SQS 和 Amazon SNS。Amazon SQS 和 SNS 是轻型的、完全托管的消息队列和主题服务，可以几乎无限地进行扩展，并可提供易于使用的简单 API。&nbsp;<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon SQS 是否提供消息排序功能？<br> </b></p> 
+        <p>是的。FIFO (先进先出) 队列可准确保持消息的发送和接收顺序。如果您使用 FIFO 队列，就无需在消息中加入排队信息。有关更多信息，请参阅 <i>Amazon SQS 开发人员指南</i> 中的 <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-understanding-logic">FIFO 队列逻辑</a>。</p> 
+        <p>标准队列提供宽松的 FIFO 功能，会尽可能保持消息顺序。但是，由于标准队列使用高度分布式架构来实现大规模扩展，因此并不能确保接收消息时严格遵循消息发送的顺序。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon SQS 是否能确保传送消息？<br> </b></p> 
+        <p>标准队列提供至少一次传送，因此每条消息至少会传送一次。</p> 
+        <p>FIFO 队列提供<a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing">一次性处理</a>，因此每条消息仅传送一次，并且在使用器处理并删除它之前始终可用。队列中不会引入重复消息。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon SQS 与 Amazon Kinesis Streams 有何不同？<br> </b></p> 
+        <p>Amazon SQS 提供高度可扩展的可靠托管队列，用于存储在应用程序或微服务之间传送的消息。它在分布式应用程序组件之间传送数据，可帮助您解耦这些组件。Amazon SQS 提供通用的中间件结构，例如死信队列和毒丸管理。它还提供通用型 Web 服务 API，并且可以通过 AWS SDK 所支持的任何编程语言访问。Amazon SQS 支持标准队列和 FIFO 队列。</p> 
+        <p>Amazon Kinesis Streams 允许实时处理流式大数据，还能够读取记录并重播至多个 Amazon Kinesis 应用程序。Amazon Kinesis 客户端库 (KCL) 能够将给定分区键的所有记录提供给同一记录处理器，从而可支持更加轻松地构建从同一 Amazon Kinesis 数据流读取数据的多个应用程序 (例如，执行计数、聚合和筛选)。</p> 
+        <p>有关更多信息，请参阅 <a href="https://aws.amazon.com/documentation/kinesis/">Amazon Kinesis 文档</a>。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon 在自己的应用程序中是否使用 Amazon SQS？<br> </b></p> 
+        <p>能。Amazon 的开发人员将 Amazon SQS 用于每天处理大量消息的各种应用程序。Amazon.com 和 Amazon Web Services 中的关键业务流程均使用 Amazon SQS。<br> </p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Billing" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 计费</h2> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon SQS 的费用是多少？<br> </b></p> 
+        <p>您只需按实际用量付费，而且没有最低费用。</p> 
+        <p>Amazon SQS 的费用按请求数计算，再加上从 Amazon SQS 传出数据的数据传输费 (传输到同一区域内的 Amazon EC2 实例或 AWS Lambda 函数的数据除外)。有关各队列类型和区域的详细定价明细，请参阅 <a href="/cn/sqs/pricing/">Amazon SQS 定价</a>。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon SQS 免费套餐可以用来做些什么？<br> </b></p> 
+        <p>Amazon SQS 免费套餐每月免费提供 100 万个请求。</p> 
+        <p>许多小规模应用程序都能在免费套餐的限制范围内完整地运行。&nbsp;但您可能仍然需要支付数据传输费用。有关更多信息，请参阅 <a href="/cn/sqs/pricing/">Amazon SQS 定价</a>。</p> 
+        <p>免费套餐是每月优惠，免费使用量不能跨月累计。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：是否所有 Amazon SQS 请求均需要收费？<br> </b></p> 
+        <p>是的，超出免费套餐的任何请求均需要收费。所有 Amazon SQS 请求均需要收费，并且按同一费率计费。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：与其他请求相比，Amazon SQS 批量操作的费用是否更高？<br> </b></p> 
+        <p>不是的。批量操作（<a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessageBatch.html">SendMessageBatch</a>、<a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessageBatch.html">DeleteMessageBatch</a> 和 <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibilityBatch.html">ChangeMessageVisibilityBatch</a>）的费用与其他 Amazon SQS 请求的费用相同。您可以通过将消息分批来降低 Amazon SQS 费用。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：使用 Amazon SQS 要如何收费和计费？<br> </b></p> 
+        <p>开始使用 Amazon SQS 时，没有初始费用。我们会在每个月底自动从您的信用卡中收取当月使用费。</p> 
+        <p>您可以随时在 AWS 网站上查看当前账单期的费用：</p> 
+        <ol> 
+         <li>登录 AWS 账户。</li> 
+         <li>在<b>您的 Web 服务账户</b>下，选择<b>账户活动</b>。<br> </li> 
+        </ol> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何跟踪和管理与 Amazon SQS 队列相关的成本？<br> </b></p> 
+        <p>您可以使用成本分配标签来标记和跟踪您的队列，以进行资源和成本管理。标签是由键值对组成的元数据标签。例如，您可以按成本中心标记您的队列，然后根据这些成本中心对成本进行分类和跟踪。</p> 
+        <p>有关更多信息，请参阅 <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Amazon SQS 开发人员指南中的“标记 Amazon SQS 队列”</a>。有关 AWS 资源成本分配标记的更多信息，请参阅 AWS 账单和成本管理用户指南中的<a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">使用成本分配标签</a>。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：价格是否含税？<br> </b></p> 
+        <p>除非另行说明，否则我们的价格不包括任何适用的税费 (例如增值税和适用的销售税)。</p> 
+        <p>账单地址为日本地址的客户使用任何区域的 AWS 均需承担日本消费税。有关更多信息，请参阅 <a href="/cn/c-tax-faqs/">Amazon Web Services 消费税常见问题</a>。<br> </p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Features.2C_functionality.2C_and_interfaces" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 特点、功能和接口</h2> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：是否可以将 Amazon SQS 与其他 AWS 服务结合使用？<br> </b></p> 
+        <p>能。您可以将 Amazon SQS 与 Amazon EC2、Amazon EC2 Container Service (Amazon ECS) 和 AWS Lambda 等计算服务以及 Amazon Simple Storage Service (Amazon S3) 和 Amazon DynamoDB 等存储和数据库服务结合使用，从而让应用程序具有更高的灵活性和可扩展性。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何与 Amazon SQS 交互？<br> </b></p> 
+        <p>您可以使用 <a href="/cn/console/">AWS 管理控制台</a>来访问 Amazon SQS，该控制台可帮助您轻松地创建 Amazon SQS 队列和发送消息。</p> 
+        <p>Amazon SQS 还提供 Web 服务 API。此外，它还与 <a href="/cn/tools/">AWS 开发工具包</a>集成，这使您能够根据需要选择编程语言。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon SQS 提供哪些 API 操作？<br> </b></p> 
+        <p>有关消息队列操作的消息，请参阅 <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/Welcome.html">Amazon SQS API 参考</a>。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：谁可以对消息队列执行操作？<br> </b></p> 
+        <p>只有 AWS 账户拥有者（或账户拥有者指派的 AWS 账户）可以在 Amazon SQS 消息队列上执行操作。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：使否可以将 <a href="https://en.wikipedia.org/wiki/Java_Message_Service" target="_blank">Java Message Service (JMS)</a> 与 Amazon SQS 结合使用？<br> </b></p> 
+        <p>是的。您可以享受 Amazon SQS 的规模、低成本和高可用性，而不必担心运行自己的 JMS 集群的开销。</p> 
+        <p>Amazon 提供的 <a href="https://github.com/awslabs/amazon-sqs-java-messaging-lib">Amazon SQS Java Messaging Library</a> 采用 JMS 1.1 规范，并将 Amazon SQS 用作 JMS 提供者。有关更多信息，请参阅 <i>Amazon SQS 开发人员指南</i>中的<a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/jmsclient.html">结合使用 JMS 与 Amazon SQS</a>。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon SQS 如何标识消息？<br> </b></p> 
+        <p>所有消息都带有一个全局唯一的 ID，Amazon SQS 会在消息传送到消息队列时返回该 ID。对消息执行任何进一步操作均不需要使用该 ID，但它可用于跟踪是否收到消息队列中的某一特定消息。</p> 
+        <p>当您从消息队列接收消息时，回复中包含一个接收句柄，删除消息时必须提供该句柄。</p> 
+        <p>有关更多信息，请参阅《Amazon SQS 开发人员指南》中的<a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-message-identifiers.html">队列和消息标识符</a>。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon SQS 如何处理无法处理的消息？</b></p> 
+        <p>在 Amazon SQS 中，您可以使用 API 或控制台来配置死信队列，用于从其他源队列接收消息。</p> 
+        <p>如果将某个队列设为死信队列，则当消息经过最大处理次数且未能完成时，该队列就会接收该消息。您可以使用死信队列隔离无法处理的消息，以备将来分析。</p> 
+        <p>有关更多信息，请参阅此页面上的“死信队列是否能与 FIFO 队列结合使用？”和《Amazon SQS 开发人员指南》中的<a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html" target="_blank">使用 Amazon SQS 死信队列</a>。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：什么是可见性超时？<br> </b></p> 
+        <p>可见性超时是一个时段，在这个时段内，Amazon SQS 会阻止其他正在使用的组件接收和处理某条消息。有关更多信息，请参阅 <i>Amazon SQS 开发人员指南</i>中的<a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html">可见性超时</a>。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon SQS 是否支持消息元数据？<br> </b></p> 
+        <p>是的。一条 Amazon SQS 消息最多包含 10 项元数据属性。您可以使用消息属性将消息正文与描述该消息的元数据分离开来。这有助于系统更加快速、高效地处理和存储信息，因为您的应用程序不需要检查整条消息即可了解如何处理。</p> 
+        <p>Amazon SQS 消息属性采用“名称-类型-值”这种由三项元素构成的格式。支持的类型包括字符串、二进制和数字（包括整数、浮点数和双数）。有关更多信息，请参阅 <i>Amazon SQS 开发人员指南</i>中的<a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html">使用 Amazon SQS 消息属性</a>。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何确定排队时间值？<br> </b></p> 
+        <p>要确定排队时间值，您可以在接收消息时请求提供 SentTimestamp 属性。将当前时间减去该值即可得出排队时间值。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon SQS 的典型延迟是多少？<br> </b></p> 
+        <p>SendMessage、ReceiveMessage 和 DeleteMessage API 请求的典型延迟是几十毫秒或一百到两百毫秒。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：在匿名访问时，消息的 SenderId 属性值是什么？<br> </b></p> 
+        <p>在 AWS 账户 ID 不可用（例如匿名用户发送消息）时，Amazon SQS 将提供 IP 地址。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：什么是 Amazon SQS 长轮询？<br> </b></p> 
+        <p>Amazon SQS 长轮询是从 Amazon SQS 队列中检索消息的一种方式。常规的短轮询会立即返回响应，即使轮询的消息队列为空；而长轮询只有在消息进入消息队列或长轮询超时时才返回响应。</p> 
+        <p>如果要从 Amazon SQS 队列中检索暂时不可用的消息，那么长轮询是一种成本较低的方式。因为您可以减少接收空消息的次数，所以使用长轮询可以降低 SQS 的使用成本。有关更多信息，请参阅 <i>Amazon SQS 开发人员指南</i>中的 <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-long-polling.html">Amazon SQS 长轮询</a>。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：使用 Amazon SQS 长轮询是否会收取其他费用？<br> </b></p> 
+        <p>不会。长轮询 ReceiveMessage 调用的计费方式与短轮询 ReceiveMessage 调用的计费方式完全相同。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：什么时候应该使用 Amazon SQS 长轮询？什么时候应该使用 Amazon SQS 短轮询？<br> </b></p> 
+        <p>几乎在所有情况下，使用 Amazon SQS 长轮询都比使用短轮询更好。长轮询请求可以让使用队列的应用程序在消息进入队列后接收消息，同时减少返回的空 ReceiveMessageResponse 实例的数量。</p> 
+        <p>Amazon SQS 长轮询在大多数使用案例中的效果都更好，成本也更低。但是，如果您的应用程序希望从 ReceiveMessage 调用中获得即时响应，则可能需要对应用程序进行一些修改才能利用长轮询的优势。</p> 
+        <p>例如，如果您的应用程序使用单个线程来轮询多个队列，那么短轮询可能无法切换为长轮询，因为单个线程会等待所有空队列的长轮询超时，从而导致延迟处理可能包含消息的任何队列。</p> 
+        <p>在这种应用程序中，建议使用单个线程来处理一个队列，从而使应用程序能够利用 Amazon SQS 长轮询的优势。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：长轮询超时应使用什么值？<br> </b></p> 
+        <p>通常，长轮询超时最多为 20 秒。较高的长轮询超时值会减少返回的空 ReceiveMessageResponse 实例的数量，因此，请将长轮询超时值设置为尽可能高的值。</p> 
+        <p>如果 20 秒的最大值不适用于您的应用程序（请参阅上一问题中的示例），则您可以设置较短的长轮询超时，最短为 1 秒。</p> 
+        <p>默认情况下，所有 AWS 开发工具包都支持 20 秒的长轮询。如果您未使用 AWS 开发工具包访问 Amazon SQS，或者您将 AWS 开发工具包特别配置为使用较短的超时，则您可能需要修改您的 Amazon SQS 客户端，才能允许时间更长的请求或者使用较短的长轮询超时。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：什么是适用于 Java 的 AmazonSQSBufferedAsyncClient？<br> </b></p> 
+        <p>适用于 Java 的 AmazonSQSBufferedAsyncClient 可以让用户使用 AmazonSQSAsyncClient 接口，并添加了几项重要功能：</p> 
+        <ul> 
+         <li>自动批处理多个 SendMessage、DeleteMessage 或 ChangeMessageVisibility 请求，而无需对应用程序进行任何更改</li> 
+         <li>将消息预取到本地缓冲区，让您的应用程序可以立即处理来自 Amazon SQS 的消息，无需等待检索消息</li> 
+        </ul> 
+        <p>自动批处理和预取功能结合到一起以后，可以提高吞吐量并降低应用程序延迟，并且提交的 Amazon SQS 请求更少，从而节省成本。有关更多信息，请参阅 <i>Amazon SQS 开发人员指南</i>中的<a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/buffering.html">客户端缓冲和请求批处理</a>。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：从哪里下载适用于 Java 的 AmazonSQSBufferedAsyncClient？<br> </b></p> 
+        <p>您可以下载<a href="/cn/sdkforjava/">适用于 Java 的 AWS 开发工具包</a>，其中就包含适用于 Java 的 AmazonSQSBufferedAsyncClient。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：是否需要重新编写应用程序才能使用适用于 Java 的 AmazonSQSBufferedAsyncClient？<br> </b></p> 
+        <p>不需要。适用于 Java 的 AmazonSQSBufferedAsyncClient 用于替换现有的 AmazonSQSAsyncClient。</p> 
+        <p>您可以通过更新应用程序来使用最新 AWS 开发工具包，并通过更改客户端来用适用于 Java 的 AmazonSQSBufferedAsyncClient 替换 AmazonSQSAsyncClient，这样，您的应用程序就能获得自动批处理和预取功能所带来的新优势。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何订阅 Amazon SQS 消息队列，以便接收来自 Amazon SNS 主题的通知？<br> </b></p> 
+        <ol> 
+         <li>在 Amazon SQS 控制台中，选择一个 Amazon SQS 标准队列。<br> </li> 
+         <li>在“队列操作”下，从下拉列表中选择“订阅队列至 SNS 主题”。<br> </li> 
+         <li>在对话框中，从“选择一个主题”下拉列表中选择主题，然后单击“订阅”。<br> </li> 
+        </ol> 
+        <p>有关更多信息，请参阅 <i>Amazon SQS 开发人员指南</i>中的<a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqssubscribe.html">为队列订阅 Amazon SNS 主题</a>。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：能否删除消息队列中的所有消息而保留消息队列？<br> </b></p> 
+        <p>能。您可以使用 PurgeQueue 操作删除 Amazon SQS 消息队列中的所有消息。</p> 
+        <p>当您清除消息队列时，之前发送到该消息队列的所有消息都将被删除。因为您的消息队列及其属性将会保留，所以不需要重新配置消息队列；您可以继续使用。</p> 
+        <p>如果只想删除特定的消息，可以使用 DeleteMessage 或 DeleteMessageBatch 操作。</p> 
+        <p>有关更多信息，请参阅此教程：<a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-purge-queue.html">从 Amazon SQS 队列清除消息</a>。<br> </p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <div class="lb-grid"> 
+        <div class="lb-row lb-row-max-large lb-snap"> 
+         <div class="lb-col lb-tiny-24 lb-mid-24"> 
+          <h2 id="FIFO_queues" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> FIFO 队列</h2> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：哪些区域提供 FIFO 队列？<br> </b></p> 
+           <p>FIFO 队列可在提供 Amazon SQS 的所有 AWS 区域中使用。请参阅<a href="https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services">此处</a>，了解有关 Amazon SQS 的区域可用性的详细信息。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：我会收到一条消息的多少个副本？<br> </b></p> 
+           <p>FIFO 队列的设计宗旨是不引入重复消息。但是，在某些情况下，消息创建器可能会引入重复消息：例如，如果创建器发送一条消息，未收到响应，然后又重发了同一条消息。Amazon SQS API 提供重复数据删除功能，可防止消息创建器发送重复消息。由消息创建器引入的任何重复消息都会在 5 分钟重复数据删除时间间隔内被删除。</p> 
+           <p>对于标准队列，您可能偶尔会收到一条消息的重复副本 (至少一次传送)。如果您使用标准队列，则必须将应用程序设计为幂等应用程序 (也就是说，应用程序即使多次处理同一条消息也不会受到不利影响)。</p> 
+           <p>有关更多信息，请参阅《Amazon SQS 开发人员指南》中的<a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing">一次性处理</a>。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：我以前使用的 Amazon SQS 队列会不会转变为 FIFO 队列？<br> </b></p> 
+           <p>Amazon SQS <i>标准</i>队列（现有队列的新名称）保持不变，您仍然可以创建标准队列。这些队列仍会继续提供最高的可扩展性和吞吐量，但不会再保证顺序不变，而且可能会出现重复消息。</p> 
+           <p>标准队列适合很多场景，例如在多个幂等使用器之间进行工作分配。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：我是否能将现有的标准队列转换为 FIFO 队列？<br> </b></p> 
+           <p>不能。您必须在创建队列时选择队列类型。但可以转移到 FIFO 队列。有关更多信息，请参阅<i>Amazon SQS 开发人员指南</i> 中的<a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-moving.html">从标准队列移至 FIFO 队列</a>。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：Amazon SQS FIFO 队列是否向后兼容？<br> </b></p> 
+           <p>要利用 FIFO 队列功能，您必须使用最新的 AWS SDK。</p> 
+           <p>FIFO 队列与标准队列使用相同的 API 操作，接收和删除消息以及更改可见性超时的机制也相同。但是，在发送消息时，您必须指定消息组 ID。有关更多信息，请参阅 <i>Amazon SQS 开发人员指南</i> 中的 <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-understanding-logic">FIFO 队列逻辑</a>。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：Amazon SQS FIFO 队列可与哪些 AWS 服务或外部服务兼容？<br> </b></p> 
+           <p>向 Amazon SQS 发送通知的有些 AWS 服务或外部服务无法与 FIFO 队列兼容，除非允许您将 FIFO 队列设置为目标。</p> 
+           <p>AWS 服务的以下功能目前无法与 FIFO 队列兼容：</p> 
+           <ul> 
+            <li><a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html">Auto Scaling 生命周期挂钩<br> </a></li> 
+            <li><a href="http://docs.aws.amazon.com/iot/latest/developerguide/iot-rule-actions.html">AWS IoT 规则操作<br> </a></li> 
+            <li><a href="http://docs.aws.amazon.com/lambda/latest/dg/dlq.html">AWS Lambda 死信队列<br> </a></li> 
+           </ul> 
+           <p>有关其他服务与 FIFO 队列的兼容性信息，请参阅您的服务文档。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：Amazon SQS FIFO 队列是否与 Amazon SQS Buffered Asynchronous Client、适用于 Java 的 Amazon SQS 扩展客户端库或 Amazon SQS Java Message Service (JMS) Client 兼容？<br> </b></p> 
+           <p>FIFO 队列目前不与 Amazon SQS Buffered Asynchronous Client 兼容。</p> 
+           <p>FIFO 队列与 Amazon SQS Extended Client Library for Java 和 Amazon SQS Java Message Service (JMS) Client 兼容。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：Amazon SQS FIFO 队列支持哪些 AWS CloudWatch 指标？<br> </b></p> 
+           <p>FIFO 队列支持标准队列支持的所有指标。对于 FIFO 队列，所有近似指标都会返回准确的计数。例如，支持以下 AWS CloudWatch 指标：</p> 
+           <ul> 
+            <li>ApproximateNumberOfMessagesDelayed – 队列中延迟且无法立即读取的消息数量。<br> </li> 
+            <li>ApproximateNumberOfMessagesVisible – 可从队列检索的消息数量。<br> </li> 
+            <li>ApproximateNumberOfMessagesNotVisible – 处于飞行状态的消息数量（已发送给客户端，但尚未被删除或尚未可见）。<br> </li> 
+           </ul> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：什么是消息组？<br> </b></p> 
+           <p>在 FIFO 队列中，消息被组合成有序的不同“捆绑包”。对于每一个消息组 ID，所有消息的发送和接收均严格遵循一定的顺序。但是，具有不同的消息组 ID 值的消息可能不会按顺序发送和接收。您必须将消息组 ID 与消息关联。如果不提供消息组 ID，操作就会失败。</p> 
+           <p>如果多个主机 (或同一主机上的不同线程) 向 FIFO 队列中发送了具有相同消息组 ID 的消息，则 Amazon SQS 按照它们到达的顺序来传送消息。为确保 Amazon SQS 在发送和接收消息时保持相同顺序，请确保多个发送者发送每一条消息时均具有唯一的消息组 ID。</p> 
+           <p>有关更多信息，请参阅 <i>Amazon SQS 开发人员指南</i> 中的 <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-understanding-logic">FIFO 队列逻辑</a>。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：Amazon SQS FIFO 队列是否支持多个创建器？<br> </b></p> 
+           <p>能。一个或多个创建器可以向一个 FIFO 队列发送消息。消息按 Amazon SQS 成功接收到它们时的顺序存储。</p> 
+           <p>如果多个创建器并行发送消息，而不等待来自 SendMessage 或 SendMessageBatch 操作的成功响应，则创建器之间的顺序可能不会保留。SendMessage 或 SendMessageBatch 操作的响应包含 FIFO 队列用于将消息放到队列中的最终顺序，因此您的并行多创建器代码可以确定消息在队列中的最终顺序。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：Amazon SQS FIFO 队列是否支持多个使用器？<br> </b></p> 
+           <p>根据设计，Amazon SQS FIFO 队列不能一次将同一消息组中的消息提供给多个使用者。但是，如果您的 FIFO 队列具有多个消息组，则您可以利用并行使用器，以便 Amazon SQS 将不同消息组中的消息提供给不同的使用器。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：死信队列是否能与 FIFO 队列结合使用？<br> </b></p> 
+           <p>是的。但必须将 FIFO 死信队列与 FIFO 队列结合使用。（同样，只能将标准死信队列与标准队列结合使用。）<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：Amazon SQS FIFO 队列的吞吐量限额是多少？<br> </b></p> 
+           <p>默认情况下，如果使用批处理，FIFO 队列每秒最多可以支持 3000 条消息；如果不使用批处理，则每秒最多可以支持 300 条消息（每秒执行 300 个发送、接收或删除操作）。如果您需要更高的吞吐量，可以在 Amazon SQS 控制台上为 FIFO 启用高吞吐量模式。如果使用批处理，该模式每秒最多可以支持 30,000 条消息；如果不使用批处理，则每秒最多可以支持 3,000 条消息。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：是否有任何特定于 FIFO 队列属性的限制？<br> </b></p> 
+           <p>FIFO 队列的名称必须以 .fifo 后缀结尾。后缀将计入 80 个字符的队列名称限制。要确定队列是否为 FIFO 队列，您可以查看队列名称是否以该后缀结尾。<br> </p> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="lb-grid"> 
+        <div class="lb-row lb-row-max-large lb-snap"> 
+         <div class="lb-col lb-tiny-24 lb-mid-24"> 
+          <h2 id="Security_and_reliability" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 安全性与可靠性</h2> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：在 Amazon SQS 中存储数据的可靠性如何？<br> </b></p> 
+           <p>Amazon SQS 将所有消息队列和消息都存储在具有多个冗余可用区 (AZ) 并且高度可用的单个 AWS 区域中，因此，一台计算机、一个网络或一个可用区的故障不会导致消息无法访问。有关更多信息，请参阅 <i>Amazon Relational Database Service 用户指南</i>中的<a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">区域和可用区</a>。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如何保护消息队列中的消息？<br> </b></p> 
+           <p>身份验证机制可以确保存储在 Amazon SQS 消息队列中的消息不会受到未经授权的访问。您可以控制谁能向消息队列发送消息以及谁能从消息队列接收消息。如需提高安全性，您可以构建应用程序将消息加密，然后再将其放入消息队列。</p> 
+           <p>Amazon SQS 带有基于资源的权限系统，所用策略的编写语言与 <a href="/cn/iam/">AWS Identity and Access Management (IAM)</a> 策略的编写语言相同。举例来说，您可以像在 IAM 策略中一样使用变量。有关更多信息，请参阅 <i>Amazon SQS 开发人员指南</i> 中的 <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSExamples.html">Amazon SQS 策略示例</a>。</p> 
+           <p>Amazon SQS 支持 HTTP over SSL (HTTPS) 协议以及传输层安全性 (TLS) 协议。大多数客户端可自动协商使用新版本 TLS 协议，无需更改任何代码或配置。Amazon SQS 在所有区域中都支持 1.0、1.1 和 1.2 版传输层安全性 (TLS) 协议。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：为什么会有单独的 ReceiveMessage 和 DeleteMessage 操作？<br> </b></p> 
+           <p>当 Amazon SQS 返回消息给您时，无论您实际上是否收到消息，该消息都会保存在消息队列中。您负责删除消息，而且发送删除请求即表明您已处理了该消息。</p> 
+           <p>如果您不删除消息，则 Amazon SQS 会在收到另一个接收请求时传送该消息。有关更多信息，请参阅 <i>Amazon SQS 开发人员指南</i>中的<a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html">可见性超时</a>。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：删除的消息能否被再次接收？<br> </b></p> 
+           <p>不能。FIFO 队列绝不会引入重复消息。</p> 
+           <p>对于标准队列，在极少的情况下，您可能会再次收到之前删除的消息。&nbsp;<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如果对之前删除的消息发出 DeleteMessage 请求，结果会怎样？<br> </b></p> 
+           <p>如果对之前删除的消息发出 DeleteMessage 请求，Amazon SQS 会返回一个响应，表明删除<i>成功</i>。<br> </p> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="lb-grid"> 
+        <div class="lb-row lb-row-max-large lb-snap"> 
+         <div class="lb-col lb-tiny-24 lb-mid-24"> 
+          <h2 id="Server-Side_encryption_.28SSE.29" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 服务器端加密 (SSE)</h2> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：Amazon SQS 的服务器端加密 (SSE) 有哪些优势？<br> </b></p> 
+           <p>借助服务器端加密 (SSE)，您可以采用加密队列的方式传输敏感数据。SSE 会使用 <a href="/cn/kms/">AWS Key Management Service (AWS KMS)</a> 托管的密钥保护 Amazon SQS 队列中的消息内容。只要 Amazon SQS 收到消息，SSE 就会对其进行加密。这些消息以加密的形式进行存储，且仅当它们发送到授权的客户时，Amazon SQS 才会对其进行解密。</p> 
+           <p>有关更多信息，请参阅《Amazon SQS 开发人员指南》中的<a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html">使用服务器端加密 (SSE) 和 AWS KMS 保护数据</a><br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：我可以将 SNS、Cloud Watch Events 和 S3 Events 与加密的队列搭配使用吗？<br> </b></p> 
+           <p>可以。为此，您需要启用 AWS 服务（例如 Amazon CloudWatch Events、Amazon S3 和 Amazon SNS）与具有 SSE 的队列之间的兼容性。有关详细说明，请参阅<a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#compatibility-with-aws-services">《SQS 开发人员指南》中的“兼容性”部分</a>。&nbsp;</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：哪些区域提供支持 SSE 的队列？<br> </b></p> 
+           <p>提供 Amazon SQS 的所有 AWS 区域均提供适用于 Amazon SQS 的服务器端加密 (SSE)。请参阅<a href="/cn/about-aws/global-infrastructure/regional-product-services/">此处</a>，了解有关 Amazon SQS 的区域可用性的详细信息。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如何为新的或现有 Amazon SQS 队列启用 SSE？<br> </b></p> 
+           <p>要为使用 Amazon SQS API 的新的或现有 Amazon SQS 队列启动 SSE，可通过设置 CreateQueue 或 SetQueueAttributes 操作的 KmsMasterKeyId 属性，来指定客户主密钥 (CMK) ID：AWS 托管的 CMK 或自定义 CMK 的别名、别名 ARN、密钥 ID 或密钥 ARN。</p> 
+           <p>有关详细说明，请参阅 <i>Amazon SQS 开发人员指南</i>中的<a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-create-queue-sse.html">创建采用客户端加密的 Amazon SQS 队列</a>和<a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html">为现有 Amazon SQS 队列配置服务器端加密 (SSE)</a>。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：哪些类型的 Amazon SQS 队列可以使用 SSE？<br> </b></p> 
+           <p>标准队列和 FIFO 队列均支持 SSE。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：对 Amazon SQS 使用 SSE 时，需要什么权限？<br> </b></p> 
+           <p>您必须先将 AWS KMS 密钥策略配置为允许加密队列以及允许加密和解密消息，然后才能够使用 SSE。</p> 
+           <p>要为队列启用 SSE，您可以使用由 AWS 托管且适用于 Amazon SQS 的客户主密钥 (CMK)，也可以使用自定义 CMK。有关更多信息，请参阅 <i>AWS KMS 开发人员指南</i> 中的<a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">客户主密钥</a>。</p> 
+           <p>要向加密的队列发送消息，生产者必须拥有 CMK 的 kms:GenerateDataKey 和 kms:Decrypt 权限。</p> 
+           <p>要从加密的队列接收消息，消费者必须拥有用于加密指定队列中的消息的任何 CMK 的 kms:Decrypt 权限。如果队列充当的是<a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">死信队列</a>，消费者还必须拥有用于加密源队列中的消息的任何 CMK 的 kms:Decrypt 权限。</p> 
+           <p>有关更多信息，请参阅 <i>Amazon SQS 开发人员指南</i>中的<a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-what-permissions-for-sse">我需要哪些权限才能使用 SSE？</a>。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：对 Amazon SQS 使用 SSE 时，需要支付费用吗？<br> </b></p> 
+           <p>无需支付其他任何 Amazon SQS 费用。但是，从 Amazon SQS 到 AWS KMS 之间的调用会产生费用。有关更多信息，请参阅 <a href="/cn/kms/pricing/">AWS 密钥管理服务定价</a>。</p> 
+           <p>使用 AWS KMS 所产生的费用取决于您为队列配置的数据密钥重用周期。有关更多信息，请参阅 <i>Amazon SQS 开发人员指南</i>中的<a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-estimate-kms-usage-costs">如何估算 AWS KMS 的使用费用？</a>。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：适用于 Amazon SQS 的 SSE 会加密哪些内容以及如何加密？<br> </b></p> 
+           <p>SSE 会加密 Amazon SQS 队列中消息的主体。</p> 
+           <p>SSE 不会加密以下部分：</p> 
+           <ul> 
+            <li>队列元数据 (队列名称和属性)<br> </li> 
+            <li>消息元数据 (消息 ID、时间戳和属性)<br> </li> 
+            <li>每个队列的指标</li> 
+           </ul> 
+           <p>Amazon SQS 根据由 AWS 托管且适用于 Amazon SQS 的客户主密钥 (CMK) 或自定义 CMK 生成<a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#data-keys">数据密钥</a>，以便为可配置的时间段（从 1 分钟到 24 小时）提供<a href="http://docs.aws.amazon.com/kms/latest/developerguide/workflow.html#envelope_encryption">信封加密</a>和消息解密。</p> 
+           <p>有关更多信息，请参阅 <i>Amazon SQS 开发人员指南</i>中的<a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-encryption-what-does-sse-encrypt">适用于 Amazon SQS 的 SSE 会加密哪些内容？</a>。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：适用于 Amazon SQS 的 SSE 采用什么算法来加密消息？<br> </b></p> 
+           <p>SSE 使用 <a href="http://docs.aws.amazon.com/kms/latest/developerguide/crypto-intro.html">AES-GCM 256 算法</a>。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：SSE 是否会限制可使用 Amazon SQS 创建的每秒事务数 (TPS) 或队列数？</b></p> 
+           <p>SSE 不会限制 Amazon SQS 的吞吐量 (TPS)。您可以创建的 SSE 队列数受以下项限制：</p> 
+           <ul> 
+            <li><a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms">数据密钥重用周期</a>（1 分钟到 24 小时）。<br> </li> 
+            <li>AWS KMS 每个账户的限额（默认值为 100TPS）。<br> </li> 
+            <li>访问队列的 IAM 用户或账户数。<br> </li> 
+            <li>存在大量积压事务（事务积压的越多，就需要执行越多的 AWS KMS 调用）。</li> 
+           </ul> 
+           <p>例如，让我们假设以下情况：<br> </p> 
+           <ul> 
+            <li>您将您的数据密钥重用周期设置为 5 分钟（300 秒）。<br> </li> 
+            <li>您 KMS 账户的默认 AWS KMS TPS 限额为 100TPS。<br> </li> 
+            <li>您使用的 Amazon SQS 队列不存在积压事务，并且 1 位 IAM 用户可以对所有队列执行<br> </li> 
+            <li>SendMessage 或 ReceiveMessage 操作。</li> 
+           </ul> 
+           <p>在这种情况下，您可以按照如下方式计算使用 SSE 的 Amazon SQS 队列的理论最大值：</p> 
+           <p style="margin-left: 40px;"><b>300 秒 × 100 TPS/1 个 IAM 用户 = 30000 个队列</b></p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如何估算 AWS KMS 的使用费用？<br> </b></p> 
+           <p>要预测费用并更好地了解您的 AWS 账单，您可能需要知道 Amazon SQS 使用您 CMK 的频率。</p> 
+           <p style="margin-left: 40px;"><b>注意</b>：尽管以下公式可以让您很好地了解预测费用，但由于 Amazon SQS 的分布式特征，实际费用可能会更高。</p> 
+           <p>要计算每个队列的 API 请求数 (R)，请使用以下公式：</p> 
+           <p style="margin-left: 40px;"><b>R = B/D * (2 * P + C)</b></p> 
+           <p><b>B</b> 是计费周期（以秒为单位）</p> 
+           <p><b>D</b> 是<a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms">数据密钥重用周期</a>（以秒为单位）。</p> 
+           <p><b>P</b> 是发送到 Amazon SQS 队列的生产<a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#Principal">委托人</a>数。</p> 
+           <p><b>C</b> 是从 Amazon SQS 队列接收的消费委托人数。</p> 
+           <p style="margin-left: 40px;"><b>重要提示</b>：通常，创建委托人的费用是使用委托人费用的两倍。有关更多信息，请参阅 <i>Amazon SQS 开发人员指南</i> 中的<a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-how-does-the-data-key-reuse-period-work">数据密钥重用周期的工作方式</a>部分。</p> 
+           <p style="margin-left: 40px;">如果创建器和使用器具有不同的 IAM 用户，则费用会增加。</p> 
+           <p>有关更多信息，请参阅 <i>Amazon SQS 开发人员指南</i>中的<a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-estimate-kms-usage-costs">如何估算 AWS KMS 的使用费用？</a>。<br> </p> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="lb-grid"> 
+        <div class="lb-row lb-row-max-large lb-snap"> 
+         <div class="lb-col lb-tiny-24 lb-mid-24"> 
+          <h2 id="Compliance" class="lb-txt-bold lb-txt-none lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 合规性</h2> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：Amazon SQS 是否通过了 PCI DSS 认证？<br> </b></p> 
+           <p>是的。Amazon SQS 通过了 PCI DSS 第 1 级认证。有关更多信息，请参阅 <a href="/cn/compliance/pci-dss-level-1-faqs/">PCI 合规性</a>。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：Amazon SQS 符合 HIPAA 要求吗？<br> </b></p> 
+           <p>符合，AWS 对其 HIPAA 合规性计划进行了扩展，已将 Amazon SQS 作为一项符合 HIPAA 要求的服务纳入该计划。如果您已与 AWS 签订商业伙伴协议 (BAA)，那么您就可以使用 Amazon SQS 来构建 HIPAA 合规应用程序、存储传输中的消息以及传输消息，其中包括含受保护健康信息 (PHI) 的消息。</p> 
+           <p>如果您已与 AWS 签订商业伙伴协议，那么您就可以立即开始使用 Amazon SQS。如果您未签订商业伙伴协议或者在对您的 HIPAA 合规应用程序使用 AWS 的方面有其他问题，请联系我们，以获取详细信息。</p> 
+           <p><b>注意</b>：如果不想通过 Amazon SQS 传输 PHI（或者，如果消息超过 256KB），那么可以使用适用于 Java 的 Amazon SQS 扩展客户端库改为<a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-s3-messages.html">通过 Amazon S3 发送 Amazon SQS 消息负载</a>（除使用 Amazon S3 Transfer Acceleration 外，Amazon S3 在其他方面也是一种符合 HIPAA 要求的服务）。有关更多信息，请参阅 <i>Amazon SQS 开发人员指南</i>中的<a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-s3-messages.html#s3-messages-examples">使用适用于 Java 的 Amazon SQS 扩展客户端库</a>。<br> </p> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="lb-grid"> 
+        <div class="lb-row lb-row-max-large lb-snap"> 
+         <div class="lb-col lb-tiny-24 lb-mid-24"> 
+          <h2 id="Limits_and_restrictions" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> <a href="#Limits_and_restrictions"> 限额和限制</a> </h2> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：消息在 Amazon SQS 消息队列中可以保留多久？</b></p> 
+           <p>较长消息的保留期可以实现更大的灵活性，让消息产生和消息使用之间的间隔时间更长。</p> 
+           <p>您可以将 Amazon SQS 消息保留期配置为 1 分钟至 14 天之间的值。默认为 4 天。一旦达到消息保留期限，您的消息就会被自动删除。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如何配置 Amazon SQS 以支持更长的消息保留期？<br> </b></p> 
+           <p>要配置消息保留期，请使用管理控制台或 Distributiveness 方法来设置 MessageRetentionPeriod 属性。该属性用于指定消息在 Amazon SQS 中保留的秒数。</p> 
+           <p>您可以使用 MessageRetentionPeriod 属性将消息保留期设置为 60 秒（1 分钟）到 1209600 秒（14 天）之间的值。有关使用此消息属性的更多信息，请参阅 <i><a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/Welcome.html">Amazon SQS API 参考</a></i>。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如何配置 Amazon SQS 的最大消息大小？<br> </b></p> 
+           <p>要配置最大消息大小，请使用控制台或 SetQueueAttributes 方法来设置 MaximumMessageSize 属性。&nbsp;该属性用于指定 Amazon SQS 消息可以包含的字节数。可以将属性设为 1024 字节 (1KB) 到 262144 字节 (256KB) 之间的值。有关更多信息，请参阅 <i>Amazon SQS 开发人员指南</i> 中的<a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html">使用 Amazon SQS 消息属性</a>。</p> 
+           <p>要发送大小超过 256KB 的消息，您可以使用<a href="https://github.com/awslabs/amazon-sqs-java-extended-client-lib">适用于 Java 的 Amazon SQS 扩展客户端库</a>?。借助该库，您可以发送引用了 Amazon S3 中的消息负载的 Amazon SQS 消息，最大可为 2GB。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：消息中可以包含哪种类型的数据？<br> </b></p> 
+           <p>Amazon SQS 消息可包含不超过 256 KB 的文本数据，包括 XML、JSON 和无格式文本。接受以下 Unicode 字符：</p> 
+           <p>#x9 | #xA | #xD | [#x20 to #xD7FF] | [#xE000 to #xFFFD] | [#x10000 to #x10FFFF]</p> 
+           <p>有关更多信息，请参阅 <a href="http://www.w3.org/TR/REC-xml/#charsets">XML 1.0 规范</a>。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：Amazon SQS 消息队列的大小可以是多大？<br> </b></p> 
+           <p>单个 Amazon SQS 消息队列中的消息没有数量限制。但是，对于标准队列，处于飞行状态的消息数量限额是 120000；对于 FIFO 队列，此限额为 20000。消息的飞行状态是指该消息已由使用组件从队列接收，但尚未从队列中删除。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：可以创建多少个消息队列？<br> </b></p> 
+           <p>您可以创建任意数量的消息队列。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：Amazon SQS 消息队列的名称大小是否有限制？<br> </b></p> 
+           <p>队列名称限制为 80 个字符。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：Amazon SQS 消息队列的名称是否有限制？<br> </b></p> 
+           <p>您可以使用字母数字字符、连字符 (-) 和下划线 (_)。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：消息队列名称是否可以重新使用？<br> </b></p> 
+           <p>同一个 AWS 账户和区域内的消息队列名称必须是唯一的。您可以在删除一个消息队列后重新使用该消息队列的名称。<br> </p> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="lb-grid"> 
+        <div class="lb-row lb-row-max-large lb-snap"> 
+         <div class="lb-col lb-tiny-24 lb-mid-24"> 
+          <h2 id="Queue_sharing" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 队列共享</h2> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如何共享消息队列？<br> </b></p> 
+           <p>您可以将访问策略语句（并指定要授予的权限）与要共享的消息队列关联。Amazon SQS 可以提供 API，用于创建和管理以下访问策略语句：</p> 
+           <ul> 
+            <li>AddPermission<br> </li> 
+            <li>RemovePermission<br> </li> 
+            <li>SetQueueAttributes<br> </li> 
+            <li>GetQueueAttributes</li> 
+           </ul> 
+           <p>有关详细信息，请参阅 <i><a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/Welcome.html">Amazon SQS API 参考</a></i>。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：共享队列访问由谁支付费用？<br> </b></p> 
+           <p>消息队列拥有者负责支付共享消息队列访问的费用。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如何标识我希望与之共享消息队列的另一个 AWS 用户？<br> </b></p> 
+           <p>Amazon SQS API 使用 AWS 账号来标识 AWS 用户。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：我需要向希望与之共享消息队列的 AWS 用户提供什么？<br> </b></p> 
+           <p>要与 AWS 用户共享消息队列，您需要提供所要共享的消息队列的完整 URL。进行 CreateQueue 和 ListQueues 操作后，系统会返回 URL。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：Amazon SQS 是否支持匿名访问？<br> </b></p> 
+           <p>是的。您可以配置访问策略，允许匿名用户访问消息队列。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：应该在什么时候使用权限 API？<br> </b></p> 
+           <p>权限 API 可以向开发人员提供接口，用于共享消息队列的访问权限。但是，此类 API 不支持有条件访问或更高级的使用案例。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：应该在什么时候将 SetQueueAttributes 操作用于 JSON 对象？<br> </b></p> 
+           <p>SetQueueAttributes 操作支持全部的访问策略语言。例如，您可以使用策略语言将消息队列的访问权限限制到特定 IP 地址和特定时间。有关更多信息，请参阅 <i>Amazon SQS 开发人员指南</i>中的 <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSExamples.html">Amazon SQS 策略示例</a>。<br> </p> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="lb-grid"> 
+        <div class="lb-row lb-row-max-large lb-snap"> 
+         <div class="lb-col lb-tiny-24 lb-mid-24"> 
+          <h2 id="Service_access_and_regions" class="lb-txt-bold lb-txt-none lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 服务使用和区域</h2> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：Amazon SQS 在哪些区域提供？<br> </b></p> 
+           <p>有关提供服务的地区，请参阅 <a href="/cn/about-aws/global-infrastructure/regional-product-services/">AWS 全球基础设施区域表</a>。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：是否可以在不同区域中的队列之间共享消息？<br> </b></p> 
+           <p>不可以。各个区域中的各个 Amazon SQS 消息队列都是独立的。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：不同区域之间是否有定价差别？<br> </b></p> 
+           <p>除中国 (北京) 外，所有区域的 Amazon SQS 定价均相同。有关更多信息，请参阅 <a href="/cn/sqs/pricing/">Amazon SQS 定价</a>。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如果在不同区域之间传输，定价结构如何？<br> </b></p> 
+           <p>您可以在同一个区域内的 Amazon SQS 与 Amazon EC2 或 AWS Lambda 之间免费传输数据。</p> 
+           <p>如果在不同区域内的 Amazon SQS 与 Amazon EC2 或 AWS Lambda 之间传输数据，则需要按正常数据传输费率付费。有关更多信息，请参阅 <a href="/cn/sqs/pricing/">Amazon SQS 定价</a>。<br> </p> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </main>

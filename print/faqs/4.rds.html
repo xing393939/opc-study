@@ -1,0 +1,860 @@
+<main role="main"> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="General" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;">RDS 一般性问题</h2> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：什么是 Amazon RDS？</b></p> 
+        <p>Amazon Relational Database Service 也称为 Amazon RDS，是一种托管服务，可以简化在<a adhocenable="false" href="/what-is-cloud-computing/">云</a>中设置、操作和扩展<a href="/dms/">关系数据库</a>的过程。它在管理耗时的数据库管理任务的同时，提供经济高效的可调容量，使您能够腾出时间专注于应用程序和业务。</p> 
+        <p>Amazon RDS 让您能够访问非常熟悉的 MySQL、MariaDB、Oracle、SQL Server 或 PostgreSQL 数据库的功能。这意味着您当前用于现有数据库的代码、应用程序和工具也可以无缝用于 Amazon RDS。Amazon RDS 可以自动备份您的数据库，并使您的数据库软件版本保持最新。您可以灵活方便地扩展与关系数据库实例相关联的计算资源或存储容量，并从中受益。此外，Amazon RDS 还可通过复制轻松增强数据库可用性、改进数据耐久性或扩展读取密集型数据库工作负载中单一数据库实例的容量限制。与所有 Amazon Web Services 相同，您无需预先投资，而且只需为所使用的资源付费。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon RDS 支持哪些关系数据库引擎？</b></p> 
+        <p>Amazon RDS 支持 Amazon Aurora、MySQL、MariaDB、Oracle、SQL Server 和 PostgreSQL 数据库引擎。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon RDS 可代我管理哪些内容？</b></p> 
+        <p>Amazon RDS 可管理关系数据库设置所涉及的工作：从预置请求的基础设施容量到安装数据库软件。在您的数据库启动并运行后，Amazon RDS 会自动执行常规的管理任务，如执行备份以及修补为数据库提供支持的软件。借助可选的多可用区部署，Amazon RDS 还可通过自动故障转移管理可用区之间的同步数据复制。</p> 
+        <p>由于 Amazon RDS 提供本机数据库访问，所以您可以像通常一样与关系数据库软件交互。这意味着您仍负责管理特定于应用程序的数据库设置。您需要构建最适合自己使用案例的关系架构，并负责调整性能以优化适用于应用程序工作流程的数据库。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：何时使用 Amazon RDS，何时使用 Amazon EC2 关系数据库 AMI？</b></p> 
+        <p>Amazon Web Services 为开发人员提供了很多数据库备选项。Amazon RDS 让您能运行功能完善的关系数据库，同时又让您摆脱繁琐的数据库管理工作。使用我们在 <a href="/ec2/" adhocenable="false">Amazon EC2</a> 上的众多关系数据库 AMI 中的一个，便可在云中管理您自己的关系数据库。这些备选项之间存在很大的不同，这使其中的某项可能更符合您的使用案例。有关挑选最适合您的解决方案的相关指南，请参阅 <a href="/running_databases/">AWS 云数据库</a>。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何开始使用 Amazon RDS？</b></p> 
+        <p>要注册 Amazon RDS，您必须要有一个 Amazon Web Services 账户。如果还没有账户，请<a adhocenable="false" href="https://portal.aws.amazon.com/gp/aws/developer/registration/index.html" target="_blank">创建一个账户</a>。注册 Amazon RDS 后，请参阅 <a href="http://aws.amazon.com/documentation/rds/">Amazon RDS 文档</a>（其中包含我们的<a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.html" adhocenable="false">入门指南</a>）。</p> 
+        <p>Amazon RDS 是 <a href="/free/">AWS 免费套餐</a>的一部分，因此，AWS 新客户可以免费在云中开始使用托管数据库服务。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon RDS 是否有混合或本地部署选项？</b></p> 
+        <p>是的，您可以使用 Amazon RDS on Outposts 和 Amazon RDS on VMware 在本地访问 RDS。请参阅 <a href="/cn/rds/outposts/faqs/">Amazon RDS on Outposts</a> 和 <a href="/cn/rds/vmware/faqs/">Amazon RDS on VMware</a> 常见问题了解其他信息。<br> </p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Database_Instances" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 数据库实例</h2> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：什么是数据库实例？</b></p> 
+        <p>您可以将数据库实例视为一个云中的数据库环境，其中包含您所指定的计算和存储资源。您可以创建和删除数据库实例，定义/优化数据库实例的基础设施属性，还能通过 <a href="https://console.aws.amazon.com/">AWS 管理控制台</a>、<a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/Welcome.html">Amazon RDS API</a> 和 <a href="http://docs.aws.amazon.com/cli/latest/reference/rds/index.html">AWS 命令行界面</a>控制访问权限和安全性。您可以运行一个或多个数据库实例，且每个数据库实例都可以支持一个或多个数据库或数据库架构，具体取决于引擎类型。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何创建数据库实例？</b></p> 
+        <p>借助 <a href="https://console.aws.amazon.com/">AWS 管理控制台</a>、<a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/Welcome.html" adhocenable="false">Amazon RDS API</a> 或 <a target="_blank" href="http://docs.aws.amazon.com/cli/latest/reference/rds/index.html" adhocenable="false">AWS 命令行界面</a>，您可以轻松创建数据库实例。要使用 AWS 管理控制台启动数据库实例，请单击“RDS”，然后单击<b>实例</b>选项卡上的<b>启动数据库实例</b>按钮。您可以从中指定数据库实例的参数，包括数据库引擎和版本、许可模式、实例类型、存储类型和存储量，以及主用户凭证。</p> 
+        <p>您还可以更改数据库实例的备份保留策略、首选备份时段和计划维护时段。此外，您还可以使用 <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html">CreateDBInstance API</a> 或 <a href="http://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html">create-db-instance 命令</a>创建数据库实例。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何访问正在运行的数据库实例？</b></p> 
+        <p>只要数据库实例可用，您即可通过 <a href="https://console.aws.amazon.com/">AWS 管理控制台</a>中的数据库实例描述、<a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html">DescribeDBInstances API</a> 或 <a href="http://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-instances.html">describe-db-instances 命令</a>检索其终端节点。使用这个终端节点，您就可以用您最喜欢的数据库工具或编程语言构建与您的数据库实例直接相连所需的连接字符串。要允许对您正在运行的数据库实例发出的网络请求，您需要授予访问权限。有关如何构建连接字符串以及如何开始使用的详细说明，请参阅我们的<a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.html" adhocenable="false">入门指南</a>。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：使用 Amazon RDS 可以运行多少个数据库实例？</b></p> 
+        <p>默认情况下，客户最多可以拥有 40 个 Amazon RDS 数据库实例。在这 40 个实例中，最多 10 个实例可以是“已包含许可证”模式下的 Oracle 或 SQL Server 数据库实例。40 个实例全都可用于“BYOL”模式下的 Amazon Aurora、MySQL、MariaDB、PostgreSQL 以及 Oracle。请注意，适用于 SQL Server 的 RDS 在单个数据库实例上有最多拥有 100 个数据库的限制，要了解更多信息，请参阅 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.FeatureSupport.Limits">Amazon RDS SQL Server 用户指南</a>。<br> </p> 
+        <p>如果您的应用程序需要更多的数据库实例，您可以通过<a href="https://aws.amazon.com/contact-us/request-to-increase-the-amazon-rds-db-instance-limit/">此申请表</a>申请更多数据库实例。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：可在一个数据库实例内运行多少个数据库或数据库架构？</b></p> 
+        <ul> 
+         <li>适用于 Amazon Aurora 的 RDS：软件没有强制限制</li> 
+         <li>适用于 MySQL 的 RDS：软件没有强制限制</li> 
+         <li>适用于 MariaDB 的 RDS：软件没有强制限制</li> 
+         <li>适用于 Oracle 的 RDS：每个实例 1 个数据库；软件对于每个数据库的架构数量没有强制限制</li> 
+         <li>适用于 SQL Server 的 RDS：每个实例最多 100 个数据集库，请参阅此处：<a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.FeatureSupport.Limits">Amazon RDS SQL Server 用户指南</a></li> 
+         <li>适用于 PostgreSQL 的 RDS：软件没有强制限制</li> 
+        </ul> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何将数据导入 Amazon RDS 数据库实例？</b></p> 
+        <p>将数据导入 Amazon RDS 的方式有很多并且非常简单，例如对于 MySQL 使用 mysqldump 或 mysqlimport 实用程序，对于 Oracle 使用数据泵、Import/Export 或 SQL Loader，对于 SQL Server 使用 Import/Export 向导、完整备份文件（.bak 文件）或 Bulk Copy Program (BCP)，或对 PostgreSQL 使用 pg_dump。有关数据导入和导出的更多信息，请参阅 <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html" target="_blank" adhocenable="false">MySQL 数据导入指南</a>、<a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Oracle.Procedural.Importing.html" target="_blank" adhocenable="false">Oracle 数据导入指南</a>、<a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.Procedural.Importing.html" target="_blank" adhocenable="false">SQL Server 数据导入指南</a>、<a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.Importing.html" adhocenable="false" target="_blank">PostgreSQL 数据导入指南</a>。</p> 
+        <p>此外，<a href="/dms/">AWS Database Migration Service</a> 还可以帮助您轻松、安全地将数据库迁移到 AWS。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：什么是维护时段？ 在维护期间，我的数据库实例是否可用？</b></p> 
+        <p>如有请求或要求，您可以通过 Amazon RDS 维护时段控制数据库实例修改、数据库引擎版本升级和软件修补时间。如果在给定的星期内安排了维护事件，该事件将在您确定的维护时段内启动。<br> </p> 
+        <p>需要使用 Amazon RDS 将数据库实例脱机的维护事件有扩展计算操作（从始至终通常只需要几分钟时间）、数据库引擎版本升级和必要的软件修补。仅针对安全和耐久的补丁自动安排必要的软件修补。这种修补很少发生（通常几个月一次），并且几乎不会要求过长的维护时段。</p> 
+        <p>如果创建数据库实例时未指定首选周维护时段，系统将分配默认值 30 分钟。如果您希望在代您执行维护时修改此值，可以通过 <a href="https://console.aws.amazon.com/">AWS 管理控制台</a>或使用 <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBInstance.html">ModifyDBInstance API</a> 或 <a href="http://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-instance.html">modify-db-instance 命令</a>修改数据库实例来执行该操作。如果选择这样操作，您的各个数据库实例可以执行不同的首选维护时段。<br> </p> 
+        <p>采用多可用区部署的方式运行数据库实例可进一步降低维护工作的影响。有关维护操作的更多信息，请参阅 <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html">Amazon RDS 用户指南</a>。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如果我的查询运行缓慢，应该怎么办？</b></p> 
+        <p>对于生产数据库，建议您启用<a href="#Enhanced_Monitoring">增强型监控</a>，它将提供对 50 多个 CPU、内存、文件系统和磁盘 I/O 指标的访问权限。您可以针对单个实例启用这些功能并选择粒度（直至 1 秒）。较高的 CPU 使用率会降低查询性能，因此建议您考虑扩展数据库实例类。有关监控数据库实例的更多信息，请参阅 <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Monitoring.html">Amazon RDS 用户指南</a>。<br> </p> 
+        <p>如果使用的是适用于 MySQL 或 MariaDB 的 RDS，您可以访问数据库的慢查询日志来确定是否存在运行缓慢的 SQL 查询（如有）以及各个查询的性能特征。您可以设置“slow_query_log”数据库参数并查询 mysql.slow_log 表，以查看缓慢运行的 SQL 查询。有关详细信息，请参阅 <a href="http://docs.amazonwebservices.com/AmazonRDS/latest/UserGuide/Appendix.MySQL.CommonDBATasks.html">Amazon RDS 用户指南</a>。<br> </p> 
+        <p>如果使用的是适用于 Oracle 的 RDS，您可以使用 Oracle 跟踪文件数据来确定慢查询。有关访问跟踪文件数据的更多信息，请参阅 <a href="http://docs.amazonwebservices.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.CommonDBATasks.html#Appendix.Oracle.CommonDBATasks.WorkingWithTracefiles">Amazon RDS 用户指南</a>。<br> </p> 
+        <p>如果使用的是适用于 SQL Server 的 RDS，您可以使用客户端 SQL Server 跟踪来确定慢查询。有关访问服务器端跟踪文件数据的信息，请参阅 <a href="http://docs.amazonwebservices.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.html#Appendix.SQLServer.CommonDBATasks.WorkingWithTracefiles">Amazon RDS 用户指南</a>。<br> </p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Database_Engine_Versions" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 数据库引擎版本</h2> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon RDS 支持哪些关系型数据库引擎版本？</b></p> 
+        <p>要获得支持的数据库引擎版本清单，请参阅每个引擎的文档：</p> 
+        <ul> 
+         <li><a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html">Amazon RDS for MySQL</a></li> 
+         <li><a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MariaDB.html">Amazon RDS for MariaDB</a></li> 
+         <li><a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html">Amazon RDS for PostgreSQL</a><br> </li> 
+         <li><a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Oracle.html">Amazon RDS for Oracle</a><br> </li> 
+         <li><a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html">Amazon RDS for SQL Server</a><br> </li> 
+         <li><a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.DatabaseEngineUpdates.html">Amazon Aurora</a></li> 
+        </ul> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon RDS 如何区分“主要”和“次要”数据库引擎版本？</b></p> 
+        <p>有关版本编号的详细信息，请参阅各个 Amazon RDS 数据库引擎的常见问题页面。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon RDS 是否提供新数据库引擎版本支持指南？</b></p> 
+        <p>Amazon RDS 会逐渐增加对新的主要和次要数据库引擎版本的支持。支持的新版本的数量将有所不同，具体取决于引擎供应商或开发组织发布版本和补丁的频率和内容，以及我们的数据库工程团队对这些版本和补丁的彻底审查结果。不过，一般而言，我们计划在通用版本发布后 5 个月内支持新的引擎版本。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何指定要数据库实例运行的受支持的数据库引擎版本？</b></p> 
+        <p>您在通过 AWS 管理控制台中的<b>启动数据库实例</b>操作或 <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html">CreateDBInstance</a> API 创建新数据库实例时，可以指定当前受支持的任何版本（主要和次要）。请注意，并非所有数据库引擎版本在每个 AWS 区域都可用。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何控制是否以及何时将数据库实例引擎版本升级到受支持的新版本？</b></p> 
+        <p>Amazon RDS 通过为您提供更高版本的受支持数据库引擎，使您的数据库实例保持最新。供应商或开发组织发布新版数据库引擎后，我们的数据库工程团队会对其进行全面测试，然后才会在 Amazon RDS 中提供相应版本。<br> </p> 
+        <p>建议您将数据库实例升级到最新的次要版本，因为它包含最新的安全和功能修复程序。与主要版本升级不同的是，次要版本升级仅包括与数据库引擎之前的次要版本（主要版本相同）向后兼容的数据库更改。<br> </p> 
+        <p>如果新的次要版本不包含有益于 RDS 客户的修复程序，我们可能会选择不在 RDS 中提供该版本。在 RDS 中提供新的次要版本后不久，我们会将其设置为新数据库实例的首选次要版本。<br> </p> 
+        <p>要手动将数据库实例升级到受支持的引擎版本，请使用 AWS 管理控制台中的<b>修改数据库实例</b>命令或者使用 <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBInstance.html">ModifyDBInstance</a> API，将<b>数据库引擎版本</b>参数设置为所需版本。默认情况下，系统将立即或在下一<a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance">维护时段</a>应用升级。您也可以通过选择控制台 API 中的<b>立即应用</b>选项选择立即升级。<br> </p> 
+        <p>如果我们确定新的引擎次要版本和之前发布的次要版本相比包含了重要的错误修复程序，我们将为<b>自动次要版本升级</b>设为“是”的数据库实例安排自动升级。这些升级将被安排在客户指定的维护时段中进行。<br> </p> 
+        <p>我们会提供日程表以便您根据其制定计划，因为升级数据库引擎版本需要停机，即便对于多可用区实例也是如此。如果您希望关闭自动次要版本升级，只需将“自动次要版本升级”设置为“否”即可。<br> </p> 
+        <p>对于 RDS for Oracle 和 RDS for SQL Server，如果升级到更高的次要版本需要更改到不同的版次，即使您已启用<b>自动次要版本升级</b>设置，我们可能也不会安排自动升级。在这种情况下，是否安排自动升级将根据具体情况而定。<br> </p> 
+        <p>由于主要版本升级涉及一些兼容性风险，因此不会自动执行且必须由您启动（除非主要版本已被弃用，请参见下文）。<br> </p> 
+        <p>有关将数据库实例升级到新的数据库引擎版本的详细信息，请参阅 <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.html">Amazon RDS 用户指南</a>。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：升级前，是否可以使用新版本测试数据库实例？</b></p> 
+        <p>可以。您只需创建现有数据库实例的数据库快照，从该数据库快照进行还原以创建新的数据库实例，然后为新的数据库实例启动版本升级即可。之后，您可以在升级后的数据库实例副本上安全地进行测试，然后决定是否升级原始的数据库实例。<br></p> 
+        <p>有关还原数据库快照的详细信息，请参阅 <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_RestoreFromSnapshot.html">Amazon RDS 用户指南</a>。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon RDS 是否提供有关如何弃用目前受支持的数据库引擎版本的指南？</b></p> 
+        <ul> 
+         <li>对于发布的主要版本（如 MySQL 5.6、PostgreSQL 9.6），我们计划自 Amazon RDS 开始支持起，至少持续支持 3 年。</li> 
+         <li>对于次要版本（如 MySQL 5.6.37、PostgreSQL 9.6.1），我们计划从 Amazon RDS 开始支持起，至少持续支持 1 年。</li> 
+        </ul> 
+        <p>我们会定期弃用主要或次要引擎版本。对于主要版本，我们通常会在该版本已移至扩展支持或不再接收软件修复程序或安全更新时将其弃用。对于次要版本，我们通常会在该版本存在严重错误或安全问题（在更高的次要版本中已解决这些问题）时将其弃用。<br></p> 
+        <p>在我们努力满足这些指南要求的同时，有时候我们可能会很快否决特定的主要或次要版本，如存在安全问题时。万一出现这种情况，Amazon RDS 将自动升级您的数据库引擎以解决相关问题。所需时间会因不同的情况而异，具体取决于要解决的问题。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如果某个 RDS 数据库引擎版本被弃用，会出现什么情况？</b></p> 
+        <p>当 Amazon RDS 弃用某个数据库引擎的<u>次要</u>版本后，我们会在宣布弃用后提供三 (3) 个月的时间，之后再开始自动升级。这一时间结束后，仍在运行已弃用次要版本的所有实例均会被安排在计划维护时段内自动升级到受支持的最新次要版本。<br></p> 
+        <p>当 Amazon RDS 弃用某个数据库引擎的<u>主要</u>版本后，我们会在宣布弃用后提供至少六 (6) 个月的时间，以便您升级到受支持的主要版本。这一时间结束后，仍在运行已弃用版本的所有实例均会在计划维护时段内自动升级到下一个主要版本。<br></p> 
+        <p>当某个主要或次要数据库引擎版本在 Amazon RDS 中不受支持后，从使用不受支持的版本创建的数据库快照恢复的所有数据库实例都将立即自动升级到当前受支持的版本。<br></p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Billing" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 账单</h2> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <b>问：使用 Amazon RDS 是如何收费和计费的？</b> 
+        <p></p> 
+        <p>仅按实际使用量收费，无最低费用或设置费用。您的计费依据为：</p> 
+        <ul> 
+         <li>数据库实例小时数 – 基于使用的数据库实例类（如 db.t2.micro、db.m4.large）。数据库实例运行未满一小时的按一小时计费。</li> 
+         <li>存储（每月每 GB）– 您的数据库实例预置的存储容量。如果您在一个月内扩展您预置的存储容量，则将按相应比例计费。</li> 
+         <li>每月的 I/O 请求 – 您的存储 I/O 请求总数量<i>（仅限于 Amazon RDS 磁性存储和 Amazon Aurora）</i><br> </li> 
+         <li>每月的预配置 IOPS – 预配置 IOPS 费率，不论 IOPS 的消耗量如何<i>（仅限于 Amazon RDS 预配置 IOPS [SSD] 存储）</i></li> 
+         <li>备份存储 – 备份存储是指与您的自动数据库备份和任何由客户启动的数据库快照相关的存储。延长备份保留期或增加快照拍摄数量将增加数据库所消耗的备份存储。<br> </li> 
+         <li>数据传输 – 传入和传出数据库实例的 Internet 数据传输。</li> 
+        </ul> 
+        <p>有关 Amazon RDS 定价信息，请访问 <a href="https://aws.amazon.com/rds/pricing">Amazon RDS 产品页的定价部分</a>。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon RDS 数据库实例的账单周期怎么计算？</b></p> 
+        <p>数据库实例的账单周期从该数据库实例可用时开始计算。账单周期一直持续到该数据库实例终止之时，删除实例或实例出现故障时会发生终止。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon RDS 应计费实例小时数如何界定？</b></p> 
+        <p>数据库实例小时数是指按您的数据库实例在可用状态下运行的每个小时计费。如果您希望不再为数据库实例付费，则必须将其停止或删除，以免产生更多应计费实例小时数。数据库实例运行未满一小时的按一小时计费。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何对已停止的数据库实例计费？</b></p> 
+        <p>当您的数据库实例停止时，您需要为预配置存储（包括预配置 IOPS）和备份存储（包括指定保留时段内的手动快照和自动备份）付费，但无需为数据库实例小时数付费。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：为什么我的额外备份存储成本要高于分配的数据库实例存储？</b></p> 
+        <p>为您的主要数据的数据库实例预置的存储位于单一可用区内。备份数据库时，将在多个可用区之间冗余地复制备份数据（包括事务日志），以提供更高级别的数据耐久性。超出免费分配之外的备份存储价格体现了为实现关键备份的持久性最大化而执行的额外复制操作。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何对多可用区部署的数据库实例计费？</b></p> 
+        <p>如果您指定数据库实例为多可用区部署，系统将根据 <a href="https://aws.amazon.com/rds/pricing">Amazon RDS 定价页面</a>上发布的多可用区定价计费。多可用区的计费依据为：</p> 
+        <ul> 
+         <li>多可用区数据库实例小时数 – 基于使用的数据库实例类（如 db.t2.micro、db.m4.large）。对于单一可用区中的标准部署，不足一小时的数据库实例将按一小时计费。如果在给定小时内数据库实例部署在标准和多可用区模式之间发生转换，将按该小时适用的费率收费。</li> 
+         <li>预置存储（针对多可用区数据库实例）– 如果在给定小时内数据库实例部署在标准和多可用区模式之间发生转换，将按该小时适用的存储费率中的较高者收费。</li> 
+         <li>每月的 I/O 请求数 – 您拥有的存储 I/O 请求总数。多可用区部署耗用的 I/O 请求量高于标准数据库实例部署，具体取决于数据库的写入/读取比率。当 Amazon RDS 将数据同步复制到备用数据库实例时，与数据库更新相关联的写入 I/O 使用量将加倍。读取 I/O 使用量保持不变。</li> 
+         <li>备份存储 – 无论您的数据库实例是标准部署还是多可用区部署，备份存储使用量都保持不变。备份将轻松地从备用实例进行，以避免主数据库实例上的 I/O 暂停。</li> 
+         <li>数据传输 – 在主实例和备用实例之间复制数据不会收取数据传输费用。传入和传出数据库实例的 Internet 数据传输费用与标准部署的费用相同。</li> 
+        </ul> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：价格是否含税？</b></p> 
+        <p>除非另行说明，否则我们的价格不包含适用的税费和关税（包括增值税和适用的销售税）。&nbsp;使用日本账单地址的客户若要使用 AWS，则需缴纳日本消费税。<a href="/c-tax-faqs/" adhocenable="false">了解更多</a>。<br></p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Free_Tier" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 免费套餐</h2> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：适用于 Amazon RDS 的 AWS 免费套餐包含哪些内容？<br> </b></p> 
+        <p><a href="/rds/free/">适用于 Amazon RDS 的 AWS 免费套餐</a>包括：免费使用运行 MySQL、MariaDB、PostgreSQL、Oracle（“自带许可 [BYOL]”许可模式）和 SQL Server Express Edition 的单可用区微型数据库实例。免费使用套餐每月提供多达 750 小时的实例小时数。客户每月还可以免费获得 20GB 的通用型 (SSD) 数据库存储和 20GB 的备份存储。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：适用于 Amazon RDS 的 AWS 免费套餐的有效期是多久？</b></p> 
+        <p>AWS 新账户可以获得 AWS 免费套餐长达 12 个月的使用权。有关更多信息，请参阅 <a adhocenable="false" href="/free/faqs/">AWS 免费套餐常见问题</a>。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我是否可以在适用于 Amazon RDS 的 AWS 免费使用套餐下运行多个数据库实例？</b></p> 
+        <p>可以。您可同步运行多个单可用区微型数据库实例，并且可以将使用量计入适用于 Amazon RDS 的 AWS 免费套餐中。但是，任何超过 750 实例小时的用量，包括所有 Amazon RDS 单一可用区微型数据库实例、所有适用的数据库引擎和区域，均按标准的 Amazon RDS 价格计费。<br></p> 
+        <p>例如：如果您将两个单可用区微型数据库实例在一个月内各运行了 400 个小时，您将累计使用实例 800 小时，其中的 750 小时是免费的。剩下的 50 个小时将按标准的 Amazon RDS 价格计费。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：在 AWS 免费套餐下，我是否可使用 MySQL、MariaDB、PostgreSQL、Oracle 和 SQL Server 微型数据库实例各 750 个实例小时？</b></p> 
+        <p>不可以，享受 AWS 免费套餐的客户最多可使用 750 个小时的微型实例，无论实例运行的是 MySQL、PostgreSQL、Oracle 还是 SQL Server Express Edition。任何超过 750 实例小时的用量，包括所有 Amazon RDS 单可用区微型数据库实例、所有符合条件的数据库引擎和区域，均按<a href="/rds/pricing/" adhocenable="false">标准的 Amazon RDS 价格计费</a>。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：当我的实例小时使用量超出了免费套餐提供的量时，应如何计费？</b></p> 
+        <p>对于超出免费套餐所提供的实例小时数，将按标准的 Amazon RDS 价格计费。有关详细信息，请参阅 <a href="/rds/pricing/" adhocenable="false">Amazon RDS 定价页面</a>。<br></p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Reserved_Instances" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 预留实例</h2> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：什么是预留实例 (RI)？</b></p> 
+        <p>借助 Amazon RDS 预留实例，您可以将数据库实例预留一年或三年，并借此获得与按需实例定价相比而言更大的折扣。RI 有三种付款选项 – 不预付、部分预付、全额预付 – 您可以通过这三种选项平衡您的预付款金额与有效小时价格。&nbsp;</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：预留实例与按需数据库实例有何区别？</b></p> 
+        <p>预留实例和按需数据库实例在功能上是完全相同的。唯一的区别在于数据库实例的计费方式：对于预留实例，您可以购买一年或三年期预留实例，从而在持续期限内享受较低的有效小时使用费率（相对于按需数据库实例）。除非您在一个区域购买预留实例，否则所有数据库实例都将根据按需小时费率计费。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何购买和创建预留实例？</b></p> 
+        <p>您可以在 AWS 管理控制台中 Amazon RDS 的“预留实例”部分购买预留实例。另外，您还可以使用 Amazon RDS API 或 AWS 命令行界面列出可供购买的预留，然后购买数据库实例预留。<br></p> 
+        <p>购买预留实例之后，预留数据库实例与按需数据库实例的使用方式相同。您可以使用您预留的实例类、引擎和区域启动数据库实例。只要激活您购买的预留，Amazon RDS 即会对符合资格的新数据库实例应用折扣后的每小时费率。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：预留实例是否包括容量预留？</b></p> 
+        <p>Amazon RDS 预留实例针对区域而非某个特定的可用区出售。由于 RI 并非特定于某个可用区，因此不包括容量预留。这意味着即使某个可用区的容量有限，您仍然可以在该区域内购买预留实例，且折扣将应用于该区域内所有可用区的匹配使用量。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我可以购买多少个预留实例？</b></p> 
+        <p>您最多可以购买 40 个预留数据库实例。如果要运行 40 个以上数据库实例，请填写 <a href="https://aws.amazon.com/contact-us/request-to-increase-the-amazon-rds-db-instance-limit/">Amazon RDS 数据库实例申请表</a>。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如果我想将现有数据库实例替换为预留实例，应该怎么办？</b></p> 
+        <p>只需在您目前正在运行且希望预留的数据库实例所在的区域内购买属于相同数据库实例类，且具有相同数据库引擎、多可用区选项和许可模式的数据库实例预留即可。成功购买预留后，Amazon RDS 将自动对您现有的数据库实例应用新的小时使用费用。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如果我注册了预留实例，预留期限从何时开始算起？ 该期限结束后，会怎样处理我的数据库实例？</b></p> 
+        <p>收到您的请求及处理付款授权后，系统将会激活与预留实例相关联的定价变更。您可以在“AWS 账户活动”页面或使用 <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeReservedDBInstances.html">DescribeReservedDBInstances API</a> 或 <a href="http://docs.aws.amazon.com/cli/latest/reference/rds/describe-reserved-db-instances.html">describe-reserved-db-instances 命令</a>跟踪预留的状态。如果在下一账单周期前未成功授权一次性付款，折扣价格则不会生效。<br></p> 
+        <p>预留期限到期后，您的预留实例将恢复为该数据库实例类和区域相应的按需小时使用费率。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何控制哪些数据库实例按照预留实例费率进行计费？</b></p> 
+        <p>对于按需实例和预留实例，它们与创建、修改和删除数据库实例相关的 Amazon RDS 操作均相同。计算账单时，我们的系统将自动应用您的预留，即所有符合条件的数据库实例都将按较低的预留数据库实例小时费率收费。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如果对数据库实例类进行扩展或缩减，我的预留会发生什么情况？</b></p> 
+        <p>每个预留都会关联以下一组属性：数据库引擎、数据库实例类、多可用区部署选项、许可模式和区域。<br></p> 
+        <p>具有大小灵活性的数据库引擎和许可模式（MySQL、MariaDB、PostgreSQL、Amazon Aurora 或 Oracle“自带许可”）的预留会自动应用于同一数据库引擎和区域的同一实例系列（例如 M4、T2 或 R3）内正在运行的、任意大小的数据库实例。另外，预留也会自动应用于采用单可用区部署或多可用区部署的数据库实例。<br></p> 
+        <p>举例来说，假设您购买了一个 db.m4.2xlarge MySQL 预留。如果您决定将运行的数据库实例扩展为 db.m4.4xlarge，则该 RI 的折扣费率会覆盖较大的数据库实例的 1/2 的使用量。<br></p> 
+        <p>如果您采用的数据库引擎或许可模式<u>不</u>具有大小灵活性（Microsoft SQL Server 或 Oracle“已包含许可证”），那么在预留期限内，每个预留只能应用到具有相同属性的数据库实例。如果您要在预留期限结束前修改正在运行的数据库实例的任何属性，那么该数据库实例的小时使用费率将恢复为按需小时费率。<br></p> 
+        <p>有关大小灵活性的更多详细信息，请参阅 <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithReservedDBInstances.html#USER_WorkingWithReservedDBInstances.SizeFlexible">Amazon RDS 用户指南</a>。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：是否可以在不同区域或可用区之间移动预留实例？</b></p> 
+        <p>每个预留实例都与特定的区域关联，并且在预留实例生命周期内固定不变，因此无法更改区域。不过，每个预留在关联区域的任何可用区都可用。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：是否可对预留实例进行多可用区部署？</b></p> 
+        <p>可以。当您购买预留实例时，您可以在可用购买的数据库实例配置中选择多可用区选项。此外，如果您使用支持预留实例大小灵活性的数据库引擎和许可模式，则一个多可用区预留实例将涵盖两个单可用区数据库实例的使用费用。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：预留实例是否可用于只读副本？</b></p> 
+        <p>如果数据库实例类和区域相同，那么数据库实例预留可以应用于只读副本。计算账单时，我们的系统将自动应用您的预留，即所有符合条件的数据库实例都将按较低的预留实例小时费率收费。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：是否可以取消预留？</b></p> 
+        <p>不能，您无法取消预留数据库实例，而且一次性付款（如果适用）也不可退款。无论您使用多少容量，在预留数据库实例有效期内都必须继续支付小时费率。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：付款选项会对我的账单产生什么影响？ <br> </b></p> 
+        <p>当您按照全额预付款选项购买 RI 时，您需要用一次性预付付款方式为 RI 的整个期限付款。您可以通过选择不预付选项，不支付任何预付费用。不预付 RI 的整体价值覆盖实例期限中的每个小时，您将为该期限内的每个小时付费，无论使用情况如何。部分预付款选项是全额预付款和不预付选择的混合。进行小额预付款后，您将按较低的小时费率为实例期限内的每个小时付费，无论使用情况如何。<br></p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Hardware_and_Scaling" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 硬件和扩展</h2> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何确定哪种初始数据库实例类和存储容量适合我的需求？</b></p> 
+        <p>要选择初始数据库实例类和存储容量，您可能需要评估应用程序的计算、内存和存储需求。有关可用数据库实例类的信息，请参阅 <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">Amazon RDS 用户指南</a>。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何扩展与 Amazon RDS 数据库实例关联的计算资源和/或存储容量？</b></p> 
+        <p>您可以使用 <a href="https://console.aws.amazon.com/">AWS 管理控制台</a>（选择所需的数据库实例并单击<b>修改</b>按钮）、RDS API 或 AWS 命令行界面扩展为数据库实例分配的计算资源和存储容量。内存和 CPU 资源可通过更改数据库实例类进行修改，可用存储可在修改存储分配时进行更改。请注意，修改数据库实例类或分配的存储后，将在指定的维护时段中应用您请求的更改。此外，您可以使用“apply-immediately”标记立即应用扩展请求。请注意，任何其他待定的系统更改也将同时应用。<br> </p> 
+        <p>一些较早的 RDS for SQL Server 实例可能不符合条件，无法使用扩展存储。有关更多信息，请参阅 <a href="/cn/rds/sqlserver/faqs/">RDS for SQL Server 常见问题</a>。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon RDS 存储的硬件配置是什么？</b></p> 
+        <p>Amazon RDS 的数据库和日志存储采用 EBS 卷。根据所请求存储的容量，Amazon RDS 自动将多个 EBS 卷分成条状以增强 IOPS 性能。对于 MySQL 和 Oracle 中现有的数据库实例，在扩展存储时，您可以看到部分 I/O 容量有所改进。您可以使用 <a href="https://console.aws.amazon.com/">AWS 管理控制台</a>、<a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBInstance.html">ModifyDBInstance API</a> 或 <a href="http://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-instance.html">modify-db-instance 命令</a>扩展为数据库实例分配的存储容量。<br> </p> 
+        <p>有关更多信息，请参考<a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html">适用于 Amazon RDS 的存储</a>。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我的数据库实例在扩展期间是否一直可用？</b></p> 
+        <p>在保持数据库实例可用的同时，可以增加为数据库实例分配的存储容量。不过，在决定扩展或缩减数据库实例的可用计算资源时，您的数据库将暂时不可用，同时数据库实例类将发生变化。这段不可用时间通常仅会持续几分钟，将在数据库实例的维护时段出现，除非您指定立即应用修改。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我可以怎样扩展数据库实例，使其超过最大数据库实例类和最大存储容量？</b></p> 
+        <p>Amazon RDS 支持各种数据库实例类和存储分配以满足不同的应用程序需求。如果您的应用程序所需的计算资源超过最大数据库实例类或所需存储超过最大分配量，您可以执行分区，将数据分布到多个数据库实例中。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：什么是 Amazon RDS 通用型 (SSD) 存储？</b></p> 
+        <p>Amazon RDS 通用型 (SSD) 存储适用于拥有适度 I/O 请求的广泛数据库工作负载。凭借 3 IOPS/GB 的基准以及激增至 3000 IOPS 的能力，此存储方案将提供可预测的性能，以满足大多数应用程序的需求。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：什么是 Amazon RDS 预配置 IOPS (SSD) 存储？</b></p> 
+        <p>Amazon RDS 预配置 IOPS (SSD) 存储是支持 SSD 的存储方案，旨在提供快速、可预测且一致的 I/O 性能。凭借 Amazon RDS 预配置 IOPS (SSD) 存储，您可以在创建数据库实例时指定 IOPS 速率，而 Amazon RDS 可以为数据库实例的生命周期预置 IOPS 速率。Amazon RDS 预配置 IOPS (SSD) 存储经过优化，适合 I/O 密集型、事务处理型 (OLTP) 数据库工作负载。有关更多详情，请参阅 <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html">Amazon RDS 用户指南</a>。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：什么是 Amazon RDS 磁性存储？</b></p> 
+        <p>Amazon RDS 磁性存储适用于数据访问频率较低的小型数据库工作负载。对于生产数据库实例，不建议使用磁性存储。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何在众多的 Amazon RDS 存储类型中进行选择？</b></p> 
+        <p>选择最适合您的工作负载的存储类型。<br> </p> 
+        <ul> 
+         <li>高性能 OLTP 工作负载：Amazon RDS 预配置 IOPS (SSD) 存储</li> 
+         <li>具有适度 I/O 要求的数据库工作负载：Amazon RDS 通用型 (SSD) 存储</li> 
+        </ul> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon RDS 支持的最大和最小 IOPS 数量是多少？</b></p> 
+        <p>Amazon RDS 支持的 IOPS 数量取决于数据库引擎。有关更多详情，请参阅 <a href="http://docs.amazonwebservices.com/AmazonRDS/latest/UserGuide/USER_PIOPS.html">Amazon RDS 用户指南</a>。<br></p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Automatic_Backups_and_Database_Snapshots" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 自动备份和数据库快照</h2> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：自动备份和数据库快照之间有何差异？</b></p> 
+        <p>Amazon RDS 提供了两种备份和还原数据库实例自动备份和数据库快照的不同方法。<br></p> 
+        <p>通过 Amazon RDS 的自动备份功能，可以实现数据库实例的时间点恢复。为数据库实例打开自动备份功能时，Amazon RDS 将自动对数据执行全天快照（在首选的备份时段期间）并捕获事务日志（如果对数据库实例进行了更新）。启动时间点恢复时，事务日志将应用到最合适的每日备份，以便将数据库实例还原到您请求的特定时间。Amazon RDS 可在用户指定的有限时间段（称为“保留期”，默认情况下是 7 天，但最长可以设置为 35 天）内保留数据库实例备份。在保留期内，您可以启动时间点还原并指定任何秒数，最多为最近可还原时间。您可以使用 <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html">DescribeDBInstances</a> API 以使其返回数据库实例的最近可还原时间，通常在最后五分钟以内。此外，您可以在 <a href="https://console.aws.amazon.com/">AWS 管理控制台</a>中选择数据库实例，并查看控制台下侧面板的“描述”选项卡，了解该数据库实例的最近可还原时间。<br></p> 
+        <p>数据库快照由用户启动，可让您按所需的任意频率在已知状态备份数据库实例，然后随时还原到这种特定的状态。您可以使用 <a href="https://console.aws.amazon.com/">AWS 管理控制台</a>、<a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBSnapshot.html">CreateDBSnapshot API</a> 或 <a href="http://docs.aws.amazon.com/cli/latest/reference/rds/create-db-snapshot.html">create-db-snapshot 命令</a>创建数据库快照，这些快照会一直保留，直到您显式将其删除。<br></p> 
+        <p>您可以使用 Amazon RDS 为实现自动备份而创建的快照来进行复制（使用 AWS 控制台或 <a href="http://docs.aws.amazon.com/cli/latest/reference/rds/copy-db-snapshot.html">copy-db-snapshot 命令</a>）或用于快照还原功能。您可以使用“自动”快照类型来确定它们。此外，您可以查看“快照创建时间”字段来确定拍摄快照的时间。另外，“自动”快照的标识符中也包含快照拍摄的时间（UTC 形式）。<br></p> 
+        <p>请注意：执行还原到某个时间点操作或从数据库快照执行还原操作时，将使用新的终端节点创建一个新数据库实例（如果需要，可以删除旧数据库实例）。这样，您便可以从特定数据库快照或时间点创建多个数据库实例。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我需要对数据库实例启用备份，还是它会自动启用？</b></p> 
+        <p>默认情况下，Amazon RDS 可以在 7 天的保留期内自动进行数据库实例备份。免费备份存储仅限于预配置的数据库容量，且只适用于有效的数据库实例。例如，如果您每月预配置的数据库存储为 100GB，我们每月将免费提供 100GB 的备份存储。</p> 
+        <p>如果您希望修改备份保留期，可以使用控制台或 CreateDBInstance API（创建新数据库实例时）或 ModifyDBInstance API（对于现有的数据库实例）执行操作。您可以使用这些 API 来将 RetentionPeriod 参数更改为从 0 开始的任何数字（这将禁用自动备份）再到所需的天数。如果数据库实例为只读副本的来源，则无法将该值设置为 0。有关自动备份的更多信息，请参阅 <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_CommonTasks.BackupRestore.html">Amazon RDS 用户指南</a>。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：什么是备份时段？为什么需要使用备份时段？ 我的数据库在备份时段中是否可用？</b></p> 
+        <p>首选备份时段是用户定义的时间段，在该时间段内数据库实例将进行备份。Amazon RDS 借助这些定期数据备份以及事务日志，让您能够将数据库实例还原到保留期内的任何秒数，最多到 LatestRestorableTime（通常位于最后五分钟内）。在备份时段中，存储 I/O 可能会在备份过程初始化时暂停（通常短于几秒），同时延迟可能会短暂性增加。由于备份在备用机上进行，因此对于多可用区数据库部署，不会出现 I/O 暂停。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我的自动备份和数据库快照存储在哪里？如何管理其保留期？</b></p> 
+        <p>Amazon RDS 数据库快照和自动备份存储在 S3 中。<br></p> 
+        <p>您可以使用 <a href="https://console.aws.amazon.com/">AWS 管理控制台</a>、<a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBInstance.html">ModifyDBInstance API</a> 或 <a href="http://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-instance.html">modify-db-instance 命令</a>，通过修改 RetentionPeriod 参数来管理自动备份的保留时间段。如果您希望关闭自动备份，则可以通过将保留期设置为 0 来执行这一操作（但我们不建议您这样做）。您可以通过 Amazon RDS 控制台的“快照”部分管理用户创建的数据库快照。另外，您还可以使用 <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBSnapshots.html">DescribeDBSnapshots API</a> 或 <a href="http://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-snapshots.html">describe-db-snapshots 命令</a>查看用户针对指定数据库实例创建的数据库快照列表，并可使用 <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBSnapshot.html">DeleteDBSnapshot API</a> 或 <a href="http://docs.aws.amazon.com/cli/latest/reference/rds/delete-db-snapshot.html">delete-db-snapshot 命令</a>删除快照。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我的自动数据库快照数量为什么多于数据库实例保留期间的天数？</b></p> 
+        <p>如果您的自动数据库快照数量比保留期间的天数多出一两个，这属于正常情况。系统会额外保留一个自动快照，以确保能够执行到保留期内任何时间的时间点恢复。例如，如果您的备份时段设置为 1 天，您将需要 2 个自动快照才能支持到过去 24 小时内任何时间的恢复。此外，由于新的自动快照通常在旧的自动快照删除之前创建完成，您可能会看到一个额外的自动快照。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如果删除数据库实例，我的备份和数据库快照会发生什么状况？</b></p> 
+        <p>删除数据库实例时，您可以在删除前创建一个最终数据库快照；这样的话，您就可以在将来利用此数据库快照恢复已删除的数据库实例。在删除数据库实例后，Amazon RDS 会将这个用户创建的最终数据库快照与所有其他人工创建的数据库快照一起保留。请参阅<a href="https://aws.amazon.com/rds/pricing/">定价页面</a>，了解备份存储成本的详细信息。<br></p> 
+        <p>一旦删除数据库实例，自动备份也随之删除。在删除数据库实例后，只保留人工创建的数据库快照。<br></p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Security" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 安全性</h2> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon Virtual Private Cloud (VPC) 是什么？它如何与 Amazon RDS 配合使用？</b></p> 
+        <p>Amazon VPC 允许您在 AWS 云中私有、隔离的部分创建虚拟网络环境，从中可以对私有 IP 地址范围、子网、路由表和网络网关等方面进行全面控制。借助 Amazon VPC，您可以定义虚拟网络拓扑和自定义网络配置，使其非常类似于您在自己的数据中心所操作的传统 IP 网络。<br> </p> 
+        <p>使用 VPC 的一个好处在于：您可以运行面向公众的 Web 应用程序，同时仍旧在私有子网中保持非公开访问的后端服务器。您可以为 Web 服务器创建一个可以访问 Internet 的公有子网，并将后端 RDS 数据库实例置于不能访问 Internet 的私有子网中。有关 Amazon VPC 的更多信息，请参阅 <a href="http://docs.amazonwebservices.com/AmazonVPC/latest/UserGuide/">Amazon Virtual Private Cloud 用户指南</a>。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：在 VPC 内使用 Amazon RDS 和在 EC2-Classic 平台（非 VPC）上使用它有何区别？</b></p> 
+        <p>如果您的 AWS 账户是在 2013 年 12 月 4 日之前创建的，那么您或许可以在 Amazon Elastic Compute Cloud (EC2)-Classic 环境中运行 Amazon RDS。无论使用 EC2-Classic 还是 EC2-VPC，Amazon RDS 的基本功能完全相同。无论数据库实例部署在 VPC 内部还是外部，Amazon RDS 都能管理备份、软件补丁、自动故障检测、只读副本和恢复。想要了解 EC2-Classic 和 EC2-VPC 的更多区别，请参阅 <a adhocenable="false" href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#differences" target="_blank">EC2 文档</a>。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：什么是数据库子网组？为什么我需要使用一个子网组？</b></p> 
+        <p>数据库子网组是您希望为 VPC 中的 RDS 数据库实例委派的子网集合。每个数据库子网组都应在指定区域中的每个可用区内拥有至少一个子网。在 VPC 中创建数据库实例时，您需要选择一个数据库子网组。然后，Amazon RDS 使用该数据库子网组和您首选的可用区来选择子网以及该子网内的 IP 地址。Amazon RDS 创建弹性网络接口，并通过该 IP 地址将其关联到您的数据库实例。<br> </p> 
+        <p>请注意，我们强烈建议您使用 DNS 名称来连接数据库实例，因为基础 IP 地址可能会变化（例如，在故障转移时）。<br> </p> 
+        <p>对于多可用区部署，为一个区域内的所有可用区定义子网可允许 Amazon RDS 在需要时在其他可用区中创建新的备用实例。即使是单一可用区部署，您也需要这样做，以防以后需要将它们转换为多可用区部署。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何在 VPC 中创建 Amazon RDS 数据库实例？</b></p> 
+        <p>有关引导您完成此流程的程序，请参阅 Amazon RDS 用户指南中的<a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.InstanceInVPC">在 VPC 中创建数据库实例</a>。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何控制对我的数据库实例的网络访问？</b></p> 
+        <p>请访问 Amazon RDS 用户指南的<a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.html">安全组</a>部分，了解各种不同的数据库实例访问权限管理方法。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何连接到 VPC 中的 RDS 数据库实例？</b></p> 
+        <p>通过 VPC 内部署的 EC2 实例可以访问同一 VPC 内部署的数据库实例。如果这些 EC2 实例部署在具有关联弹性 IP 的公共子网中，您可以通过 Internet 访问 EC2 实例。<br></p> 
+        <p>对于 VPC 内部署的数据库实例，可通过 VPN 或您在公有子网中可以启动的堡垒主机，或使用 Amazon RDS 可公开访问选项通过 Internet 或从 VPC 外部的 EC2 实例进行访问。</p> 
+        <ul> 
+         <li>要使用堡垒主机，您需要设置一个包含用作 SSH 堡垒的 EC2 实例的公开子网。该公有子网的 Internet 网关和路由规则必须允许通过 SSH 主机引导流量，然后必须将请求转发到 RDS 数据库实例的私有 IP 地址。</li> 
+         <li>简单创建数据库实例，并将“可公开访问”选项设定为“是”，即可使用公共连接。默认情况下，当“可公开访问”选项可用时，从您的 VPC 外部可实现对 VPC 内数据库实例的完全访问。这表示您无需配置 VPN 或堡垒主机来允许对实例的访问。</li> 
+        </ul> 
+        <p>您也可以设置一个 VPN 网关，将公司网络扩展到 VPC，然后允许访问该 VPC 中的 RDS 数据库实例。有关详细信息，请参阅 <a href="http://docs.amazonwebservices.com/AmazonVPC/latest/UserGuide">Amazon VPC 用户指南</a>。<br></p> 
+        <p>我们强烈建议您使用 DNS 名称来连接数据库实例，因为基础 IP 地址可能会发生变化（例如，在故障转移时）。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：是否可以将 VPC 外的现有数据库实例移到 VPC 内？</b></p> 
+        <p>如果数据库实例未在 VPC 中，您可以使用 AWS 管理控制台轻松将数据库实例移至 VPC 中。有关更多详细信息，请参阅 <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC">Amazon RDS 用户指南</a>。您还可以对 VPC 外部的数据库实例拍摄快照，然后通过指定您要使用的数据库子网组，将其还原到 VPC。此外，您也可以执行“还原到时间点”操作。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：是否可以将 VPC 内的现有数据库实例移到 VPC 外？</b></p> 
+        <p>不支持将数据库实例从 VPC 内部迁移到外部。出于安全考虑，无法将 VPC 内数据库实例的数据库快照还原到 VPC 外部。同样，也无法执行“还原到时间点”功能。&nbsp;</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：要确保我的应用程序可以访问 VPC 中的数据库实例，我应该注意什么？</b></p> 
+        <p>您需要负责修改 VPC 中的路由表和网络 ACL，以确保能够从 VPC 中的客户端实例访问您的数据库实例。<br> </p> 
+        <p>对于多可用区部署，在故障转移后，您的客户端 EC2 实例和 RDS 数据库实例可能位于不同的可用区。您需要配置网络 ACL，以确保能够跨可用区进行通信。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：是否可以更改数据库实例的数据库子网组？</b></p> 
+        <p>现有的数据库子网组可以进行更新，以便为现有的可用区或为创建数据库实例时添加的新可用区添加更多子网。如果实例在特定可用区中运行，而该可用区已经从子网组中删除，则从现有数据库子网组中删除子网可能导致实例不可用。有关更多信息，请参阅 <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.VPC2VPC">Amazon RDS 用户指南</a>。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：什么是 Amazon RDS 主用户账户？它与 AWS 账户有何差别？</b></p> 
+        <p>开始使用 Amazon RDS 时，您需要有 AWS 开发人员账户。如果在注册 Amazon RDS 前没有 AWS 开发人员账户，系统将会提示您创建一个，再开始注册过程。主用户账户与 AWS 开发人员账户不同，它仅在 Amazon RDS 环境内使用，用来控制对您的数据库实例的访问。主用户账户是本机数据库用户账户，可用来连接数据库实例。在创建数据库实例时，您可以指定与每个数据库实例相关联的主用户账户和密码。创建数据库实例后，您可以使用主用户证书连接到数据库。之后，您也可以创建其他用户账户，以便限制谁能访问您的数据库实例。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：对于我的数据库实例的主用户将授予什么权限？</b></p> 
+        <p>对于 MySQL，主用户的默认特权包括：创建、退出、引用、事件、更改、删除、索引、插入、选择、更新、创建临时表，锁定表，触发、创建视图，显示视图，更改例程，创建例程，执行、触发、创建用户，处理、显示数据库，授予选项。<br></p> 
+        <p>对于 Oracle，主用户将被授予“dba”角色。主用户将继承与该角色相关联的大部分特权。有关限制的特权以及执行需要这些特权的管理任务时相应的替代项列表，请参阅 <a href="http://docs.amazonwebservices.com/AmazonRDS/latest/UserGuide/">Amazon RDS 用户指南</a>。<br></p> 
+        <p>对于 SQL Server，创建数据库的用户将被授予“db_owner”角色。有关限制的特权以及执行需要这些特权的管理任务时相应的替代项列表，请参阅 <a href="http://docs.amazonwebservices.com/AmazonRDS/latest/UserGuide/RDSFAQ.SQLServer.html">Amazon RDS 用户指南</a>。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：使用 Amazon RDS 进行用户管理是否有任何差异？</b></p> 
+        <p>没有。一切都与您自己管理关系数据库时使用的熟悉方式相同。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我的数据中心服务器中运行的程序是否能够访问 Amazon RDS 数据库？</b></p> 
+        <p>能。您必须通过配置<a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.html">安全组</a>专门打开通过 Internet 访问数据库的功能。您只能对特定 IP、IP 范围或自己数据中心服务器所对应的子网授予访问权限。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：是否可以使用 SSL/TLS 对我的应用程序和数据库实例之间的连接加密？</b></p> 
+        <p>可以，所有 Amazon RDS 引擎都支持此选项。<br> </p> 
+        <p>Amazon RDS 会为每个数据库实例生成一个 SSL/TLS 证书。建立加密连接后，在传输时将对数据库实例和应用程序之间传输的数据进行加密。<br> </p> 
+        <p>虽然 SSL 有安全优势，但应注意 SSL/TLS 加密操作需使用大量计算操作，可能会加大数据库连接延迟。Amazon RDS 中的 SSL/TLS 支持用来对应用程序和数据库实例之间的连接加密；不应依赖于数据库实例本身的身份验证。<br> </p> 
+        <p>有关与 Amazon RDS 建立加密连接的详细信息，请访问 Amazon RDS 的 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.SSLSupport">MySQL 用户指南</a>、<a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MariaDB.html#MariaDB.Concepts.SSLSupport">MariaDB 用户指南</a>、<a adhocenable="false" href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.SSL">SQL Server 用户指南</a>、<a adhocenable="false" href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts.General.SSL">PostgreSQL 用户指南</a>或 <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Oracle.html#Oracle.Concepts.SSL">Oracle 用户指南</a>。要了解有关 SSL/TLS 如何与这些引擎协作的更多信息，您可以直接参考 <a adhocenable="false" href="https://dev.mysql.com/doc/refman/8.0/en/encrypted-connections.html" target="_blank">MySQL 文档</a>、<a href="https://mariadb.com/kb/en/mariadb/secure-connections-overview/">MariaDB 文档</a>、<a adhocenable="false" href="http://msdn.microsoft.com/en-us/library/ms189067.aspx" target="_blank">MSDN SQL Server 文档</a>、<a adhocenable="false" href="http://www.postgresql.org/docs/9.5/static/ssl-tcp.html">PostgreSQL 文档</a>或 <a href="https://docs.oracle.com/database/121/DBSEG/asossl.htm">Oracle 文档</a>。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我能否加密 Amazon RDS 数据库上的静态数据？</b><br> </p> 
+        <p>Amazon RDS 使用您通过 <a href="/kms/" adhocenable="false">AWS Key Management Service (KMS)</a> 管理的密钥来支持所有数据库引擎的静态加密。在通过 Amazon RDS 加密运行的数据库实例上，静态存储于底层存储的数据都将加密，自动备份、只读副本和快照也是如此。加密和解密操作的处理都是透明的。有关将 KMS 与 Amazon RDS 一起使用的更多信息，请参阅 <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html" adhocenable="false">Amazon RDS 用户指南</a>。<br> </p> 
+        <p>您还可以对之前未加密的数据库实例或数据库集群进行加密，具体方法是创建数据库快照，然后创建此快照的副本并指定 KMS 加密密钥。之后，您就可从加密的快照还原加密的数据库实例或数据库集群。<br> </p> 
+        <p>Amazon RDS for Oracle 和 Amazon RDS for SQL Server 支持这些引擎的透明数据加密 (TDE) 技术。有关更多信息，请参阅《Amazon RDS 用户指南》中有关 <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.html#Appendix.Oracle.Options.AdvSecurity" adhocenable="false">Oracle</a> 和 <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.Options.html#Appendix.SQLServer.Options.TDE" adhocenable="false">SQL Server</a> 的部分。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我要如何控制我的系统和用户可在特定 RDS 资源上执行的操作？</b></p> 
+        <p>您可以控制您的 <a href="https://aws.amazon.com/iam">AWS IAM</a> 用户和组在特定 RDS 资源上可执行的操作。您可以通过以下方法实现此目的：在您应用到用户和组的 <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html">AWS IAM 策略</a>中引用相关的 RDS 资源。可在 AWS IAM 策略中引用的 RDS 资源包括：数据库实例、数据库快照、只读副本、数据库安全组、数据库选项组、数据库参数组、事件订阅以及数据库子网组。此外，您还可以为这些资源添加标记，以便在资源中添加额外的元数据。通过添加标记，您可以对资源进行分类（例如，“开发”数据库实例、“生产”数据库实例、“测试”数据库实例，等等），然后编写 AWS IAM 策略，规定对于具有相同标记的资源可以执行哪些权限（即操作）。有关更多信息，请参阅<a href="/iam/">管理对 Amazon RDS 资源和数据库的访问</a>和<a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">标记 Amazon RDS 资源</a></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我希望对我的 RDS 部署执行安全分析或操作问题排查。我能否获取在我的账户上发起的所有 RDS API 调用的历史记录？</b></p> 
+        <p>能。AWS CloudTrail 是一项 web 服务，为您的帐户记录 AWS API 调用并向您交付日志文件。由 CloudTrail 生成的 AWS API 调用历史记录可用于安全分析、资源变更追踪以及合规性审计。您可以访问 <a href="/cloudtrail/" adhocenable="false">AWS CloudTrail 详细信息页面</a>了解有关 CloudTrail 的更多信息，还可以通过 <a href="https://console.aws.amazon.com/cloudtrail/home" adhocenable="false">CloudTrail 的“AWS 管理控制台”主页</a>将其打开。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：能否将 Amazon RDS 用于要求 HIPAA 合规的应用程序？</b></p> 
+        <p>答：可以，所有 RDS 数据库引擎均符合 HIPAA 要求，因此您可以基于与 AWS 签署的《业务合作协议》(BAA)，使用它们构建 HIPAA 合规应用程序并存储医疗保健相关信息（包括受保护的健康信息 [PHI]）。如果您已签署有效的 BAA，则无需任何操作即可在 BAA 协议涵盖的账户内开始使用这些服务。如果您尚未与 AWS 签署有效的 BAA，或者对于 AWS 上符合 HIPAA 要求的应用程序还有其他疑问，请联系您的客户经理。<br> </p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Database_Configuration" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 数据库配置</h2> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何为我的数据库实例选择正确的配置参数？</b></p> 
+        <p>默认情况下，Amazon RDS 会考虑实例类和存储容量，为数据库实例选择最优配置参数。但是，如果要进行更改，您可以使用 AWS 管理控制台、Amazon RDS API 或 AWS 命令行界面执行此操作。请注意，将配置参数改为非建议的值可能会产生从性能降低到系统崩溃等各种意外影响，只有愿意承担此类风险的高级用户才可以尝试该操作。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：什么是数据库参数组？ 它们有什么作用？</b></p> 
+        <p>数据库参数组就像是引擎配置值的“容器”，这些值可应用于一个或多个数据库实例。如果创建的数据库实例未指定数据库参数组，将使用默认的数据库参数组。该默认组包含针对您运行的数据库实例进行优化的引擎默认值和 Amazon RDS 系统默认值。不过，如果希望数据库实例以您自定义的引擎配置值运行，可以轻松地创建一个新数据库参数组，修改所需的参数并修改数据库实例以使用新数据库参数组。建立关联后，使用特定数据库参数组的所有数据库实例都将获得该数据库参数组的所有参数更新。<br></p> 
+        <p>有关配置数据库参数组的更多信息，请参阅 <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html">Amazon RDS 用户指南</a>。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我应该如何监控 Amazon RDS 资源的配置？</b></p> 
+        <p>您可以使用 <a href="/config/">AWS Config</a> 持续记录以下项的配置更改，并通过 <a href="/sns/">Amazon Simple Notification Service (SNS)</a> 接收更改通知：Amazon RDS 数据库实例、数据库子网组、数据库快照、数据库安全组和事件订阅。您还可以创建 AWS Config Rules 来评估这些 RDS 资源是否具有所需的配置。</p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Multi-AZ_Deployments" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 多可用区部署</h2> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：以多可用区部署模式运行数据库实例意味着什么？</b></p> 
+        <p>创建或修改数据库实例并以多可用区部署模式运行后，Amazon RDS 将自动在不同的可用区预置和维护同步“备用”副本。对数据库实例的更新将同步复制到可用区的备用副本中，以保持同步并保护最新的数据库更新，以防数据库实例出现故障。如果遇到特定类型的计划维护或很少出现的数据库实例故障或可用区故障，Amazon RDS 将自动故障转移到备用副本，以便在提升备用副本后尽快恢复数据库写入和读取操作。由于数据库实例的名称记录相同，所以应用程序无需手动管理干预即可恢复数据库操作。借助多可用区部署，您可以透明地进行复制：无需与备用副本交互，而且它不可用来服务读取流量。有关多可用区部署的更多信息，请参阅 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html">Amazon RDS 用户指南</a>。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：什么是可用区？</b></p> 
+        <p>可用区是位于区域内的不同区域，不同可用区之间不受彼此的故障影响。每个可用区在其独立的、物理上显著不同的基础设施中运行，具有高度可靠性。可用区之间不共用像发电机和冷却设备那样的常见故障点。此外，它们在物理上也是相互独立的，即使火灾、龙卷风或洪涝等极为罕见的灾难也只会影响单个可用区。同一区域内的可用区之间具有低延迟的网络连接。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：在多可用区部署环境中，“主”和“备用”指什么？</b></p> 
+        <p>以多可用区部署模式运行数据库实例时，“主”副本服务于数据库写入和读取操作。此外，Amazon RDS 会在场景后预配置和维护“备用”副本，它是主副本的最新副本。在故障转移情况下，会“提升”备用副本。故障转移后，备用副本将成为主副本，并接受数据库操作。在提升前的任何时候，无需与备用副本直接交互（例如，执行读取操作）。如果您有兴趣扩展读取流量，以突破单个数据库实例的流量限制，请参阅<a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html">只读副本</a>的相关常见问题。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：多可用区部署有哪些优势？</b></p> 
+        <p>以多可用区部署模式运行数据库实例的主要优势是可提高数据库的持久性和可用性。多可用区部署提供了增强的可用性和容错功能，这使其自然而然成为生产环境的理想之选。<br></p> 
+        <p>在遇到罕见的数据库实例组件故障或某个可用区的可用性受损的情况时，以多可用区部署模式运行数据库实例可确保数据安全无虞。例如，如果主副本中的存储卷出现故障，Amazon RDS 将自动启动故障转移到备用副本，在此您的所有数据库更新完整无缺。相对于单一可用区的标准部署，这种方式提供更长的数据持久性，否则将需要用户启动还原操作且最近可还原时间（通常在最后五分钟内）之后进行的更新将不可用。<br></p> 
+        <p>此外，以多可用区部署模式运行时，您还可获得增强数据库可用性的优势。如果发生可用区故障或数据库实例故障，可用性影响将仅限于完成自动故障转移的时间。多可用区部署的可用性优势还可延伸到计划内维护。例如，对于自动备份，由于备份从备用副本进行，所以在首选的备份时段内不会再暂停主副本中的 I/O 活动。至于打补丁或数据库实例类扩展，这些操作在自动故障转移前会首先在备用副本上执行。因此，可用性影响将仅限于完成自动故障转移的时间。<br></p> 
+        <p>以多可用区部署模式运行数据库实例的另一潜在优势是，系统将自动执行数据库实例故障转移，无需进行管理。在 Amazon RDS 环境中，这意味着出现可用区故障或数据库实例故障时，无需监控数据库实例事件及启动手动数据库实例恢复（通过 RestoreDBInstanceToPointInTime 或 RestoreDBInstanceFromSnapshot API）。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：作为多可用区部署运行我的数据库实例是否会影响性能？</b></p> 
+        <p>您可以看到，由于是代您执行同步数据复制，所以相对于单一可用区中的标准数据库实例部署，延迟有所提升。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：以多可用区部署模式运行我的数据库实例时，是否可使用备用副本来执行读取或写入操作？</b></p> 
+        <p>不能，多可用区备用副本不能服务读取请求。多可用区部署旨在增强数据库可用性和持久性，而非获得读取扩展优势。因此，该功能在主副本和备用副本之间采用同步复制。我们的实施可确保主副本和备用副本一直处于同步状态，但不能使用备用副本执行读取或写入操作。如果您对读取扩展解决方案感兴趣，请参见关于<a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html">只读副本</a>的常见问题。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何设置多可用区数据库实例部署？</b></p> 
+        <p>要创建多可用区数据库实例部署，只需在使用 <a href="https://console.aws.amazon.com/">AWS 管理控制台</a>启动数据库实例时，单击“多可用区部署”的“是”选项。另外，如果您使用的是 Amazon RDS API，则可调用 CreateDBInstance API 并将“多可用区”参数的值设置为“是”。 要将现有的标准（单一可用区）数据库实例转换为多可用区，请在 AWS 管理控制台中修改数据库实例，或使用 ModifyDBInstance API 并将“多可用区”参数的值设置为“是”。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：当我将 RDS 实例从单可用区转换为多可用区时，会发生什么情况？</b></p> 
+        <p>对于 RDS for MySQL、MariaDB、PostgreSQL 和 Oracle 数据库引擎，当您选择将 RDS 实例从单可用区转换为多可用区时，会发生以下情况：</p> 
+        <ul> 
+         <li>拍摄主实例的快照</li> 
+         <li>在不同的可用区，从该快照创建新的备用实例</li> 
+         <li>在主实例和备用实例之间配置同步复制</li> 
+        </ul> 
+        <p>因此，在实例从单可用区转换为多可用区时，不会出现停机时间。不过，当备用实例在捕获数据以赶上主实例时，您可能会看到延迟增加。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：哪种事件会导致 Amazon RDS 将故障转移启动到备用副本？</b></p> 
+        <p>Amazon RDS 可检测多可用区部署中最常见的故障并自动从中恢复过来，这样您可在无管理干预的情况下尽快恢复数据库操作。如果发生以下任何一种情况，Amazon RDS 将自动执行故障转移：</p> 
+        <ul> 
+         <li>主可用区的可用性受损</li> 
+         <li>主节点的网络连接受损</li> 
+         <li>主节点的计算单位出现故障</li> 
+         <li>主区域的存储故障</li> 
+        </ul> 
+        <p>注意：为了获得更强的可用性，对多可用区部署启动诸如数据库实例扩展或系统升级之类的操作时，如操作系统安装补丁程序，这些操作首先会应用于备用，之后才自动进行故障转移。因此，可用性仅会在执行自动故障转移的时段内受到影响。请注意，Amazon RDS 多可用区部署不会自动转移来响应某些数据库操作，如长时间运行查询、死锁或数据库崩溃错误。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：执行自动故障转移时，我是否会收到提醒？</b></p> 
+        <p>会，Amazon RDS 将发出数据库实例事件，以通知您系统已执行自动故障转移。您可以单击 Amazon RDS 控制台的“事件”部分或使用 DescribeEvents API 返回数据库实例相关事件的相关信息。发生特定数据库事件时，您还可以通过 <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html">Amazon RDS 事件通知</a>获取通知。<br> </p> 
+       </div> 
+       <div id=".2345"></div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：执行多可用区故障转移时会发生什么状况？这种情况会持续多长时间？</b></p> 
+        <p>Amazon RDS 将自动处理故障转移，以便尽快恢复数据库操作而无需管理干预。故障转移后，Amazon RDS 会轻松翻转数据库实例的别名记录 (CNAME) 以指向备用副本，备用副本继而被提升为新的主副本。我们鼓励您遵循最佳做法，在应用程序层实施数据库连接重试。<br></p> 
+        <p>故障转移（即从在主副本上检测到故障到在备用副本上继续事务之间的时间）通常在一至两分钟内完成。故障转移时间也会受是否必须还原大型未提交事务这一因素的影响；为获得最佳效果，建议对多可用区使用足够大的实例类型。AWS 还建议对多可用区实例使用预配置 IOPS，以获得快速、可预测及一致的吞吐量性能。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我是否可以对多可用区数据库实例部署启动“强制故障转移”？</b></p> 
+        <p>在各种故障条件下，Amazon RDS 会自动进行故障转移，无需用户操作。此外，Amazon RDS 会在重新引导实例时提供启动故障转移的选项。您可以通过 AWS 管理控制台或调用 RebootDBInstance API 来访问此功能。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何控制/配置多可用区同步复制？</b></p> 
+        <p>对于多可用区部署，可以轻松地将“多可用区”参数设置为“是”。创建备用副本、同步复制和故障转移都将自动进行处理。这意味着，无法选择部署备用副本的可用区或更改可用的备用副本数（Amazon RDS 会为每个数据库实例主副本预置一个专用的备用副本）。备用副本也不可以配置为接受数据库读取活动。<a href="/rds/details/multi-az/" adhocenable="false">了解关于多可用区配置的更多信息。</a><br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：备用副本与主副本可以位于同一区域吗？</b></p> 
+        <p>能。备用副本将自动预置到与数据库实例主副本<i>所在区域</i>的不同可用区。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：是否可以查看我的主节点当前位于哪个可用区？</b></p> 
+        <p>可以。您可以使用 <a href="https://console.aws.amazon.com/">AWS 管理控制台</a>或 DescribeDBInstances API 查看当前主副本的位置。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：故障转移后，我的主节点位于与其他 AWS 资源（如 EC2 实例）不同的可用区中。是否会产生延迟问题？</b></p> 
+        <p>可用区与同一区域内的其他可用区之间可以实现低延迟网络连接。此外，您在设计应用程序及其他 AWS 资源的架构时可以跨多个可用区设置冗余，以便应用程序在出现可用区故障时能够灵活反应。多可用区部署可满足数据库层的此项需求，而无需用户干预管理。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：在多可用区部署中如何应用数据库快照和自动备份？</b></p> 
+        <p>您可以按照在单一可用区或多可用区部署中运行标准部署的相同方式与自动备份和数据库快照功能交互。如果您正在运行多可用区部署，将自动从备用副本执行自动备份和数据库快照，以免主副本中的 I/O 暂停。请注意，在备份单一可用区和多可用区部署时，您可能会经历更长时间的 I/O 延迟（一般持续几分钟）。<br></p> 
+        <p>多可用区部署与标准、单一可用区部署的还原操作启动方式也完全相同（时间点还原或从数据库快照还原）。您可以使用 RestoreDBInstanceFromSnapshot 或 RestoreDBInstanceToPointInTime API 创建新数据库实例部署。无论在标准部署还是多可用区部署中启动源备份，这些新数据库实例部署都可能是标准或多可用区模式。<br></p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Read_Replicas" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 只读副本</h2> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：以只读副本方式运行数据库实例意味着什么？</b></p> 
+        <p>借助只读副本，用户能够轻松地利用受支持引擎的内置复制功能灵活扩展并超越单一数据库实例的容量限制，以处理大量读取数据库工作负载。在 AWS 管理控制台中单击几下鼠标或使用 CreateDBInstanceReadReplica API 即可创建只读副本。创建只读副本后，将使用受支持引擎的本机异步复制功能复制源数据库实例的数据库更新信息。您可以为给定的源数据库实例创建多个只读副本，并在它们当中分配应用程序的读取流量。</p> 
+        <p>由于只读副本利用受支持引擎的内置复制功能，所以它们各有优势和局限。特别是，对源数据库实例进行更新后，更新将应用到只读副本，但复制滞后性可能会有很大差别。只读副本可以与多可用区部署关联，从而获得读取扩展优势，同时实现多<a href="#36">可用区部署</a>提供的增强的数据库写入可用性和数据持久性。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：何时应考虑使用 Amazon RDS 只读副本？</b></p> 
+        <p>在很多情况下，为给定的源数据库实例部署一个或多个只读副本可能比较明智。部署只读副本的常见原因包括：</p> 
+        <ul> 
+         <li>扩展单个数据库实例的计算资源或 I/O 容量，用于执行大量读取数据库工作负载。这样，过多的读取流量将被引导至一个或多个读取副本。</li> 
+         <li>当源数据库实例不可用时，为读取流量提供服务。如果您的源数据库实例无法处理 I/O 请求（例如，由于备份或计划维护而暂停 I/O），可以将读取流量引导到只读副本。对于这种使用案例，请注意由于源数据库实例不可用，因而只读副本中的数据可能处于“静态”。</li> 
+         <li>业务报告或数据仓库场景；您可能想针对只读副本而非主生产数据库实例执行业务报告查询。</li> 
+         <li>您可以将只读副本用于相同 AWS 区域或其他区域中源数据库实例的灾难恢复。</li> 
+        </ul> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt"> 
+        <p><b>问：我是否需要先启用数据库实例的自动备份，然后才能创建只读副本？</b></p> 
+        <p>是的。将备份保留时间设置为 0 以外的任何值，以此在添加只读副本之前启用源数据库实例的自动备份。要使只读副本能够运行，必须保持备份的启用状态。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：哪种版本的数据库引擎支持 Amazon RDS 只读副本？</b></p> 
+        <p><i>Amazon Aurora</i>：所有数据库集群。</p> 
+        <p><i>Amazon RDS for MySQL</i>：所有数据库实例都支持创建只读副本。必须在源数据库实例上启用自动备份并使其保持启用状态，才能进行只读副本的操作。只有运行 MySQL 5.6 及更高版本（而非 5.5）的 Amazon RDS 只读副本支持自动备份。</p> 
+        <p><i>Amazon RDS for PostgreSQL</i>：运行 PostgreSQL 版本 9.3.5 或更高版本的数据库实例支持创建只读副本。要利用 Amazon RDS 只读副本，版本 9.3.5 前的现有 PostgreSQL 实例需要升级到 PostgreSQL 版本 9.3.5。</p> 
+        <p><i>Amazon RDS for MariaDB</i>：所有数据库实例都支持创建只读副本。必须在源数据库实例上启用自动备份并使其保持启用状态，才能进行只读副本的操作。</p> 
+        <p><i>Amazon RDS for Oracle：</i>&nbsp;支持 Oracle 版本 12.1.0.2.v12 及更高版本，以及所有使用 Oracle Database Enterprise Edition 自带许可模式，并已获得 Active Data Guard Option 许可的 12.2 版本。</p> 
+        <p><i>Amazon RDS for SQL Server</i>：当基础复制技术针对 SQL Server 2016 和 2017 版使用 AlwaysOn 可用性组时，多可用区配置中的 Enterprise Edition 支持只读副本。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何为指定的数据库实例部署只读副本？</b></p> 
+        <p>只需使用标准 CreateDBInstanceReadReplica API 或在 AWS 管理控制台上单击几下，即可在数分钟内创建只读副本。创建只读副本后，可以通过指定 SourceDBInstanceIdentifier 将其标识为只读副本。SourceDBInstanceIdentifier 是您要复制的“源”数据库实例的数据库实例标识符。同标准数据库实例一样，您也可以指定可用区、数据库实例类和首选维护时段。只读副本的引擎版本（例如，PostgreSQL 9.3.5）和存储分配均继承自源数据库实例。开始创建只读副本时，Amazon RDS 会获取源数据库实例的数据库快照，然后开始复制。因此，在获取快照时，您的源数据库实例上的 I/O 可能会短暂性停止。通常，I/O 暂停会按顺序持续一分钟时间；如果源数据库实例为多可用区部署模式，则可以避免这种状况（对于多可用区部署，从备用副本获取快照）。此外，Amazon RDS 当前正在进行优化（很快就会发布），因此如果您在一个 30 分钟的时间段内创建多个只读副本，所有副本都将使用相同的源快照以降低 I/O 影响（每个只读副本将在创建后开始“追踪”复制）。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何连接到我的只读副本？</b></p> 
+        <p>您可以像连接标准数据库实例一样，使用 DescribeDBInstance API 或 AWS 管理控制台通过检索只读副本的终端节点连接到只读副本。如果有多个只读副本，各个副本之间的读取流量分配方式则取决于应用程序。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我可以为给定的源数据库实例创建多少个只读副本？</b></p> 
+        <p>借助 Amazon RDS for MySQL、MariaDB、PostgreSQL、Oracle 和 SQL Server，您最多可以为给定的源数据库实例创建 5 个只读副本。</p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我能否在不同于源数据库实例的 AWS 区域中创建只读副本？</b></p> 
+        <p>能。Amazon RDS（RDS for SQL Server 除外）支持跨区域只读副本。数据写入源数据库实例与数据在只读副本上可用之间的时间长度取决于两个区域之间的网络延迟。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：Amazon RDS 只读副本是否支持同步复制？</b></p> 
+        <p>不支持。Amazon RDS for MySQL、MariaDB、PostgreSQL、Oracle 和 SQL Server 中的只读副本使用这些引擎的本机异步复制执行。Amazon Aurora 使用的是一种不同但仍然是异步的复制机制。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我能否使用读取副本来增强数据库写入可用性或保护源数据库实例中的数据以防出现故障？</b></p> 
+        <p>如果您希望使用复制来增强数据库写入可用性以及保护最近的数据库更新以防出现各种故障，我们建议您以多可用区部署模式运行数据库实例。使用采用受支持的引擎本机异步复制的 Amazon RDS 只读副本，只读副本会在源数据库实例中执行数据库写入操作后也发生数据库写入，而且这种复制“滞后性”可能存在很大差别。相比之下，多可用区部署采用的副本属于同步复制，意味着主副本和备用副本上的数据库写入会并发执行。这样可保护最新的数据库更新，因为在出现故障转移时，它们需要在备用副本中可用。此外，使用多可用区部署，可完全托管复制操作。Amazon RDS 将自动监控数据库实例故障状况或可用区故障，并且如果发生中断，将自动故障转移到备用实例（如果使用 Amazon Aurora，则故障转移到只读副本）。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：是否可将多可用区数据库实例部署作为源创建只读副本？</b></p> 
+        <p>可以。由于多可用区数据库实例与只读副本解决的需求不同，所以在生产部署中可以结合两者，将只读副本与多可用区数据库实例部署关联起来。“源”多可用区数据库实例可增强写入可用性和数据持久性，而关联的只读副本可改善读取流量扩展性。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我能否在多可用区中配置我的 Amazon RDS 只读副本？</b></p> 
+        <p>可以。Amazon RDS for MySQL、MariaDB、PostgreSQL 和 Oracle 允许您在只读副本上启用多可用区配置，以便支持灾难恢复并尽量缩短引擎升级造成的停机时间。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如果我的只读副本使用多可用区数据库实例部署作为源，在发生多可用区故障转移时，会出现什么状况？</b></p> 
+        <p>对于多可用区故障转移，所有关联和可用的只读副本在故障转移完成后将自动恢复复制（获取最新提升的主副本的更新）。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：是否可以为其他只读副本创建只读副本？</b></p> 
+        <p><i>Amazon Aurora、Amazon RDS for MySQL 和 Amazon RDS for MariaDB</i>：您可利用现有的第一级只读副本创建第二级只读副本。通过创建第二级只读副本，您可以将一部分的复制负载从主数据库实例转移到第一级只读副本。请注意，第二级只读副本可能会进一步滞后于主数据库实例，这是因为将事务处理从主数据库实例复制到第一级副本，然后再复制到第二级副本，其间会产生更长时间的复制延迟。<br> </p> 
+        <p><i>Amazon RDS for PostgreSQL、Oracle 和 SQL Server</i>：目前不支持创建第二级只读副本。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我的只读副本是否只能接受数据库读取操作？</b></p> 
+        <p>只读副本旨在服务读取流量。不过，在某些使用案例中，高级用户可能希望针对只读副本完成数据定义语言 (DDL) SQL 语句。例如，这些情况可能包括向用于业务报告的只读副本添加数据库索引，而不向对应的源数据库实例添加相同的索引。<br> </p> 
+        <p>Amazon RDS for MySQL 可配置为允许针对只读副本的 DDL SQL 语句。如果希望启用读取给定只读副本之外的操作，则需要修改该只读副本的有效数据库参数组，将“read_only”参数设置为“0”。</p> 
+        <p>Amazon RDS for PostgreSQL 目前不支持针对只读副本执行 DDL SQL 语句。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我可以将只读副本提升为“独立”数据库实例？</b></p> 
+        <p>可以。有关详细信息，请参阅 <a href="http://docs.amazonwebservices.com/AmazonRDS/latest/UserGuide/Overview.ReadReplica.html">Amazon RDS 用户指南</a>。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：只读副本是否会与其源数据库实例一起保持最新状态？</b></p> 
+        <p>源数据库实例的更新会自动复制到所有关联的只读副本。不过，鉴于支持引擎的异步复制技术，出于各种原因，只读副本更新可能会落后于源数据库实例。常见的原因包括：</p> 
+        <ul> 
+         <li>源数据库实例的写入 I/O 卷超出对只读副本应用更改的速度（如果只读副本的计算容量低于源数据库实例，则尤其可能出现此问题）</li> 
+         <li>源数据库实例的复杂或长时间运行的事务延迟了到只读副本的复制</li> 
+         <li>源数据库实例和只读副本之间的网络分区或延迟</li> 
+        </ul> 
+        <p>只读副本受所支持引擎的本机复制的优点和缺点影响。如果使用只读副本，您应了解只读副本与其源数据库实例之间可能存在滞后或“不一致”。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何查看我的有效只读副本的状态？</b></p> 
+        <p>您可以使用标准 DescribeDBInstances API 返回已部署的所有数据库实例的列表（包括只读副本），或者直接单击 Amazon RDS 控制台的“实例”选项卡进行查看。<br> </p> 
+        <p>通过 Amazon RDS，您可以看到只读副本的更新落后其源数据库实例多远。只读副本更新落后主实例的秒数被作为一项 Amazon CloudWatch 指标（“副本滞后”）进行公布，可通过 AWS 管理控制台或 Amazon CloudWatch API 查看该指标。对于 Amazon RDS for MySQL，此信息来源与针对只读副本发出标准“Show Slave Status”MySQL 命令后显示的信息相同。对于 Amazon RDS for PostgreSQL，您可以使用源数据库实例上的 pg_stat_replication 视图查看复制指标。<br> </p> 
+        <p>Amazon RDS 将监控只读副本的复制状态，如果由于任何原因停止复制（例如，如果在与主数据库实例上的更新相冲突的副本上运行 DML 查询，可能会导致复制错误），Amazon RDS 会在 AWS 管理控制台中将“复制状态”字段更新为“错误”。您可以通过查看“复制错误”字段来查看 MySQL 引擎产生的相关错误的详细信息，然后进行适当操作以对其进行恢复。您可以在 <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html#USER_ReadRepl.Troubleshooting" adhocenable="false">Amazon RDS for MySQL</a> 或 <a adhocenable="false" href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html#USER_ReadRepl.TroubleshootingPostgreSQL">Amazon RDS for PostgreSQL</a> 用户指南的“只读副本故障排除问题”部分了解有关如何针对复制问题进行故障排除的更多信息。<br> </p> 
+        <p>如果复制错误得到修复，“副本状态”将更改为“正在复制”。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我扩展了我的源数据库实例的计算和/或存储容量。是否也应该为相关的只读副本扩展资源？</b></p> 
+        <p>为使复制有效地工作，我们建议为只读副本配置与其各自的源数据库实例相同或更多计算和存储资源。否则，复制滞后可能会加大或者只读副本可能会耗尽用于存储副本更新的空间。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何删除只读副本？ 删除源数据库实例时是否会自动删除其只读副本？</b></p> 
+        <p>您在 AWS 管理控制台中单击几下鼠标或将数据库实例标识符传送到 DeleteDBInstance API，即可轻松地删除只读副本。<br> </p> 
+        <p>即使在已删除相应的源数据库实例后，Amazon Aurora 只读副本仍然保持有效并可继续接受读取流量。集群中的其中一个副本将自动提升为新的主副本，并开始接受写入流量。<br> </p> 
+        <p>即使在已删除相应的源数据库实例后，Amazon RDS for MySQL 或 Amazon RDS for MariaDB 只读副本仍然有效并可继续接受读取流量。如果您需要同时删除只读副本和源数据库实例，则必须使用 DeleteDBInstance API 或 AWS 管理控制台明确执行此操作。<br> </p> 
+        <p>如果您删除了一个具有只读副本的 Amazon RDS for PostgreSQL 数据库实例，则所有的只读副本都将被提升为独立的数据库实例，并将能够接受读取和写入流量。新提升的数据库实例将彼此独立地运行。如果您需要同时删除这些数据库实例和源数据库实例，则必须使用 DeleteDBInstance API 或 AWS 管理控制台明确执行此操作。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：只读副本的费用如何？ 如何计算记账周期？</b></p> 
+        <p>只读副本按标准数据库实例进行计费，且费率相同。&nbsp;和标准数据库实例一样，只读副本的每“数据库实例小时”费率取决于只读副本的数据库实例类 – 有关最新的定价信息，请参阅 <a href="https://aws.amazon.com/rds/pricing/">定价页面</a>。在同一个 AWS 区域的源数据库实例与只读副本之间复制数据，产生的数据传输不收取费用。<br> </p> 
+        <p>只读副本的账单周期从成功创建副本后开始（即当列出的状态为“有效”时）。读取副本将一直按标准 Amazon RDS 数据库实例小时费用计费，直到您发布命令将其删除为止。</p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Enhanced_Monitoring" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 增强型监控</h2> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：什么是 RDS 增强型监控？</b></p> 
+        <p>借助 RDS 增强型监控，您可以更深入地了解 RDS 实例的运行状况。只需为您的 RDS 数据库实例启用“增强型监控”选项并设置粒度，“增强型监控”就会按照定义的粒度收集重要的操作系统指标和进程信息。</p> 
+        <p>如需对您数据库负载更深级别的诊断和可视化，以及更长的数据保留期，您可以尝试 <a href="/cn/rds/performance-insights/">Performance Insights</a>。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我可以在“增强型监控”中监控哪些指标和进程？</b></p> 
+        <p>增强型监控能够捕获 RDS 实例的系统级指标，如 CPU、内存、文件系统和磁盘 I/O 等。在 <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html">API 文档</a>中可找到指标的完整列表。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：增强型监控支持哪些引擎？</b></p> 
+        <p>增强型监控支持所有 RDS 数据库引擎。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：增强型监控支持哪些实例类型？</b></p> 
+        <p>增强型监控支持除 t1.micro 和 m1.small 以外的所有实例类型。该软件仅占用少量 CPU、内存和 I/O，用于常规监控；对于中型或大型实例，我们建议切换至更高的粒度。对于非生产数据库实例，增强型监控的默认设置是“关”，您可以选择让其保持禁用状态，也可以在启用时修改粒度。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我可以在 RDS 控制面板上查看哪些信息？</b></p> 
+        <p>您可以在控制台上以图形格式查看 RDS 数据库实例的所有系统指标和进程信息。您可以针对各个实例管理要监控的指标，并根据个人要求自定义控制面板。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我的 RDS 账户中的所有实例是否会按照相同粒度抽取指标？</b></p> 
+        <p>您可以为 RDS 账户中的每个数据库实例设置不同的粒度。您还可以选择要为其启用增强型监控的实例，并随时修改任何实例的粒度。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我能够在 RDS 控制台上查看多久之前的历史指标？</b></p> 
+        <p>您最多可以查看所有指标在 1 个小时之前的性能值，粒度最高为 1 秒（具体取决于您的设置）。<br> </p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何可视化 CloudWatch 中由 RDS 增强型监控生成的指标？</b></p> 
+        <p>RDS 增强型监控生成的指标会发送到您的 CloudWatch Logs 账户。您可以基于 CloudWatch Logs 在 CloudWatch 中创建指标筛选器，并在 CloudWatch 控制面板上显示相关图表。有关详细信息，请访问 <a href="/cloudwatch/pricing/">Amazon CloudWatch </a>页面。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：何时应使用 CloudWatch 而不是 RDS 控制台控制面板？</b></p> 
+        <p>如果 RDS 控制台控制面板上未显示您要查看的历史数据，则应使用 CloudWatch。您可以在 CloudWatch 中监控 RDS 实例，以诊断整个 AWS 堆栈在单一位置上的运行状况。目前，CloudWatch 最高可支持 1 分钟的粒度，平均粒度值将低于该值。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：我能否基于特定指标设置警报和通知？</b></p> 
+        <p>可以。您可以在 CloudWatch 中创建警报，以在警报状态更改时发送通知。警报按指定的时间段监控单个指标，并根据相对于指定阈值的指标值每隔若干个时间段执行一项或多项操作。有关 CloudWatch 警报的更多详细信息，请访问 <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/AlarmThatSendsEmail.html">Amazon CloudWatch 开发人员指南</a>。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何将增强型监控与我当前使用的工具集成？</b></p> 
+        <p>RDS 增强型监控提供了一系列将以 JSON 有效负载形式发送到您的 CloudWatch Logs 账户的指标。JSON 有效负载会按照上次为 RDS 实例配置的粒度进行发送。<br></p> 
+        <p>您可以通过第三方控制面板或应用程序以两种方式使用这些指标。监控工具可以使用 <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/Subscriptions.html">CloudWatch Logs Subscriptions</a> 为这些指标设置近乎实时的源。另外，您可以使用 CloudWatch Logs 中的筛选器将指标桥接到 CloudWatch，并将您的应用程序与 CloudWatch 集成。请参阅 <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CWL_ES_Stream.html">Amazon CloudWatch 文档</a>，了解更多详细信息。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：如何删除历史数据？</b></p> 
+        <p>增强型监控会将 JSON 有效负载发送到您的 CloudWatch Logs 账户中的某个日志中，因此您可以像对待其他 CloudWatch Logs 流一样控制其保留期。增强型监控在 CloudWatch Logs 中配置的默认保留期是 30 天。有关如何更改保留期设置的详细信息，请参阅 <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.html">Amazon CloudWatch 开发人员指南</a>。<br></p> 
+       </div> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：增强型监控对我每月的账单有什么影响？</b></p> 
+        <p>由于指标会发送至 CloudWatch Logs，在超出 CloudWatch Logs 免费套餐后，您需要支付的费用将基于 CloudWatch Logs 数据传输和存储费率进行计算。在<a href="/cloudwatch/pricing/">此处</a>可以找到定价详细信息。RDS 实例的信息传输量与增强型监控功能的定义粒度呈正比。管理员可以为账户中的不同实例设置不同的粒度以管理成本。<br></p> 
+        <p>针对一个实例通过增强型监控提取到 CloudWatch Logs 的数据量近似值如下所示：<br> </p> 
+       </div> 
+       <div class="lb-tbl lb-tbl-p lb-tbl-header-centered" data-is-sticky-header="false"> 
+        <table border="0" width="100%" cellspacing="0" cellpadding="1"> 
+         <tbody> 
+          <tr> 
+           <td style="text-align: center;"><b>粒度</b></td> 
+           <td style="text-align: center;"><b>60 秒</b></td> 
+           <td style="text-align: center;"><b>30 秒</b></td> 
+           <td style="text-align: center;"><b>15 秒</b></td> 
+           <td style="text-align: center;"><b>10 秒</b></td> 
+           <td style="text-align: center;"><b>5 秒</b></td> 
+           <td style="text-align: center;"><b>1 秒</b></td> 
+          </tr> 
+          <tr> 
+           <td width="225" valign="top"><p>提取到 CloudWatch Logs 中的数据*（GB/月）</p> </td> 
+           <td width="71" valign="top"><p style="text-align: center;">0.27</p> </td> 
+           <td width="64" valign="top"><p style="text-align: center;">0.53</p> </td> 
+           <td width="64" valign="top"><p style="text-align: center;">1.07</p> </td> 
+           <td width="64" valign="top"><p style="text-align: center;">1.61</p> </td> 
+           <td width="64" valign="top"><p style="text-align: center;">3.21</p> </td> 
+           <td width="64" valign="top"><p style="text-align: center;">16.07</p> </td> 
+          </tr> 
+         </tbody> 
+        </table> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Amazon_RDS_Proxy" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> Amazon RDS 代理</h2> 
+       <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+        <p><b>问：什么是 Amazon RDS 代理？</b></p> 
+        <p>Amazon RDS 代理是 Amazon RDS 的一种完全托管的高可用性数据库代理功能。RDS 代理可提升应用程序的可扩展性、处理数据库故障的灵活性以及安全性。</p> 
+        <p><b>问：我为什么应该使用 Amazon RDS 代理？</b></p> 
+        <p>Amazon RDS 代理是 Amazon RDS 的一种完全托管且易于使用的高可用性数据库代理功能，可使您的应用程序：1) 通过池化和共享数据库连接来提高可扩展性；2) 通过将数据库故障转移次数减少高达 66% 并在故障转移期间保留应用程序连接来提高可用性；及 3) 通过选择性地对数据库强制进行 AWS IAM 身份验证及将凭证安全地存储在 AWS Secrets Manager 中提高安全性。</p> 
+        <p><b>问：Amazon RDS 代理可解决哪些使用案例？</b></p> 
+        <p>Amazon RDS 代理可解决与您的应用程序可扩展性、可用性和安全性相关的很多使用案例，包括：</p> 
+        <p><u>具有不可预测工作负载的应用程序：</u>支持高度可变的工作负载的应用程序可能会尝试打开大量的新数据库连接。Amazon RDS 代理的连接管理可使您通过高效重复利用数据库连接来顺利扩展处理不可预测的工作负载的应用程序。首先，RDS 代理可使多个应用程序连接共享一个数据库连接，以高效使用数据库资源。其次，RDS 代理可使您通过调整已打开的数据库连接数量来维持可预测的数据库性能。第三，RDS 代理将删除无法服务的请求，以保留应用程序的总体性能和可用性。</p> 
+        <p><u>频繁打开并关闭数据库连接的应用程序：</u>构建于 Serverless、PHP 或 Ruby on Rails 等技术的应用程序可能会频繁打开和关闭数据库连接，以服务应用程序请求。Amazon RDS 代理将维护一个数据库连接池，以免在建立新连接时对数据库计算和内存造成不必要的压力。</p> 
+        <p><u>保持连接打开但处于空闲状态的应用程序：</u>SaaS 或电子商务等行业的应用程序可能会使数据库连接保持空闲状态，以尽量减少客户重新参与时的响应时间。您可以使用 Amazon RDS 代理保持空闲的连接，同时只需要建立数据库连接来最佳服务活动请求，而不是过度配置数据库来支持大部分空闲连接。</p> 
+        <p><u>需要通过瞬态故障获得可用性的应用程序：</u>使用 Amazon RDS 代理，您可以构建可以透明地容忍数据库故障的应用程序，无需编写复杂的故障处理代码。RDS 代理可将流量自动路由至新数据库实例，同时保留应用程序连接。RDS 代理还可以绕过域名系统 (DNS) 缓存，以将 RDS 和多可用区数据库的故障转移时间减少高达 66%。数据库故障转移期间，应用程序延迟可能会增加，并且可能必须重试正在进行的交易。</p> 
+        <p><u>改进了安全性和集中凭证管理：</u> Amazon RDS 代理可让您选择使用关系数据库执行基于 IAM 的身份验证，从而可帮助您构建更安全的应用程序。RDS 代理还可以使您通过 AWS Secrets Manager 集中管理数据库凭证。</p> 
+        <p><b>问：我何时应该直接连接数据库而不是使用 Amazon RDS 代理？</b></p> 
+        <p>根据您的工作负载情况，Amazon RDS 代理可以为查询或交易响应时间平均增加 5 毫秒的网络延迟。如果您的应用程序无法容忍 5 毫秒的延迟或者不需要 RDS 代理支持的连接管理和其他功能，您可能希望您的应用程序直接连接到数据库终端节点。</p> 
+        <p><b>问：无服务器应用程序如何从 Amazon RDS 代理中获益？</b></p> 
+        <p>Amazon RDS 代理可将您的方法转变为构建现代无服务器应用程序，该应用程序利用关系数据库的强大功能和简单性。首先，RDS 代理可通过池化和重复利用数据库连接使无服务器应用程序高效扩展。其次，使用 RDS 代理，您不再需要在您的 Lambda 代码中处理数据库凭证。您可以使用与您的 Lambda 函数关联的 IAM 执行角色，以通过 RDS 代理和您的数据库进行身份验证。第三，您不需要管理任何新的基础设施或代码便能充分利用关系数据库所支持的无服务器应用程序潜力。RDS 代理是完全托管的，可根据您的应用程序需要自动扩展其容量。</p> 
+        <p><b>问：Amazon RDS 代理支持哪些数据库引擎？</b></p> 
+        <p>Amazon RDS 代理预览版适用于兼容 MySQL 的 Amazon Aurora 和 Amazon RDS for MySQL。即将推出对其他数据库引擎的支持。</p> 
+        <p><b>问：我如何启用 Amazon RDS 代理？</b></p> 
+        <p>只需在 RDS 控制台中单击几下，您即可为您的 RDS 数据库启用 Amazon RDS 代理。启用 RDS 代理时，您可以指定您希望从中访问 RDS 代理的 VPC 和子网。作为一个 Lambda 用户，您可以为您的 RDS 数据库启用 RDS 代理，并设置 Lambda 函数，以便只需在 Lambda 控制台中单击几下就可以访问该代理。要了解关于入门的更多信息，请参阅《Amazon RDS 用户指南》。</p> 
+        <p><b>问：我是否可以使用 API 访问 Amazon RDS 代理？</b></p> 
+        <ul> 
+         <li>可以。您可以使用 Amazon RDS 代理 API 创建代理，然后定义目标组，以将该代理与特定数据库实例或集群关联。例如：</li> 
+        </ul> 
+       </div> 
+       <div class="lb-code lb-ctxt-p lb-no-highlighting" data-lb-comp="code" data-lb-comp-registered="true"> 
+        <pre class=" language-plainText"><code class="language- language-plainText">aws rds create-db-proxy 
+        --db-proxy-name '…' 
+        --engine-family &lt;mysql|postgresql&gt;       
+        --auth [{}, {}] 
+        --role-arn '…'
+        --subnet-ids {}
+        --require-tls &lt;true|false&gt;
+        --tags {}
+aws rds register-db-proxy-targets 
+        --target-group-name '…'
+        --db-cluster-identifier  '…'
+        --db-instance-identifier '…'</code></pre> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </main>

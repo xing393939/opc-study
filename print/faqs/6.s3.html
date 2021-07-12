@@ -1,0 +1,1024 @@
+<main role="main"> 
+    <div class="lb-none-v-margin lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <div class="lb-grid"> 
+        <div class="lb-row lb-row-max-large lb-snap"> 
+         <div class="lb-col lb-tiny-24 lb-mid-24"> 
+          <h2 id="General_S3_FAQs" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> S3 一般常见问题</h2> 
+          <div class="lb-rtxt"> 
+           <p><a href="#AWS_Regions">区域</a> | <a href="#Billing">账单</a> | <a href="#Amazon_S3_and_IPv6">Amazon S3 和 IPv6</a> | <a href="#Event_Notification">事件通知</a> | <a href="#Amazon_S3_Transfer_Acceleration">Amazon S3 Transfer Acceleration</a>&nbsp;</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：什么是 Amazon S3？</b></p> 
+           <p>Amazon S3 是专为从任意位置存储和检索任意数量的数据而构建的对象存储。这是一种简单的存储服务，以极低的成本提供行业领先的耐久性、可用性、性能、安全性和几乎无限的可扩展性。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：Amazon S3 可以用来做什么？</b></p> 
+           <p>Amazon S3 提供一个简单的 Web 服务界面，使用该界面，您可以随时在任何位置存储和检索任意数量的数据。使用此服务，您可以轻松构建使用原生云存储的应用程序。由于 Amazon S3 具有高度可扩展性，且您只需为实际用量付费，您可以从较小用量起步，并根据需要扩展应用程序，而不影响性能或可靠性。</p> 
+           <p>Amazon S3 的设计还具有很高的灵活性。存储您需要的任意类型和任意数量的数据；读取相同数据一百万次，或者仅在紧急灾难恢复时读取；构建简单的 FTP 应用程序或复杂的 Web 应用程序，例如 Amazon.com 零售网站。Amazon S3 让开发人员能够腾出时间专注于创新，而不是考虑如何存储数据。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如何开始使用 Amazon S3？</b></p> 
+           <p>要注册 Amazon S3，请单击此<a href="https://s3.console.aws.amazon.com/s3/home" target="_blank">链接</a>。您必须拥有 Amazon Web Services 账户才能访问此服务；如果您还没有该账户，则在您开始 Amazon S3 注册过程时，系统将提示您创建一个。注册后，请参阅<a href="http://docs.aws.amazon.com/AmazonS3/latest/API/RelatedResources.html" target="_blank">资源中心</a>的 Amazon S3 文档和示例代码，以开始使用 Amazon S3。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：使用 Amazon S3，开发人员能够解决哪些使用本地解决方案无法解决的问题？</b></p> 
+           <p>Amazon S3 让任何开发人员都可以充分利用 Amazon 自身的规模优势，而无需前期投资，也不会影响性能。开发人员现在可以腾出时间专注于创新，因为他们知道无论他们的业务多么成功，都可以通过经济而简单的方式快速访问数据，且始终保持数据的可用性和安全性。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：在 Amazon S3 中可以存储什么类型的数据？?</b></p> 
+           <p>您几乎可以存储任何格式、任何类型的数据。请参阅 <a href="/cn/agreement/" target="_blank">Amazon Web Services 许可协议</a>，了解详细信息。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：在 Amazon S3 中可以存储多少数据？?</b></p> 
+           <p>您可以存储的总数据容量和对象个数不受限制。各个 Amazon S3 对象的大小范围可以从最小 0 字节到最大 5TB。可在单个 PUT 中上传的最大数据对象为 5 GB。对于大于 100MB 的对象，客户应该考虑使用<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html" target="_blank">分段上传</a>功能。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：Amazon S3 提供哪些存储类？</b></p> 
+           <p>Amazon S3 提供一系列适合不同使用案例的存储类。这包括 S3 标准（适用于频繁访问的数据的通用存储）；S3 智能分层（适用于具有未知或变化的访问模式的数据）；S3 标准 - 不频繁访问（S3 标准 - IA）和 S3 单区 - 不频繁访问（S3 单区 - IA），适用于长期存在、但访问不太频繁的数据；以及 Amazon S3 Glacier (S3 Glacier) 和 Amazon S3 Glacier 深度存档（S3 Glacier 深度存档），适用于长期存档和数字保留。如果您具有现有 AWS 区域无法满足的数据驻留要求，您可以使用 S3 Outposts 存储类将您的 S3 数据存储在本地。要了解有关这些存储类的更多信息，请参阅 <a href="/cn/s3/storage-classes/" target="_blank">Amazon S3 存储类页面</a>。&nbsp;</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：我是否可以拥有在不同存储类具有不同对象的存储桶？</b></p> 
+           <p>可以。您可以拥有包含存储在 S3 标准、S3 智能分层、S3 标准 – IA 和 S3 单区 – IA 中的不同对象的 S3 存储桶。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：Amazon 如何处理我在 Amazon S3 中的数据？</b></p> 
+           <p>Amazon 将存储您的数据，并跟踪其相关使用情况，用于账单用途。除非法律要求，Amazon 不会出于 Amazon S3 服务之外的任何目的访问您的数据。请参阅 <a href="/cn/agreement/" target="_blank">Amazon Web Services 许可协议</a>，了解详细信息。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：Amazon 是否会将自己的数据存储在 Amazon S3 中？</b></p> 
+           <p>是。Amazon 内部的开发人员也将 Amazon S3 用于众多项目。其中很多项目都使用 Amazon S3 作为授权数据存储，并依赖它执行关键业务型操作。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：Amazon S3 数据是如何组织的？</b></p> 
+           <p>Amazon S3 是基于密钥的简单数据对象存储。存储数据时，您应分配唯一数据对象密钥，此后可使用该密钥来提取数据。密钥可以是任何字符串，并且可以被构建为模拟分层属性。或者，您也可以使用 S3 对象标记来组织所有 S3 存储桶中的数据和/或前缀。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如何与 Amazon S3 连接？</b></p> 
+           <p>Amazon S3 提供基于标准的简单 REST Web 服务接口，该接口可用于任何互联网开发工具箱。我们特意对这些操作进行了简化，以便您可以轻松添加新的分发协议和功能层。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：Amazon S3 的可靠性如何？</b></p> 
+           <p>Amazon S3 为所有开发人员提供了一个快速、低成本、高度可扩展且高度可用的数据存储基础设施，Amazon 自己也使用该基础设施来运行其全球网站网络。S3 标准存储类的设计可实现 99.99% 的可用性，S3 标准 – IA 存储类和 S3 智能分层存储类的设计可实现 99.9% 的可用性，S3 单区 – IA 存储类的设计可实现 99.5% 的可用性，而 S3 Glacier 和 S3 Glacier Deep Archive 类的设计可实现 99.99% 的可用性和 99.9% 的 SLA。&nbsp;所有这些存储类均受 <a href="/cn/s3/sla/" target="_blank">Amazon S3 服务等级协议</a>支持。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如果来自应用程序的流量突然激增，Amazon S3 将如何执行？</b></p> 
+           <p>Amazon S3 从一开始就专为处理来自任何互联网应用程序的高流量而设计。按用量付费的定价以及无限制的容量，可以确保您的递增费用不会变化，而且您的服务也不会中断。Amazon S3 的庞大规模使得我们能够均衡地分布负载，任何应用程序都不会受到流量峰值的影响。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：Amazon S3 是否提供服务等级协议 (SLA)？</b></p> 
+           <p>是。如果客户的月度正常运行时间百分比在任何账单周期内低于我们的服务承诺，<a href="/cn/s3/sla/" target="_blank">Amazon S3 SLA</a> 将提供服务积分。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：什么是适用于 Amazon S3 的一致性模型？</b></p> 
+           <p>Amazon S3 自动提供强大的写入后读取一致性，无需更改性能或可用性，无需牺牲应用程序的区域隔离性，并且无需任何额外费用。</p> 
+           <p>成功写入新对象或覆盖现有对象后，任何后续读取请求都会立即收到该对象的最新版本。S3 还为列表操作提供强大的一致性，因此在写入之后，可以立即在存储桶中执行对象列表，并反映所有更改。</p> 
+           <p><b>问：为什么强大的写入后读取一致性可以帮助到我？</b></p> 
+           <p>当您需要在写入后立即读取对象时，强大的写入后读取一致性可以提供帮助。例如，当您经常在写入对象后立即读取和列示时，强大的写入后读取一致性非常有用。高性能计算工作负载也会受益，因为对象被覆盖然后同时多次读取时，强大的写入后读取一致性可保证最新写入是跨全部读取的读取。这些应用程序自动且立即受益于强大的写入后读取一致性。S3 的强一致性还会降低成本，因为不再需要提供强一致性的额外基础设施。&nbsp;</p> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="lb-grid"> 
+        <div class="lb-row lb-row-max-large lb-snap"> 
+         <div class="lb-col lb-tiny-24 lb-mid-24"> 
+          <h2 id="AWS_Regions" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> AWS 区域</h2> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：我的数据存储在哪里？</b></p> 
+           <p>创建 Amazon S3 存储桶时，您可以指定一个 AWS 区域。对于 S3 标准、S3 标准 – IA 和 S3 Glacier 存储类，您的对象会自动存储在单个 AWS 区域内至少三个可用区（每个可用区之间相隔数英里）中的多个设备上。存储在 S3 单区 – IA 存储类中的对象将以冗余方式存储在您选择的 AWS 区域的单个可用区中。对于 S3 on Outposts，您的数据将存储在 Outpost 本地环境中，除非您手动选择将该数据传输到 AWS 区域。请参阅<a href="/cn/about-aws/global-infrastructure/regional-product-services/" target="_blank">区域性产品和服务</a>页面，了解 Amazon S3 服务在不同 AWS 区域的具体提供情况。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：什么是 AWS 区域？</b></p> 
+           <p> AWS 区域是一个地理位置，AWS 在其中提供多个在物理上独立且隔离的可用区，这些可用区通过延迟低、吞吐量高且冗余性高的网络连接在一起。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：什么是 AWS 可用区 (AZ)？</b></p> 
+           <p>AWS 可用区是 AWS 区域内的物理隔离位置。S3 在每个 AWS 区域内运行至少 3 个可用区，每个可用区之间相隔数英里，以防止发生火灾、洪水等本地事件。</p> 
+           <p>Amazon S3 标准、S3 标准 – 不频繁访问和 S3 Glacier 存储类在至少三个可用区中复制数据，以免整个可用区丢失。在公开提供的可用区不足 3 个的区域中，这种情况仍然存在。存储在这些存储类中的对象可从单个 AWS 区域的所有可用区进行访问。</p> 
+           <p>Amazon S3 单区 – IA 存储类在单个可用区内复制数据。存储在 S3 单区 – IA 中的数据对由于地震和洪水等灾难导致的可用区的物理损失不具有弹性。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如何确定将数据存储在哪个 AWS 区域中？</b></p> 
+           <p> 需要基于您的特定应用程序考虑多个因素。您可能希望将数据存储在具备以下条件的地区…</p> 
+           <ul> 
+            <li>…距离您的客户、数据中心或其他 AWS 资源较近，以便缩短数据访问延迟。</li> 
+           </ul> 
+           <ul> 
+            <li>…距离其他运营地点很远，以实现地理位置冗余和灾难恢复。</li> 
+           </ul> 
+           <ul> 
+            <li>…让您能够达到特定法律和法规要求。</li> 
+           </ul> 
+           <ul> 
+            <li>…让您能够降低存储成本。您可以选择价格较低的区域以节省资金。有关 S3 的定价信息，请访问 <a href="/cn/s3/pricing/" target="_blank">S3 定价页面</a>。</li> 
+           </ul> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：Amazon S3 在全球哪些地区提供？</b></p> 
+           <p>Amazon S3 在全球所有 AWS 区域中提供，无论您身处何地，都可以使用 Amazon S3。您只需决定要将 Amazon S3 数据存储在哪个 AWS 区域中即可。请参阅 <a href="/cn/about-aws/global-infrastructure/regional-product-services/" target="_blank">AWS 区域可用性表</a>，获取当前提供 S3 的 AWS 区域列表。</p> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="lb-grid"> 
+        <div class="lb-row lb-row-max-large lb-snap"> 
+         <div class="lb-col lb-tiny-24 lb-mid-24"> 
+          <h2 id="Billing" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 账单</h2> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：Amazon S3 的费用是多少？</b></p> 
+           <p>使用 Amazon S3，您只需可以按实际用量付费。没有最低费用。您可以使用 <a href="https://calculator.aws/" target="_blank">AWS 定价计算器</a>估算您的每月费用。</p> 
+           <p>对于成本较低的区域，我们的收费也比较低。有些价格因 Amazon S3 区域而异，具体账单价格取决于您的 S3 存储桶所在的位置。对于通过 COPY 请求在 Amazon S3 区域内部传输的数据，我们不收取数据传输费用。通过 COPY 请求在多个 AWS 区域间传输的数据需按 Amazon S3 详情页面的“定价”部分中指定的费率付费。对于在同一区域内的 Amazon EC2（或任何 AWS 服务）和 Amazon S3 之间传输的数据，或例如在美国东部（弗吉尼亚北部）区域传输的数据，我们不收取数据传输费用。但是，在所有其他区域的 Amazon EC2（或任何 AWS 服务）和 Amazon S3 之间传输的数据按 <a href="/cn/s3/pricing/" target="_blank">Amazon S3 定价页面</a>上指定的费率付费，（例如，美国东部（弗吉尼亚北部）的 Amazon EC2 和美国西部（加利福尼亚北部）的 Amazon S3 之间传输的数据）。&nbsp;对于 S3 on Outposts 定价，请访问 <a href="/cn/outposts/pricing/" target="_blank">Outposts 定价页面</a>。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：使用 Amazon S3 是如何收费和计费的？</b></p> 
+           <p>开始使用服务时，没有安装费，用户无需对服务的使用签订任何长期使用期限合约。每个月底将自动向您的信用卡收取当月使用费。您可以随时在 Amazon Web Services 网站上查看当前账单期的费用，只需登录您的 Amazon Web Services 账户，并单击“您的 Web 服务账户”下的“<a href="https://console.aws.amazon.com/billing/home" target="_blank">账单和费用管理控制台</a>”。</p> 
+           <p>使用 <a href="/cn/free/" target="_blank">AWS 免费使用套餐*</a>，您可在除 AWS GovCloud 区域之外的所有区域免费开始使用 Amazon S3。注册后，新 AWS 客户将会获得 5GB 的 Amazon S3 标准存储、20000 个 Get 请求、2000 个 Put 请求以及一年内每月 15GB 的对外数据传输量（至 Internet、其他 AWS 区域或 CloudFront）。未使用的月度使用量不会结转至下月。</p> 
+           <p>Amazon S3 对以下类型的使用收费。请注意：以下计算假定没有使用 AWS 免费套餐。</p> 
+           <p><b>使用的存储：</b></p> 
+           <p><a href="/cn/s3/pricing/" target="_blank">Amazon S3 定价页</a>上说明了 Amazon S3 存储的定价详情。</p> 
+           <p>每月计费的存储容量基于全月内使用的平均存储量。其中包括您在 AWS 账户下创建的存储桶中存储的所有数据对象数据和元数据。我们按“TimedStorage-ByteHrs”衡量您的存储使用量，每月底合计该值，得出您的月度费用。</p> 
+           <p><b>存储示例：</b></p> 
+           <p>假设您在 3 月份的前 15 天在存储桶中存储 100GB（107374182400 字节）的 Amazon S3 标准存储数据，在 3 月份的后 16 天存储 100TB（109951162777600 字节）的 Amazon S3 标准存储数据。</p> 
+           <p>3 月底，您的字节小时使用量如下：总字节小时使用量 = [107374182400 字节 x 15 天 x（24 小时/天）] + [109951162777600 字节 x 16 天 x（24 小时/天）] = 42259901212262400 字节小时。请根据一个月的实际天数计算小时数。例如，在我们的示例中，我们使用的是三月，该月份包含 31 天或 744 小时。</p> 
+           <p>将其转换为 GB 月使用量：42259901212262400 字节小时/每 GB 1073741824 字节/每月 744 小时 = 52900GB 月</p> 
+           <p>这一使用容量跨越两个不同容量层级。每月存储价格是在假定数据存储在美国东部（弗吉尼亚北部）地区的情况下计算得出：50TB 层级：51200GB x 0.023 USD = 1177.60 USD 50TB 到 450TB 层级：1700GB x 0.022 USD = 37.40 USD</p> 
+           <p>总存储费用 = 1177.60 USD + 37.40 USD = 1215.00 USD</p> 
+           <p><b>网络数据传入：</b></p> 
+           <p><a href="/cn/s3/pricing/" target="_blank">Amazon S3 定价页</a>上说明了 Amazon S3 数据传入的定价详情。它代表发送到您的 Amazon S3 存储桶的数据量。&nbsp;</p> 
+           <p><b>网络数据传出：</b></p> 
+           <p><a href="/cn/s3/pricing/" target="_blank">Amazon S3 定价页</a>上说明了 Amazon S3 数据传出的定价详情。对于 Amazon S3，只要是从指定 Amazon S3 区域以外的位置读取您存储桶中的数据，此费用即适用。</p> 
+           <p>数据传出定价费率层级考虑到了您在特定区域通过 Amazon EC2、Amazon S3、Amazon RDS、Amazon SimpleDB、Amazon SQS、Amazon SNS 和 Amazon VPC 传到 Internet 的数据总量。这些套餐不适用于从一个 AWS 区域到另一个 AWS 区域的 Amazon S3 数据传出量。</p> 
+           <p><b>数据传出示例：</b><br> 假定在某个 31 天月份，您每天将 1TB 的 Amazon S3 数据从美国东部（弗吉尼亚北部）区域传到 Internet。假定在同一个 31 天月份，您每天还将 1TB 的 Amazon EC2 实例数据从同一区域传到 Internet。</p> 
+           <p>您的总数据传输量将为 62TB（31TB 来自 Amazon S3，31TB 来自 Amazon EC2）。这个数据量等于 63488GB (62TB * 1024GB/TB)。</p> 
+           <p>此使用容量跨越三个不同容量层级。以下计算的月度数据传出费用假定数据传输发生在美国东部（弗吉尼亚北部）区域：<br> 10TB 级：10239GB(10×1024GB/TB – 1 [免费])x 0.09 USD = 921.51 USD<br> 10TB 至 50TB 级：40960GB (40×1024) x 0.085 USD = 3481.60 USD<br> 50TB 至 150TB 级：12288GB（剩余）x 0.070 USD = 860.16 USD</p> 
+           <p>总数据传出费用 = 921.51 USD + 3481.60 USD + 860.16 USD = 5263.27 USD</p> 
+           <p><b>数据请求：</b></p> 
+           <p><a href="/cn/s3/pricing/" target="_blank">Amazon S3 定价表</a>上说明了 Amazon S3 请求定价的详情。</p> 
+           <p>请求示例：<br> 假定您在 3 月每天将 10000 个文件传入 Amazon S3，将 20000 个文件传出 Amazon S3。然后，您在 3 月 31 日删除了 5000 个文件。<br> 总计 PUT 请求数 = 10000 个请求 x 31 天 = 310000 个请求<br> 总计 GET 请求数 = 20000 个请求 x 31 天 = 620000 个请求<br> 总计 DELETE 请求数 = 5000 × 1 天 = 5000 个请求</p> 
+           <p>假定您的存储桶位于美国东部（弗吉尼亚北部）区域，则请求费用按以下方式计算：<br> 310000 个 PUT 请求：310000 个请求 x 0.005 USD/1000 = 1.55 USD<br> 620000 个 GET 请求：620000 个请求 x 0.004 USD/10000 = 0.25 USD<br> 5000 个 DELETE 请求 = 5000 个请求 x 0.00 USD（无费用） = 0.00 USD</p> 
+           <p><b>数据恢复：</b></p> 
+           <p>Amazon S3 数据检索定价适用于 S3 标准 – 不频繁访问（S3 标准 – IA）和 S3 单区 – IA 存储类，并在 <a href="/cn/s3/pricing/" target="_blank">Amazon S3 定价页</a>上说明。</p> 
+           <p><b>数据检索示例：</b><br> 假设您在一个月内检索了 300GB 的 S3 标准 – IA，其中的 100GB 转出至 Internet，100GB 转至同一 AWS 区域的 EC2，还有 100GB 转至同一 AWS 区域的 CloudFront。</p> 
+           <p>则您的数据检索费按以下方式计算：300GB x 0.01 USD/GB = 3.00 USD。注意，您还需要支付传出至 Internet 部分的网络数据传输费。</p> 
+           <p>请参阅此处，详细了解<a href="/cn/glacier/pricing/" target="_blank">存档到 Amazon S3 Glacier 的对象的计费信息</a>。<br> <a href="/cn/glacier/pricing/"><br> </a>* * 除 AWS GovCloud 区域之外，您在其他所有区域的免费套餐使用量均按月计算，自动计入账单 – 未用完的月使用量不会转入下月。存在限制条件；详见<a href="/cn/free/" target="_blank">优惠条款</a>。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：为什么价格因选择的 Amazon S3 区域而异？</b></p> 
+           <p>对于成本较低的区域，我们的收费也比较低。例如，我们在美国东部（弗吉尼亚北部）区域的成本低于美国西部（加利福尼亚北部）区域的成本。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：使用版本控制是如何收费的？</b></p> 
+           <p>正常 Amazon S3 费率适用于存储或请求的数据对象的每个版本。例如，我们以下列场景为例，说明使用版本控制时的存储费用（假定当月有 31 天）：</p> 
+           <p>1) 当月第 1 天：您对存储桶中的 4 GB（4294967296 字节）数据执行了 PUT 操作。<br> 2) 当月第 16 天：您对同一存储桶中的 5GB（5368709120 字节）数据执行了 PUT 操作，使用与第 1 天的原始 PUT 操作相同的密钥。<br> <br> 分析上述操作的存储费用时，请注意，在第 15 天写入 5GB 数据对象时，第 1 天的 4GB 数据对象并未从存储桶删除。相反，这 4GB 数据对象作为旧版本保留，5GB 数据对象成为存储桶中的最近写入的数据对象版本。当月底：</p> 
+           <p>总字节小时使用量<br> [4294967296 字节 x 31 天 x（24 小时/天）] + [5368709120 字节 x 16 天 x（24 小时/天）] = 5257039970304 字节小时。</p> 
+           <p>转换为 GB 月：<br> 5257039970304 字节-小时 x（1GB/1073741824 字节）x（1 月/744 小时） = 6.581GB 月</p> 
+           <p>费用根据 <a href="/cn/s3/pricing/" target="_blank">Amazon S3 定价页面</a>上列出的您所在区域的当前费率计算得出。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：通过 AWS 管理控制台访问 Amazon S3 是如何收费的？</b></p> 
+           <p>通过 AWS 管理控制台访问 Amazon S3 时，该服务的正常定价适用。为提供优化的体验，AWS 管理控制台可以主动执行请求。此外，某些交互操作可能导致对服务的多个请求。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如果我使用其他 AWS 账户访问 Amazon S3 存储桶，应该如何付费？</b></p> 
+           <p>当您使用其他 AWS 账户访问存储时，我们将按正常 Amazon S3 定价收费。或者，您也可以选择将存储桶配置为申请方付款存储桶，在这种情况下，将由申请方支付 Amazon S3 数据的相关申请和下载费用。</p> 
+           <p> 有关申请方付款存储桶配置的更多信息，请参阅 <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html" target="_blank">Amazon S3 文档</a>。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：价格是否含税？</b></p> 
+           <p> 除非另行说明，否则我们的价格不包含适用的税费和关税（包括增值税和适用销售税）。使用日本账单地址的客户若要使用 AWS，则需缴纳日本消费税。</p> 
+           <p><a href="/cn/c-tax-faqs/" target="_blank">详细了解 AWS 服务的税费信息 ?</a></p> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="lb-grid"> 
+        <div class="lb-row lb-row-max-large lb-snap"> 
+         <div class="lb-col lb-tiny-24 lb-mid-24"> 
+          <h2 id="Amazon_S3_and_IPv6" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> Amazon S3 和 IPv6</h2> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：什么是 IPv6？</b></p> 
+           <p>连接到 Internet 的每个服务器和设备都必须具有一个唯一地址。Internet 协议版本 4 (IPv4) 是原始的 32 位寻址方案。但是，Internet 的持续发展意味着所有可用的 IPv4 地址都将随着时间而被用尽。Internet 协议版本 6 (IPv6) 是寻址机制，设计用以克服 IPv4 的全球地址限制。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：IPv6 可以用来做什么？</b></p> 
+           <p> 使用适用于 Amazon S3 的 IPv6 支持，应用程序无需任何 IPv6 到 IPv4 转换软件或系统即可连接到 Amazon S3。您可以满足合规性要求，更轻松地与基于 IPv6 的现有本地应用程序集成，并且无需购买昂贵的联网设备来处理地址转换。您还可以借助 IPv6 地址利用 IAM 策略和存储桶策略中现有的源地址筛选功能，扩大您的选择范围以确保应用程序与 Amazon S3 安全交互。 <br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如何在 Amazon S3 上开始使用 IPv6？</b></p> 
+           <p>首先，您可以将应用程序指向 Amazon S3 的新“双堆栈”<a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/dual-stack-endpoints.html" target="_blank">终端节点</a>，该终端节点同时支持通过 IPv4 和 IPv6 访问。在大多数情况下，无需进一步配置即可通过 IPv6 进行访问，因为大多数网络客户端倾向于默认使用 IPv6 地址。&nbsp;因使用 IPv6 受到影响的应用程序可以随时切换回仅支持 IPv4 的标准终端节点。支持在所有商业 AWS 区域将 IPv6 用于 Amazon S3，包括 AWS GovCoud（美国）区域、由光环新网运行的 Amazon Web Services 中国（北京）区域、由宁夏西云数据运行的 Amazon Web Services 中国（宁夏）区域。&nbsp;<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：使用 IPv6 时，Amazon S3 的性能是否会出现变化？</b></p> 
+           <p> 不会，不论是使用 IPv4 还是 IPv6，Amazon S3 的性能都相同。 <br> </p> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="lb-grid"> 
+        <div class="lb-row lb-row-max-large lb-snap"> 
+         <div class="lb-col lb-tiny-24 lb-mid-24"> 
+          <h2 id="Event_Notification" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 事件通知</h2> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：什么是 Amazon S3 事件通知？</b></p> 
+           <p> Amazon S3 事件通知可在响应 Amazon S3 中的操作（如 PUT、POST、COPY 或 DELETE）时发送。通知消息可以通过 <a href="/cn/sns/" target="_blank">Amazon SNS</a>、<a href="/cn/sqs/" target="_blank">Amazon SQS</a> 发送，也可以直接发送到 <a href="/cn/lambda/" target="_blank">AWS Lambda</a>。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：我可以用 Amazon S3 事件通知做什么？</b></p> 
+           <p> Amazon S3 事件通知可使您运行工作流、发送提醒或执行其他操作来响应 S3 中存储对象的更改。您可以使用 S3 事件通知来设置触发器以执行各种操作，包括在上传媒体文件时对其执行转码、在数据文件可用时对其进行处理以及将 S3 对象与其他数据存储同步。您还可以根据对象名前缀和后缀来设置事件通知。例如，您可以选择接收以“images/”开头的对象名称的通知。 <br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：Amazon S3 事件通知中包含什么？</b></p> 
+           <p> 有关 Amazon S3 事件通知消息中所含信息的详细描述，请参考 <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html" target="_blank">Amazon S3 开发人员指南</a>中的<a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/Welcome.html" target="_blank">配置 Amazon S3 事件通知</a>主题。 <br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如何设置 Amazon S3 事件通知？</b></p> 
+           <p>关于如何配置事件通知的详细描述，请参考 <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html" target="_blank">Amazon S3 开发人员指南</a>中的<a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/Welcome.html" target="_blank">配置 Amazon S3 事件通知</a>主题。您可以在 <a href="http://docs.aws.amazon.com/sns/latest/dg/welcome.html" target="_blank">Amazon SNS 文档</a>和 <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/Introduction.html" target="_blank">Amazon SQS 文档</a>中了解有关 AWS 消息收发服务的更多信息。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：使用 Amazon S3 事件通知的费用是多少？</b></p> 
+           <p>使用 Amazon S3 事件通知，无需支付额外费用。发送事件通知时，您只需为 Amazon SNS 或 Amazon SQS 的使用付费，或只需承担运行 AWS Lambda 函数的费用。要查看这些服务的定价详细信息，请访问 <a href="/cn/sns/pricing/" target="_blank">Amazon SNS</a>、<a href="/cn/sqs/pricing/" target="_blank">Amazon SQS</a> 或 <a href="/cn/lambda/pricing/" target="_blank">AWS Lambda</a> 定价页面。</p> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="lb-grid"> 
+        <div class="lb-row lb-row-max-large lb-snap"> 
+         <div class="lb-col lb-tiny-24 lb-mid-24"> 
+          <h2 id="Amazon_S3_Transfer_Acceleration" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> Amazon S3 Transfer Acceleration</h2> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：什么是 S3 Transfer Acceleration？</b></p> 
+           <p> Amazon S3 Transfer Acceleration 可在客户与您的 Amazon S3 存储桶之间实现快速、轻松、安全的远距离文件传输。S3 Transfer Acceleration 利用了 Amazon CloudFront 遍布全球的 AWS 边缘站点。数据到达某个 AWS 边缘站点时，即被通过优化的网络路径路由至您的 Amazon S3 存储桶。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如何开始使用 S3 Transfer Acceleration？</b></p> 
+           <p> 要开始使用 S3 Transfer Acceleration，请使用 Amazon S3 控制台、Amazon S3 API 或 AWS CLI 在 S3 存储桶上<a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html#transfer-acceleration-getting-started" target="_blank">启用 S3 Transfer Acceleration</a>。启用 S3 Transfer Acceleration 后，您可以将 Amazon S3 PUT 和 GET 请求指向 s3-accelerate 终端节点的域名。您的数据传输应用程序必须使用以下两种终端节点类型中的一种，以访问用于更快的数据传输的存储桶：“双堆栈”终端节点的 .s3-accelerate.amazonaws.com 或 .s3-accelerate.dualstack.amazonaws.com。如果您想要使用标准数据传输，可以继续使用常规终端节点。</p> 
+           <p> 对于支持 S3 Transfer Acceleration 的存储桶有一定限制。有关详情，请参考 <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html#transfer-acceleration-requirements" target="_blank">Amazon S3 开发人员指南</a>。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：S3 Transfer Acceleration 有多快？</b></p> 
+           <p> S3 Transfer Acceleration 可帮助您充分利用带宽，最大限度地降低距离对吞吐量的影响。无论客户位于何方，S3 Transfer Acceleration 都能确保数据快速、稳定地传输到 Amazon S3。加速的幅度主要取决于您的可用带宽、源和目标之间的距离以及网络路径上的数据包丢失率。通常，源和目标之间的距离越远、可用带宽越多和/或对象大小越大，加速的幅度越大。</p> 
+           <p> 一位客户的测量结果是：从分布在美国、欧洲和部分亚洲地区的全球用户群向亚太地区（悉尼）的存储桶摄入 300MB 的文件，平均传输时间可以缩短 50%。而另一位客户观察到，从东南亚和澳大利亚的用户向美国东部（弗吉尼亚北部）的 S3 存储桶上传 250MB 文件（分成 50MB 大小的几个部分）时，性能提升超过 500%。</p> 
+           <p> 试用<a href="http://s3-accelerate-speedtest.s3-accelerate.amazonaws.com/en/accelerate-speed-comparsion.html" target="_blank">速度比较工具</a>，预览您所在位置能获得的性能提升！</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：谁应该使用 S3 Transfer Acceleration？</b></p> 
+           <p> S3 Transfer Acceleration 旨在优化从世界各地向 S3 存储桶传输数据的速度。如果您从多个分散的地点向一个集中的存储桶上传数据，或者如果您经常需要跨各大洲传输 GB 或 TB 级的数据，使用 S3 Transfer Acceleration 节约的数据传输时间可以达到数小时或者数天。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：S3 Transfer Acceleration 的安全性如何？</b></p> 
+           <p> S3 Transfer Acceleration 的安全性与 Amazon S3 的常规传输相同。同样支持所有 Amazon S3 安全功能，例如基于客户端的 IP 地址来限制访问。S3 Transfer Acceleration 与客户端通过标准 TCP 通信，无需更改防火墙。AWS 边缘站点不会存储任何数据。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如果 S3 Transfer Acceleration 的传输速度不及常规 Amazon S3，怎么办？</b></p> 
+           <p> 每当您使用 S3 Transfer Acceleration 上传对象时，我们都会检查 S3 Transfer Acceleration 的传输速度是否有可能比常规 Amazon S3 传输更快。在将同一对象传输到同一目标 AWS 区域时，如果我们确定 S3 Transfer Acceleration 的传输速度不会快于常规 Amazon S3，那么对于此次使用 S3 Transfer Acceleration 进行的传输，我们将不会收取任何费用，并且可能会绕过该次上传的 S3 Transfer Acceleration 系统。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：我可以对分段上传使用 S3 Transfer Acceleration 吗？</b></p> 
+           <p> 可以，S3 Transfer Acceleration 支持所有存储桶级别的功能，包括分段上传。 <br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：在 S3 Transfer Acceleration 和 Amazon CloudFront 的 PUT/POST 之间，我应该如何选择？</b></p> 
+           <p> S3 Transfer Acceleration 优化了 TCP 协议，并在客户端与 S3 存储桶之间添加了更多智能，因此如果需要更高的吞吐量，S3 Transfer Acceleration 就是更好的选择。如果您的对象小于 1GB，或者如果数据集小于 1GB，则应该考虑使用 Amazon CloudFront 的 PUT/POST 命令来优化性能。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：在 S3 Transfer Acceleration 和 AWS Snow Family（Snowball、Snowball Edge 和 Snowmobile）之间，我应该如何选择？</b></p> 
+           <p> 要一次性移动大批量数据，AWS Snow Family 就是客户的理想选择。AWS Snowball 的周转时间通常为 5-7 天。一般来说，通过一条充分利用的 1Gbps 线路，S3 Transfer Acceleration 在同样的时间期限内最多可以传输 75TB 数据。总之，如果通过 Internet 传输所需的时间超过一个星期，或者如果需要反复传输任务且可用带宽超过 25Mbps，S3 Transfer Acceleration 就是不错的选择。另一个选择是同时使用两者：利用一个 AWS Snowball（或一系列 AWS Snowball）执行最初繁重的传输任务，然后利用 S3 Transfer Acceleration 传输递增的日常变更。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：可以使用 S3 Transfer Acceleration 作为 AWS Direct Connect 的补充吗？</b></p> 
+           <p> 如果客户拥有专用联网要求或者能访问 AWS Direct Connect 交换点，AWS Direct Connect 就是不错的选择。S3 Transfer Acceleration 最适合从分散的客户位置通过公共 Internet 提交数据，或者是由于网络条件不断变化而造成吞吐量较低的情况。有些 AWS Direct Connect 客户使用 S3 Transfer Acceleration 帮助远程办公室传输数据，因为远程办公室的 Internet 性能可能会比较差。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：可以使用 S3 Transfer Acceleration 作为 AWS Storage Gateway 或第三方网关的补充吗？</b></p> 
+           <p> 如果您能够在第三方网关中配置存储桶目标以使用 S3 Transfer Acceleration 终端节点域名，则会看到相应优势。</p> 
+           <p> 请访问 <a href="/cn/storagegateway/faqs/#file" target="_blank">Storage Gateway 常见问题的“文件”部分</a>，详细了解 AWS 实施。 <br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：可以使用 S3 Transfer Acceleration 作为第三方集成软件的补充吗？</b></p> 
+           <p> 是。直接连接到 Amazon S3 的软件包在将任务发送到 Amazon S3 时可以利用 S3 Transfer Acceleration。</p> 
+           <p><a href="/cn/backup-recovery/partner-solutions/" target="_blank">了解有关存储合作伙伴解决方案的更多信息 ?</a></p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：S3 Transfer Acceleration 是否符合 HIPAA 要求？</b></p> 
+           <p> 符合，AWS 已对其 HIPAA 合规性计划进行扩展，其中已将 Amazon S3 Transfer Acceleration 作为一项符合 HIPAA 要求的服务包括进来。如果您已与 AWS 签订商业合伙协议 (BAA)，则可以使用 Amazon S3 Transfer Acceleration 在您的客户端和 Amazon S3 存储桶之间快速、轻松且安全地远距离传输文件，包括受保护健康信息 (PHI)。</p> 
+           <p><a href="/cn/compliance/hipaa-compliance/" target="_blank">了解有关 HIPAA 合规性的更多信息 ?</a></p> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="lb-grid"> 
+        <div class="lb-row lb-row-max-large lb-snap"> 
+         <div class="lb-col lb-tiny-24 lb-mid-24"> 
+          <h2 id="Security" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 安全性</h2> 
+          <div class="lb-rtxt"> 
+           <p><a href="#S3_Access_Points">S3 访问点</a></p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：数据在 Amazon S3 中的安全性如何？</b>&nbsp; &nbsp;&nbsp;</p> 
+           <p>Amazon S3 本身是非常安全的。创建完成后时，只有资源所有者才能访问他们创建的 Amazon S3 资源。Amazon S3 支持用户身份验证，以控制对数据的访问。您可以使用各种访问控制机制，例如存储桶策略和访问控制列表 (ACL)，选择性地向用户和用户组授予权限。Amazon S3 控制台会突出显示您可公开访问的存储桶，注明公开可访问性的来源，并且还会在您的存储桶策略或存储桶 ACL 发生的更改从而将使您的存储桶可公开访问时，向您发出警告。&nbsp;您应该为不希望公开访问的所有账户和存储桶启用阻止公有访问。&nbsp;</p> 
+           <p><span style="">您可以使用 HTTPS 协议，通过 SSL 终端节点安全地向 Amazon S3 上传或从中下载数据。如果您需要额外的安全保障，可以使用服务器端加密 (SSE) 选项来加密静态存储的数据。如果传入的存储请求没有任何加密信息，您可以将 Amazon S3 存储桶配置为在存储对象之前自动将其加密。或者，您可以使用自己的加密库，在将数据存储到 Amazon S3 之前对数据进行加密。</span><br> </p> 
+           <p><span style="">有关 AWS 上的安全性的更多信息，请参阅 <a href="/cn/security/">AWS 安全性页面</a>，要了解 S3 安全性信息，请访问&nbsp;<a href="/cn/s3/security/">S3 安全性页面</a>或 <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html">S3 安全性最佳实践指南</a>。<br> </span></p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如何控制对存储在 Amazon S3 中的数据的访问？</b></p> 
+           <p>客户可以使用四种机制来控制对 Amazon S3 资源的访问：Identity and Access Management (IAM) 策略、存储桶策略、访问控制列表 (ACL) 和查询字符串身份验证。IAM 让拥有多名员工的组织能够使用一个 AWS 账户创建和管理多个用户。使用 IAM 策略，公司可向 IAM 用户授予对 Amazon S3 存储桶或对象的精细控制权，同时保留对用户执行的所有操作的完全控制。使用存储桶策略，客户可以定义广泛适用于其 Amazon S3 资源的所有请求的规则，例如为 Amazon S3 资源的子集授予写入权限。客户还可以基于请求的某种特征（例如 HTTP 引用站点和 IP 地址）来限制访问。通过 ACL，客户可为特定用户授予对单个存储桶或数据对象的特定权限（例如读取、写入、完全控制）。借助查询字符串身份验证，客户可以为 Amazon S3 对象创建一个仅在有限时间内有效的 URL。有关 Amazon S3 中可用的各种访问控制策略的更多信息，请参阅 <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/index.html?UsingAuthAccess.html" target="_blank">Amazon S3 开发人员指南</a>中的<a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/Welcome.html" target="_blank">访问控制主题</a>。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：Amazon S3 是否支持数据访问审计？</b></p> 
+           <p>支持。客户可以选择配置 Amazon S3 存储桶，为所有针对该存储桶的请求创建访问日志记录。或者，需要在日志中捕获 IAM/用户身份信息的客户也可以配置 <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html" target="_blank">AWS CloudTrail 数据事件</a>。</p> 
+           <p>这些访问日志记录可用于审计用途，其中包含有关请求的详细信息，例如请求类型、请求中指定的资源、处理请求的时间和日期。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：对存储在 Amazon S3 中的数据进行加密时，可以使用哪些选项？</b></p> 
+           <p> 您可以选择使用 SSE-S3、SSE-C、SSE-KMS 或客户端库（例如 <a href="http://docs.amazonwebservices.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/AmazonS3EncryptionClient.html" target="_blank">Amazon S3 加密客户端</a>）对数据进行加密。所有四个选项都可以将敏感的数据以静态方式存储在 Amazon S3 中。</p> 
+           <p> SSE-S3 提供了一种集成式解决方案，Amazon 通过其使用多个安全层处理密钥管理和密钥保护问题。如果您希望 Amazon 管理您的密钥，您应该选择 SSE-S3。</p> 
+           <p> SSE-C 让您能利用 Amazon S3 对对象执行加密和解密操作，同时保持对加密对象所用密钥的控制权。借助 SSE-C，您无需实施或使用客户端库来对 Amazon S3 中储存的对象执行加密和解密，但是需要对您发送到 Amazon S3 中执行对象加密和解密操作的密钥进行管理。如果您希望保留自己的加密密钥而不想实施或使用客户端加密库时，请使用 SSE-C。</p> 
+           <p> SSE-KMS 可让您使用 <a href="/cn/kms/" target="_blank">AWS Key Management Service</a> (AWS KMS) 来管理您的加密密钥。使用 AWS KMS 管理您的密钥有几项额外的好处。利用 AWS KMS，会设置几个单独的主密钥使用权限，从而提供额外的控制层并防止 Amazon S3 中存储的对象遭到未授权访问。AWS KMS 提供审计跟踪，因此您能看到谁使用了您的密钥在何时访问了哪些对象，还能查看用户在没有解密数据的权限下所作的访问数据失败尝试次数。同时，AWS KMS 还提供额外的安全控制，从而支持客户努力符合 PCI-DSS、HIPAA/HITECH 和 FedRAMP 行业要求。</p> 
+           <p> 使用 <a href="http://docs.amazonwebservices.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/AmazonS3EncryptionClient.html" target="_blank">Amazon S3 加密客户端</a>之类的加密客户端库，您可以保持对密钥的控制并使用您选择的加密库完成对象客户端侧的加密和解密。一些客户倾向于对加密和解密对象拥有端到端的控制权；这样一来，只有经过加密的对象才会通过互联网传输到 Amazon S3。如果您想掌握对加密密钥的控制权，应该使用客户端库，这样便可实施或使用客户端加密库，同时在将对象传输到 Amazon S3 进行储存之前需要对其进行加密。</p> 
+           <p> 有关使用 Amazon S3 SSE-S3、SSE-C 或 SSE-KMS 的更多信息，请参阅 <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/UsingEncryption.html" target="_blank">Amazon S3 开发人员指南</a>中的<a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/" target="_blank">使用加密</a>主题。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：使用 Amazon S3 时，是否必须遵守欧盟数据隐私法规？</b></p> 
+           <p>客户可以选择使用欧洲（法兰克福）、欧洲（爱尔兰）、欧洲（伦敦）或欧洲（巴黎）区域存储所有数据。您还可以使用 S3 on Outposts 将所有数据本地保留在 Outpost 中，您可以选择在 Outposts 之间传输数据或将数据传输到 AWS 区域。您有责任确保自己遵守欧盟隐私法律。请参阅 <a href="/cn/compliance/gdpr-center/" target="_blank">AWS GDPR 中心</a>了解更多信息。&nbsp;如果有更具体的位置要求或者其他数据隐私法规要求您将数据保存在没有 AWS 区域的位置，您可以使用 S3 on Outposts。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：什么是 Amazon S3 的 Amazon VPC 终端节点？</b></p> 
+           <p>Amazon S3 的 Amazon VPC 终端节点是 VPC 内的逻辑实体，允许通过 Amazon 全局网络连接到 S3。S3 有两种类型的 VPC 终端节点 – 网关 VPC 终端节点和接口 VPC 终端节点。网关终端节点是您在路由表中指定的网关，用于通过 Amazon 网络从 VPC 访问 S3。接口终端节点通过私有 IP 将请求从您的 VPC 内部、本地或其他 AWS 区域路由到 S3，从而扩展网关终端节点的功能。有关更多信息，请访问<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html">文档</a>。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：能否允许从特定 Amazon VPC 终端节点访问我的 Amazon S3 存储桶？</b></p> 
+           <p>您可以使用 Amazon S3 存储桶策略，限制从特定 Amazon VPC 终端节点或一系列终端节点访问您的存储桶。S3 存储桶策略现在支持 aws:sourceVpce 条件，您可以利用此条件来限制访问。有关更多信息和示例策略，请参阅<a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-endpoints.html">使用 VPC 终端节点</a>。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：什么是适用于 Amazon S3 的 AWS PrivateLink？</b></p> 
+           <p>适用于 S3 的 <a href="/cn/privatelink/">AWS PrivateLink</a> 在 Amazon S3 与本地之间提供私有连接。您可以在 VPC 中为 S3 预置接口 VPC 终端节点，以通过 AWS Direct Connect 或 AWS VPN 将本地应用程序直接连接到 S3。您不再需要使用公有 IP、更改防火墙规则，或配置互联网网关以从本地访问 S3。要了解更多信息，请访问<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html">文档</a>。</p> 
+           <p><b style="">问：如何开始使用适用于 S3 的接口 VPC 终端节点？</b><br> </p> 
+           <p>您可以使用 AWS VPC 管理控制台、AWS CLI、AWS SDK 或 API 创建接口 VPC 终端节点。要了解更多信息，请访问<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html">文档</a>。</p> 
+           <p><b>问：我应何时选择网关 VPC 终端节点，而不是基于 AWS PrivateLink 的接口 VPC 终端节点？</b></p> 
+           <p>我们建议您使用接口 VPC 终端节点从本地或另一个 AWS 区域中的 VPC 访问 S3。对于要从与 S3 相同的 AWS 区域中的 VPC 访问 S3 的资源，我们建议使用网关 VPC 终端节点，因为这不会收取费用。要了解更多信息，请访问<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html">文档</a>。</p> 
+           <p><b>问：我可以在同一个 VPC 中同时使用适用于 S3 的接口终端节点和网关终端节点吗？</b></p> 
+           <p>可以。如果您已经有网关 VPC 终端节点，请在 VPC 中创建接口 VPC 终端节点，并以 VPC 终端节点特定的终端节点名称更新客户端应用程序。例如，如果您接口终端节点的 VPC 终端节点 ID 在 us-east-1 区域中为 vpce-0fe5b17a0707d6abc-29p5708s，则特定于终端节点的 DNS 名称将为 vpce-0fe5b17a0707d6abc-29p5708s.s3.us-east-1.vpce.amazonaws.com。在这种情况下，仅针对 VPC 终端节点特定名称的请求将通过接口 VPC 终端节点路由到 S3，而所有其他请求将继续通过网关 VPC 终端节点路由。要了解更多信息，请访问<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html">文档</a>。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：什么是 Amazon Macie，我如何使用它保护数据的安全？</b></p> 
+           <p>Amazon Macie 是一种<a href="/cn/macie/" target="_blank">支持 AI 技术的安全服务</a>，可以帮助您通过自动发现、分类和保护存储在 Amazon S3 中的敏感数据来防止数据丢失。Amazon Macie 使用机器学习来识别敏感数据（例如，个人身份信息 [PII] 或知识产权），分配业务价值，提供此数据的存储位置信息及其在组织中的使用方式信息。Amazon Macie 可持续监控数据访问活动异常，并在检测到未经授权的访问或意外数据泄漏风险时发出警报。</p> 
+           <p>您可以使用 Amazon Macie 通过持续监控数据和账户凭证来防范安全威胁。Amazon Macie 为您提供一种自动化和低接触的方式来发现和分类业务数据。它通过模板化的 Lambda 函数进行控制，可在发现可疑行为或对实体或第三方应用程序进行未经授权的数据访问时撤销访问或触发密码重置策略。发出警报时，您可以使用 Amazon Macie 进行事件响应，并使用 Amazon CloudWatch Events 迅速采取行动，保护您的数据。有关更多信息，请前往 <a href="http://docs.aws.amazon.com/macie/latest/userguide">Amazon Macie 用户指南</a>。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：什么是适用于 S3 的访问分析器，它的工作原理是什么？</b></p> 
+           <p>S3 访问分析器功能可以监控您的访问策略，从而确保策略仅提供对 S3 资源的预期访问。S3 访问分析器可评估您的存储桶访问策略，并使您能够发现并快速修复具有潜在意外访问风险的存储桶。<br> </p> 
+           <p>当您有一个存储桶配置为允许访问互联网上的任何人访问或与其他 AWS 账户共享时，S3 访问分析器会向您发出警报。您可以获得有关公共或共享访问的来源和级别的见解或“结果”。例如，如果通过访问控制列表 (ACL) 或存储桶策略提供了读取或写入访问权限，则 S3 访问分析器会主动通知您。通过这些见解，您可以立即设置或还原预期的访问策略。</p> 
+           <p>在查看显示对存储桶的潜在共享访问权限的结果时，只需单击 S3 管理控制台，即可<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html">阻止所有公共访问</a>存储桶。您还可以向下钻取到存储桶级别权限设置，以配置精细访问。&nbsp;出于审核目的，可将 S3 访问分析器的结果下载为 CSV 报告。有关更多信息，请前往 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">IAM 访问分析器</a>。</p> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="lb-grid"> 
+        <div class="lb-row lb-row-max-large lb-snap"> 
+         <div class="lb-col lb-tiny-24 lb-mid-24"> 
+          <h2 id="S3_Access_Points" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> S3 访问点</h2> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：什么是 Amazon S3 访问点？</b></p> 
+           <p>现在，客户会使用单个存储桶策略管理对其 S3 存储桶的访问，该策略控制着不同权限级别的数百种应用程序。</p> 
+           <p>Amazon S3 访问点使用 S3 上的共享数据集简化了大规模管理应用程序的数据访问的过程。利用 S3 访问点，您现在可以在每个存储桶中轻松创建数百个访问点，这代表了一种配置共享数据集访问的新方法。访问点提供进入存储桶的自定义路径，具有唯一的主机名和访问策略，可对通过相应访问点发出的请求执行特定的权限和网络控制。通过 <a href="/cn/s3/features/access-points/">S3 访问点页面</a>和<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">用户指南</a>了解更多信息。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：为什么应该使用访问点？</b></p> 
+           <p>S3 访问点简化了管理应用程序集对 S3 上共享数据集的数据访问的方式。您不再需要使用数以百计的需要编写、读取、跟踪和审计的不同权限规则来管理单个复杂的存储桶策略。使用 S3 访问点，您现在可以创建特定于应用程序的访问点，从而允许使用针对特定应用程序量身定制的策略来访问共享数据集。</p> 
+           <p>使用访问点，您可以针对需要访问共享数据集的每个应用程序，将一个大型存储桶策略分解为多个单独的离散访问点策略。这样可以更轻松地集中精力为应用程序制定正确的访问策略，而不必担心打断共享数据集中任何其他应用程序正在执行的操作。您还可以创建服务控制策略 (SCP)，并要求将所有访问点都限制在 Virtual Private Cloud (VPC) 中，从而通过防火墙将数据隔离在专用网络中。&nbsp;</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：S3 访问点的工作原理是什么？</b></p> 
+           <p> 每个 S3 访问点都配置有针对用例或应用程序的访问策略，而且一个存储桶可以有数百个访问点。例如，您可以为 S3 存储桶创建一个访问点，为数据湖的用户或应用程序组授予访问权限。访问点可以支持单个用户或应用程序，也可以支持一组用户或应用程序，因此可以对每个访问点进行单独管理。每个访问点都与一个存储桶相关联，并包含一个网络源站控件和一个阻止公共访问控件。例如，您可以创建带有网络源站控件的访问点，该控件仅允许从您的 Virtual Private Cloud（AWS 云的逻辑隔离部分）进行存储访问。您还可以创建一个访问点，将访问点策略配置为仅允许访问具有指定前缀（例如 “finance”）的对象。</p> 
+           <p> 由于每个访问点都包含一个唯一的 DNS 名称，因此您现在可以使用任何在 AWS 账户和区域内唯一的所选名称来寻址现有存储桶和新存储桶。使用限制在某 VPC 的访问点，您现在可以采用一种简单、可审计的方式来确保 S3 数据保留在您的 VPC 内。此外，您现在可以使用 AWS 服务控制策略，要求组织中的任何新访问点均仅支持 VPC 访问。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：是否有访问点数量创建配额？</b></p> 
+           <p>默认情况下，您可以为每个账户在每个区域创建 1000 个访问点。与 S3 存储桶不同的是，对于每个 AWS 账户的访问点数量没有硬性限制。请访问 <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">AWS Service Quotas</a> 以申请提高此配额。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：在使用访问点时，如何对请求进行授权？</b></p> 
+           <p>S3 访问点有其自己的 IAM 访问点策略。您可以使用访问点 ARN 作为资源，像编写存储桶策略一样编写访问点策略。访问点策略可以授权或限制访问通过访问点请求的 S3 数据。Amazon S3 会评估所有相关策略，包括关于用户、存储桶、访问点和 VPC 终端节点的策略，以及服务控制策略和访问控制列表，以决定是否要授权请求。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如何编写访问点策略？</b></p> 
+           <p>您可以使用策略文档中管理权限和访问点 ARN 的 IAM 规则编写访问点策略，就像编写存储桶策略一样。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：在访问点上限制使用网络源站控件的特定 VPC 访问权限与限制使用存储桶策略的 VPC 访问权限有什么区别？</b></p> 
+           <p> 您可以继续使用存储桶策略来限制对指定 VPC 的存储桶访问权限。访问点提供更简单可审核的方式，以便通过 API 控件将共享数据集中的全部数据或数据子集锁定到所在组织全部应用程序的仅限 VPC 流量。您可以使用 AWS Organizations 服务控制策略 (SCP) 强制将在您的组织中创建的任何访问点的“网络源站控件”API 参数值设置为 “vpc”。然后，任何创建的新访问点会自动将数据访问限制为仅限 VPC 流量。您无需其他访问策略来确保仅处理来自指定 VPC 的数据请求。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：我可以在所在组织内为所有访问点实施“无 Internet 数据访问”策略吗？</b></p> 
+           <p> 是。要为组织内的所有访问点实施“无 Internet 数据访问”策略，您要确保所有访问点都仅支持 VPC 访问。要做到这一点，您将需要编写 AWS SCP，而且该 SCP 仅支持 create_access_point() API 中的“网络源站控件”参数的值为 “vpc”。如果您在之前创建过任何面向 Internet 的访问点，它们可以被移除。您还需要在每个存储桶中修改存储桶策略，以便进一步限制 Internet 通过存储桶主机名直接访问您的存储桶。由于其他 AWS 服务可能直接访问您的存储桶，因此确保将访问权限设置为允许您想要的 AWS 服务，您可以通过修改策略，允许这些 AWS 服务进行访问。参阅 S3 文档以查看操作示例。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：我可以完全禁用使用存储桶主机名直接访问存储桶吗？</b></p> 
+           <p> 目前不可以，但您可以附加存储桶策略以拒绝并非通过访问点发出的请求。参阅 S3 文档以了解更多详细信息。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：我可以替换或移除存储桶上的访问点吗？</b></p> 
+           <p> 是。如果您移除某个访问点，任何通过其他访问点和存储桶主机名对关联存储桶的访问都会被中断。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：Amazon S3 访问点的成本为多少？</b></p> 
+           <p> 访问点和使用访问点的存储桶不会产生额外成本。一般的 Amazon S3 请求费率同样适用。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如何开始使用 S3 访问点？</b></p> 
+           <p>您可以通过 AWS 管理控制台、AWS 命令行界面 (CLI)、应用程序编程接口 (API) 和 AWS 软件开发工具包 (SDK) 客户端，在新存储桶以及现有存储桶上创建 S3 访问点。要了解与 S3 访问点相关的更多信息，请访问<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">用户指南</a>。<br> </p> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="lb-grid"> 
+        <div class="lb-row lb-row-max-large lb-snap"> 
+         <div class="lb-col lb-tiny-24 lb-mid-24"> 
+          <h2 id="Durability_.26_Data_Protection" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 持久性和数据保护</h2> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：Amazon S3 的持久性如何？</b></p> 
+           <p>Amazon S3 标准、S3 标准 – IA、S3 智能分层、S3 单区 – IA、S3 Glacier 和 S3 Glacier Deep Archive 的设计均可在给定年份提供 99.999999999%（11 个 9）的对象数据持久性。这种持久性水平对应的平均每年对象损失率预计为 0.000000001%。例如，如果您使用 Amazon S3 存储 10000000 个对象，则预期平均每 10000 年发生一次对象丢失。S3 on Outposts 旨在持久冗余地在 Outpost 上的多个设备和服务器中存储数据。此外，Amazon S3 标准、S3 标准 – IA、S3 Glacier 和 S3 Glacier Deep Archive 的设计还可在整个 S3 可用区丢失的情况下保留数据。</p> 
+           <p>对于任何环境，最佳实践都是做好备份，并做好防范恶意或意外删除的保护措施。对于 S3 数据，最佳实践包括安全访问权限、跨区域复制、版本控制和定期测试的有效备份。&nbsp;</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：Amazon S3 和 Amazon S3 Glacier 如何实现 99.999999999% 的持久性？</b></p> 
+           <p>Amazon S3 标准、S3 标准 – IA 和 S3 Glacier 存储类会将您的对象以冗余方式存储在一个 Amazon S3 区域内至少三个可用区 (AZ) 中的多个设备上，然后才会返回 SUCCESS。而 S3 单区 – IA 存储类会以冗余方式将数据存储在单个可用区中的多个设备上。这些服务旨在通过快速检测和修复任何丢失的冗余，来抵御同时发生的设备故障，并且它们还可使用校验和来定期验证数据的完整性。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：Amazon S3 使用哪些校验来检测数据损坏？</b></p> 
+           <p> Amazon S3 结合使用 Content-MD5 校验和及循环冗余检验 (CRC) 来检测数据损坏。Amazon S3 在空闲时对数据执行这些检验和检测，并使用冗余数据修复任何损坏。此外，在存储或提取数据时，该服务还对所有网络流量计算校验，以检测数据包损坏。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：什么是版本控制？</b></p> 
+           <p> 通过版本控制，您可以保留、提取和恢复存储在 Amazon S3 存储桶中的每个数据对象的每个版本。一旦您为存储桶启用版本控制，Amazon S3 将在您每次执行 PUT、POST、COPY 或 DELETE 操作时保留现有数据对象。默认情况下，GET 请求将提取最近写入的版本。可通过在请求中指定版本，提取已覆盖数据对象或已删除数据对象的旧版本。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：为什么应该使用版本控制？</b></p> 
+           <p> Amazon S3 为客户提供具有高持久性的存储基础设施。版本控制可在客户意外覆盖或删除数据对象的情况下提供一种恢复手段，从而提供另一层保护。这使您能够从无意用户操作或应用程序故障中轻松恢复。您还可将版本控制用于数据保留和存档。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如何开始使用版本控制？</b></p> 
+           <p> 您可以通过在 Amazon S3 存储桶上启用相应设置，来开始使用版本控制。有关如何启用版本控制的更多信息，请参阅 <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectVersioning.html" target="_blank">Amazon S3 技术文档</a>。 <br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：版本控制如何防止对象被意外删除？</b></p> 
+           <p>当用户对某个对象执行 DELETE 操作时，后续的简单（不受版本控制）请求将不再检索该对象。但是，该数据对象的所有版本将继续保留在您的 Amazon S3 存储桶中，可以提取或恢复。只有 Amazon S3 存储桶的拥有者才能永久删除某个版本。您可以设置<a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html" target="_blank">生命周期规则</a>来管理生命周期和存储对象的多个版本的成本。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：是否可以在 Amazon S3 对象上设置垃圾桶、回收站或回滚时段以从删除和覆盖项中恢复？</b></p> 
+           <p> 您可以使用<a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html" target="_blank">生命周期规则</a>和<a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectVersioning.html" target="_blank">版本控制</a>来实施 Amazon S3 对象的回滚时段。例如，借助启用了版本控制的存储桶，您可以设置一条规则，将以前的所有版本存档到成本较低的 Glacier 存储类，并在 100 天后删除它们，从而给您 100 天的时间来回滚对数据的任何更改，同时降低存储成本。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如何确保我保留的版本得到最大保护？</b></p> 
+           <p>版本控制的 <a href="/cn/mfa/" target="_blank">Multi-Factor Authentication (MFA)</a> 删除功能可用于提供额外一层安全性。默认情况下，对您的 Amazon S3 存储桶的所有请求都需要您的 AWS 账户证书。如果您在 Amazon S3 存储桶上利用 MFA Delete 功能启用了版本控制，则需要以下两种形式的身份验证才能永久删除数据对象的某个版本：您的 AWS 账户证书、来自您拥有的身份验证设备的有效六位代码和序列号。要了解有关利用 MFA Delete 功能启用版本控制的更多信息，包括如何购买和激活身份验证设备，请参阅 <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/Versioning.html" target="_blank">Amazon S3 技术文档</a>。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：使用版本控制是如何收费的？</b></p> 
+           <p>正常 Amazon S3 费率适用于存储或请求的数据对象的每个版本。例如，我们以下列场景为例，说明使用版本控制时的存储费用（假定当月有 31 天）：</p> 
+           <p>1) 当月第 1 天：您对存储桶中的 4 GB（4294967296 字节）数据执行了 PUT 操作。<br> 2) 当月第 16 天：您对同一存储桶中的 5GB（5368709120 字节）数据执行了 PUT 操作，使用与第 1 天的原始 PUT 操作相同的密钥。<br> <br> 分析上述操作的存储费用时，请注意，在第 15 天写入 5GB 数据对象时，第 1 天的 4GB 数据对象并未从存储桶删除。相反，这 4GB 数据对象作为旧版本保留，5GB 数据对象成为存储桶中的最近写入的数据对象版本。当月底：</p> 
+           <p>总字节小时使用量<br> [4294967296 字节 x 31 天 x（24 小时/天）] + [5368709120 字节 x 16 天 x（24 小时/天）] = 5257039970304 字节小时。</p> 
+           <p>转换为 GB 月：<br> 5257039970304 字节-小时 x（1GB/1073741824 字节）x（1 月/744 小时） = 6.581GB 月</p> 
+           <p>费用根据 <a href="/cn/s3/pricing/" target="_blank">Amazon S3 定价页面</a>上列出的您所在区域的当前费率计算得出。</p> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="lb-grid"> 
+        <div class="lb-row lb-row-max-large lb-snap"> 
+         <div class="lb-col lb-tiny-24 lb-mid-24"> 
+          <h2 id="Storage_Classes" class="lb-txt-bold lb-txt-none lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 存储类</h2> 
+          <div class="lb-rtxt"> 
+           <p><a href="#S3_Intelligent-Tiering">S3 智能分层</a> | <a href="#S3_Standard-Infrequent_Access_.28S3_Standard-IA.29">S3 标准 - 不频繁访问</a> | <a href="#S3_One_Zone-Infrequent_Access_.28S3_One_Zone-IA.29">S3 单区 - 不频繁访问</a> | <a href="#S3_on_Outposts">S3 on Outposts</a> | <a href="#Amazon_S3_Glacier">Amazon S3 Glacier</a> | <a href="#Amazon_S3_Glacier_Deep_Archive">Amazon S3 Glacier Deep Archive</a>&nbsp;</p> 
+          </div> 
+          <h2 id="S3_Intelligent-Tiering" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> S3 智能分层</h2> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：什么是 S3 智能分层？</b></p> 
+           <p>Amazon S3 智能分层（S3 智能分层）是一种 S3 存储类，旨在通过自动将数据移动到最具成本效益的访问层来优化存储成本，不会产生运营开销。它是唯一一个在访问模式发生变化时通过在访问层之间以细粒度对象级别移动数据来自动节约成本的云存储。如果您希望优化具有未知或不断变化的访问模式的数据的存储成本时，这个存储类非常适合。每月只需支付少量的对象监控和自动化费用，S3 智能分层即可监控访问模式并将对象从一个访问层自动移动到另一个访问层。&nbsp;没有任何检索费用，因此在访问模式发生变化时存储账单不会意外增加。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：S3 智能分层的工作原理是什么？</b></p> 
+           <p>S3 智能分层的工作原理是将对象存储在四个访问层中：有两个已针对频繁访问和不频繁访问而优化的低延迟访问层，还有两个专为异步访问而设计且已针对罕见访问而优化的选择性加入存档访问层。上传或转换到 S3 智能分层的对象将自动存储在频繁访问层中。S3 智能分层的工作方式是监控访问模式，然后将连续 30 天未访问的对象移动到不频繁访问层。在您激活一个或两个存档访问层后，S3 智能分层会将连续 90 天未被访问的对象移动到存档访问层，然后在连续 180 天无访问后，将其移动到深度存档访问层。&nbsp;如果您检索的对象存储在存档或深度存档访问层中，您必须先使用 RestoreObject 恢复对象后才能检索对象。有关恢复存档对象的信息，请参阅<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/restoring-objects.html">恢复存档的对象。</a> 如果稍后访问了对象，则该对象会移回频繁访问层。没有任何检索费用，因此在访问模式发生变化时存储账单不会意外增加。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：为什么应选择使用 S3 智能分层？</b></p> 
+           <p>S3 智能分层是世界上唯一一个具有以下访问层的存储类：即两个可让您在需要立即通过频繁访问层访问数据时实现高吞吐量和低延迟的访问层以及您在数据处于休眠状态时每月只需为每 TB 数据支付 1 USD 的两个可选的存档访问层。S3 智能分层适用于访问模式未知或不断变化的数据。因为对于访问模式不断变化的数据集，其中一些对象可能在很长时间内都极少得到访问，存档访问层可以进一步降低您的存储成本，最高降低 95%。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：S3 智能分层可提供什么样的性能？</b></p> 
+           <p><b></b>S3 智能分层的频繁和非频繁访问层提供较低的延迟和高吞吐量性能。存档访问层具有与 S3 Glacier 相同的性能，而深度存档访问层具有与 S3 Glacier Deep Archive 存储类相同的性能。如果您的对象可以被应用程序异步访问，则仅应激活存档访问层。如果您检索的对象存储在存档或深度存档访问层中，您必须先使用 RestoreObject 恢复对象后才能检索对象。有关恢复存档对象的信息，请参阅<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/restoring-objects.html">恢复存档的对象</a>。存档访问层中的对象将在 3-5 小时内移至频繁访问层，如果它们在深度存档访问层中，则在 12 小时内移至频繁访问层。如果需要更快地访问存档访问层中的对象，则可以使用控制台选择加快的检索速度选项，为更快的检索速度付费。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：S3 智能分层的持久性和可用性如何？</b></p> 
+           <p>与 S3 标准存储类相同，S3 智能分层专为 99.999999999% 的持久性而设计。S3 智能分层设计用于提供 99.9% 的可用性，并附带<a href="/cn/s3/sla/" target="_blank">服务等级协议</a>，当在任意账单周期内的可用性低于我们的服务承诺时，还可提供服务积分。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如何将数据存入 S3 智能分层？</b></p> 
+           <p>有两种方式可以将数据存入 S3 智能分层。可以通过指定 x-amz-存储类标头中的智能分层来直接放入 S3 智能分层中，也可以设置生命周期策略以将对象从 S3 标准或 S3 标准 – IA 转换到 S3 智能分层。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>S3 智能分层是如何收费的？</b></p> 
+           <p>S3 智能分层会向您收取月度存储费用、请求和数据传输费用，还会对每个对象的监控和自动化向您收取很少的月服务费。S3 智能分层存储类将对象存储在四个存储访问层中：按 S3 标准存储费率定价的频繁访问层、按 S3 标准 - 不频繁访问存储费率定价的不频繁访问层、按 S3 Glacier 存储费率定价的存档访问层，以及按 S3 Glacier Deep Archive 存储费率定价的深度存档访问层。<br> <br> S3 智能分层没有检索费用。您只需支付少量的监控和自动化服务费，S3 智能分层即可监视访问模式并自动在四个访问层之间移动对象，以优化存储成本和性能。<br> <br> S3 智能分层没有最小可计费对象大小，但小于 128KB 的对象没有资格进行自动分层。未满 30 天就被删除、覆盖或生命周期转移到其他存储类的对象将产生正常使用费，外加按 30 天最短期限的剩余天数按比例收取的费用。对于在 S3 智能分层中存档到存档访问层或深度存档访问层的每个对象，Amazon S3 为对象名称和其他元数据使用 8KB 的存储空间（按 S3 标准存储费率计费），为索引和相关元数据使用 32KB 的存储空间（按 S3 Glacier 和 S3 Glacier Deep Archive 存储费率计费）。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如何激活 S3 智能分层存档访问层？</b><br> <b></b></p> 
+           <p>您可以使用 Amazon S3 API、CLI 或 S3 管理控制台创建存储桶、前缀或对象标签级别配置，从而激活存档访问层和深度存档访问层。如果您的对象可以被应用程序异步访问，则仅应激活一个或两个存档访问层。<br> <br> <b>问：是否可以延长在 S3 智能分层存储类中存档对象之前的访问时间？</b></p> 
+           <p>可以。在存储桶、前缀或对象标签级别配置中，您可以延长在 S3 智能分层中存档对象的最后访问时间。启用该功能后，默认情况下，最少连续 90 天未访问的对象将自动移动到存档访问层中。最少连续 180 天未访问的对象将自动移动到深度存档访问层中。对于在 S3 智能分层中自动存档前最后一次访问之后的连续天数默认配置，最多可以延长 2 年。</p> 
+           <p><b>问：如何从 S3 智能分层存储类的存档访问层或深度存档访问层中获取对象？</b></p> 
+           <p>要访问存档或深度存档访问层中的对象，您需要发出“还原”请求，该对象将开始移回到频繁访问层，所有对象都存储在 S3 智能分层存储类中。存档访问层中的对象将在 3-5 小时内移至频繁访问层，深度存档访问层中的对象将 12 小时内移至频繁访问层。一旦对象位于频繁访问层中，您就可以发出 GET 请求以检索对象。</p> 
+           <p><b>问：如何知道我的对象存储在哪个 S3 智能分层访问层中？</b></p> 
+           <p>您可以使用 Amazon S3 清单来针对存储在 S3 智能分层存储类中的对象的访问层生成报告。Amazon S3 清单提供 CSV、ORC 或 Parquet 输出文件，从而每日或每周为 S3 存储桶或共享前缀列出您的对象及其相应的元数据。您还可以对您的对象提出 HEAD 请求，以报告 S3 智能分层存档访问层。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：S3 智能分层是否有最短期限？<br> </b></p> 
+           <p>是。S3 智能分层存储类的最短存储期限为 30 天，这意味着在 30 天之前删除、覆盖或转换到其他 S3 存储类的数据将产生正常使用费以及 30 天最短期限的剩余天数的按比例费用。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：S3 智能分层是否有最小可计费对象大小限制？</b></p> 
+           <p>否。S3 智能分层存储类没有最小可计费对象大小，但小于 128KB 的对象没有资格进行自动分层，将始终按频繁访问层费率进行存储。对于在 S3 智能分层中存档到存档访问层或深度存档访问层的每个对象，Amazon S3 为对象名称和其他元数据使用 8KB 的存储空间（按 S3 标准存储费率计费），为索引和相关元数据使用 32KB 的存储空间（按 S3 Glacier 和 S3 Glacier Deep Archive 存储费率计费）。有关更多详细信息，请访问 <a href="/cn/s3/pricing/">https://aws.amazon.com/s3/pricing/</a>。<br> </p> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="lb-grid"> 
+        <div class="lb-row lb-row-max-large lb-snap"> 
+         <div class="lb-col lb-tiny-24 lb-mid-24"> 
+          <h2 id="S3_Standard-Infrequent_Access_.28S3_Standard-IA.29" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> S3 标准 – 不频繁访问（S3 标准 – IA）</h2> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：什么是 S3 标准–不频繁访问？</b></p> 
+           <p> Amazon S3 标准 – 不频繁访问（S3 标准 – IA）是一种 Amazon S3 存储类，用于不常访问但在需要时要求快速访问的数据。S3 标准 – IA 提供了 Amazon S3 标准存储类的高持久性、高吞吐量和低延迟，每 GB 存储价格和每 GB 检索费用都比较低。成本较低且性能出色使得 S3 标准 – IA 成为长期存储和备份的理想选择，也非常适用于灾难恢复的数据存储。S3 标准 – IA 存储类是在对象级别进行设置的，并且可以与 S3 标准 或 S3 单区 – IA 存储类存在于同一个存储桶中，从而让您可以使用 S3 生命周期策略在存储类之间自动转移对象，而无需更改任何应用程序。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：为什么应选择使用 S3 标准 – IA？</b></p> 
+           <p> S3 标准 – IA 适用于不常访问但在需要时要求快速访问的数据。S3 标准 – IA 非常适合长期文件存储、较旧的同步和共享存储以及其他老化数据。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：S3 标准 – IA 可提供什么样的性能？</b></p> 
+           <p>S3 标准 – IA 提供与 S3 标准存储类相同的延迟和吞吐量性能。&nbsp;<br> </p> 
+           <p>&nbsp;</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如何将数据存入 S3 标准 – IA？</b></p> 
+           <p> 有两种方式可以将数据存入 S3 标准 – IA。通过在 x-amz-storage-class 标头中指定 STANDARD_IA，您可以通过 PUT 操作直接将数据放入 S3 标准 – IA。您还可以设置生命周期策略，将对象从 S3 标准转移到 S3 标准 – IA 存储类。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如果使用 COPY 请求将对象的存储类从 S3 标准 – IA 更改为 S3 标准，会产生哪些费用？</b></p> 
+           <p> 您将需要为 S3 标准 – IA 的 COPY 请求和 S3 标准 – IA 的数据检索付费。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b><a name="#sia_anchor"></a>问：S3 标准 – IA 是否有最短存储期限费用？</b></p> 
+           <p>S3 标准 – IA 专为长时间运行但不经常访问的数据（已保留了数月或数年）而设计。在 30 天内从 S3 标准 – IA 删除的数据将按完整的 30 天收费。请参阅 <a href="/cn/s3/pricing/" target="_blank">Amazon S3 定价页面</a>，获取有关 S3 标准 – IA 定价的信息。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：S3 标准 – IA 是否有最低对象存储费用？</b></p> 
+           <p>S3 标准 – IA 专为较大的对象而设计，其最小对象存储大小为 128KB。小于 128KB 的对象将产生存储费用，并按 128KB 计费。比如，S3 标准 – IA 存储类中 6KB 的对象将产生 6KB 的 S3 标准 – IA 存储费用，而剩下的最小对象大小（等于 122KB）将按照 S3 标准 – IA 存储定价收取。请参阅 <a href="/cn/s3/pricing/" target="_blank">Amazon S3 定价页面</a>，获取有关 S3 标准 – IA 定价的信息。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：是否可以将 S3 标准 – IA 中的对象分层到 S3 单区 – IA 或 S3 Glacier？</b></p> 
+           <p>是。除了使用生命周期策略将对象从 S3 标准迁移到 S3 标准 – IA 之外，您还可以将生命周期策略设置为将 S3 标准 – IA 的对象分层到 S3 单区 – IA 或 S3 Glacier。<br> </p> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="lb-grid"> 
+        <div class="lb-row lb-row-max-large lb-snap"> 
+         <div class="lb-col lb-tiny-24 lb-mid-24"> 
+          <h2 id="S3_One_Zone-Infrequent_Access_.28S3_One_Zone-IA.29" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> S3 单区 – 不频繁访问（S3 单区 – IA）</h2> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：什么是 S3 单区 – IA 存储类？</b></p> 
+           <p>S3 单区 – IA 存储类是一个 Amazon S3 存储类，让客户可以选择将对象存储在单个可用区中。S3 单区 – IA 存储以冗余方式将数据存储在单个可用区内，这种存储的成本比地理上冗余的 S3 标准 – IA 存储的成本低 20%，而后者是以冗余方式将数据存储在多个地理上分离的可用区内。</p> 
+           <p>S3 单区 – IA 提供 99% 的可用性 SLA，并且在可用区内的持久性还能够达到 99.999999999%。然而，S3 单区 – IA 存储类中的数据对整个可用区的物理损失不具有弹性。</p> 
+           <p>S3 单区 – IA 存储提供与 S3 标准和 S3 标准 – IA 相同的 Amazon S3 功能，用户可以通过 Amazon S3 API、CLI 和控制台使用这种存储类。S3 单区 – IA 存储类是在对象级别进行设置的，并且可以和 S3 标准和 S3 标准 – IA 标准存储类存在于同一个存储桶中。您可以使用 S3 生命周期策略在存储类之间自动转移对象，而无需更改任何应用程序。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：S3 单区 – IA 存储类最适合用于哪些使用案例？</b></p> 
+           <p> 客户将 S3 单区 – IA 存储类用于访问频率较低的存储，如备份副本、灾难恢复副本或其他易于重新创建的数据。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：S3 单区 – IA 存储类可提供什么样的性能？</b></p> 
+           <p>S3 单区 – IA 存储类可提供与 S3 标准和 S3 标准 – 不频繁访问存储类的相同的延迟和吞吐量性能。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：S3 单区 – IA 存储类的持久性如何？</b></p> 
+           <p>S3 单区 – IA 存储类在一个可用区内的持久性可达到 99.999999999%。然而，S3 单区 – IA 存储类中的数据对可用区的可用性损失或物理损失不具有弹性。相比之下，S3 标准、S3 智能分层、S3 标准 – 不频繁访问和 S3 Glacier 存储能够承受住可用性下降或可用区毁坏的情况。S3 单区 – IA 存储可以提供与大多数现代物理数据中心相当或更高的持久性和可用性，同时还提供存储弹性和 Amazon S3 功能集的额外优势。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：S3 单区 – IA 中的“区域”与 AWS 可用区是否一样？</b></p> 
+           <p>是。每个 AWS 区域都是一个独立的地理区域。每个区域都有多个相互隔离的位置，称为可用区。Amazon S3 单区 – IA 存储类使用区域内的单个 AWS 可用区。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：通过使用 S3 单区 – IA，我将放弃多少灾难恢复保护能力？</b></p> 
+           <p>每个可用区均使用冗余电源和联网。在 AWS 区域内，可用区位于不同的冲积平原和地震断裂带，并且在地理位置上是分离的，以避免受到火灾的影响。S3 标准和 S3 标准 – 不频繁访问存储类通过以冗余方式将数据存储在多个可用区来避免受到这类灾难的影响。S3 单区 – IA 对可用区内的设备故障提供保护，但数据对于因地震和洪水等灾难造成的可用区物理损失不具有弹性。使用 S3 单区 - IA、S3 标准和 S3 标准 - IA 选项，您可以选择最符合您的存储持久性和可用性要求的存储类。</p> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="lb-grid lb-row lb-row-max-large lb-snap"> 
+        <div class="lb-col lb-tiny-24 lb-mid-24"> 
+         <h2 id="S3_on_Outposts" class="lb-txt-bold lb-txt-none lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> S3 on Outposts</h2> 
+         <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+          <p><b>问：什么是 Amazon S3 on Outposts？</b></p> 
+          <p>Amazon S3 on Outposts 使用 S3 API 和您目前在 AWS 中使用的功能在您的本地环境中提供对象存储。AWS Outposts 是一项完全托管式服务，可将 AWS 基础设施、AWS 服务、API 和工具扩展到几乎任何数据中心、主机托管空间或本地设施。使用 S3 on Outposts，您可以在将数据移动到 AWS 区域之前安全地处理和存储在本地生成的客户数据，针对在本地运行的应用程序在本地访问数据，或者对于所处位置有数据驻留要求的公司或监管行业公司将数据存储在 Outpost 中。要了解有关 S3 on Outposts 的更多信息，请访问<a href="/cn/s3/outposts/">概览页面</a>。<br> &nbsp;</p> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="lb-grid"> 
+        <div class="lb-row lb-row-max-large lb-snap"> 
+         <div class="lb-col lb-tiny-24 lb-mid-24"> 
+          <h2 id="Amazon_S3_Glacier" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> Amazon S3 Glacier</h2> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：什么是 Amazon S3 Glacier？</b></p> 
+           <p>S3 Glacier 是安全、持久且成本低的存储类，可用于数据存档。您可以放心存储任意大小的数据 – 成本与本地解决方案相当，甚至更低。为了保持成本低廉，同时满足各种需求，S3 Glacier 提供三种检索选项，各自的检索时间从数分钟到数小时不等。您可直接将对象上传到 S3 Glacier，或使用 S3 生命周期策略在适用于活动数据的任何 S3 存储类（S3 标准、S3 智能分层、S3 标准 - IA 和 S3 单区 - IA）与 S3 Glacier 之间传输数据。&nbsp;<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：Amazon S3 是否能将对象存档到费用更低的存储类？</b></p> 
+           <p>是，使用 Amazon S3，您可以利用 Amazon S3 Glacier 和 Amazon S3 Glacier Deep Archive&nbsp;<a href="/cn/glacier/" target="_blank">进行很少访问的存储和数据存档</a>。Amazon S3 Glacier 存储数据的费用低至每月每 GB 0.004 USD。为了保持低廉成本，同时满足各种数据检索需求，Amazon S3 Glacier 提供三种访问存档的选项，各自的检索时间从数分钟到数小时不等。S3 Glacier Deep Archive 是 Amazon S3 成本最低的存储类，支持每年可能访问一两次的数据的长期保留和数字预留。&nbsp; 存档使用案例的部分示例包括数字媒体归档、财务和医疗记录、原始基因组序列数据、长期数据库备份，以及法律规定必须保留的数据。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如何使用 Amazon S3 Glacier 存储类存储数据？</b></p> 
+           <p>如果您的存储应无延迟地立即存档，或者您对何时将对象转换到 S3 Glacier 做出了无法通过 Amazon S3 生命周期策略表示的业务决策，S3 PUT to Glacier 允许您使用 S3 API 将对象逐个上传到 S3 Glacier 存储类。没有任何转换延迟，并且由您控制转换时机。如果您希望应用程序做出存储类决策而不必设置存储桶级别策略，这也是一个好选项。</p> 
+           <p>您可以根据对象的使用年限，利用<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html">生命周期规则</a>自动将 Amazon S3 对象集存档到 S3 Glacier。使用 Amazon S3 管理控制台、AWS 开发工具包或 Amazon S3 API 来定义存档规则。规则将指定前缀和时间期限。前缀（如：“logs/”）识别服从此规格的数据对象。时间期限可指定在该数据对象创建多少天（如 180 天）或在某个日期后应将该数据对象存档。名称以指定前缀开头和超过指定时间期限的所有 S3 标准、S3 标准 – IA 或 S3 单区 – IA 对象都将存档到 S3 Glacier。要检索存储在 S3 Glacier 中的 Amazon S3 数据，您需要通过 Amazon S3 API 或管理控制台启动检索任务。检索任务完成后，您可以通过 Amazon S3 GET 对象请求来访问这些数据。</p> 
+           <p>有关将生命周期规则用于存档到 S3 Glacier 的更多信息，请参阅“Amazon S3 开发人员指南”中的<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-archival.html">对象存档</a>主题。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如何检索存档在 Amazon S3 Glacier 中的对象？对象还原时我会收到通知吗？</b></p> 
+           <p>要检索存储在 S3 Glacier 存储类中的 Amazon S3 数据，您需要使用 Amazon S3 API 或 Amazon S3 管理控制台启动检索请求。检索请求会在 S3 RRS 或 S3 标准 – IA 存储类中创建数据的临时副本，同时已存档数据将原封不动地保留在 S3 Glacier 中。您可以以天为单位指定将临时副本存储在 S3 中的时间。然后，可以通过 Amazon S3 GET 请求从 S3 中访问已存档对象的临时副本。</p> 
+           <p>通过还原通知，现在可在从 S3 Glacier 成功还原对象并且临时副本可供您使用时使用 <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html" target="_blank">S3 事件通知</a>通知您。存储桶拥有者（或 <a href="/cn/iam/" target="_blank">IAM</a> 策略允许的其他人）可以安排将通知发送到 <a href="/cn/sqs/" target="_blank">Amazon Simple Queue Service (SQS)</a> 或 <a href="/cn/sns/" target="_blank">Amazon Simple Notification Service (SNS)</a>。通知也可传送到 <a href="/cn/lambda/" target="_blank">AWS Lambda</a>，由 Lambda 函数进行处理。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：还原 S3 Glacier 中存档的对象需要多长时间，以及是否可以将正在处理中的请求升级到更快的还原速度？</b></p> 
+           <p>处理检索任务时，Amazon S3 首先从 S3 Glacier 检索请求的数据，然后在 S3 中创建所请求数据的临时副本（通常需要数分钟）。请求的访问时间取决于您选择的检索选项：加急、标准或批量检索。除了最大的对象 (250MB+) 以外，对于使用加急检索方式访问的所有数据，通常在 1-5 分钟内即可使用。使用标准检索方式检索的对象通常在 3-5 小时内完成。批量检索通常在 5-12 小时内完成。有关 S3 Glacier 检索选项的更多信息，请参阅 <a href="/cn/glacier/faqs/" target="_blank">S3 Glacier 常见问题</a>。</p> 
+           <p>S3 还原速度升级是指，如果需要紧急访问数据，将正在进行的还原重写到更快的还原层。可以通过向具有新“层”作业参数的相同对象发出另一个还原请求来使用 S3 还原速度升级。在发出 S3 还原速度升级请求时，您必须选择比正在进行的还原更快的还原速度。<a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPOSTrestore.html" target="_blank">对象过期时间</a>等其他参数不会更改。在还原完成之后，可以更新对象过期时间。需要支付每个还原请求的费用和更快的还原层的每 GB 检索费用。例如，如果您发出了批量层还原请求，然后在加速层上发出了 S3 还原速度升级请求，替代正在进行的批量层还原，则需要支付两个请求的费用和加速层的每 GB 检索费用。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：将 Amazon S3 对象存档到 Amazon S3 Glacier 时，如何计算存储费用？</b></p> 
+           <p>每月计费的存储容量基于全月内使用的平均存储量，以每月千兆字节计（即：GB 月）。Amazon S3 计算对象大小的方式为：您存储的数据大小，加上额外 32KB 的 Amazon S3 Glacier 数据，再加上额外 8KB 的 S3 标准存储类数据。对于每个对象，Amazon S3 Glacier 需要额外 32KB 的数据用于 Glacier 的索引和元数据，以便您能够识别和检索数据。Amazon S3 需要 8KB 存储空间来存储和维护已存档到 Amazon S3 Glacier 的对象的用户定义名称和元数据。这样一来，您便可以使用 Amazon S3 LIST API 或 S3 清单报告实时获取所有 Amazon S3 对象的列表，包括使用 Amazon S3 Glacier 存储类存储的对象。例如，如果您存档了 100000 个数据对象且每个数据对象均为 1GB，那么您的可计费存储应为：</p> 
+           <p>每个对象 1.000032GB x 100000 个对象 = 100003.2GB Amazon S3 Glacier 存储。<br> 每个数据对象 0.000008 GB 字节 x 100000 个数据对象 = 0.8GB Amazon S3 标准存储。</p> 
+           <p>费用根据 <a href="/cn/s3/pricing/" target="_blank">Amazon S3 定价页面</a>上您所在 AWS 区域的当前费率计算得出。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：可以免费从 Amazon S3 Glacier 中检索多少数据？</b></p> 
+           <p>您可以使用 <a href="/cn/free/" target="_blank">AWS 免费套餐</a>每月免费检索 10GB 的 Amazon S3 Glacier 数据。免费套餐限额适用于 Amazon S3 Glacier 标准检索，可在当月任何时候使用。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b><a name="#How_am_I_charged_for_deleting_objects_from_Amazon_Glacier_that_are_less_than_3_months_old"></a>问：删除存储在 Amazon S3 Glacier 中不足 90 天的对象时，如何收费？</b></p> 
+           <p>Amazon S3 Glacier 经过设计，可用于将数据保留数月、数年甚至数十年的使用案例。如果要删除的对象已存档在 Amazon S3 Glacier 中 90 天或以上，则可以免费删除。如果要删除或覆盖存档在 Amazon S3 Glacier 中不足 90 天的对象，则需要交纳提早删除费。该项费用是按比例收取的。如果您在上传 30 天后删除 1GB 数据，将需要支付后面 60 天的 Amazon S3 Glacier 存储的提早删除费。如果您 60 天后删除 1GB 数据，则需要支付 30 天的 Amazon S3 Glacier 存储费。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：从 Amazon S3 Glacier 检索数据如何收费？</b></p> 
+           <p>从 Amazon S3 Glacier 检索数据的方式有三种：加急、标准和批量检索。每种方式具有不同的每 GB 检索费和每存档请求费（即请求一个存档计为一个请求）。有关不同 AWS 区域的 S3 Glacier 定价的详细信息，请访问 <a href="/cn/glacier/pricing/" target="_blank">Amazon S3 Glacier 定价页面。</a><br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：支持 S3 Glacier 和 S3 Glacier Deep Archive 存储类的后端基础设施是什么？</b></p> 
+           <p>我们更倾向于关注客户在性能、持久性、可用性和安全性方面的结果。但是，我们的客户经常会提出这个问题。我们使用各种不同技术，让我们可以将我们的价格报给客户。我们的服务是使用常见数据存储技术构建的，这些技术使用 AWS 开发的软件专门组装到特别定制、成本优化的系统中。我们能够优化输入和输出次序，因此 S3 Glacier 可最大限度地提高访问底层存储的效率。<br> </p> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="lb-grid lb-row lb-row-max-large lb-snap"> 
+        <div class="lb-col lb-tiny-24 lb-mid-24"> 
+         <h2 id="Amazon_S3_Glacier_Deep_Archive" class="lb-txt-bold lb-txt-none lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> Amazon S3 Glacier Deep Archive</h2> 
+         <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+          <p><b>问：什么是 Amazon S3 Glacier Deep Archive？</b></p> 
+          <p>S3 Glacier Deep Archive 是一种 <a href="/cn/s3/storage-classes/" target="_blank">Amazon S3 存储类</a>，这为长期保存每年访问一两次的数据提供了安全、持久的对象存储。S3 Glacier Deep Archive 的云存储成本最低，每月每 GB 仅 0.00099 USD（不到 0.1 美分，或每月每 TB 约 1 USD）起，远低于存储和维护本地磁带库或异地存档数据的价格。<br> </p> 
+         </div> 
+         <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+          <p><b>问：S3 Glacier Deep Archive 最适用于哪些使用案例？</b></p> 
+          <p> S3 Glacier Deep Archive 是一种理想的存储类，可以为公司最重要的数据资产提供离线保护，或者在根据公司政策、合同或监管合规性要求需要长期保留数据时提供离线保护。客户发现 S3 Glacier 深度存档是一个非常有吸引力的选择，可用来保护核心知识产权、金融和医疗记录、研究结果、法律文件、地震勘探研究和长期备份的，特别是在金融服务、医疗、石油和天然气以及公共部门等监管严格的行业。此外，还有一些组织希望保留核心知识产权的备份副本，比如媒体和娱乐公司。通常，使用 S3 Glacier Deep Archive 的客户可以减少或停止使用本地磁带库和本地之外的磁带存档服务。<br> </p> 
+         </div> 
+         <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+          <p><b>问：S3 Glacier Deep Archive 和 S3 Glacier 有何不同？</b></p> 
+          <p>S3 Glacier Deep Archive 扩充了我们的数据存档产品，使您能够根据存储和检索成本以及检索时间选择最佳的存储类别。当您需要使用加急检索在 1-5 分钟内检索已存档数据时，可以选择 S3 Glacier。相比之下，S3 Glacier Deep Archive 专门用于不太可能访问但仍然需要长期持久存储的较冷数据。S3 Glacier Deep Archive 的费用比 S3 Glacier 低 75%，并可在 12 小时内，使用标准检索速度提供检索。您还可以通过选择批量检索来降低检索成本，批量检索将在 48 小时内返回数据。<br> </p> 
+         </div> 
+         <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+          <p><b>问：如何开始使用 S3 Glacier Deep Archive？</b></p> 
+          <p>在 S3 Glacier Deep Archive 中存储数据的最简单方法是使用 S3 API 直接上传数据。只需指定“S3 Glacier 深度存档”作为存储类。您可以利用 AWS 管理控制台、S3 REST API、AWS 开发工具包或 AWS 命令行界面来完成该指定操作。</p> 
+          <p>您还可以通过使用 S3 Lifecycle 来创建迁移数据的策略，以此开始使用 S3 Glacier 深度存档，S3 Lifecycle 提供了定义对象生命周期和降低存储成本的能力。可以设置这些策略，以便根据对象的使用年限将对象迁移到 S3 Glacier 深度存档上。您可以为 S3 存储桶或特定前缀指定策略。生命周期转换按 S3 Glacier 深度存档上传价格计费。</p> 
+          <p>磁带网关是 AWS Storage Gateway 的一个基于云的虚拟磁带库功能，现与 S3 Glacier 深度存档结合在一起，使您可以将基于虚拟磁带的长期备份和存档存储在 S3 Glacier 深度存档中，从而为云中的这些数据提供最低的存储成本。首先，使用 AWS Storage Gateway Console 或 API 创建一个新的虚拟磁带，并将存档存储目标设置为 S3 Glacier 或 S3 Glacier 深度存档。当备份应用程序弹出磁带时，磁带将存档到选定的存储目标中。<br> </p> 
+         </div> 
+         <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+          <p><b>问：将数据从现有的磁带存档迁移到 S3 Glacier Deep Archive 上，您有何建议?</b></p> 
+          <p>有多种方法可以将数据从现有磁带存档迁移到 S3 Glacier Deep Archive。您可以使用 AWS Tape Gateway，以便通过虚拟磁带库 (VTL) 接口与现有备份应用程序集成。此接口可以将虚拟磁带提供给备份应用程序。以上操作可以立即将数据存储在 Amazon S3、S3 Glacier 和 S3 Glacier Deep Archive。</p> 
+          <p>您还可以使用 AWS Snowball 或 Snowmobile 迁移数据。Snowball 和 Snowmobile 可使用能确保传输安全的物理存储设备，加快 TB 到 PB 级数据迁入和迁出 AWS 的速度。使用 Snowball 和 Snowmobile 有助于解决进行大规模数据传输时会遇到的难题，包括网络费用高、传输时间长和安全问题。</p> 
+          <p>最后，您可以使用 AWS Direct Connect 来建立从本地到 AWS 的专用网络连接。在许多情况下，Direct Connect 可以降低网络成本，增加带宽吞吐量，并提供比基于互联网的连接更一致的网络体验。<br> </p> 
+         </div> 
+         <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+          <p><b>问：如何检索存储在 S3 Glacier Deep Archive 中的对象？</b></p> 
+          <p>要检索存储在 S3 Glacier Deep Archive 中的数据，请使用 Amazon S3 API 或 Amazon S3 管理控制台提出“恢复”请求。恢复请求会在 S3 One Zone-IA 存储类中创建数据的临时副本，同时已存档数据将原封不动地保留在 S3 Glacier 深度存档中。您可以以天为单位指定将临时副本存储在 S3 上的时间。然后，可以通过 Amazon S3 GET 从 S3 中请求访问已存档对象的临时副本。</p> 
+          <p>还原一个存档对象时，您可以在请求正文的 Tier 元素中指定以下一个选项：标准为默认层并允许您在 12 小时内访问您存档的任何对象，Bulk 允许您检索大量数据，甚至是 PB 级的数据，而且成本低廉，通常在 48 小时内就可以完成。<br> </p> 
+         </div> 
+         <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+          <p><b>问：使用 S3 Glacier Deep Archive 时，如何收费？</b></p> 
+          <p>S3 Glacier Deep Archive 存储的定价基于您所存储数据的 GB 量、PUT/生命周期转换请求数、检索的 GB 数以及恢复请求数。该定价模型类似于 S3 Glacier。请参阅 <a href="/cn/s3/pricing/" target="_blank">Amazon S3 定价页面</a>，获取有关 S3 Glacier Deep Archive 定价的信息。<br> </p> 
+         </div> 
+         <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+          <p><b>问：S3 Glacier Deep Archive 使用情况将如何显示在我的 AWS 账单上和 AWS 成本管理工具中？</b></p> 
+          <p>S3 Glacier Deep Archive 使用情况和成本将在您的每月 AWS 账单上显示为一个独立的服务行项目，与 Amazon S3 使用情况和成本分开。但是，如果您正在使用 AWS 成本管理工具，S3 Glacier Deep Archive 使用情况和成本将包括在您的每月详细开支报表中的 Amazon S3 使用情况和成本下，并且不会细分为单独的服务行项目。</p> 
+         </div> 
+         <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+          <p><b>问：S3 Glacier Deep Archive 是否存在最低的存储持续时间和最低的对象存储费用?</b></p> 
+          <p>S3 Glacier Deep Archive 专门为长期保存但很少访问的数据而设计，这些数据可以保存 7-10 年或更长时间。存档到 S3 Glacier 深度存档中的对象最短可存储 180 天，同时未满 180 天就被删除的对象所产生的按比例支付的费用等于按剩余天数支付的存储费用。请参阅 <a href="/cn/s3/pricing/" target="_blank">Amazon S3 定价页面</a>，获取有关 S3 Glacier Deep Archive 定价的信息。</p> 
+          <p>S3 Glacier 深度存档的最小计费对象存储大小为 40 KB。您可以存储小于 40 KB 的对象，但将按 40 KB 存储空间计费。请参阅 <a href="/cn/s3/pricing/" target="_blank">Amazon S3 定价页面</a>，获取有关 S3 Glacier Deep Archive 定价的信息。<br> </p> 
+          <p>&nbsp;</p> 
+         </div> 
+         <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+          <p><b>问：S3 Glacier Deep Archive 如何与其他 AWS 服务相集成？</b></p> 
+          <p>S3 Glacier Deep Archive 集成了 Amazon S3 功能，包括 S3 对象标记、S3 生命周期策略、S3 对象锁定和 S3 复制。通过 S3 存储管理功能，您可以使用单个 Amazon S3 存储桶存储 S3 Glacier Deep Archive、S3 标准、S3 标准 – IA、S3 单区 – IA 和 S3 Glacier 数据的混合体。这让存储管理员可以基于数据和数据访问模式的性质做出决策。客户可以使用 Amazon S3 生命周期策略将老化的数据自动迁移到成本较低的存储类，也可以使用 S3 跨区域复制或同区域复制策略将数据复制到同一区域或其他区域。</p> 
+          <p>AWS Storage Gateway 服务可将磁带网关与 S3 Glacier Deep Archive 存储类集成，这样您就可以将虚拟磁带存储在成本最低的 Amazon S3 存储类中，从而将在云中存储长期数据的每月成本降低 75%。使用此功能，磁带网关支持将您的新虚拟磁带直接存档到 S3 Glacier 和 S3 Glacier Deep Archive，从而帮助您满足备份、存档和恢复要求。Tape Gateway 可帮助您将基于磁带的备份移动到 AWS，而无需对现有备份工作流程进行任何更改。磁带网关支持大多数领先的备份应用程序，例如 Veritas、Veeam、Commvault、Dell EMC NetWorker、IBM Spectrum Protect（在 Windows OS 上）和 Microsoft Data Protection Manager。<br> </p> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="lb-grid"> 
+        <div class="lb-row lb-row-max-large lb-snap"> 
+         <div class="lb-col lb-tiny-24 lb-mid-24"> 
+          <h2 id="Storage_Management" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 存储管理</h2> 
+          <div class="lb-rtxt"> 
+           <p><a href="#S3_Object_Tags">S3 对象标签</a>&nbsp;|&nbsp;<a href="#S3_Inventory">S3&nbsp;清单</a>&nbsp;| <a href="#S3_Batch_Operations">S3 批量操作</a>&nbsp;| <a href="#S3_Object_Lock">S3 对象锁定</a> |&nbsp;<a href="#S3_CloudWatch_Metrics">S3 CloudWatch 指标</a>&nbsp;|&nbsp;<a href="#S3_Lifecycle_Management">S3 生命周期管理</a></p> 
+          </div> 
+          <h4 id="S3_Object_Tags" class="lb-txt-none lb-h4 lb-title"> S3 对象标签</h4> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：什么是 S3 对象标签？</b></p> 
+           <p>S3 对象标签是应用于 S3 对象的键/值对，在该对象的生命周期内可以随时创建、更新或删除。借助这些标签，您将能够创建 Identity and Access Management (IAM) 策略，设置 S3 生命周期策略以及自定义存储指标。然后，可以使用这些对象级标签管理后台中存储类别与过期对象之间的转换。&nbsp;上传新对象时，您可以向其添加标签，也可以向现有对象添加标签。每个 S3 对象最多可添加 10 个标签，您可以使用 AWS 管理控制台、REST API、AWS CLI 或 AWS SDK 添加对象标签。&nbsp;</p> 
+           <p>如需了解更多信息，请访问 <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html">S3 对象标签用户指南</a>。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：为何应使用对象标签？</b></p> 
+           <p>借助对象标签这一工具，您可以简化 S3 存储的管理。使用此工具能够在对象的生命周期内随时创建、更新和删除标签，从而使您的存储能够满足您业务的需求。借助这些标签，您可以控制对标记有特殊键值对的对象的访问，从而能够进一步保护机密数据，使之仅供选定组或用户访问。&nbsp;对象标签也可用于标记属于特定项目或业务单元的对象，它可与 S3 生命周期策略结合使用来管理到其他存储类（S3 标准 – IA、S3 单区 – IA 和 S3 Glacier）的转换或与 S3 复制功能结合使用来选择性地复制 AWS 区域之间的数据。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如何更新对象上的对象标签？</b></p> 
+           <p> 在 S3 对象的生命周期内，您可以随时更改对象标签，您可以使用 AWS 管理控制台、REST API、AWS CLI 或 AWS 开发工具包更改对象标签。请注意，在 AWS 管理控制台之外进行的所有更改均是对整个标签集合进行的更改。如果某个特定对象关联了 5 个标签，您要为其添加第 6 个标签，那么您需要在该请求中包括最初的 5 个标签。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：对象标签的费用是多少？</b></p> 
+           <p> 对象标签根据标签的数量和添加标签的请求费用定价。添加和更新对象标签的相关请求的价格与现有请求的价格相同。有关更多信息，请访问 <a href="/cn/s3/pricing/" target="_blank">Amazon S3 定价页面</a>。 <br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如何开始使用存储类分析？</b></p> 
+           <p>您可以使用 AWS 管理控制台或 S3 PUT 存储桶分析 API 配置存储类分析策略，以识别不频繁访问的存储，这些存储可转换到 S3 标准 – IA 或 S3 单区 – IA 存储类或存档到 S3 Glacier 存储类。您可以导航至 S3 控制台中的“管理”选项卡来管理存储类分析、S3 清单和 S3 CloudWatch 指标。</p> 
+          </div> 
+          <h4 id="S3_Inventory" class="lb-txt-none lb-h4 lb-title"> S3 清单</h4> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：什么是 S3 清单？</b></p> 
+           <p>S3 清单报告可为 Amazon S3 的同步列表 API 提供预定的替代方案。您可以通过配置 S3 清单，针对 S3 存储桶或前缀每日或每周提供一次您的对象及其对应元数据的 CSV、<b> </b>ORC 或 Parquet 文件输出。您可以使用 S3 清单简化并加快业务工作流和大数据作业。您还可以使用 S3 清单验证对象的加密和复制状态是否符合业务、合规性和法规要求。&nbsp;<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-inventory.html">通过&nbsp;Amazon S3 清单用户指南了解更多信息</a>。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如何开始使用 S3 清单？</b></p> 
+           <p>您可以使用 AWS 管理控制台或 PUT Bucket Inventory Configuration API，为您 S3 存储桶中的所有对象或某个共享前缀下的对象子集配置每日或每周清单报告。在配置过程中，您可以指定 S3 清单报告的目标 S3 存储桶、输出文件的格式（CSV、ORC 或 Parquet）以及您的业务应用程序所需的具体对象元数据，例如：对象名称、大小、上次修改日期、存储类、版本 ID、删除标记、非当前版本标记、分段上传标记、复制状态或加密状态。&nbsp;您可以将 S3 清单用作应用程序工作流或大数据任务的直接输入。您还可以使用 Amazon Athena、Amazon Redshift Spectrum 及其他工具（例如，Presto、Hive 和 Spark）通过标准 SQL 语言查询 S3 清单。</p> 
+           <p>通过 <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-inventory.html">Amazon S3 清单用户指南</a>了解更多信息。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：使用 S3 清单时，如何收费？</b></p> 
+           <p>请参阅 <a href="/cn/s3/pricing/" target="_blank">Amazon S3 定价</a>页面，了解 S3 清单定价的信息。配置 SSE-KMS 加密后，将产生 KMS 加密费用，请参阅 <a href="/cn/kms/pricing/" target="_blank">KMS 定价页面</a>了解详细信息。</p> 
+          </div> 
+          <h4 id="S3_Batch_Operations" class="lb-txt-none lb-h4 lb-title"> S3 批量操作</h4> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：什么是 S3 批量操作？ <br> </b></p> 
+           <p>S3 批量操作是一种功能，您可以使用该功能跨多个对象自动执行单个操作（如复制对象或执行 AWS Lambda 函数）。使用 S3 批量操作，只需在 S3 控制台中单击几次或使用单个 API 请求，即可更改数十亿个对象，而不必为存储管理应用程序编写自定义应用程序代码或运行计算集群。S3 批量操作不仅跨许多对象管理存储操作，还管理重试、显示进度、提供通知、提供完成报告并将在您的目标对象上执行的所有操作的事件发送到 AWS CloudTrail。可从 S3 控制台或通过 AWS CLI 和开发工具包来使用 S3 批量操作。&nbsp;</p> 
+           <p>要了解更多信息，请访问 <a href="/cn/s3/features/batch-operations/">S3 批量操作页面</a>或<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html">用户指南</a>。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如何开始使用 S3 批量操作？<br> </b></p> 
+           <p>您可以通过进入 Amazon S3 控制台或使用 AWS CLI 或开发工具包来开始使用 S3 批量操作创建第一个 S3 批量操作任务。S3 批量操作任务包括要处理的对象的列表和要执行的操作的类型（请参阅<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops-operations.html">可用操作的完整列表</a>）。首先选择 S3 清单报告或提供您自己的、S3 批量操作要处理的对象的自定义列表。S3 清单报告是列出了 S3 存储桶或前缀中存储的所有对象的文件。接下来，从 S3 批量操作支持的一组 S3 操作中进行选择，例如替换标签集、更改 ACL、将存储从一个存储桶复制到另一个存储桶或启动从 Glacier 到 S3 还原。然后，您可以使用特定参数自定义 S3 批量操作任务，例如标签值、ACL 被授权者和还原持续时间。为了进一步自定义存储操作，您可以编写自己的 Lambda 函数并用 S3 批量操作调用该代码。</p> 
+           <p>创建 S3 批量操作作业后，它将处理对象列表，并在需要时将作业发送到“等待确认”状态。确认作业详细信息后，S3 批量操作将开始执行您指定的操作。您可以通过编程方式或通过 S3 控制台查看任务进度、接收完成通知并查看列出已对存储所做更改明细的完成报告。<br> </p> 
+           <p>如果您有兴趣了解有关 S3 批量操作的更多信息，<a href="/cn/s3/s3batchoperations-videos/" target="_blank">请观看教程视频</a>并<a href="https://docs.aws.amazon.com/AmazonS3/latest/user-guide/batch-ops.html" target="_blank">查看此文档</a>。</p> 
+          </div> 
+          <h4 id="S3_Object_Lock" class="lb-txt-none lb-h4 lb-title"> S3 对象锁定</h4> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：什么是 Amazon S3 对象锁定？</b></p> 
+           <p>Amazon S3 对象锁定是 Amazon S3 的一项功能，可以在固定的时间内或无限期地阻止删除或覆盖对象版本，让您能够通过实施保留策略来进一步保护数据或满足监管要求。您可将工作负载从现有的“一次写入，多次读取”(WORM) 系统迁移到 Amazon S3，并在对象级别或存储桶级别配置 S3 对象锁定，防止在预定义的保留到期日期或无限期（依法保留日期）之前删除对象版本。无论对象版本在哪个存储类中，S3 对象锁定保护都将保留，并且会在存储类之间的整个 S3 生命周期转换期间保留。&nbsp;</p> 
+           <p>仅当法规要求规定您的数据必须能够防蠕虫时，或者您希望在 Amazon S3 中为数据额外添加一层保护时，才应使用 S3 对象锁定。S3 对象锁定可以帮助您满足规定数据应以不可变格式存储的法规要求，还可保护 Amazon S3 中的数据，使其免遭意外或恶意删除。<br> </p> 
+           <p>如需了解更多信息，请访问&nbsp;<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html">S3 对象锁定用户指南</a>。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：Amazon S3 对象锁定的工作原理是什么？</b></p> 
+           <p>Amazon S3 对象锁定阻止在指定的保留期间内删除对象版本，或者无限期地删除对象版本，直到依法保留被移除。使用 S3 对象锁定，您能够确保对象版本在应用 WORM 保护期间保持不可变。可通过使用 AWS 开发工具包、CLI、REST API 或 S3 管理控制台为对象版本分配保留到期日期或依法保留日期来应用 WORM 保护。可在 PUT 请求内应用保留设置，或在创建对象后对现有对象应用这些设置。</p> 
+           <p>“保留到期日期”定义对象版本将保持不变的时间长度。为对象分配“保留到期日期”后，在保留到期日期之前将无法修改或删除该对象版本。如果用户在“保留到期日期”之前尝试删除对象，操作将被拒绝。</p> 
+           <p>或者，您也可以通过应用依法保留来使对象不可变。依法保留阻止对象版本被无限期地修改或删除，直到它被明确移除。为了施加和删除依法保留，您的 AWS 账户必须拥有 PutObjectLegalHold 操作的写入权限。依法保留可以应用于启用了 S3 对象锁定的存储桶中的任何对象，无论该对象当前是否在 WORM 保护的保留期内。<br> </p> 
+           <p>S3 对象锁定可以在两种模式之一中配置。在监管模式中部署时，具有特定 IAM 权限的 AWS 账户可以从对象版本上移除 WORM 保护。如果您需要更强的不变性以遵守法规，可以使用合规模式。在合规模式中，任何用户都不能移除 WORM 保护，包括根账户。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p> <b>问：哪些 AWS 电子存储服务已基于金融服务法规进行了评估？</b></p> 
+           <p> 对于金融服务行业中的客户，S3 对象锁定为必须以不可删除且不可重写的格式保留记录以满足 SEC Rule 17a-4(f)、FINRA Rule 4511 或 CFTC Regulation 1.31 的法规要求的证券经纪商提供了附加支持。您可以轻松地指定记录保留时间范围来以原始形式将法规存档保留所需的一段时间，还可以实施依法保留以无限期地保留数据，直到撤销保留。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：哪些 AWS 文档支持有关通知监管机构的 SEC 17a-4(f)(2)(i) 和 CFTC 1.31(c) 要求？</b></p> 
+           <p>在使用 Amazon S3 进行电子存储之前，向监管机构或所选的“指定审查机关 (DEA)”发送通知，同时提供一份 <a href="//d1.awsstatic.com/r2018/b/S3-Object-Lock/Amazon-S3-Compliance-Assessment.pdf" target="_blank">Cohasset 评估</a>副本。针对这些要求，AWS 不可作为指定的第三方 (D3P)。请务必选择 D3P，并将此信息添加到发送给 DEA 的通知中。<br> </p> 
+          </div> 
+          <h4 id="S3_CloudWatch_Metrics" class="lb-txt-none lb-h4 lb-title"> S3 CloudWatch 指标</h4> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如何开始使用 S3 CloudWatch 指标？</b></p> 
+           <p>使用 AWS 管理控制台，可在 1 分钟内为您的 S3 存储桶生成 CloudWatch 请求指标，或使用前缀或对象标签配置指标的筛选条件。此外，还可以通过调用 S3 PUT Bucket Metrics API 来启用 S3 存储指标的发布并对其进行配置。&nbsp;CloudWatch 请求指标在启用后的 15 分钟内即可在 CloudWatch 中使用。CloudWatch 存储指标默认情况下针对所有存储桶启用，且每天报告一次。了解有关 <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/cloudwatch-monitoring.html">Amazon S3 的 Amazon CloudWatch 指标</a>的更多信息。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：我可以对我的存储指标设置哪些警报？</b></p> 
+           <p> 您可以使用 CloudWatch 对任何存储指标数量、计时器或等级设置阈值，当值达到此阈值时，就触发相应操作。例如，您对 4xx 错误响应的百分比设置一个阈值，当值超出此阈值至少 3 个数据点时，就触发 CloudWatch 警报以提醒开发运维工程师。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：使用 S3 CloudWatch 指标时，如何收费？</b></p> 
+           <p>CloudWatch 存储指标免费提供。CloudWatch 请求指标根据 Amazon CloudWatch 的自定义指标定价。请参阅 <a href="/cn/cloudwatch/pricing/" target="_blank">Amazon CloudWatch 定价页面</a>，获取有关 S3 CloudWatch 指标定价的一般信息。</p> 
+          </div> 
+          <h4 id="S3_Lifecycle_Management" class="lb-txt-none lb-h4 lb-title"> S3 生命周期管理</h4> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：什么是 S3 生命周期管理？</b></p> 
+           <p>S3 生命周期管理可以通过预定义的策略定义对象的生命周期，并降低您的存储成本。您可以设置生命周期转换策略，以根据数据的使用年限自动将存储在 S3 标准存储类中的对象迁移到 S3 标准 – IA、S3 单区 – IA 和/或 S3 Glacier 存储类。基于对象的使用年限，您还可以设置生命周期过期策略，将对象自动移除。您可以设置分段上传过期策略，根据上传的存储时间，使未完成的分段上传过期。</p> 
+           <p>如需了解更多信息，请访问 <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html">S3 生命周期用户指南</a>。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如何制定 S3 生命周期管理策略？</b></p> 
+           <p> 您可以在 AWS 管理控制台、S3 REST API、AWS 开发工具包或 AWS 命令行界面 (CLI) 中设置和管理生命周期策略。您可以在前缀或存储桶级别指定策略。 <br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如何利用 Amazon S3 生命周期管理来帮助降低 Amazon S3 存储成本？</b></p> 
+           <p>利用 Amazon S3 生命周期策略，您可以将对象配置为从 S3 标准存储类迁移到 S3 标准 – IA 或 S3 单区 – IA 并/或存档到 S3 Glacier。您还可以指定一个 S3 生命周期策略，在特定时间段后删除对象。您可以利用此策略驱动的自动化操作来快速而轻松地降低存储成本并节省时间。在每个规则中，您都可以指定前缀、时间段、转移到 S3 标准 – IA、S3 单区 – IA 或 S3 Glacier 和/或过期日期。例如，您可以创建一个规则，规定将带有常见前缀“logs/”且创建后已有 30 天的所有对象存档到 S3 Glacier，并且这些对象将于创建之日起的 365 天后失效。您还可以创建单独的规则，规定仅带有前缀“backups/”且已创建 90 天的所有对象将失效。S3 生命周期策略对现有的和新的 S3 对象都适用，可帮助您针对 S3 中存储的所有当前数据和任何新数据优化存储、最大限度地节省成本，而无需耗时的手动数据检查和迁移。在生命周期规则内，前缀字段用于识别服从该规则的数据对象。要将规则应用于单个数据对象，请指定键名称。要将规则应用于一组数据对象，请指定它们的共同前缀（例如“logs/”）。您可以指定迁移操作和过期操作以存档或删除数据对象。关于时间期限，您可以指定一个创建日期（如 2015 年 1 月 31 日）或自创建之日算起的天数（如 30 天），以便在此日期或超过此天数后将数据对象存档或删除。您可为不同前缀创建多条规则。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：使用 S3 生命周期管理如何收费？</b></p> 
+           <p> 生命周期策略的制定和应用无需额外费用。根据生命周期规则，当对象符合转移条件时，每个对象的转移请求都需付费。有关定价信息，请参阅 <a href="/cn/s3/pricing/" target="_blank">S3 定价页面</a>。 <br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：为什么要使用 S3 生命周期策略让未完成的分段上传过期？</b></p> 
+           <p>使用 S3 生命周期策略让未完成的分段上传过期，可通过限制未完成的分段上传的存储时间，帮助您节省成本。例如，如果您的应用程序上传了若干分段对象部分，但从未提交，那么您仍然需要为其存储付费。此策略可在预定义的天数后自动移除未完成的分段上传及其相关存储，从而降低您的 S3 存储费用。</p> 
+           <p><a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config" target="_blank">了解有关使用 S3 生命周期让未完成的分段上传过期的更多信息 ?</a></p> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="lb-grid"> 
+        <div class="lb-row lb-row-max-large lb-snap"> 
+         <div class="lb-col lb-tiny-24 lb-mid-24"> 
+          <h2 id="Storage_Analytics_.26_Insights" class="lb-txt-bold lb-txt-none lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 存储分析和见解</h2> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：哪些功能可用于分析我的 Amazon S3 存储使用情况？</b></p> 
+           <p>S3 Storage Lens 提供了对对象存储使用情况和活动趋势的组织范围可见性，并提出了可行的建议，以提高成本效益并应用数据保护最佳实践。S3 存储类分析使您可以跨对象监控访问模式，以帮助您决定何时将数据转换为正确的存储类，从而优化成本。然后，您可以使用此信息来配置进行数据传输的 S3 生命周期策略。Amazon S3 清单针对 S3 存储桶或前缀每日或每周提供一次对象及其对应元数据的报告。该报告通过验证对象的加密和复制状态，来帮助满足业务、合规和监管需求。</p> 
+           <p><b>问：什么是 Amazon S3 Storage Lens？</b></p> 
+           <p>Amazon S3 Storage Lens 提供了对对象存储使用量和活动趋势的组织范围可见性，以及可行的建议，以提高成本效益并应用数据保护的最佳实践。Storage Lens 提供交互式控制面板，包含跨组织中上万个账户的对象存储使用情况和活动单一视图，并可以通过深入分析以生成账户、存储桶甚至前缀级别的见解。这包含字节、对象计数、请求等指标，以及详细描述 S3 功能使用率的指标，例如加密对象计数和删除标记计数。S3 Storage Lens 还提供相关的建议，以找到降低存储成本的方法，并在数十个或数百个账户和存储桶之间应用数据保护方面的最佳实践。</p> 
+           <p>如需了解更多信息，请访问 <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html">S3 Storage Lens 用户指南</a>。</p> 
+           <p><b>问：S3 Storage Lens 如何运作？</b></p> 
+           <p>S3 Storage Lens 每日汇总您的存储使用情况和活动指标，在 S3 Storage Lens 交互式控制面板上可视化显示，或以 CVS 或 Parquet 文件格式导出指标。自动为您创建账户级默认控制面板，您可以选择创建其他局限于您的 AWS 组织或特定账户、区域或存储桶的自定义控制面板。配置控制面板时，您可以使用默认指标选择，或另外付费接收高级指标和建议。S3 Storage Lens 根据控制面板中的存储指标情况提供建议，以便您可以采取行动以根据指标优化存储。</p> 
+           <p><b style="">问：使用 S3 Storage Lens 指标可以回答哪些关键问题？</b><br> </p> 
+           <p>S3 Storage Lens 控制面板由关于存储的三种主要类型的问题组成，这些问题可得到回答。在 Summary（摘要）视图中，可以查看与总体存储使用情况和活动趋势相关的最高级别问题。例如，“我的总体字节计数和请求计数是如何随时间快速增长的？” 在 Cost Efficiency（成本效益）视图中，您可以查看与存储成本减少相关的问题，例如，“我能否通过保留更少的非当前版本节省成本？” 以及在 Data Protection（数据保护）视图中，您可以回答关于保护数据的问题，例如，“我的存储是否受意外或故意删除保护？” 这些问题中每一个都代表第一个层次的可能会导致深入分析的查询。</p> 
+           <p><b>问：哪些指标是 S3 Storage Lens 提供的？</b></p> 
+           <p>S3 Storage Lens 包含超过 30 个指标，按使用情况指标（来源于账户中对象的每日快照）和活动指标（检索到的跟踪请求和字节）进行分组。指标分为三大类，摘要、成本效益和数据保护。此外，还通过结合任何基础指标来提供派生指标。例如，“检索率”是“所下载字节数”除以“总字节数”而计算得出的指标。 若要查看指标的完整列表，请访问 <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html" target="_blank">S3 Storage Lens 文档</a>。</p> 
+           <p><b style="">问：我的控制面板配置选项是什么？</b><br> </p> 
+           <p>为您的整个账户提供自动配置的默认控制面板，您可以选择创建其他自定义控制面板，限于您的 AWS 组织、特定区域或账户中的存储桶。您可以设置多个自定义控制面板，如果您需要存储分析中的一些逻辑分离，例如对存储桶进行细分以代表多个内部团队，则会非常有用。默认情况下，您的控制面板会接收 S3 Storage Lens 免费指标，但您可以选择升级接收 S3 Storage Lens 高级指标和建议。此外，您可以为每个控制面板启用指标导出，还可以选择指定目标存储桶和加密类型。</p> 
+           <p><b>问：S3 Storage Lens 中有多少历史数据可用？</b></p> 
+           <p>对于在交互式控制面板中显示的指标，Storage Lens 免费指标保留 14 天的历史数据，高级指标和建议保留 15 个月的历史数据。对于可选的指标导出，您可以配置您想要的任何保留期，并且将按标准 S3 存储收费。</p> 
+           <p><b style="">问：S3 Storage Lens 如何收费？</b><br> </p> 
+           <p>S3 Storage Lens 在两个指标套餐中可用。免费指标面向所有客户提供，不收取额外费用。S3 Storage Lens 高级指标和建议定价详细信息可参考 S3 定价页面。有了 S3 Storage Lens 免费指标，您可以接收存储桶级的使用情况指标，并在控制面板中提供 14 天的历史数据。有了 S3 Storage Lens 高级指标和建议，您可以接收前缀级使用情况指标、活动指标、建议，并在控制面板提供 15 个月的历史数据。</p> 
+           <p><b>问：S3 Storage Lens 和 S3 清单之间的区别是什么？</b></p> 
+           <p>S3 清单针对 S3 存储桶或共享前缀提供对象及其相应元数据的列表，可用于执行存储的对象级分析。S3 Storage Lens 提供按组织、账户、区域、存储类、存储桶和前缀级聚合的指标，可以使组织范围内的存储可见性得到改善。</p> 
+           <p><b>问：S3 Storage Lens 和 S3 存储类分析 (SCA) 之间的区别是什么？</b></p> 
+           <p>根据前 30-90 天内的单个存储桶/前缀/标签范围内的对象级访问模式，S3 存储类分析通过创建对象年龄组提供最佳存储类的建议。S3 Storage Lens 针对提高成本效益和应用数据保护最佳实践的方式每日提供组织级建议，包括基于账户、区域、存储类、存储桶或前缀的其他细粒度建议。&nbsp;</p> 
+          </div> 
+          <h4 id="Storage_Class_Analysis" class="lb-txt-none lb-h4 lb-title"> 存储类分析</h4> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：什么是存储类分析？</b></p> 
+           <p>使用存储类分析，您可以分析存储访问模式，以确定适合您的存储的最佳存储类。这一 S3 功能可自动识别不频繁访问模式，从而帮助您将存储转换为 S3 标准 – IA。您可以配置存储类分析策略来监视整个存储桶、前缀或对象标签。在观察到不频繁访问模式后，您可以根据结果轻松地创建新的 S3 生命周期策略。存储类分析还以可视化方式在 AWS 管理控制台上提供您每天的存储使用情况，您还可以将报告导出至 S3 存储桶，以便使用所选的 Amazon QuickSight 等商业智能工具进行分析。</p> 
+           <p>要想了解更多信息并开始使用，请访问 <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/analytics-storage-class.html">S3 存储类分析用户指南</a>。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：存储类分析多久更新一次？</b></p> 
+           <p>存储类分析在 S3 管理控制台中每天更新，但对存储类转换的最初建议在 30 天后提供。<br> </p> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="lb-grid"> 
+        <div class="lb-row lb-row-max-large lb-snap"> 
+         <div class="lb-col lb-tiny-24 lb-mid-24"> 
+          <h2 id="Query_in_Place" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 随时查询</h2> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：什么是“随时查询”功能？</b></p> 
+           <p> Amazon S3 允许客户对存储数据运行复杂的查询，无需将数据移动到独立的分析平台。随时查询 Amazon S3 数据的功能可以大大提升性能，降低利用 S3 作为数据湖的分析解决方案的成本。S3 提供多种随时查询选项，包括 S3 Select、Amazon Athena 和 Amazon Redshift Spectrum，使您能够从中选择最适合您的使用案例的选项。您甚至可以将 Amazon S3 Select 与 AWS Lambda 搭配使用，来构建无服务器应用程序，此类应用程序可有效利用 S3 Select 提供的随时处理功能。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：什么是 S3 Select？</b></p> 
+           <p>S3 Select 是一项 Amazon S3 功能，可让您使用简单的 SQL 表达式轻松检索对象内容中的具体数据，而无需检索整个对象。S3 Select 简化了扫描对象内容并将其筛选成更小且具有针对性的数据集的流程，并将这一性能提升高达 400%。借助 S3 Select，您还可以对 Amazon S3 中的日志文件执行操作调查，无需操作或管理计算集群。&nbsp;</p> 
+           <p>您可以使用 S3 Select 通过 SQL 子句（如 SELECT&nbsp;和 WHERE）从以 CSV、JSON 或 Apache Parquet 格式存储的对象中检索一部分数据。此方法也适用于通过 GZIP 或 BZIP2 压缩的对象（仅对于 CSV 和 JSON 对象）和服务器端加密对象。</p> 
+           <p>您可以将 S3 Select 与 AWS Lambda 搭配使用，来构建无服务器应用程序，此类应用程序可使用 S3 Select 有效且轻松地检索 Amazon S3 中的数据，而不是检索和处理整个对象。您也可以将 S3 Select 与大数据框架（例如 Presto、Apache Hive 和 Apache Spark）结合使用，来扫描和筛选 Amazon S3 中的数据。<br> </p> 
+           <p>如需了解更多信息，请访问 <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/selecting-content-from-objects.html">S3 Select 用户指南</a>。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：什么是 Amazon Athena？</b></p> 
+           <p> Amazon Athena 是一项交互式查询服务，让您能够轻松<a href="/cn/athena/" target="_blank">使用标准 SQL 查询分析 Amazon S3 中的数据</a>。Athena 是无服务器式服务，因此您无需设置或管理基础设施即可马上开始分析数据。您甚至无需将数据加载到 Athena 中，因为它可以直接处理所有 S3 存储类中存储的数据。要开始使用，您只需登录到 Athena 管理控制台，定义架构，然后开始查询即可。Amazon Athena 使用 Presto 并为标准 SQL 提供了完整的支持，可处理 CSV、JSON、ORC、Apache Parquet 和 Avro 等各种标准数据格式。Athena 不仅是快速、临时查询的理想选择，可与 Amazon QuickSight 集成轻松实现可视化，而且还能处理复杂的分析，包括大型联接、窗口函数和数组。 <br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：什么是 Amazon Redshift Spectrum？</b></p> 
+           <p>Amazon Redshift Spectrum 是 Amazon Redshift 的一项功能，借助这项功能，您可以对 <a href="/cn/redshift/features/">Amazon S3 中的 EB 级非结构化数据运行查询</a>，而无需进行加载或 ETL 操作。当您发布查询时，查询会进入 Amazon Redshift SQL 终端节点，该终端节点会生成查询方案并对其进行优化。Amazon Redshift 会确定哪些数据存储在本地以及哪些数据存储在 Amazon S3 中，然后生成一种方案来尽可能减少需要读取的 Amazon S3 数据量，从共享资源池中请求 Redshift Spectrum 工作线程来读取和处理 Amazon S3 中的数据。</p> 
+           <p>Redshift Spectrum 可根据需要扩展到数千个实例，因此，无论数据大小如何，查询都会快速运行。而且，您可以像现在针对 Amazon Redshift 查询所做的一样，针对 Amazon S3 数据使用完全相同的 SQL，并可使用相同的 BI 工具连接到同一 Amazon Redshift 终端节点。Redshift Spectrum 可以实现单独的存储和计算，从而让您能够逐一单独扩展。您可以根据需要设置多个 Amazon Redshift 群集来查询 Amazon S3 数据湖，从而提供高可用性和无限制的并发度。借助 Redshift Spectrum，您可以灵活地将数据以您想要的格式存储在您想要的位置，并在需要时即时用于处理。</p> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="lb-grid"> 
+        <div class="lb-row lb-row-max-large lb-snap"> 
+         <div class="lb-col lb-tiny-24 lb-mid-24"> 
+          <h2 id="Replication" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 复制</h2> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：什么是 Amazon S3 复制？</b></p> 
+           <p><a href="/cn/s3/features/replication/" target="_blank">Amazon S3 复制</a>支持跨 Amazon S3 存储桶自动以异步方式复制对象。配置为用于对象复制的存储桶可以由相同的 AWS 账户拥有，也可以由不同的 AWS 账户拥有。您可以在不同的 AWS 区域之间复制对象到一个或多个目标存储桶（S3 跨区域复制），也可以在同一 AWS 区域内复制对象（S3 同区域复制）。要了解更多信息，请访问 <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html">S3 复制用户指南</a>。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：什么是 Amazon S3 跨区域复制 (CRR)？</b></p> 
+           <p>CRR 是 Amazon S3 的一项功能，可在不同 AWS 区域的存储桶之间自动复制数据。利用 CRR，您可以使用 S3 对象标签设置存储桶级别、共享前缀级别或对象级别的复制。您可以使用 CRR 在不同的地理区域中提供低延迟的数据访问。如果您需要遵循将数据副本存储在相距数百公里的不同地点的合规性要求，CRR 还可以帮助您达成这一目标。您可以使用 CRR 更改复制对象的账户所有权，以防数据意外删除。&nbsp;要了解更多信息，请访问 <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html#crr-scenario">S3 CRR 用户指南</a>。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：什么是 Amazon S3 同区域复制 (SRR)？</b></p> 
+           <p>SRR 是 Amazon S3 的一项功能，可在同一 AWS 区域内的存储桶之间自动复制数据。利用 SRR，您可以使用 S3 对象标签设置存储桶级别、共享前缀级别或对象级别的复制。您可以使用 SRR 在相同 AWS 区域内创建数据的一个或多个副本。SRR 可在原始数据所在的区域内将数据副本保存在单独的 AWS 账户中，从而帮助您获得数据主权并满足合规性要求。您可以使用 SRR 更改复制对象的账户所有权，以防数据意外删除。您也可以使用 SRR 轻松汇总来自不同 S3 存储桶的日志以进行区域内处理，或配置测试环境与开发环境之间的实时复制。要了解更多信息，请访问 <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html#srr-scenario">S3 SRR 用户指南</a>。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如何启用 Amazon S3 复制（跨区域复制和同区域复制）功能？</b></p> 
+           <p>您可以使用 S3 对象标签在 S3 存储桶级别、共享前缀级别或对象级别配置 Amazon S3 复制（CRR 和 SRR）功能。在同一或不同 AWS 区域中指定目标存储桶用于复制，这样就可以在源存储桶上添加复制配置。</p> 
+           <p>您可以使用 S3 管理控制台、API、AWS CLI、AWS 软件开发工具包或 AWS CloudFormation 来启用复制。要启用复制功能，必须对源存储桶和目标存储桶都启用版本控制功能。要了解更多信息，请访问“Amazon S3 开发人员指南”中的<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-how-setup.html">设置复制功能概览</a>。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：我可以对 S3 生命周期规则使用 S3 复制（CRR 和 SRR）功能吗？</b></p> 
+           <p>借助 S3 复制（CRR 和 SRR）功能，您可以制定复制规则，将对象复制到同一区域或其他区域中的另一个存储类中。您无法复制生命周期操作，如果您希望对源存储桶和目标存储桶应用相同的生命周期配置，那么请在两个存储桶上启用相同的生命周期配置。&nbsp;</p> 
+           <p>例如，您可以配置生命周期规则，将数据从 S3 标准存储类迁移到 S3 标准 – IA 或 S3 单区 – IA 存储类，或将数据存档到目标存储桶上的 S3 Glacier。</p> 
+           <p>有关生命周期配置的更多信息，请参阅 <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-and-other-bucket-configs.html" target="_blank">S3 复制开发人员指南。</a>&nbsp;</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：我是否可以使用 S3 复制将内容复制到一个以上的目标存储桶？<br> </b><br> 可以。S3 复制可让客户在相同或不同 AWS 区域中将数据复制到多个目标存储桶。设置时，您只需在现有复制配置中指定新目标存储桶即可，或用多个目标存储桶创建新的复制配置。对于指定的每个新目标，您可以灵活选择目标存储桶的存储级、加密类型、复制指标和通知、复制时间控制 (RTC) 和其他属性。<br> <br> <b>问：我可以使用 S3 复制在 S3 存储桶之间设置双向复制吗？<br> </b><br> 可以。要设置双向复制，您可以创建从存储桶 A 到存储桶 B 的复制规则，并设置从存储桶 B 到存储桶 A 的另一个复制规则。确保在存储桶 A 和 B 上启用了副本修改同步，以复制副本元数据变更，如对象权限管控列表 (ACL)、对象标签或复制对象上的对象锁定。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：我可以跨 AWS 账户使用复制功能来防止恶意或意外删除吗？</b></p> 
+           <p>是的，对于 CRR 和 SRR，您可以跨 AWS 账户设置复制功能，将复制的数据存储在目标区域的不同账户中。您可以在复制配置中使用所有权覆盖来维护源和目标之间的不同所有权堆栈，并将目标账户所有权授予复制的存储。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如果使用跨区域复制，对象标签也会复制吗？</b></p> 
+           <p>使用跨区域复制可以跨 AWS 区域复制对象标签。已启用跨区域复制的用户需要具有新的权限才能复制标签。有关设置跨区域复制的更多信息，请访问 <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/crr-how-setup.html" target="_blank">Amazon S3 开发人员指南</a>中的<a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html" target="_blank">如何设置跨区域复制</a>。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：什么是 Amazon S3 复制时间控制？</b></p> 
+           <p>Amazon S3 复制时间控制提供可预测的复制性能，并帮助您满足合规或业务需求。S3 复制时间控制旨在实现数秒内复制大多数对象，5 分钟内复制 99% 的对象，15 分钟内复制 99.99% 的对象。S3 复制时间控制由<a href="/cn/s3/sla-rtc/" target="_blank">服务等级协议</a> (SLA) 承诺提供支持，在任何计费月份中，对于每个复制区域，99.9% 的对象将在 15 分钟内复制。复制时间适用于所有 S3 复制功能。要了解更多信息，请访问<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html">复制开发人员指南</a>。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如何启用 Amazon S3 复制时间控制？</b></p> 
+           <p>Amazon S3 复制时间控制作为每个复制规则的一个选项启用。您可以使用 S3 复制时间控制创建新的 S3 复制策略，或者在现有策略上启用该功能。</p> 
+           <p>您可以使用 S3 管理控制台、API、AWS CLI、AWS 软件开发工具包或 AWS CloudFormation 来配置复制。要了解更多信息，请访问“Amazon S3 开发人员指南”中的<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-how-setup.html">设置复制功能概览</a>。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：什么是 Amazon S3 复制指标和事件？</b></p> 
+           <p>Amazon S3 复制指标和事件可让您了解 Amazon S3 复制的过程。使用 S3 复制指标，您可以监视等待复制的操作数量和对象大小，以及每个 S3 复制规则的来源和目标存储桶之间的复制延迟。复制指标可以通过 Amazon S3 管理控制台和 Amazon CloudWatch 获得。S3 复制事件将在复制失败时通知您，因此您可以快速诊断和更正问题。如果您启用了 S3 复制时间控制 (S3 RTC)，您还会在复制一个对象的时间超过 15 分钟，以及该对象成功复制到其目的地时接收通知。与其他 Amazon S3 事件一样，S3 复制事件可以通过 Amazon Simple Queue Service (Amazon SQS)、Amazon Simple Notification Service (Amazon SNS) 或 AWS Lambda 获得。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：如何启用 Amazon S3 复制指标和事件？</b></p> 
+           <p>可以为每个新的复制规则或现有复制规则启用 Amazon S3 复制指标和事件，默认情况下，已为 S3 复制时间控制启用的规则启用它们。您可以通过 Amazon S3 管理控制台和 Amazon CloudWatch 访问 S3 复制指标。与其他 Amazon S3 事件一样，S3 复制事件可以通过 Amazon Simple Queue Service (Amazon SQS)、Amazon Simple Notification Service (Amazon SNS) 或 AWS Lambda 获得。要了解更多信息，请访问《Amazon S3 开发人员指南》中的<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-metrics.html" target="_blank">使用复制指标监控进度和 Amazon S3 事件通知</a>。<br> </p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：什么是 Amazon S3 复制时间控制服务等级协议 (SLA)？</b></p> 
+           <p>Amazon S3 复制时间控制旨在实现 15 分钟内复制 99.99% 的对象，由服务等级协议提供支持。如果在每月计费周期中，每个复制区域对 15 分钟内复制的对象少于 99.9%，那么 S3 RTC SLA 将针对任何复制时间超过 15 分钟的对象提供服务积分。服务积分包括与不符合 SLA 的对象相关的所有相关复制费用百分比，包括 RTC 费用、复制带宽和请求费用，以及在受影响的每月计费周期中与将副本存储在目标区域相关的费用。要了解更多信息，请阅读 <a href="/cn/s3/sla-rtc/" target="_blank">S3 复制时间控制 SLA</a>。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：S3 复制和 S3 复制时间控制的定价是多少？</b></p> 
+           <p>对于 S3 复制（跨区域复制和同区域复制），您需要为所选目标 S3 存储类中的存储支付 S3 费用，还要支付主副本、复制 PUT 请求的存储费用以及适用的不频繁访问存储检索费用。对于 CRR，您还需要支付从 S3 到目标区域的区域间数据传出费用。&nbsp;S3 复制指标的费率与 Amazon CloudWatch 自定义指标费率相同。此外，当您使用 S3 复制时间控制时，您还需要支付复制时间控制数据传输费。有关更多信息，请访问 <a href="/cn/s3/pricing/">S3 定价页面</a>。</p> 
+           <p>如果源对象是通过分段上传功能上传的，则使用相同数量的段和段大小进行复制。例如，通过分段上传功能上传的 100GB 对象（800 个段，每段 128MB）在复制时会产生与 802 个请求（800 个上传段请求 + 1 个初始分段上传请求 + 1 个完成分段上传请求）关联的请求成本。您会产生 0.00401 USD（802 个请求 x 0.005 USD/1000 个请求）的请求费用和（如果在不同的 AWS 区域之间进行复制）2.00 USD（0.020 USD/GB 传输 x 100GB）的区域间数据传输费用。复制后，该 100GB 数据会产生基于目标区域的存储费用。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：是否可以将删除标记从一个存储桶复制到另一个存储桶？</b></p> 
+           <p>可以，如果在复制配置中启用了删除标记复制，则可以将删除标记从源位置复制到目标位置。复制删除标记时，Amazon S3 将表现为在两个存储桶中都删除了对象。您可以为新的或现有的复制规则启用删除标记复制。您可以使用基于前缀的复制规则将删除标记复制应用于整个存储桶或具有特定前缀的 Amazon S3 对象。Amazon S3 复制不支持基于对象标签的复制规则的删除标记复制。要了解有关启用删除标记复制的更多信息，请参阅<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html" target="_blank">将删除标记从一个存储桶复制到另一个存储桶</a>。</p> 
+           <p><b>问：我可以将数据从其他 AWS 区域复制到中国区域吗？ 客户可以将数据从一个中国区域存储桶复制到中国之外的区域吗？</b></p> 
+           <p>不能，目前不支持在 AWS 中国区域和中国之外的 AWS 区域使用 Amazon S3 复制。您只能在中国区域内复制。</p> 
+          </div> 
+          <div class="lb-txt-16 lb-rtxt" style="color:#232F3E;"> 
+           <p><b>问：跨账户数据复制如何定价？</b></p> 
+           <p>借助 S3 复制，您可以配置源存储桶和目标存储桶归不同 AWS 账户所有的跨账户复制。不包括 S3 存储和适用的检索费用，在使用 S3 复制时，客户需要支付复制 PUT 请求和从 S3 到目标区域的区域间数据传出费用。如果您在复制规则上启用了 S3 复制时间控制 (S3 RTC)，您将看到与 S3 RTC 特定相关的不同数据传出和复制 PUT 请求费用。对于跨账户复制，源账户支付所有数据传输（S3 RTC 和 S3 CRR）的费用，目标账户支付复制 PUT 请求的费用。数据传输费仅适用于 S3 跨区域复制 (S3 CRR) 和 S3 复制时间控制 (S3 RTC)，S3 同区域复制 (S3 SRR) 不产生数据传输费。访问 <a href="/cn/s3/pricing/">S3 定价页面</a>了解关于 S3 复制定价的更多详情。</p> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="lb-grid"> 
+        <div class="lb-row lb-row-max-large lb-snap"> 
+         <div class="lb-col lb-tiny-24 lb-mid-24"> 
+          <h2 id="Data_processing" class="lb-txt-none lb-h2 lb-title"> 数据处理</h2> 
+          <h3 id="Object_Lambda" class="lb-txt-none lb-txt-18 lb-h3 lb-title"> Object Lambda</h3> 
+          <div class="lb-txt-16 lb-rtxt"> 
+           <p><b>问：什么是 S3 Object Lambda？</b></p> 
+           <p>借助 S3 Object Lambda，您能够将自己的代码添加到 S3 GET 请求中，以便在数据返回到应用程序时修改和处理数据。它开创了使用自定义代码来修改标准 S3 GET 请求返回的数据的先河，以便执行筛选行、动态调整图像大小、编辑机密数据等操作。S3 Object Lambda 可以帮助您轻松满足任何应用程序的独特数据格式要求，而无需构建和运行额外的基础设施（例如代理层），也不必创建和维护数据的多个衍生副本。S3 Object Lambda 使用 AWS Lambda 函数自动处理标准 S3 GET 请求的输出。AWS Lambda 是一种无服务器计算服务，无需管理底层计算资源，即可运行客户定义的代码。&nbsp;</p> 
+           <p><span>只需在 AWS 管理控制台中单击几下，即可配置 Lambda 函数并将其附加到 S3 Object Lambda 服务终端节点。此后，S3 将自动调用 Lambda 函数来处理通过 S3 Object Lambda 终端节点检索到的任何数据，并将转换后的结果返回应用程序。您可以编写和执行自己的自定义 Lambda 函数，根据您的特定使用案例定制 S3 Object Lambda 的数据转换。</span></p> 
+           <p><span>可以通过 S3 管理控制台、开发工具包或 API 来开始使用 S3 Object Lambda。如需了解更多信息，请访问 </span><a href="http://aws.amazon.com/s3/features/object-lambda" style="background-color: rgb(255,255,255);">S3 Object Lambda 页面，</a><span>或 S3 Object Lambda&nbsp;</span><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html" style="background-color: rgb(255,255,255);">用户指南</a><span>。</span><br> </p> 
+           <p><b>问：为何应使用 S3 Object Lambda？</b></p> 
+           <p>您应使用 S3 Object Lambda 在多个应用程序间共享数据的单个副本，这样既无需构建和运行自定义处理基础设施，也无需存储数据的衍生副本。例如，使用 S3 Object Lambda 处理正常的 S3 GET 请求后，您可以对敏感数据设置掩码以满足合规性要求、重组原始数据以便其与机器学习应用程序兼容、筛选数据以限制对 S3 对象中特定内容的访问，或满足各种其他使用案例需求。只需在 Amazon S3 管理控制台中单击几下即可设置 S3 Object Lambda。请参阅<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html">用户指南</a>，了解更多信息。</p> 
+           <p><b>问：S3 Object Lambda 的工作原理是什么？</b></p> 
+           <p>S3 Object Lambda 使用您指定的 Lambda 函数来处理标准 GET 请求的输出。对某个 Lambda 函数进行定义（以处理请求的数据）后，可以将该函数附加到 S3 Object Lambda 访问点。通过 S3 Object Lambda 访问点发出的 GET 请求现在将调用指定的 Lambda 函数。然后，Lambda 将获取客户端请求的 S3 对象并处理该对象。处理完成后，Lambda 会将处理过的对象流式传输回调用客户端。请参阅 S3 Object Lambda <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html">用户指南，了解更多信息</a>。</p> 
+           <p><b>问：如何开始使用 S3 Object Lambda？</b></p> 
+           <p>可以通过三个简单步骤在 S3 管理控制台中对 S3 Object Lambda 进行设置。首先，导航到控制台上的 Object Lambda Access Point（Object Lambda 访问点）选项卡。其次，创建一个 S3 Object Lambda 访问点，然后在它的配置中为此资源命名并提供要调用的 Lambda 函数（您希望 S3 对 GET 请求执行的函数）和一个支持 S3 的访问点。AWS 文档中提供了 Lambda 函数实施的示例，可以帮助您试用该服务。最后，更新您的开发工具包和应用程序，以便通过新的 S3 Object Lambda 访问点使用您选择的语言开发工具包从 S3 检索数据。S3 Object Lambda 将开始处理 GET 请求。请参阅 S3 Object Lambda <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html">用户指南，了解更多信息。</a></p> 
+           <p><b>问：我可以使用 S3 Object Lambda 执行哪些操作？</b></p> 
+           <p>可以使用 S3 Object Lambda 执行 Lambda 函数中支持的任何操作。这为您处理请求提供了各种可用选项。您可以使用自己的 Lambda 函数来针对 GET 请求运行自定义计算，从而根据应用程序的需要灵活处理数据。Lambda 处理时间最多不得超过 60 秒。有关更多详细信息，请参阅此处的 S3 Object Lambda 文档。</p> 
+           <p><b>问：S3 Object Lambda 支持哪些 S3 请求类型？</b></p> 
+           <p>S3 Object Lambda 支持 GET 请求。对 S3 Object Lambda 访问点发出的任何其他 S3 API 调用都将返回标准 S3 API 响应。如需了解有关 S3 Object Lambda 的更多信息，请参阅<a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html">用户指南</a>。</p> 
+           <p><b>问：S3 Object Lambda 函数失败时会发生什么情况？</b></p> 
+           <p>S3 Object Lambda 函数失败时，您将收到请求响应，响应中会说明失败详情。与 Lambda 函数的其他调用一样，AWS 还可以代表您自动监控函数，通过 Amazon CloudWatch 报告指标。为了帮助您排查失败问题，Lambda 会记录函数处理的所有请求，并将由代码生成的日志自动存储在 Amazon CloudWatch Logs 中。有关访问 AWS Lambda 的 CloudWatch Logs 的更多信息，请访问 <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html">CloudWatch 文档。</a></p> 
+           <p><b>问：S3 Object Lambda 是否会影响 S3 可用性 SLA 或 S3 持久性？</b></p> 
+           <p>S3 Object Lambda 可以连接 Amazon S3、AWS Lambda，也可以连接您选择的其他 AWS 服务，以交付与请求应用程序相关的对象。与 S3 Object Lambda 结合使用的所有 AWS 服务将继续受其各自服务等级协议 (SLA) 的管控。例如，如有任何 AWS 服务不遵守其服务承诺，您将有资格获得该服务的 SLA 中记录的服务积分。创建 S3 Object Lambda 访问点不会影响对象的持久性。不过，S3 Object Lambda 会调用您指定的 AWS Lambda 函数，而且您必须确保指定的 Lambda 函数正确并适用。请<a href="https://aws.amazon.com/s3/sla/">在此处查看最新的 Amazon S3 SLA</a>。</p> 
+           <p><b>问：S3 Object Lambda 如何收费？</b></p> 
+           <p>使用 S3 Object Lambda 时，对于通过 S3 Object Lambda 返回的每 GB 数据，您需按 GB 支付费用。您还需要根据指定函数的运行（用以处理请求的数据）时间来支付 S3 GET 请求和 AWS Lambda 计算费用。如需查看定价详细信息和示例，请参阅 <a href="/cn/s3/pricing/">S3 定价页面</a>。</p> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </main>

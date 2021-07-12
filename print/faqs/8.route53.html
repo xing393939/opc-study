@@ -1,0 +1,496 @@
+<main role="main"> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Getting_Started" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;">Route 53 开始使用</h2> 
+       <div class="lb-rtxt"> 
+        <p><b>问：什么是域名系统 (DNS) 服务？</b></p> 
+        <p><a href="/cn/route53/what-is-dns/">DNS</a> 是一种全球分布式服务，可以将 www.example.com 等人类可读的名称转换为 192.0.2.1 等数字 IP 地址，供计算机用于互相连接。Internet 的 DNS 系统的工作原理和电话簿相似，都是管理名称和数字之间的映射关系。对于 DNS 而言，名称为方便人们记忆的域名 (www.example.com)，数字为指定计算机在 Internet 上位置的 IP 地址 (192.0.2.1)。DNS 服务器将名称请求转换为 IP 地址，对最终用户在 Web 浏览器中输入域名时所访问的服务器进行控制。这些请求称为“查询”。</p> 
+        <p><b>问：什么是 Amazon Route 53？</b></p> 
+        <p>Amazon Route 53 提供高度可用且可扩展的域名系统 (DNS)、域名注册和运行状况检查 Web 服务。设计用于为开发人员和企业提供一种非常可靠且经济高效的方式，把名称（如 example.com）转换为计算机用于互相连接的数字 IP 地址（如 192.0.2.1），从而将最终用户路由到 Internet 应用程序。您可以将 DNS 与运行状况检查服务组合使用，路由流量到运行正常的终端节点，或者独立监控终端节点和/或对其提供警报。您还可以购买和管理域名（例如 example.com），并自动为域配置 DNS 设置。Route 53 高效地将用户请求连接到 AWS 中运行的基础设施，例如 Amazon EC2 实例、Elastic Load Balancing 负载均衡器或 Amazon S3 存储桶，还可以将用户转接到 AWS 外部的基础设施。</p> 
+        <p><b>问：Amazon Route 53 可以用来做什么？</b></p> 
+        <p>借助 Amazon Route 53，您可以创建和管理公有 DNS 记录。与电话簿相似，Route 53 可让您管理 Internet 的 DNS 电话簿中为您的域名所列的 IP 地址。Route 53 也应答将此类特定域名转换为对应的 IP 地址（如 192.0.2.1）的请求。您可以使用 Route 53 创建新域的 DNS 记录，或转换现有域的 DNS 记录。Route 53 具有简单的标准型 REST API，可让您轻松创建、更新和管理 DNS 记录。Route 53 还额外提供运行状况检查，可以监控应用程序的运行状况和性能，还能监控 Web 服务器和其他资源。您还可以注册新的域名或者将现有域名转移到 Route 53 中进行管理。</p> 
+        <p><b>问：如何开始使用 Amazon Route 53？</b></p> 
+        <p>Amazon Route 53 具有简单易用的 Web 服务接口，短短几分钟便可开始使用。您的 DNS 记录将组织为“托管区域”，您可以使用 AWS 管理控制台或 Route 53 的 API 进行配置。要使用 Route 53，您只需：</p> 
+        <ul> 
+         <li>通过单击<a href="/cn/route53/">服务页面</a>上的“注册”按钮，订阅该服务。</li> 
+         <li>如果您已经拥有域名：&nbsp; 
+          <ul> 
+           <li>使用 AWS 管理控制台或 CreateHostedZone API 创建可为您的域存储 DNS 记录的托管区域。在创建托管区域时，您将收到四个顶级域 (TLD) 上的四个 Route 53 名称服务器，这有助于确保高可用性。</li> 
+           <li>此外，您还可以通过 AWS 管理控制台或 API，将域名转移到 Route 53 的管理中。</li> 
+          </ul> </li> 
+         <li>如果您还没有域名：&nbsp; 
+          <ul> 
+           <li>使用 AWS 管理控制台或 API 来注册新的域名。</li> 
+           <li>Route 53 会自动创建托管区域，而您的域的 DNS 记录就储存在这个托管区域中。您还将收到四个顶级域 (TLD) 上的四个 Route 53 名称服务器，有助于确保高可用性。</li> 
+          </ul> </li> 
+         <li>您的托管区域最初将使用一组基本的 DNS 记录进行填充，其中包括四个可响应您的域查询的虚拟名称服务器。您可以使用 AWS 管理控制台或通过调用 ChangeResourceRecordSet API 来添加、删除或更改这一集合中的记录。您可在<a href="#which_dns_records_are_supported">此处</a>找到所支持的 DNS 记录的列表。</li> 
+         <li>如果您的域名不是由 Route 53 管理，则必须通知为您提供域名注册服务的注册机构，将域名称服务器更新为与托管区域关联的新名称服务器。如果您的域名已经交由 Route 53 管理，则域名将自动与托管您的区域名称服务器进行关联。</li> 
+        </ul> 
+        <p><b>问：Amazon Route 53 如何提供高可用性和低延迟性？</b></p> 
+        <p>Route 53 使用 AWS 的高度可用且可靠的基础设施进行构建。我们的 DNS 服务器具有全球分布的特点，确保您可以规避任何 Internet 或网络相关的问题，始终如一地将最终用户路由到您的应用程序。Route 53 的宗旨是提供重要应用程序所需的依赖级别。Route 53 设计为通过分布于世界各地的 DNS 服务器任播网络，为根据网络条件自动从最优的节点回答查询。因此，该服务可为您的最终用户提供低查询延迟性。</p> 
+        <p><b>问：Amazon Route 53 服务的 DNS 服务器名称是什么？</b></p> 
+        <p>为了向您提供高度可用的服务，每个 Amazon Route 53 托管区域都由其自己的一组虚拟 DNS 服务器提供服务。因此，在创建托管区域时，系统会分配各个托管区域的 DNS 服务器名称。</p> 
+        <p><b>问：域和托管区域有什么区别？</b></p> 
+        <p>域是一般的 DNS 概念。域名是采用数字地址的 Internet 资源的易于识别的名称。例如，amazon.com 是域。托管区域是一种 Amazon Route 53 概念。托管区域和传统的 DNS 区域文件类似；它代表一组可以一起管理的记录，属于单个父域名。托管区域中的所有资源记录集合必须将该托管区域的域名作为后缀。例如，amazon.com 托管区域可能包含名为 www.amazon.com 和 www.aws.amazon.com 的记录，而不含名为 www.amazon.ca 的记录。您可以使用 Route 53 管理控制台或 API 创建、检查、修改和删除托管区域。您还可以使用管理控制台或 API 来注册新的域名，并将现有域名转移到 Route 53 中进行管理。</p> 
+        <p><b>问：Amazon Route 53 的价格如何？</b></p> 
+        <p>Amazon Route 53 的收费标准是以下各项服务的实际使用情况：托管区域、查询、运行状况检查和域名。如需完整的详细信息，请参阅 Amazon Route 53 <a href="https://aws.amazon.com/route53/pricing/">定价页面</a>。</p> 
+        <p>您仅需按实际用量付费。没有最低费用或最低用量合约，也没有超额费用。您可以使用 <a href="https://calculator.aws/">AWS 定价计算器</a>估算您的月度费用。</p> 
+        <p><b>问：可以为 Amazon Route 53 上管理域名设置什么类型的访问控制？</b></p> 
+        <p>您可以使用 AWS Identity and Access Management (IAM) 服务，控制对 Amazon Route 53 托管区域的管理访问。AWS IAM 可让您控制组织中的哪些人可以管理您的 DNS 记录的更改，具体方式为在您的 AWS 账户下创建多个用户，并管理各个用户的权限。您可在<a href="https://aws.amazon.com/iam/">此处</a>了解 AWS IAM 的更多信息。</p> 
+        <p><b>问：我已订阅了 Amazon Route 53，但在尝试使用该服务时，它显示“AWS 访问密钥 ID 需要订阅服务。”</b></p> 
+        <p>在您注册新的 AWS 服务时，有时可能需要最多 24 小时才能激活，这一期间中您无法再次注册该服务。如果在等待了 24 小时以上还没收到确认激活的电子邮件，这可能表示您的账户或者付款详细信息授权存在问题。请联系 <a href="https://aws.amazon.com/contact-us/">AWS 客户服务</a>以获取帮助。</p> 
+        <p><b>问：Amazon Route 53 是否提供服务等级协议 (SLA)？</b></p> 
+        <p>是。如果客户的月度正常运行时间百分比在任何账单周期内低于我们的服务承诺，Amazon Route 53 将提供服务补偿。可在<a href="https://aws.amazon.com/route53/sla/">此处</a>找到更多信息。</p> 
+        <p><b>问：我的托管区域何时收费？</b></p> 
+        <p>托管区域在创建时收费一次，之后在每月第一天收费。</p> 
+        <p><b>问：为什么我看到同一托管区域在同一个月收费两次？</b></p> 
+        <p>托管区域有 12 小时的宽限期，如果您在创建托管区域后的 12 小时内将其删除，我们不会向您收取该托管区域的费用。宽限期结束后，我们会立即按月对托管区域收取标准费用。如果您在一个月的最后一天创建托管区域 (例如 1 月 31 日)，那么 1 月份的费用可能会出现在 2 月份的发票上，与 2 月份的费用一起收取。</p> 
+        <p><b>问：Amazon Route 53 是否提供查询日志记录功能？</b></p> 
+        <p>您可以配置 Amazon Route 53 来记录与 Amazon Route 53 收到的查询相关的信息，包括日期时间戳、域名、查询类型和位置等。&nbsp; 当您配置查询日志记录后，Amazon Route 53 会开始将日志发送到 CloudWatch Logs。您可以使用 CloudWatch Logs 工具访问查询日志。有关更多信息，请参阅我们的<a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html">文档</a>。</p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Domain_Name_Systems_.28DNS.29" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 域名系统 (DNS)</h2> 
+       <div class="lb-rtxt"> 
+        <p><b>问：Amazon Route 53 是否使用任播网络？</b></p> 
+        <p>是。任播是一种联网和路由技术，可帮助最终用户的 DNS 查询从给定网络条件中最佳的 Route 53 节点获得回答。您的用户因此就能通过 Route 53 获得高可用性和改进的性能。</p> 
+        <p><b>问：使用 Amazon Route 53 管理的托管区域是否有数量限制？</b></p> 
+        <p>每个 Amazon Route 53 账户的托管区域上限为 500 个，每个托管区域的资源记录集最多 10000 条。请填写<a href="https://aws.amazon.com/route53-request/">提高上限申请表</a>，我们将在两个工作日之内答复您的请求。</p> 
+        <p><b>问：怎样将区域导入到 Route 53 中？</b></p> 
+        <p>Route 53 支持导入标准 DNS 区域文件，此类文件可以从众多 DNS 提供商处导出得到，也可以从 BIND 等标准 DNS 服务器软件导出得到。对于新创建的托管区域，以及除默认 NS 和 SOA 记录之外皆为空的现有托管区域，可以将您的区域文件直接粘贴到 Route 53 控制台中，Route 53 会自动在您的托管区域中创建记录。要开始导入区域文件，请阅读 <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/rrs-changes-import-console.html">Amazon Route 53 开发人员指南</a>中的演示。</p> 
+        <p><b>问：是否可以为同一域名设置多个托管区域？</b></p> 
+        <p>是。您可以通过创建多个托管区域，在“测试”环境中验证您的 DNS 设置，而后在“生产”托管区域中复制这些设置。例如，托管区域 Z1234 可能是您的 example.com 的测试版本，托管在名称服务器 ns-1, ns-2、ns-3 和 ns-4 上。类似地，托管区域 Z5678 可能是您的 example.com 的生产版本，托管在名称服务器 ns-5, ns-6、ns-7 和 ns-8 上。由于每个托管区域是与该区域关联的名称服务器虚拟集合， Route 53 将根据您向其发送 DNS 查询的名称服务器为 example.com 的 DNS 查询提供不同的回答。</p> 
+        <p><b>问：Amazon Route 53 是否也提供网站托管？</b></p> 
+        <p>否。Amazon Route 53 属于授权型 DNS 服务，不提供<a href="https://aws.amazon.com/websites/">网站托管</a>。不过，您可以使用 Amazon Simple Storage Service（Amazon S3）来托管静态网站。要托管动态网站或其他 Web 应用程序，您可以使用 Amazon Elastic Compute Cloud (Amazon EC2)；与传统<a href="https://aws.amazon.com/websites/">网站托管</a>解决方案相比，它不仅能提供灵活性和控制，还可大幅节省开支。在<a href="https://aws.amazon.com/ec2/">此处</a>了解有关 Amazon EC2 的更多信息。对于静态和动态网站，您都可以使用 Amazon CloudFront 为您的全球最终用户提供低延迟的传输。您可在<a href="https://aws.amazon.com/cloudfront/">此处</a>了解 Amazon CloudFront 的更多信息。</p> 
+        <p><b>问：Amazon Route 53 支持哪些 DNS 记录类型？</b></p> 
+        <p>Amazon Route 53 目前支持下列 DNS 记录类型：</p> 
+        <ul> 
+         <li>A（地址记录）</li> 
+         <li>AAAA（IPv6 地址记录）</li> 
+         <li>CNAME（规范名称记录）</li> 
+         <li>CAA (认证机构授权)</li> 
+         <li>MX (邮件交换记录)</li> 
+         <li>NAPTR（命名授权指针记录）</li> 
+         <li>NS（名称服务器记录）</li> 
+         <li>PTR（指针记录）</li> 
+         <li>SOA（起始授权记录）</li> 
+         <li>SPF（发件人策略框架）</li> 
+         <li>SRV（服务定位器）</li> 
+         <li>TXT（文本记录）</li> 
+         <li>Amazon Route 53 还提供别名记录，这些记录是 Amazon Route 53 专用的 DNS 扩展。您可以创建别名记录以将流量路由到选定的 AWS 资源，包括 Amazon Elastic Load Balancing 负载均衡器、Amazon CloudFront 分配、AWS Elastic Beanstalk 环境、API 网关、VPC 接口终端节点以及配置为网站的 Amazon S3 存储桶。别名记录通常为 A 或 AAAA 类型，但它们的工作方式类似于 CNAME 记录。借助别名记录，您可以将记录名称 (example.com) 映射到 AWS 资源的 DNS 名称 (elb1234.elb.amazonaws.com)。解析器查看 A 或 AAAA 记录以及 AWS 资源的 IP 地址。<br> </li> 
+        </ul> 
+        <p>我们预计在未来增加其他的记录类型。</p> 
+        <ul> 
+        </ul> 
+        <p><b>问：Amazon Route 53 是否支持通配符条目？ 如果支持，支持的类型是什么？</b></p> 
+        <ul> 
+        </ul> 
+        <p>是。为了让您更加方便地为域配置 DNS 设置，Amazon Route 53 针对除 NS 记录以外的所有记录类型支持通配符条目。通配符条目是 DNS 区域中的记录，可以根据您设置的配置匹配任何域名。例如，通配符 DNS 记录 *.example.com 将匹配对 www.example.com 和 subdomain.example.com 的查询。</p> 
+        <ul> 
+        </ul> 
+        <p><b>问：各种记录类型的默认 TTL 是多少？是否可以更改这些值？</b></p> 
+        <ul> 
+        </ul> 
+        <ul> 
+        </ul> 
+        <p>DNS 解析器用于缓存回复的时间是通过与各条记录关联的一个值设置的，它称为存活期 (TTL)。Amazon Route 53 没有任何记录类型的默认 TTL。您始终都必须为各种记录指定 TTL，以便缓存 DNS 解析器能够在通过 TTL 指定的时间长度内缓存您的 DNS 记录。</p> 
+        <ul> 
+        </ul> 
+        <p><b>问：是否可以将“别名”记录用于子域？</b></p> 
+        <ul> 
+        </ul> 
+        <p>是。您还可以使用别名记录将子域（www.example.com、pictures.example.com 等）映射到 ELB 负载平衡器、CloudFront 分配或 S3 网站存储桶。</p> 
+        <ul> 
+        </ul> 
+        <p><b>问：对资源记录集的更改是否是事务性的？</b></p> 
+        <ul> 
+        </ul> 
+        <p>是。事务性更改有助于确保更改是一致、可靠的，并且与其他更改独立。Amazon Route 53 已经过了设计，使得更改可在任何个体 DNS 服务器上彻底完成，或者完全不更改。这有助于确保 DNS 查询始终都能获得一致的回答，这在进行目标服务器之间翻转等更改时非常重要。在使用 API 时，对 ChangeResourceRecordSets 的每个调用将返回一个能跟踪相关更改的状态的识别符。一旦状态报告为 INSYNC 时，您的更改就已在所有 Route 53 DNS 服务器上执行完毕。</p> 
+        <ul> 
+        </ul> 
+        <p><b>问：是否可以将多个 IP 地址与一条记录关联？</b></p> 
+        <ul> 
+        </ul> 
+        <p>是将多个 IP 地址与一条记录关联，常常用于平衡地理位置上分散的 Web 服务器的负载。Amazon Route 53 允许您为一条 A 记录列举多个 IP 地址，并使用包含所有配置的 IP 地址的列表回复 DNS 请求。</p> 
+        <ul> 
+        </ul> 
+        <p><b>问：Amazon Route 53 上 DNS 设置更改的全球传播速度有多快？</b></p> 
+        <ul> 
+        </ul> 
+        <p>正常情况下，Amazon Route 53 的设计可以在 60 秒内将您对 DNS 记录的更新传播到其授权 DNS 服务器的全球网络中。当 API 调用返回 INSYNC&nbsp;状态列表时，即表示更改已成功完成全球传播。</p> 
+        <ul> 
+        </ul> 
+        <p>请注意，缓存 DNS 解析器不在 Amazon Route 53 服务的控制范围内，它们将根据其生存时间 (TTL) 缓存您的资源记录集。更改的 INSYNC 或 PENDING 状态仅指示 Route 53 的授权 DNS 服务器的状态。</p> 
+        <ul> 
+        </ul> 
+        <p><b>问：是否可以查看我所做更改以及对我的 Route 53 资源所做其他操作的历史记录？</b></p> 
+        <ul> 
+        </ul> 
+        <p>可以，通过 AWS CloudTrail，您可以记录 Route 53 的 API 调用历史记录。请参阅 <a href="https://aws.amazon.com/cloudtrail/">CloudTrail 产品页</a>开始使用。</p> 
+        <ul> 
+        </ul> 
+        <p><b>问：是否可以使用 AWS CloudTrail 日志来恢复对我的托管区域所做的更改？</b></p> 
+        <ul> 
+        </ul> 
+        <p>否。我们建议您不要使用 CloudTrail 来恢复对您的托管区域的更改，因为使用 CloudTrail 日志重建的托管区域更改历史记录可能不完整。</p> 
+        <ul> 
+        </ul> 
+        <p>您的 AWS CloudTrail 日志可用于安全分析、资源更改跟踪以及合规性审核等目的。</p> 
+        <ul> 
+        </ul> 
+        <p><b>问：Amazon Route 53 是否支持 DNSSEC？</b></p> 
+        <ul> 
+        </ul> 
+        <p>是的。您可以为现有的和新的公有托管区域启用 DNSSEC 签名，并为 Amazon Route 53 Resolver 启用 DNSSEC 验证。此外，Amazon Route 53 支持在域注册时使用 DNSSEC。<br> </p> 
+        <ul> 
+        </ul> 
+        <p><b>问：Amazon Route 53 是否支持 IPv6？</b></p> 
+        <ul> 
+        </ul> 
+        <p>是。Amazon Route 53 支持正向 (AAAA) 和反向 (PTR) IPv6 记录。Amazon Route 53 服务本身也可通过 IPv6 使用。IPv6 网络上的递归 DNS 解析器可以使用 IPv4 或 IPv6 传输，以便向 Amazon Route 53 提交 DNS 查询。Amazon Route 53 运行状况检查也支持使用 IPv6 协议来监控终端节点。</p> 
+        <ul> 
+        </ul> 
+        <ul> 
+        </ul> 
+        <p><b>问：是否可以将我的顶级域名（example.com 与 www.example.com 相比）指向我的 Elastic Load Balancer？</b></p> 
+        <p>可以。Amazon Route 53 提供一种称为“别名”记录的特殊记录类型，供您将顶级域名 (example.com) DNS 名称映射到 ELB 负载均衡器的 DNS 名称（例如 my-loadbalancer-1234567890.us-west-2.elb.amazonaws.com）。与负载均衡器关联的 IP 地址随时会由于大小扩展或软件更新而改变。Route 53 使用负载均衡器的一个或多个 IP 地址来响应别名记录的每个请求。Route 53 支持三类负载均衡器的别名记录：Application Load Balancer、网络负载均衡器和 Classic Load Balancer。对映射到 AWS ELB 负载均衡器的别名记录的查询不收取额外费用。这些查询在 Amazon Route 53 使用率报告中列为“Intra-AWS-DNS-Queries”。<br> </p> 
+        <ul> 
+        </ul> 
+        <p><b>问：是否可以将我的顶级域名（example.com 与 www.example.com 对比）指向我托管在 Amazon S3 上的网站？</b></p> 
+        <ul> 
+        </ul> 
+        <p>是。Amazon Route 53 提供一种称为“别名”记录的特殊记录类型，供您将域顶点 (example.com) DNS 名称映射到 Amazon S3 网站存储段（如 example.com.s3-website-us-west-2.amazonaws.com）。与 Amazon S3 网站终端节点关联的 IP 地址随时会由于大小扩展或软件更新而改变。Route 53 使用存储段的一个 IP 地址来回复别名记录的各个请求。Route 53 对映射到 S3 存储段且配置为网站的别名记录的查询不收取费用。这些查询在 Amazon Route 53 使用率报告中列为“Intra-AWS-DNS-Queries”。</p> 
+        <ul> 
+        </ul> 
+        <p><b>问：是否可以将我的域顶点（example.com 与 www.example.com 相比）指向我的 Amazon CloudFront 分配？</b></p> 
+        <ul> 
+        </ul> 
+        <p>是。Amazon Route 53 提供一种称为“别名”记录的特殊记录类型，供您将域顶点 (example.com) DNS 名称映射到您的 Amazon CloudFront 分配（如 d123.cloudfront.net）。与 Amazon CloudFront 终端节点相关联的 IP 地址会根据您的最终用户的位置而有所不同（目的是将最终用户定向至最近的 CloudFront 节点），会随时因为扩大规模、缩小规模或软件更新而改变。Route 53 使用分配的一个或多个 IP 地址来回复别名记录的各个请求。Route 53 对映射到 CloudFront 分配的别名记录的查询不收取费用。这些查询在 Amazon Route 53 使用率报告中列为“Intra-AWS-DNS-Queries”。</p> 
+        <ul> 
+        </ul> 
+        <p><b>问：是否可以将我的顶级域名（example.com 对应 www.example.com）指向我的 AWS Elastic Beanstalk 环境？</b></p> 
+        <ul> 
+        </ul> 
+        <p>是。Amazon Route 53 提供一种称为“别名”记录的特殊记录类型，供您将顶级域名 (example.com) DNS 名称映射到 AWS Elastic Beanstalk DNS 名称（即 example.elasticbeanstalk.com）。与 AWS Elastic Beanstalk 关联的 IP 地址随时可能由于大小扩展或软件更新而改变。Route 53 使用环境的一个或多个 IP 地址来响应针对别名记录的每个请求。对映射到 AWS Elastic Beanstalk 环境的别名记录的查询不收取费用。这些查询在 Amazon Route 53 使用率报告中列为“Intra-AWS-DNS-Queries”。</p> 
+        <p><b>问：是否可以将我的顶级域名（example.com 与 www.example.com 对比）指向我的 Amazon API Gateway？</b></p> 
+        <p>可以。Amazon Route 53 提供一种称为“别名”记录的特殊记录类型，供您将顶级域名 (example.com) DNS 名称映射到 Amazon API Gateway DNS 名称（如 api-id.execute-api.region.amazonaws.com/stage）。与 Amazon API Gateway 关联的 IP 地址随时会由于大小扩展或软件更新而改变。Route 53 使用 API Gateway 的一个或多个 IP 地址来响应针对别名记录的每个请求。对映射到 Amazon API Gateway 的别名记录的查询不收取额外费用。这些查询在 Route 53 使用率报告中列为“Intra-AWS-DNS-Queries”。</p> 
+        <p><b>问：是否可以将我的顶级域名（example.com 与 www.example.com 对比）指向我的 Amazon VPC 终端节点？</b></p> 
+        <p>可以。Amazon Route 53 提供一种称为“别名”记录的特殊记录类型，供您将顶级域名 (example.com) DNS 名称映射到 Amazon VPC 终端节点 DNS 名称（如 vpce-svc-03d5ebb7d9579a2b3.us-east-1.vpce.amazonaws.com）。与 Amazon VPC 终端节点关联的 IP 地址随时会由于大小扩展或软件更新而改变。Route 53 使用 VPC 终端节点的一个或多个 IP 地址来响应针对别名记录的每个请求。对映射到 Amazon VPC 终端节点的别名记录的查询不收取额外费用。这些查询在 Amazon Route 53 使用率报告中列为“Intra-AWS-DNS-Queries”。</p> 
+        <ul> 
+        </ul> 
+        <p><b>问：如何将 Amazon Route 53 与 Amazon Simple Storage Service (Amazon S3) 和 Amazon CloudFront 协作？</b></p> 
+        <ul> 
+        </ul> 
+        <p>针对通过 Amazon CloudFront 传输的网站或托管于 Amazon S3 的静态网站，您可以使用 Amazon Route 53 服务为指向 CloudFront 分配或 S3 网站存储段的域创建别名记录。针对未配置托管静态网站的 S3 存储段，您可以为您的域和 S3 存储段名创建 CNAME。无论哪种情况，请注意，您也需要相应地使用备用域名条目配置 S3 存储段或 CloudFront 分配，以便在域名和存储段或分配的 AWS 域名之间建立完整的别名关系。</p> 
+        <ul> 
+        </ul> 
+        <p>针对 CloudFront 分配和配置托管静态网站的 S3 存储段，我们建议您创建映射到 CloudFront 分配或 S3 网站存储段的别名记录，而非使用 CNAME。别名记录有两种优势：首先，与 CNAME 不同，您可以针对域顶点（如 example.com，而不是 www.example.com）创建别名记录，其次，对别名记录的查询不收取费用。</p> 
+        <ul> 
+        </ul> 
+        <p><b>问：DNS 查询测试工具为何会返回一个不同于 dig 或 nslookup 命令的响应？</b></p> 
+        <ul> 
+        </ul> 
+        <p>当 Amazon Route 53 中的资源记录集发生更改时，该服务会将您对 DNS 记录进行的更新传播到其权威 DNS 服务器在世界范围内的网络中。如果在传播完成之前测试记录，那么在使用 dig 或 nslookup 实用程序时看到的可能是一个旧值。此外，Internet 上的 DNS 解析程序不受 Amazon Route 53 服务的控制并且可根据生存时间 (TTL) 缓存资源记录集，这表示一个 dig/nslookup 命令可返回一个缓存值。您还应该确保您的域名注册商正在使用您 Amazon Route 53 托管区域中的名称服务器。如果不使用名称服务器，Amazon Route 53 将不会获得授权对您的域进行查询。<br> </p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="DNS_Routing_Policies" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> DNS 路由策略</h2> 
+       <div class="lb-rtxt"> 
+        <p><b>问：Amazon Route 53 是否支持加权轮询 (WRR)？</b></p> 
+        <p>是。加权轮询可让您为资源记录集合分配权重，以便指定不同回复所服务的频率。您可能希望使用此功能来执行 A/B 测试，发送一小部分流量到进行了软件更改的服务器。例如，假设您向一个 DNS 名称关联了两个记录集合，其中一个的权重为 3，另一个的权重为 1。此情形中，75% 时间内 Route 53 将返回权重为 3 的记录集合，25% 时间内 Route 53 将返回权重为 1 的记录集合。权重可以是 0 到 255 范围内的任意数字。</p> 
+        <p><b>问：什么是 Amazon Route 53 的基于延迟的路由 (LBR) 功能？</b></p> 
+        <p>LBR（基于延迟的路由）是 Amazon Route 53 的一项新功能，有助于您提高应用程序对全球受众的性能。您可以在多个 AWS 地区运行应用程序，Amazon Route 53 则通过其遍布全球的节点将最终用户路由到可提供最低延迟性的 AWS 地区。</p> 
+        <p><b>问：如何开始使用 Amazon Route 53 的基于延迟的路由 (LBR) 功能？</b></p> 
+        <p>只需通过 AWS 管理控制台或简单的 API，就能快速而轻松地使用 Amazon Route 53 的全新 LBR 功能。只需创建包含 IP 地址或各个 AWS 终端节点的 ELB 名称的记录集合，再将该集合标记为支持 LBR 的记录集合，这与将记录集合标记为加权记录集合非常相似。Amazon Route 53 将负责其余的工作 – 为各个请求确定最佳的终端节点并相应地路由最终用户，与 Amazon CloudFront 这一 Amazon 全球内容传输服务非常相似。有关如何使用基于延迟的路由的更多信息，请参阅 <a href="http://docs.amazonwebservices.com/Route53/latest/DeveloperGuide/CreatingLatencyRRSets.html">Amazon Route 53 开发人员指南</a>。</p> 
+        <p><b>问：Amazon Route 53 的基于延迟的路由 (LBR) 功能的价格如何？</b></p> 
+        <p>与所有 AWS 服务一样，对 Amazon Route 53 和 LBR 的使用没有前期费用或长期使用期限合约。客户只需按照实际的用量支付托管区域和查询的费用。有关基于延迟的路由查询的定价详细信息，请访问 <a href="https://aws.amazon.com/route53/pricing/">Amazon Route 53 定价页面</a>。</p> 
+        <p><b>问：Amazon Route 53 的 Geo DNS 功能是什么？</b></p> 
+        <p>Route 53 Geo DNS 会根据请求发出的地理位置将其送至特定的终端节点，以此帮助调整负载平衡。Geo DNS 可以自定义本地化的内容，例如以正确的语言展示详情页面或限制将内容分配到已授权的市场。Geo DNS 通过一种可以预见而又易于管理的方式让您实现负载平衡，确保每一个终端用户地点始终路由到相同的终端节点。Geo DNS 提供三种地理粒度级别：洲、国家/地区和州/省，Geo DNS 还提供全球记录，当终端用户的地点与您创建的特定 Geo DNS 记录不匹配时，全球记录可在这种情况下发挥作用。您还可以将 Geo DNS 与其他路由类型（例如基于延迟的路由和 DNS 故障转移）进行组合，以实现多种低延迟的容错架构。关于如何配置各种路由类型的信息，请参阅 <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html">Amazon Route 53 文档</a>。</p> 
+        <p><b>问：如何开始使用 Amazon Route 53 的 Geo DNS 功能？</b></p> 
+        <p>只需通过 AWS 管理控制台或 Route 53 API，就能快速而轻松地使用 Amazon Route 53 的 Geo DNS 功能。只需创建记录集并对记录集的类型指定适用的值，将该记录集标记为启用了 Geo DNS 的记录集，然后选择想要记录生效的地理位置（全球、洲、国家/地区或州/省）。有关如何使用 Geo DNS 的详细信息，请参阅 Amazon Route 53 Developer Guide。</p> 
+        <p><b>问：问：使用 Geo DNS 时，我是否必须拥有一份“全球”记录？ Route 53 何时会返回此记录？</b></p> 
+        <p>是，强烈建议您配置全球记录，以确保 Route 53 可以从所有可能的位置对 DNS 请求提供响应，即使您对期望终端用户所在的每一个洲、国家/地区或州/省创建了特定的记录也应该如此。Route 53 将返回以下案例中全球记录所包含的数值：</p> 
+        <p>DNS 查询来自 Route 53 的 Geo IP 数据库无法识别的 IP 地址。</p> 
+        <p>DNS 查询来自您创建的所有特定 Geo DNS 记录都不包含的位置。</p> 
+        <p><b>问：我可以对一个大洲采用一份 Geo DNS 记录，而该大洲中不同国家/地区采用不同的 Geo DNS 记录吗？ 或者一个国家/地区采用一份 Geo DNS 记录，该国家/地区中的各州/省采用不同 Geo DNS 记录？</b></p> 
+        <p>可以，您可以对重叠的地理区域配置 Geo DNS 记录（例如洲和这个洲中的国家/地区，或者国家/地区和这个国家/地区中的州/省）。对于每个终端用户地点，Route 53 返回的大多数特定 Geo DNS 记录包含该地点。换言之，对于给定的终端用户地点，Route 53 会首先返回州/省记录。如果未找到任何州/省记录，则 Route 53 会返回国家/地区记录。如果未找到任何国家/地区记录，则 Route 53 会返回洲记录。最后，如果未找到任何洲记录，则 Route 53 会返回全球记录。</p> 
+        <p><b>问：Route 53 的 Geo DNS 功能如何定价？</b></p> 
+        <p>与所有 AWS 服务一样，Amazon Route 53 和 Geo DNS 的使用没有前期费用或长期使用期限合约。客户只需按照实际的用量支付托管区域和查询的费用。有关 Geo DNS 查询的定价详细信息，请访问 <a href="https://aws.amazon.com/route53/pricing/">Amazon Route 53 定价页面</a>。</p> 
+        <p><b>问：基于延迟的路由和 Geo DNS 有何区别？</b></p> 
+        <p>Geo DNS 根据请求的地理位置制定路由决策。某些情况下，地理位置是很好的延迟代理；但是某些情况下则不然。基于延迟的路由利用查看者网络和 AWS 数据中心之间的延迟测量值。这些测量值用于确定引导用户到达了哪个终端节点。</p> 
+        <p>如果您的目标是尽量减少最终用户延迟，我们建议使用基于延迟的路由。如果您有合规性、本地化方面的要求，或者有需要从特定地理位置稳定路由至特定终端节点的其他使用案例，我们建议使用 Geo DNS。</p> 
+        <p><b>问：Amazon Route 53 是否支持使用多个值响应 DNS 查询？</b></p> 
+        <p>Route 53 现在支持使用多值回答响应 DNS 查询。在 DNS 查询响应中返回多个可检查运行状况的 IP 地址这一功能并非负载均衡器的替代，这是使用 DNS 提高可用性和负载均衡能力的一种方式。如果您希望将流量随机路由到多个资源 (如 Web 服务器)，您可以为每个资源创建一条多值回答记录，然后选择性地将 Amazon Route 53 运行状况检查与每条记录关联。Amazon Route 53 最多支持使用八条正常记录响应每条 DNS 查询。</p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Traffic_Flow" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> Traffic Flow</h2> 
+       <div class="lb-rtxt"> 
+        <p><b>问：什么是 Amazon Route 53 Traffic Flow？</b></p> 
+        <p>Amazon Route 53 Traffic Flow 是一项易于使用且经济实惠的全球流量管理服务。借助 Amazon Route 53 Traffic Flow，您可以运行全球的多个终端节点，并基于延迟、地理位置和终端节点的运行状况使用 Amazon Route 53 Traffic Flow 将您的终端用户连接到最佳终端节点，从而帮助用户提高应用程序的性能和可用性。Amazon Route 53 Traffic Flow 使开发人员可根据他们最关心的约束条件（包括延迟、终端节点的运行状况、负载、临近地理位置和地理位置）来轻松创建流量路由策略。客户可以使用一个简单的可视化策略生成器，在 AWS 管理控制台中自定义这些模板或者从头开始构建策略。</p> 
+        <p><b>问：流量策略和策略记录有何区别？</b></p> 
+        <p><b>流量策略</b>是指您为了将终端用户的请求路由到应用程序的一个终端节点而定义的规则集。您可以使用 Amazon Route 53 控制台中 Amazon Route 53 Traffic Flow 部分的可视化策略生成器来创建一个流量策略。您还可以将流量策略创建为 JSON 格式的文本文件，并利用 Route 53 API、AWS CLI 或多种 AWS 软件开发工具包上传这些策略。</p> 
+        <p>就其本身而言，流量策略不会影响将最终用户路由到应用程序的方式，因为它尚没有与应用程序的 DNS 名称（如 www.example.com）关联。要开始通过您创建的流量策略使用 Amazon Route 53 Traffic Flow 将流量路由到您的应用程序，您可以创建一个可将流量策略与您拥有的 Amazon Route 53 托管区域内的相应 DNS 名称关联的<b>策略记录</b>。例如，如果您希望使用已命名为 my-first-traffic-policy 的流量策略来管理 www.example.com 上应用程序的流量，您需要在托管区域 example.com 中为 www.example.com 创建一个策略记录，并选择将 my-first-traffic-policy 作为流量策略。</p> 
+        <p>策略记录在 Amazon Route 53 控制台的 Amazon Route 53 Traffic Flow 和 Amazon Route 53 托管区域部分均可见。</p> 
+        <p><b>问：我是否可以使用相同的策略来管理多个 DNS 名称的路由？</b></p> 
+        <p>是。您可以重复使用一个策略来以两种方式之一管理多个 DNS 名称。首先，您可以利用该策略来创建更多策略。请注意，使用这种方法需要另外付费，因为我们会根据您创建的每条策略记录进行收费。</p> 
+        <p>第二种方法是利用策略创建一条策略记录，然后为您希望借助策略来管理的每一个附加 DNS 名称创建一个标准别名记录，它们均指向已创建策略记录的 DNS 名称。例如，如果您为 example.com 创建一条策略记录，您就可以为 www.example.com、blog.example.com 和 www.example.net 创建 DNS 记录，且每条记录都带有 example.com 的 CNAME 值。请注意，这种方法不适用于域名前无 www 或另一子域名的顶级域名（如 example.net、example.org 或 example.co.uk）中的记录。对于顶级域名中的记录，您必须使用您的流量策略创建一条策略记录。</p> 
+        <p><b>问：我可以创建一个指向由流量策略管理的 DNS 名称的别名记录吗？</b></p> 
+        <p>可以，可以创建指向由一个流量策略管理的 DNS 名称的别名记录。<br> </p> 
+        <p><b>问：没有策略记录的流量策略需要付费吗？</b></p> 
+        <p>没有。我们只对策略记录进行收费，不对创建流量策略本身进行收费。</p> 
+        <p><b>问：Amazon Route 53 Traffic Flow 的使用如何计费？</b></p> 
+        <p>根据每条策略记录计费。一条策略记录代表着一个 Traffic Flow 策略应用于特定 DNS 名称（如 www.example.com），以使用流量策略来管理如何对该 DNS 名称的请求作出应答的过程。将按月计费，并分摊到部分月份中。与策略记录中的 DNS 名称不相关的流量策略无需任何费用。有关定价的详细信息，请参阅 <a href="https://aws.amazon.com/route53/pricing/">Amazon Route 53 定价页面</a>。</p> 
+        <p><b>问：Amazon Route 53 Traffic Flow 支持哪些高级查询类型？</b></p> 
+        <p>Traffic Flow 支持所有 Amazon Route 53 DNS 路由策略，包括延迟、终端节点的运行状况、多值答案、加权轮询和地理位置。除此之外，Traffic Flow 还支持通过流量偏置实现基于临近地理位置的路由。</p> 
+        <p><b>问：采用临近地理位置规则的流量策略是如何路由 DNS 流量的？</b></p> 
+        <p>创建流量的流动策略时，可指定 AWS 地区 (如果使用 AWS 资源的话) 或每个终端节点的经度和纬度。例如，假设您在美国东部 (俄亥俄) 地区和美国西部 (俄勒冈) 地区均拥有 EC2 实例。当西雅图的用户访问您的网站时，临近地理位置路由会将 DNS 查询路由至美国西部（俄勒冈）区域的 EC2 实例，因为它的地理位置较为临近。有关更多信息，请参阅关于<a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-geoproximity">临近地理位置路由</a>的文档。</p> 
+        <p><b>问：某个终端节点的临近地理位置偏差值如何影响路由到其他终端节点的 DNS 流量？</b></p> 
+        <p>更改终端节点上的临近地理位置偏置值可以扩展或收缩 Route 53 将流量路由到资源的区域。不过，临近地理位置偏置无法准确预测负载因子，因为地理区域大小的微小变化可能会包括或排除产生大量查询的主要大城市区域。有关更多信息，请参阅我们的<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-geoproximity">文档</a>。</p> 
+        <p><b>问：我可以对其他 Traffic Flow 规则应用偏置吗？</b></p> 
+        <p>截至目前，偏置仅适用于临近地理位置规则。&nbsp;</p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Private_DNS" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 私有 DNS</h2> 
+       <div class="lb-rtxt"> 
+        <p><b>问：什么是私有 DNS？</b></p> 
+        <p>私有 DNS 是 Route 53 的一项功能，可以让您在 VPC 中拥有权威的 DNS 而不会将您的 DNS 记录（包括资源名称及其 IP 地址）暴露给互联网。</p> 
+        <p><b>问：是否可以使用 Amazon Route 53 管理组织的专用 IP 地址？</b></p> 
+        <p>可以，您可以使用 Amazon Route 53 的私有 DNS 功能在 Virtual Private Clouds (VPCs) 中管理私有 IP 地址。通过私有 DNS，您可以创建私有的托管区域，当查询来自您与私有托管区域关联的 VPC 内部时，Route 53 将只返回这些记录。有关更多详细信息，请参阅 <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-private.html">Amazon Route 53 文档</a>。</p> 
+        <p><b>问：如何设置私有 DNS？</b></p> 
+        <p>您可以设置私有 DNS，方法是在 Route 53 中创建托管区域，选择选项让托管区域变成“私有”，再将托管区域与一个您的 VPC 进行关联。创建托管区域后，您可以将其与其他 VPC 进行关联。查看 <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-private.html">Amazon Route 53 文档</a>，了解私有 DNS 配置方法的完整介绍。</p> 
+        <p><b>问：使用私有 DNS 是否需要连接到外部 Internet？</b></p> 
+        <p>您可以使用不连接互联网的 VPC 中的资源来解析内部 DNS 名称。但是，如果要更新私有 DNS 托管区域的配置，您需要互联网连接来访问 Route 53 API 终端节点，这个终端节点在 VPC 的外部。</p> 
+        <p><b>问：如果不使用 VPC，能否使用私有 DNS？</b></p> 
+        <p>否。Route 53 私有 DNS 使用 VPC 来管理可见性并为私有 DNS 托管区域提供 DNS 解析。为了利用 Route 53 私有 DNS，您必须配置一个 VPC 并将资源迁移到其中。</p> 
+        <p><b>问：能否为多个 VPC 使用同一个私有 Route 53 托管区域？</b></p> 
+        <p>能，您可以将多个 VPC 关联到一个托管区域。</p> 
+        <p><b>问：是否能将由不同 AWS 账户创建的 VPC 和私有托管区域相关联？</b></p> 
+        <p>可以，您可以将从属于不同账户的 VPC 关联到同一个托管区域。有关更多详细信息，请参阅<a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zone-private-associate-vpcs-different-accounts.html">此处</a>。</p> 
+        <p><b>问：私有 DNS 能不能在所有 AWS 区域中使用？</b></p> 
+        <p>能。DNS 应答可以在与私有托管区域关联的每一个 VPC 中使用。注意，您需要保证每个区域中的所有 VPC 彼此相连，以便一个区域中的资源可以触及另一个区域中的资源。以下区域现已支持 Route 53 私有 DNS：美国东部（弗吉尼亚北部）、美国西部（加利福尼亚北部）、美国西部（俄勒冈）、亚太地区（孟买）、亚太地区（首尔）、亚太地区（新加坡）、亚太地区（悉尼）、亚太地区（东京）、欧洲（法兰克福）、欧洲（爱尔兰）和南美洲（圣保罗）。</p> 
+        <p><b>问：是否可以为私有 DNS 托管区域配置 DNS 故障转移？</b></p> 
+        <p>可以，可以通过将运行状况检查与私有 DNS 托管区域中的资源记录集相关联来配置 DNS 故障转移。如果您的终端节点位于 Virtual Private Cloud (VPC) 中，那么您可以使用多种选项来配置针对这些终端节点的运行状况检查。如果终端节点具有公有 IP 地址，那么您可以针对每个终端节点的公有 IP 地址创建标准的运行状况检查。如果您的终端节点只有私有 IP 地址，那么您无法针对这些终端节点创建标准的运行状况检查。但是，您可以创建基于指标的运行状况检查，其运行方式类似于标准的 Amazon Route 53 运行状况检查，但使用现有 Amazon CloudWatch 指标作为终端节点运行状况信息的来源（而不是针对外部位置的终端节点进行请求）。</p> 
+        <p><b>问：能否使用私有 DNS 在 VPC 中阻止不希望访问的域名和 DNS 名称？</b></p> 
+        <p>能，您可以阻止域和特定的 DNS 名称，方法是在一个或多个私有 DNS 托管区域中创建这些名称，然后将这些名称指派到您自己的服务器（或您管理的其他位置）。</p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Health_Checks_.26_DNS_Failover" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 运行状况检查和 DNS 故障转移</h2> 
+       <div class="lb-rtxt"> 
+        <p><b>问：什么是 DNS 故障转移？</b></p> 
+        <p>DNS 故障转移包含两个组件，即：运行状况检查和故障转移。运行状况检查是通过 Internet 发送到您的应用程序的自动请求，目的是验证您的应用程序是否可获得、可用且功能正常。您可以配置与用户提交的一般请求相似的运行状况检查，例如从特定 URL 请求网页。利用 DNS 故障转移，Route 53 仅返回运行状态良好且可从外部访问的资源的响应，因此您的最终用户可以绕开出现故障或运行状态不佳的应用程序部分。</p> 
+        <p><b>问：如何开始使用 DNS 故障转移？</b></p> 
+        <p>请访问 <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks.html">Amazon Route 53 开发人员指南</a>，了解有关入门的详细信息。您还可以从 Route 53 控制台配置 DNS 故障转移。</p> 
+        <p><b>问：DNS 故障转移是否支持将 Elastic Load Balancer (ELB) 用作终端节点？</b></p> 
+        <p>可以，您可以为 Elastic Load Balancers (ELB) 配置 DNS 故障转移。若要启用一个 ELB 终端节点的 DNS 故障转移，请创建一个指向 ELB 的别名记录并将“Evaluate Target Health”参数设置为真。Route 53 会自动创建和管理您的 ELB 的运行状况检查。您无需创建您自己的 ELB Route 53 运行状况检查。您也不需要将您为 ELB 设置的资源记录与您自己的运行状况检查关联在一起，因为 Route 53 会代表您将它与 Route 53 管理的运行状况检查关联在一起。ELB 运行状况检查还会继承该 ELB 的后端实例的运行状况。要了解有关使用 ELB 终端节点进行 DNS 故障转移的更多详细信息，请参阅 <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html">Route 53 开发人员指南</a>。</p> 
+        <p><b>问：我是否可以配置仅在运行状况检查失败时使用的备份站点？</b></p> 
+        <p>可以，您可以使用 DNS 故障转移来维护备份站点（例如，Amazon S3 网站存储段上运行的静态站点）并在您的主要站点无法访问时转移到该站点。</p> 
+        <p><b>问：可以将什么类型的 DNS 记录与 Route 53 运行状况检查相关联？</b></p> 
+        <p>您可以关联任何受 Route 53 支持的记录类型，除了 SOA 和 NS 记录。</p> 
+        <p><b>问：如果我不知道终端节点的 IP 地址，是否可以检查其运行状况？</b></p> 
+        <p>是。您可以通过 Amazon Route 53 控制台配置 Elastic Load Balancer 和 Amazon S3 网站存储桶的 DNS 故障转移，这种方法无需创建您自己的运行状况检查。对于这些终端节点类型，Route 53 会代表您自动创建和管理运行状况检查，而这些运行状况检查会在您创建指向 ELB 或 S3 网站存储桶的别名记录和在该别名记录上启用“Evaluate Target Health”参数时使用。</p> 
+        <p>对于所有其他终端节点，当您为该终端节点创建运行状况检查时，您可以指定 DNS 名称（例如 www.example.com）或该终端节点的 IP 地址。</p> 
+        <p><b>问：我的其中一个终端节点在 AWS 外部。是否能在此终端节点上设置 DNS 故障转移？</b></p> 
+        <p>是。就像可以创建指向 AWS 外的地址的 Route 53 资源记录一样，您可以为在 AWS 外部运行的应用程序部分设置运行状况检查，并且可以转移到您选择的任何终端节点，无需理会位置。例如，您可以有一个在 AWS 外部的数据中心运行的历史应用程序和一个在 AWS 内运行的该应用程序的备份实例。您可以为在 AWS 外部运行的遗留应用程序设置运行状况检查，并且如果该应用程序未能通过运行状况检查，可以自动切换到 AWS 中的备份实例。</p> 
+        <p><b>问：如果发生故障转移并且我拥有多个运行正常的终端节点，那么 Route 53 在决定从故障终端节点发送流量时，是否会考虑运行正常的终端节点上的负载情况呢？</b></p> 
+        <p>不会，Route 53 不会根据终端节点的负载或可用流量来决定路由目标。您将需要确保您的终端节点有可用容量，或这些终端节点具有扩展能力，以处理流向故障终端节点的流量。</p> 
+        <p><b>问：终端节点需要未通过多少次连续运行状况检验观察才能视为“失败”？</b></p> 
+        <p>默认阈值为三次运行状况检验观察：当终端节点未通过三次连续的观察时，Route 53 将其视为失败。但是，Route 53 会继续对此终端节点执行运行状况检验观察，并在它通过三次连续的运行状况检验观察后重新向其发送流量。您可以将此阈值更改为 1 到 10 次观察之间的任何值。有关更多详细信息，请参阅 <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html">Amazon Route 53 开发人员指南</a>。</p> 
+        <p><b>问：当我的故障终端节点再次正常运行后，DNS 故障转移如何进行逆向转移呢？</b></p> 
+        <p>在失败的终端节点通过您在创建运行状况检查时指定的连续运行状况检验观察的次数后（默认阈值为三次观察），Route 53 将自动恢复其 DNS 记录，并且流向该终端节点的流量将在无需您操作的情况下恢复。</p> 
+        <p><b>问：运行状况检验观察之间的间隔是多长时间？</b></p> 
+        <p>默认情况下，运行状况检验观察每隔 30 秒执行一次。您可以选择快速观察间隔时间，如 10 秒。</p> 
+        <p>通过以高出三倍的频率执行检查，快速运行状况检查间隔允许 Route 53 更快地确认发生故障的终端节点，从而缩短 DNS 故障转移重定向流量以响应终端节点故障所需的时间。</p> 
+        <p>快速运行状况检查间隔还会向您的终端节点生成三倍数量的请求，如果您的终端节点用于支持 Web 流量的容量有限，可能需要考虑此因素。访问 <a href="http://aws.amazon.com/route53/pricing/">Route 53 定价页面</a>，获取关于快速间隔运行状况检查和其他可选运行状况检查功能定价的详细信息。有关更多详细信息，请参阅 <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html">Amazon Route 53 开发人员指南</a>。</p> 
+        <p><b>问：预计运行状况检查会在终端节点（例如，Web 服务器）上生成多少负载？</b></p> 
+        <p>每次运行状况检查都是从全球多个位置执行的。数量和位置集都是可配置的，对于使用 Amazon Route 53 控制台或 API 从多少个位置执行每个运行状况检查，是可以修改的。每个位置都将以您所选的间隔单独检查终端节点：默认间隔（30 秒）或可选的快速间隔（10 秒）。基于当前默认的运行状况检查位置数量，执行标准间隔运行状况检查时，您的终端节点平均每 2-3 秒收到一个请求，而执行快速间隔运行状况检查时，您会每秒收到一个或多个请求。</p> 
+        <p><b>问：Route 53 运行状况检查是否会跟踪 HTTP 重定向？</b></p> 
+        <p>否。Route 53 运行状况检查将 HTTP 3xx 代码视为成功的响应，因此不会跟踪重定向。这可能会导致字符串匹配运行状况检查出现异常结果。运行状况检查将在重定向的正文中搜索指定的字符串。由于运行状况检查不遵循重定向，它永远不会将请求发送到重定向所指向的位置，因此也永远不会从该位置获得响应。对于字符串匹配运行状况检查，我们建议您不要使用把运行状况检查指向某个将返回 HTTP 重定向的位置。</p> 
+        <p><b>问：进行故障转移时，将发生哪些事件？</b></p> 
+        <p>在最简单的条件中，如果运行状况检查未能通过需要进行转移，将发生以下事件：</p> 
+        <p>Route 53 对您的应用程序执行运行状况检查。在这个示例中，您的应用程序连续三次未能通过运行状况检查，从而触发以下事件。</p> 
+        <p>Route 53 禁用故障终端节点的资源记录并且不再服务于这些记录。这是故障转移步骤，它使流量路由到运行良好的终端节点，而不是故障终端节点。</p> 
+        <p><b>问：我是否需要调整我的 TTL 记录以便使用 DNS 故障转移？</b></p> 
+        <p>DNS 解析器用于缓存回复的时间是通过与各条记录关联的一个值设置的，它称为存活期 (TTL)。我们建议在使用 DNS 故障转移时，TTL 为 60 秒或更少，以尽量缩短使流量停止路由到故障终端节点所需的时间。为了配置 ELB 和 S3 网站终端节点的 DNS 故障转移，您需要使用 TTL 固定为 60 秒的别名记录；对于这些终端节点类型，您不需要调整 TTL 来使用 DNS 故障转移。</p> 
+        <p><b>问：如果我所有的终端节点都无法正常运行，将会怎样？</b></p> 
+        <p>Route 53 只能转移到运行良好的终端节点。如果资源记录集中没有运行良好的终端节点，Route 53 将当所有运行状况检查都通过进行处理。</p> 
+        <p><b>问：我是否能在不使用基于延迟的路由 (LBR) 的情况下使用 DNS 故障转移功能？</b></p> 
+        <p>是。您可以在不使用 LBR 的情况下配置 DNS 故障转移。尤其是，您可以使用 DNS 故障转移来配置简单的故障转移方案，其中 Route 53 监视您的主要网站并在您的主站点不可用时转移到备份站点。</p> 
+        <p><b>问：我是否能在仅可通过 HTTPS 访问的站点上配置运行状况检查？</b></p> 
+        <p>是。Route 53 支持通过 HTTPS、HTTP 或 TCP 的运行状况检查。</p> 
+        <p><b>问：HTTPS 运行状况检查是否会验证终端节点的 SSL 证书？</b></p> 
+        <p>不会，HTTPS 运行状况检查将测试是否能够通过 SSL 连接终端节点，以及终端节点是否会返回有效的 HTTP 响应代码。但是，它们不会验证终端节点返回的 SSL 证书。</p> 
+        <p><b>问：HTTPS 运行状况检查是否支持服务器名称指示 (SNI)？</b></p> 
+        <p>是的，HTTPS 健康检查支持 SNI。</p> 
+        <p><b>问：如何使用运行状况检查来验证我的 Web 服务器正在返回正确内容？</b></p> 
+        <p>您可以通过选择“启用字符串匹配”的选项来使用 Route 53 运行状况检查查看指定字符串是否存在于服务器响应中。此选项可用于检查 Web 服务器，验证其所服务的 HTML 包含预期字符串。或者您可以建立一个专用状态页面，使用它从内部或操作角度来检查服务器的运行状况。有关更多详细信息，请参阅 <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html">Amazon Route 53 开发人员指南</a>。</p> 
+        <p><b>问：如何查看我已创建的运行状况检查的状态？</b></p> 
+        <p>您可以在 Amazon Route 53 控制台中或通过 Route 53 API 查看运行状况检查的当前状态以及失败原因的详细信息。</p> 
+        <p>此外，每个运行状况检查的结果将作为 Amazon CloudWatch 指标进行发布，以显示终端节点的运行状况，也可选择性显示终端节点响应的延迟。您可以在 Amazon Route 53 控制台的运行状况检查选项卡中查看 Amazon CloudWatch 指标的图形，以查看运行状况检查的当前状态和历史状态。您也可为该指标创建 Amazon CloudWatch 警报，它将在运行状况检查的状态发生变化时发送通知。</p> 
+        <p>所有 Amazon Route 53 运行状况检查的 Amazon CloudWatch 指标也可以在 Amazon CloudWatch 控制台中查看。每个 Amazon CloudWatch 指标包含运行状况检查 ID（如 01beb6a3-e1c2-4a2b-a0b7-7031e9060a6a），您可使用它来识别该指标正在跟踪哪一个运行状况检查。</p> 
+        <p><b>问：如何使用 Amazon Route 53 评估应用程序终端节点的性能？</b></p> 
+        <p>Amazon Route 53 运行状况检查包含可选的延迟测量功能，它会就终端节点响应请求所花的时间提供相关数据。当您启用延迟测量功能后，Amazon Route 53 运行状况检查将生成额外的 Amazon CloudWatch 指标，以显示 Amazon Route 53 运行状况检查程序建立连接并开始接收数据所需的时间。Amazon Route 53 将为执行 Amazon Route 53 运行状况检查的每个 AWS 区域提供一组单独的延迟指标。</p> 
+        <p><b>问：如何收到某个终端节点运行状况不良的通知？</b></p> 
+        <p>因为每个 Route 53 运行状况检查的结果都作为 CloudWatch 指标来发布，所以您可以配置全范围的 CloudWatch 通知和自动操作（会在运行状况检查值变化到您指定的阈值以外时触发）。首先，在 Route 53 或 CloudWatch 控制台中，为运行状况检查指标配置一个 CloudWatch 警报。然后添加一个通知操作，指定您想要发布通知的电子邮件或 SNS 主题。请参阅 <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/monitoring-health-checks.html">Route 53 开发人员指南</a>以了解完整详情。</p> 
+        <p><b>问：我已经为运行状况检查创建了警报，但需要重新发送该警报的 SNS 主题的确认电子邮件。如何重新发送此电子邮件？</b></p> 
+        <p>可以从 SNS 控制台重新发送确认电子邮件。要找到与该警报相关的 SNS 主题的名称，请单击 Route 53 控制台内的警报名称，然后在带有“发送通知到”标签的框中查找。</p> 
+        <p>在 SNS 控制台中，展开主题的列表，然后从警报中选择主题。打开“Create Subscription”框并为协议选择电子邮件，然后输入所需的电子邮件地址。点击“Subscribe”将重新发送确认电子邮件。</p> 
+        <p><b>问：我正在使用 DNS 故障转移，同时将 Elastic Load Balancer (ELB) 用作终端节点。如何查看这些终端节点的状态？</b></p> 
+        <p>设置带有 ELB 终端节点的 DNS 故障转移的推荐方法是使用带有“Evaluate Target Health”选项的别名记录。因为您并未在使用此选项时针对 ELB 终端节点创建您自己的运行状况检查，所以这些终端节点并没有由 Route 53 生成的特定 CloudWatch 指标。</p> 
+        <p>您可以以两种方式获取有关负载均衡器的运行状况的指标。第一，Elastic Load Balancing 会发布负载均衡器的运行状况的指标，以及在负载均衡器上运行良好的实例数量的指标。有关配置针对 ELB 的 CloudWatch 指标的详细信息，请参阅 <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_MonitoringLoadBalancerWithCW.html">ELB 开发人员指南</a>。第二，您可以对照由 ELB 提供的别名记录（例如 elb-example-123456678.us-west-2.elb.amazonaws.com）创建您自己的运行状况检查。您不可将此运行状况检查用于 DNS 故障转移本身（因为“Evaluate Target Health”选项为您提供 DNS 故障转移），但是您可以查看此运行状况检查的 CloudWatch 指标，并创建在运行状况检查失败时通知您的警报。</p> 
+        <p>有关使用 ELB 终端节点进行 DNS 故障转移的完整的详细信息，请参阅 <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html">Route 53 开发人员指南</a>。</p> 
+        <p><b>问：对于指向 Amazon S3 网站存储桶的别名记录，当我将“Evaluate Target Health (评估目标运行状况)”设置为“true”时，将会检查哪些项目的运行状况？</b></p> 
+        <p>Amazon Route 53 在每个 AWS 区域执行 Amazon S3 服务本身的运行状况检查。当您在指向 Amazon S3 网站存储段的别名记录上启用“Evaluate Target Health”时，Amazon Route 53 会考虑存储段所处的 AWS 区域中的 Amazon S3 服务的运行状况。Amazon Route 53 不会检查特定的存储段是否存在或者是否包含有效网站内容；仅在存储段所处的 AWS 区域中没有可用的 Amazon S3 服务时，Amazon Route 53 才会故障转移至另一位置。</p> 
+        <p><b>问：使用 CloudWatch 指标来检查我的 Route 53 运行状况的费用是多少？</b></p> 
+        <p>针对 Route 53 运行状况检查的 CloudWatch 指标可供免费使用。</p> 
+        <p><b>问：我是否可以基于 CPU 负载、网络或内存等内部运行状况指标配置 DNS 故障转移？</b></p> 
+        <p>是。通过 Amazon Route 53 的基于指标的运行状况检查，您可以基于 Amazon CloudWatch 中提供的任何指标执行 DNS 故障转移，包括 AWS 提供的指标以及您的应用程序中的自定义指标。在 Amazon Route 53 中创建基于指标的运行状况检查时，只要相关 Amazon CloudWatch 指标进入警报状态，运行状况检查就会无法正常运行。</p> 
+        <p>基于指标的运行状况检查有助于对标准 Amazon Route 53 运行状况检查无法到达的终端节点（如 Virtual Private Cloud (VPC) 中只具有私有 IP 地址的实例）启用 DNS 故障转移。通过使用 Amazon Route 53 的计算运行状况检查功能，您还可以将基于指标的运行状况检查的结果与标准 Amazon Route 53 运行状况检查的结果结合起来，针对全球检查程序网络中的终端节点提出运行状况检查请求，从而完成更加高级的故障转移方案。例如，您可以创建这样一种配置：如果终端节点面向公众的网页无法访问或者 CPU 负载、网络输入/输出或磁盘读取次数等内部指标显示服务器本身运行不正常，该配置可使终端节点避免故障。</p> 
+        <p><b>问：我的 Web 服务器从 Route 53 健康检查收到了我没有创建的请求。我如何停止这些请求？</b></p> 
+        <p>有些时候，Amazon Route 53 客户会创建健康检查，其中指定了不属于他们的 IP 地址或域名。如果您的 Web 服务器收到了不需要的 HTTP(s) 请求，并且您跟踪到了 Amazon Route 53 运行状况检查，请<a href="https://aws.amazon.com/forms/route53-unwanted-healthchecks">使用此表单</a>来提供有关不需要的健康检查的信息，然后我们将与客户协作来更正此问题。</p> 
+        <p><b>问：如果指定域名作为我的运行状况检查目标，Amazon Route 53 是通过 IPv4 还是通过 IPv6 进行检查？</b></p> 
+        <p>如果您指定域名作为 Amazon Route 53 运行状况检查的终端节点，Amazon Route 53 将查找该域名的 IPv4 地址并使用 IPv4 连接至该终端节点。Amazon Route 53 不会尝试查找由域名指定的终端节点的 IPv6 地址。如果您想要通过 IPv6 而不是 IPv4 进行运行状况检查，请选择“IP 地址”而不是“域名”作为您的终端节点类型，然后在“IP 地址”字段中输入 IPv6 地址。</p> 
+        <p><b>问：哪里能找到由 Amazon Route 53 的 DNS 服务器和运行状况检查程序所使用的 IPv6 地址范围？</b></p> 
+        <p>AWS 现在以 JSON 格式发布其当前的 IP 地址范围。要查看当前范围，请使用以下链接下载该 .json 文件。如果您通过编程方式访问此文件，请确保应用程序仅在成功验证 AWS 服务器所返回的 TLS 证书后才下载该文件。</p> 
+        <p>下载 <a href="https://ip-ranges.amazonaws.com/ip-ranges.json">ip-ranges.json</a>。</p> 
+        <p>要找到 Route 53 服务器的 IP 范围，请在“服务”字段中搜索以下值：</p> 
+        <p>Route 53 DNS 服务器：搜索“ROUTE53”</p> 
+        <p>Route 53 运行状况检查程序：搜索“ROUTE53_HEALTHCHECKS”</p> 
+        <p>有关更多信息，请参阅《Amazon Web Services 一般参考》中的 <a href="http://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html">AWS IP 地址范围</a>。</p> 
+        <p>请注意，IPv6 地址范围可能尚未显示在此文件中。仅供参考，Amazon Route 53 运行状况检查程序的 IPv6 地址范围如下所示：</p> 
+        <p>2600:1f1c:7ff:f800::/53<br> 2a05:d018:fff:f800::/53<br> 2600:1f1e:7ff:f800::/53<br> 2600:1f1c:fff:f800::/53<br> 2600:1f18:3fff:f800::/53<br> 2600:1f14:7ff:f800::/53<br> 2600:1f14:fff:f800::/53<br> 2406:da14:7ff:f800::/53<br> 2406:da14:fff:f800::/53<br> 2406:da18:7ff:f800::/53<br> 2406:da1c:7ff:f800::/53<br> 2406:da1c:fff:f800::/53<br> 2406:da18:fff:f800::/53<br> 2600:1f18:7fff:f800::/53<br> 2a05:d018:7ff:f800::/53<br> 2600:1f1e:fff:f800::/53<br> 2620:107:300f::36b7:ff80/122<br> 2a01:578:3::36e4:1000/122<br> 2804:800:ff00::36e8:2840/122<br> 2620:107:300f::36f1:2040/122<br> 2406:da00:ff00::36f3:1fc0/122<br> 2620:108:700f::36f4:34c0/122<br> 2620:108:700f::36f5:a800/122<br> 2400:6700:ff00::36f8:dc00/122<br> 2400:6700:ff00::36fa:fdc0/122<br> 2400:6500:ff00::36fb:1f80/122<br> 2403:b300:ff00::36fc:4f80/122<br> 2403:b300:ff00::36fc:fec0/122<br> 2400:6500:ff00::36ff:fec0/122<br> 2406:da00:ff00::6b17:ff00/122<br> 2a01:578:3::b022:9fc0/122<br> 2804:800:ff00::b147:cf80/122</p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Domain_Name_Registration" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> 域名注册</h2> 
+       <div class="lb-rtxt"> 
+        <p><b>问：是否可以在 Amazon Route 53 注册域名？</b></p> 
+        <p>是。您可以使用 AWS 管理控制台或 API 通过 Route 53 注册新域名。您还可以请求将现有域名从其他注册机构转移到 Route 53 中进行管理。我们提供的域名注册服务遵循我们的<a href="https://aws.amazon.com/route53/domain-registration-agreement/">域名注册协议</a>。</p> 
+        <p><b>问：你们提供哪些顶级域名 (TLD)？</b></p> 
+        <p>Route 53 提供一般顶级域（“gTLD”：例如 .com 和 .net）和国家级顶级域（“ccTLD”：例如 .de 和 .fr）。有关完整列表，请参阅 <a href="https://d32ze2gidvkk54.cloudfront.net/Amazon_Route_53_Domain_Registration_Pricing_20140731.pdf">Route 53 域注册价格列表</a>。</p> 
+        <p><b>问：如何通过 Route 53 注册域名？</b></p> 
+        <p>要开始使用，请用您的账户登录并单击“域”。然后，单击蓝色的“注册域”大按钮并完成注册流程。</p> 
+        <p><b>问：注册一个域名要花多长时间？</b></p> 
+        <p>根据所选择的 TLD 的不同，注册可能需要几分钟到几小时不等的时间。成功注册域后，其会显示在您的账户中。</p> 
+        <p><b>问：注册域名要花多长时间？</b></p> 
+        <p>第一个注册期通常是一年，但有些顶级域名 (TLD) 的注册期会更长。如果您通过 Amazon Route 53 注册域名，或将域名注册工作转交给 Amazon Route 53，我们会将域名配置为自动续订。有关更多信息，请参阅《Amazon Route 53 开发人员指南》中的<a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-renew.html">续订域注册</a>。</p> 
+        <p><b>问：注册域名需要提供哪些信息？</b></p> 
+        <p>要注册域名，您需要提供域的注册申请人的联系信息，包括姓名、地址、电话和电子邮件地址。如果管理员和技术联系人不是同一人，您还需要提供他们的联系信息。</p> 
+        <p><b>问：注册域名为什么还要提供个人信息？</b></p> 
+        <p>作为域名注册管理主体的 ICANN 要求注册机构对每一条域名注册提供联系信息，包括姓名、地址和电话，且注册机构应该通过 Whois 数据库公布此信息。对于以个人（即非公司或组织）名义注册的域名，Route 53 提供免费的隐私保护，将您的个人电话、电子邮件地址和实际地址隐藏起来。作为替代，Whois 包含注册机构的名称和收信地址，以及注册机构生成的转发电子邮件地址，第三方可能根据需要使用该地址联系您。</p> 
+        <p><b>问：Route 53 对我已注册的域名是否提供隐私保护？</b></p> 
+        <p>是的，Route 53 免费提供隐私保护。隐私保护会隐藏您的电话号码、电子邮件地址和实际地址。如果 TLD 注册处和注册商允许，将会对您的姓名进行隐藏。您启用隐私保护后，针对域的 Whois 查询将分别用注册商的邮寄地址和名称替代您的实际地址和姓名（如果允许）。您的电子邮件地址将是由注册商生成的转发电子邮件地址，如有需要，第三方将使用这一地址与您联系。如果 TLD 注册处和注册商允许，由公司或组织注册的域名可享受隐私保护服务。</p> 
+        <p><b>问：哪里可以找到特定 TLD 的要求？</b></p> 
+        <p>有关 TLD 列表，请参阅<a href="https://d32ze2gidvkk54.cloudfront.net/Amazon_Route_53_Domain_Registration_Pricing_20140731.pdf">价目表</a>。如需每一条的特定注册要求，请参阅 <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Amazon Route 53 开发人员指南</a>和<a href="https://aws.amazon.com/route53/domain-registration-agreement/">域名注册协议</a>。</p> 
+        <p><b>问：注册域名用到的名称服务器有哪些？</b></p> 
+        <p>当域名创建完成后，我们会自动将您的域与四个唯一的 Route 53 名称服务器（也称为委派集）进行关联。您可以在 Amazon Route 53 控制台中查看域的委派集。委派集列于注册域时我们为您自动创建的托管区域中。</p> 
+        <p>根据默认，Route 53 将为每一个您创建的托管区域指派一个唯一的新委派。但是，您还可以使用 Route 53 API 来创建“可重复使用的委派集”，该委派集可于之后应用到多个您创建的托管区域。多于拥有大量域名的客户，可重复使用的委派集让迁移到 Route 53 变得简单，因为您可以通知您的域名服务公司对 Route 53 中托管的所有域名使用相同的委派集。此功能还可以让您创建“白标签”名称服务器地址，例如 ns1.example.com、ns2.example.com 等，并且可以将这些地址指派给您的 Route 53 名称服务器。然后可以使用“白标签”名称服务器地址作为任意数量域名的权威名称服务器。有关更多详细信息，请参阅 <a href="http://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html">Amazon Route 53 文档</a>。</p> 
+        <p><b>问：会对我的名称服务器收费吗？</b></p> 
+        <p>我们会对 Route 53 为您的域名创建的托管区域收费，而且对于针对 Route 53 代表您提供服务的托管区域而进行的 DNS 查询也会收费。如果您不想因为 Route 53 的 DNS 服务而被收费，可以删除 Route 53 托管区域。请注意，某些 TLD 要求您必须拥有有效的名称服务器作为注册域名。对于这些 TLD 旗下的域名，您需要获得另一家供应商提供的 DNS 服务并输入该提供商的名称服务器地址，然后才可以安全地删除您的域名对应的 Route 53 托管区域。</p> 
+        <p><b>问：什么是 Amazon Registrar, Inc.？什么是备案注册机构？</b></p> 
+        <p>AWS 转售通过 ICANN 认可的注册机构注册的域名。Amazon Registrar, Inc. 是一家获得 ICANN 认可的 Amazon 公司，提供域名注册服务。备案注册机构是您域名的 WHOIS 记录中列出的“注册商”，以指示您的域名是在哪家注册机构注册的。</p> 
+        <p><b>问：Gandi 是怎样的一家公司？</b></p> 
+        <p>Gandi 是一家注册机构，Amazon 是其经销商。作为记录在案的注册机构，Gandi 在 ICANN 的要求下会在注册的开始阶段联系注册人以验证其联系信息。如果 Gandi 提出要求，您必须在起初的 15 天内验证您的联系信息，以免域名被终止。在域名需要续期前，Gandi 还会发出提醒通知。</p> 
+        <p><b>问：Amazon Route 53 通过 Amazon Registrar 注册了哪些顶级域名？哪些是通过 Gandi 注册的？</b></p> 
+        <p>有关您当前可以使用 Amazon Route 53 注册的域名列表，请参阅<a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">文档</a>。该列表包含以下信息：对于我们销售的每个 TLD，哪家注册机构是当前备案的注册机构。</p> 
+        <p><b>问：我能否将 .com 和 .net 域名注册从 Gandi 转移到 Amazon？</b></p> 
+        <p>不能。我们计划不久后增加该功能。</p> 
+        <p><b>问：什么是 Whois？ 为什么我的信息出现在 Whois 中？</b></p> 
+        <p>Whois 是一个公开开放的域名数据库，其中列出了与域名相关的联系信息和名称服务器。所有人均可使用常见的 Whois 指令来访问 Whois 数据库。许多操作系统中都包含了该指令，并且该指令也以网页应用程序的方式存在于许多网站中。Internet Corporation for Assigned Names and Numbers (ICANN) 要求所有域名要配有公开开放的联系信息，以保证万一有人需要联系域名主人时可以联系得上。</p> 
+        <p><b>问：如何将我的域名转移到 Route 53？</b></p> 
+        <p>要开始使用，请用您的账户登录并单击“域”。然后单击屏幕上方的“转移域”按钮并完成转移步骤。请在转移步骤开始前，确保以下各项：(1) 您的域名在您的当前注册机构处不是锁定状态；(2) 您已禁用域名的隐私保护（如果适用）；(3) 您已经获得当前注册机构的有效授权代码或“authcode”，该代码将用在转移步骤中输入。</p> 
+        <p><b>问：如何将现有的域名注册转移到 Amazon Route 53，而不干扰我现有的 Web 流量？</b></p> 
+        <p>首先，您需要获取您的域名的 DNS 记录数据列表，通常以“区域文件”的形式提供，您可以从现有的 DNS 提供商处获得。如果您已经得到了 DNS 记录数据，则可以使用 Route 53 的管理控制台或简单的 Web 服务界面来创建可以为您的域名储存 DNS 记录的托管区域，然后遵循其转移步骤操作，其中的步骤包括将域名的名称服务器更新为与托管区域关联的新的名称服务器。要完成域名转移步骤，请联系为您提供域名注册服务的注册机构，然后遵循其转移步骤操作，其中的步骤包括将域名的名称服务器更新为与托管区域关联的新的名称服务器。一旦注册商传播了新的名称服务器指派，来自您的最终用户的 DNS 查询将从 Route 53 DNS 服务器获得回答。</p> 
+        <p><b>问：如何查看转移请求的状态？</b></p> 
+        <p>您可以在 Route 53 控制台主页的“警报”部分中查看域名转移的状态。</p> 
+        <p><b>问：如果转移没有成功，我该怎么办？</b></p> 
+        <p>您应该与您的当前注册机构取得联系，确定转移失败的原因。只有在他们将问题解决后，您才可以重新提交您的转移请求。</p> 
+        <p><b>问：如何将我的域名转移到其他注册机构？</b></p> 
+        <p>为了将域名从 Route 53 移出，您需要向注册机构发起转移请求。他们会请求将域名移动到其管理范围内。</p> 
+        <p><b>问：使用 Amazon Route 53 管理域名是否有域名数量限制？</b></p> 
+        <p>每个新 Amazon Route 53 账户最多只能管理 50 个域。请填写<a href="https://aws.amazon.com/route53-request/">提高上限申请表</a>，我们将在两个工作日之内答复您的请求。</p> 
+        <p><b>问：Amazon Route 53 DNS 是否支持 DNSSEC？</b></p> 
+        <p>是的。您可以为现有的和新的公有托管区域启用 DNSSEC 签名。<br> </p> 
+        <p><b>问：如何将已启用 DNSSEC 的域名注册转移到 Amazon Route 53？</b></p> 
+        <p>请参阅我们的<a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-configure-dnssec.html">文档</a>，获取有关将已启用 DNSSEC 的域名转移到 Amazon Route 53 的分步指南。<br> </p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Route_53_Resolver" class="lb-txt-bold lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> Route 53 解析程序</h2> 
+       <div class="lb-rtxt"> 
+        <p><b>问：什么是 Amazon Route 53 解析程序？</b></p> 
+        <p>Route 53 解析程序是一种区域 DNS 服务，为 EC2 中托管的名称以及 Internet 上的公有名称提供递归 DNS 查找。默认情况下，此功能在每个 Amazon Virtual Private Cloud (VPC) 中都可用。对于混合云方案，您可以配置条件转发规则和 DNS 终端节点，在 AWS Direct Connect 和 AWS 托管 VPN 之间启用 DNS 解析。</p> 
+        <p><b>问：什么是递归 DNS？</b></p> 
+        <p>Amazon Route 53 既是权威 DNS 服务又是递归 DNS 服务。权威 DNS 包含 DNS 查询的最终答案，通常是 IP 地址。客户端（例如移动设备、在云中运行的应用程序或数据中心中的服务器）实际上并不直接与权威 DNS 服务通信，但极少数情况例外。相反，客户端与递归 DNS 服务（也称为 DNS 解析程序）通信，后者为任何 DNS 查询查找正确的权威答案。Route 53 解析程序是一种递归 DNS 服务。</p> 
+        <p>收到查询时，Route 53 解析程序等递归 DNS 服务可能会配置为自动将查询直接转发到特定的递归 DNS 服务器，也可能从域的根开始递归搜索并继续，直至找到最终答案。无论是哪种情况，一旦找到答案，递归 DNS 服务器就会将答案缓存一段时间，这样它可以在将来更快地回答对相同名称的后续查询。</p> 
+        <p><b>问：什么是条件转发规则？</b></p> 
+        <p>条件转发规则允许解析器将指定域的查询转发到您选择的目标 IP 地址，通常是本地 DNS 解析程序。规则在 VPC 级别应用，可以从一个账户进行管理，并在多个账户之间共享。</p> 
+        <p><b>问：什么是 DNS 终端节点？</b></p> 
+        <p>DNS 终端节点包括一个或多个连接到您的 Amazon Virtual Private Cloud (VPC) 的弹性网络接口 (ENI)。系统会为每个 ENI 分配其所在的 VPC 的子网空间中的 IP 地址。然后，此 IP 地址可用作本地 DNS 服务器的转发目标以转发查询。您要从 VPC 转发到网络的 DNS 查询流量以及通过 AWS Direct Connect 和托管 VPN 从网络转发到 VPC 的 DNS 查询流量都需要终端节点。<br> </p> 
+        <p><b>问：如何跨账户共享规则？</b></p> 
+        <p>Route 53 解析程序与 AWS Resource Access Manager (RAM) 集成，为客户提供了一种在 AWS 账户或 AWS 组织内共享资源的简单方法。可以在一个主账户中创建规则，然后使用 RAM 在多个账户之间共享。共享后，规则仍需要应用于这些账户中的 VPC 才能生效。有关更多信息，请参阅 AWS RAM <a href="https://docs.aws.amazon.com/ram/index.html#lang/en_us">文档</a>。<br> </p> 
+        <p><b>问：如果我决定停止与其他账户共享规则会怎么样？</b></p> 
+        <p>您以前与之共享的账户将不再使用这些规则。这意味着，如果这些规则与这些账户中的 VPC 相关联，则它们将与这些 VPC 取消关联。</p> 
+        <p><b>问：哪些区域对 Route 53 解析程序可用？</b></p> 
+        <p>访问我们的 <a href="https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/">AWS 区域表</a>，查看已推出 Route 53 解析程序的区域。</p> 
+        <p><b>问：Route 53 解析程序的区域性支持是否意味着所有 Amazon Route 53 现在都是区域性的？</b></p> 
+        <p>否。Amazon Route 53 公有和私有 DNS、流量、运行状况检查以及域名注册都是全球服务。</p> 
+        <p><b>问：如何开始使用 Route 53 解析程序？</b></p> 
+        <p>请访问 <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html">Amazon Route 53 开发人员指南</a>，了解有关入门的详细信息。您还可以从 Amazon Route 53 控制台配置解析程序。<br> </p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="lb-grid"> 
+     <div class="lb-row lb-row-max-large lb-snap"> 
+      <div class="lb-col lb-tiny-24 lb-mid-24"> 
+       <h2 id="Route_53_Resolver_DNS_Firewall" class="lb-txt-bold lb-txt-none lb-txt-24 lb-h2 lb-title" style="color:#232f3e;"> Route 53 Resolver DNS Firewall</h2> 
+       <div class="lb-rtxt"> 
+        <p><b>问：什么是 Amazon Route 53 Resolver DNS Firewall？</b></p> 
+        <p>答：Amazon Route 53 Resolver DNS Firewall 是一项功能，允许您在所有 Amazon Virtual Private Cloud (VPC) 中快速部署 DNS 保护。Route 53 Resolver DNS Firewall 允许您在使用 Route 53 Resolver 递归 DNS 解析时，阻止对已知的恶意域进行查询（即创建“拒绝名单”），并允许对可信域进行查询（创建“允许名单”）。您还可以使用 AWS 托管域列表快速开始针对常见 DNS 威胁进行保护。Amazon Route 53 Resolver DNS Firewall 与 AWS Firewall Manager 协同工作，因此您可以构建基于 DNS Firewall 规则的策略，然后跨多个 VPC 和账户集中应用这些策略。</p> 
+        <p><b>问：我何时应该使用 Route 53 Resolver DNS Firewall？</b></p> 
+        <p>答：如果您想过滤哪些域名可以在 VPC 中通过 DNS 查询，那么 DNS Firewall 就非常适合您。其从以下两个方面为您选择最适合您组织安全状况的配置提供了灵活性：(1) 如果您对 DNS 泄露有严格要求，想要拒绝对已批准域列表之外的域的所有出站 DNS 查询，您就可以为 DNS 安全性创建这种“围墙花园”式的规则。(2) 如果您的组织首选在默认情况下允许您账户内进行的所有出站 DNS 查找，只需要能够阻止对已知的恶意域进行 DNS 请求，您就可以使用 DNS Firewall 创建拒绝名单，包含您的组织已知的所有恶意域名。DNS Firewall 还带有 AWS 托管域列表，可帮助您防范可疑域和命令与控制 (C&amp;C) 机器人程序。</p> 
+        <p><b>问：Amazon Route 53 Resolver DNS Firewall 与 AWS 和 AWS Marketplace 上的其他防火墙产品有何不同？</b></p> 
+        <p>答：Route 53 Resolver DNS Firewall 能够为整个 VPC 提供对 Route 53 Resolver DNS 流量（如 AmazonProvidedDNS）的控制性和可见性，可作为 AWS 上现有网络和应用程序安全服务的补充。根据您用例的不同，您可以选择在现有安全控件（如 AWS Network Firewall、Amazon VPC 安全组、AWS Web 应用程序防火墙规则或 AWS Marketplace 设备）上实施 DNS Firewall。</p> 
+        <p><b>问：Amazon Route 53 Resolver DNS Firewall 能否管理多个 AWS 账户的安全性？</b></p> 
+        <p>答：可以。Route 53 Resolver DNS Firewall 是一种区域功能，可从组织和账户层面保护 Route 53 Resolver DNS 网络流量。如需维护多个账户的策略和治理，您应该使用 <a href="/cn/firewall-manager/">AWS Firewall Manager</a>。</p> 
+        <p><b>问：Amazon Route 53 Resolver DNS Firewall 如何收费？</b></p> 
+        <p>定价基于防火墙中存储的域名数量和检查的 DNS 查询数量。有关更多信息，请访问 <a href="/cn/route53/pricing/">Amazon Route 53 定价</a>。</p> 
+        <p><b>问：我可以使用哪些 AWS 工具来记录和监控我的 Amazon Route 53 Resolver DNS Firewall 活动？</b></p> 
+        <p>答：您可以将 DNS Firewall 活动记录到 Amazon S3 存储桶或 Amazon CloudWatch 日志组中，供进一步分析和调查。您还可以使用 Amazon Kinesis Firehose 将日志发送给第三方提供商。<br> </p> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </main>
