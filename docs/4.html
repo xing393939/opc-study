@@ -263,7 +263,7 @@
 <li>io2 Express&#xFF1A;25.6w IOPS</li>
 <li>Throughput Optimized HDD &#xFF08;st1&#xFF09;&#xFF1A;500 IOPS&#xFF0C;&#x9002;&#x5408;&#x987A;&#x5E8F;IO&#xFF0C;&#x9891;&#x7E41;&#x8BBF;&#x95EE;</li>
 <li>Cold HDD &#xFF08;sc1&#xFF09;&#xFF1A;250 IOPS&#xFF0C;&#x9002;&#x5408;&#x987A;&#x5E8F;IO&#xFF0C;&#x975E;&#x9891;&#x7E41;&#x8BBF;&#x95EE;</li>
-<li>Instance Store&#xFF1A;200w IOPS&#xFF0C;&#x5173;&#x673A;&#x6570;&#x636E;&#x4E22;&#x5931;</li>
+<li>Instance Store&#xFF1A;200w IOPS&#xFF0C;&#x5173;&#x673A;&#x6570;&#x636E;&#x4E22;&#x5931;&#xFF1B;hibernate&#x6570;&#x636E;&#x4E5F;&#x4F1A;&#x4E22;&#x5931;</li>
 <li>&#x7279;&#x70B9;1&#xFF1A;io1/io2 &#x73B0;&#x5728;&#x652F;&#x6301;Multi-Instance-Attach</li>
 <li>&#x7279;&#x70B9;2&#xFF1A;st1&#x548C;sc1&#x4E0D;&#x80FD;&#x4F5C;&#x4E3A;&#x542F;&#x52A8;&#x5377;&#xFF0C;&#x5176;&#x4ED6;&#x5305;&#x62EC;&#x4E0A;&#x4E00;&#x4EE3;&#x7684;&#x78C1;&#x4ECB;&#x8D28;&#x90FD;&#x53EF;&#x4EE5;</li>
 </ol>
@@ -279,10 +279,11 @@
 <li>Intelligent&#xFF1A;&#x667A;&#x80FD;</li>
 <li>Standard-IA&#xFF1A;&#x4E0D;&#x7ECF;&#x5E38;&#x8BBF;&#x95EE;&#x3001;&#x53D6;&#x56DE;&#x6709;&#x8D39;&#x7528;&#xFF1B;&#x4E0A;&#x4F20;&#x540E;&#x7B49;30&#x5929;&#x3001;&#x6587;&#x4EF6;&gt;128K&#x624D;&#x80FD;&#x5207;&#x5230;&#x6B64;&#x7C7B;&#x578B;</li>
 <li>One Zone-IA&#xFF1A;&#x5355;AZ&#xFF1B;&#x4E0A;&#x4F20;&#x540E;&#x7B49;30&#x5929;&#x3001;&#x6587;&#x4EF6;&gt;128K&#x624D;&#x80FD;&#x5207;&#x5230;&#x6B64;&#x7C7B;&#x578B;</li>
-<li>Glacier&#xFF1A;&gt;90&#x5929;&#xFF0C;&#x53D6;&#x56DE;&#x65F6;&#x95F4;1m~12h</li>
+<li>Glacier&#xFF1A;&gt;90&#x5929;&#xFF0C;&#x53D6;&#x56DE;&#x65F6;&#x95F4;1m~12h&#xFF1B;&#x4E0D;&#x80FD;&#x88AB;Athena&#x67E5;&#x8BE2;</li>
 <li>Glacier Deep Archive&#xFF1A;&gt;180&#x5929;&#xFF0C;&#x53D6;&#x56DE;&#x65F6;&#x95F4;12h~48h</li>
 <li>&#x7279;&#x70B9;1&#xFF1A;S3 cross-Region replication &#x53EA;&#x80FD;&#x590D;&#x5236;&#x65B0;&#x589E;&#x6587;&#x4EF6;&#xFF0C;&#x8001;&#x6587;&#x4EF6;&#x53EF;&#x4EE5;&#x7528;s3 sync&#x547D;&#x4EE4;</li>
 <li>&#x7279;&#x70B9;2&#xFF1A;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;default setting&#x6216;&#x8005;&#x663E;&#x5F0F;&#x8BBE;&#x7F6E;&#x6587;&#x4EF6;&#x4FDD;&#x7559;&#x65F6;&#x957F;&#xFF0C;&#x540C;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x4E0D;&#x540C;&#x7248;&#x672C;&#x7684;&#x4FDD;&#x7559;&#x65F6;&#x957F;&#x53EF;&#x4EE5;&#x4E0D;&#x4E00;&#x6837;</li>
+<li>&#x7279;&#x70B9;3&#xFF1A;S3 is strongly consistent for all GET, PUT and LIST operations</li>
 </ol>
 </li>
 <li>EBS &#x7684;&#x4F18;&#x70B9;&#xFF1A;<ol>
@@ -303,6 +304,7 @@
 <li>step scaling&#xFF1A;&#x53EF;&#x8BBE;&#x591A;&#x4E2A;&#x95E8;&#x69DB;&#xFF0C;&#x4F8B;&#x5982;&gt;50%&#x52A0;1&#x4E2A;&#x5B9E;&#x4F8B;&#xFF0C;&gt;60%&#x52A0;2&#x4E2A;&#x5B9E;&#x4F8B;&#xFF0C;&#x6CA1;&#x6709;&#x51B7;&#x5374;&#x65F6;&#x95F4;</li>
 <li>target tracking&#xFF1A;&#x53EA;&#x8BBE;&#x4E00;&#x4E2A;&#x95E8;&#x69DB;&#xFF08;1&#x5206;&#x949F;&#x68C0;&#x67E5;&#x4E00;&#x6B21;&#xFF0C;3&#x6B21;&#x8D85;&#x6807;&#x5C31;xx&#xFF09;&#xFF0C;&#x50BB;&#x74DC;&#x5F0F;&#x7684;&#xFF0C;&#x76EE;&#x7684;&#x662F;&#x4FDD;&#x6301;&#x5728;&#x8FD9;&#x4E2A;&#x95E8;&#x69DB;&#x503C;&#x9644;&#x8FD1;</li>
 <li>scheduled scaling</li>
+<li>&#x7279;&#x70B9;1&#xFF1A;scaling activity&#xFF0C;&#x5148;terminate unhealthy instance&#xFF0C;&#x5728;&#x8D77;&#x65B0;&#x7684;instance&#xFF1B;rebalancing activity &#x5219;&#x76F8;&#x53CD;</li>
 </ol>
 </li>
 <li>Auto Scaling Group terminate &#x7B56;&#x7565;<ol>
@@ -356,6 +358,8 @@
 <li>RDS Multi-AZ follows synchronous replication and spans at least two AZ. Read replicas follow asynchronous replication  </li>
 <li>RDS &#x4E00;&#x4E2A;&#x6CA1;&#x6709;&#x52A0;&#x5BC6;&#x7684;instance&#xFF0C;&#x4E0D;&#x80FD;&#x66F4;&#x6539;&#x52A0;&#x5BC6;&#xFF1B;&#x4E0D;&#x80FD;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x52A0;&#x5BC6;&#x7684;replica&#xFF1B;&#x53EA;&#x80FD;&#x5148;&#x521B;&#x5EFA;snapshot&#xFF0C;&#x4ECE;snapshot&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x52A0;&#x5BC6;&#x7684;instance</li>
 <li>RDS &#x6CA1;&#x6709;&#x81EA;&#x7B7E;&#x540D;&#x8BC1;&#x4E66;</li>
+<li>RDS Multi-AZ &#x66F4;&#x65B0;&#x8865;&#x4E01;&#xFF1A;&#x5148;&#x66F4;&#x65B0;standby&#x628A;&#x5B83;&#x63D0;&#x4E3A;primary&#xFF0C;&#x518D;&#x66F4;&#x65B0;&#x65E7;primary&#x628A;&#x5B83;&#x63D0;&#x4E3A;standby</li>
+<li>RDS Multi-AZ &#x5347;&#x7EA7;&#x7248;&#x672C;&#xFF1A;standby&#x548C;primary&#x540C;&#x65F6;&#x66F4;&#x65B0;&#xFF0C;&#x4F1A;&#x6709;downtime</li>
 </ol>
 </li>
 </ol>
@@ -370,12 +374,12 @@
 </ol>
 </li>
 <li>&#x9632;&#x706B;&#x5899;<ol>
-<li>AWS Firewall Manager&#xFF1A;simplifies your AWS WAF and AWS Shield Advanced administration and maintenance tasks across multiple accounts and resources.</li>
+<li>AWS Firewall Manager&#xFF1A;simplifies your AWS WAF and AWS Shield and VPC Security Groups administration across multiple accounts and resources.</li>
 <li>Amazon GuardDuty&#xFF1A;&#x4E00;&#x79CD;&#x667A;&#x80FD;&#x5A01;&#x80C1;&#x68C0;&#x6D4B;&#x670D;&#x52A1;&#xFF0C;&#x901A;&#x8FC7; CloudTrail &#x65E5;&#x5FD7;&#x3001;VPC &#x6D41;&#x65E5;&#x5FD7;&#x3001;DNS &#x65E5;&#x5FD7;&#x5206;&#x6790;&#x51FA;&#x8D26;&#x6237;&#x76D7;&#x7528;&#x3001;&#x5B58;&#x50A8;&#x6876;&#x5165;&#x4FB5;&#x3001;&#x5F02;&#x5E38; API &#x8C03;&#x7528;&#x3001;&#x6076;&#x610F; IP &#x7B49;&#x6D3B;&#x52A8;&#xFF0C;&#x5E76;&#x81EA;&#x52A8;&#x5316;&#x54CD;&#x5E94;&#x3002;</li>
 <li>Amazon Macie&#xFF1A;&#x5728;S3&#x4E2D;&#x5206;&#x6790;&#x51FA;&#x654F;&#x611F;&#x5185;&#x5BB9;&#xFF0C;&#x5982;&#x5BC6;&#x94A5;&#x3001;&#x5BC6;&#x7801;&#x3001;&#x8EAB;&#x4EFD;&#x8BC1;&#x7B49;&#x7136;&#x540E;&#x63D0;&#x9192;&#x4F60;</li>
 <li>Amazon Inspector&#xFF1A;&#x68C0;&#x67E5;EC2&#x5B9E;&#x4F8B;&#x662F;&#x5426;&#x5B58;&#x5728;&#x610F;&#x5916;&#x7684;&#x7F51;&#x7EDC;&#x53EF;&#x8BBF;&#x95EE;&#x6027;&#x548C;&#x6F0F;&#x6D1E;&#x3002;</li>
 <li>AWS WAF&#xFF1A;&#x4E03;&#x5C42;&#x534F;&#x8BAE;&#x7684;&#x9632;&#x62A4;&#xFF08;ALB, API Gateway, CloudFront&#xFF09;&#xFF0C;&#x529F;&#x80FD;&#x6709;ACL&#xFF08;&#x5C01;ip&#x3001;header&#x3001;url&#xFF09;&#x3001;SQL&#x6CE8;&#x5165;&#x3001;XSS&#x3001;XSS&#x3001;Rate-based for DDoS&#x3002;</li>
-<li>AWS Shield&#xFF1A;&#x4E09;&#x5C42;/&#x56DB;&#x5C42;&#x534F;&#x8BAE;&#x3001;&#x9AD8;&#x7EA7;&#x7684;DDoS&#x9632;&#x62A4;&#xFF0C;&#x6807;&#x51C6;&#x7248;&#x514D;&#x8D39;&#x3001;&#x9AD8;&#x7EA7;&#x7248;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;EIP&#x3001;ELB&#x3001;CloudFront&#x3001;Global Accelerator&#x3001;Route 53&#x3002;</li>
+<li>AWS Shield&#xFF1A;&#x4E09;&#x5C42;/&#x56DB;&#x5C42;&#x534F;&#x8BAE;&#x3001;&#x9AD8;&#x7EA7;&#x7684;DDoS&#x9632;&#x62A4;&#xFF0C;&#x6807;&#x51C6;&#x7248;&#x514D;&#x8D39;&#x3001;&#x9AD8;&#x7EA7;&#x7248;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;EIP&#x3001;ELB&#x3001;CloudFront&#x3001;Global Accelerator&#x3001;Route53&#x3002;&#x6CA1;&#x6709;rate-based rules</li>
 </ol>
 </li>
 <li>&#x5B58;&#x50A8;&#x6570;&#x636E;&#x5E93;&#x5BC6;&#x7801;&#x3001;API&#x5BC6;&#x94A5;&#x7684;&#x65B9;&#x6848;&#xFF1A;<ol>
@@ -504,7 +508,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.AWS认证","level":"1.5","depth":1,"next":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"path":"docs/5.md","ref":"docs/5.md","articles":[]},"previous":{"title":"3.高性能MySQL","level":"1.4","depth":1,"path":"docs/3.md","ref":"docs/3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/4.md","mtime":"2021-07-13T11:06:55.460Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-13T11:07:27.868Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.AWS认证","level":"1.5","depth":1,"next":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"path":"docs/5.md","ref":"docs/5.md","articles":[]},"previous":{"title":"3.高性能MySQL","level":"1.4","depth":1,"path":"docs/3.md","ref":"docs/3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/4.md","mtime":"2021-07-13T15:15:13.391Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-13T15:15:43.903Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
