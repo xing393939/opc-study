@@ -250,9 +250,9 @@
 <li>AWS FAQs <a href="https://aws.amazon.com/faqs/" target="_blank">https://aws.amazon.com/faqs/</a></li>
 <li>WhitePapers <a href="https://aws.amazon.com/cn/whitepapers/" target="_blank">https://aws.amazon.com/cn/whitepapers/</a></li>
 <li>HTML&#x8F6C;PDF&#xFF1A;&#x5148;&#x8F6C;word&#xFF0C;&#x518D;&#x7528;wps&#x8F6C;pdf</li>
-<li>&#x89C6;&#x9891;&#xFF1A;<a href="https://www.udemy.com/course/aws-certified-solutions-architect-associate-amazon-practice-exams-saa-c02/" target="_blank">https://www.udemy.com/course/aws-certified-solutions-architect-associate-amazon-practice-exams-saa-c02/</a></li>
+<li>&#x89C6;&#x9891;&#xFF1A;<a href="https://www.udemy.com/course/aws-certified-solutions-architect-associate-saa-c02/" target="_blank">https://www.udemy.com/course/aws-certified-solutions-architect-associate-saa-c02/</a></li>
 <li>&#x7EC3;&#x4E60;1&#xFF1A;<a href="https://www.udemy.com/course/aws-certified-solutions-architect-associate-amazon-practice-exams-saa-c02/" target="_blank">https://www.udemy.com/course/aws-certified-solutions-architect-associate-amazon-practice-exams-saa-c02/</a></li>
-<li>&#x7EC3;&#x4E60;2&#xFF1A;<a href="https://www.udemy.com/course/aws-certified-solutions-architect-associate-practice-tests-k/" target="_blank">https://www.udemy.com/course/aws-certified-solutions-architect-associate-practice-tests-k/</a></li>
+<li>&#x7EC3;&#x4E60;2&#xFF1A;<a href="https://www.udemy.com/course/practice-exams-aws-certified-solutions-architect-associate" target="_blank">https://www.udemy.com/course/practice-exams-aws-certified-solutions-architect-associate</a></li>
 </ol>
 <h4 id="&#x7B14;&#x8BB0;">&#x7B14;&#x8BB0;</h4>
 <ol>
@@ -271,7 +271,8 @@
 <li>file storage&#xFF1A;<ol>
 <li>Amazon Elastic File System&#xFF1A;50w IOPS&#xFF0C;&#x591A;ec2&#x5171;&#x4EAB;&#xFF0C;&#x5BB9;&#x91CF;&#x4E0D;&#x9650;&#x3002;pay-as-you-use</li>
 <li>Amazon FSx for Windows&#xFF1A;network filesystem for Windows&#xFF0C;&#x5BB9;&#x91CF;64T</li>
-<li>Amazon FSx For Lustre&#xFF1A;high-performance&#xFF0C;&#x5BB9;&#x91CF;&#x4E0D;&#x9650;&#xFF1B;&#x53EF;&#x548C;S3&#x9AD8;&#x5EA6;&#x96C6;&#x6210;</li>
+<li>Amazon FSx For Lustre&#xFF1A;high-performance&#xFF0C;&#x5BB9;&#x91CF;&#x4E0D;&#x9650;&#xFF1B;&#x53EF;&#x548C;S3&#x9AD8;&#x5EA6;&#x96C6;&#x6210;&#xFF1B;&#x9002;&#x5408; HPC(high-performance computing)</li>
+<li>EFS&#x7684;&#x6A21;&#x5F0F;&#xFF1A;&#x6027;&#x80FD;&#x6A21;&#x5F0F;&#xFF08;GP&#x3001;MAX IO&#xFF09;&#x3001;&#x541E;&#x5410;&#x91CF;&#x6A21;&#x5F0F;&#xFF08;Provisioned&#x3001;Bursting&#xFF09;&#x3001;&#x5B58;&#x50A8;&#x6A21;&#x5F0F;&#xFF08;Standard&#x3001;Infrequent Access&#xFF09;</li>
 </ol>
 </li>
 <li>object storage&#xFF1A;S3&#xFF0C;&#x5982;&#x679C;&#x51FA;&#x73B0;file storage&#x5219;&#x4E0D;&#x80FD;&#x9009;S3<ol>
@@ -360,6 +361,8 @@
 <li>RDS &#x6CA1;&#x6709;&#x81EA;&#x7B7E;&#x540D;&#x8BC1;&#x4E66;</li>
 <li>RDS Multi-AZ &#x66F4;&#x65B0;&#x8865;&#x4E01;&#xFF1A;&#x5148;&#x66F4;&#x65B0;standby&#x628A;&#x5B83;&#x63D0;&#x4E3A;primary&#xFF0C;&#x518D;&#x66F4;&#x65B0;&#x65E7;primary&#x628A;&#x5B83;&#x63D0;&#x4E3A;standby</li>
 <li>RDS Multi-AZ &#x5347;&#x7EA7;&#x7248;&#x672C;&#xFF1A;standby&#x548C;primary&#x540C;&#x65F6;&#x66F4;&#x65B0;&#xFF0C;&#x4F1A;&#x6709;downtime</li>
+<li>RDS &#x548C; Aurora &#x90FD;&#x6709;storage auto-scaling</li>
+<li>&#x5171;&#x4EAB;&#x6570;&#x636E;&#x5E93;&#x7ED9;&#x5BA1;&#x8BA1;&#x90E8;&#x95E8;&#xFF1A;&#x5171;&#x4EAB; encrypted snapshot, &#x518D;&#x5171;&#x4EAB; KMS encryption key</li>
 </ol>
 </li>
 </ol>
@@ -367,7 +370,7 @@
 <li>SQS&#x3001;SNS&#x3001;SWF&#x3001;Step functions<ol>
 <li>SQS retention period is from 1 minute to 14 days</li>
 <li>SQS &#x7684; ReceiveMessageWaitTimeSeconds &#x9ED8;&#x8BA4;&#x662F;0&#xFF0C;&#x8868;&#x793A; Short polling&#xFF0C;&#x5982;&#x679C;&#x5927;&#x4E8E;0&#xFF0C;&#x5219;&#x662F; Long polling</li>
-<li>SQS FIFO support 3000 messages per second with batching, or up to 300 messages per second</li>
+<li>SQS FIFO support 3000 messages per second with batching, or up to 300 messages per second&#xFF1B;&#x53EF;&#x4EE5;&#x6D88;&#x606F;&#x5206;&#x7EC4;</li>
 <li>SNS &#x4E5F;&#x80FD;&#x89E6;&#x53D1;lambda</li>
 <li>Simple Workflow Service (SWF)&#xFF1A;creating a decoupled architecture in AWS&#xFF1B;&#x4E0D;&#x4F1A;&#x91CD;&#x590D;&#x6D88;&#x8D39;&#x4EFB;&#x52A1;&#xFF1B;&#x9002;&#x5408;ec2&#xFF0C;&#x5DF2;&#x8FC7;&#x65F6;&#xFF0C;&#x9664;&#x975E;&#x6709;&#x7236;&#x5B50;&#x8FDB;&#x7A0B;&#x4FE1;&#x53F7;&#x624D;&#x7528;</li>
 <li>Step functions&#xFF1A;&#x9002;&#x5408;lambda&#x3001;ECS&#x3001;API Gateway&#xFF1B;&#x66FF;&#x4EE3;SWF</li>
@@ -427,9 +430,10 @@
 </li>
 <li>&#x5927;&#x6570;&#x636E;<ol>
 <li>AWS Kinesis Firehose&#xFF1A;&#x662F;&#x4E00;&#x4E2A;&#x6D88;&#x5316;&#x7BA1;&#x9053;&#xFF0C;&#x5EF6;&#x8FDF;60&#x79D2;&#xFF0C;&#x4E0D;&#x52A0;&#x5904;&#x7406;&#x7684;&#x4F20;&#x7ED9;S3&#x3001;Redshift&#x3001;ElasticSearch&#xFF1B;&#x7A0B;&#x5E8F;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x6D88;&#x8D39;&#x5B83;</li>
-<li>AWS Kinesis Streams&#xFF1A;&#x662F;&#x5B9E;&#x65F6;&#x548C;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#xFF0C;&#x5EF6;&#x8FDF;1&#x79D2;&#xFF0C;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x5904;&#x7406;&#x6570;&#x636E;&#xFF1B;&#x9ED8;&#x8BA4;&#x4FDD;&#x7559;&#x6570;&#x636E;1&#x5929;&#xFF1B;&#x7A0B;&#x5E8F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x6D88;&#x8D39;&#x5B83;&#xFF1B;&#x5173;&#x952E;&#x5B57;&#xFF1A;real-time analytics</li>
+<li>AWS Kinesis Streams&#xFF1A;&#x662F;&#x5B9E;&#x65F6;&#x548C;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#xFF0C;&#x5EF6;&#x8FDF;1&#x79D2;&#xFF0C;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x5904;&#x7406;&#x6570;&#x636E;&#xFF1B;&#x9ED8;&#x8BA4;&#x4FDD;&#x7559;&#x6570;&#x636E;1&#x5929;&#xFF1B;&#x7A0B;&#x5E8F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x6D88;&#x8D39;&#x5B83;&#xFF1B;&#x5173;&#x952E;&#x5B57;&#xFF1A;real-time analytics&#xFF1B;&#x6D88;&#x606F;&#x662F;&#x6709;&#x5E8F;&#x7684;</li>
 <li>AWS Redshift&#xFF1A;&#x652F;&#x6301;OLAP&#xFF0C;&#x4E0D;&#x652F;&#x6301;ACID&#xFF0C;&#x662F;&#x6700;&#x7EC8;&#x4E00;&#x81F4;&#x6027;&#xFF1B;&#x4E0D;&#x80FD;&#x52A8;&#x6001;&#x6269;&#x5BB9;&#xFF1B;&#x4E9A;&#x79D2;&#x7EA7;&#x79D2;&#x54CD;&#x5E94;</li>
 <li>AWS DynamoDB&#xFF1A;&#x652F;&#x6301;&#x6BEB;&#x79D2;&#x7EA7;&#x54CD;&#x5E94;</li>
+<li>&#x7279;&#x70B9;1&#xFF1A;Kinesis Agent&#x53EF;&#x4EE5;&#x5199;&#x5165;Kinesis Streams&#x3001;Kinesis Firehose&#xFF0C;&#x4F46;&#x662F;&#x5982;&#x679C;Kinesis Streams&#x5DF2;&#x7ECF;&#x8FDE;&#x63A5;&#x4E86;Kinesis Firehose&#xFF0C;&#x6B64;&#x65F6;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x5199;Kinesis Firehose</li>
 </ol>
 </li>
 <li>&#x5BB9;&#x707E;<ol>
@@ -462,6 +466,7 @@
 <li>AWS CloudWatch alarms &#x53EF;&#x4EE5;&#x89E6;&#x53D1;&#x7BA1;&#x7406;ec2&#x3001;lambda&#x3001;sns</li>
 <li>Amazon API Gateway &#x5229;&#x7528;&#x4EE4;&#x724C;&#x6876;&#x7B97;&#x6CD5;&#x6765;&#x9650;&#x5236;&#x8BF7;&#x6C42;&#x6570;</li>
 <li>AWS DMS as a bridge between Amazon S3 and Amazon Kinesis Data Streams</li>
+<li>IAM &#x4E09;&#x9A7E;&#x9A6C;&#x8F66;&#xFF1A;Organization SCP&#x3001;IAM permission boundaries&#x3001;IAM permissions</li>
 </ol>
 </li>
 </ol>
@@ -508,7 +513,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.AWS认证","level":"1.5","depth":1,"next":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"path":"docs/5.md","ref":"docs/5.md","articles":[]},"previous":{"title":"3.高性能MySQL","level":"1.4","depth":1,"path":"docs/3.md","ref":"docs/3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/4.md","mtime":"2021-07-13T15:15:13.391Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-13T15:15:43.903Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.AWS认证","level":"1.5","depth":1,"next":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"path":"docs/5.md","ref":"docs/5.md","articles":[]},"previous":{"title":"3.高性能MySQL","level":"1.4","depth":1,"path":"docs/3.md","ref":"docs/3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/4.md","mtime":"2021-07-14T06:40:21.830Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-14T06:40:45.689Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
