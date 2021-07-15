@@ -298,11 +298,11 @@
 </ol>
 <h4 id="auto-scaling-group">Auto Scaling Group</h4>
 <ol>
-<li>Auto Scaling Group &#x7279;&#x6027;<ol>
+<li>Auto Scaling Group &#x7279;&#x6027;<ul>
 <li>launch configuration &#x4F7F;&#x7528;&#x4E86;&#x5C31;&#x4E0D;&#x80FD;&#x4FEE;&#x6539;&#xFF0C;&#x8981;&#x4FEE;&#x6539;&#x5C31;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A; launch configuration&#xFF0C;&#x53EA;&#x80FD;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;type&#x7684;ec2</li>
 <li>launch template &#x6BD4;lc&#x65B0;&#xFF0C;&#x6709;&#x7248;&#x672C;&#x63A7;&#x5236;&#xFF0C;&#x80FD;&#x65B0;&#x5EFA;&#x591A;&#x4E2A;type&#x7684;ec2</li>
 <li>lifecycle hooks &#x53EF;&#x4EE5;&#x5BF9;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x4F7F;&#x7528; custom script </li>
-</ol>
+</ul>
 </li>
 <li>Auto Scaling Group scaling &#x7B56;&#x7565;<ul>
 <li>simple scaling&#xFF1A;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x95E8;&#x69DB;&#xFF0C;&#x8D85;&#x8FC7;&#x4F1A;&#x65B0;&#x589E;&#x5B9E;&#x4F8B;&#xFF0C;&#x4E3A;&#x4E86;&#x9632;&#x6B62;&#x9891;&#x7E41;&#x65B0;&#x589E;&#xFF0C;&#x9ED8;&#x8BA4;&#x6709;&#x51B7;&#x5374;&#x65F6;&#x95F4;&#xFF08;300&#x79D2;&#xFF09;</li>
@@ -310,6 +310,7 @@
 <li>target tracking&#xFF1A;&#x53EA;&#x8BBE;&#x4E00;&#x4E2A;&#x95E8;&#x69DB;&#xFF08;1&#x5206;&#x949F;&#x68C0;&#x67E5;&#x4E00;&#x6B21;&#xFF0C;3&#x6B21;&#x8D85;&#x6807;&#x5C31;xx&#xFF09;&#xFF0C;&#x50BB;&#x74DC;&#x5F0F;&#x7684;&#xFF0C;&#x76EE;&#x7684;&#x662F;&#x4FDD;&#x6301;&#x5728;&#x8FD9;&#x4E2A;&#x95E8;&#x69DB;&#x503C;&#x9644;&#x8FD1;</li>
 <li>scheduled scaling</li>
 <li>&#x7279;&#x70B9;1&#xFF1A;scaling activity&#xFF0C;&#x5148;terminate unhealthy instance&#xFF0C;&#x5728;&#x8D77;&#x65B0;&#x7684;instance&#xFF1B;rebalancing activity &#x5219;&#x76F8;&#x53CD;</li>
+<li>&#x7279;&#x70B9;2&#xFF1A;&#x591A;&#x4E2A;&#x7B56;&#x7565;&#x540C;&#x65F6;&#x88AB;&#x89E6;&#x53D1;&#xFF0C;scale-out&#x53D6;&#x6700;&#x5927;&#x6570;&#x91CF;&#x7684;&#x5B9E;&#x4F8B;</li>
 </ul>
 </li>
 <li>Auto Scaling Group terminate &#x7B56;&#x7565;<ul>
@@ -385,6 +386,7 @@
 <li>SNS &#x4E5F;&#x80FD;&#x89E6;&#x53D1;lambda</li>
 <li>Simple Workflow Service (SWF)&#xFF1A;creating a decoupled architecture in AWS&#xFF1B;&#x4E0D;&#x4F1A;&#x91CD;&#x590D;&#x6D88;&#x8D39;&#x4EFB;&#x52A1;&#xFF1B;&#x9002;&#x5408;ec2&#xFF0C;&#x5DF2;&#x8FC7;&#x65F6;&#xFF0C;&#x9664;&#x975E;&#x6709;&#x7236;&#x5B50;&#x8FDB;&#x7A0B;&#x4FE1;&#x53F7;&#x624D;&#x7528;</li>
 <li>Step functions&#xFF1A;&#x9002;&#x5408;lambda&#x3001;ECS&#x3001;API Gateway&#xFF1B;&#x66FF;&#x4EE3;SWF</li>
+<li>&#x7279;&#x70B9;1&#xFF1A;SQS message timers &#x53EF;&#x4EE5;&#x9488;&#x5BF9;&#x5355;&#x4E2A;&#x6D88;&#x606F;&#x8BBE;&#x7F6E;&#x5EF6;&#x8FDF;&#xFF1B;delay queues&#x5219;&#x9488;&#x5BF9;&#x5168;&#x5C40;</li>
 </ol>
 <h4 id="&#x9632;&#x706B;&#x5899;">&#x9632;&#x706B;&#x5899;</h4>
 <ol>
@@ -400,6 +402,8 @@
 <li>&#x540C;ip&#x591A;&#x57DF;&#x540D;https&#x652F;&#x6301;(SNI)&#xFF1A;CLB&#x4E0D;&#x652F;&#x6301;&#xFF0C;ALB&#x3001;ELB&#x3001;CloudFront&#x652F;&#x6301;</li>
 <li>&#x652F;&#x6301;websocket&#xFF1A;ALB&#x652F;&#x6301;&#xFF1B;ELB&#x4EC5;&#x652F;&#x6301;HTTP&#x3001;HTTPs&#x3001;TCP&#x3001;UDP&#x3001;TLS&#xFF0C;&#x53EF;&#x4EE5;&#x5728;ec2&#x5C42;&#x5B9E;&#x73B0;websocket&#xFF0C;&#x7136;&#x540E;&#x7528;TCP-&gt;ws&#xFF0C;TLS-&gt;wss&#x3002;</li>
 <li>&#x53EA;&#x6709;ALB&#x652F;&#x6301; path-based and host-based routing&#xFF0C;ELB&#x4E0D;&#x652F;&#x6301;Weighted Target Groups</li>
+<li>Connection Draining&#xFF1A;&#x5B9E;&#x4F8B;&#x4F1A;&#x591A;&#x4E00;&#x79CD;unregistering&#x72B6;&#x6001;&#xFF08;&#x5065;&#x5EB7;&#x68C0;&#x67E5;&#x5F02;&#x5E38;&#x4F46;&#x6CA1;&#x6709;&#x5B8C;&#x5168;&#x786E;&#x8BA4;&#xFF09;&#xFF0C;new&#x6216;&#x8005;in-flight&#x8BF7;&#x6C42;&#x4F1A;&#x5BFC;&#x5230;&#x5176;&#x4ED6;&#x673A;&#x5668;</li>
+<li>cross-zone &#x7279;&#x6027;&#xFF1A;&#x9ED8;&#x8BA4;LB&#x53EA;&#x6709;&#x5355;zone&#x7684;&#x80FD;&#x529B;&#xFF08;&#x5047;&#x8BBE;AZ1&#x6709;2&#x4E2A;ec2&#xFF0C;AZ2&#x6709;8&#x4E2A;ec2&#xFF0C;AZ1&#x548C;AZ2&#x53EA;&#x80FD;&#x540C;&#x65F6;&#x5206;&#x914D;50%&#xFF09;</li>
 </ol>
 <h4 id="&#x52A0;&#x901F;&#x4F20;&#x8F93;">&#x52A0;&#x901F;&#x4F20;&#x8F93;</h4>
 <ol>
@@ -460,9 +464,11 @@
 <li>lambda &#x6700;&#x957F;&#x6267;&#x884C;&#x65F6;&#x95F4;&#x662F;15&#x5206;&#x949F;&#xFF0C;&#x9ED8;&#x8BA4;&#x53EA;&#x6709;1000 qps&#x7684;&#x5E76;&#x53D1;</li>
 <li>AWS Organization &#x80FD;&#x7528; Service Control Policy (SCP) &#x63A7;&#x5236;&#x5B50;&#x8D26;&#x53F7;&#x7684;&#x8D44;&#x6E90;&#xFF0C;&#x6BD4;&#x5982;ec2&#x7684;&#x578B;&#x53F7;</li>
 <li>CloudFormation &#x53EF;&#x4EE5;&#x4E3A; template &#x914D;&#x7F6E; security configuration &#x4FDD;&#x8BC1;&#x7F51;&#x7EDC;&#x5B89;&#x5168;</li>
+<li>CloudFormation StackSets can deploy the same template across AWS accounts and regions</li>
 <li>EC2 Spot Block &#x53EF;&#x4EE5;&#x6709;1-6&#x5C0F;&#x65F6;&#x56FA;&#x5B9A;&#x9884;&#x7559;&#x65F6;&#x95F4;</li>
 <li>EC2 Scheduled Reserved &#x5FC5;&#x987B;&#x662F;&#x6BCF;&#x5929;&#x6709;&#x56FA;&#x5B9A;&#x65F6;&#x95F4;&#x6BB5;&#xFF08;&#x5468;&#x672B;&#x4E0D;&#x7528;&#x53EF;&#x4EE5;&#x5141;&#x8BB8;&#xFF09;</li>
 <li>EC2 &#x7684;AMI&#x955C;&#x50CF;&#x4F9D;&#x8D56;snapshot&#x7684;&#x5B58;&#x5728;</li>
+<li>EC2 Default instances&#x7684;&#x6BCD;&#x673A;&#x662F;&#x4E0D;&#x786E;&#x5B9A;&#x7684;&#xFF0C;Dedicated instances&#x7684;&#x6BCD;&#x673A;&#x662F;&#x5C5E;&#x4E8E;&#x540C;&#x4E00;&#x8D26;&#x53F7;&#x7684;&#xFF1B;Default instances&#x548C;Dedicated instances&#x53EF;&#x4EE5;&#x4E92;&#x76F8;&#x5207;&#x6362;</li>
 <li>ECS &#x7684;AmazonECSTaskExecutionRolePolicy&#x662F;&#x7528;&#x4E8E;agent&#x7684;&#xFF08;&#x62C9;&#x53D6;&#x955C;&#x50CF;&#x3001;&#x5199;&#x65E5;&#x5FD7;&#xFF09;&#xFF0C;taskRoleArn &#x5219;&#x662F;&#x8FD0;&#x884C;&#x65F6;&#x7684;&#x89D2;&#x8272;</li>
 <li>Route 53 &#x7684; geolocation&#xFF1A;&#x7EDD;&#x5BF9;&#x7684;&#x5730;&#x7406;&#xFF1B;geoproximity&#xFF1A;&#x57FA;&#x4E8E;&#x5730;&#x7406;&#x4F4D;&#x7F6E;&#x7684;&#x504F;&#x79FB;&#x8BBE;&#x7F6E;</li>
 <li>VPC sharing &#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x540C;&#x7EC4;&#x7EC7;&#x7684;&#x8D26;&#x53F7;&#x95F4;&#x5171;&#x4EAB;&#x5B50;&#x7F51;</li>
@@ -515,7 +521,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.AWS认证","level":"1.5","depth":1,"next":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"path":"docs/5.md","ref":"docs/5.md","articles":[]},"previous":{"title":"3.高性能MySQL","level":"1.4","depth":1,"path":"docs/3.md","ref":"docs/3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/4.md","mtime":"2021-07-15T03:37:11.485Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-15T03:37:40.549Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.AWS认证","level":"1.5","depth":1,"next":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"path":"docs/5.md","ref":"docs/5.md","articles":[]},"previous":{"title":"3.高性能MySQL","level":"1.4","depth":1,"path":"docs/3.md","ref":"docs/3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/4.md","mtime":"2021-07-15T08:29:24.743Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-15T08:29:53.229Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
