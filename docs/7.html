@@ -246,15 +246,31 @@
 <h4 id="&#x5B66;&#x4E60;">&#x5B66;&#x4E60;</h4>
 <ol>
 <li>Introduction</li>
-<li>Identity Access Management (IAM)<ol>
+<li>Identity Access Management (IAM)<ul>
 <li>You cannot nest IAM Groups. IAM &#x7528;&#x6237;&#x7EC4;&#x6CA1;&#x6709;&#x5C42;&#x7EA7;&#x3002;</li>
-</ol>
+</ul>
 </li>
-<li>Simple Storage Service (S3)</li>
-<li>CloudFront</li>
-<li>Snowball</li>
-<li>Storage Gateway</li>
-<li>Elastic Compute Cloud (EC2)</li>
+<li>Simple Storage Service (S3)<ul>
+<li>&#x5185;&#x7F51;ec2&#x8BBF;&#x95EE;s3&#x65B9;&#x6CD5;1&#xFF1A;&#x7528;NAT Gateway&#xFF0C;$0.045/h&#xFF0C;$0.045/GB</li>
+<li>&#x5185;&#x7F51;ec2&#x8BBF;&#x95EE;s3&#x65B9;&#x6CD5;2&#xFF1A;&#x7528;Gateway Endpoint&#xFF0C;$0.01/GB</li>
+</ul>
+</li>
+<li>CloudFront<ul>
+<li>An Origin Access Identity (OAI) is used for sharing private content via CloudFront</li>
+</ul>
+</li>
+<li>Snowball<ul>
+<li>Planes sometimes fly with snowball edges onboard so they can store large amounts of flight data</li>
+</ul>
+</li>
+<li>Storage Gateway<ul>
+<li>Cached Volumes differ as they do not store the entire dataset locally like Stored Volumes.</li>
+</ul>
+</li>
+<li>Elastic Compute Cloud (EC2)<ul>
+<li>EC2 Not billed if preparing to stop. Billed if preparing to hibernate</li>
+</ul>
+</li>
 <li>Elastic Block Store (EBS)</li>
 <li>Elastic Network Interfaces (ENI)</li>
 <li>Security Groups</li>
@@ -323,7 +339,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"7.AWS Github Study Guide","level":"1.8","depth":1,"previous":{"title":"6.AWS的其他服务","level":"1.7","depth":1,"path":"docs/6.md","ref":"docs/6.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/7.md","mtime":"2021-07-19T08:00:48.987Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-19T08:01:15.100Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"7.AWS Github Study Guide","level":"1.8","depth":1,"previous":{"title":"6.AWS的其他服务","level":"1.7","depth":1,"path":"docs/6.md","ref":"docs/6.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/7.md","mtime":"2021-07-20T10:00:54.712Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-20T10:01:23.669Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
