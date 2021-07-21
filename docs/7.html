@@ -271,15 +271,42 @@
 <li>EC2 Not billed if preparing to stop. Billed if preparing to hibernate</li>
 </ul>
 </li>
-<li>Elastic Block Store (EBS)</li>
-<li>Elastic Network Interfaces (ENI)</li>
-<li>Security Groups</li>
-<li>Web Application Firewall (WAF)</li>
-<li>CloudWatch</li>
-<li>CloudTrail</li>
-<li>Elastic File System (EFS)</li>
-<li>Amazon FSx for Windows</li>
-<li>Amazon FSx for Lustre</li>
+<li>Elastic Block Store (EBS)<ul>
+<li>The easiest way to move an EC2 instance and a volume to another availability zone is to take a snapshot.</li>
+</ul>
+</li>
+<li>Elastic Network Interfaces (ENI)<ul>
+<li>You can attach the ENI to a hot standby instance.</li>
+</ul>
+</li>
+<li>Security Groups<ul>
+<li>Security Groups are regional and can span AZs</li>
+</ul>
+</li>
+<li>Web Application Firewall (WAF)<ul>
+<li>WAF can either allow the request by serving the requested content or return an HTTP 403 Forbidden status.</li>
+</ul>
+</li>
+<li>CloudWatch<ul>
+<li>CloudWatch Alarms Actions can be an Amazon EC2 action, Auto Scaling action, or SNS.</li>
+</ul>
+</li>
+<li>CloudTrail<ul>
+<li>By default, CloudTrail Events log files are encrypted using Amazon S3 SSE.</li>
+</ul>
+</li>
+<li>Elastic File System (EFS)<ul>
+<li>EFS using the NFSv4 protocol. This makes it required to open up the NFS port for our security group.</li>
+</ul>
+</li>
+<li>Amazon FSx for Windows<ul>
+<li>You can use Microsoft Active Directory to authenticate into the file system.</li>
+</ul>
+</li>
+<li>Amazon FSx for Lustre<ul>
+<li>FSx Lustre has the ability to store and retrieve data directly on S3 on its own.</li>
+</ul>
+</li>
 <li>Relational Database Service (RDS)</li>
 <li>Aurora</li>
 <li>DynamoDB</li>
@@ -339,7 +366,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"7.AWS Github Study Guide","level":"1.8","depth":1,"previous":{"title":"6.AWS的其他服务","level":"1.7","depth":1,"path":"docs/6.md","ref":"docs/6.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/7.md","mtime":"2021-07-20T10:00:54.712Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-20T10:01:23.669Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"7.AWS Github Study Guide","level":"1.8","depth":1,"previous":{"title":"6.AWS的其他服务","level":"1.7","depth":1,"path":"docs/6.md","ref":"docs/6.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/7.md","mtime":"2021-07-21T03:53:02.426Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-21T03:53:38.970Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
