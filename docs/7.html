@@ -307,9 +307,27 @@
 <li>FSx Lustre has the ability to store and retrieve data directly on S3 on its own.</li>
 </ul>
 </li>
-<li>Relational Database Service (RDS)</li>
-<li>Aurora</li>
-<li>DynamoDB</li>
+<li>Relational Database Service (RDS)<ul>
+<li>RDS is not serverless. There is Aurora serverless however which serves a niche purpose.</li>
+<li>A SQS queue however ensures that writes to the DB do not become lost.</li>
+<li>Multi-AZ creates a primary DB instance and synchronously replicates the data to a standby instance in a different AZ.</li>
+<li>Multi-AZ is supported for all DB flavors, Aurora is completely fault-tolerant on its own.</li>
+<li>Multi-AZ RDS configuration, backups are taken from the standby.</li>
+<li>If the master DB were to fail, there is no automatic failover. You can manually promote read replicas to be the master.</li>
+<li>IAM database authentication works with MySQL and PostgreSQL.</li>
+<li>You can only enable encryption for an Amazon RDS DB instance when you create it. Encrypted instance can&apos;t be modified to disable encryption.</li>
+</ul>
+</li>
+<li>Aurora<ul>
+<li>Aurora serverless uses for this service are infrequent, intermittent, and unpredictable workloads.</li>
+</ul>
+</li>
+<li>DynamoDB<ul>
+<li>DAX does more than just increase read performance by having write through cache. This improves write performance as well.</li>
+<li>Global Table failover is as simple as redirecting your application&#x2019;s DynamoDB calls to another AWS region.</li>
+<li>Replication latency with Global Tables is typically under one second.</li>
+</ul>
+</li>
 <li>Redshift</li>
 <li>ElasticCache</li>
 <li>Route53</li>
@@ -366,7 +384,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"7.AWS Github Study Guide","level":"1.8","depth":1,"previous":{"title":"6.AWS的其他服务","level":"1.7","depth":1,"path":"docs/6.md","ref":"docs/6.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/7.md","mtime":"2021-07-21T03:53:02.426Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-21T03:53:38.970Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"7.AWS Github Study Guide","level":"1.8","depth":1,"previous":{"title":"6.AWS的其他服务","level":"1.7","depth":1,"path":"docs/6.md","ref":"docs/6.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/7.md","mtime":"2021-07-21T08:13:00.056Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-21T08:13:28.894Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
