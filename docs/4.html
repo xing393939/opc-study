@@ -267,15 +267,16 @@
 <li>&#x7279;&#x70B9;1&#xFF1A;io1/io2 &#x73B0;&#x5728;&#x652F;&#x6301;Multi-Instance-Attach&#xFF08;&#x6700;&#x591A;&#x652F;&#x6301;16&#x4E2A;EC2&#xFF09;</li>
 <li>&#x7279;&#x70B9;2&#xFF1A;st1&#x548C;sc1&#x4E0D;&#x80FD;&#x4F5C;&#x4E3A;&#x542F;&#x52A8;&#x5377;&#xFF0C;&#x5176;&#x4ED6;&#x5305;&#x62EC;&#x4E0A;&#x4E00;&#x4EE3;&#x7684;&#x78C1;&#x4ECB;&#x8D28;&#x90FD;&#x53EF;&#x4EE5;&#xFF1B;Instance Store&#x662F;&#x9644;&#x5E26;&#x7684;&#x542F;&#x52A8;&#x5377;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x80FD;&#x4F5C;&#x4E3A;&#x7CFB;&#x7EDF;&#x76D8;</li>
 <li>EBS&#x52A0;&#x5BC6;&#x5377;&#xFF0C;&#x5377;&#x4E0E;&#x5B9E;&#x4F8B;&#x4E4B;&#x95F4;&#x7684;&#x4F20;&#x8F93;&#x4E5F;&#x662F;&#x52A0;&#x5BC6;&#x7684;</li>
-<li>EBS&#x5377;&#x53EF;&#x4EE5;&#x4E0D;&#x505C;&#x673A;&#x7684;&#x66F4;&#x6539;&#x7C7B;&#x578B;&#x548C;&#x589E;&#x52A0;size&#xFF0C;&#x9664;&#x4E86;&#x78C1;&#x4ECB;&#x8D28;&#xFF1B;&#x4E5F;&#x4E0D;&#x80FD;&#x51CF;&#x5C0F;size</li>
+<li>EBS&#x5377;&#x53EF;&#x4EE5;&#x4E0D;&#x505C;&#x673A;&#x7684;&#x66F4;&#x6539;&#x7C7B;&#x578B;&#x548C;&#x589E;&#x52A0;size&#xFF0C;&#x9664;&#x4E86;&#x78C1;&#x4ECB;&#x8D28;&#xFF1B;&#x4F46;&#x4E0D;&#x80FD;&#x51CF;&#x5C0F;size</li>
 <li>&#x5728;EC2 Dashboard&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;ebs&#x9ED8;&#x8BA4;&#x5F00;&#x542F;&#x52A0;&#x5BC6;</li>
 </ul>
 </li>
 <li>file storage&#xFF1A;<ul>
-<li>Amazon Elastic File System&#xFF1A;50w IOPS&#xFF0C;&#x591A;ec2&#x5171;&#x4EAB;&#xFF0C;&#x5BB9;&#x91CF;&#x4E0D;&#x9650;&#x3002;pay-as-you-use</li>
+<li>Amazon Elastic File System&#xFF1A;50w IOPS&#xFF0C;&#x591A;ec2&#x5171;&#x4EAB;&#xFF0C;&#x5BB9;&#x91CF;&#x4E0D;&#x9650;&#x3002;pay-as-you-use&#xFF1B;&#x4F7F;&#x7528;NFS&#x534F;&#x8BAE;</li>
 <li>Amazon FSx for Windows&#xFF1A;network filesystem for Windows&#xFF0C;&#x5BB9;&#x91CF;64T</li>
 <li>Amazon FSx For Lustre&#xFF1A;100w IOPS&#xFF0C;&#x5BB9;&#x91CF;&#x4E0D;&#x9650;&#xFF1B;&#x53EF;&#x548C;S3&#x9AD8;&#x5EA6;&#x96C6;&#x6210;&#xFF1B;&#x9002;&#x5408; HPC(high-performance computing)</li>
 <li>EFS&#x7684;&#x6A21;&#x5F0F;&#xFF1A;&#x6027;&#x80FD;&#x6A21;&#x5F0F;&#xFF08;GP&#x3001;MAX IO&#xFF09;&#x3001;&#x541E;&#x5410;&#x91CF;&#x6A21;&#x5F0F;&#xFF08;Provisioned&#x3001;Bursting&#xFF09;&#x3001;&#x5B58;&#x50A8;&#x6A21;&#x5F0F;&#xFF08;Standard&#x3001;Infrequent Access&#xFF09;</li>
+<li>EFS&#x7684;&#x914D;&#x7F6E;&#xFF1A;EFS Access Points to manage access&#xFF1B;Attach an IAM policy&#xFF1B;VPC security groups</li>
 </ul>
 </li>
 <li>object storage&#xFF1A;S3&#xFF0C;&#x5982;&#x679C;&#x51FA;&#x73B0;file storage&#x5219;&#x4E0D;&#x80FD;&#x9009;S3<ul>
@@ -283,7 +284,7 @@
 <li>Intelligent&#xFF1A;&#x667A;&#x80FD;</li>
 <li>Standard-IA&#xFF1A;&#x4E0D;&#x7ECF;&#x5E38;&#x8BBF;&#x95EE;&#x3001;&#x53D6;&#x56DE;&#x6709;&#x8D39;&#x7528;&#xFF1B;&#x4E0A;&#x4F20;&#x540E;&#x7B49;30&#x5929;&#x3001;&#x6587;&#x4EF6;&gt;128K&#x624D;&#x80FD;&#x5207;&#x5230;&#x6B64;&#x7C7B;&#x578B;</li>
 <li>One Zone-IA&#xFF1A;&#x5355;AZ&#xFF1B;&#x4E0A;&#x4F20;&#x540E;&#x7B49;30&#x5929;&#x3001;&#x6587;&#x4EF6;&gt;128K&#x624D;&#x80FD;&#x5207;&#x5230;&#x6B64;&#x7C7B;&#x578B;</li>
-<li>Glacier&#xFF1A;&gt;90&#x5929;&#xFF0C;&#x53D6;&#x56DE;&#x65F6;&#x95F4;1m~12h&#xFF1B;&#x4E0D;&#x80FD;&#x88AB;Athena&#x67E5;&#x8BE2;</li>
+<li>Glacier&#xFF1A;&gt;90&#x5929;&#xFF0C;&#x53D6;&#x56DE;&#x65F6;&#x95F4;1m~12h&#xFF1B;&#x4E0D;&#x80FD;&#x88AB;Athena&#x67E5;&#x8BE2;&#xFF1B;&#x9ED8;&#x8BA4;&#x662F;&#x52A0;&#x5BC6;&#x7684;</li>
 <li>Glacier Deep Archive&#xFF1A;&gt;180&#x5929;&#xFF0C;&#x53D6;&#x56DE;&#x65F6;&#x95F4;12h~48h</li>
 <li>&#x7279;&#x70B9;1&#xFF1A;S3 cross-Region replication &#x53EA;&#x80FD;&#x590D;&#x5236;&#x65B0;&#x589E;&#x6587;&#x4EF6;&#xFF1B;s3 sync&#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x8DE8;region&#x590D;&#x5236;</li>
 <li>&#x7279;&#x70B9;2&#xFF1A;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;default setting&#x6216;&#x8005;&#x663E;&#x5F0F;&#x8BBE;&#x7F6E;&#x6587;&#x4EF6;&#x4FDD;&#x7559;&#x65F6;&#x957F;&#xFF0C;&#x540C;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x4E0D;&#x540C;&#x7248;&#x672C;&#x7684;&#x4FDD;&#x7559;&#x65F6;&#x957F;&#x53EF;&#x4EE5;&#x4E0D;&#x4E00;&#x6837;</li>
@@ -316,8 +317,8 @@
 <li>simple scaling&#xFF1A;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x95E8;&#x69DB;&#xFF0C;&#x8D85;&#x8FC7;&#x4F1A;&#x65B0;&#x589E;&#x5B9E;&#x4F8B;&#xFF0C;&#x4E3A;&#x4E86;&#x9632;&#x6B62;&#x9891;&#x7E41;&#x65B0;&#x589E;&#xFF0C;&#x9ED8;&#x8BA4;&#x6709;&#x51B7;&#x5374;&#x65F6;&#x95F4;&#xFF08;300&#x79D2;&#xFF09;</li>
 <li>step scaling&#xFF1A;&#x53EF;&#x8BBE;&#x591A;&#x4E2A;&#x95E8;&#x69DB;&#xFF0C;&#x4F8B;&#x5982;&gt;50%&#x52A0;1&#x4E2A;&#x5B9E;&#x4F8B;&#xFF0C;&gt;60%&#x52A0;2&#x4E2A;&#x5B9E;&#x4F8B;&#xFF0C;&#x6CA1;&#x6709;&#x51B7;&#x5374;&#x65F6;&#x95F4;</li>
 <li>target tracking&#xFF1A;&#x53EA;&#x8BBE;&#x4E00;&#x4E2A;&#x95E8;&#x69DB;&#xFF08;1&#x5206;&#x949F;&#x68C0;&#x67E5;&#x4E00;&#x6B21;&#xFF0C;3&#x6B21;&#x8D85;&#x6807;&#x5C31;xx&#xFF09;&#xFF0C;&#x50BB;&#x74DC;&#x5F0F;&#x7684;&#xFF0C;&#x76EE;&#x7684;&#x662F;&#x4FDD;&#x6301;&#x5728;&#x8FD9;&#x4E2A;&#x95E8;&#x69DB;&#x503C;&#x9644;&#x8FD1;</li>
-<li>scheduled scaling</li>
-<li>&#x7279;&#x70B9;1&#xFF1A;scaling activity&#xFF0C;&#x5148;terminate unhealthy instance&#xFF0C;&#x5728;&#x8D77;&#x65B0;&#x7684;instance&#xFF1B;rebalancing activity &#x5219;&#x76F8;&#x53CD;</li>
+<li>scheduled scaling&#xFF1A;&#x652F;&#x6301;cron&#x8868;&#x8FBE;&#x5F0F;</li>
+<li>&#x7279;&#x70B9;1&#xFF1A;scaling activity&#xFF0C;&#x5148;terminate unhealthy instance&#xFF0C;&#x518D;&#x8D77;&#x65B0;&#x7684;instance&#xFF1B;re-balancing activity &#x5219;&#x76F8;&#x53CD;</li>
 <li>&#x7279;&#x70B9;2&#xFF1A;&#x591A;&#x4E2A;&#x7B56;&#x7565;&#x540C;&#x65F6;&#x88AB;&#x89E6;&#x53D1;&#xFF0C;scale-out&#x53D6;&#x6700;&#x5927;&#x6570;&#x91CF;&#x7684;&#x5B9E;&#x4F8B;</li>
 </ul>
 </li>
@@ -374,7 +375,8 @@
 </ol>
 </li>
 <li>Aurora &#x53EF;&#x8DE8;5&#x4E2A;region&#x5EFA;&#x53EA;&#x8BFB;&#x526F;&#x672C;&#xFF08;&#x5EF6;&#x8FDF;&#x5728;1&#x79D2;&#x5185;&#xFF09;&#xFF1B;&#x53CC;&#x5199;&#x529F;&#x80FD;&#x4E0D;&#x80FD;&#x8DE8;region&#x3002;</li>
-<li>RDS SQL Server &#x4E0D;&#x652F;&#x6301; IAM auth&#xFF0C;&#x5B89;&#x5168;&#x8FDE;&#x63A5;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;<ol>
+<li>Aurora &#x6027;&#x4EF7;&#x6BD4;&#xFF1A;&#x76F8;&#x540C;&#x7684;&#x541E;&#x5410;&#x91CF;&#xFF0C;Aurora &#x6BD4; DynamoDB &#x4FBF;&#x5B9C;&#xFF0C;&#x5B58;&#x50A8;&#x4EF7;&#x683C;&#x4E24;&#x8005;&#x5DEE;&#x4E0D;&#x591A;&#x3002;</li>
+<li>RDS &#x53EA;&#x6709; MySQL &#x548C; PostgreSQL &#x652F;&#x6301; IAM auth&#xFF1B;SQL Server &#x4E0D;&#x652F;&#x6301;&#xFF0C;&#x5B89;&#x5168;&#x8FDE;&#x63A5;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;<ol>
 <li>&#x8BBE;&#x7F6E; rds.force_ssl &#x5F00;&#x542F; ssl</li>
 <li>&#x4E0B;&#x8F7D; RDS Root CA &#x5230;&#x5B9E;&#x4F8B;&#x5185;  </li>
 </ol>
@@ -407,7 +409,7 @@
 <li>SQS retention period is from 1 minute to 14 days</li>
 <li>SQS &#x7684; ReceiveMessageWaitTimeSeconds &#x9ED8;&#x8BA4;&#x662F;0&#xFF0C;&#x8868;&#x793A; Short polling&#xFF0C;&#x5982;&#x679C;&#x5927;&#x4E8E;0&#xFF0C;&#x5219;&#x662F; Long polling</li>
 <li>SQS FIFO support 3000 messages per second with batching, or up to 300 messages per second&#xFF1B;&#x53EF;&#x4EE5;&#x6D88;&#x606F;&#x5206;&#x7EC4;(&#x6700;&#x591A;100&#x7EC4;)</li>
-<li>SNS &#x4E5F;&#x80FD;&#x89E6;&#x53D1;lambda</li>
+<li>SNS &#x4E5F;&#x80FD;&#x89E6;&#x53D1;lambda&#xFF0C;&#x4E5F;&#x6709;FIFO&#x7C7B;&#x578B;</li>
 <li>Simple Workflow Service (SWF)&#xFF1A;creating a decoupled architecture in AWS&#xFF1B;&#x4E0D;&#x4F1A;&#x91CD;&#x590D;&#x6D88;&#x8D39;&#x4EFB;&#x52A1;&#xFF1B;&#x9002;&#x5408;ec2&#xFF0C;&#x5DF2;&#x8FC7;&#x65F6;&#xFF0C;&#x9664;&#x975E;&#x6709;&#x7236;&#x5B50;&#x8FDB;&#x7A0B;&#x4FE1;&#x53F7;&#x624D;&#x7528;</li>
 <li>Step functions&#xFF1A;&#x9002;&#x5408;lambda&#x3001;ECS&#x3001;API Gateway&#xFF1B;&#x66FF;&#x4EE3;SWF</li>
 <li>&#x7279;&#x70B9;1&#xFF1A;SQS message timers &#x53EF;&#x4EE5;&#x9488;&#x5BF9;&#x5355;&#x4E2A;&#x6D88;&#x606F;&#x8BBE;&#x7F6E;&#x5EF6;&#x8FDF;&#xFF1B;delay queues&#x5219;&#x9488;&#x5BF9;&#x5168;&#x5C40;</li>
@@ -415,7 +417,7 @@
 <h4 id="&#x9632;&#x706B;&#x5899;">&#x9632;&#x706B;&#x5899;</h4>
 <ol>
 <li>AWS Firewall Manager&#xFF1A;simplifies your AWS WAF and AWS Shield and VPC Security Groups administration across multiple accounts and resources.</li>
-<li>Amazon GuardDuty&#xFF1A;&#x4E00;&#x79CD;&#x667A;&#x80FD;&#x5A01;&#x80C1;&#x68C0;&#x6D4B;&#x670D;&#x52A1;&#xFF0C;&#x901A;&#x8FC7; CloudTrail &#x65E5;&#x5FD7;&#x3001;VPC &#x6D41;&#x65E5;&#x5FD7;&#x3001;DNS &#x65E5;&#x5FD7;&#x5206;&#x6790;&#x51FA;&#x8D26;&#x6237;&#x76D7;&#x7528;&#x3001;&#x5B58;&#x50A8;&#x6876;&#x5165;&#x4FB5;&#x3001;&#x5F02;&#x5E38; API &#x8C03;&#x7528;&#x3001;&#x6076;&#x610F; IP &#x7B49;&#x6D3B;&#x52A8;&#xFF0C;&#x5E76;&#x81EA;&#x52A8;&#x5316;&#x54CD;&#x5E94;&#x3002;</li>
+<li>Amazon GuardDuty&#xFF1A;&#x4E00;&#x79CD;&#x667A;&#x80FD;&#x5A01;&#x80C1;&#x68C0;&#x6D4B;&#x670D;&#x52A1;&#xFF0C;&#x901A;&#x8FC7; CloudTrail &#x65E5;&#x5FD7;&#x3001;VPC &#x6D41;&#x65E5;&#x5FD7;&#x3001;DNS &#x65E5;&#x5FD7;&#x5206;&#x6790;&#x51FA;&#x8D26;&#x6237;&#x76D7;&#x7528;&#x3001;&#x5B58;&#x50A8;&#x6876;&#x5165;&#x4FB5;&#x3001;&#x5F02;&#x5E38; API &#x8C03;&#x7528;&#x3001;&#x6076;&#x610F; IP &#x3001;&#x6316;&#x77FF;&#x75C5;&#x6BD2;&#x7B49;&#x6D3B;&#x52A8;&#xFF0C;&#x5E76;&#x81EA;&#x52A8;&#x5316;&#x54CD;&#x5E94;&#x3002;</li>
 <li>Amazon Macie&#xFF1A;&#x5728;S3&#x4E2D;&#x5206;&#x6790;&#x51FA;&#x654F;&#x611F;&#x5185;&#x5BB9;&#xFF0C;&#x5982;&#x5BC6;&#x94A5;&#x3001;&#x5BC6;&#x7801;&#x3001;&#x8EAB;&#x4EFD;&#x8BC1;&#x7B49;&#x7136;&#x540E;&#x63D0;&#x9192;&#x4F60;</li>
 <li>Amazon Inspector&#xFF1A;&#x68C0;&#x67E5;EC2&#x5B9E;&#x4F8B;&#x662F;&#x5426;&#x5B58;&#x5728;&#x610F;&#x5916;&#x7684;&#x7F51;&#x7EDC;&#x53EF;&#x8BBF;&#x95EE;&#x6027;&#x548C;&#x6F0F;&#x6D1E;&#x3002;</li>
 <li>AWS WAF&#xFF1A;&#x4E03;&#x5C42;&#x534F;&#x8BAE;&#x7684;&#x9632;&#x62A4;&#xFF08;ALB, API Gateway, CloudFront&#xFF09;&#xFF0C;&#x529F;&#x80FD;&#x6709;ACL&#xFF08;&#x5C01;ip&#x3001;header&#x3001;url&#xFF09;&#x3001;SQL&#x6CE8;&#x5165;&#x3001;XSS&#x3001;Rate-based for DDoS&#x3001;Block with IPs or geo&#x3002;</li>
@@ -466,7 +468,7 @@
 <ol>
 <li>AWS Kinesis Firehose&#xFF1A;&#x662F;&#x4E00;&#x4E2A;&#x6D88;&#x5316;&#x7BA1;&#x9053;&#xFF0C;&#x5EF6;&#x8FDF;60&#x79D2;&#xFF0C;&#x4E0D;&#x52A0;&#x5904;&#x7406;&#x7684;&#x4F20;&#x7ED9;S3&#x3001;Redshift&#x3001;ElasticSearch&#xFF1B;&#x7A0B;&#x5E8F;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x6D88;&#x8D39;&#x5B83;</li>
 <li>AWS Kinesis Streams&#xFF1A;&#x662F;&#x5B9E;&#x65F6;&#x548C;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#xFF0C;&#x5EF6;&#x8FDF;1&#x79D2;&#xFF0C;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x5904;&#x7406;&#x6570;&#x636E;&#xFF1B;&#x9ED8;&#x8BA4;&#x4FDD;&#x7559;&#x6570;&#x636E;1&#x5929;&#xFF1B;&#x7A0B;&#x5E8F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x6D88;&#x8D39;&#x5B83;&#xFF1B;&#x5173;&#x952E;&#x5B57;&#xFF1A;real-time analytics&#xFF1B;&#x6D88;&#x606F;&#x662F;&#x6709;&#x5E8F;&#x7684;</li>
-<li>AWS Redshift&#xFF1A;&#x652F;&#x6301;OLAP&#xFF0C;&#x4E0D;&#x652F;&#x6301;ACID&#xFF0C;&#x662F;&#x6700;&#x7EC8;&#x4E00;&#x81F4;&#x6027;&#xFF1B;&#x4E0D;&#x80FD;&#x52A8;&#x6001;&#x6269;&#x5BB9;&#xFF1B;&#x4E9A;&#x79D2;&#x7EA7;&#x79D2;&#x54CD;&#x5E94;</li>
+<li>AWS Redshift&#xFF1A;&#x652F;&#x6301;OLAP&#xFF0C;&#x4E0D;&#x652F;&#x6301;ACID&#xFF0C;&#x662F;&#x6700;&#x7EC8;&#x4E00;&#x81F4;&#x6027;&#xFF1B;&#x4E0D;&#x80FD;&#x52A8;&#x6001;&#x6269;&#x5BB9;&#xFF1B;&#x4E9A;&#x79D2;&#x7EA7;&#x54CD;&#x5E94;</li>
 <li>AWS DynamoDB&#xFF1A;&#x652F;&#x6301;&#x6BEB;&#x79D2;&#x7EA7;&#x54CD;&#x5E94;</li>
 <li>&#x7279;&#x70B9;1&#xFF1A;Kinesis Agent&#x53EF;&#x4EE5;&#x5199;&#x5165;Kinesis Streams&#x3001;Kinesis Firehose&#xFF0C;&#x4F46;&#x662F;&#x5982;&#x679C;Kinesis Streams&#x5DF2;&#x7ECF;&#x8FDE;&#x63A5;&#x4E86;Kinesis Firehose&#xFF0C;&#x6B64;&#x65F6;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x5199;Kinesis Firehose</li>
 </ol>
@@ -484,11 +486,11 @@
 </ul>
 <h4 id="ec2">EC2</h4>
 <ol>
-<li>ec2&#xFF1A;&#x4E0D;&#x662F;running&#x72B6;&#x6001;&#x65E0;&#x9700;&#x4ED8;&#x8D39;&#xFF0C;&#x4F46;&#x662F;stopping&#x5230;hibernate&#x72B6;&#x6001;&#x9700;&#x8981;&#xFF1B;&#x9884;&#x7559;&#x5B9E;&#x4F8B;terminated&#x72B6;&#x6001;&#x4E5F;&#x8981;&#x4ED8;&#x8D39;</li>
+<li>ec2&#xFF1A;&#x4E0D;&#x662F;running&#x72B6;&#x6001;&#x65E0;&#x9700;&#x4ED8;&#x8D39;&#xFF0C;&#x4F46;&#x4ECE;stopping&#x5230;hibernate&#x72B6;&#x6001;&#x9700;&#x8981;&#xFF1B;&#x9884;&#x7559;&#x5B9E;&#x4F8B;terminated&#x72B6;&#x6001;&#x4E5F;&#x8981;&#x4ED8;&#x8D39;</li>
 <li>EC2 Spot Block &#x53EF;&#x4EE5;&#x6709;1-6&#x5C0F;&#x65F6;&#x56FA;&#x5B9A;&#x9884;&#x7559;&#x65F6;&#x95F4;</li>
 <li>EC2 Scheduled Reserved &#x5FC5;&#x987B;&#x662F;&#x6BCF;&#x5929;&#x6709;&#x56FA;&#x5B9A;&#x65F6;&#x95F4;&#x6BB5;&#xFF08;&#x5468;&#x672B;&#x4E0D;&#x7528;&#x53EF;&#x4EE5;&#x5141;&#x8BB8;&#xFF09;</li>
 <li>EC2 &#x7684;AMI&#x955C;&#x50CF;&#x4F9D;&#x8D56;snapshot&#x7684;&#x5B58;&#x5728;</li>
-<li>EC2 Default instances&#x7684;&#x6BCD;&#x673A;&#x662F;&#x4E0D;&#x786E;&#x5B9A;&#x7684;&#xFF0C;Dedicated instances&#x7684;&#x6BCD;&#x673A;&#x662F;&#x5C5E;&#x4E8E;&#x540C;&#x4E00;&#x8D26;&#x53F7;&#x7684;&#xFF1B;Default instances&#x548C;Dedicated instances&#x53EF;&#x4EE5;&#x4E92;&#x76F8;&#x5207;&#x6362;</li>
+<li>EC2 Default instances&#x7684;&#x6BCD;&#x673A;&#x662F;&#x4E0D;&#x786E;&#x5B9A;&#x7684;&#xFF0C;Dedicated instances&#x7684;&#x6BCD;&#x673A;&#x662F;&#x5C5E;&#x4E8E;&#x540C;&#x4E00;&#x8D26;&#x53F7;&#x7684;&#xFF0C;Host instances &#x6BCD;&#x673A;&#x662F;&#x72EC;&#x4EAB;&#x7684;&#xFF1B;Host instances&#x548C;Dedicated instances&#x53EF;&#x4EE5;&#x4E92;&#x76F8;&#x5207;&#x6362;</li>
 <li>EC2 &#x7684;spread placement group&#xFF0C;&#x4E00;&#x4E2A;AZ&#x6700;&#x591A;&#x653E;7&#x4E2A;&#x5B9E;&#x4F8B;</li>
 </ol>
 <h4 id="&#x5176;&#x4ED6;">&#x5176;&#x4ED6;</h4>
@@ -510,8 +512,9 @@
 <li>AWS CloudWatch alarms &#x53EF;&#x4EE5;&#x89E6;&#x53D1;ec2&#x91CD;&#x542F;&#x3001;sns&#x3001;Auto Scaling&#xFF1B;&#x8981;&#x89E6;&#x53D1;lambda&#x9700;&#x8981;&#x501F;&#x52A9;sns</li>
 <li>Amazon API Gateway &#x5229;&#x7528;&#x4EE4;&#x724C;&#x6876;&#x7B97;&#x6CD5;&#x6765;&#x9650;&#x5236;&#x8BF7;&#x6C42;&#x6570;&#xFF1B;&#x542F;&#x7528;API Gateway Caching&#x53EF;&#x4EE5;&#x5F53;&#x7F13;&#x51B2;&#x5C42;</li>
 <li>AWS DMS as a bridge between Amazon S3 and Amazon Kinesis Data Streams</li>
-<li>IAM &#x4E09;&#x9A7E;&#x9A6C;&#x8F66;&#xFF1A;Organization SCP&#x3001;IAM permission boundaries&#x3001;IAM permissions</li>
+<li>IAM &#x4E09;&#x9A7E;&#x9A6C;&#x8F66;&#xFF1A;Organization SCP&#x3001;IAM permission boundaries(&#x4E0D;&#x80FD;&#x4F5C;&#x7528;&#x4E8E;&#x7528;&#x6237;&#x7EC4;)&#x3001;IAM permissions</li>
 <li>route 53 alias&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x6839;&#x57DF;&#x540D;CNAME&#x4E0D;&#x80FD;&#xFF0C;alias&#x53EA;&#x80FD;&#x6307;&#x5411;AWS&#x7684;&#x8D44;&#x6E90;&#x6216;&#x8005;&#x540C;zone&#x7684;&#x5176;&#x4ED6;&#x8BB0;&#x5F55;</li>
+<li>Amazon EventBridge is the only event-based service that integrates directly with third-party SaaS partners. </li>
 </ol>
 
                                 
@@ -556,7 +559,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.AWS认证","level":"1.5","depth":1,"next":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"path":"docs/5.md","ref":"docs/5.md","articles":[]},"previous":{"title":"3.高性能MySQL","level":"1.4","depth":1,"path":"docs/3.md","ref":"docs/3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/4.md","mtime":"2021-07-21T08:13:00.056Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-21T08:13:28.894Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.AWS认证","level":"1.5","depth":1,"next":{"title":"5.AWS认证英语学习","level":"1.6","depth":1,"path":"docs/5.md","ref":"docs/5.md","articles":[]},"previous":{"title":"3.高性能MySQL","level":"1.4","depth":1,"path":"docs/3.md","ref":"docs/3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/4.md","mtime":"2021-07-22T06:23:07.035Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-22T06:23:42.557Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
