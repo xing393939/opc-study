@@ -11,7 +11,7 @@
   * [3.AWS的其他服务](docs/43.md)
   * [4.AWS Github Study Guide](docs/44.md)
 * 5.Head First设计模式
-  * 设计模式和案例
-  * 设计模式的个人理解
+  * [1.设计模式和案例](docs/51.md)
+  * [2.设计模式的个人理解](docs/52.md)
   
   
