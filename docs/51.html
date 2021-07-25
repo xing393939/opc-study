@@ -1,0 +1,428 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>1.设计模式和案例 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="52.html" />
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">目录</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="1.html">
+            
+                <a href="1.html">
+            
+                    
+                    1.性能之颠
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="2.html">
+            
+                <a href="2.html">
+            
+                    
+                    2.剑指Offer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="3.html">
+            
+                <a href="3.html">
+            
+                    
+                    3.高性能MySQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    4.AWS SAA认证
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="41.html">
+            
+                <a href="41.html">
+            
+                    
+                    1.AWS知识点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="42.html">
+            
+                <a href="42.html">
+            
+                    
+                    2.AWS认证英语学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="43.html">
+            
+                <a href="43.html">
+            
+                    
+                    3.AWS的其他服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="44.html">
+            
+                <a href="44.html">
+            
+                    
+                    4.AWS Github Study Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    5.Head First设计模式
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.6.1" data-path="51.html">
+            
+                <a href="51.html">
+            
+                    
+                    1.设计模式和案例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="52.html">
+            
+                <a href="52.html">
+            
+                    
+                    2.设计模式的个人理解
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >1.设计模式和案例</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h3 id="&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x548C;&#x6848;&#x4F8B;">&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x548C;&#x6848;&#x4F8B;</h3>
+<h4 id="&#x7B56;&#x7565;&#x6A21;&#x5F0F;">&#x7B56;&#x7565;&#x6A21;&#x5F0F;</h4>
+<ol>
+<li>&#x6848;&#x4F8B;&#xFF1A;&#x9E2D;&#x6709;&#x7EFF;&#x5934;&#x9E2D;&#x3001;&#x7EA2;&#x5934;&#x9E2D;&#x3001;&#x6A61;&#x76AE;&#x9E2D;&#xFF1B;&#x9E2D;&#x7684;&#x7279;&#x6027;&#x6709;&#x98DE;&#x3001;&#x53EB;</li>
+<li>&#x574F;&#x7684;&#x8BBE;&#x8BA1;1&#xFF1A;&#x57FA;&#x7C7B;&#x6709;&#x9E2D;&#xFF08;&#x5305;&#x542B;&#x65B9;&#x6CD5;fly&#x3001;quack&#xFF09;&#xFF0C;&#x6A61;&#x76AE;&#x9E2D;&#x7EE7;&#x627F;&#x57FA;&#x7C7B;&#xFF08;&#x91CD;&#x5199;&#x65B9;&#x6CD5;fly&#x3001;quack&#xFF09;</li>
+<li>&#x574F;&#x7684;&#x8BBE;&#x8BA1;2&#xFF1A;&#x57FA;&#x7C7B;&#x6709;&#x9E2D;&#xFF0C;&#x63A5;&#x53E3;&#x6709;Flyable&#x3001;Quackable&#xFF0C;&#x6BCF;&#x4E2A;&#x5B50;&#x7C7B;&#x90FD;&#x8981;&#x7EE7;&#x627F;&#x57FA;&#x7C7B;&#x548C;Flyable&#x3001;Quackable</li>
+<li>&#x597D;&#x7684;&#x8BBE;&#x8BA1;&#xFF1A;<ul>
+<li>&#x57FA;&#x7C7B;&#x6709;&#x9E2D;&#xFF08;&#x5305;&#x542B;&#x65B9;&#x6CD5;fly&#x3001;quack&#xFF0C;&#x5305;&#x542B;&#x5C5E;&#x6027;flyBehavior&#x3001;quackBehavior&#xFF09;</li>
+<li>&#x6BCF;&#x4E2A;&#x5B50;&#x7C7B;&#x90FD;&#x7EE7;&#x627F;&#x57FA;&#x7C7B;&#xFF08;&#x6784;&#x9020;&#x51FD;&#x6570;&#x8D4B;&#x503C;&#x4E0D;&#x540C;&#x7684;flyBehavior&#x3001;quackBehavior&#xFF09;</li>
+</ul>
+</li>
+<li>&#x9075;&#x5FAA;&#x7684;oo&#x539F;&#x5219;&#xFF1A;<ul>
+<li>&#x5C01;&#x88C5;&#x53D8;&#x5316;</li>
+<li>&#x591A;&#x7528;&#x7EC4;&#x5408;&#xFF0C;&#x5C11;&#x7528;&#x7EE7;&#x627F;</li>
+<li>&#x9488;&#x5BF9;&#x63A5;&#x53E3;&#x7F16;&#x7A0B;&#xFF0C;&#x4E0D;&#x9488;&#x5BF9;&#x5B9E;&#x73B0;&#x7F16;&#x7A0B;</li>
+</ul>
+</li>
+<li>oo&#x6A21;&#x5F0F;&#xFF1A;&#x7B56;&#x7565;&#x4E4B;&#x95F4;&#x53EF;&#x4EE5;&#x76F8;&#x4E92;&#x66FF;&#x6362;&#xFF0C;&#x8BA9;&#x7B56;&#x7565;&#x7684;&#x53D8;&#x5316;&#x72EC;&#x7ACB;&#x4E8E;&#x4F7F;&#x7528;&#x7B56;&#x7565;&#x7684;&#x5BA2;&#x6237;</li>
+</ol>
+<h4 id="&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;">&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;</h4>
+<ol>
+<li>&#x6848;&#x4F8B;&#xFF1A;&#x4E3B;&#x9898;&#x6709;&#x6E29;&#x5EA6;&#x3001;&#x6E7F;&#x5EA6;&#x3001;&#x6C14;&#x538B;&#xFF1B;&#x663E;&#x793A;&#x5C4F;&#x6709;&#x4E09;&#x4E2A;</li>
+<li>&#x574F;&#x7684;&#x8BBE;&#x8BA1;&#xFF1A;&#x9762;&#x5411;&#x8FC7;&#x7A0B;&#x7684;&#x5199;&#x6CD5;&#xFF0C;&#x5F53;&#x4E3B;&#x9898;&#x53D8;&#x5316;&#x65F6;&#xFF0C;&#x521D;&#x59CB;&#x5316;&#x4E09;&#x4E2A;&#x663E;&#x793A;&#x5C4F;&#x5E76;&#x6267;&#x884C;update&#x65B9;&#x6CD5;</li>
+<li>&#x597D;&#x7684;&#x8BBE;&#x8BA1;&#xFF1A;<ul>
+<li>&#x63A5;&#x53E3;&#x6709;Subject&#xFF08;&#x5305;&#x542B;&#x65B9;&#x6CD5;registerObserver&#x3001;removeObserver&#x3001;notifyObservers&#xFF09;&#xFF0C;&#x5BF9;&#x5E94;&#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#x662F;WeatherData&#xFF08;&#x5305;&#x542B;&#x5C5E;&#x6027;Temperature&#x3001;Humidity&#x3001;Pressure&#xFF09;</li>
+<li>&#x63A5;&#x53E3;&#x6709;Observer&#xFF08;&#x5305;&#x542B;&#x65B9;&#x6CD5;update&#xFF09;&#xFF0C;&#x5BF9;&#x5E94;&#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#x662F;&#x4E09;&#x4E2A;&#x663E;&#x793A;&#x5C4F;</li>
+</ul>
+</li>
+<li>&#x9075;&#x5FAA;&#x7684;oo&#x539F;&#x5219;&#xFF1A;<ul>
+<li>&#x4E3A;&#x4EA4;&#x4E92;&#x5BF9;&#x8C61;&#x4E4B;&#x95F4;&#x7684;&#x677E;&#x8026;&#x5408;&#x8BBE;&#x8BA1;&#x800C;&#x52AA;&#x529B;</li>
+</ul>
+</li>
+<li>oo&#x6A21;&#x5F0F;&#xFF1A;&#x5728;&#x5BF9;&#x8C61;&#x4E4B;&#x95F4;&#x5B9A;&#x4E49;&#x4E00;&#x5BF9;&#x591A;&#x7684;&#x4F9D;&#x8D56;&#xFF0C;&#x8FD9;&#x6837;&#x4E00;&#x6765;&#xFF0C;&#x5F53;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x6539;&#x53D8;&#x72B6;&#x6001;&#xFF0C;&#x4F9D;&#x8D56;&#x5B83;&#x7684;&#x5BF9;&#x8C61;&#x90FD;&#x4F1A;&#x6536;&#x5230;&#x901A;&#x77E5;</li>
+</ol>
+<h4 id="&#x88C5;&#x9970;&#x8005;&#x6A21;&#x5F0F;">&#x88C5;&#x9970;&#x8005;&#x6A21;&#x5F0F;</h4>
+<ol>
+<li>&#x6848;&#x4F8B;&#xFF1A;&#x661F;&#x5DF4;&#x514B;&#x7684;&#x5496;&#x5561;&#x6709;&#x5BA4;&#x5185;&#x6DF7;&#x642D;&#x3001;&#x7126;&#x7092;&#x3001;&#x8131;&#x5496;&#x5561;&#x56E0;&#xFF0C;&#x8C03;&#x6599;&#x6709;&#x725B;&#x5976;&#x3001;&#x8C46;&#x6D46;&#x3001;&#x6469;&#x5361;</li>
+<li>&#x574F;&#x7684;&#x8BBE;&#x8BA1;1&#xFF1A;&#x57FA;&#x7C7B;&#x6709;Beverage&#xFF08;&#x5305;&#x542B;&#x65B9;&#x6CD5;getDescription&#x3001;cost&#xFF09;&#xFF0C;&#x5B50;&#x7C7B;&#x662F;HouseBlendWithMilk&#x3001;HouseBlendWithSoy&#x7B49;&#x7B49;</li>
+<li>&#x574F;&#x7684;&#x8BBE;&#x8BA1;2&#xFF1A;&#x57FA;&#x7C7B;&#x6709;Beverage&#xFF08;&#x5305;&#x542B;&#x65B9;&#x6CD5;getDescription&#x3001;cost&#xFF0C;&#x5305;&#x542B;&#x5C5E;&#x6027;Milk&#x3001;Soy&#x3001;Mocha&#xFF09;&#xFF0C;&#x5B50;&#x7C7B;HouseBlend&#xFF08;&#x901A;&#x8FC7;setter&#x4FEE;&#x6539;&#x5C5E;&#x6027;Milk&#x3001;Soy&#x3001;Mocha&#xFF0C;&#x91CD;&#x5199;cost&#x65B9;&#x6CD5;&#xFF09;</li>
+<li>&#x597D;&#x7684;&#x8BBE;&#x8BA1;&#xFF1A;<ul>
+<li>&#x57FA;&#x7C7B;&#x6709;Beverage&#xFF08;&#x5305;&#x542B;&#x65B9;&#x6CD5;getDescription&#x3001;cost&#xFF09;&#xFF0C;&#x5B50;&#x7C7B;&#x6709;HouseBlend&#x3001;DarkRoast&#x3001;Decaf&#x548C;CondimentDecorator&#xFF08;&#x5305;&#x542B;&#x5C5E;&#x6027;beverage&#xFF09;</li>
+<li>CondimentDecorator&#x7684;&#x5B50;&#x7C7B;&#x6709;Milk&#x3001;Soy&#x3001;Mocha</li>
+<li>&#x4F8B;&#x5982;&#x8981;&#x4E00;&#x4E2A;HouseBlendWithMilk&#x7C7B;&#xFF0C;&#x5148;&#x5B9E;&#x4F8B;&#x5316;HouseBlend&#xFF0C;&#x518D;&#x7528;Milk&#x7C7B;&#x6765;&#x88C5;&#x9970;</li>
+</ul>
+</li>
+<li>&#x9075;&#x5FAA;&#x7684;oo&#x539F;&#x5219;&#xFF1A;&#x5BF9;&#x6269;&#x5C55;&#x5F00;&#x653E;&#xFF0C;&#x5BF9;&#x4FEE;&#x6539;&#x5173;&#x95ED;</li>
+<li>oo&#x6A21;&#x5F0F;&#xFF1A;&#x52A8;&#x6001;&#x7684;&#x5C06;&#x8D23;&#x4EFB;&#x9644;&#x52A0;&#x5230;&#x5BF9;&#x8C61;&#x4E0A;&#xFF08;&#x800C;&#x4E0D;&#x662F;&#x901A;&#x8FC7;&#x7EE7;&#x627F;&#xFF09;</li>
+</ol>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="52.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 2.设计模式的个人理解">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"1.设计模式和案例","level":"1.6.1","depth":2,"next":{"title":"2.设计模式的个人理解","level":"1.6.2","depth":2,"path":"docs/52.md","ref":"docs/52.md","articles":[]},"previous":{"title":"5.Head First设计模式","level":"1.6","depth":1,"ref":"","articles":[{"title":"1.设计模式和案例","level":"1.6.1","depth":2,"path":"docs/51.md","ref":"docs/51.md","articles":[]},{"title":"2.设计模式的个人理解","level":"1.6.2","depth":2,"path":"docs/52.md","ref":"docs/52.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/51.md","mtime":"2021-07-25T11:05:59.879Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-25T11:06:30.231Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
