@@ -10,3 +10,8 @@
   * [2.AWS认证英语学习](docs/42.md)
   * [3.AWS的其他服务](docs/43.md)
   * [4.AWS Github Study Guide](docs/44.md)
+* 5.Head First设计模式
+  * 设计模式和案例
+  * 设计模式的个人理解
+  
+  
