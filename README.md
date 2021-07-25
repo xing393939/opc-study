@@ -19,13 +19,11 @@
 #### 书
 1. 设计模式
   * 《Head First 设计模式》：学习设计模式看这本书入手比那本 Gang of 4 的经典图书要实用得多，行文极其浅显易懂，例子很有趣和幽默。至今我都认为，许多艰深的经典书籍，空有名声而已，即便能把道理阐述，但是如果不清不楚、无法消化，实在是弊大于利的。
-  * Design Patterns （《设计模式》）
+  * 《设计模式》（Design Patterns）
 1. 数据结构和算法
-  * [MIT 6.006 - B站](https://github.com/conanhujinming/comments-for-awesome-courses/tree/main/MIT6.006%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95)
-  * 《算法导论》：书是挺厚的，但是对于想系统了解算法的人来说再合适不过了，问题的描述和解析都非常详尽。对于已经有一定算法基础的人来说，确实不需要每个章节都阅读，但是依然需要耐心。不过正如书名，这本书阅读之后，再去阅读算法的进阶书籍。
-  * Introduction to Algorithms （《算法导论》）
+  * 《算法导论》（Introduction to Algorithms）：[MIT 6.006 - B站视频](https://github.com/conanhujinming/comments-for-awesome-courses/tree/main/MIT6.006%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95)。书是挺厚的，但是对于想系统了解算法的人来说再合适不过了，问题的描述和解析都非常详尽。对于已经有一定算法基础的人来说，确实不需要每个章节都阅读，但是依然需要耐心。不过正如书名，这本书阅读之后，再去阅读算法的进阶书籍。
 1. 其他
   * 《编程之美》为什么常居畅销榜？因为它透露了雇主眼中的需求，明确、清晰的需求
-  * The Pragmatic Programmer （《程序员修炼之道》）
-  * Refactoring （《重构》）
-  * 《七周七并发》5分：书里介绍了七种并发编程的模型，能让我开阔眼界。
+  * 《程序员修炼之道》（The Pragmatic Programmer）
+  * 《重构》（Refactoring）
+  * 《七周七并发》：5分，书里介绍了七种并发编程的模型，能让我开阔眼界。
