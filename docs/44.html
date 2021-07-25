@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>3.高性能MySQL · GitBook</title>
+        <title>4.AWS Github Study Guide · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -58,7 +58,7 @@
 
     
     
-    <link rel="prev" href="2.html" />
+    <link rel="prev" href="43.html" />
     
 
     </head>
@@ -128,7 +128,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4" data-path="3.html">
+        <li class="chapter " data-level="1.4" data-path="3.html">
             
                 <a href="3.html">
             
@@ -194,7 +194,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.4" data-path="44.html">
+        <li class="chapter active" data-level="1.5.4" data-path="44.html">
             
                 <a href="44.html">
             
@@ -242,7 +242,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >3.高性能MySQL</a>
+        <a href=".." >4.AWS Github Study Guide</a>
     </h1>
 </div>
 
@@ -257,8 +257,113 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="&#x9AD8;&#x6027;&#x80FD;mysql">&#x9AD8;&#x6027;&#x80FD;MySQL</h3>
+                                <h3 id="aws-github-study-guide">AWS Github Study Guide</h3>
 <h4 id="&#x8D44;&#x6599;">&#x8D44;&#x6599;</h4>
+<ol>
+<li><a href="https://github.com/keenanromain/AWS-SAA-C02-Study-Guide" target="_blank">AWS SAA-C02 Study Guide</a></li>
+</ol>
+<h4 id="&#x5B66;&#x4E60;">&#x5B66;&#x4E60;</h4>
+<ol>
+<li>Introduction</li>
+<li>Identity Access Management (IAM)<ul>
+<li>You cannot nest IAM Groups. IAM &#x7528;&#x6237;&#x7EC4;&#x6CA1;&#x6709;&#x5C42;&#x7EA7;&#x3002;</li>
+</ul>
+</li>
+<li>Simple Storage Service (S3)<ul>
+<li>&#x5185;&#x7F51;ec2&#x8BBF;&#x95EE;s3&#x65B9;&#x6CD5;1&#xFF1A;&#x7528;NAT Gateway&#xFF0C;$0.045/h&#xFF0C;$0.045/GB</li>
+<li>&#x5185;&#x7F51;ec2&#x8BBF;&#x95EE;s3&#x65B9;&#x6CD5;2&#xFF1A;&#x7528;Gateway Endpoint&#xFF0C;$0.01/GB</li>
+</ul>
+</li>
+<li>CloudFront<ul>
+<li>An Origin Access Identity (OAI) is used for sharing private content via CloudFront</li>
+</ul>
+</li>
+<li>Snowball<ul>
+<li>Planes sometimes fly with snowball edges onboard so they can store large amounts of flight data</li>
+</ul>
+</li>
+<li>Storage Gateway<ul>
+<li>Cached Volumes differ as they do not store the entire dataset locally like Stored Volumes.</li>
+</ul>
+</li>
+<li>Elastic Compute Cloud (EC2)<ul>
+<li>EC2 Not billed if preparing to stop. Billed if preparing to hibernate</li>
+</ul>
+</li>
+<li>Elastic Block Store (EBS)<ul>
+<li>The easiest way to move an EC2 instance and a volume to another availability zone is to take a snapshot.</li>
+</ul>
+</li>
+<li>Elastic Network Interfaces (ENI)<ul>
+<li>You can attach the ENI to a hot standby instance.</li>
+</ul>
+</li>
+<li>Security Groups<ul>
+<li>Security Groups are regional and can span AZs</li>
+</ul>
+</li>
+<li>Web Application Firewall (WAF)<ul>
+<li>WAF can either allow the request by serving the requested content or return an HTTP 403 Forbidden status.</li>
+</ul>
+</li>
+<li>CloudWatch<ul>
+<li>CloudWatch Alarms Actions can be an Amazon EC2 action, Auto Scaling action, or SNS.</li>
+</ul>
+</li>
+<li>CloudTrail<ul>
+<li>By default, CloudTrail Events log files are encrypted using Amazon S3 SSE.</li>
+</ul>
+</li>
+<li>Elastic File System (EFS)<ul>
+<li>EFS using the NFSv4 protocol. This makes it required to open up the NFS port for our security group.</li>
+</ul>
+</li>
+<li>Amazon FSx for Windows<ul>
+<li>You can use Microsoft Active Directory to authenticate into the file system.</li>
+</ul>
+</li>
+<li>Amazon FSx for Lustre<ul>
+<li>FSx Lustre has the ability to store and retrieve data directly on S3 on its own.</li>
+</ul>
+</li>
+<li>Relational Database Service (RDS)<ul>
+<li>RDS is not serverless. There is Aurora serverless however which serves a niche purpose.</li>
+<li>A SQS queue however ensures that writes to the DB do not become lost.</li>
+<li>Multi-AZ creates a primary DB instance and synchronously replicates the data to a standby instance in a different AZ.</li>
+<li>Multi-AZ is supported for all DB flavors, Aurora is completely fault-tolerant on its own.</li>
+<li>Multi-AZ RDS configuration, backups are taken from the standby.</li>
+<li>If the master DB were to fail, there is no automatic failover. You can manually promote read replicas to be the master.</li>
+<li>IAM database authentication works with MySQL and PostgreSQL.</li>
+<li>You can only enable encryption for an Amazon RDS DB instance when you create it. Encrypted instance can&apos;t be modified to disable encryption.</li>
+</ul>
+</li>
+<li>Aurora<ul>
+<li>Aurora serverless uses for this service are infrequent, intermittent, and unpredictable workloads.</li>
+</ul>
+</li>
+<li>DynamoDB<ul>
+<li>DAX does more than just increase read performance by having write through cache. This improves write performance as well.</li>
+<li>Global Table failover is as simple as redirecting your application&#x2019;s DynamoDB calls to another AWS region.</li>
+<li>Replication latency with Global Tables is typically under one second.</li>
+</ul>
+</li>
+<li>Redshift</li>
+<li>ElasticCache</li>
+<li>Route53</li>
+<li>Elastic Load Balances (ELB)</li>
+<li>Auto Scaling</li>
+<li>Virtual Private Cloud (VPC)</li>
+<li>Simple Queuing Service (SQS)</li>
+<li>Simple Workflow Service (SWF)</li>
+<li>Simple Notification Service (SNS)</li>
+<li>Kinesis</li>
+<li>Lambda</li>
+<li>API Gateway</li>
+<li>CloudFormation</li>
+<li>ElasticBeanstalk</li>
+<li>AWS Organizations</li>
+<li>Miscellaneous</li>
+</ol>
 
                                 
                                 </section>
@@ -286,7 +391,7 @@
 
             
                 
-                <a href="2.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 2.剑指Offer">
+                <a href="43.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 3.AWS的其他服务">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -298,7 +403,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.高性能MySQL","level":"1.4","depth":1,"next":{"title":"4.AWS SAA认证","level":"1.5","depth":1,"ref":"","articles":[{"title":"1.AWS知识点","level":"1.5.1","depth":2,"path":"docs/41.md","ref":"docs/41.md","articles":[]},{"title":"2.AWS认证英语学习","level":"1.5.2","depth":2,"path":"docs/42.md","ref":"docs/42.md","articles":[]},{"title":"3.AWS的其他服务","level":"1.5.3","depth":2,"path":"docs/43.md","ref":"docs/43.md","articles":[]},{"title":"4.AWS Github Study Guide","level":"1.5.4","depth":2,"path":"docs/44.md","ref":"docs/44.md","articles":[]}]},"previous":{"title":"2.剑指Offer","level":"1.3","depth":1,"path":"docs/2.md","ref":"docs/2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/3.md","mtime":"2021-07-25T09:01:08.977Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-25T09:01:37.606Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.AWS Github Study Guide","level":"1.5.4","depth":2,"previous":{"title":"3.AWS的其他服务","level":"1.5.3","depth":2,"path":"docs/43.md","ref":"docs/43.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/44.md","mtime":"2021-07-25T09:01:08.977Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-25T09:01:37.606Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
