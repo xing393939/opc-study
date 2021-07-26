@@ -37,3 +37,8 @@ add_executable(Command ${Command})
 
 aux_source_directory(cpp/Observer Observer)
 add_executable(Observer ${Observer})
+
+# 状态模式，TCPConnection包含三种状态TCPStat（TCPListen、TCPClosed、TCPEstablished），任意时刻只能处于一种状态
+aux_source_directory(cpp/State State)
+add_executable(State ${State})
+
