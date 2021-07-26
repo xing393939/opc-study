@@ -28,6 +28,6 @@ State * ConcreteStateA::Instance()
 }
 
 void ConcreteStateA::handle(Context * c){
-	cout << "doing something in State A.\n done,change state to B" << endl;
+	cout << "doing something in State A. change state to B\n" << endl;
 	c->changeState(ConcreteStateB::Instance());
 }
