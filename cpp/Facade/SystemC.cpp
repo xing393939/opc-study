@@ -7,22 +7,19 @@
 
 #include "SystemC.h"
 #include <iostream>
+
 using namespace std;
 
-SystemC::SystemC(){
+SystemC::SystemC() {
 
 }
 
 
-
-SystemC::~SystemC(){
+SystemC::~SystemC() {
 
 }
 
 
-
-
-
-void SystemC::opeartionC(){
-	cout << "operationC" << endl;
+void SystemC::opeartionC() {
+    cout << "operationC" << endl;
 }

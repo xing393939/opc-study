@@ -7,24 +7,22 @@
 
 #include "ConcreteDecoratorA.h"
 #include <iostream>
+
 using namespace std;
 
-ConcreteDecoratorA::ConcreteDecoratorA(Component* pcmp)
-:Decorator(pcmp)
-{
+ConcreteDecoratorA::ConcreteDecoratorA(Component *pcmp)
+        : Decorator(pcmp) {
+}
+
+ConcreteDecoratorA::~ConcreteDecoratorA() {
 
 }
 
-ConcreteDecoratorA::~ConcreteDecoratorA(){
-
+void ConcreteDecoratorA::addBehavior() {
+    cout << "addBehavior AAAA" << endl;
 }
 
-void ConcreteDecoratorA::addBehavior(){
-	cout << "addBehavior AAAA" << endl;
-}
-
-
-void ConcreteDecoratorA::operation(){
-	Decorator::operation();
-	addBehavior();
+void ConcreteDecoratorA::operation() {
+    Decorator::operation();
+    addBehavior();
 }

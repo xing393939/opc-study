@@ -15,12 +15,12 @@ Subject::~Subject(){
 
 }
 
-void Subject::attach(Obeserver * pObeserver){
+void Subject::attach(Observer * pObeserver){
 	m_vtObj.push_back(pObeserver);
 }
 
-void Subject::detach(Obeserver * pObeserver){
-	for(vector<Obeserver*>::iterator itr = m_vtObj.begin();
+void Subject::detach(Observer * pObeserver){
+	for(vector<Observer*>::iterator itr = m_vtObj.begin();
 		itr != m_vtObj.end(); itr++)
 	{
 		if(*itr == pObeserver)
@@ -32,7 +32,7 @@ void Subject::detach(Obeserver * pObeserver){
 }
 
 void Subject::notify(){
-	for(vector<Obeserver*>::iterator itr = m_vtObj.begin();
+	for(vector<Observer*>::iterator itr = m_vtObj.begin();
 		itr != m_vtObj.end();
 	 	itr++)
 	{	

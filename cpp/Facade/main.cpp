@@ -5,7 +5,7 @@ using namespace std;
 int main(int argc, char *argv[])
 {
 	Facade fa;
-	fa.wrapOpration();
+    fa.wrapOperation();
 	
 	return 0;
 }

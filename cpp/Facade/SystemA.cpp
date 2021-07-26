@@ -7,22 +7,19 @@
 
 #include "SystemA.h"
 #include <iostream>
+
 using namespace std;
 
-SystemA::SystemA(){
+SystemA::SystemA() {
 
 }
 
 
-
-SystemA::~SystemA(){
+SystemA::~SystemA() {
 
 }
 
 
-
-
-
-void SystemA::operationA(){
-	cout << "operationA" << endl;
+void SystemA::operationA() {
+    cout << "operationA" << endl;
 }

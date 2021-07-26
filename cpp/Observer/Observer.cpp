@@ -1,14 +1,14 @@
 ///////////////////////////////////////////////////////////
-//  Obeserver.cpp
-//  Implementation of the Class Obeserver
+//  Observer.cpp
+//  Implementation of the Class Observer
 //  Created on:      07-十月-2014 23:00:10
 //  Original author: cl
 ///////////////////////////////////////////////////////////
 
-#include "Obeserver.h"
+#include "Observer.h"
 
-Obeserver::Obeserver(){
+Observer::Observer(){
 }
 
-Obeserver::~Obeserver(){
+Observer::~Observer(){
 }
