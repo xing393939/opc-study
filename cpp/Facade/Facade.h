@@ -19,7 +19,7 @@ public:
 	Facade();
 	virtual ~Facade();
 
-	void wrapOpration();
+	void wrapOperation();
 
 private:
 	SystemC *m_SystemC;

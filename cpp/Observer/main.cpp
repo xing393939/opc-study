@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Subject.h"
-#include "Obeserver.h"
-#include "ConcreteObeserver.h"
+#include "Observer.h"
+#include "ConcreteObserver.h"
 #include "ConcreteSubject.h"
 
 using namespace std;
@@ -9,8 +9,8 @@ using namespace std;
 int main(int argc, char *argv[])
 {
 	Subject * subject = new ConcreteSubject();
-	Obeserver * objA = new ConcreteObeserver("A");
-	Obeserver * objB = new ConcreteObeserver("B");
+	Observer * objA = new ConcreteObserver("A");
+	Observer * objB = new ConcreteObserver("B");
 	subject->attach(objA);
 	subject->attach(objB);
 	
