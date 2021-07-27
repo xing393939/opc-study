@@ -42,3 +42,5 @@ add_executable(Observer ${Observer})
 aux_source_directory(cpp/State State)
 add_executable(State ${State})
 
+aux_source_directory(cpp/Strategy Strategy)
+add_executable(Strategy ${Strategy})
