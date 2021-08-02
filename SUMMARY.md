@@ -13,5 +13,6 @@
 * 5.Head First设计模式
   * [1.设计模式和案例](docs/51.md)
   * [2.设计模式的个人理解](docs/52.md)
-  
+* 6.TiDB PCTA认证
+  * [1.TiDB系统管理基础](docs/61.md)
   
