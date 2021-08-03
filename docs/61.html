@@ -355,19 +355,81 @@
 <li>Partition Storage&#xFF1A;part1&#x662F;server&#x3001;engine&#x5C42;&#xFF0C;part2&#x662F;&#x5B58;&#x50A8;&#x3002;&#x4EE3;&#x8868;&#x6709;Aurora&#x3001;PolarDB&#x3002;</li>
 </ul>
 </li>
-<li><a href="http://catkang.github.io/2019/01/16/crash-recovery.html" target="_blank">CatKang - &#x6570;&#x636E;&#x5E93;&#x6545;&#x969C;&#x6062;&#x590D;&#x673A;&#x5236;&#x7684;&#x524D;&#x4E16;&#x4ECA;&#x751F;</a><ul>
+</ol>
+<h4 id="redo&#x548C;undo">redo&#x548C;undo</h4>
+<ul>
+<li><a href="http://catkang.github.io/2019/01/16/crash-recovery.html" target="_blank">CatKang - &#x6570;&#x636E;&#x5E93;&#x6545;&#x969C;&#x6062;&#x590D;&#x673A;&#x5236;&#x7684;&#x524D;&#x4E16;&#x4ECA;&#x751F;</a></li>
+<li>&#x6570;&#x636E;&#x5E93;&#x7684;&#x56DB;&#x79CD;&#x6545;&#x969C;&#x7C7B;&#x578B;&#xFF1A;<ul>
 <li>Transaction Failure&#x53EF;&#x80FD;&#x662F;&#x4E3B;&#x52A8;&#x56DE;&#x6EDA;&#x6216;&#x8005;&#x51B2;&#x7A81;&#x540E;&#x5F3A;&#x5236;Abort&#xFF1B;</li>
 <li>Process Failure&#x6307;&#x7684;&#x662F;&#x7531;&#x4E8E;&#x5404;&#x79CD;&#x539F;&#x56E0;&#x5BFC;&#x81F4;&#x7684;&#x8FDB;&#x7A0B;&#x9000;&#x51FA;&#xFF0C;&#x8FDB;&#x7A0B;&#x5185;&#x5B58;&#x5185;&#x5BB9;&#x4F1A;&#x4E22;&#x5931;&#xFF1B;</li>
 <li>System Failure&#x6765;&#x6E90;&#x4E8E;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x6216;&#x786C;&#x4EF6;&#x6545;&#x969C;&#xFF1B;</li>
 <li>Media Failure&#x5219;&#x662F;&#x5B58;&#x50A8;&#x4ECB;&#x8D28;&#x7684;&#x4E0D;&#x53EF;&#x6062;&#x590D;&#x635F;&#x574F;&#x3002;</li>
-<li>WAL&#x548C;&#x673A;&#x68B0;&#x786C;&#x76D8;&#xFF1A;&#x6309;Block&#x5BFB;&#x5740;&#xFF0C;os&#x5C42;&#x9762;&#x5219;&#x662F;&#x8BFB;&#x4E00;&#x9875;&#x5C31;&#x7B97;&#x4E00;&#x6B21;IO&#xFF1B;&#x968F;&#x673A;IO&#x5F88;&#x5DEE;</li>
-<li>WBL&#x548C;&#x56FA;&#x6001;&#x786C;&#x76D8;&#xFF1A;&#x6309;&#x5B57;&#x8282;&#x5BFB;&#x5740;&#x800C;&#x4E0D;&#x662F;Block&#xFF1B;&#x968F;&#x673A;IO&#x548C;&#x987A;&#x5E8F;IO&#x5DEE;&#x4E0D;&#x591A;</li>
 </ul>
 </li>
+<li>WAL&#x548C;&#x673A;&#x68B0;&#x786C;&#x76D8;&#xFF1A;&#x6309;Block&#x5BFB;&#x5740;&#xFF0C;os&#x5C42;&#x9762;&#x5219;&#x662F;&#x8BFB;&#x4E00;&#x9875;&#x5C31;&#x7B97;&#x4E00;&#x6B21;IO&#xFF1B;&#x968F;&#x673A;IO&#x5F88;&#x5DEE;</li>
+<li>WBL&#x548C;&#x56FA;&#x6001;&#x786C;&#x76D8;&#xFF1A;&#x6309;&#x5B57;&#x8282;&#x5BFB;&#x5740;&#x800C;&#x4E0D;&#x662F;Block&#xFF1B;&#x968F;&#x673A;IO&#x548C;&#x987A;&#x5E8F;IO&#x5DEE;&#x4E0D;&#x591A;</li>
+<li>&#x4EC0;&#x4E48;&#x662F;&#x4E8B;&#x52A1;&#x7684;&#x6301;&#x4E45;&#x5316;&#xFF1A;&#x4E8B;&#x52A1;&#x4E00;&#x65E6;&#x63D0;&#x4EA4;&#xFF0C;&#x5E76;&#x5BF9;&#x5BA2;&#x6237;&#x7AEF;&#x8FD4;&#x56DE;success&#xFF0C;&#x5219;&#x6570;&#x636E;&#x6C38;&#x4E45;&#x4FDD;&#x5B58;&#x3002;</li>
+<li><a href="https://blog.csdn.net/Maxiao1204/article/details/107505537" target="_blank">&#x7406;&#x89E3;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;undo&#x65E5;&#x5FD7;&#x3001;redo&#x65E5;&#x5FD7;&#x3001;&#x68C0;&#x67E5;&#x70B9;</a>&#xFF0C;&#x6587;&#x7AE0;&#x7684;5&#x3001;6&#x3001;7&#x4ECB;&#x7ECD;&#x4E86;undo&#x548C;redo</li>
+<li><a href="https://www.jianshu.com/p/57c510f4ec28" target="_blank">&#x4E3A;&#x4EC0;&#x4E48;&#x53EA;&#x7528; redo-log &#x6216;&#x8005;&#x53EA;&#x7528; undo-log &#x4E0D;&#x53EF;&#x4EE5;</a><ul>
+<li>&#x5047;&#x8BBE;&#x53EA;&#x6709;undo-log&#xFF1A;&#x4E8B;&#x52A1;&#x63D0;&#x4EA4;&#x524D;&#x6570;&#x636E;&#x5FC5;&#x987B;&#x843D;&#x76D8;&#xFF08;&#x968F;&#x673A;IO&#xFF09;&#xFF0C;&#x6027;&#x80FD;&#x5DEE;</li>
+<li>&#x5047;&#x8BBE;&#x53EA;&#x7528;redo-log&#xFF1A;&#x4E8B;&#x52A1;&#x63D0;&#x4EA4;&#x524D;&#x53EA;&#x9700;&#x8981;redo&#x843D;&#x76D8;&#xFF08;&#x987A;&#x5E8F;IO&#xFF09;&#x3002;&#x4F46;&#x662F;&#x6570;&#x636E;&#x843D;&#x76D8;&#x7684;&#x903B;&#x8F91;&#x4F1A;&#x5F88;&#x590D;&#x6742;&#xFF0C;&#x5982;&#x679C;&#x5927;&#x91CF;&#x6570;&#x636E;&#x672A;&#x843D;&#x76D8;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x5185;&#x5B58;&#xFF1B;&#x5982;&#x679C;&#x8981;&#x4FDD;&#x8BC1;&#x5B9E;&#x65F6;&#x843D;&#x76D8;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x4FDD;&#x8BC1;&#x8981;&#x843D;&#x76D8;&#x7684;&#x6570;&#x636E;&#x9875;&#x90FD;&#x662F;commit&#x72B6;&#x6001;</li>
+<li>&#x4F7F;&#x7528;undo+redo&#xFF1A;&#x4E3B;&#x4F53;&#x6D41;&#x7A0B;&#x8FD8;&#x662F;undo-log&#xFF0C;&#x4F46;&#x662F;&#x6570;&#x636E;&#x843D;&#x76D8;&#x6539;&#x6210;redo-log&#x7684;&#x5F62;&#x5F0F;&#xFF0C;&#x8FD9;&#x6837;&#x53EA;&#x9700;&#x8981;undo&#x3001;redo&#x843D;&#x76D8;&#x5373;&#x53EF;&#xFF08;&#x987A;&#x5E8F;IO&#xFF09;&#x3002;&#x552F;&#x4E00;&#x7684;&#x7F3A;&#x70B9;&#x662F;&#x5199;&#x653E;&#x5927;&#xFF0C;&#x4E00;&#x6B21;&#x4E8B;&#x52A1;&#x4E09;&#x6B21;IO&#x3002;</li>
+</ul>
+</li>
+</ul>
+<pre><code>// undo &#x7684;&#x6D41;&#x7A0B;
+&#x65E5;&#x5FD7;1&#x8BB0;&#x5F55;t=0&#xFF0C;&#x6570;&#x636E;t=1&#xFF0C;&#x6807;&#x8BB0;*
+&#x65E5;&#x5FD7;2&#x8BB0;&#x5F55;t=1&#xFF0C;&#x6570;&#x636E;t=2
+&#x65E5;&#x5FD7;3&#x8BB0;&#x5F55;t=2&#xFF0C;&#x6570;&#x636E;t=3&#xFF0C;&#x6807;&#x8BB0;*
+&#x65E5;&#x5FD7;4&#x8BB0;&#x5F55;t=3&#xFF0C;&#x6570;&#x636E;t=4
+&#x6807;&#x8BB0;&#x4E3A;*&#x540E;&#x8868;&#x793A;&#x4E8B;&#x52A1;&#x5DF2;&#x63D0;&#x4EA4;&#xFF0C;&#x6B64;&#x65F6;&#x65E5;&#x5FD7;1&#x548C;&#x65E5;&#x5FD7;3&#x53EF;&#x4EE5;&#x5220;&#x9664;
+&#x6570;&#x636E;&#x6062;&#x590D;&#x65F6;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x6062;&#x590D;&#x65E5;&#x5FD7;4&#x548C;&#x65E5;&#x5FD7;2&#x5373;&#x53EF;
+
+// redo&#x7684;&#x6D41;&#x7A0B;
+&#x65E5;&#x5FD7;1&#x8BB0;&#x5F55;t=1&#xFF0C;&#x6807;&#x8BB0;&#x4E3A;*&#xFF0C;&#x6570;&#x636E;t=1
+&#x65E5;&#x5FD7;2&#x8BB0;&#x5F55;t=2
+&#x65E5;&#x5FD7;3&#x8BB0;&#x5F55;t=3&#xFF0C;&#x6807;&#x8BB0;&#x4E3A;*
+&#x65E5;&#x5FD7;4&#x8BB0;&#x5F55;t=4
+&#x6807;&#x8BB0;&#x4E3A;*&#x540E;&#x8868;&#x793A;&#x4E8B;&#x52A1;&#x5DF2;&#x63D0;&#x4EA4;&#xFF0C;&#x6B64;&#x65F6;&#x9700;&#x8981;&#x7B49;&#x6570;&#x636E;&#x843D;&#x76D8;&#x540E;&#x624D;&#x80FD;&#x5220;&#x9664;&#xFF0C;&#x65E5;&#x5FD7;1&#x53EF;&#x4EE5;&#x5220;&#x9664;&#xFF0C;&#x65E5;&#x5FD7;3&#x4E0D;&#x80FD;
+&#x6570;&#x636E;&#x6062;&#x590D;&#x65F6;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x6062;&#x590D;&#x6807;&#x8BB0;&#x4E3A;*&#x65E5;&#x5FD7;&#x5373;&#x53EF;
+</code></pre><h3 id="&#x4E09;&#x7BC7;&#x6587;&#x7AE0;&#x4E86;&#x89E3;-tidb-&#x6280;&#x672F;&#x5185;&#x5E55;">&#x4E09;&#x7BC7;&#x6587;&#x7AE0;&#x4E86;&#x89E3; TiDB &#x6280;&#x672F;&#x5185;&#x5E55;</h3>
+<ol>
 <li><a href="https://pingcap.com/blog-cn/tidb-in-high-concurrency-scenarios/" target="_blank">TiDB &#x6700;&#x4F73;&#x5B9E;&#x8DF5;&#x7CFB;&#x5217;&#xFF08;&#x4E00;&#xFF09;&#x9AD8;&#x5E76;&#x53D1;&#x5199;&#x5165;&#x5E38;&#x89C1;&#x70ED;&#x70B9;&#x95EE;&#x9898;&#x53CA;&#x89C4;&#x907F;&#x65B9;&#x6CD5;</a></li>
 <li><a href="https://docs.pingcap.com/zh/tidb/stable/high-concurrency-best-practices" target="_blank">TiDB &#x9AD8;&#x5E76;&#x53D1;&#x5199;&#x5165;&#x573A;&#x666F;&#x6700;&#x4F73;&#x5B9E;&#x8DF5;</a></li>
-<li>&#x7528;&#x5230;&#x4E86;b+&#x6811;&#x548C;LSM&#x6811;</li>
-<li>tidb &#x65E0;&#x9501;ddl&#xFF0C;&#x4FEE;&#x6539;&#x8868;&#x7ED3;&#x6784;&#xFF0C;&#x8001;&#x6570;&#x636E;&#x4E0D;&#x53D8;&#xFF0C;&#x53EA;&#x53D8;schema</li>
+<li>&#x8BB2;&#x5B58;&#x50A8;</li>
+<li>&#x8BF4;&#x8BA1;&#x7B97;</li>
+<li>&#x8C08;&#x8C03;&#x5EA6;</li>
+</ol>
+<pre><code>&#x4E3B;&#x952E;&#x7D22;&#x5F15;&#xFF1A;key&#xFF1A;tableID&#x3001;rowID&#xFF1B;value&#xFF1A;\[col1, col2, col3, col4...]
+&#x552F;&#x4E00;&#x7D22;&#x5F15;&#xFF1A;key&#xFF1A;tableID&#x3001;indexID&#x3001;indexedColumnsValue&#xFF1B;value&#xFF1A;rowID
+&#x975E;&#x552F;&#x4E00;&#x7D22;&#x5F15;&#xFF1A;key&#xFF1A;tableID&#x3001;indexID&#x3001;indexedColumnsValue&#x3001;rowID&#xFF1B;value&#xFF1A;null
+
+// &#x4E3E;&#x4F8B;&#x6709;&#x5F20;Age&#xFF0C;tableID=10&#xFF0C;&#x5B83;&#x7684;&#x975E;&#x552F;&#x4E00;&#x7D22;&#x5F15;indexID=1&#xFF0C;&#x5B83;&#x7684;&#x552F;&#x4E00;&#x7D22;&#x5F15;indexID=2&#xFF0C;&#x6709;&#x4E09;&#x6761;&#x6570;&#x636E;&#x5982;&#x4E0B;
+ID Name    Role         Age
+1, &quot;TiDB&quot;, &quot;SQL Layer&quot;, 10
+2, &quot;TiKV&quot;, &quot;KV Engine&quot;, 20
+3, &quot;PD&quot;,   &quot;Manager&quot;,   30
+
+// &#x4E3B;&#x952E;&#x7D22;&#x5F15;
+t10_r1 --&gt; [&quot;TiDB&quot;, &quot;SQL Layer&quot;, 10]
+t10_r2 --&gt; [&quot;TiKV&quot;, &quot;KV Engine&quot;, 20]
+t10_r3 --&gt; [&quot;PD&quot;, &quot;Manager&quot;, 30]
+
+// &#x552F;&#x4E00;&#x7D22;&#x5F15;[Name]
+t10_i2_TiDB --&gt; 1
+t10_i2_TiKV --&gt; 2
+t10_i2_PB --&gt; 3
+
+// &#x975E;&#x552F;&#x4E00;&#x7D22;&#x5F15;[Age]
+t10_i1_10_1 --&gt; null
+t10_i1_20_2 --&gt; null
+t10_i1_30_3 --&gt; null
+</code></pre><h4 id="ddl-&#x53D8;&#x66F4;&#x539F;&#x7406;">DDL &#x53D8;&#x66F4;&#x539F;&#x7406;</h4>
+<ol>
+<li><a href="https://book.tidb.io/session1/chapter7/tidb-ddl-status.html" target="_blank">DDL &#x53D8;&#x66F4;&#x539F;&#x7406;</a></li>
+<li>Add column operation&#xFF1A;&#x53EA;&#x66F4;&#x65B0;schema&#xFF0C;&#x65B0;&#x7684;row&#x662F;&#x65B0;&#x7ED3;&#x6784;&#xFF0C;&#x67E5;&#x8BE2;&#x8001;&#x7684;row&#x5C31;&#x4F9D;&#x636E;schema&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#x8FD4;&#x56DE;</li>
+<li>Modify column operation&#xFF1A;&#x8F6C;&#x6362;column&#x7684;&#x7C7B;&#x578B;&#x53EA;&#x652F;&#x6301;&#x6574;&#x578B;(lengthened)&#xFF1B;&#x5982;&#x679C;&#x7D22;&#x5F15;&#x6709;&#x7528;&#x5230;&#x6B64;column&#xFF0C;&#x7D22;&#x5F15;&#x7684;schema&#x4E5F;&#x9700;&#x6539;&#x53D8;(&#x4F46;&#x539F;&#x59CB;&#x6570;&#x636E;&#x4E0D;&#x53D8;)</li>
+<li>Add index operation&#xFF1A;&#x5148;&#x751F;&#x6210;&#x597D;index&#x518D;&#x628A;index&#x8BBE;&#x7F6E;&#x4E3A;&#x53EF;&#x7528;&#xFF0C;&#x8017;&#x65F6;&#x8F83;&#x957F;</li>
 </ol>
 <h4 id="tidb-&#x96C6;&#x7FA4;&#x7BA1;&#x7406;">TiDB &#x96C6;&#x7FA4;&#x7BA1;&#x7406;</h4>
 <ul>
@@ -411,7 +473,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.TiDB系统管理基础","level":"1.7.1","depth":2,"previous":{"title":"6.TiDB PCTA认证","level":"1.7","depth":1,"ref":"","articles":[{"title":"1.TiDB系统管理基础","level":"1.7.1","depth":2,"path":"docs/61.md","ref":"docs/61.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/61.md","mtime":"2021-08-02T11:23:24.864Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-02T11:23:57.108Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.TiDB系统管理基础","level":"1.7.1","depth":2,"previous":{"title":"6.TiDB PCTA认证","level":"1.7","depth":1,"ref":"","articles":[{"title":"1.TiDB系统管理基础","level":"1.7.1","depth":2,"path":"docs/61.md","ref":"docs/61.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/61.md","mtime":"2021-08-03T08:45:45.528Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-03T08:46:13.599Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
