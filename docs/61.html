@@ -340,7 +340,7 @@
 <li><a href="https://tech.meituan.com/2018/11/22/mysql-pingcap-practice.html" target="_blank">&#x65B0;&#x4E00;&#x4EE3;&#x6570;&#x636E;&#x5E93;TiDB&#x5728;&#x7F8E;&#x56E2;&#x7684;&#x5B9E;&#x8DF5;</a><ul>
 <li>&#x7F8E;&#x56E2;&#x5BF9;TiDB&#x7684;&#x5B9A;&#x4F4D;&#xFF1A;&#x652F;&#x6301;&#x4E8C;&#x7EA7;&#x7D22;&#x5F15;&#xFF1B;&#x8DE8;region failover&#xFF1B;&#x8DE8;region&#x53CC;&#x5199;</li>
 <li>TiDB&#x5BF9;&#x6BD4;ClickHouse&#xFF1A;ClickHouse&#x8DD1;&#x4F4E;&#x9891;SQL&#x53EF;&#x4EE5;&#xFF0C;&#x8DD1;&#x9AD8;&#x9891;SQL&#x4E0D;&#x884C;&#xFF0C;&#x4E14;&#x8DD1;&#x5168;&#x91CF;&#x4F4E;&#x9891;SQL&#x4F1A;&#x53D1;&#x751F;overkill&#xFF1B;TiDB&#x5219;&#x53EF;&#x4EE5;&#x80DC;&#x4EFB;&#x3002;</li>
-<li>&#x4F20;&#x7EDF;&#x5206;&#x5E93;&#x5206;&#x8868;&#x65B9;&#x6848;&#x7684;&#x5F0A;&#x7AEF;&#xFF1A;&#x4E1A;&#x52A1;&#x65E0;&#x6CD5;&#x53CB;&#x597D;&#x7684;&#x6267;&#x884C;&#x5206;&#x5E03;&#x5F0F;&#x4E8B;&#x52A1;&#xFF1B;&#x8DE8;&#x5E93;&#x7684;&#x67E5;&#x8BE2;&#x9700;&#x8981;&#x5728;&#x4E2D;&#x95F4;&#x5C42;&#x4E0A;&#x7EC4;&#x5408;&#xFF1B;&#x518D;&#x6B21;&#x62C6;&#x5206;&#x7684;&#x6210;&#x672C;&#x9AD8;</li>
+<li>&#x4F20;&#x7EDF;&#x5206;&#x5E93;&#x5206;&#x8868;&#x65B9;&#x6848;&#x7684;&#x5F0A;&#x7AEF;&#xFF1A;&#x4E1A;&#x52A1;&#x65E0;&#x6CD5;&#x53CB;&#x597D;&#x7684;&#x6267;&#x884C;&#x5206;&#x5E03;&#x5F0F;&#x4E8B;&#x52A1;&#xFF1B;&#x8DE8;&#x5E93;&#x7684;&#x67E5;&#x8BE2;&#x9700;&#x8981;&#x5728;&#x4E2D;&#x95F4;&#x5C42;&#x4E0A;&#x7EC4;&#x5408;(&#x4E0D;&#x652F;&#x6301;&#x8DE8;&#x5E93;join)&#xFF1B;&#x518D;&#x6B21;&#x62C6;&#x5206;&#x7684;&#x6210;&#x672C;&#x9AD8;</li>
 </ul>
 </li>
 <li><a href="http://catkang.github.io/2020/12/01/newsql.html" target="_blank">CatKang - NewSQL&#x6570;&#x636E;&#x5E93;&#x6982;&#x8FF0;</a><ul>
@@ -394,11 +394,20 @@
 &#x6570;&#x636E;&#x6062;&#x590D;&#x65F6;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x6062;&#x590D;&#x6807;&#x8BB0;&#x4E3A;*&#x65E5;&#x5FD7;&#x5373;&#x53EF;
 </code></pre><h3 id="&#x4E09;&#x7BC7;&#x6587;&#x7AE0;&#x4E86;&#x89E3;-tidb-&#x6280;&#x672F;&#x5185;&#x5E55;">&#x4E09;&#x7BC7;&#x6587;&#x7AE0;&#x4E86;&#x89E3; TiDB &#x6280;&#x672F;&#x5185;&#x5E55;</h3>
 <ol>
-<li><a href="https://pingcap.com/blog-cn/tidb-in-high-concurrency-scenarios/" target="_blank">TiDB &#x6700;&#x4F73;&#x5B9E;&#x8DF5;&#x7CFB;&#x5217;&#xFF08;&#x4E00;&#xFF09;&#x9AD8;&#x5E76;&#x53D1;&#x5199;&#x5165;&#x5E38;&#x89C1;&#x70ED;&#x70B9;&#x95EE;&#x9898;&#x53CA;&#x89C4;&#x907F;&#x65B9;&#x6CD5;</a></li>
 <li><a href="https://docs.pingcap.com/zh/tidb/stable/high-concurrency-best-practices" target="_blank">TiDB &#x9AD8;&#x5E76;&#x53D1;&#x5199;&#x5165;&#x573A;&#x666F;&#x6700;&#x4F73;&#x5B9E;&#x8DF5;</a></li>
-<li>&#x8BB2;&#x5B58;&#x50A8;</li>
-<li>&#x8BF4;&#x8BA1;&#x7B97;</li>
-<li>&#x8C08;&#x8C03;&#x5EA6;</li>
+<li><a href="https://pingcap.com/blog-cn/tidb-best-practice/" target="_blank">TiDB Best Practice</a><ul>
+<li>TiDB &#x6700;&#x5E95;&#x5C42;&#x7528; Raft &#x6765;&#x540C;&#x6B65;&#x6570;&#x636E;&#x3002;&#x6BCF;&#x6B21;&#x5199;&#x5165;&#x90FD;&#x8981;&#x5199;&#x5165;&#x591A;&#x6570;&#x526F;&#x672C;&#xFF0C;&#x624D;&#x80FD;&#x5BF9;&#x5916;&#x8FD4;&#x56DE;&#x6210;&#x529F;&#x3002;</li>
+<li>&#x6BD4;&#x5982;&#x6700;&#x5927; 3 &#x526F;&#x672C;&#x7684;&#x8BDD;&#xFF0C;&#x6BCF;&#x6B21;&#x5199;&#x5165; 2 &#x526F;&#x672C;&#x624D;&#x7B97;&#x6210;&#x529F;&#x3002;&#x5199;&#x5165;&#x7684;&#x5EF6;&#x8FDF;&#x53D6;&#x51B3;&#x4E8E;&#x6700;&#x5FEB;&#x7684;&#x4E24;&#x4E2A;&#x526F;&#x672C;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x6700;&#x6162;&#x7684;&#x90A3;&#x4E2A;&#x526F;&#x672C;&#x3002;</li>
+<li>&#x5206;&#x5E03;&#x5F0F;&#x4E8B;&#x52A1;&#x91C7;&#x7528;&#x7684;&#x4E50;&#x89C2;&#x9501;&#x3002;&#x7F3A;&#x70B9;&#x53EA;&#x6709;&#x5728;&#x771F;&#x6B63;&#x63D0;&#x4EA4;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x624D;&#x4F1A;&#x505A;&#x51B2;&#x7A81;&#x68C0;&#x6D4B;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x51B2;&#x7A81;&#x4E25;&#x91CD;&#x7684;&#x573A;&#x666F;&#x4E0B;&#x6027;&#x80FD;&#x4F4E;&#x4E0B;&#x3002;</li>
+<li>&#x6570;&#x636E;&#x8868;&#x7684;&#x6570;&#x636E;&#x6216;&#x8005;&#x7D22;&#x5F15;&#x5177;&#x6709;&#x76F8;&#x540C;&#x7684;&#x524D;&#x7F00;&#xFF0C;&#x8FD9;&#x4E9B; Key-Value &#x4F1A;&#x5728;&#x76F8;&#x90BB;&#x7684;&#x4F4D;&#x7F6E;&#x3002;&#x6279;&#x91CF;&#x5199;&#x5165;&#x4F1A;&#x5728;&#x5F88;&#x5C11;&#x7684;&#x51E0;&#x4E2A; Region &#x4E0A;&#x5F62;&#x6210;&#x5199;&#x5165;&#x70ED;&#x70B9;&#xFF0C;&#x6210;&#x4E3A;&#x6574;&#x4E2A;&#x7CFB;&#x7EDF;&#x7684;&#x74F6;&#x9888;&#x3002;</li>
+<li>&#x4E8C;&#x7EA7;&#x7D22;&#x5F15;&#x7684;&#x7279;&#x70B9;&#xFF1A;&#x5C3D;&#x91CF;&#x7528;&#x533A;&#x5206;&#x5EA6;&#x6BD4;&#x8F83;&#x5927;&#x7684;&#x5217;&#xFF1B;&#x6700;&#x5DE6;&#x539F;&#x5219;&#xFF1B;&#x6570;&#x636E;&#x5206;&#x6563;&#x5728;&#x5F88;&#x591A;Region&#x4E0A;&#xFF0C;&#x5E76;&#x53D1;&#x67E5;&#x8BE2;&#x7684;Region&#x6570;&#x53EF;&#x914D;</li>
+<li>&#x5EFA;&#x8BAE;&#x6BCF;&#x4E2A;&#x4E8B;&#x52A1;&#x7684;&#x884C;&#x6570;&#x4E0D;&#x8D85;&#x8FC7; 200 &#x884C;&#xFF0C;&#x4E14;&#x5355;&#x884C;&#x6570;&#x636E;&#x5C0F;&#x4E8E; 100k&#xFF0C;&#x5426;&#x5219;&#x53EF;&#x80FD;&#x6027;&#x80FD;&#x4E0D;&#x4F73;&#x3002;</li>
+</ul>
+</li>
+<li><a href="https://pingcap.com/blog-cn/tidb-in-high-concurrency-scenarios/" target="_blank">TiDB &#x6700;&#x4F73;&#x5B9E;&#x8DF5;&#x7CFB;&#x5217;&#xFF08;&#x4E00;&#xFF09;&#x9AD8;&#x5E76;&#x53D1;&#x5199;&#x5165;&#x5E38;&#x89C1;&#x70ED;&#x70B9;&#x95EE;&#x9898;&#x53CA;&#x89C4;&#x907F;&#x65B9;&#x6CD5;</a><ul>
+<li>&#x9AD8;&#x5E76;&#x53D1;&#x6279;&#x91CF;&#x63D2;&#x5165;&#x4F1A;&#x6709;region&#x70ED;&#x70B9;&#x95EE;&#x9898;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x9884;&#x5148;split region&#x89E3;&#x51B3;</li>
+</ul>
+</li>
 </ol>
 <pre><code>&#x4E3B;&#x952E;&#x7D22;&#x5F15;&#xFF1A;key&#xFF1A;tableID&#x3001;rowID&#xFF1B;value&#xFF1A;\[col1, col2, col3, col4...]
 &#x552F;&#x4E00;&#x7D22;&#x5F15;&#xFF1A;key&#xFF1A;tableID&#x3001;indexID&#x3001;indexedColumnsValue&#xFF1B;value&#xFF1A;rowID
@@ -424,11 +433,75 @@ t10_i2_PB --&gt; 3
 t10_i1_10_1 --&gt; null
 t10_i1_20_2 --&gt; null
 t10_i1_30_3 --&gt; null
-</code></pre><h4 id="ddl-&#x53D8;&#x66F4;&#x539F;&#x7406;">DDL &#x53D8;&#x66F4;&#x539F;&#x7406;</h4>
+</code></pre><h4 id="&#x70ED;&#x70B9;&#x95EE;&#x9898;&#x5904;&#x7406;&#x601D;&#x8DEF;">&#x70ED;&#x70B9;&#x95EE;&#x9898;&#x5904;&#x7406;&#x601D;&#x8DEF;</h4>
+<ol>
+<li><a href="https://book.tidb.io/session4/chapter7/hotspot-resolved.html" target="_blank">7.2 &#x70ED;&#x70B9;&#x95EE;&#x9898;&#x5904;&#x7406;&#x601D;&#x8DEF; &#xB7; TiDB in Action</a></li>
+<li>&#x786E;&#x8BA4;&#x70ED;&#x70B9;&#x95EE;&#x9898;&#xFF1A;Grafana &#x7684; TiKV-Trouble-Shooting &#x7684; Dashboard &#x7684; Hot Read &#x548C; Hot Write &#x9762;&#x677F;</li>
+<li>&#x786E;&#x8BA4;&#x70ED;&#x70B9;&#x8868;&#x6216;&#x7D22;&#x5F15;&#xFF1A;pd-ctl region topwrite|topread 3&#xFF1B;TiDB Dashboard&#x7684;&#x6D41;&#x91CF;&#x53EF;&#x89C6;&#x5316;&#x3002;</li>
+<li>&#x5199;&#x5165;&#x70ED;&#x70B9;&#x7684;&#x4E1A;&#x52A1;&#x573A;&#x666F;&#x901A;&#x5E38;&#x6709;&#xFF1A;<ul>
+<li>&#x6709;&#x81EA;&#x589E;&#x4E3B;&#x952E;&#xFF1A;&#x53BB;&#x6389;&#x81EA;&#x589E;&#x4E3B;&#x952E;&#x5E76;&#x8BBE;&#x7F6E; SHARD_ROW_ID_BITS&#xFF08;&#x53EF;&#x52A8;&#x6001;&#x8BBE;&#x7F6E;&#xFF0C;SHARD_ROW_ID_BITS=4&#x8868;&#x793A;16&#x4E2A;&#x5206;&#x7247;&#xFF09;&#x3002;</li>
+<li>&#x5B58;&#x5728;&#x9012;&#x589E;&#x7D22;&#x5F15;&#xFF0C;&#x6BD4;&#x5982;&#x65F6;&#x95F4;&#x7D22;&#x5F15;&#x7B49;&#xFF1A;&#x624B;&#x5DE5;&#x5207;&#x5206;&#x70ED;&#x70B9; Region&#x3002;</li>
+<li>&#x9AD8;&#x5E76;&#x53D1;&#x66F4;&#x65B0;&#x5C0F;&#x8868;&#xFF1A;&#x6539;&#x9020;&#x5C0F;&#x8868;&#x4E3A; hash &#x5206;&#x533A;&#x8868;&#x3002;</li>
+<li>&#x79D2;&#x6740;&#x573A;&#x666F;&#x4E0B;&#x7684;&#x5355;&#x884C;&#x70ED;&#x70B9;&#x95EE;&#x9898;&#xFF1A;&#x4E1A;&#x52A1;&#x5C42;&#x9762;&#x7528;&#x5185;&#x5B58;&#x7F13;&#x5B58;&#x89E3;&#x51B3;&#x3002;</li>
+</ul>
+</li>
+</ol>
+<h4 id="tikv-&#x67B6;&#x6784;">TiKV &#x67B6;&#x6784;</h4>
+<ol>
+<li><a href="https://docs.pingcap.com/zh/tidb/stable/tikv-overview" target="_blank">TiKV &#x7B80;&#x4ECB; | PingCAP Docs</a></li>
+<li><a href="https://docs.pingcap.com/zh/tidb/stable/rocksdb-overview" target="_blank">RocksDB &#x7B80;&#x4ECB; | PingCAP Docs</a></li>
+<li>Region &#x526F;&#x672C;(Peer)&#x7684;&#x4E09;&#x4E2A;&#x89D2;&#x8272;&#xFF1A;Leader&#x8D1F;&#x8D23;&#x8BFB;&#x5199;&#x53EF;&#x6295;&#x7968;&#xFF1B;Follower&#x53EF;&#x968F;&#x65F6;&#x66FF;&#x6362;Leader&#x53EF;&#x6295;&#x7968;&#xFF1B;Learner&#x662F;&#x4E0D;&#x5B8C;&#x6574;&#x7684;&#x526F;&#x672C;&#xFF0C;&#x4E0D;&#x53EF;&#x6295;&#x7968;&#x3002;</li>
+<li>&#x6BCF;&#x4E2A; TiKV &#x5B9E;&#x4F8B;&#x4E2D;&#x6709;&#x4E24;&#x4E2A; RocksDB &#x5B9E;&#x4F8B;<ul>
+<li>&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x5B58;&#x50A8; Raft &#x65E5;&#x5FD7;&#xFF08;&#x901A;&#x5E38;&#x88AB;&#x79F0;&#x4E3A; raftdb&#xFF09;</li>
+<li>&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x5B58;&#x50A8;&#x7528;&#x6237;&#x6570;&#x636E;&#x4EE5;&#x53CA; MVCC &#x4FE1;&#x606F;&#xFF08;&#x901A;&#x5E38;&#x88AB;&#x79F0;&#x4E3A; kvdb&#xFF09;</li>
+</ul>
+</li>
+</ol>
+<h4 id="pd-&#x8C03;&#x5EA6;&#x7B56;&#x7565;">PD &#x8C03;&#x5EA6;&#x7B56;&#x7565;</h4>
+<ol>
+<li><a href="https://pingcap.com/blog-cn/tidb-internal-3/" target="_blank">&#x4E09;&#x7BC7;&#x6587;&#x7AE0;&#x4E86;&#x89E3; TiDB &#x6280;&#x672F;&#x5185;&#x5E55; - &#x8C08;&#x8C03;&#x5EA6;</a></li>
+<li><a href="https://pingcap.com/blog-cn/best-practice-pd" target="_blank">TiDB &#x6700;&#x4F73;&#x5B9E;&#x8DF5;&#x7CFB;&#x5217;&#xFF08;&#x4E8C;&#xFF09;PD &#x8C03;&#x5EA6;&#x7B56;&#x7565;&#x6700;&#x4F73;&#x5B9E;&#x8DF5;</a></li>
+<li>&#x76F8;&#x5173;&#x6982;&#x5FF5;<ul>
+<li>Store&#xFF1A;&#x5373;TiKV&#x5B9E;&#x4F8B;</li>
+<li>Region&#xFF1A;&#x82E5;Region&#x6709;3&#x4E2A;&#x526F;&#x672C;&#xFF0C;&#x4E5F;&#x5373;3&#x4E2A;Peer&#x3002;&#x6BCF;&#x4E2A;Region&#x6709;1&#x4E2A;raft&#x5B9E;&#x4F8B;&#xFF0C;&#x4E5F;&#x79F0;Raft Group&#x3002;</li>
+<li>Pending / Down&#xFF1A;&#x662F;Peer&#x53EF;&#x80FD;&#x51FA;&#x73B0;&#x7684;&#x4E24;&#x79CD;&#x7279;&#x6B8A;&#x72B6;&#x6001;<ul>
+<li>Pending &#x8868;&#x793A; Follower &#x6216; Learner &#x7684; raft log &#x4E0E; Leader &#x6709;&#x8F83;&#x5927;&#x5DEE;&#x8DDD;&#xFF0C;Pending &#x72B6;&#x6001;&#x7684; Follower &#x65E0;&#x6CD5;&#x88AB;&#x9009;&#x4E3E;&#x6210; Leader&#x3002;</li>
+<li>Down &#x662F;&#x6307; Leader &#x957F;&#x65F6;&#x95F4;&#x6CA1;&#x6709;&#x6536;&#x5230;&#x5BF9;&#x5E94; Peer &#x7684;&#x6D88;&#x606F;&#xFF0C;&#x53EF;&#x80FD;&#x662F;&#x5B95;&#x673A;&#x6216;&#x8005;&#x7F51;&#x7EDC;&#x9694;&#x79BB;&#x3002;</li>
+</ul>
+</li>
+<li>Scheduler&#xFF1A;&#x662F;PD&#x7684;&#x8C03;&#x5EA6;&#x5668;&#xFF0C;&#x5E38;&#x7528;&#x7684;&#x8C03;&#x5EA6;&#x5668;&#x6709;&#xFF1A;<ul>
+<li>balance-leader-scheduler&#xFF1A;&#x4FDD;&#x6301;&#x4E0D;&#x540C;&#x8282;&#x70B9;&#x7684; Leader &#x5747;&#x8861;&#x3002;</li>
+<li>balance-region-scheduler&#xFF1A;&#x4FDD;&#x6301;&#x4E0D;&#x540C;&#x8282;&#x70B9;&#x7684; Peer &#x5747;&#x8861;&#x3002;</li>
+<li>hot-region-scheduler&#xFF1A;&#x4FDD;&#x6301;&#x4E0D;&#x540C;&#x8282;&#x70B9;&#x7684;&#x8BFB;&#x5199;&#x70ED;&#x70B9; Region &#x5747;&#x8861;&#x3002;</li>
+<li>evict-leader-{store-id}&#xFF1A;&#x9A71;&#x9010;&#x67D0;&#x4E2A;&#x8282;&#x70B9;&#x7684;&#x6240;&#x6709; Leader&#x3002;&#xFF08;&#x5E38;&#x7528;&#x4E8E;&#x6EDA;&#x52A8;&#x5347;&#x7EA7;&#xFF09;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>TiKV &#x8282;&#x70B9;&#x5468;&#x671F;&#x6027;&#x5730;&#x5411; PD &#x4E0A;&#x62A5; StoreHeartbeat &#x548C; RegionHeartbeat &#x4E24;&#x79CD;&#x5FC3;&#x8DF3;&#x6D88;&#x606F;&#x3002;</li>
+<li>StoreHeartbeat &#x5305;&#x542B;&#x4E86; Store &#x7684;&#x57FA;&#x672C;&#x4FE1;&#x606F;&#xFF0C;&#x7531; Store &#x5B9A;&#x671F;&#x5411; PD &#x6C47;&#x62A5;&#x3002;<ul>
+<li>&#x603B;&#x78C1;&#x76D8;&#x5BB9;&#x91CF;</li>
+<li>&#x53EF;&#x7528;&#x78C1;&#x76D8;&#x5BB9;&#x91CF;</li>
+<li>&#x627F;&#x8F7D;&#x7684; Region &#x6570;&#x91CF;</li>
+<li>&#x6570;&#x636E;&#x8BFB;&#x5199;&#x901F;&#x5EA6;</li>
+<li>&#x53D1;&#x9001;/&#x63A5;&#x53D7;&#x7684; Snapshot &#x6570;&#x91CF;&#xFF08;&#x526F;&#x672C;&#x4E4B;&#x95F4;&#x53EF;&#x80FD;&#x4F1A;&#x901A;&#x8FC7; Snapshot &#x540C;&#x6B65;&#x6570;&#x636E;&#xFF09;</li>
+<li>&#x662F;&#x5426;&#x8FC7;&#x8F7D;</li>
+<li>&#x6807;&#x7B7E;&#x4FE1;&#x606F;</li>
+</ul>
+</li>
+<li>RegionHeartbeat &#x5305;&#x542B;&#x4E86; Region &#x7684;&#x76F8;&#x5173;&#x4FE1;&#x606F;&#xFF0C;&#x7531; Raft Group &#x7684; Leader &#x5B9A;&#x671F;&#x5411; PD &#x6C47;&#x62A5;&#x3002;<ul>
+<li>Leader &#x7684;&#x4F4D;&#x7F6E;</li>
+<li>Followers &#x7684;&#x4F4D;&#x7F6E;</li>
+<li>&#x6389;&#x7EBF;&#x526F;&#x672C;&#x7684;&#x4E2A;&#x6570;</li>
+<li>&#x6570;&#x636E;&#x8BFB;&#x5199;&#x901F;&#x5EA6;</li>
+</ul>
+</li>
+</ol>
+<h4 id="ddl-&#x53D8;&#x66F4;&#x539F;&#x7406;">DDL &#x53D8;&#x66F4;&#x539F;&#x7406;</h4>
 <ol>
 <li><a href="https://book.tidb.io/session1/chapter7/tidb-ddl-status.html" target="_blank">DDL &#x53D8;&#x66F4;&#x539F;&#x7406;</a></li>
 <li>Add column operation&#xFF1A;&#x53EA;&#x66F4;&#x65B0;schema&#xFF0C;&#x65B0;&#x7684;row&#x662F;&#x65B0;&#x7ED3;&#x6784;&#xFF0C;&#x67E5;&#x8BE2;&#x8001;&#x7684;row&#x5C31;&#x4F9D;&#x636E;schema&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#x8FD4;&#x56DE;</li>
-<li>Modify column operation&#xFF1A;&#x8F6C;&#x6362;column&#x7684;&#x7C7B;&#x578B;&#x53EA;&#x652F;&#x6301;&#x6574;&#x578B;(lengthened)&#xFF1B;&#x5982;&#x679C;&#x7D22;&#x5F15;&#x6709;&#x7528;&#x5230;&#x6B64;column&#xFF0C;&#x7D22;&#x5F15;&#x7684;schema&#x4E5F;&#x9700;&#x6539;&#x53D8;(&#x4F46;&#x539F;&#x59CB;&#x6570;&#x636E;&#x4E0D;&#x53D8;)</li>
+<li>Modify column operation&#xFF1A;&#x8F6C;&#x6362;column&#x7684;&#x7C7B;&#x578B;&#x53EA;&#x652F;&#x6301;&#x6574;&#x578B;(lengthened)&#xFF1B;auto_increment&#x53EA;&#x80FD;&#x5728;&#x65B0;&#x5EFA;&#x8868;&#x7684;&#x65F6;&#x5019;&#x8BBE;&#x7F6E;&#xFF1B;&#x5982;&#x679C;&#x7D22;&#x5F15;&#x6709;&#x7528;&#x5230;&#x6B64;column&#xFF0C;&#x7D22;&#x5F15;&#x7684;schema&#x4E5F;&#x9700;&#x6539;&#x53D8;(&#x4F46;&#x539F;&#x59CB;&#x6570;&#x636E;&#x4E0D;&#x53D8;)</li>
 <li>Add index operation&#xFF1A;&#x5148;&#x751F;&#x6210;&#x597D;index&#x518D;&#x628A;index&#x8BBE;&#x7F6E;&#x4E3A;&#x53EF;&#x7528;&#xFF0C;&#x8017;&#x65F6;&#x8F83;&#x957F;</li>
 </ol>
 <h4 id="tidb-&#x96C6;&#x7FA4;&#x7BA1;&#x7406;">TiDB &#x96C6;&#x7FA4;&#x7BA1;&#x7406;</h4>
@@ -473,7 +546,7 @@ t10_i1_30_3 --&gt; null
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.TiDB系统管理基础","level":"1.7.1","depth":2,"previous":{"title":"6.TiDB PCTA认证","level":"1.7","depth":1,"ref":"","articles":[{"title":"1.TiDB系统管理基础","level":"1.7.1","depth":2,"path":"docs/61.md","ref":"docs/61.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/61.md","mtime":"2021-08-03T08:45:45.528Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-03T08:46:13.599Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.TiDB系统管理基础","level":"1.7.1","depth":2,"previous":{"title":"6.TiDB PCTA认证","level":"1.7","depth":1,"ref":"","articles":[{"title":"1.TiDB系统管理基础","level":"1.7.1","depth":2,"path":"docs/61.md","ref":"docs/61.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/61.md","mtime":"2021-08-04T09:56:22.891Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-04T09:56:47.851Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
