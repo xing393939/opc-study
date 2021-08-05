@@ -583,6 +583,31 @@ t10_i1_30_3 --&gt; null
 </li>
 <li>AutoRandom &#x53EA;&#x80FD;&#x7528;&#x5728;&#x4E3B;&#x952E;&#x4E0A;&#xFF0C;&#x4E0D;&#x80FD;&#x7528;&#x5728;&#x552F;&#x4E00;&#x7D22;&#x5F15;</li>
 </ol>
+<h4 id="8titan-&#x7B80;&#x4ECB;&#x4E0E;&#x5B9E;&#x6218;">8.Titan &#x7B80;&#x4ECB;&#x4E0E;&#x5B9E;&#x6218;</h4>
+<ol>
+<li><a href="https://book.tidb.io/session1/chapter8/titan-internal.html" target="_blank">Titan &#x7B80;&#x4ECB;&#x4E0E;&#x5B9E;&#x6218; &#xB7; TiDB in Action</a></li>
+<li>Titan &#x5229;&#x7528;SSD&#x968F;&#x673A;IO&#x7684;&#x4F18;&#x52BF;&#xFF0C;&#x4EE5;&#x727A;&#x7272;&#x786C;&#x76D8;&#x7A7A;&#x95F4;&#x548C;&#x8303;&#x56F4;&#x67E5;&#x8BE2;&#x7684;&#x6027;&#x80FD;&#x4E3A;&#x4EE3;&#x4EF7;&#xFF0C;&#x6362;&#x53D6;&#x66F4;&#x9AD8;&#x7684;&#x5199;&#x5165;&#x6027;&#x80FD;&#x3002;</li>
+<li>Titan &#x78C1;&#x76D8;&#x7A7A;&#x95F4;&#x5360;&#x7528;&#x53EF;&#x80FD;&#x6BD4; RocksDB &#x591A;&#x4E00;&#x500D;&#x3002;</li>
+<li>Titan &#x8303;&#x56F4;&#x67E5;&#x8BE2;&#x6027;&#x80FD;&#x76F8;&#x6BD4; RocksDB &#x4E0B;&#x964D; 40% &#x5230;&#x6570;&#x500D;&#x4E0D;&#x7B49;&#x3002;</li>
+<li>Titan &#x9002;&#x5408;&#x5927;value&#x7684;&#x63D2;&#x5165;&#xFF0C;&#x5927;&#x4E8E;512B&#x5373;&#x4E3A;&#x5927;value&#xFF0C;&#x9ED8;&#x8BA4;&#x8BBE;&#x5B9A;&#x662F;&#x5927;&#x4E8E;1KB&#x3002;</li>
+</ol>
+<h4 id="9tiflash-&#x7B80;&#x4ECB;&#x4E0E;-htap-&#x5B9E;&#x6218;">9.TiFlash &#x7B80;&#x4ECB;&#x4E0E; HTAP &#x5B9E;&#x6218;</h4>
+<ol>
+<li><a href="https://book.tidb.io/session1/chapter9/tiflash-intro.html" target="_blank">TiFlash &#x7B80;&#x4ECB;&#x4E0E; HTAP &#x5B9E;&#x6218; &#xB7; TiDB in Action</a></li>
+<li>TiFlash &#x4EE5;Raft Learner&#x7684;&#x65B9;&#x5F0F;&#x63A5;&#x5165;Multi-Raft&#x7EC4;&#xFF0C;&#x4F7F;&#x7528;&#x5F02;&#x6B65;&#x7684;&#x65B9;&#x5F0F;&#x540C;&#x6B65;&#x6570;&#x636E;&#xFF0C;&#x540C;&#x65F6;&#x5C06;&#x884C;&#x683C;&#x5F0F;&#x62C6;&#x89E3;&#x4E3A;&#x5217;&#x683C;&#x5F0F;</li>
+<li>TiFlash &#x7684;&#x4F7F;&#x7528;&#xFF1A;<ul>
+<li>ALTER TABLE tpch50.lineitem SET TIFLASH REPLICA 2; &#x8BBE;&#x7F6E;2&#x4E2A;TiFlash&#x526F;&#x672C;</li>
+<li>SELECT * FROM information_schema.tiflash_replica WHERE TABLE_SCHEMA=&apos;tpch50&apos; and TABLE_NAME=&apos;lineitem&apos;; &#x67E5;&#x770B;&#x526F;&#x672C;</li>
+</ul>
+</li>
+<li>TiFlash &#x7684;&#x4F7F;&#x7528;&#xFF0C;&#x624B;&#x5DE5;Hint &gt; &#x4F1A;&#x8BDD;&#x7EA7;&#x522B; &gt; Engine&#x7EA7;&#x522B; &gt; CBO<ul>
+<li>CBO (Cost Based Optimization)&#xFF1A;&#x6839;&#x636E;&#x4F18;&#x5316;&#x5668;&#x6765;&#x51B3;&#x5B9A;&#x662F;&#x8BFB;TiKV&#x8FD8;&#x662F;TiFlash</li>
+<li>&#x4F1A;&#x8BDD;&#x7EA7;&#x522B;&#xFF1A;SET SESSION tidb_isolation_read_engines = &quot;tikv,tiflash&quot;;</li>
+<li>Engine&#x7EA7;&#x522B;&#xFF0C;&#x5B9E;&#x4F8B;&#x914D;&#x7F6E;&#xFF1A;isolation-read.engines = [&quot;tikv&quot;, &quot;tiflash&quot;]</li>
+<li>&#x624B;&#x5DE5;Hint&#xFF1A;SELECT /<em>+ read_from_storage(tiflash[t]) </em>/ * FROM t;</li>
+</ul>
+</li>
+</ol>
 <h4 id="tidb-&#x96C6;&#x7FA4;&#x7BA1;&#x7406;">TiDB &#x96C6;&#x7FA4;&#x7BA1;&#x7406;</h4>
 <ul>
 <li>&#x5B89;&#x88C5;&#xFF1A;pd&#x662F;&#x5927;&#x8111;&#xFF08;3&#x53F0;&#xFF09;&#x3001;tidb&#x662F;&#x65E0;&#x72B6;&#x6001;&#x7684;server&#xFF08;2&#x53F0;&#xFF09;&#x3001;tikv&#xFF08;3&#x53F0;&#xFF0C;&#x9ED8;&#x8BA4;3&#x4E2A;&#x526F;&#x672C;&#xFF09;</li>
@@ -625,7 +650,7 @@ t10_i1_30_3 --&gt; null
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.TiDB系统管理基础","level":"1.7.1","depth":2,"previous":{"title":"6.TiDB PCTA认证","level":"1.7","depth":1,"ref":"","articles":[{"title":"1.TiDB系统管理基础","level":"1.7.1","depth":2,"path":"docs/61.md","ref":"docs/61.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/61.md","mtime":"2021-08-05T09:32:26.313Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-05T09:32:49.896Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.TiDB系统管理基础","level":"1.7.1","depth":2,"previous":{"title":"6.TiDB PCTA认证","level":"1.7","depth":1,"ref":"","articles":[{"title":"1.TiDB系统管理基础","level":"1.7.1","depth":2,"path":"docs/61.md","ref":"docs/61.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/61.md","mtime":"2021-08-05T10:11:23.018Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-05T10:11:46.201Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
