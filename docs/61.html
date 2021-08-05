@@ -333,7 +333,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h3 id="tidb&#x7CFB;&#x7EDF;&#x7BA1;&#x7406;&#x57FA;&#x7840;">TiDB&#x7CFB;&#x7EDF;&#x7BA1;&#x7406;&#x57FA;&#x7840;</h3>
-<h4 id="&#x57FA;&#x7840;">&#x57FA;&#x7840;</h4>
+<h4 id="&#x57FA;&#x7840;&#x77E5;&#x8BC6;">&#x57FA;&#x7840;&#x77E5;&#x8BC6;</h4>
 <ol>
 <li><a href="https://learn.pingcap.com/learner/course/30002" target="_blank">TiDB &#x7CFB;&#x7EDF;&#x7BA1;&#x7406;&#x57FA;&#x7840; - &#x89C6;&#x9891;</a></li>
 <li><a href="https://www.quora.com/How-does-TiDB-compare-with-MySQL" target="_blank">18&#x5E74;&#x7684;&#x538B;&#x6D4B;</a>&#x548C;<a href="https://www.percona.com/blog/2019/01/24/a-quick-look-into-tidb-performance-on-a-single-server/" target="_blank">19&#x5E74;&#x7684;&#x538B;&#x6D4B;</a>&#x8868;&#x660E;&#xFF1A;TiDB&#x7684;&#x6027;&#x80FD;&#x53EA;&#x6709;MySQL&#x7684;&#x4E00;&#x534A;</li>
@@ -392,10 +392,22 @@
 &#x65E5;&#x5FD7;4&#x8BB0;&#x5F55;t=4
 &#x6807;&#x8BB0;&#x4E3A;*&#x540E;&#x8868;&#x793A;&#x4E8B;&#x52A1;&#x5DF2;&#x63D0;&#x4EA4;&#xFF0C;&#x6B64;&#x65F6;&#x9700;&#x8981;&#x7B49;&#x6570;&#x636E;&#x843D;&#x76D8;&#x540E;&#x624D;&#x80FD;&#x5220;&#x9664;&#xFF0C;&#x65E5;&#x5FD7;1&#x53EF;&#x4EE5;&#x5220;&#x9664;&#xFF0C;&#x65E5;&#x5FD7;3&#x4E0D;&#x80FD;
 &#x6570;&#x636E;&#x6062;&#x590D;&#x65F6;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x6062;&#x590D;&#x6807;&#x8BB0;&#x4E3A;*&#x65E5;&#x5FD7;&#x5373;&#x53EF;
-</code></pre><h3 id="&#x4E09;&#x7BC7;&#x6587;&#x7AE0;&#x4E86;&#x89E3;-tidb-&#x6280;&#x672F;&#x5185;&#x5E55;">&#x4E09;&#x7BC7;&#x6587;&#x7AE0;&#x4E86;&#x89E3; TiDB &#x6280;&#x672F;&#x5185;&#x5E55;</h3>
+</code></pre><h4 id="&#x4E00;&#x3001;&#x8BB2;&#x5B58;&#x50A8;">&#x4E00;&#x3001;&#x8BB2;&#x5B58;&#x50A8;</h4>
 <ol>
 <li><a href="https://docs.pingcap.com/zh/tidb/stable/high-concurrency-best-practices" target="_blank">TiDB &#x9AD8;&#x5E76;&#x53D1;&#x5199;&#x5165;&#x573A;&#x666F;&#x6700;&#x4F73;&#x5B9E;&#x8DF5;</a></li>
-<li><a href="https://pingcap.com/blog-cn/tidb-best-practice/" target="_blank">TiDB Best Practice</a><ul>
+<li><a href="https://pingcap.com/blog-cn/tidb-best-practice/" target="_blank">TiDB Best Practice</a></li>
+<li><a href="https://pingcap.com/blog-cn/tidb-internal-1" target="_blank">&#x4E09;&#x7BC7;&#x6587;&#x7AE0;&#x4E86;&#x89E3; TiDB &#x6280;&#x672F;&#x5185;&#x5E55; - &#x8BB2;&#x5B58;&#x50A8;</a></li>
+<li>Raft &#x662F;&#x4E00;&#x4E2A;&#x4E00;&#x81F4;&#x6027;&#x534F;&#x8BAE;&#xFF0C;&#x63D0;&#x4F9B;&#x51E0;&#x4E2A;&#x91CD;&#x8981;&#x7684;&#x529F;&#x80FD;&#xFF1A;<ul>
+<li>Leader &#x9009;&#x4E3E;</li>
+<li>&#x6210;&#x5458;&#x53D8;&#x66F4;</li>
+<li>&#x65E5;&#x5FD7;&#x590D;&#x5236;</li>
+</ul>
+</li>
+<li>&#x6BCF;&#x4E2A;&#x6570;&#x636E;&#x53D8;&#x66F4;&#x90FD;&#x4F1A;&#x843D;&#x5730;&#x4E3A;&#x4E00;&#x6761; Raft &#x65E5;&#x5FD7;&#xFF0C;&#x518D;&#x901A;&#x8FC7; Raft &#x7684;&#x65E5;&#x5FD7;&#x6765;&#x540C;&#x6B65;&#x526F;&#x672C;&#x6570;&#x636E;</li>
+</ol>
+<h4 id="&#x4E8C;&#x3001;&#x8BF4;&#x8BA1;&#x7B97;">&#x4E8C;&#x3001;&#x8BF4;&#x8BA1;&#x7B97;</h4>
+<ul>
+<li><a href="https://pingcap.com/blog-cn/tidb-internal-2" target="_blank">&#x4E09;&#x7BC7;&#x6587;&#x7AE0;&#x4E86;&#x89E3; TiDB &#x6280;&#x672F;&#x5185;&#x5E55; - &#x8BF4;&#x8BA1;&#x7B97;</a></li>
 <li>TiDB &#x6700;&#x5E95;&#x5C42;&#x7528; Raft &#x6765;&#x540C;&#x6B65;&#x6570;&#x636E;&#x3002;&#x6BCF;&#x6B21;&#x5199;&#x5165;&#x90FD;&#x8981;&#x5199;&#x5165;&#x591A;&#x6570;&#x526F;&#x672C;&#xFF0C;&#x624D;&#x80FD;&#x5BF9;&#x5916;&#x8FD4;&#x56DE;&#x6210;&#x529F;&#x3002;</li>
 <li>&#x6BD4;&#x5982;&#x6700;&#x5927; 3 &#x526F;&#x672C;&#x7684;&#x8BDD;&#xFF0C;&#x6BCF;&#x6B21;&#x5199;&#x5165; 2 &#x526F;&#x672C;&#x624D;&#x7B97;&#x6210;&#x529F;&#x3002;&#x5199;&#x5165;&#x7684;&#x5EF6;&#x8FDF;&#x53D6;&#x51B3;&#x4E8E;&#x6700;&#x5FEB;&#x7684;&#x4E24;&#x4E2A;&#x526F;&#x672C;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x6700;&#x6162;&#x7684;&#x90A3;&#x4E2A;&#x526F;&#x672C;&#x3002;</li>
 <li>&#x5206;&#x5E03;&#x5F0F;&#x4E8B;&#x52A1;&#x91C7;&#x7528;&#x7684;&#x4E50;&#x89C2;&#x9501;&#x3002;&#x7F3A;&#x70B9;&#x53EA;&#x6709;&#x5728;&#x771F;&#x6B63;&#x63D0;&#x4EA4;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x624D;&#x4F1A;&#x505A;&#x51B2;&#x7A81;&#x68C0;&#x6D4B;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x51B2;&#x7A81;&#x4E25;&#x91CD;&#x7684;&#x573A;&#x666F;&#x4E0B;&#x6027;&#x80FD;&#x4F4E;&#x4E0B;&#x3002;</li>
@@ -403,12 +415,6 @@
 <li>&#x4E8C;&#x7EA7;&#x7D22;&#x5F15;&#x7684;&#x7279;&#x70B9;&#xFF1A;&#x5C3D;&#x91CF;&#x7528;&#x533A;&#x5206;&#x5EA6;&#x6BD4;&#x8F83;&#x5927;&#x7684;&#x5217;&#xFF1B;&#x6700;&#x5DE6;&#x539F;&#x5219;&#xFF1B;&#x6570;&#x636E;&#x5206;&#x6563;&#x5728;&#x5F88;&#x591A;Region&#x4E0A;&#xFF0C;&#x5E76;&#x53D1;&#x67E5;&#x8BE2;&#x7684;Region&#x6570;&#x53EF;&#x914D;</li>
 <li>&#x5EFA;&#x8BAE;&#x6BCF;&#x4E2A;&#x4E8B;&#x52A1;&#x7684;&#x884C;&#x6570;&#x4E0D;&#x8D85;&#x8FC7; 200 &#x884C;&#xFF0C;&#x4E14;&#x5355;&#x884C;&#x6570;&#x636E;&#x5C0F;&#x4E8E; 100k&#xFF0C;&#x5426;&#x5219;&#x53EF;&#x80FD;&#x6027;&#x80FD;&#x4E0D;&#x4F73;&#x3002;</li>
 </ul>
-</li>
-<li><a href="https://pingcap.com/blog-cn/tidb-in-high-concurrency-scenarios/" target="_blank">TiDB &#x6700;&#x4F73;&#x5B9E;&#x8DF5;&#x7CFB;&#x5217;&#xFF08;&#x4E00;&#xFF09;&#x9AD8;&#x5E76;&#x53D1;&#x5199;&#x5165;&#x5E38;&#x89C1;&#x70ED;&#x70B9;&#x95EE;&#x9898;&#x53CA;&#x89C4;&#x907F;&#x65B9;&#x6CD5;</a><ul>
-<li>&#x9AD8;&#x5E76;&#x53D1;&#x6279;&#x91CF;&#x63D2;&#x5165;&#x4F1A;&#x6709;region&#x70ED;&#x70B9;&#x95EE;&#x9898;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x9884;&#x5148;split region&#x89E3;&#x51B3;</li>
-</ul>
-</li>
-</ol>
 <pre><code>&#x4E3B;&#x952E;&#x7D22;&#x5F15;&#xFF1A;key&#xFF1A;tableID&#x3001;rowID&#xFF1B;value&#xFF1A;\[col1, col2, col3, col4...]
 &#x552F;&#x4E00;&#x7D22;&#x5F15;&#xFF1A;key&#xFF1A;tableID&#x3001;indexID&#x3001;indexedColumnsValue&#xFF1B;value&#xFF1A;rowID
 &#x975E;&#x552F;&#x4E00;&#x7D22;&#x5F15;&#xFF1A;key&#xFF1A;tableID&#x3001;indexID&#x3001;indexedColumnsValue&#x3001;rowID&#xFF1B;value&#xFF1A;null
@@ -433,31 +439,7 @@ t10_i2_PB --&gt; 3
 t10_i1_10_1 --&gt; null
 t10_i1_20_2 --&gt; null
 t10_i1_30_3 --&gt; null
-</code></pre><h4 id="&#x70ED;&#x70B9;&#x95EE;&#x9898;&#x5904;&#x7406;&#x601D;&#x8DEF;">&#x70ED;&#x70B9;&#x95EE;&#x9898;&#x5904;&#x7406;&#x601D;&#x8DEF;</h4>
-<ol>
-<li><a href="https://book.tidb.io/session4/chapter7/hotspot-resolved.html" target="_blank">7.2 &#x70ED;&#x70B9;&#x95EE;&#x9898;&#x5904;&#x7406;&#x601D;&#x8DEF; &#xB7; TiDB in Action</a></li>
-<li>&#x786E;&#x8BA4;&#x70ED;&#x70B9;&#x95EE;&#x9898;&#xFF1A;Grafana &#x7684; TiKV-Trouble-Shooting &#x7684; Dashboard &#x7684; Hot Read &#x548C; Hot Write &#x9762;&#x677F;</li>
-<li>&#x786E;&#x8BA4;&#x70ED;&#x70B9;&#x8868;&#x6216;&#x7D22;&#x5F15;&#xFF1A;pd-ctl region topwrite|topread 3&#xFF1B;TiDB Dashboard&#x7684;&#x6D41;&#x91CF;&#x53EF;&#x89C6;&#x5316;&#x3002;</li>
-<li>&#x5199;&#x5165;&#x70ED;&#x70B9;&#x7684;&#x4E1A;&#x52A1;&#x573A;&#x666F;&#x901A;&#x5E38;&#x6709;&#xFF1A;<ul>
-<li>&#x6709;&#x81EA;&#x589E;&#x4E3B;&#x952E;&#xFF1A;&#x53BB;&#x6389;&#x81EA;&#x589E;&#x4E3B;&#x952E;&#x5E76;&#x8BBE;&#x7F6E; SHARD_ROW_ID_BITS&#xFF08;&#x53EF;&#x52A8;&#x6001;&#x8BBE;&#x7F6E;&#xFF0C;SHARD_ROW_ID_BITS=4&#x8868;&#x793A;16&#x4E2A;&#x5206;&#x7247;&#xFF09;&#x3002;</li>
-<li>&#x5B58;&#x5728;&#x9012;&#x589E;&#x7D22;&#x5F15;&#xFF0C;&#x6BD4;&#x5982;&#x65F6;&#x95F4;&#x7D22;&#x5F15;&#x7B49;&#xFF1A;&#x624B;&#x5DE5;&#x5207;&#x5206;&#x70ED;&#x70B9; Region&#x3002;</li>
-<li>&#x9AD8;&#x5E76;&#x53D1;&#x66F4;&#x65B0;&#x5C0F;&#x8868;&#xFF1A;&#x6539;&#x9020;&#x5C0F;&#x8868;&#x4E3A; hash &#x5206;&#x533A;&#x8868;&#x3002;</li>
-<li>&#x79D2;&#x6740;&#x573A;&#x666F;&#x4E0B;&#x7684;&#x5355;&#x884C;&#x70ED;&#x70B9;&#x95EE;&#x9898;&#xFF1A;&#x4E1A;&#x52A1;&#x5C42;&#x9762;&#x7528;&#x5185;&#x5B58;&#x7F13;&#x5B58;&#x89E3;&#x51B3;&#x3002;</li>
-</ul>
-</li>
-</ol>
-<h4 id="tikv-&#x67B6;&#x6784;">TiKV &#x67B6;&#x6784;</h4>
-<ol>
-<li><a href="https://docs.pingcap.com/zh/tidb/stable/tikv-overview" target="_blank">TiKV &#x7B80;&#x4ECB; | PingCAP Docs</a></li>
-<li><a href="https://docs.pingcap.com/zh/tidb/stable/rocksdb-overview" target="_blank">RocksDB &#x7B80;&#x4ECB; | PingCAP Docs</a></li>
-<li>Region &#x526F;&#x672C;(Peer)&#x7684;&#x4E09;&#x4E2A;&#x89D2;&#x8272;&#xFF1A;Leader&#x8D1F;&#x8D23;&#x8BFB;&#x5199;&#x53EF;&#x6295;&#x7968;&#xFF1B;Follower&#x53EF;&#x968F;&#x65F6;&#x66FF;&#x6362;Leader&#x53EF;&#x6295;&#x7968;&#xFF1B;Learner&#x662F;&#x4E0D;&#x5B8C;&#x6574;&#x7684;&#x526F;&#x672C;&#xFF0C;&#x4E0D;&#x53EF;&#x6295;&#x7968;&#x3002;</li>
-<li>&#x6BCF;&#x4E2A; TiKV &#x5B9E;&#x4F8B;&#x4E2D;&#x6709;&#x4E24;&#x4E2A; RocksDB &#x5B9E;&#x4F8B;<ul>
-<li>&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x5B58;&#x50A8; Raft &#x65E5;&#x5FD7;&#xFF08;&#x901A;&#x5E38;&#x88AB;&#x79F0;&#x4E3A; raftdb&#xFF09;</li>
-<li>&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x5B58;&#x50A8;&#x7528;&#x6237;&#x6570;&#x636E;&#x4EE5;&#x53CA; MVCC &#x4FE1;&#x606F;&#xFF08;&#x901A;&#x5E38;&#x88AB;&#x79F0;&#x4E3A; kvdb&#xFF09;</li>
-</ul>
-</li>
-</ol>
-<h4 id="pd-&#x8C03;&#x5EA6;&#x7B56;&#x7565;">PD &#x8C03;&#x5EA6;&#x7B56;&#x7565;</h4>
+</code></pre><h4 id="&#x4E09;&#x3001;&#x8C08;&#x8C03;&#x5EA6;">&#x4E09;&#x3001;&#x8C08;&#x8C03;&#x5EA6;</h4>
 <ol>
 <li><a href="https://pingcap.com/blog-cn/tidb-internal-3/" target="_blank">&#x4E09;&#x7BC7;&#x6587;&#x7AE0;&#x4E86;&#x89E3; TiDB &#x6280;&#x672F;&#x5185;&#x5E55; - &#x8C08;&#x8C03;&#x5EA6;</a></li>
 <li><a href="https://pingcap.com/blog-cn/best-practice-pd" target="_blank">TiDB &#x6700;&#x4F73;&#x5B9E;&#x8DF5;&#x7CFB;&#x5217;&#xFF08;&#x4E8C;&#xFF09;PD &#x8C03;&#x5EA6;&#x7B56;&#x7565;&#x6700;&#x4F73;&#x5B9E;&#x8DF5;</a></li>
@@ -494,6 +476,34 @@ t10_i1_30_3 --&gt; null
 <li>Followers &#x7684;&#x4F4D;&#x7F6E;</li>
 <li>&#x6389;&#x7EBF;&#x526F;&#x672C;&#x7684;&#x4E2A;&#x6570;</li>
 <li>&#x6570;&#x636E;&#x8BFB;&#x5199;&#x901F;&#x5EA6;</li>
+</ul>
+</li>
+</ol>
+<h4 id="&#x70ED;&#x70B9;&#x95EE;&#x9898;&#x5904;&#x7406;&#x601D;&#x8DEF;">&#x70ED;&#x70B9;&#x95EE;&#x9898;&#x5904;&#x7406;&#x601D;&#x8DEF;</h4>
+<ol>
+<li><a href="https://pingcap.com/blog-cn/tidb-in-high-concurrency-scenarios/" target="_blank">TiDB &#x6700;&#x4F73;&#x5B9E;&#x8DF5;&#x7CFB;&#x5217;&#xFF08;&#x4E00;&#xFF09;&#x9AD8;&#x5E76;&#x53D1;&#x5199;&#x5165;&#x5E38;&#x89C1;&#x70ED;&#x70B9;&#x95EE;&#x9898;&#x53CA;&#x89C4;&#x907F;&#x65B9;&#x6CD5;</a><ul>
+<li>&#x9AD8;&#x5E76;&#x53D1;&#x6279;&#x91CF;&#x63D2;&#x5165;&#x4F1A;&#x6709;region&#x70ED;&#x70B9;&#x95EE;&#x9898;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x9884;&#x5148;split region&#x89E3;&#x51B3;</li>
+</ul>
+</li>
+<li><a href="https://book.tidb.io/session4/chapter7/hotspot-resolved.html" target="_blank">7.2 &#x70ED;&#x70B9;&#x95EE;&#x9898;&#x5904;&#x7406;&#x601D;&#x8DEF; &#xB7; TiDB in Action</a></li>
+<li>&#x786E;&#x8BA4;&#x70ED;&#x70B9;&#x95EE;&#x9898;&#xFF1A;Grafana &#x7684; TiKV-Trouble-Shooting &#x7684; Dashboard &#x7684; Hot Read &#x548C; Hot Write &#x9762;&#x677F;</li>
+<li>&#x786E;&#x8BA4;&#x70ED;&#x70B9;&#x8868;&#x6216;&#x7D22;&#x5F15;&#xFF1A;pd-ctl region topwrite|topread 3&#xFF1B;TiDB Dashboard&#x7684;&#x6D41;&#x91CF;&#x53EF;&#x89C6;&#x5316;&#x3002;</li>
+<li>&#x5199;&#x5165;&#x70ED;&#x70B9;&#x7684;&#x4E1A;&#x52A1;&#x573A;&#x666F;&#x901A;&#x5E38;&#x6709;&#xFF1A;<ul>
+<li>&#x6709;&#x81EA;&#x589E;&#x4E3B;&#x952E;&#xFF1A;&#x53BB;&#x6389;&#x81EA;&#x589E;&#x4E3B;&#x952E;&#x5E76;&#x8BBE;&#x7F6E; SHARD_ROW_ID_BITS&#xFF08;&#x53EF;&#x52A8;&#x6001;&#x8BBE;&#x7F6E;&#xFF0C;SHARD_ROW_ID_BITS=4&#x8868;&#x793A;16&#x4E2A;&#x5206;&#x7247;&#xFF09;&#x3002;</li>
+<li>&#x5B58;&#x5728;&#x9012;&#x589E;&#x7D22;&#x5F15;&#xFF0C;&#x6BD4;&#x5982;&#x65F6;&#x95F4;&#x7D22;&#x5F15;&#x7B49;&#xFF1A;&#x624B;&#x5DE5;&#x5207;&#x5206;&#x70ED;&#x70B9; Region&#x3002;</li>
+<li>&#x9AD8;&#x5E76;&#x53D1;&#x66F4;&#x65B0;&#x5C0F;&#x8868;&#xFF1A;&#x6539;&#x9020;&#x5C0F;&#x8868;&#x4E3A; hash &#x5206;&#x533A;&#x8868;&#x3002;</li>
+<li>&#x79D2;&#x6740;&#x573A;&#x666F;&#x4E0B;&#x7684;&#x5355;&#x884C;&#x70ED;&#x70B9;&#x95EE;&#x9898;&#xFF1A;&#x4E1A;&#x52A1;&#x5C42;&#x9762;&#x7528;&#x5185;&#x5B58;&#x7F13;&#x5B58;&#x89E3;&#x51B3;&#x3002;</li>
+</ul>
+</li>
+</ol>
+<h4 id="tikv-&#x67B6;&#x6784;">TiKV &#x67B6;&#x6784;</h4>
+<ol>
+<li><a href="https://docs.pingcap.com/zh/tidb/stable/tikv-overview" target="_blank">TiKV &#x7B80;&#x4ECB; | PingCAP Docs</a></li>
+<li><a href="https://docs.pingcap.com/zh/tidb/stable/rocksdb-overview" target="_blank">RocksDB &#x7B80;&#x4ECB; | PingCAP Docs</a></li>
+<li>Region &#x526F;&#x672C;(Peer)&#x7684;&#x4E09;&#x4E2A;&#x89D2;&#x8272;&#xFF1A;Leader&#x8D1F;&#x8D23;&#x8BFB;&#x5199;&#x53EF;&#x6295;&#x7968;&#xFF1B;Follower&#x53EF;&#x968F;&#x65F6;&#x66FF;&#x6362;Leader&#x53EF;&#x6295;&#x7968;&#xFF1B;Learner&#x662F;&#x4E0D;&#x5B8C;&#x6574;&#x7684;&#x526F;&#x672C;&#xFF0C;&#x4E0D;&#x53EF;&#x6295;&#x7968;&#x3002;</li>
+<li>&#x6BCF;&#x4E2A; TiKV &#x5B9E;&#x4F8B;&#x4E2D;&#x6709;&#x4E24;&#x4E2A; RocksDB &#x5B9E;&#x4F8B;<ul>
+<li>&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x5B58;&#x50A8; Raft &#x65E5;&#x5FD7;&#xFF08;&#x901A;&#x5E38;&#x88AB;&#x79F0;&#x4E3A; raftdb&#xFF09;</li>
+<li>&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x5B58;&#x50A8;&#x7528;&#x6237;&#x6570;&#x636E;&#x4EE5;&#x53CA; MVCC &#x4FE1;&#x606F;&#xFF08;&#x901A;&#x5E38;&#x88AB;&#x79F0;&#x4E3A; kvdb&#xFF09;</li>
 </ul>
 </li>
 </ol>
@@ -546,7 +556,7 @@ t10_i1_30_3 --&gt; null
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.TiDB系统管理基础","level":"1.7.1","depth":2,"previous":{"title":"6.TiDB PCTA认证","level":"1.7","depth":1,"ref":"","articles":[{"title":"1.TiDB系统管理基础","level":"1.7.1","depth":2,"path":"docs/61.md","ref":"docs/61.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/61.md","mtime":"2021-08-04T09:56:22.891Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-04T09:56:47.851Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.TiDB系统管理基础","level":"1.7.1","depth":2,"previous":{"title":"6.TiDB PCTA认证","level":"1.7","depth":1,"ref":"","articles":[{"title":"1.TiDB系统管理基础","level":"1.7.1","depth":2,"path":"docs/61.md","ref":"docs/61.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/61.md","mtime":"2021-08-05T02:00:37.895Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-05T02:01:09.472Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
