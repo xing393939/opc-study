@@ -14,5 +14,10 @@
   * [1.设计模式和案例](docs/51.md)
   * [2.设计模式的个人理解](docs/52.md)
 * 6.TiDB PCTA认证
-  * [1.TiDB系统管理基础](docs/61.md)
+  * [1.TiDB 基础知识](docs/61.md)
+  * [2.TiDB in Action: 原理和特性](docs/62.md)
+  * [3.TiDB in Action: 部署与管理](docs/63.md)
+  * [4.TiDB in Action: 故障排查](docs/64.md)
+  * [5.TiDB in Action: 最佳实践](docs/65.md)
+
   
