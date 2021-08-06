@@ -389,7 +389,22 @@
                                 <section class="normal markdown-section">
                                 
                                 <h3 id="tidb-in-action-&#x90E8;&#x7F72;&#x4E0E;&#x7BA1;&#x7406;">TiDB in Action: &#x90E8;&#x7F72;&#x4E0E;&#x7BA1;&#x7406;</h3>
-<h4 id="&#x8D44;&#x6599;">&#x8D44;&#x6599;</h4>
+<h4 id="1&#x90E8;&#x7F72;&#x5B89;&#x88C5;&#x548C;&#x5E38;&#x89C1;&#x8FD0;&#x7EF4;">1.&#x90E8;&#x7F72;&#x5B89;&#x88C5;&#x548C;&#x5E38;&#x89C1;&#x8FD0;&#x7EF4;</h4>
+<ol>
+<li>TiUP &#x547D;&#x4EE4;<ul>
+<li>&#x5347;&#x7EA7;TiUP&#xFF1A;tiup update --self </li>
+<li>&#x6269;&#x5BB9;&#xFF1A;&#x914D;&#x7F6E;scale.yaml&#x586B;&#x4E0A;&#x8981;&#x6269;&#x5BB9;&#x7684;&#x8282;&#x70B9;ip&#x548C;&#x7AEF;&#x53E3;&#xFF0C;&#x6267;&#x884C;tiup cluster scale-out tidb-test scale.yaml</li>
+<li>&#x7F29;&#x5BB9;&#xFF1A;tiup cluster scale-in prod-cluster -N 172.16.5.140:20160</li>
+</ul>
+</li>
+<li>&#x5347;&#x7EA7; PD&#xFF1A;&#x4F18;&#x5148;&#x5347;&#x7EA7;&#x975E; Leader &#x8282;&#x70B9;&#xFF1B;&#x518D;&#x5C06; Leader &#x8FC1;&#x79FB;&#x5230;&#x5347;&#x7EA7;&#x5B8C;&#x6210;&#x7684;&#x8282;&#x70B9;&#x4E0A;&#xFF1B;&#x518D;&#x5347;&#x7EA7;&#x65E7;&#x7684; Leader &#x8282;&#x70B9;</li>
+<li>&#x5347;&#x7EA7; TiKV&#xFF1A;<ul>
+<li>&#x5148;&#x5728; PD &#x4E2D;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x8FC1;&#x79FB;&#x5BF9;&#x5E94; TiKV &#x4E0A; region leader &#x7684;&#x8C03;&#x5EA6;</li>
+<li>&#x518D;&#x5BF9;&#x8BE5; TiKV &#x8282;&#x70B9;&#x8FDB;&#x884C;&#x5347;&#x7EA7;&#x66F4;&#x65B0;</li>
+<li>&#x7B49;&#x66F4;&#x65B0;&#x540E;&#x7684; TiKV &#x6B63;&#x5E38;&#x542F;&#x52A8;&#x4E4B;&#x540E;&#x518D;&#x79FB;&#x9664;&#x8FC1;&#x79FB; Leader &#x7684;&#x8C03;&#x5EA6;</li>
+</ul>
+</li>
+</ol>
 
                                 
                                 </section>
@@ -433,7 +448,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.TiDB in Action: 部署与管理","level":"1.7.3","depth":2,"next":{"title":"4.TiDB in Action: 故障排查","level":"1.7.4","depth":2,"path":"docs/64.md","ref":"docs/64.md","articles":[]},"previous":{"title":"2.TiDB in Action: 原理和特性","level":"1.7.2","depth":2,"path":"docs/62.md","ref":"docs/62.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/63.md","mtime":"2021-08-06T04:10:11.149Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-06T04:10:46.450Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.TiDB in Action: 部署与管理","level":"1.7.3","depth":2,"next":{"title":"4.TiDB in Action: 故障排查","level":"1.7.4","depth":2,"path":"docs/64.md","ref":"docs/64.md","articles":[]},"previous":{"title":"2.TiDB in Action: 原理和特性","level":"1.7.2","depth":2,"path":"docs/62.md","ref":"docs/62.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/63.md","mtime":"2021-08-06T08:22:06.021Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-06T08:22:32.113Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
