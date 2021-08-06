@@ -577,6 +577,34 @@ t10_i1_30_3 --&gt; null
 </ul>
 </li>
 </ol>
+<h4 id="10tidb-&#x5B89;&#x5168;">10.TiDB &#x5B89;&#x5168;</h4>
+<ol>
+<li>&#x6743;&#x9650;&#x7BA1;&#x7406;<ul>
+<li>&#x521B;&#x5EFA;&#x7528;&#x6237;&#xFF1A;CREATE USER &apos;developer&apos;@&apos;192.168.0.%&apos; IDENTIFIED BY &apos;password&apos;;</li>
+<li>&#x6388;&#x6743;&#x7528;&#x6237;&#xFF1A;GRANT SELECT ON db1.table1 TO &apos;developer&apos;@&apos;192.168.0.%&apos;;</li>
+<li>&#x4FEE;&#x6539;&#x5BC6;&#x7801;&#xFF1A;ALTER USER &apos;developer&apos;@&apos;192.168.0.%&apos; IDENTIFIED BY &apos;password&apos;;</li>
+</ul>
+</li>
+<li>RBAC<ul>
+<li>&#x521B;&#x5EFA;&#x89D2;&#x8272;&#xFF1A;create role reader@&apos;%&apos;;</li>
+<li>&#x6388;&#x6743;&#x89D2;&#x8272;&#xFF1A;grant select on db1.table1 to reader&apos;%&apos;;</li>
+<li>&#x89D2;&#x8272;&#x7ED9;&#x7528;&#x6237;&#xFF1A;grant reader to developer&apos;192.168.0.%&apos;;</li>
+<li>&#x8FDE;&#x63A5;&#x540E;&#xFF1A;set role reader; &#x4F7F;&#x89D2;&#x8272;&#x751F;&#x6548;</li>
+</ul>
+</li>
+<li>&#x8BC1;&#x4E66;&#x7BA1;&#x7406;&#x4E0E;&#x6570;&#x636E;&#x52A0;&#x5BC6;<ul>
+<li>&#x8BC1;&#x4E66;&#x6765;&#x786E;&#x8BA4;&#x8EAB;&#x4EFD;&#xFF0C;&#x767B;&#x9646;&#x540E;&#x4F7F;&#x7528;&#x52A0;&#x5BC6;&#x8FDE;&#x63A5;&#x6765;&#x4F20;&#x8F93;&#x6570;&#x636E;&#x3002;&#x8D8A;&#x6765;&#x8D8A;&#x591A;&#x7684;&#x7528;&#x6237;&#x4F7F;&#x7528;&#x8BC1;&#x4E66;&#x9274;&#x6743;&#x6765;&#x4EE3;&#x66FF;&#x7528;&#x6237;&#x540D;&#x5BC6;&#x7801;&#x9A8C;&#x8BC1;&#x3002;</li>
+<li>&#x7528;&#x6237;&#x9700;&#x8981;&#x751F;&#x6210;&#xFF1A;&#x670D;&#x52A1;&#x7AEF;&#x5BC6;&#x94A5;&#x548C;&#x8BC1;&#x4E66;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x5BC6;&#x94A5;&#x548C;&#x8BC1;&#x4E66;&#x3002;&#x518D;&#x7528;CA&#x5BC6;&#x94A5;&#x548C;&#x8BC1;&#x4E66;&#x5BF9;&#x670D;&#x52A1;&#x7AEF;&#x8BC1;&#x4E66;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x8BC1;&#x4E66;&#x8FDB;&#x884C;&#x7B7E;&#x540D;&#x3002;</li>
+<li>&#x751F;&#x6210;CA&#x5BC6;&#x94A5;&#x548C;&#x8BC1;&#x4E66;&#xFF1A;ca-key.pem&#x3001;ca-cert.pem</li>
+<li>&#x751F;&#x6210;&#x670D;&#x52A1;&#x5668;&#x5BC6;&#x94A5;&#x548C;&#x8BC1;&#x4E66;&#xFF1A;server-key.pem&#x3001;server-cert.pem(CA&#x5BC6;&#x94A5;&#x548C;&#x8BC1;&#x4E66;)</li>
+<li>&#x751F;&#x6210;&#x5BA2;&#x6237;&#x7AEF;&#x5BC6;&#x94A5;&#x548C;&#x8BC1;&#x4E66;&#xFF1A;client-key.pem&#x3001;client-cert.pem(CA&#x5BC6;&#x94A5;&#x548C;&#x8BC1;&#x4E66;)</li>
+<li>&#x9A8C;&#x8BC1;&#x8BC1;&#x4E66;&#x662F;&#x5426;&#x6B63;&#x786E;&#xFF1A;openssl verify -CAfile ca-cert.pem server-cert.pem client-cert.pem</li>
+<li>&#x670D;&#x52A1;&#x5668;&#x9700;&#x8981;&#x5B58;&#x653E;CA&#x8BC1;&#x4E66;&#x3001;&#x670D;&#x52A1;&#x7AEF;&#x5BC6;&#x94A5;&#x548C;&#x8BC1;&#x4E66;</li>
+<li>&#x5BA2;&#x6237;&#x7AEF;&#x9700;&#x8981;&#x5B58;&#x653E;CA&#x8BC1;&#x4E66;&#x3001;&#x5BA2;&#x6237;&#x7AEF;&#x5BC6;&#x94A5;&#x548C;&#x8BC1;&#x4E66;</li>
+<li>CA&#x5BC6;&#x94A5;&#x5219;&#x9700;&#x8981;&#x79BB;&#x7EBF;&#x4FDD;&#x7BA1;</li>
+</ul>
+</li>
+</ol>
 
                                 
                                 </section>
@@ -620,7 +648,7 @@ t10_i1_30_3 --&gt; null
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.TiDB in Action: 原理和特性","level":"1.7.2","depth":2,"next":{"title":"3.TiDB in Action: 部署与管理","level":"1.7.3","depth":2,"path":"docs/63.md","ref":"docs/63.md","articles":[]},"previous":{"title":"1.TiDB 基础知识","level":"1.7.1","depth":2,"path":"docs/61.md","ref":"docs/61.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/62.md","mtime":"2021-08-06T02:18:34.374Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-06T02:18:57.497Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.TiDB in Action: 原理和特性","level":"1.7.2","depth":2,"next":{"title":"3.TiDB in Action: 部署与管理","level":"1.7.3","depth":2,"path":"docs/63.md","ref":"docs/63.md","articles":[]},"previous":{"title":"1.TiDB 基础知识","level":"1.7.1","depth":2,"path":"docs/61.md","ref":"docs/61.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/62.md","mtime":"2021-08-06T04:10:11.149Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-06T04:10:46.450Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
