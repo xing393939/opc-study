@@ -389,7 +389,65 @@
                                 <section class="normal markdown-section">
                                 
                                 <h3 id="tidb-in-action-&#x6545;&#x969C;&#x6392;&#x67E5;">TiDB in Action: &#x6545;&#x969C;&#x6392;&#x67E5;</h3>
-<h4 id="&#x8D44;&#x6599;">&#x8D44;&#x6599;</h4>
+<h4 id="1sql-&#x8C03;&#x4F18;&#x539F;&#x7406;">1.SQL &#x8C03;&#x4F18;&#x539F;&#x7406;</h4>
+<ol>
+<li>EXPLAIN&#xFF1A;&#x6267;&#x884C;&#x8BA1;&#x5212;&#x7531;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x7B97;&#x5B50;&#x6784;&#x6210;&#x3002;<ul>
+<li>id&#xFF1A;&#x540E;&#x7F00;&#x5E26;Build&#x603B;&#x662F;&#x5148;&#x4E8E;Probe&#x6267;&#x884C;</li>
+<li>estRows&#xFF1A;&#x4F30;&#x7B97;&#x7684;&#x8F93;&#x51FA;&#x6761;&#x6570;</li>
+<li>task&#xFF1A;&#x6709;&#x4E24;&#x79CD;&#xFF0C;root&#x5728;tidb&#x6267;&#x884C;&#xFF0C;cop&#x5728;tikv&#x4E0A;&#x5E76;&#x53D1;&#x6267;&#x884C;</li>
+<li>access object&#xFF1A;&#x7B97;&#x5B50;&#x6240;&#x8BBF;&#x95EE;&#x7684;&#x6570;&#x636E;&#x9879;&#xFF0C;&#x5982;table&#x3001;partition&#x3001;index</li>
+<li>operator info&#xFF1A;&#x7B97;&#x5B50;&#x7684;&#x5176;&#x5B83;&#x4FE1;&#x606F;</li>
+</ul>
+</li>
+<li>EXPLAIN ANALYZE&#xFF1A;&#x771F;&#x5B9E;&#x6267;&#x884C;SQL&#xFF0C;&#x548C;&#x6267;&#x884C;&#x8BA1;&#x5212;&#x4E00;&#x5E76;&#x8FD4;&#x56DE;&#x51FA;&#x6765;&#xFF0C;&#x53EF;&#x4EE5;&#x89C6;&#x4E3A;EXPLAIN&#x8BED;&#x53E5;&#x7684;&#x6269;&#x5C55;<ul>
+<li>actRows&#xFF1A;&#x771F;&#x5B9E;&#x7684;&#x8F93;&#x51FA;&#x6761;&#x6570;</li>
+<li>execution info&#xFF1A;time:&#x603B;&#x65F6;&#x95F4;, loops:&#x6B64;&#x7B97;&#x5B50;&#x5FAA;&#x73AF;&#x4E86;&#x51E0;&#x6B21;</li>
+</ul>
+</li>
+<li>&#x7B97;&#x5B50;&#x8BFB;&#x76D8;&#x6216;&#x8005;&#x8BFB;TiKV&#xFF1A;<ul>
+<li>TableFullScan&#xFF1A;&#x8FD9;&#x662F;&#x5927;&#x5BB6;&#x6240;&#x719F;&#x77E5;&#x7684; &#x201C;&#x5168;&#x8868;&#x626B;&#x201D; &#x64CD;&#x4F5C;</li>
+<li>TableRangeScan&#xFF1A;&#x5E26;&#x6709;&#x8303;&#x56F4;&#x7684;&#x8868;&#x6570;&#x636E;&#x626B;&#x63CF;&#x64CD;&#x4F5C;&#xFF0C;&#x901A;&#x5E38;&#x626B;&#x63CF;&#x7684;&#x6570;&#x636E;&#x91CF;&#x4E0D;&#x5927;</li>
+<li>TableRowIDScan&#xFF1A;&#x6839;&#x636E;&#x4E0A;&#x5C42;&#x4F20;&#x9012;&#x4E0B;&#x6765;&#x7684; RowID &#x7CBE;&#x786E;&#x7684;&#x626B;&#x63CF;&#x8868;&#x6570;&#x636E;&#x7684;&#x7B97;&#x5B50;</li>
+<li>IndexFullScan&#xFF1A;&#x53E6;&#x4E00;&#x79CD; &#x201C;&#x5168;&#x8868;&#x626B;&#x201D;&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;&#x8FD9;&#x91CC;&#x626B;&#x7684;&#x662F;&#x7D22;&#x5F15;&#x6570;&#x636E;&#xFF0C;&#x4E0D;&#x662F;&#x8868;&#x6570;&#x636E;</li>
+<li>IndexRangeScan&#xFF1A;&#x5E26;&#x6709;&#x8303;&#x56F4;&#x7684;&#x7D22;&#x5F15;&#x6570;&#x636E;&#x626B;&#x63CF;&#x64CD;&#x4F5C;&#xFF0C;&#x901A;&#x5E38;&#x626B;&#x63CF;&#x7684;&#x6570;&#x636E;&#x91CF;&#x4E0D;&#x5927;</li>
+</ul>
+</li>
+<li>&#x7B97;&#x5B50;&#x8BFB;TiDB&#xFF1A;<ul>
+<li>TableReader&#xFF1A;&#x6C47;&#x603B; TiKV &#x4E0A;&#x5E95;&#x5C42;&#x626B;&#x8868;&#x7B97;&#x5B50;&#x662F; TableFullScan &#x6216; TableRangeScan &#x7684;&#x7B97;&#x5B50;&#x3002;</li>
+<li>IndexReader&#xFF1A;&#x6C47;&#x603B; TiKV &#x4E0A;&#x5E95;&#x5C42;&#x626B;&#x8868;&#x7B97;&#x5B50;&#x662F; IndexFullScan &#x6216; IndexRangeScan &#x7684;&#x7B97;&#x5B50;&#x3002;</li>
+<li>IndexLookUp&#xFF1A;&#x5148;&#x6C47;&#x603B;Build&#x7AEF;TiKV&#x626B;&#x63CF;&#x4E0A;&#x6765;&#x7684;RowID&#xFF0C;&#x518D;&#x53BB;Probe&#x7AEF;&#x4E0A;&#x6839;&#x636E;RowID&#x53D6;TiKV&#x3002;Build&#x7AEF;&#x662F;IndexFullScan&#x3001;IndexRangeScan&#xFF0C;Probe&#x7AEF;&#x662F;TableRowIDScan&#x3002;</li>
+<li>IndexMerge&#xFF1A;&#x548C;IndexLookup&#x7C7B;&#x4F3C;&#xFF0C;&#x4E0D;&#x8FC7;&#x652F;&#x6301;&#x591A;&#x4E2A;build&#x548C;Probe</li>
+</ul>
+</li>
+<li>3 &#x79CD;&#x6700;&#x57FA;&#x672C;&#x7684;&#x7B97;&#x5B50;&#xFF1A;<ul>
+<li>Selection&#xFF1A; &#x4EE3;&#x8868;&#x4E86;&#x76F8;&#x5E94;&#x7684;&#x8FC7;&#x6EE4;&#x6761;&#x4EF6;&#xFF0C;select * from t where a = 5 &#x4E2D;&#x7684; where a = 5&#x3002;</li>
+<li>Projection&#xFF1A;&#x6295;&#x5F71;&#x64CD;&#x4F5C;&#xFF0C;&#x4E5F;&#x7528;&#x4E8E;&#x8868;&#x8FBE;&#x5F0F;&#x8BA1;&#x7B97;&#xFF0C; select c, a + b from t &#x91CC;&#x9762;&#x7684; c &#x548C; a + b&#x5C31;&#x662F;&#x6295;&#x5F71;&#x548C;&#x8868;&#x8FBE;&#x5F0F;&#x8BA1;&#x7B97;&#x64CD;&#x4F5C;&#x3002;</li>
+<li>Join&#xFF1A;&#x4E24;&#x4E2A;&#x8868;&#x7684;&#x8FDE;&#x63A5;&#x64CD;&#x4F5C;</li>
+</ul>
+</li>
+</ol>
+<h4 id="2tidb-dashboard">2.TiDB Dashboard</h4>
+<ol>
+<li>&#x6D41;&#x91CF;&#x53EF;&#x89C6;&#x5316;&#xFF1A;&#x67E5;&#x770B;&#x70ED;&#x70B9;region</li>
+<li>SQL &#x8BED;&#x53E5;&#x5206;&#x6790;&#xFF1A;&#x67E5;&#x770B;&#x6240;&#x6709;&#x7684;sql&#x8BED;&#x53E5;&#x7684;&#x5E73;&#x5747;&#x6267;&#x884C;&#x65F6;&#x95F4;&#xFF0C;&#x5E73;&#x5747;&#x5F71;&#x54CD;&#x884C;&#x6570;&#xFF0C;&#x6267;&#x884C;&#x6B21;&#x6570;</li>
+<li>&#x751F;&#x6210;&#x96C6;&#x7FA4;&#x8BCA;&#x65AD;&#x62A5;&#x544A;</li>
+<li>&#x65E5;&#x5FD7;&#x641C;&#x7D22;&#xFF1A;&#x641C;&#x7D22;&#x96C6;&#x7FA4;&#x7684;&#x7CFB;&#x7EDF;&#x65E5;&#x5FD7;</li>
+</ol>
+<h4 id="3&#x8BCA;&#x65AD;&#x7CFB;&#x7EDF;&#x8868;">3.&#x8BCA;&#x65AD;&#x7CFB;&#x7EDF;&#x8868;</h4>
+<ol>
+<li>&#x96C6;&#x7FA4;&#x4FE1;&#x606F;&#x8868;&#xFF1A;select type, instance, status_address, uptime from information_schema.cluster_info;</li>
+<li>&#x6162;&#x67E5;&#x8BE2;&#xFF1A;select query_time, SUBSTR(query,1,50) from information_schema.slow_query</li>
+<li>&#x5F53;&#x524D;&#x7684;&#x4F1A;&#x8BDD;&#xFF1A;SHOW FULL PROCESSLIST;</li>
+<li>Statement Summary &#x7CFB;&#x7EDF;&#x8868;&#xFF0C;&#x5BF9;&#x540C;&#x7C7B;SQL&#x8FDB;&#x884C;&#x6C47;&#x603B;<ul>
+<li>Statement Summary Tables &#x662F;&#x5185;&#x5B58;&#x8868;</li>
+<li>tidb_enable_stmt_summary&#xFF1A;&#x6253;&#x5F00;&#x6216;&#x5173;&#x95ED;&#x8BE5;&#x529F;&#x80FD;</li>
+<li>tidb_stmt_summary_refresh_interval&#xFF1A;&#x76D1;&#x63A7;&#x6307;&#x6807;&#x7684;&#x5237;&#x65B0;&#x5468;&#x671F;</li>
+<li>tidb_stmt_summary_history_size&#xFF1A;&#x5386;&#x53F2;&#x8868;&#x4FDD;&#x5B58;&#x7684;&#x5386;&#x53F2;&#x6570;&#x91CF;</li>
+<li>max-stmt-count&#xFF1A;&#x4FDD;&#x5B58;&#x7684; SQL &#x7684;&#x79CD;&#x7C7B;&#x6570;&#x91CF;</li>
+<li>max-sql-length&#xFF1A;&#x663E;&#x793A;&#x7684; SQL &#x7684;&#x6700;&#x5927;&#x957F;&#x5EA6;</li>
+</ul>
+</li>
+</ol>
 
                                 
                                 </section>
@@ -433,7 +491,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.TiDB in Action: 故障排查","level":"1.7.4","depth":2,"next":{"title":"5.TiDB in Action: 最佳实践","level":"1.7.5","depth":2,"path":"docs/65.md","ref":"docs/65.md","articles":[]},"previous":{"title":"3.TiDB in Action: 部署与管理","level":"1.7.3","depth":2,"path":"docs/63.md","ref":"docs/63.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/64.md","mtime":"2021-08-06T08:22:06.021Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-06T08:22:32.113Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.TiDB in Action: 故障排查","level":"1.7.4","depth":2,"next":{"title":"5.TiDB in Action: 最佳实践","level":"1.7.5","depth":2,"path":"docs/65.md","ref":"docs/65.md","articles":[]},"previous":{"title":"3.TiDB in Action: 部署与管理","level":"1.7.3","depth":2,"path":"docs/63.md","ref":"docs/63.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/64.md","mtime":"2021-08-08T10:30:46.426Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-08T10:31:13.470Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
