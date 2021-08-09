@@ -387,7 +387,65 @@
                                 <section class="normal markdown-section">
                                 
                                 <h3 id="tidb-in-action-&#x6700;&#x4F73;&#x5B9E;&#x8DF5;">TiDB in Action: &#x6700;&#x4F73;&#x5B9E;&#x8DF5;</h3>
-<h4 id="&#x8D44;&#x6599;">&#x8D44;&#x6599;</h4>
+<h4 id="1&#x9002;&#x7528;&#x573A;&#x666F;&#x4ECB;&#x7ECD;">1.&#x9002;&#x7528;&#x573A;&#x666F;&#x4ECB;&#x7ECD;</h4>
+<ol>
+<li>&#x5206;&#x5E93;&#x5206;&#x8868;&#x7684;&#x7F3A;&#x70B9;&#xFF1A;<ul>
+<li>&#x4E1A;&#x52A1;&#x9700;&#x8981;&#x63D0;&#x4F9B;&#x5207;&#x5206;&#x7EF4;&#x5EA6;</li>
+<li>&#x4E0D;&#x652F;&#x6301;&#x5728;&#x7EBF; DDL &#x64CD;&#x4F5C;&#xFF0C;&#x4E0D;&#x80FD;&#x5728;&#x7EBF;&#x8FDB;&#x884C;&#x6269;&#x7F29;&#x5BB9;</li>
+<li>&#x4E0D;&#x80FD;&#x8DE8;&#x7EF4;&#x5EA6; Join / &#x805A;&#x5408; / &#x5B50;&#x67E5;&#x8BE2;&#xFF0C;&#x4E0D;&#x652F;&#x6301;&#x5206;&#x5E03;&#x5F0F;&#x4E8B;&#x52A1;&#x3002;</li>
+<li>&#x4E1A;&#x52A1;&#x7A0B;&#x5E8F;&#x4ECE;&#x5355;&#x673A;&#x6570;&#x636E;&#x5E93;&#x8FC1;&#x79FB;&#x5230;&#x5206;&#x5E93;&#x5206;&#x8868;&#x65B9;&#x6848;&#x65F6;&#xFF0C;&#x901A;&#x5E38;&#x8981;&#x5B8C;&#x6210;&#x5927;&#x91CF;&#x7684;&#x5F00;&#x53D1;&#x9002;&#x914D;&#x6539;&#x9020;&#x3002;</li>
+<li>&#x4E0D;&#x80FD;&#x5B9E;&#x73B0;&#x4E00;&#x81F4;&#x6027;&#x7684;&#x5907;&#x4EFD;&#x8FD8;&#x539F;&#xFF0C;&#x96BE;&#x4EE5;&#x5B9E;&#x73B0;&#x5F02;&#x5730;&#x5BB9;&#x707E;&#x7B49;&#x3002;</li>
+</ul>
+</li>
+</ol>
+<h4 id="2&#x786C;&#x4EF6;&#x9009;&#x578B;&#x89C4;&#x5212;">2.&#x786C;&#x4EF6;&#x9009;&#x578B;&#x89C4;&#x5212;</h4>
+<ol>
+<li>TiDB server &#x7EC4;&#x4EF6;<ul>
+<li>&#x6574;&#x4E2A;&#x7CFB;&#x7EDF;&#x7684;&#x74F6;&#x9888;&#x5927;&#x6982;&#x7387;&#x5148;&#x51FA;&#x73B0;&#x5728; tidb-server</li>
+<li>tidb-server &#x7684; cpu &#x9AD8;&#x4E00;&#x70B9;&#xFF0C;&#x6570;&#x91CF;&#x591A;&#x4E00;&#x70B9;&#x662F;&#x4E00;&#x4E2A;&#x66F4;&#x597D;&#x7684;&#x9009;&#x62E9;&#x3002;</li>
+</ul>
+</li>
+<li>PD &#x7EC4;&#x4EF6;<ul>
+<li>&#x63A8;&#x8350;&#x4F7F;&#x7528; SSD &#x78C1;&#x76D8;&#x3002;&#x81F3;&#x5C11;&#x4E09;&#x4E2A;&#x8282;&#x70B9;&#x3002;&#x5355;&#x72EC;&#x90E8;&#x7F72;&#x3002;</li>
+</ul>
+</li>
+<li>TiKV &#x7EC4;&#x4EF6;<ul>
+<li>&#x5EFA;&#x8BAE;&#x4F60;&#x4E3A; TiKV &#x591A;&#x5206;&#x914D;&#x6216;&#x9884;&#x7559;&#x4E9B;&#x8D44;&#x6E90;</li>
+<li>&#x5B9E;&#x4F8B;&#x4E2A;&#x6570;&#x63A8;&#x8350;&#x662F;&#x526F;&#x672C;&#x6570;&#x7684;&#x500D;&#x6570;</li>
+</ul>
+</li>
+<li>&#x76D1;&#x63A7;&#x7EC4;&#x4EF6;&#xFF1A;8GB &#x5185;&#x5B58;&#x3001;2&#x6838; CPU &#x5728;&#x5927;&#x591A;&#x6570;&#x60C5;&#x51B5;&#x4E0B;&#x5DF2;&#x7ECF;&#x591F;&#x7528;</li>
+</ol>
+<h4 id="3&#x5E38;&#x89C1;&#x6027;&#x80FD;&#x538B;&#x6D4B;">3.&#x5E38;&#x89C1;&#x6027;&#x80FD;&#x538B;&#x6D4B;</h4>
+<ol>
+<li>TPC-C &#x6D4B;&#x8BD5;&#x6A21;&#x578B;&#x7ED9;&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x79CD;&#x7EDF;&#x4E00;&#x7684;&#x6D4B;&#x8BD5;&#x6807;&#x51C6;&#x3002;</li>
+<li>BenchmarkSQL &#x5185;&#x5D4C;&#x4E86; TPC-C &#x6D4B;&#x8BD5;&#x811A;&#x672C;&#xFF0C;&#x53EF;&#x4EE5;&#x6D4B;&#x8BD5; PostgreSQL&#x3001;MySQL&#x3001;Oracle&#x3001;TIDB </li>
+<li><a href="https://www.jianshu.com/p/769611dd86b7" target="_blank">NewSql&#x7684;tpcc&#x6D4B;&#x8BD5;</a><ul>
+<li>percona&#x7684;sysbench-tpcc&#x6D4B;&#x8BD5;CRDB&#x548C;TiDB</li>
+<li>percona&#x7684;tpcc-mysql&#x53EF;&#x4EE5;&#x6D4B;&#x8BD5;TiDB</li>
+<li>TiDB&#x7684;&#x81EA;&#x5BB6;&#x65B9;&#x6848;&#xFF1A;&#x6539;&#x9020;BenchmarkSQL</li>
+<li>CRDB&#x7684;&#x81EA;&#x5BB6;&#x65B9;&#x6848;&#xFF1A;&#x81EA;&#x5DF1;&#x5F00;&#x53D1;&#x7684;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;BenchmarkSQL</li>
+</ul>
+</li>
+</ol>
+<pre><code>// &#x65B0;&#x5EFA;&#x914D;&#x7F6E;sysbench/tidb_conf
+mysql-host=192.168.xxx.xxx
+mysql-port=4000
+mysql-user=sysbench
+mysql-password=******
+mysql-db=test
+time=30            //&#x603B;&#x6D4B;&#x8BD5;&#x65F6;&#x95F4;
+threads=4          //&#x7EBF;&#x7A0B;&#x6570;
+report-interval=10 //10&#x79D2;&#x51FA;&#x4E00;&#x6B21;&#x62A5;&#x544A;
+db-driver=mysql    //mysql&#x6216;pgsql
+
+// &#x6D4B;&#x8BD5;insert&#xFF0C;&#x82E5;--tables=2&#xFF0C;&#x8868;&#x793A;&#x63D2;&#x5165;2&#x5F20;&#x8868;sbtest1&#x3001;sbtest2&#xFF0C;&#x5206;&#x522B;&#x63D2;&#x5165;10000&#x6761;&#x6570;&#x636E;
+sysbench --config-file=sysbench/tidb_conf oltp_point_select --tables=1 --table-size=10000 prepare
+// &#x6D4B;&#x8BD5;select
+sysbench --config-file=sysbench/tidb_conf oltp_point_select --tables=1 --table-size=10000 run
+// &#x6D4B;&#x8BD5;update index
+sysbench --config-file=sysbench/tidb_conf oltp_update_index --tables=1 --table-size=10000 run
+</code></pre><h4 id="4&#x8DE8;&#x6570;&#x636E;&#x4E2D;&#x5FC3;&#x65B9;&#x6848;">4.&#x8DE8;&#x6570;&#x636E;&#x4E2D;&#x5FC3;&#x65B9;&#x6848;</h4>
 
                                 
                                 </section>
@@ -427,7 +485,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5.TiDB in Action: 最佳实践","level":"1.7.5","depth":2,"previous":{"title":"4.TiDB in Action: 故障排查","level":"1.7.4","depth":2,"path":"docs/64.md","ref":"docs/64.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/65.md","mtime":"2021-08-09T02:39:38.544Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-09T02:40:11.225Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5.TiDB in Action: 最佳实践","level":"1.7.5","depth":2,"previous":{"title":"4.TiDB in Action: 故障排查","level":"1.7.4","depth":2,"path":"docs/64.md","ref":"docs/64.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/65.md","mtime":"2021-08-09T09:08:53.552Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-09T09:09:28.705Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
