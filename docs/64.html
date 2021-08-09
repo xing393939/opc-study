@@ -448,6 +448,59 @@
 </ul>
 </li>
 </ol>
+<h4 id="4tidb-&#x96C6;&#x7FA4;&#x76D1;&#x63A7;&#x4E0E;&#x62A5;&#x8B66;">4.TiDB &#x96C6;&#x7FA4;&#x76D1;&#x63A7;&#x4E0E;&#x62A5;&#x8B66;</h4>
+<ul>
+<li>Prometheus&#x4E3B;&#x52A8;pull&#x6570;&#x636E;&#xFF0C;&#x5728;Grafana&#x5C55;&#x793A;&#xFF0C;&#x7528;Alertmanager&#x62A5;&#x8B66;</li>
+<li>TiDB&#x5C42;&#xFF1A;<ul>
+<li>token-limit&#x914D;&#x7F6E;&#x63A7;&#x5236;&#x5E76;&#x53D1;&#x7684;session&#x6570;&#x91CF;&#xFF0C;&#x5EFA;&#x8BAE;&#x5C0F;&#x4E8E;500&#xFF0C;&#x4E14;99.9%&#x7684;&#x8BF7;&#x6C42;&#x5C0F;&#x4E8E;0.5&#x79D2;</li>
+<li>Get Token Duration &#x9700;&#x5C0F;&#x4E8E;2&#x7EB3;&#x79D2;</li>
+<li>Parse SQL to AST &#x9700;&#x5C0F;&#x4E8E;10&#x6BEB;&#x79D2;</li>
+<li>AST to Physical Execution Plan &#x9700;&#x5C0F;&#x4E8E;30&#x6BEB;&#x79D2;</li>
+<li>tidb_max_chunk_size&#x914D;&#x7F6E;&#x63A7;&#x5236;&#x4E00;&#x6B21;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x8FD4;&#x56DE;&#x7684;&#x6570;&#x636E;&#x6761;&#x6570;&#xFF0C;&#x9ED8;&#x8BA4;1000</li>
+<li>&#x751F;&#x6210;&#x7684;&#x7269;&#x7406;&#x6267;&#x884C;&#x8BA1;&#x5212;&#x4F1A;&#x5728;&#x3010;Executor&#x6A21;&#x5757;&#x3011;&#x4E2D;&#x8FDB;&#x884C;&#x6267;&#x884C;<ul>
+<li>&#x5982;&#x679C;&#x662F;DML&#x8BED;&#x53E5;&#xFF0C;&#x5148;&#x7F13;&#x5B58;&#x5728;&#x3010;Transaction&#x6A21;&#x5757;&#x3011;&#xFF0C;&#x7B49;&#x5F85;&#x4E8B;&#x52A1;&#x63D0;&#x4EA4;&#x65F6;&#x8FDB;&#x884C;2PC&#x63D0;&#x4EA4;</li>
+<li>&#x5982;&#x679C;&#x662F;&#x590D;&#x6742;&#x67E5;&#x8BE2;&#xFF0C;&#x5219;&#x9700;&#x901A;&#x8FC7;&#x3010;DistSQL&#x6A21;&#x5757;&#x3011;&#x5E76;&#x53D1;&#x67E5;&#x591A;&#x4E2A;region</li>
+<li>tidb_distsql_scan_currency&#x914D;&#x7F6E;&#x63A7;&#x5236;&#x6BCF;&#x6B21;&#x5E76;&#x53D1;&#x67E5;&#x591A;&#x5C11;&#x4E2A;region&#xFF0C;&#x9ED8;&#x8BA4;15</li>
+</ul>
+</li>
+<li>Get TSO from PD &#x9700;&#x5C0F;&#x4E8E;30&#x6BEB;&#x79D2;&#xFF0C;&#x4E3A;&#x4E86;&#x51CF;&#x5C11;PD&#x7684;&#x538B;&#x529B;&#xFF0C;TiDB&#x901A;&#x8FC7;&#x5355;&#x4E2A;&#x7EBF;&#x7A0B;&#x4E00;&#x6B21;&#x4E3A;&#x591A;&#x4E2A;&#x4E8B;&#x52A1;&#x5206;&#x914D;&#x65F6;&#x95F4;</li>
+</ul>
+</li>
+<li>TiKV&#x4E3B;&#x8981;&#x7531;5&#x4E2A;&#x6A21;&#x5757;&#x6784;&#x6210;<ul>
+<li>gRPC &#x662F;&#x6240;&#x6709;&#x8BF7;&#x6C42;&#x7684;&#x5165;&#x53E3;&#xFF0C;&#x5199;&#x4E8B;&#x52A1;&#x7ED9;scheduler&#x7EBF;&#x7A0B;&#xFF0C;&#x8BFB;&#x4E8B;&#x52A1;&#x7ED9;unified-readpool</li>
+<li>scheduler &#x68C0;&#x6D4B;&#x51B2;&#x7A81;&#xFF0C;&#x5C06;&#x590D;&#x6742;&#x7684;&#x4E8B;&#x52A1;&#x8F6C;&#x6362;&#x4E3A;&#x7B80;&#x5355;&#x7684;kv&#x63D2;&#x5165;&#x3001;&#x5220;&#x9664;&#xFF0C;&#x53D1;&#x9001;&#x7ED9;raftstore&#x7EBF;&#x7A0B;</li>
+<li>raftstore &#x5C06;raft&#x65E5;&#x5FD7;&#x590D;&#x5236;&#x7ED9;&#x591A;&#x4E2A;&#x526F;&#x672C;&#xFF0C;&#x5F53;&#x65E5;&#x5FD7;&#x5728;&#x591A;&#x4E2A;&#x526F;&#x672C;&#x4E0A;&#x8FBE;&#x6210;&#x4E00;&#x81F4;&#x540E;&#xFF0C;&#x4F1A;&#x53D1;&#x9001;&#x7ED9;apply&#x7EBF;&#x7A0B;</li>
+<li>apply &#x5C06;scheduler&#x7EBF;&#x7A0B;&#x7684;kv&#x64CD;&#x4F5C;&#x5199;&#x5165;RocksDB&#xFF0C;&#x901A;&#x77E5;gRPC&#x7EBF;&#x7A0B;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;</li>
+<li>unified-readpool &#x5904;&#x7406;single get&#x3001;batch get&#x7B49;&#x7B80;&#x5355;&#x7684;&#x67E5;&#x8BE2;&#x8BF7;&#x6C42;</li>
+</ul>
+</li>
+<li>RocksDB &#x7684;&#x4E09;&#x79CD;&#x57FA;&#x672C;&#x6587;&#x4EF6;&#x683C;&#x5F0F;<ul>
+<li>Memtable &#x5185;&#x5B58;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF0C;&#x65B0;&#x6570;&#x636E;&#x4F1A;&#x88AB;&#x5199;&#x8FDB;Memtable</li>
+<li>WAL Write Ahead Log &#x5199;&#x64CD;&#x4F5C;&#x5148;&#x5199;&#x5165;logfile&#xFF0C;&#x518D;&#x5199;&#x5165;Memtable</li>
+<li>SST &#x5728;Memtable&#x5199;&#x6EE1;&#x4EE5;&#x540E;&#xFF0C;&#x5C06;&#x6570;&#x636E;&#x5199;&#x5165;&#x78C1;&#x76D8;&#x4E2D;&#x7684;SST&#x6587;&#x4EF6;&#xFF0C;&#x5BF9;&#x5E94;logfile&#x91CC;&#x7684;log&#x4F1A;&#x88AB;&#x5B89;&#x5168;&#x5220;&#x9664;&#x3002;</li>
+</ul>
+</li>
+<li>RocksDB &#x67E5;&#x8BE2;&#x6D41;&#x7A0B;&#xFF1A;&#x5148;&#x5728;Memtable&#x5185;&#x5B58;&#x67E5;&#x627E;&#xFF0C;SST&#x5148;&#x7528;&#x5E03;&#x9686;&#x8FC7;&#x6EE4;&#x5668;&#x67E5;</li>
+</ul>
+<h4 id="5&#x707E;&#x96BE;&#x5FEB;&#x901F;&#x6062;&#x590D;">5.&#x707E;&#x96BE;&#x5FEB;&#x901F;&#x6062;&#x590D;</h4>
+<ol>
+<li>&#x6267;&#x884C;&#x4E86;&#x9519;&#x8BEF;&#x7684;&#x66F4;&#x65B0;&#x3001;&#x5220;&#x9664;&#x64CD;&#x4F5C;&#x3010;&#x5229;&#x7528; GC &#x5FEB;&#x7167;&#x8BFB;&#x6062;&#x590D;&#x6570;&#x636E;&#x3011;<ul>
+<li>MVCC &#x5F53;&#x66F4;&#x65B0;/&#x5220;&#x9664;&#x6570;&#x636E;&#x65F6;&#xFF0C;&#x4E0D;&#x4F1A;&#x505A;&#x771F;&#x6B63;&#x7684;&#x6570;&#x636E;&#x5220;&#x9664;&#xFF0C;&#x53EA;&#x4F1A;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x65B0;&#x7248;&#x672C;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x4EE5;&#x65F6;&#x95F4;&#x6233;&#x6765;&#x533A;&#x5206;&#x7248;&#x672C;&#xFF0C;&#x540E;&#x53F0;GC&#x6E05;&#x7406;&#x4E45;&#x8FDC;&#x7248;&#x672C;</li>
+<li>tikv_gc_life_time &#x9ED8;&#x8BA4;&#x662F;10m&#xFF0C;&#x5373;&#x80FD;&#x6062;&#x590D;&#x6700;&#x8FD1;10&#x5206;&#x949F;&#x5185;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x4E5F;&#x6539;&#x6210;24h</li>
+</ul>
+</li>
+<li>&#x6267;&#x884C;&#x4E86;drop&#x6216;truncate&#xFF0C;&#x3010;Recover/Flashback &#x547D;&#x4EE4;&#x79D2;&#x6062;&#x590D;&#x8BEF;&#x5220;&#x8868;&#x3011;<ul>
+<li>&#x5728;gc&#x65F6;&#x95F4;&#x5185;&#xFF0C;&#x76F4;&#x63A5;&#x6267;&#x884C;recover table</li>
+<li>flashback table&#x4E0D;&#x4EC5;&#x652F;&#x6301;drop&#x64CD;&#x4F5C;&#xFF0C;&#x8FD8;&#x652F;&#x6301;truncate&#x64CD;&#x4F5C;</li>
+</ul>
+</li>
+<li>&#x591A;&#x6570;&#x526F;&#x672C;&#x4E0D;&#x53EF;&#x7528;&#x3010;&#x591A;&#x6570;&#x526F;&#x672C;&#x4E22;&#x5931;&#x6570;&#x636E;&#x6062;&#x590D;&#x6307;&#x5357;&#x3011;<ul>
+<li>Region&#x81F3;&#x5C11;&#x8FD8;&#x6709;1&#x4E2A;&#x526F;&#x672C;&#xFF1A;&#x79FB;&#x9664;&#x6545;&#x969C;&#x8282;&#x70B9;&#x7684;peer&#xFF0C;&#x8BA9;Region&#x91CD;&#x65B0;&#x9009;&#x4E3E;&#x548C;&#x8865;&#x5145;&#x526F;&#x672C;</li>
+<li>Region&#x6240;&#x6709;&#x526F;&#x672C;&#x90FD;&#x4E22;&#x5931;&#x4E86;&#xFF1A;&#x521B;&#x5EFA;1&#x4E2A;&#x7A7A;Region&#x6765;&#x89E3;&#x51B3;Region&#x4E0D;&#x53EF;&#x7528;&#x7684;&#x95EE;&#x9898;</li>
+<li>&#x4E22;&#x5931;&#x6570;&#x636E;&#x5904;&#x7406;&#xFF1A;&#x68C0;&#x67E5;&#x6570;&#x636E;&#x7684;&#x4E00;&#x81F4;&#x6027;</li>
+</ul>
+</li>
+</ol>
 
                                 
                                 </section>
@@ -491,7 +544,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.TiDB in Action: 故障排查","level":"1.7.4","depth":2,"next":{"title":"5.TiDB in Action: 最佳实践","level":"1.7.5","depth":2,"path":"docs/65.md","ref":"docs/65.md","articles":[]},"previous":{"title":"3.TiDB in Action: 部署与管理","level":"1.7.3","depth":2,"path":"docs/63.md","ref":"docs/63.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/64.md","mtime":"2021-08-08T10:30:46.426Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-08T10:31:13.470Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.TiDB in Action: 故障排查","level":"1.7.4","depth":2,"next":{"title":"5.TiDB in Action: 最佳实践","level":"1.7.5","depth":2,"path":"docs/65.md","ref":"docs/65.md","articles":[]},"previous":{"title":"3.TiDB in Action: 部署与管理","level":"1.7.3","depth":2,"path":"docs/63.md","ref":"docs/63.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/64.md","mtime":"2021-08-09T02:39:38.544Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-09T02:40:11.225Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
