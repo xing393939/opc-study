@@ -446,6 +446,65 @@ sysbench --config-file=sysbench/tidb_conf oltp_point_select --tables=1 --table-s
 // &#x6D4B;&#x8BD5;update index
 sysbench --config-file=sysbench/tidb_conf oltp_update_index --tables=1 --table-size=10000 run
 </code></pre><h4 id="4&#x8DE8;&#x6570;&#x636E;&#x4E2D;&#x5FC3;&#x65B9;&#x6848;">4.&#x8DE8;&#x6570;&#x636E;&#x4E2D;&#x5FC3;&#x65B9;&#x6848;</h4>
+<ol>
+<li>&#x4E24;&#x4E2D;&#x5FC3;&#x65B9;&#x6848;&#xFF1A;<ul>
+<li>&#x4E24;&#x4E2D;&#x5FC3;&#x526F;&#x672C;&#x6570;&#x76F8;&#x540C;&#xFF1A;&#x4E24;&#x4E2D;&#x5FC3;&#x540C;&#x65F6;&#x5BF9;&#x5916;&#x63D0;&#x4F9B;&#x8BFB;&#x5199;</li>
+<li>&#x4E24;&#x4E2D;&#x5FC3;&#x526F;&#x672C;&#x6570;&#x662F;2:1&#xFF1A;&#x4E00;&#x4E2A;&#x662F;&#x4E3B;&#x673A;&#x623F;&#xFF0C;&#x4E00;&#x4E2A;&#x662F;&#x707E;&#x5907;&#x673A;&#x623F;</li>
+</ul>
+</li>
+<li>&#x4E24;&#x5730;&#x4E09;&#x4E2D;&#x5FC3;&#xFF1A;&#x5176;&#x4E2D;&#x4E24;&#x4E2A;&#x673A;&#x623F;&#x5728;&#x540C;&#x57CE;&#x5E02;&#xFF0C;&#x4E00;&#x4E2A;&#x673A;&#x623F;&#x5728;&#x5176;&#x4ED6;&#x57CE;&#x5E02;<ul>
+<li>&#x96C6;&#x7FA4;1&#x91C7;&#x7528;&#x4E24;&#x5730;&#x4E09;&#x4E2D;&#x5FC3;&#xFF0C;&#x5206;&#x522B;&#x4E3A;&#x5317;&#x4EAC; IDC1&#xFF0C;&#x5317;&#x4EAC; IDC2&#xFF0C;&#x897F;&#x5B89; IDC3&#xFF0C;&#x662F;&#x4E3B;&#x96C6;&#x7FA4;</li>
+<li>&#x96C6;&#x7FA4;2&#x4ECE;&#x96C6;&#x7FA4;1&#x901A;&#x8FC7;binlog&#x590D;&#x5236;&#xFF0C;&#x673A;&#x623F;&#x5728;&#x897F;&#x5B89; IDC3&#xFF0C;&#x662F;&#x4ECE;&#x96C6;&#x7FA4;</li>
+</ul>
+</li>
+</ol>
+<h4 id="5&#x6570;&#x636E;&#x8FC1;&#x79FB;&#x65B9;&#x6848;">5.&#x6570;&#x636E;&#x8FC1;&#x79FB;&#x65B9;&#x6848;</h4>
+<h4 id="6&#x4E1A;&#x52A1;&#x9002;&#x914D;&#x6700;&#x4F73;&#x5B9E;&#x8DF5;">6.&#x4E1A;&#x52A1;&#x9002;&#x914D;&#x6700;&#x4F73;&#x5B9E;&#x8DF5;</h4>
+<ol>
+<li>&#x4E50;&#x89C2;&#x9501;&#x7684;&#x7F3A;&#x70B9;&#x5982;&#x4E0B;&#xFF1A;<ul>
+<li>&#x4E24;&#x9636;&#x6BB5;&#x63D0;&#x4EA4;&#xFF0C;&#x7F51;&#x7EDC;&#x4EA4;&#x4E92;&#x591A;&#x3002;</li>
+<li>&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x4E2D;&#x5FC3;&#x5316;&#x7684;&#x7248;&#x672C;&#x7BA1;&#x7406;&#x670D;&#x52A1;&#x3002;</li>
+<li>&#x4E8B;&#x52A1;&#x5728; commit &#x4E4B;&#x524D;&#xFF0C;&#x6570;&#x636E;&#x5199;&#x5728;&#x5185;&#x5B58;&#x91CC;&#xFF0C;&#x6570;&#x636E;&#x8FC7;&#x5927;&#x5185;&#x5B58;&#x5C31;&#x4F1A;&#x66B4;&#x6DA8;</li>
+</ul>
+</li>
+<li>&#x51CF;&#x5C11;&#x4E50;&#x89C2;&#x9501;&#x5199;&#x5199;&#x51B2;&#x7A81;<ul>
+<li>&#x4F7F;&#x7528;TiDB&#x60B2;&#x89C2;&#x9501;, &#x6216;&#x8005;redis&#x5206;&#x5E03;&#x5F0F;&#x9501;</li>
+<li>&#x4F7F;&#x7528;&#x6D88;&#x606F;&#x961F;&#x5217;&#x65F6;&#xFF0C;&#x5C06;&#x540C;&#x4E00;&#x884C;&#x7684;&#x8BFB;&#x5199;&#x5206;&#x914D;&#x5230;&#x540C;&#x4E00;&#x4E2A;&#x961F;&#x5217;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x4F1A;&#x4E32;&#x884C;&#x5199;&#x5165;TiDB</li>
+<li>&#x5C06;&#x5927;&#x4E8B;&#x52A1;&#x62C6;&#x89E3;&#x6210;&#x591A;&#x4E2A;&#x5C0F;&#x4E8B;&#x52A1;&#x4EE5;&#x51CF;&#x5C11;&#x5355;&#x4E2A;&#x4E8B;&#x52A1;&#x7684;&#x8FD0;&#x884C;&#x65F6;&#x95F4;</li>
+</ul>
+</li>
+<li>tidb&#x7684;&#x4E00;&#x4E2A;&#x4E8B;&#x52A1;&#x8F6C;&#x5316;&#x5230;tikv&#x7684;&#x67E5;&#x8BE2;&#x6B21;&#x6570;&#xFF1A;<ul>
+<li>&#x4E00;&#x6B21;insert&#xFF1A;1&#x6B21;&#x6570;&#x636E;insert+&#x76F8;&#x5173;&#x7D22;&#x5F15;insert</li>
+<li>&#x4E00;&#x6B21;delete&#xFF1A;1&#x6B21;&#x6570;&#x636E;delete flag+&#x76F8;&#x5173;&#x7D22;&#x5F15;delete flag</li>
+<li>&#x4E00;&#x6B21;update&#xFF1A;1&#x6B21;&#x6570;&#x636E;update+&#x76F8;&#x5173;&#x7D22;&#x5F15;delete flag&#x548C;insert</li>
+</ul>
+</li>
+<li>&#x96EA;&#x82B1;&#x7B97;&#x6CD5;uid-generator&#x516D;&#x5341;&#x56DB;&#x4F4D;&#x65B9;&#x6848;<ul>
+<li>sign&#xFF1A;&#x56FA;&#x5B9A;&#x4E3A; 0&#xFF0C;&#x8868;&#x793A;&#x751F;&#x6210;&#x7684; ID &#x59CB;&#x7EC8;&#x4E3A;&#x6B63;&#x6570;&#x3002;</li>
+<li>delta seconds&#xFF1A;&#x9ED8;&#x8BA4; 28 &#x4F4D;&#x3002;&#x57FA;&#x4E8E;2016-05-20&#x5F00;&#x59CB;&#x7684;&#x79D2;&#x6570;&#x3002;&#x6700;&#x591A;&#x53EF;&#x652F;&#x6301;&#x7EA6; 8.7 &#x5E74;&#x3002;</li>
+<li>worker node id&#xFF1A;&#x9ED8;&#x8BA4; 22 &#x4F4D;&#x3002;&#x4ECE;&#x4E00;&#x4E2A;&#x96C6;&#x4E2D;&#x5F0F;&#x7684;ID&#x751F;&#x6210;&#x5668;&#x53D6;&#x5F97;(Zookeeper)&#x3002;&#x6700;&#x591A;&#x53EF;&#x652F;&#x6301;&#x7EA6;420&#x4E07;&#x6B21;&#x542F;&#x52A8;&#x3002;</li>
+<li>sequence&#xFF1A;&#x9ED8;&#x8BA4; 13 &#x4F4D;&#x3002;&#x8868;&#x793A;&#x6BCF;&#x79D2;&#x7684;&#x5E76;&#x53D1;&#x5E8F;&#x5217;&#xFF0C;13 &#x4F4D;&#x53EF;&#x652F;&#x6301;&#x6BCF;&#x79D2; 8192 &#x4E2A;&#x5E76;&#x53D1;&#x3002;</li>
+</ul>
+</li>
+<li>&#x6279;&#x91CF;update&#x7684;&#x65B9;&#x6848;&#xFF1A;<ul>
+<li>&#x574F;&#x7684;&#xFF1A;set field1=value1 order by id limit 0,1000</li>
+<li>&#x597D;&#x7684;&#xFF1A;set field1=value1 where id between 100000 and 102000&#xFF08;&#x9700;&#x4E8B;&#x5148;&#x5206;&#x597D;&#x8303;&#x56F4;&#xFF09;</li>
+</ul>
+</li>
+<li>SQL &#x8C03;&#x4F18;&#x6848;&#x4F8B;<ul>
+<li>&#x5927;&#x6279;&#x91CF;Delete&#x3002;&#x6539;&#x6210;&#x5206;&#x6279;Delete</li>
+<li>&#x7EDF;&#x8BA1;&#x4FE1;&#x606F;&#x4E0D;&#x51C6;&#x5BFC;&#x81F4;&#x67E5;&#x8BE2;&#x8BA1;&#x5212;&#x4E0D;&#x51C6;&#x3002;&#x4FEE;&#x590D;&#xFF1A;analyze table test.t1;</li>
+</ul>
+</li>
+<li>TiDB &#x5206;&#x533A;&#x8868;<ul>
+<li>&#x4E3B;&#x952E;&#x548C;&#x552F;&#x4E00;&#x7D22;&#x5F15;&#x5FC5;&#x987B;&#x5305;&#x542B;&#x5206;&#x533A;&#x8868;&#x8FBE;&#x5F0F;&#x4E2D;&#x7528;&#x5230;&#x7684;&#x6240;&#x6709;&#x5217;</li>
+<li>Range &#x5206;&#x533A;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x89E3;&#x51B3;&#x4E1A;&#x52A1;&#x4E2D;&#x5927;&#x91CF;&#x5220;&#x9664;&#x5E26;&#x6765;&#x7684;&#x6027;&#x80FD;&#x95EE;&#x9898;&#xFF0C;&#x652F;&#x6301;&#x5FEB;&#x901F;&#x5220;&#x9664;&#x5206;&#x533A;</li>
+<li>Hash &#x5206;&#x533A;&#x8868;&#x6765;&#x4E00;&#x5B9A;&#x7A0B;&#x5EA6;&#x4E0A;&#x89E3;&#x51B3;&#x5199;&#x70ED;&#x70B9;&#x95EE;&#x9898;</li>
+<li>&#x6E05;&#x7406;&#x5206;&#x533A;&#xFF1A;ALTER TABLE employees_attendance TRUNCATE PARTITION p20200306;</li>
+<li>&#x66F4;&#x65B0;&#x7EDF;&#x8BA1;&#x4FE1;&#x606F;&#xFF1A;ALTER TABLE employees_attendance ANALYZE PARTITION p20200306;</li>
+</ul>
+</li>
+</ol>
 
                                 
                                 </section>
@@ -485,7 +544,7 @@ sysbench --config-file=sysbench/tidb_conf oltp_update_index --tables=1 --table-s
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5.TiDB in Action: 最佳实践","level":"1.7.5","depth":2,"previous":{"title":"4.TiDB in Action: 故障排查","level":"1.7.4","depth":2,"path":"docs/64.md","ref":"docs/64.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/65.md","mtime":"2021-08-09T09:08:53.552Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-09T09:09:28.705Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5.TiDB in Action: 最佳实践","level":"1.7.5","depth":2,"previous":{"title":"4.TiDB in Action: 故障排查","level":"1.7.4","depth":2,"path":"docs/64.md","ref":"docs/64.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/65.md","mtime":"2021-08-10T09:11:07.523Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-10T09:11:41.694Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
