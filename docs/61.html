@@ -474,12 +474,51 @@
 </ul>
 </li>
 </ol>
-<h4 id="tidb-&#x96C6;&#x7FA4;&#x7BA1;&#x7406;">TiDB &#x96C6;&#x7FA4;&#x7BA1;&#x7406;</h4>
+<h4 id="tidb-cluster-&#x90E8;&#x7F72;">TiDB Cluster &#x90E8;&#x7F72;</h4>
 <ul>
 <li>&#x5B89;&#x88C5;&#xFF1A;pd&#x662F;&#x5927;&#x8111;&#xFF08;3&#x53F0;&#xFF09;&#x3001;tidb&#x662F;&#x65E0;&#x72B6;&#x6001;&#x7684;server&#xFF08;2&#x53F0;&#xFF09;&#x3001;tikv&#xFF08;3&#x53F0;&#xFF0C;&#x9ED8;&#x8BA4;3&#x4E2A;&#x526F;&#x672C;&#xFF09;</li>
 <li>&#x5B89;&#x88C5;&#xFF1A;&#x9700;&#x5148;&#x5B89;&#x88C5;numactl&#x3002;tiup cluster template &gt; topology.yaml&#xFF0C;&#x53BB;&#x6389;TiFlash&#x914D;&#x7F6E;</li>
-<li>&#x914D;&#x7F6E;&#x5206;&#x4E3A;&#x7CFB;&#x7EDF;&#x914D;&#x7F6E;&#xFF08;&#x5B58;&#x5728;tikv&#x4E2D;&#xFF0C;&#x6709;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;session&#x53EA;&#x5BF9;&#x5F53;&#x524D;&#x4F1A;&#x8BDD;&#x751F;&#x6548;&#xFF0C;global&#x5BF9;&#x65B0;&#x542F;&#x7684;&#x4F1A;&#x8BDD;&#x751F;&#x6548;&#xFF09;&#x3001;&#x96C6;&#x7FA4;&#x914D;&#x7F6E;&#xFF08;tidb&#x3001;tikv&#x3001;pd&#xFF0C;&#x9700;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5E76;&#x91CD;&#x542F;&#xFF09;</li>
-<li>mysql&#x5206;&#x7528;&#x6237;&#x548C;&#x89D2;&#x8272;&#xFF0C;attach&#x89D2;&#x8272;&#x540E;&#xFF0C;&#x7528;&#x6237;&#x767B;&#x5F55;&#x9700;&#x8981;&#x6267;&#x884C;set role all</li>
+</ul>
+<h4 id="&#x8003;&#x8BD5;&#x5927;&#x7EB2;">&#x8003;&#x8BD5;&#x5927;&#x7EB2;</h4>
+<ul>
+<li>TiDB &#x6570;&#x636E;&#x5E93;&#x4F53;&#x7CFB;&#x67B6;&#x6784;    <ul>
+<li>&#x5206;&#x5E03;&#x5F0F;&#x6570;&#x636E;&#x5E93;&#x539F;&#x7406;</li>
+<li>&#x5206;&#x5E03;&#x5F0F; SQL &#x5F15;&#x64CE;&#xFF1A;&#x4E0D;&#x652F;&#x6301;MySQL&#x7684;&#x5B58;&#x50A8;&#x8FC7;&#x7A0B;&#x4E0E;&#x51FD;&#x6570;&#x3001;&#x89E6;&#x53D1;&#x5668;&#x3001;&#x4E8B;&#x4EF6;&#x3001;&#x5916;&#x952E;</li>
+<li>&#x5206;&#x5E03;&#x5F0F;&#x5B58;&#x50A8;&#x7CFB;&#x7EDF;</li>
+<li>&#x57FA;&#x4E8E;&#x5206;&#x5E03;&#x5F0F;&#x67B6;&#x6784;&#x7684; HTAP &#x6570;&#x636E;&#x5E93;</li>
+<li>TiDB &#x5178;&#x578B;&#x5E94;&#x7528;&#x573A;&#x666F;&#x53CA;&#x7528;&#x6237;&#x6848;&#x4F8B;</li>
+</ul>
+</li>
+<li>TiDB &#x96C6;&#x7FA4;&#x7BA1;&#x7406;    <ul>
+<li>TiDB Cluster &#x90E8;&#x7F72;&#xFF1A;tiflash&#x7684;&#x6269;&#x5BB9;&#x548C;&#x7F29;&#x5BB9;&#x7565;&#x6709;&#x4E0D;&#x540C;</li>
+<li>TiDB &#x7684;&#x8FDE;&#x63A5;&#x7BA1;&#x7406;&#xFF1A;MyCli&#x4E5F;&#x53EF;&#x4EE5;&#x8FDE;&#x63A5;</li>
+<li>TiDB &#x7684;&#x914D;&#x7F6E;&#xFF1A;<ol>
+<li>&#x96C6;&#x7FA4;&#x914D;&#x7F6E;&#xFF08;tidb&#x3001;tikv&#x3001;pd&#xFF0C;&#x9700;&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5E76;&#x91CD;&#x542F;&#xFF09;</li>
+<li>&#x7CFB;&#x7EDF;&#x914D;&#x7F6E;&#xFF08;&#x5B58;&#x5728;tikv&#x4E2D;&#xFF0C;&#x6709;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;session&#x53EA;&#x5BF9;&#x5F53;&#x524D;&#x4F1A;&#x8BDD;&#x751F;&#x6548;&#xFF0C;global&#x5BF9;&#x65B0;&#x542F;&#x7684;&#x4F1A;&#x8BDD;&#x751F;&#x6548;&#xFF09;</li>
+</ol>
+</li>
+<li>&#x7528;&#x6237;&#x7BA1;&#x7406;&#x4E0E;&#x5B89;&#x5168;&#xFF1A;mysql&#x5206;&#x7528;&#x6237;&#x548C;&#x89D2;&#x8272;&#xFF0C;attach&#x89D2;&#x8272;&#x540E;&#xFF0C;&#x7528;&#x6237;&#x767B;&#x5F55;&#x9700;&#x8981;&#x6267;&#x884C;set role all</li>
+<li>TiDB &#x6587;&#x4EF6;&#x4E0E;&#x65E5;&#x5FD7;&#x7BA1;&#x7406;&#xFF1A;tikv&#x548C;pd&#x6709;&#x65E5;&#x5FD7;&#x548C;&#x6570;&#x636E;&#x3001;tidb&#x53EA;&#x6709;&#x65E5;&#x5FD7;</li>
+<li>TiDB &#x7684;&#x76D1;&#x63A7;&#xFF1A;pd&#x5185;&#x7F6E;Dashboard&#xFF0C;Prometheus&#x5185;&#x7F6E;Alert-manager</li>
+<li>TiDB Cluster&#x7684;&#x5347;&#x7EA7;&#xFF1A;&#x5347;&#x7EA7;TiUP-&gt;&#x5347;&#x7EA7;TiUP Cluster-&gt;&#x68C0;&#x67E5;&#x96C6;&#x7FA4;&#x72B6;&#x6001;-&gt;&#x5347;&#x7EA7;TiDB Cluster</li>
+</ul>
+</li>
+<li>TiDB &#x5907;&#x4EFD;&#x6062;&#x590D;    <ul>
+<li>&#x5907;&#x4EFD;&#x6062;&#x590D;&#x7B56;&#x7565;</li>
+<li>&#x9002;&#x7528;&#x5907;&#x4EFD;&#x6062;&#x590D;&#x5DE5;&#x5177; BR &#x8FDB;&#x884C;&#x5907;&#x4EFD;&#x6062;&#x590D;</li>
+</ul>
+</li>
+<li>TiDB &#x6570;&#x636E;&#x8FC1;&#x79FB;    <ul>
+<li>&#x6570;&#x636E;&#x5BFC;&#x51FA;&#x5DE5;&#x5177; Dumpling</li>
+<li>&#x6570;&#x636E;&#x5BFC;&#x5165;&#x5DE5;&#x5177; TiDB Lightning</li>
+<li>&#x6570;&#x636E;&#x8FC1;&#x79FB;&#x5DE5;&#x5177; TiDB Data Migration</li>
+</ul>
+</li>
+<li>TiDB &#x6570;&#x636E;&#x540C;&#x6B65;&#x4E0E;&#x590D;&#x5236;    <ul>
+<li>&#x6570;&#x636E;&#x540C;&#x6B65;&#x5DE5;&#x5177; TiDB Binlog</li>
+<li>&#x6570;&#x636E;&#x540C;&#x6B65;&#x5DE5;&#x5177; TiCDC</li>
+</ul>
+</li>
 </ul>
 
                                 
@@ -520,7 +559,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.TiDB 基础知识","level":"1.7.1","depth":2,"next":{"title":"2.TiDB in Action: 原理和特性","level":"1.7.2","depth":2,"path":"docs/62.md","ref":"docs/62.md","articles":[]},"previous":{"title":"6.TiDB PCTA认证","level":"1.7","depth":1,"ref":"","articles":[{"title":"1.TiDB 基础知识","level":"1.7.1","depth":2,"path":"docs/61.md","ref":"docs/61.md","articles":[]},{"title":"2.TiDB in Action: 原理和特性","level":"1.7.2","depth":2,"path":"docs/62.md","ref":"docs/62.md","articles":[]},{"title":"3.TiDB in Action: 部署与管理","level":"1.7.3","depth":2,"path":"docs/63.md","ref":"docs/63.md","articles":[]},{"title":"4.TiDB in Action: 故障排查","level":"1.7.4","depth":2,"path":"docs/64.md","ref":"docs/64.md","articles":[]},{"title":"5.TiDB in Action: 最佳实践","level":"1.7.5","depth":2,"path":"docs/65.md","ref":"docs/65.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/61.md","mtime":"2021-08-11T07:38:21.694Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-11T07:38:47.121Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.TiDB 基础知识","level":"1.7.1","depth":2,"next":{"title":"2.TiDB in Action: 原理和特性","level":"1.7.2","depth":2,"path":"docs/62.md","ref":"docs/62.md","articles":[]},"previous":{"title":"6.TiDB PCTA认证","level":"1.7","depth":1,"ref":"","articles":[{"title":"1.TiDB 基础知识","level":"1.7.1","depth":2,"path":"docs/61.md","ref":"docs/61.md","articles":[]},{"title":"2.TiDB in Action: 原理和特性","level":"1.7.2","depth":2,"path":"docs/62.md","ref":"docs/62.md","articles":[]},{"title":"3.TiDB in Action: 部署与管理","level":"1.7.3","depth":2,"path":"docs/63.md","ref":"docs/63.md","articles":[]},{"title":"4.TiDB in Action: 故障排查","level":"1.7.4","depth":2,"path":"docs/64.md","ref":"docs/64.md","articles":[]},{"title":"5.TiDB in Action: 最佳实践","level":"1.7.5","depth":2,"path":"docs/65.md","ref":"docs/65.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/61.md","mtime":"2021-08-12T03:34:59.471Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-12T03:35:26.935Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
