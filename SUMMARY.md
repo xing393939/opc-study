@@ -19,6 +19,7 @@
   * [3.TiDB in Action: 部署与管理](docs/63.md)
   * [4.TiDB in Action: 故障排查](docs/64.md)
   * [5.TiDB in Action: 最佳实践](docs/65.md)
-* 7.算法导论
+* 7.算法
   * [1.数据结构、数组排序、堆操作](docs/71.md)
+  * [2.数据结构和算法之美](docs/72.md)
   
