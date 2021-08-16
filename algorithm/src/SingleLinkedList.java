@@ -1,3 +1,4 @@
+// 带哨兵的单向链表
 public class SingleLinkedList {
 
     private static class Node {
