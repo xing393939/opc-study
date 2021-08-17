@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-// 基数排序
+// 基数排序，例如11位手机号，每一位都使用计数排序，复杂度是O(11*n)
 public class RadixSort {
     public static void radixSort(int[] arr) {
         int max = arr[0];
@@ -45,7 +45,7 @@ public class RadixSort {
     }
 
     public static void main(String[] args) {
-        int arr[] = new int[]{5, 2, 7, 4, 1, 6, 3, 8};
+        int arr[] = new int[]{5, 102, 7, 24, 1, 6, 3, 8};
         RadixSort.radixSort(arr);
         System.out.println(Arrays.toString(arr));
     }
