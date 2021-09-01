@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "dict.h"
 #include "intset.h"
+#include "adlist.h"
 
 unsigned int hashFunction(const void *str) {
     return (unsigned int) str;
@@ -29,8 +30,19 @@ int main(int argc, char *argv[]) {
     intset * my_ints = intsetNew();
     intsetAdd(my_ints, 97, 0);
     intsetAdd(my_ints, 98, 0);
-    printf("get: %d\n", intsetFind(my_ints, 97));
-    printf("get: %d\n", intsetFind(my_ints, 100));
+    printf("intset: %d\n", intsetFind(my_ints, 97));
+    printf("intset: %d\n", intsetFind(my_ints, 100));
+
+    // 双端链表
+    list *my_list = listCreate();
+    listAddNodeHead(my_list, arr[3]);
+    listAddNodeTail(my_list, arr[5]);
+    listNode *my_node = listSearchKey(my_list, arr[3]);
+    listIter *my_iter = listGetIterator(my_list, 1);
+    listInsertNode(my_list, my_node, arr[4], 1);
+    while (my_node = listNext(my_iter)) {
+        printf("list: %s\n", my_node->value);
+    }
 
     return 0;
 }
