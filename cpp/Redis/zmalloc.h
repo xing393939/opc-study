@@ -81,16 +81,4 @@ void zlibc_free(void *ptr);
 size_t zmalloc_size(void *ptr);
 #endif
 
-/* 额外增加start */
-void *zmalloc(size_t size) {
-    return malloc(size);
-}
-void *zcalloc(size_t size) {
-    return malloc(size);
-}
-void zfree(void *ptr) {
-    free(ptr);
-}
-/* 额外增加end */
-
 #endif /* __ZMALLOC_H */
