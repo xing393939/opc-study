@@ -1,13 +1,6 @@
-/* redisassert.h -- Drop in replacemnet assert.h that prints the stack trace
- *                  in the Redis logs.
- *
- * This file should be included instead of "assert.h" inside libraries used by
- * Redis that are using assertions, so instead of Redis disappearing with
- * SIGABORT, we get the details and stack trace inside the log file.
- *
- * ----------------------------------------------------------------------------
- *
- * Copyright (c) 2006-2012, Salvatore Sanfilippo <antirez at gmail dot com>
+/*
+ * Copyright (c) 2009-2012, Pieter Noordhuis <pcnoordhuis at gmail dot com>
+ * Copyright (c) 2009-2012, Salvatore Sanfilippo <antirez at gmail dot com>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -35,16 +28,30 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef __REDIS_ASSERT_H__
-#define __REDIS_ASSERT_H__
+#ifndef __INTSET_H
+#define __INTSET_H
+#include <stdint.h>
 
-#include <unistd.h> /* for _exit() */
+typedef struct intset {
+    
+    // 编码方式
+    uint32_t encoding;
 
-#define assert(_e) ((_e)?(void)0 : (_redisAssert(#_e,__FILE__,__LINE__),_exit(1)))
+    // 集合包含的元素数量
+    uint32_t length;
 
-void _redisAssert(char *estr, char *file, int line);
+    // 保存元素的数组
+    int8_t contents[];
 
-/* 额外增加start */
-void _redisAssert(char *estr, char *file, int line) {}
-/* 额外增加end */
-#endif
+} intset;
+
+intset *intsetNew(void);
+intset *intsetAdd(intset *is, int64_t value, uint8_t *success);
+intset *intsetRemove(intset *is, int64_t value, int *success);
+uint8_t intsetFind(intset *is, int64_t value);
+int64_t intsetRandom(intset *is);
+uint8_t intsetGet(intset *is, uint32_t pos, int64_t *value);
+uint32_t intsetLen(intset *is);
+size_t intsetBlobLen(intset *is);
+
+#endif // __INTSET_H
