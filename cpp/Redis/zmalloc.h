@@ -77,6 +77,8 @@ size_t zmalloc_get_rss(void);
 size_t zmalloc_get_private_dirty(void);
 void zlibc_free(void *ptr);
 
+int string2ll(const char *s, size_t slen, long long *value);
+
 #ifndef HAVE_MALLOC_SIZE
 size_t zmalloc_size(void *ptr);
 #endif

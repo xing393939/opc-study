@@ -1,13 +1,6 @@
-/* redisassert.h -- Drop in replacemnet assert.h that prints the stack trace
- *                  in the Redis logs.
- *
- * This file should be included instead of "assert.h" inside libraries used by
- * Redis that are using assertions, so instead of Redis disappearing with
- * SIGABORT, we get the details and stack trace inside the log file.
- *
- * ----------------------------------------------------------------------------
- *
- * Copyright (c) 2006-2012, Salvatore Sanfilippo <antirez at gmail dot com>
+/*
+ * Copyright (c) 2009-2012, Pieter Noordhuis <pcnoordhuis at gmail dot com>
+ * Copyright (c) 2009-2012, Salvatore Sanfilippo <antirez at gmail dot com>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -35,13 +28,19 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef __REDIS_ASSERT_H__
-#define __REDIS_ASSERT_H__
+#define ZIPLIST_HEAD 0
+#define ZIPLIST_TAIL 1
 
-#include <unistd.h> /* for _exit() */
-
-#define assert(_e) ((_e)?(void)0 : (_redisAssert(#_e,__FILE__,__LINE__),_exit(1)))
-
-void _redisAssert(char *estr, char *file, int line);
-
-#endif
+unsigned char *ziplistNew(void);
+unsigned char *ziplistPush(unsigned char *zl, unsigned char *s, unsigned int slen, int where);
+unsigned char *ziplistIndex(unsigned char *zl, int index);
+unsigned char *ziplistNext(unsigned char *zl, unsigned char *p);
+unsigned char *ziplistPrev(unsigned char *zl, unsigned char *p);
+unsigned int ziplistGet(unsigned char *p, unsigned char **sval, unsigned int *slen, long long *lval);
+unsigned char *ziplistInsert(unsigned char *zl, unsigned char *p, unsigned char *s, unsigned int slen);
+unsigned char *ziplistDelete(unsigned char *zl, unsigned char **p);
+unsigned char *ziplistDeleteRange(unsigned char *zl, unsigned int index, unsigned int num);
+unsigned int ziplistCompare(unsigned char *p, unsigned char *s, unsigned int slen);
+unsigned char *ziplistFind(unsigned char *p, unsigned char *vstr, unsigned int vlen, unsigned int skip);
+unsigned int ziplistLen(unsigned char *zl);
+size_t ziplistBlobLen(unsigned char *zl);
