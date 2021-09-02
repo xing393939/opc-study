@@ -4,6 +4,7 @@
 #include "adlist.h"
 #include "zipmap.h"
 #include "ziplist.h"
+#include "sds.h"
 
 unsigned int hashFunction(const void *str) {
     return (unsigned int) str;
@@ -60,6 +61,15 @@ int main(int argc, char *argv[]) {
     ziplistPush(my_zl, arr[3], 4, ZIPLIST_HEAD);
     ziplistPush(my_zl, arr[4], 4, ZIPLIST_HEAD);
     printf("ziplist: %s\n", ziplistIndex(my_zl, 1));
+
+    // sds
+    sds my_empty = sdsempty();
+    sds my_new = sdsnew(arr[3]);
+    sds my_newlen = sdsnewlen(arr[4], 20);
+    my_empty = sdsdup(my_new);
+    printf("sds my_empty: %s\n", my_empty);
+    printf("sds my_new: %s\n", my_new);
+    printf("sds my_newlen: %s\n", my_newlen);
 
     return 0;
 }
