@@ -1,13 +1,10 @@
-/* redisassert.h -- Drop in replacemnet assert.h that prints the stack trace
- *                  in the Redis logs.
+/* String -> String Map data structure optimized for size.
  *
- * This file should be included instead of "assert.h" inside libraries used by
- * Redis that are using assertions, so instead of Redis disappearing with
- * SIGABORT, we get the details and stack trace inside the log file.
+ * See zipmap.c for more info.
  *
- * ----------------------------------------------------------------------------
+ * --------------------------------------------------------------------------
  *
- * Copyright (c) 2006-2012, Salvatore Sanfilippo <antirez at gmail dot com>
+ * Copyright (c) 2009-2010, Salvatore Sanfilippo <antirez at gmail dot com>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -35,13 +32,18 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef __REDIS_ASSERT_H__
-#define __REDIS_ASSERT_H__
+#ifndef _ZIPMAP_H
+#define _ZIPMAP_H
 
-#include <unistd.h> /* for _exit() */
-
-#define assert(_e) ((_e)?(void)0 : (_redisAssert(#_e,__FILE__,__LINE__),_exit(1)))
-
-void _redisAssert(char *estr, char *file, int line);
+unsigned char *zipmapNew(void);
+unsigned char *zipmapSet(unsigned char *zm, unsigned char *key, unsigned int klen, unsigned char *val, unsigned int vlen, int *update);
+unsigned char *zipmapDel(unsigned char *zm, unsigned char *key, unsigned int klen, int *deleted);
+unsigned char *zipmapRewind(unsigned char *zm);
+unsigned char *zipmapNext(unsigned char *zm, unsigned char **key, unsigned int *klen, unsigned char **value, unsigned int *vlen);
+int zipmapGet(unsigned char *zm, unsigned char *key, unsigned int klen, unsigned char **value, unsigned int *vlen);
+int zipmapExists(unsigned char *zm, unsigned char *key, unsigned int klen);
+unsigned int zipmapLen(unsigned char *zm);
+size_t zipmapBlobLen(unsigned char *zm);
+void zipmapRepr(unsigned char *p);
 
 #endif

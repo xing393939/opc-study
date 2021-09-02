@@ -2,6 +2,8 @@
 #include "dict.h"
 #include "intset.h"
 #include "adlist.h"
+#include "zipmap.h"
+#include "ziplist.h"
 
 unsigned int hashFunction(const void *str) {
     return (unsigned int) str;
@@ -43,6 +45,21 @@ int main(int argc, char *argv[]) {
     while (my_node = listNext(my_iter)) {
         printf("list: %s\n", my_node->value);
     }
+
+    // zipmap
+    int update, vlen;
+    unsigned char *my_zm = zipmapNew();
+    unsigned char *value;
+    zipmapSet(my_zm, arr[0], 4, arr[3], 4, &update);
+    zipmapSet(my_zm, arr[0], 4, arr[4], 4, &update);
+    zipmapGet(my_zm, arr[0], 4, &value, &vlen);
+    printf("zipmap: %s vlen: %d update: %d\n", value, vlen, update);
+
+    // ziplist
+    unsigned char *my_zl = ziplistNew();
+    ziplistPush(my_zl, arr[3], 4, ZIPLIST_HEAD);
+    ziplistPush(my_zl, arr[4], 4, ZIPLIST_HEAD);
+    printf("ziplist: %s\n", ziplistIndex(my_zl, 1));
 
     return 0;
 }
