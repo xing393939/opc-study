@@ -4,6 +4,10 @@ project(untitled)
 
 set(CMAKE_CXX_STANDARD 14)
 
+# main
+aux_source_directory(cpp/main main)
+add_executable(main ${main})
+
 # redis
 aux_source_directory(cpp/Redis Redis)
 add_executable(Redis ${Redis})
