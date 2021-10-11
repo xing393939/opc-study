@@ -432,7 +432,59 @@
                                 <section class="normal markdown-section">
                                 
                                 <h3 id="&#x9AD8;&#x6027;&#x80FD;mysql">&#x9AD8;&#x6027;&#x80FD;MySQL</h3>
-<h4 id="&#x8D44;&#x6599;">&#x8D44;&#x6599;</h4>
+<h4 id="&#x8868;&#x7A7A;&#x95F4;">&#x8868;&#x7A7A;&#x95F4;</h4>
+<ul>
+<li>&#x8868;&#x7A7A;&#x95F4;&#xFF1A;1&#x4E2A;&#x8868;&#x5BF9;&#x5E94;1&#x4E2A;&#x8868;&#x7A7A;&#x95F4;</li>
+<li>&#x6BB5;&#xFF1A;&#x597D;&#x6BD4;&#x4E00;&#x4E2A;&#x5E08;&#xFF0C;1&#x4E2A;&#x7D22;&#x5F15;&#x6709;2&#x4E2A;&#x6BB5;&#xFF08;&#x53F6;&#x5B50;&#x8282;&#x70B9;&#x6BB5;&#x3001;&#x975E;&#x53F6;&#x5B50;&#x8282;&#x70B9;&#x6BB5;&#xFF09;&#xFF0C;&#x5F00;&#x59CB;&#x8868;&#x53EA;&#x6709;2&#x4E2A;&#x6BB5;&#xFF0C;&#x6BCF;&#x52A0;1&#x4E2A;&#x7D22;&#x5F15;&#x589E;&#x52A0;2&#x4E2A;&#x6BB5;&#xFF0C;&#x5BF9;&#x5E94;&#x7684;&#x63CF;&#x8FF0;&#x662F;INODE Entry</li>
+<li>&#x533A;&#xFF1A;&#x597D;&#x6BD4;&#x4E00;&#x4E2A;&#x56E2;&#xFF0C;1&#x4E2A;&#x533A;&#x6709;64&#x4E2A;&#x7269;&#x7406;&#x8FDE;&#x7EED;&#x7684;&#x9875;&#xFF0C;1MB&#xFF0C;&#x5BF9;&#x5E94;&#x7684;&#x63CF;&#x8FF0;&#x662F;XDES Entry</li>
+<li>&#x788E;&#x7247;&#x533A;&#xFF1A;&#x597D;&#x6BD4;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x56E2;&#xFF0C;&#x5904;&#x4E8E;FREE&#x3001;FREE_FRAG&#x3001;FULL_FRAG&#x72B6;&#x6001;&#x7684;&#x533A;&#x76F4;&#x5C5E;&#x4E8E;&#x8868;&#x7A7A;&#x95F4;</li>
+<li>&#x6CE8;&#x610F;&#x70B9;1&#xFF1A;&#x5982;&#x679C;&#x7ED9;&#x6BCF;&#x4E2A;&#x65B0;&#x8868;&#x90FD;&#x5206;&#x914D;&#x4E00;&#x4E2A;&#x533A;(1MB)&#x592A;&#x6D6A;&#x8D39;&#xFF0C;&#x6240;&#x4EE5;&#x5F00;&#x59CB;&#x7684;&#x6570;&#x636E;&#x9875;&#x5148;&#x653E;&#x5728;&#x516C;&#x5171;&#x7684;&#x788E;&#x7247;&#x533A;&#xFF0C;&#x5F53;&#x8868;&#x6709;32&#x4E2A;&#x6570;&#x636E;&#x9875;&#x540E;&#xFF0C;&#x5F00;&#x59CB;&#x5206;&#x914D;&#x4E00;&#x4E2A;&#x533A;</li>
+<li>&#x6CE8;&#x610F;&#x70B9;2&#xFF1A;&#x8868;&#x7A7A;&#x95F4;&#x9ED8;&#x8BA4;&#x53EA;&#x6709;1&#x4E2A;INODE&#x7C7B;&#x578B;&#x7684;&#x9875;(&#x6700;&#x591A;85&#x4E2A;INODE Entry)&#xFF0C;&#x4E0D;&#x591F;&#x53EF;&#x4EE5;&#x65B0;&#x5EFA;&#xFF0C;&#x5E76;&#x7531;SEG_INODES_FULL&#x94FE;&#x8868;&#x3001;SEG_INODES_FREE&#x94FE;&#x8868;&#x7EF4;&#x62A4;</li>
+</ul>
+<h4 id="&#x72EC;&#x7ACB;&#x8868;&#x7A7A;&#x95F4;extent0&#x524D;3&#x9875;&#x662F;&#x56FA;&#x5B9A;&#x7684;">&#x72EC;&#x7ACB;&#x8868;&#x7A7A;&#x95F4;extent0&#x524D;3&#x9875;&#x662F;&#x56FA;&#x5B9A;&#x7684;</h4>
+<ul>
+<li>FSP_HDR&#xFF1A;&#x5B58;&#x50A8;256&#x4E2A;XDES Entry&#x548C;File Space Header</li>
+<li>IBUF_BITMAP&#xFF1A;Change Buffer</li>
+<li>INODE&#xFF1A;&#x5B58;&#x50A8;INODE Entry List</li>
+</ul>
+<h4 id="&#x72EC;&#x7ACB;&#x8868;&#x7A7A;&#x95F4;extent0&#x7B2C;0&#x9875;&#x7684;file-space-header">&#x72EC;&#x7ACB;&#x8868;&#x7A7A;&#x95F4;extent0&#x7B2C;0&#x9875;&#x7684;File Space Header</h4>
+<ul>
+<li>&#x8868;&#x7A7A;&#x95F4;&#x7684;ID</li>
+<li>FREE&#x94FE;&#x8868;&#x7684;&#x57FA;&#x8282;&#x70B9;</li>
+<li>FREE_FRAG&#x94FE;&#x8868;&#x7684;&#x57FA;&#x8282;&#x70B9;</li>
+<li>FULL_FRAG&#x94FE;&#x8868;&#x7684;&#x57FA;&#x8282;&#x70B9;</li>
+<li>&#x5F53;&#x524D;&#x8868;&#x7A7A;&#x95F4;&#x4E2D;&#x4E0B;&#x4E00;&#x4E2A;&#x672A;&#x4F7F;&#x7528;&#x7684; Segment ID</li>
+<li>SEG_INODES_FULL&#x94FE;&#x8868;&#x7684;&#x57FA;&#x8282;&#x70B9;</li>
+<li>SEG_INODES_FREE&#x94FE;&#x8868;&#x7684;&#x57FA;&#x8282;&#x70B9;</li>
+</ul>
+<h4 id="&#x72EC;&#x7ACB;&#x8868;&#x7A7A;&#x95F4;extent256&#x3001;extent512&#x524D;2&#x9875;&#x662F;&#x56FA;&#x5B9A;&#x7684;">&#x72EC;&#x7ACB;&#x8868;&#x7A7A;&#x95F4;extent256&#x3001;extent512...&#x524D;2&#x9875;&#x662F;&#x56FA;&#x5B9A;&#x7684;</h4>
+<ul>
+<li>XDES&#xFF1A;&#x5B58;&#x50A8;256&#x4E2A;XDES Entry</li>
+<li>IBUF_BITMAP</li>
+</ul>
+<h4 id="&#x7CFB;&#x7EDF;&#x8868;&#x7A7A;&#x95F4;extent0&#x524D;8&#x9875;&#x662F;&#x56FA;&#x5B9A;&#x7684;">&#x7CFB;&#x7EDF;&#x8868;&#x7A7A;&#x95F4;extent0&#x524D;8&#x9875;&#x662F;&#x56FA;&#x5B9A;&#x7684;</h4>
+<ul>
+<li>FSP_HDR</li>
+<li>IBUF_BITMAP</li>
+<li>INODE</li>
+<li>Insert Buffer Header    &#x5B58;&#x50A8;Insert Buffer&#x7684;&#x5934;&#x90E8;&#x4FE1;&#x606F;</li>
+<li>Insert Buffer Root    &#x5B58;&#x50A8;Insert Buffer&#x7684;&#x6839;&#x9875;&#x9762;</li>
+<li>Transaction System    &#x4E8B;&#x52A1;&#x7CFB;&#x7EDF;&#x7684;&#x76F8;&#x5173;&#x4FE1;&#x606F;</li>
+<li>First Rollback Segment    &#x7B2C;&#x4E00;&#x4E2A;&#x56DE;&#x6EDA;&#x6BB5;&#x7684;&#x9875;&#x9762;</li>
+<li>Data Dictionary Header    &#x6570;&#x636E;&#x5B57;&#x5178;&#x5934;&#x90E8;&#x4FE1;&#x606F;</li>
+</ul>
+<h4 id="&#x7CFB;&#x7EDF;&#x8868;&#x7A7A;&#x95F4;extent0&#x7684;data-dictionary-header&#x9875;">&#x7CFB;&#x7EDF;&#x8868;&#x7A7A;&#x95F4;extent0&#x7684;Data Dictionary Header&#x9875;</h4>
+<ul>
+<li>Max Row ID&#xFF1A;&#x9690;&#x5F0F;row_id&#x5217;&#x7684;ID&#xFF0C;&#x6240;&#x6709;&#x5E93;&#x6240;&#x6709;&#x8868;&#x5171;&#x4EAB;&#x3002;</li>
+<li>Max Table ID&#xFF1A;&#x8868;&#x7684;ID&#xFF0C;&#x6240;&#x6709;&#x5E93;&#x6240;&#x6709;&#x8868;&#x5171;&#x4EAB;&#x3002;</li>
+<li>Max Index ID&#xFF1A;&#x7D22;&#x5F15;&#x7684;ID&#xFF0C;&#x6240;&#x6709;&#x5E93;&#x6240;&#x6709;&#x8868;&#x5171;&#x4EAB;&#x3002;</li>
+<li>Max Space ID&#xFF1A;&#x8868;&#x7A7A;&#x95F4;&#x7684;ID&#xFF0C;&#x6240;&#x6709;&#x5E93;&#x6240;&#x6709;&#x8868;&#x5171;&#x4EAB;&#x3002;</li>
+<li>Root of SYS_TABLES clust index&#xFF1A;&#x672C;&#x5B57;&#x6BB5;&#x4EE3;&#x8868;SYS_TABLES&#x8868;&#x805A;&#x7C07;&#x7D22;&#x5F15;&#x7684;&#x6839;&#x9875;&#x9762;&#x7684;&#x9875;&#x53F7;&#x3002;</li>
+<li>Root of SYS_TABLE_IDS sec index&#xFF1A;&#x672C;&#x5B57;&#x6BB5;&#x4EE3;&#x8868;SYS_TABLES&#x8868;&#x4E3A;ID&#x5217;&#x5EFA;&#x7ACB;&#x7684;&#x4E8C;&#x7EA7;&#x7D22;&#x5F15;&#x7684;&#x6839;&#x9875;&#x9762;&#x7684;&#x9875;&#x53F7;&#x3002;</li>
+<li>Root of SYS_COLUMNS clust index&#xFF1A;&#x672C;&#x5B57;&#x6BB5;&#x4EE3;&#x8868;SYS_COLUMNS&#x8868;&#x805A;&#x7C07;&#x7D22;&#x5F15;&#x7684;&#x6839;&#x9875;&#x9762;&#x7684;&#x9875;&#x53F7;&#x3002;</li>
+<li>Root of SYS_INDEXES clust index&#x672C;&#x5B57;&#x6BB5;&#x4EE3;&#x8868;SYS_INDEXES&#x8868;&#x805A;&#x7C07;&#x7D22;&#x5F15;&#x7684;&#x6839;&#x9875;&#x9762;&#x7684;&#x9875;&#x53F7;&#x3002;</li>
+<li>Root of SYS_FIELDS clust index&#xFF1A;&#x672C;&#x5B57;&#x6BB5;&#x4EE3;&#x8868;SYS_FIELDS&#x8868;&#x805A;&#x7C07;&#x7D22;&#x5F15;&#x7684;&#x6839;&#x9875;&#x9762;&#x7684;&#x9875;&#x53F7;&#x3002;</li>
+</ul>
 
                                 
                                 </section>
@@ -472,7 +524,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.高性能MySQL","level":"1.4","depth":1,"next":{"title":"4.AWS SAA认证","level":"1.5","depth":1,"ref":"","articles":[{"title":"1.AWS知识点","level":"1.5.1","depth":2,"path":"docs/41.md","ref":"docs/41.md","articles":[]},{"title":"2.AWS认证英语学习","level":"1.5.2","depth":2,"path":"docs/42.md","ref":"docs/42.md","articles":[]},{"title":"3.AWS的其他服务","level":"1.5.3","depth":2,"path":"docs/43.md","ref":"docs/43.md","articles":[]},{"title":"4.AWS Github Study Guide","level":"1.5.4","depth":2,"path":"docs/44.md","ref":"docs/44.md","articles":[]}]},"previous":{"title":"2.剑指Offer","level":"1.3","depth":1,"path":"docs/2.md","ref":"docs/2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/3.md","mtime":"2021-09-06T08:17:16.024Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-09-06T08:17:48.002Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.高性能MySQL","level":"1.4","depth":1,"next":{"title":"4.AWS SAA认证","level":"1.5","depth":1,"ref":"","articles":[{"title":"1.AWS知识点","level":"1.5.1","depth":2,"path":"docs/41.md","ref":"docs/41.md","articles":[]},{"title":"2.AWS认证英语学习","level":"1.5.2","depth":2,"path":"docs/42.md","ref":"docs/42.md","articles":[]},{"title":"3.AWS的其他服务","level":"1.5.3","depth":2,"path":"docs/43.md","ref":"docs/43.md","articles":[]},{"title":"4.AWS Github Study Guide","level":"1.5.4","depth":2,"path":"docs/44.md","ref":"docs/44.md","articles":[]}]},"previous":{"title":"2.剑指Offer","level":"1.3","depth":1,"path":"docs/2.md","ref":"docs/2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/3.md","mtime":"2021-10-11T09:48:06.586Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-10-11T09:48:34.212Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
