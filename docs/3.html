@@ -532,6 +532,36 @@
 <li>&#x7EDF;&#x8BA1;&#x6570;&#x636E;&#x53EF;&#x4EE5;&#x4FDD;&#x5B58;&#x5728;&#x5185;&#x5B58;&#x6216;&#x8005;&#x78C1;&#x76D8;&#xFF0C;&#x65B0;&#x7248;&#x672C;&#x90FD;&#x662F;&#x5728;&#x78C1;&#x76D8;</li>
 <li>innodb_stats_method&#x914D;&#x7F6E;&#xFF1A;&#x8BA1;&#x7B97;&#x4E0D;&#x91CD;&#x590D;&#x7684;&#x8BB0;&#x5F55;&#x6570;&#x65F6;&#xFF0C;&#x6BCF;&#x4E2A;null&#x503C;&#x90FD;&#x662F;&#x91CD;&#x590D;&#x503C;&#x3001;&#x6BCF;&#x4E2A;null&#x503C;&#x90FD;&#x4E0D;&#x540C;&#x3001;&#x5FFD;&#x7565;null&#x503C;</li>
 </ul>
+<h4 id="&#x7B2C;14&#x7AE0;-&#x5B50;&#x67E5;&#x8BE2;&#x4F18;&#x5316;">&#x7B2C;14&#x7AE0; &#x5B50;&#x67E5;&#x8BE2;&#x4F18;&#x5316;</h4>
+<ul>
+<li>&#x5B50;&#x67E5;&#x8BE2;&#x6309;&#x7167;&#x8FD4;&#x56DE;&#x7684;&#x7ED3;&#x679C;&#x5206;&#x7C7B;&#xFF1A;<ul>
+<li>&#x6807;&#x91CF;&#x5B50;&#x67E5;&#x8BE2;&#xFF1A;where m1 = (select m2 from t2 limit 1)</li>
+<li>&#x884C;&#x5B50;&#x67E5;&#x8BE2;&#xFF1A;where (m1, n1) = (select m2, n2 from t2 limit 1)</li>
+<li>&#x5217;&#x5B50;&#x67E5;&#x8BE2;&#xFF1A;where m1 in (select m2 from t2)</li>
+<li>&#x8868;&#x5B50;&#x67E5;&#x8BE2;&#xFF1A;where (m1, n1) = (select m2, n2 from t2)</li>
+</ul>
+</li>
+<li>&#x5B50;&#x67E5;&#x8BE2;&#x6309;&#x7167;&#x4E0E;&#x5916;&#x5C42;&#x67E5;&#x8BE2;&#x7684;&#x5173;&#x7CFB;&#x5206;&#x7C7B;&#xFF1A;<ul>
+<li>&#x4E0D;&#x76F8;&#x5173;&#x5B50;&#x67E5;&#x8BE2;&#xFF1A;&#x4E0D;&#x4F9D;&#x8D56;&#x5916;&#x5C42;&#x67E5;&#x8BE2;&#x7684;&#x503C;&#xFF0C;&#x4E0A;&#x8FF0;SQL&#x90FD;&#x662F;</li>
+<li>&#x76F8;&#x5173;&#x5B50;&#x67E5;&#x8BE2;&#xFF1A;where t1.m1 in (select t2.m2 from t2 where t2.n2 = t1.n1)</li>
+</ul>
+</li>
+<li>IN&#x67E5;&#x8BE2;&#x539F;&#x59CB;SQL&#xFF1A;select * from s1 where xxx in (select key1 from s2 where s2.xxx)</li>
+<li>IN&#x67E5;&#x8BE2;&#x534A;&#x8FDE;&#x63A5;&#xFF1A;select s1.* from s1 JOIN s2 ON s1.xxx = s2.key1 where s2.xxx </li>
+<li>IN&#x67E5;&#x8BE2;&#x534A;&#x8FDE;&#x63A5;&#x6709;5&#x79CD;&#x67E5;&#x8BE2;&#x7B56;&#x7565;&#xFF0C;&#x901A;&#x8FC7;&#x8BA1;&#x7B97;&#x6210;&#x672C;&#x9009;&#x62E9;&#x6210;&#x672C;&#x6700;&#x4F4E;&#x7684;&#x7B56;&#x7565;&#x6267;&#x884C;&#x67E5;&#x8BE2;&#xFF1A;<ul>
+<li>Table Pollout&#xFF1A;&#x4E0A;&#x8FF0;&#x8F6C;&#x6362;&#x6210;&#x534A;&#x8FDE;&#x63A5;&#x7684;SQL&#xFF0C;&#x5982;&#x679C;s2.key1&#x662F;&#x4E3B;&#x952E;&#x6216;&#x8005;&#x552F;&#x4E00;&#x7D22;&#x5F15;&#xFF0C;&#x5219;&#x6309;&#x5185;&#x8FDE;&#x63A5;&#x6765;&#x67E5;&#x8BE2;&#x5373;&#x53EF;</li>
+<li>Duplicate Weedout&#xFF1A;&#x5982;&#x679C;s2.key1&#x4E0D;&#x662F;&#x4E3B;&#x952E;&#x6216;&#x8005;&#x552F;&#x4E00;&#x7D22;&#x5F15;&#xFF0C;&#x5728;&#x56DE;&#x8868;&#x4E4B;&#x524D;&#xFF0C;&#x8FD8;&#x9700;&#x8981;&#x5BF9;&#x4E3B;&#x952E;&#x8BB0;&#x5F55;&#x53BB;&#x91CD;</li>
+<li>LooseScan&#xFF1A;s2&#x662F;&#x9A71;&#x52A8;&#x8868;&#x5E76;&#x4E14;s2&#x6B63;&#x597D;&#x7528;&#x5230;&#x4E86;key1&#x8FD9;&#x4E2A;&#x666E;&#x901A;&#x7D22;&#x5F15;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x7D22;&#x5F15;&#x4E0A;&#x8DF3;&#x8FC7;&#x91CD;&#x590D;&#x7684;key1&#x503C;&#xFF0C;&#x518D;&#x53BB;&#x88AB;&#x9A71;&#x52A8;&#x8868;&#x67E5;&#x8BE2;</li>
+<li>Semi-join Materialization&#xFF1A;&#x5148;&#x628A;&#x5B50;&#x67E5;&#x8BE2;&#x53D8;&#x6210;&#x7269;&#x5316;&#x8868;&#xFF0C;&#x518D;&#x8FDB;&#x884C;&#x8FDE;&#x63A5;&#x67E5;&#x8BE2;</li>
+<li>FirstMatch&#xFF1A;&#x5BF9;&#x4E8E;&#x5173;&#x8054;&#x5B50;&#x67E5;&#x8BE2;&#xFF0C;&#x4F9D;&#x6B21;&#x53D6;&#x5916;&#x5C42;&#x67E5;&#x8BE2;&#x7684;&#x4E00;&#x6761;&#x8BB0;&#x5F55;&#xFF0C;&#x5230;&#x5B50;&#x67E5;&#x8BE2;&#x91CC;FirstMatch&#xFF0C;&#x5339;&#x914D;&#x5230;&#x5219;&#x653E;&#x5165;&#x7ED3;&#x679C;&#x96C6;</li>
+</ul>
+</li>
+<li>IN&#x67E5;&#x8BE2;&#x82E5;&#x4E0D;&#x80FD;&#x8F6C;&#x6362;&#x6210;&#x534A;&#x8FDE;&#x63A5;&#xFF0C;&#x4E5F;&#x6709;2&#x79CD;&#x67E5;&#x8BE2;&#x7B56;&#x7565;&#xFF1A;<ul>
+<li>&#x5148;&#x628A;&#x5B50;&#x67E5;&#x8BE2;&#x53D8;&#x6210;&#x7269;&#x5316;&#x8868;&#xFF0C;&#x518D;&#x8FDB;&#x884C;&#x8FDE;&#x63A5;&#x67E5;&#x8BE2;</li>
+<li>&#x628A;IN&#x67E5;&#x8BE2;&#x8F6C;&#x6362;&#x6210;EXISTS&#x67E5;&#x8BE2;</li>
+</ul>
+</li>
+</ul>
 
                                 
                                 </section>
@@ -571,7 +601,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.MySQL是怎样运行的","level":"1.4","depth":1,"next":{"title":"4.AWS SAA认证","level":"1.5","depth":1,"ref":"","articles":[{"title":"1.AWS知识点","level":"1.5.1","depth":2,"path":"docs/41.md","ref":"docs/41.md","articles":[]},{"title":"2.AWS认证英语学习","level":"1.5.2","depth":2,"path":"docs/42.md","ref":"docs/42.md","articles":[]},{"title":"3.AWS的其他服务","level":"1.5.3","depth":2,"path":"docs/43.md","ref":"docs/43.md","articles":[]},{"title":"4.AWS Github Study Guide","level":"1.5.4","depth":2,"path":"docs/44.md","ref":"docs/44.md","articles":[]}]},"previous":{"title":"2.剑指Offer","level":"1.3","depth":1,"path":"docs/2.md","ref":"docs/2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/3.md","mtime":"2021-10-14T01:42:58.185Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-10-14T01:43:29.962Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.MySQL是怎样运行的","level":"1.4","depth":1,"next":{"title":"4.AWS SAA认证","level":"1.5","depth":1,"ref":"","articles":[{"title":"1.AWS知识点","level":"1.5.1","depth":2,"path":"docs/41.md","ref":"docs/41.md","articles":[]},{"title":"2.AWS认证英语学习","level":"1.5.2","depth":2,"path":"docs/42.md","ref":"docs/42.md","articles":[]},{"title":"3.AWS的其他服务","level":"1.5.3","depth":2,"path":"docs/43.md","ref":"docs/43.md","articles":[]},{"title":"4.AWS Github Study Guide","level":"1.5.4","depth":2,"path":"docs/44.md","ref":"docs/44.md","articles":[]}]},"previous":{"title":"2.剑指Offer","level":"1.3","depth":1,"path":"docs/2.md","ref":"docs/2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/3.md","mtime":"2021-10-15T04:00:53.745Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-10-15T04:01:18.154Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
