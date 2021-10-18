@@ -594,12 +594,12 @@ begin
 declare i int default 0;
 repeat
 set i=i+1;
-insert into s1 values(NULL,i,i,i,i,MD5(i),RAND(),i);
-insert into s2 values(NULL,i,i,i,i,MD5(i),RAND(),i);
-insert into single_table values(NULL,i,i,i,i,MD5(i),RAND(),i);
+insert into s1 values(NULL,i%100,i,i%10,i,MD5(i),RAND(),i);
+insert into s2 values(NULL,i%100,i,i%10,i,MD5(i),RAND(),i);
+insert into single_table values(NULL,i%100,i,i%10,i,MD5(i),RAND(),i);
 until i=max end repeat;
 end;
-call insert_table(2000);
+call insert_table(5000);
 //
 
 1. select_type: 
@@ -627,6 +627,35 @@ call insert_table(2000);
 3. key_len:
 * int4&#x5B57;&#x8282;&#x3001;bigint8&#x5B57;&#x8282;
 * char&#x548C;varchar&#xFF1A;&#x5047;&#x8BBE;&#x5B57;&#x7B26;&#x6570;&#x662F;n&#xFF0C;utf8&#x5C31;&#x662F;3n&#xFF0C;utf8mb4&#x5C31;&#x662F;4n&#xFF1B;&#x5141;&#x8BB8;null&#x503C;&#x5C31;&#x662F;3n+1&#xFF1B;&#x53D8;&#x957F;&#x7C7B;&#x578B;&#x5C31;&#x662F;3n+2
+
+4. ref(type&#x5C5E;&#x4E8E;const/eq_ref/ref/ref_or_null/unique_subquery/index_subquery&#x65F6;)
+* const: EXPLAIN SELECT * FROM s1 WHERE key1 = &apos;a&apos;;
+* s1.id: EXPLAIN SELECT * FROM s1 INNER JOIN s2 ON s2.id = s1.id;
+* func: EXPLAIN SELECT * FROM s1 INNER JOIN s2 ON s2.key1 = UPPER(s1.key1);
+
+5. rows(&#x5168;&#x8868;&#x626B;&#x63CF;&#x6216;&#x8005;&#x626B;&#x63CF;&#x7D22;&#x5F15;&#xFF0C;&#x626B;&#x63CF;&#x7684;&#x884C;&#x6570;)
+* EXPLAIN SELECT * FROM s1 WHERE key1 &gt; &apos;z&apos;; // &#x6EE1;&#x8DB3;key1 &gt; &apos;z&apos;&#x7684;&#x6761;&#x6570;&#x6709;266
+
+6. filtered
+* EXPLAIN SELECT * FROM s1 WHERE key1 &gt; &apos;z&apos; AND common_field = &apos;a&apos;; // 266&#x6761;&#x8BB0;&#x5F55;&#x6709;filtered%&#x6BD4;&#x4F8B;&#x7684;&#x8BB0;&#x5F55;&#x6EE1;&#x8DB3;common_field = &apos;a&apos;
+* EXPLAIN SELECT * FROM s1 INNER JOIN s2 ON s1.key1 = s2.key1 WHERE s1.common_field = &apos;a&apos;; // &#x9A71;&#x52A8;&#x8868;s1&#x7684;rows=9688&#xFF0C;filtered=10&#xFF0C;&#x8BF4;&#x660E;&#x88AB;&#x9A71;&#x52A8;&#x8868;&#x8981;&#x67E5;&#x8BE2;&#x7EA6;968&#x6B21;
+
+7. Extra
+* No tables used: EXPLAIN SELECT 1;
+* Impossible WHERE: EXPLAIN SELECT * FROM s1 WHERE 1 != 1;
+* No matching min/max row: EXPLAIN SELECT MIN(key1) FROM s1 WHERE key1 = &apos;abcdefg&apos;;
+* Using index: EXPLAIN SELECT key1 FROM s1 WHERE key1 = &apos;a&apos;; // &#x53EF;&#x7528;&#x4F7F;&#x7528;&#x8986;&#x76D6;&#x7D22;&#x5F15;
+* Using index condition: EXPLAIN SELECT * FROM s1 WHERE key1 &gt; &apos;z&apos; AND key1 LIKE &apos;%a&apos;; // &#x4F7F;&#x7528;&#x4E86;&#x7D22;&#x5F15;&#x4E0B;&#x63A8;
+* Using where: &#x5F53;&#x641C;&#x7D22;&#x6761;&#x4EF6;&#x9700;&#x8981;&#x5728;Server&#x5C42;&#x5224;&#x65AD;&#x65F6;
+* Using join buffer (Block Nested Loop): EXPLAIN SELECT * FROM s1 INNER JOIN s2 ON s1.common_field = s2.common_field; // &#x4E0D;&#x80FD;&#x7528;&#x7D22;&#x5F15;&#x8BBF;&#x95EE;&#x88AB;&#x9A71;&#x52A8;&#x8868;&#x65F6;&#xFF0C;&#x5229;&#x7528;Join Buffer&#x63D0;&#x901F;
+* Using intersect: EXPLAIN SELECT * FROM s1 WHERE key1 = &apos;1&apos; AND key3 = &apos;1&apos;;
+* Using union: EXPLAIN SELECT * FROM s1 WHERE key1 = &apos;1&apos; OR key3 = &apos;1&apos;;
+* Using sort_union: EXPLAIN SELECT * FROM s1 WHERE key1 &lt; &apos;1&apos; OR key3 &gt; &apos;99&apos;; // &#x5148;&#x628A;&#x4E3B;&#x952E;&#x6392;&#x5E8F;&#x518D;&#x5408;&#x5E76;&#xFF0C;&#x518D;&#x56DE;&#x8868;
+* Using filesort: order by&#x8BED;&#x53E5;&#x4E0D;&#x80FD;&#x7528;&#x5230;&#x7D22;&#x5F15;&#x65F6;&#xFF0C;&#x4F7F;&#x7528;&#x5185;&#x5B58;&#x6392;&#x5E8F;&#x6216;&#x8005;&#x786C;&#x76D8;&#x6392;&#x5E8F;
+* Using temporary: &#x5305;&#x542B;DISTINCT&#x3001;GROUP BY&#x3001;UNION&#x7684;&#x5B50;&#x67E5;&#x8BE2;&#xFF0C;&#x9700;&#x8981;&#x501F;&#x52A9;&#x4E34;&#x65F6;&#x8868;&#x5B8C;&#x6210;&#x53BB;&#x91CD;&#x3001;&#x6392;&#x5E8F;&#x7B49;&#x7B49;
+* Start temporary, End temporary: explain select * from s1 where key2 in (select key1 from s2 where key3 &gt; &apos;1&apos;); // &#x534A;&#x8FDE;&#x63A5;&#x7B56;&#x7565;2&#xFF0C;&#x9700;&#x8981;&#x4E34;&#x65F6;&#x8868;&#x6765;&#x53BB;&#x91CD;
+* LooseScan: &#x534A;&#x8FDE;&#x63A5;&#x7B56;&#x7565;3
+* FirstMatc: EXPLAIN SELECT * FROM s1 WHERE common_field IN (SELECT key1 FROM s2 where s1.key3 = s2.key3); // &#x534A;&#x8FDE;&#x63A5;&#x7B56;&#x7565;5
 </code></pre>
                                 
                                 </section>
@@ -666,7 +695,7 @@ call insert_table(2000);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.MySQL是怎样运行的","level":"1.4","depth":1,"next":{"title":"4.AWS SAA认证","level":"1.5","depth":1,"ref":"","articles":[{"title":"1.AWS知识点","level":"1.5.1","depth":2,"path":"docs/41.md","ref":"docs/41.md","articles":[]},{"title":"2.AWS认证英语学习","level":"1.5.2","depth":2,"path":"docs/42.md","ref":"docs/42.md","articles":[]},{"title":"3.AWS的其他服务","level":"1.5.3","depth":2,"path":"docs/43.md","ref":"docs/43.md","articles":[]},{"title":"4.AWS Github Study Guide","level":"1.5.4","depth":2,"path":"docs/44.md","ref":"docs/44.md","articles":[]}]},"previous":{"title":"2.剑指Offer","level":"1.3","depth":1,"path":"docs/2.md","ref":"docs/2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/3.md","mtime":"2021-10-18T03:45:30.545Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-10-18T03:45:59.585Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.MySQL是怎样运行的","level":"1.4","depth":1,"next":{"title":"4.AWS SAA认证","level":"1.5","depth":1,"ref":"","articles":[{"title":"1.AWS知识点","level":"1.5.1","depth":2,"path":"docs/41.md","ref":"docs/41.md","articles":[]},{"title":"2.AWS认证英语学习","level":"1.5.2","depth":2,"path":"docs/42.md","ref":"docs/42.md","articles":[]},{"title":"3.AWS的其他服务","level":"1.5.3","depth":2,"path":"docs/43.md","ref":"docs/43.md","articles":[]},{"title":"4.AWS Github Study Guide","level":"1.5.4","depth":2,"path":"docs/44.md","ref":"docs/44.md","articles":[]}]},"previous":{"title":"2.剑指Offer","level":"1.3","depth":1,"path":"docs/2.md","ref":"docs/2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/3.md","mtime":"2021-10-18T08:56:38.459Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-10-18T08:57:10.077Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
