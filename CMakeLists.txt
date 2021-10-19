@@ -4,6 +4,10 @@ project(untitled)
 
 set(CMAKE_CXX_STANDARD 14)
 
+# Database
+aux_source_directory(cpp/Database Database)
+add_executable(Database ${Database})
+
 # main
 aux_source_directory(cpp/main main)
 add_executable(main ${main})
