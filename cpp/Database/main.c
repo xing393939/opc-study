@@ -1,6 +1,8 @@
 #include <time.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <sys/mman.h>
+#include <fcntl.h>
 
 #define PROFILE_FUNC(func) \
 { long start = clock(); func(); printf("---%.3f---\n", (double) (clock() - start) / 1000); }
@@ -49,14 +51,33 @@ void my_fread(char *path) {
     printf("ret_read = %llu\n", ret);
 
     for (int i = 0; i < 3000; i++) {
-        printf("s[%d] = %s, %d\n", i, s[i].name, s[i].id);
+        printf("s[%d] = %s, %d ", i, s[i].name, s[i].id);
     }
+    printf("\n");
 
     fclose(fp);
+}
+
+void mmap_read(char *path) {
+    int ln = sizeof(Stu) * 3000;
+    int fd;
+    Stu *s;
+    fd = open(path, O_RDWR);
+    s = mmap(NULL, ln, PROT_READ, MAP_PRIVATE, fd, 0);
+    if (s == MAP_FAILED)
+        return;
+    for (int i = 0; i < 3000; i++) {
+        printf("s[%d] = %s, %d ", i, s[i].name, s[i].id);
+    }
+    printf("\n");
+
+    munmap(s, ln);
+    close(fd);
 }
 
 int main() {
     char *f = "./004.txt";
     PROFILE_FUNC_ARG1(my_fwrite, f);
+    PROFILE_FUNC_ARG1(mmap_read, f);
     PROFILE_FUNC_ARG1(my_fread, f);
 }
