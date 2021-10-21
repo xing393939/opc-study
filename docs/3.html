@@ -697,10 +697,7 @@ call insert_table(5000);
 <h4 id="&#x7B2C;19&#x7AE0;-redo&#x65E5;&#x5FD7;">&#x7B2C;19&#x7AE0; redo&#x65E5;&#x5FD7;</h4>
 <ul>
 <li>redo&#x65E5;&#x5FD7;&#x7684;&#x6BCF;&#x4E2A;block&#x5927;&#x5C0F;&#x662F;512KB&#xFF0C;&#x6709;&#x4E09;&#x4E2A;&#x90E8;&#x5206;<ul>
-<li>log block header<ul>
-<li>LOG</li>
-</ul>
-</li>
+<li>log block header</li>
 <li>log block body&#xFF1A;&#x5B58;&#x653E;redo&#x8BB0;&#x5F55;<ul>
 <li>type&#xFF1A;&#x7C7B;&#x578B;</li>
 <li>space ID&#xFF1A;&#x8868;&#x7A7A;&#x95F4;ID</li>
@@ -748,6 +745,54 @@ call insert_table(5000);
 </ul>
 </li>
 </ul>
+<h4 id="&#x7B2C;20&#x7AE0;-undo&#x65E5;&#x5FD7;">&#x7B2C;20&#x7AE0; undo&#x65E5;&#x5FD7;</h4>
+<ul>
+<li>&#x7CFB;&#x7EDF;&#x8868;&#x7A7A;&#x95F4;&#x7684;&#x7B2C;5&#x9875;Transaction System&#xFF1A;&#x5B58;&#x50A8;&#x4E86;128&#x4E2A;&#x56DE;&#x6EDA;&#x6BB5;&#x9875;&#x7684;&#x5730;&#x5740;&#xFF0C;8B&#xFF08;&#x8868;&#x7A7A;&#x95F4;id+&#x9875;&#x53F7;&#xFF09;<ul>
+<li>&#x6BCF;&#x4E2A;&#x56DE;&#x6EDA;&#x6BB5;&#x9875;&#x6709;1024&#x4E2A;undo slot&#xFF0C;4B&#xFF08;undo&#x94FE;&#x8868;&#x7B2C;&#x4E00;&#x9875;&#x7684;&#x9875;&#x53F7;&#xFF09;<ul>
+<li>undo&#x94FE;&#x8868;&#x7B2C;&#x4E00;&#x9875;&#x6BD4;&#x5176;&#x4ED6;undo&#x9875;&#x591A;&#x4E86;&#x4E00;&#x4E2A;&#x7ED3;&#x6784;&#xFF1A;Undo Segment Header</li>
+<li>undo&#x94FE;&#x8868;&#x7B2C;&#x4E00;&#x9875;Undo Segment Header&#x7684;TRX_UNDO_STATE&#x5C5E;&#x6027;&#xFF1A;<ul>
+<li>TRX_UNDO_ACTIVE&#xFF1A;&#x5DF2;&#x6709;&#x4E8B;&#x52A1;&#x5728;&#x4F7F;&#x7528;</li>
+<li>TRX_UNDO_CACHED&#xFF1A;&#x8BE5;&#x94FE;&#x8868;&#x53EF;&#x4EE5;&#x91CD;&#x7528;</li>
+<li>TRX_UNDO_TO_FREE&#xFF1A;&#x8BE5;&#x94FE;&#x8868;&#x4E0D;&#x80FD;&#x88AB;&#x91CD;&#x7528;</li>
+<li>TRX_UNDO_TO_PURGE&#xFF1A;&#x8BE5;&#x94FE;&#x8868;&#x4E0D;&#x80FD;&#x88AB;&#x91CD;&#x7528;</li>
+</ul>
+</li>
+<li>undo&#x94FE;&#x8868;&#x7B2C;&#x4E00;&#x9875;Undo Segment Header&#x7684;TRX_UNDO_LAST_LOG&#x5C5E;&#x6027;&#xFF1A;&#x94FE;&#x8868;&#x6700;&#x540E;&#x4E00;&#x4E2A;Undo Log Header&#x7684;&#x4F4D;&#x7F6E;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>&#x4E00;&#x4E2A;&#x4E8B;&#x52A1;&#x5206;&#x914D;undo&#x94FE;&#x8868;&#x7684;&#x8FC7;&#x7A0B;&#xFF1A;<ul>
+<li>&#x542F;&#x52A8;&#x65B0;&#x4E8B;&#x52A1;&#x540E;&#xFF0C;&#x627E;&#x5230;&#x7CFB;&#x7EDF;&#x8868;&#x7A7A;&#x95F4;&#x7684;&#x7B2C;5&#x9875;&#x7684;128&#x4E2A;&#x56DE;&#x6EDA;&#x6BB5;&#x9875;&#x7684;&#x5730;&#x5740;&#xFF0C;&#x5FAA;&#x73AF;&#x53D6;&#x51FA;&#x4E00;&#x4E2A;</li>
+<li>&#x627E;&#x5230;&#x56DE;&#x6EDA;&#x6BB5;&#x9875;&#x7684;1024&#x4E2A;undo slot&#xFF0C;&#x5BFB;&#x627E;TRX_UNDO_CACHED&#x72B6;&#x6001;&#x7684;undo&#x94FE;&#x8868;</li>
+<li>&#x6CA1;&#x6709;&#xFF0C;&#x5219;&#x5BFB;&#x627E;&#x4E00;&#x4E2A;&#x672A;&#x88AB;&#x4F7F;&#x7528;&#x7684;undo slot&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x56DE;&#x6EDA;&#x6BB5;&#xFF0C;&#x540C;&#x65F6;&#x6807;&#x8BB0;undo slot</li>
+<li>&#x4ECD;&#x7136;&#x6CA1;&#x6709;&#xFF0C;&#x62A5;&#x9519;</li>
+</ul>
+</li>
+<li>&#x4E00;&#x4E2A;&#x4E8B;&#x52A1;&#x6700;&#x591A;&#x5206;&#x914D;4&#x4E2A;Undo&#x94FE;&#x8868;&#xFF08;&#x5373;4&#x4E2A;&#x56DE;&#x6EDA;&#x6BB5;&#xFF09;&#xFF1A;<ul>
+<li>&#x9488;&#x5BF9;&#x666E;&#x901A;&#x8868;&#x7684;insert undo&#x94FE;&#x8868;</li>
+<li>&#x9488;&#x5BF9;&#x666E;&#x901A;&#x8868;&#x7684;update undo&#x94FE;&#x8868;</li>
+<li>&#x9488;&#x5BF9;&#x4E34;&#x65F6;&#x8868;&#x7684;insert undo&#x94FE;&#x8868;</li>
+<li>&#x9488;&#x5BF9;&#x4E34;&#x65F6;&#x8868;&#x7684;update undo&#x94FE;&#x8868;</li>
+</ul>
+</li>
+<li>&#x4E8B;&#x52A1;&#x63D0;&#x4EA4;&#x540E;&#x7684;&#x5904;&#x7406;&#x8FC7;&#x7A0B;&#xFF1A;<ul>
+<li>&#x82E5;undo&#x94FE;&#x8868;&#x53EF;&#x4EE5;&#x88AB;&#x91CD;&#x7528;&#xFF08;&#x53EA;&#x4F7F;&#x7528;&#x4E86;1&#x9875;&#x4E14;&#x4E0D;&#x5230;3/4&#xFF09;&#xFF0C;&#x6807;&#x8BB0;&#x4E3A;TRX_UNDO_CACHED</li>
+<li>&#x82E5;undo&#x94FE;&#x8868;&#x4E0D;&#x80FD;&#x88AB;&#x91CD;&#x7528;&#xFF1A;<ul>
+<li>&#x9488;&#x5BF9;insert undo&#x94FE;&#x8868;&#x6807;&#x8BB0;&#x4E3A;TRX_UNDO_TO_FREE&#xFF0C;&#x968F;&#x540E;&#x94FE;&#x8868;&#x88AB;&#x91CA;&#x653E;&#xFF0C;&#x5E76;&#x628A;undo slot&#x6807;&#x8BB0;&#x4E3A;&#x53EF;&#x7528;</li>
+<li>&#x9488;&#x5BF9;update undo&#x94FE;&#x8868;&#x6807;&#x8BB0;&#x4E3A;TRX_UNDO_TO_PURGE&#xFF0C;&#x968F;&#x540E;undo&#x9875;&#x6302;&#x5230;history&#x94FE;&#x8868;&#xFF0C;&#x5E76;&#x628A;undo slot&#x6807;&#x8BB0;&#x4E3A;&#x53EF;&#x7528;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>&#x5D29;&#x6E83;&#x6062;&#x590D;&#x7684;&#x5904;&#x7406;&#x8FC7;&#x7A0B;&#xFF1A;<ul>
+<li>&#x627E;&#x5230;&#x7CFB;&#x7EDF;&#x8868;&#x7A7A;&#x95F4;&#x7684;&#x7B2C;5&#x9875;&#x7684;128&#x4E2A;&#x56DE;&#x6EDA;&#x6BB5;&#x9875;&#x7684;&#x5730;&#x5740;</li>
+<li>&#x627E;&#x5230;&#x6BCF;&#x4E2A;&#x56DE;&#x6EDA;&#x6BB5;&#x9875;&#x7684;1024&#x4E2A;undo slot</li>
+<li>&#x82E5;undo slot&#x5BF9;&#x5E94;&#x7684;undo&#x94FE;&#x8868;&#x7B2C;&#x4E00;&#x9875;&#x7684;&#x72B6;&#x6001;&#x662F;TRX_UNDO_ACTIVE&#xFF0C;&#x5219;&#x8BF4;&#x660E;&#x4E8B;&#x52A1;&#x8FD8;&#x672A;&#x63D0;&#x4EA4;&#x5C31;&#x610F;&#x5916;&#x7EC8;&#x6B62;&#x4E86;</li>
+<li>&#x6839;&#x636E;&#x6B64;undo&#x94FE;&#x8868;&#x7B2C;&#x4E00;&#x9875;&#x7684;TRX_UNDO_LAST_LOG&#x5C5E;&#x6027;&#xFF0C;&#x627E;&#x5230;&#x6700;&#x540E;&#x4E00;&#x4E2A;undo&#x8BB0;&#x5F55;&#xFF0C;&#x6267;&#x884C;&#x56DE;&#x6EDA;&#x3002;</li>
+</ul>
+</li>
+</ul>
 
                                 
                                 </section>
@@ -787,7 +832,7 @@ call insert_table(5000);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.MySQL是怎样运行的","level":"1.4","depth":1,"next":{"title":"4.AWS SAA认证","level":"1.5","depth":1,"ref":"","articles":[{"title":"1.AWS知识点","level":"1.5.1","depth":2,"path":"docs/41.md","ref":"docs/41.md","articles":[]},{"title":"2.AWS认证英语学习","level":"1.5.2","depth":2,"path":"docs/42.md","ref":"docs/42.md","articles":[]},{"title":"3.AWS的其他服务","level":"1.5.3","depth":2,"path":"docs/43.md","ref":"docs/43.md","articles":[]},{"title":"4.AWS Github Study Guide","level":"1.5.4","depth":2,"path":"docs/44.md","ref":"docs/44.md","articles":[]}]},"previous":{"title":"2.剑指Offer","level":"1.3","depth":1,"path":"docs/2.md","ref":"docs/2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/3.md","mtime":"2021-10-21T04:02:50.655Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-10-21T04:03:15.976Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.MySQL是怎样运行的","level":"1.4","depth":1,"next":{"title":"4.AWS SAA认证","level":"1.5","depth":1,"ref":"","articles":[{"title":"1.AWS知识点","level":"1.5.1","depth":2,"path":"docs/41.md","ref":"docs/41.md","articles":[]},{"title":"2.AWS认证英语学习","level":"1.5.2","depth":2,"path":"docs/42.md","ref":"docs/42.md","articles":[]},{"title":"3.AWS的其他服务","level":"1.5.3","depth":2,"path":"docs/43.md","ref":"docs/43.md","articles":[]},{"title":"4.AWS Github Study Guide","level":"1.5.4","depth":2,"path":"docs/44.md","ref":"docs/44.md","articles":[]}]},"previous":{"title":"2.剑指Offer","level":"1.3","depth":1,"path":"docs/2.md","ref":"docs/2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/3.md","mtime":"2021-10-21T09:03:50.118Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-10-21T09:04:24.587Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
