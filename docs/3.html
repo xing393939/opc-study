@@ -793,6 +793,57 @@ call insert_table(5000);
 </ul>
 </li>
 </ul>
+<h4 id="&#x7B2C;21&#x7AE0;-mvcc">&#x7B2C;21&#x7AE0; MVCC</h4>
+<ul>
+<li>&#x4E8B;&#x52A1;&#x7684;&#x56DB;&#x5927;&#x7279;&#x6027;&#xFF1A;&#x539F;&#x5B50;&#x6027;&#x3001;&#x9694;&#x79BB;&#x6027;&#x3001;&#x6301;&#x4E45;&#x6027;&#x3001;&#x4E00;&#x81F4;&#x6027;</li>
+<li>&#x4E8B;&#x52A1;&#x7684;&#x56DB;&#x4E2A;&#x95EE;&#x9898;&#xFF1A;&#x810F;&#x5199;&#x3001;&#x810F;&#x8BFB;&#x3001;&#x4E0D;&#x53EF;&#x91CD;&#x590D;&#x8BFB;&#x3001;&#x5E7B;&#x8BFB;</li>
+<li>SQL&#x7684;&#x56DB;&#x4E2A;&#x7EA7;&#x522B;&#xFF1A;&#x8BFB;&#x672A;&#x63D0;&#x4EA4;&#x3001;&#x8BFB;&#x63D0;&#x4EA4;&#x3001;&#x53EF;&#x91CD;&#x590D;&#x8BFB;&#x3001;&#x53EF;&#x4E32;&#x884C;&#x5316;&#x3002;&#xFF08;&#x4E00;&#x5B9A;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x810F;&#x5199;&#xFF09;</li>
+<li>mvcc&#x4E24;&#x4E2A;&#x77E5;&#x8BC6;&#x70B9;&#xFF1A;<ul>
+<li>&#x4E8C;&#x7EA7;&#x7D22;&#x5F15;&#x7684;delete&#x662F;mark delete&#xFF1B;update&#x662F;mark delete&#x5E76;insert&#xFF0C;<a href="https://www.zhihu.com/question/27674363/answer/38034982" target="_blank">&#x53C2;&#x8003;</a></li>
+<li>name&#x5B57;&#x6BB5;&#x65E0;&#x7D22;&#x5F15;&#xFF0C;&#x4E8B;&#x52A1;1&#x67E5;&#x8BE2;name=&apos;1&apos;&#xFF0C;&#x4E8B;&#x52A1;2&#x4FEE;&#x6539;&#x6210;name=&apos;2&apos;&#x5E76;&#x63D0;&#x4EA4;&#xFF0C;&#x4E8B;&#x52A1;1&#x4ECD;&#x7136;&#x80FD;&#x641C;&#x5230;name=&apos;1&apos;&#xFF0C;&#x8BF4;&#x660E;&#x5168;&#x8868;&#x626B;&#x63CF;&#x65F6;&#x8FD8;&#x9700;&#x8981;&#x626B;&#x63CF;undo&#x7248;&#x672C;&#x94FE;&#x3002;</li>
+</ul>
+</li>
+<li>mvcc&#x8BFB;&#x63D0;&#x4EA4;&#x7EA7;&#x522B;&#xFF1A;&#x89E3;&#x51B3;&#x4E86;&#x810F;&#x8BFB;&#xFF08;&#x4E8B;&#x52A1;&#x5185;&#x6BCF;&#x6B21;select&#x90FD;&#x662F;&#x4E00;&#x4E2A;&#x65B0;&#x7684;ReadView&#xFF09;</li>
+<li>mvcc&#x53EF;&#x91CD;&#x590D;&#x8BFB;&#x7EA7;&#x522B;&#xFF1A;&#x89E3;&#x51B3;&#x4E86;&#x4E0D;&#x53EF;&#x91CD;&#x590D;&#x8BFB;&#xFF08;&#x4E8B;&#x52A1;&#x5185;&#x6BCF;&#x6B21;select&#x90FD;&#x540C;&#x4E00;&#x4E2A;ReadView&#xFF09;</li>
+<li>mvcc&#x89E3;&#x51B3;&#x4E86;&#x90E8;&#x5206;&#x5E7B;&#x8BFB;&#xFF1A;<ul>
+<li>&#x4E8B;&#x52A1;1&#x6839;&#x636E;&#x6761;&#x4EF6;&#x67E5;&#x8BE2;&#x51FA;N&#x6761;&#x8BB0;&#x5F55;&#xFF0C;&#x4E8B;&#x52A1;2&#x6267;&#x884C;&#x5199;&#x64CD;&#x4F5C;&#xFF0C;&#x4E8B;&#x52A1;1&#x518D;&#x6B21;&#x67E5;&#x8BE2;&#x67E5;&#x8BE2;&#x51FA;&#x7684;&#x8BB0;&#x5F55;&#x4E0D;&#x662F;N&#x6761;</li>
+</ul>
+</li>
+<li>mvcc&#x6CA1;&#x6709;&#x89E3;&#x51B3;&#x7684;&#x5E7B;&#x8BFB;&#xFF1A;<ul>
+<li>&#x4E8B;&#x52A1;1&#x5148;&#x67E5;&#x8BE2;id=1&#x7684;&#x8BB0;&#x5F55;&#x4E3A;&#x7A7A;&#xFF0C;&#x4E8B;&#x52A1;2&#x6267;&#x884C;&#x5199;&#x64CD;&#x4F5C;&#xFF0C;&#x4E8B;&#x52A1;1&#x6267;&#x884C;insert id=1&#x5931;&#x8D25;&#x6216;&#x8005;update id=1&#x6210;&#x529F;</li>
+<li>&#x4E8B;&#x52A1;1&#x5148;&#x67E5;&#x8BE2;id=1&#x7684;&#x8BB0;&#x5F55;&#x975E;&#x7A7A;&#xFF0C;&#x4E8B;&#x52A1;2&#x6267;&#x884C;&#x5199;&#x64CD;&#x4F5C;&#xFF0C;&#x4E8B;&#x52A1;1&#x6267;&#x884C;insert id=1&#x6210;&#x529F;&#x6216;&#x8005;update id=1&#x5931;&#x8D25;</li>
+</ul>
+</li>
+<li>undo&#x65E5;&#x5FD7;&#x7684;&#x56DE;&#x6536;&#x8FC7;&#x7A0B;&#xFF1A;<ul>
+<li>&#x5728;&#x751F;&#x6210;ReadView&#x65F6;&#xFF0C;&#x5B83;&#x7684;&#x4E8B;&#x52A1;no&#x7B49;&#x4E8E;&#x5F53;&#x524D;&#x7CFB;&#x7EDF;&#x4E2D;&#x6700;&#x5927;&#x7684;&#x4E8B;&#x52A1;no+1</li>
+<li>&#x5728;&#x4E8B;&#x52A1;&#x63D0;&#x4EA4;&#x65F6;&#xFF0C;&#x4E8B;&#x52A1;&#x5BF9;&#x5E94;&#x7684;&#x4E00;&#x7EC4;undo&#x65E5;&#x5FD7;&#x7684;&#x4E8B;&#x52A1;no&#x7B49;&#x4E8E;&#x5F53;&#x524D;&#x7CFB;&#x7EDF;&#x4E2D;&#x6700;&#x5927;&#x7684;&#x4E8B;&#x52A1;no</li>
+<li>&#x7531;&#x4E8E;history&#x94FE;&#x8868;&#x662F;&#x6309;&#x7167;&#x4E8B;&#x52A1;&#x63D0;&#x4EA4;&#x7684;&#x987A;&#x5E8F;&#x6392;&#x5217;undo&#x65E5;&#x5FD7;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x662F;&#x6309;&#x7167;&#x4E8B;&#x52A1;no&#x6392;&#x5E8F;&#x7684;</li>
+<li>ReadView&#x6309;&#x7167;&#x521B;&#x5EFA;&#x65F6;&#x95F4;&#x8FDE;&#x6210;&#x4E86;&#x94FE;&#x8868;</li>
+<li>&#x540E;&#x53F0;&#x7EBF;&#x7A0B;&#x6267;&#x884C;purge&#x65F6;&#xFF0C;&#x5148;&#x53D6;ReadView&#x94FE;&#x8868;&#x6700;&#x5C0F;&#x7684;&#x90A3;&#x4E2A;&#x4E8B;&#x52A1;no&#xFF08;ReadView&#x5DF2;&#x63D0;&#x4EA4;&#xFF09;</li>
+<li>&#x6BCF;&#x4E2A;&#x56DE;&#x6EDA;&#x6BB5;&#x6709;&#x4E00;&#x4E2A;history&#x94FE;&#x8868;&#xFF0C;&#x5BF9;&#x6BD4;&#x4E0A;&#x4E00;&#x6B65;&#x7684;&#x4E8B;&#x52A1;no&#xFF0C;&#x6E05;&#x7406;&#x6BD4;&#x5B83;&#x5C0F;&#x7684;undo&#x65E5;&#x5FD7;</li>
+<li>&#xFF08;&#x5982;&#x679C;undo&#x65E5;&#x5FD7;&#x662F;delete&#x7C7B;&#x578B;&#xFF0C;&#x628A;&#x5BF9;&#x5E94;&#x7684;&#x6570;&#x636E;&#x8BB0;&#x5F55;&#x4E5F;&#x5220;&#x9664;&#x6389;&#xFF09;</li>
+</ul>
+</li>
+</ul>
+<h4 id="&#x7B2C;22&#x7AE0;-&#x9501;">&#x7B2C;22&#x7AE0; &#x9501;</h4>
+<ul>
+<li>&#x4E00;&#x81F4;&#x6027;&#x8BFB;&#xFF1A;&#x5229;&#x7528;mvcc&#x7684;&#x65B9;&#x5F0F;&#x8BFB;</li>
+<li>&#x9501;&#x5B9A;&#x8BFB;&#xFF1A;&#x5728;&#x8BFB;&#x53D6;&#x8BB0;&#x5F55;&#x524D;&#x52A0;&#x9501;&#xFF0C;S&#x9501;&#x662F;lock in share mode&#xFF0C;X&#x9501;&#x662F;for update</li>
+<li>IS&#x9501;&#x548C;IX&#x9501;&#xFF1A;&#x5C5E;&#x4E8E;&#x8868;&#x7EA7;&#x9501;&#xFF0C;&#x4EC5;&#x4EC5;&#x662F;&#x4E3A;&#x4E86;&#x5FEB;&#x901F;&#x5224;&#x65AD;&#x8868;&#x5185;&#x662F;&#x5426;&#x6709;&#x884C;&#x7EA7;&#x9501;</li>
+<li>InnoDB&#x7684;&#x4E94;&#x4E2A;&#x884C;&#x7EA7;&#x9501;&#xFF1A;<ul>
+<li>Record Lock&#xFF1A;&#x53EA;&#x5BF9;&#x8BB0;&#x5F55;&#x672C;&#x8EAB;&#x52A0;&#x9501;</li>
+<li>Gap Lock&#xFF1A;&#x9501;&#x95F4;&#x9699;</li>
+<li>Next-Key Lock&#xFF1A;&#x9501;&#x8BB0;&#x5F55;&#x548C;&#x95F4;&#x9699;</li>
+<li>Insert Intention Lock&#xFF1A;insert&#x65F6;&#x78B0;&#x5230;&#x95F4;&#x9699;&#x9501;&#x800C;&#x751F;&#x6210;&#x7684;&#x9501;</li>
+<li>&#x9690;&#x5F0F;&#x9501;&#xFF1A;insert&#x8BED;&#x53E5;&#xFF0C;&#x5176;&#x4ED6;&#x4E8B;&#x52A1;&#x60F3;&#x8981;&#x5728;&#x5B83;&#x7684;&#x8BB0;&#x5F55;&#x4E0A;&#x52A0;&#x9501;&#xFF0C;&#x9700;&#x8981;&#x5148;&#x7ED9;&#x6B64;&#x4E8B;&#x52A1;&#x751F;&#x6210;&#x9501;&#xFF0C;&#x518D;&#x751F;&#x6210;&#x610F;&#x5411;&#x9501;</li>
+</ul>
+</li>
+<li>&#x53EF;&#x4E32;&#x884C;&#x5316;&#x7EA7;&#x522B;&#x4E0B;&#xFF1A;<ul>
+<li>autocommit=0&#xFF0C;&#x666E;&#x901A;&#x7684;select&#x4E5F;&#x4F1A;&#x53D8;&#x6210;&#x9501;&#x5B9A;&#x8BFB;&#xFF0C;&#x4ECE;&#x800C;&#x4FDD;&#x8BC1;&#x4E86;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x5E7B;&#x8BFB;</li>
+<li>autocommit=1&#xFF0C;&#x56E0;&#x4E3A;&#x53EA;&#x6709;&#x4E00;&#x6761;select&#xFF0C;&#x4E0D;&#x5B58;&#x5728;&#x4E0D;&#x53EF;&#x91CD;&#x590D;&#x8BFB;&#x548C;&#x5E7B;&#x8BFB;&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x9700;&#x8981;&#x9501;&#x5B9A;&#x8BFB;</li>
+</ul>
+</li>
+</ul>
 
                                 
                                 </section>
@@ -832,7 +883,7 @@ call insert_table(5000);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.MySQL是怎样运行的","level":"1.4","depth":1,"next":{"title":"4.AWS SAA认证","level":"1.5","depth":1,"ref":"","articles":[{"title":"1.AWS知识点","level":"1.5.1","depth":2,"path":"docs/41.md","ref":"docs/41.md","articles":[]},{"title":"2.AWS认证英语学习","level":"1.5.2","depth":2,"path":"docs/42.md","ref":"docs/42.md","articles":[]},{"title":"3.AWS的其他服务","level":"1.5.3","depth":2,"path":"docs/43.md","ref":"docs/43.md","articles":[]},{"title":"4.AWS Github Study Guide","level":"1.5.4","depth":2,"path":"docs/44.md","ref":"docs/44.md","articles":[]}]},"previous":{"title":"2.剑指Offer","level":"1.3","depth":1,"path":"docs/2.md","ref":"docs/2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/3.md","mtime":"2021-10-21T09:03:50.118Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-10-21T09:04:24.587Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.MySQL是怎样运行的","level":"1.4","depth":1,"next":{"title":"4.AWS SAA认证","level":"1.5","depth":1,"ref":"","articles":[{"title":"1.AWS知识点","level":"1.5.1","depth":2,"path":"docs/41.md","ref":"docs/41.md","articles":[]},{"title":"2.AWS认证英语学习","level":"1.5.2","depth":2,"path":"docs/42.md","ref":"docs/42.md","articles":[]},{"title":"3.AWS的其他服务","level":"1.5.3","depth":2,"path":"docs/43.md","ref":"docs/43.md","articles":[]},{"title":"4.AWS Github Study Guide","level":"1.5.4","depth":2,"path":"docs/44.md","ref":"docs/44.md","articles":[]}]},"previous":{"title":"2.剑指Offer","level":"1.3","depth":1,"path":"docs/2.md","ref":"docs/2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/3.md","mtime":"2021-10-25T06:58:42.638Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-10-25T06:59:17.424Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
