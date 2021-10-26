@@ -48,19 +48,26 @@ int main(int argc, char *argv[]) {
     }
 
     // zipmap
-    int update, vlen;
+    int update;
+    unsigned int vlen;
     unsigned char *my_zm = zipmapNew();
     unsigned char *value;
-    zipmapSet(my_zm, arr[0], 4, arr[3], 4, &update);
-    zipmapSet(my_zm, arr[0], 4, arr[4], 4, &update);
+    zipmapSet(my_zm, arr[0], 4, arr[3], 5, &update);
+    zipmapSet(my_zm, arr[0], 4, arr[4], 5, &update);
     zipmapGet(my_zm, arr[0], 4, &value, &vlen);
     printf("zipmap: %s vlen: %d update: %d\n", value, vlen, update);
 
     // ziplist
     unsigned char *my_zl = ziplistNew();
-    ziplistPush(my_zl, arr[3], 4, ZIPLIST_HEAD);
-    ziplistPush(my_zl, arr[4], 4, ZIPLIST_HEAD);
-    printf("ziplist: %s\n", ziplistIndex(my_zl, 1));
+    ziplistPush(my_zl, arr[3], 5, ZIPLIST_HEAD);
+    ziplistPush(my_zl, arr[4], 5, ZIPLIST_HEAD);
+    printf("ziplist len: %d\n", ziplistLen(my_zl));
+    unsigned char *entry1 = ziplistIndex(my_zl, 0);
+    unsigned char *entry2 = ziplistNext(my_zl, entry1);
+    ziplistGet(entry1, &value, &vlen, 0);
+    printf("ziplist #0: %s\n", value);
+    ziplistGet(entry2, &value, &vlen, 0);
+    printf("ziplist #1: %s\n", value);
 
     // sds
     sds my_empty = sdsempty();
