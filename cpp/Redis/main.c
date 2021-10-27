@@ -9,6 +9,13 @@
 unsigned int hashFunction(const void *str) {
     return (unsigned int) str;
 }
+unsigned int dictGenCaseHashFunction(const unsigned char *buf, int len) {
+    unsigned int hash = 5381;
+
+    while (len--)
+        hash = ((hash << 5) + hash) + (*buf++);
+    return hash;
+}
 
 int main(int argc, char *argv[]) {
     dictType hash_type;
