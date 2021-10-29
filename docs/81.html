@@ -444,8 +444,131 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="redis-5&#x8BBE;&#x8BA1;&#x4E0E;&#x6E90;&#x7801;&#x5206;&#x6790;">Redis 5&#x8BBE;&#x8BA1;&#x4E0E;&#x6E90;&#x7801;&#x5206;&#x6790;</h3>
-<h4 id="&#x8D44;&#x6599;">&#x8D44;&#x6599;</h4>
+                                <h3 id="redis-5&#x8BBE;&#x8BA1;&#x4E0E;&#x6E90;&#x7801;&#x5206;&#x6790;&#xFF08;&#x6211;&#x5206;&#x6790;&#x7684;&#x6E90;&#x7801;&#x662F;redis-29&#xFF09;">Redis 5&#x8BBE;&#x8BA1;&#x4E0E;&#x6E90;&#x7801;&#x5206;&#x6790;&#xFF08;&#x6211;&#x5206;&#x6790;&#x7684;&#x6E90;&#x7801;&#x662F;redis 2.9&#xFF09;</h3>
+<h4 id="&#x7B2C;9&#x7AE0;-&#x547D;&#x4EE4;&#x5904;&#x7406;&#x5468;&#x671F;">&#x7B2C;9&#x7AE0; &#x547D;&#x4EE4;&#x5904;&#x7406;&#x5468;&#x671F;</h4>
+<ul>
+<li>&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x6709;16&#x4E2A;redisDb<ul>
+<li>redisDb&#x7684;key&#x53EA;&#x80FD;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;value&#x662F;robj(redisObject)&#x7ED3;&#x6784;&#x4F53;<ul>
+<li>robj&#x7684;type&#x3001;encode&#x5BF9;&#x5E94;&#x7684;map&#x5B9A;&#x4E49;&#x5728;redis.h&#x7684;182&#x884C;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>&#x5BA2;&#x6237;&#x7AEF;&#x7ED3;&#x6784;&#x4F53;redisClient</li>
+<li>&#x670D;&#x52A1;&#x7684;&#x7ED3;&#x6784;&#x4F53;redisServer<ul>
+<li>redisServer.commands&#x7531;populateCommandTable&#x65B9;&#x6CD5;&#x521D;&#x59CB;&#x5316;&#xFF08;&#x628A;redisCommandTable&#x6570;&#x7EC4;&#x53D8;&#x6210;dict&#xFF09;</li>
+</ul>
+</li>
+<li>&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x6D41;&#x7A0B;&#x4E4B;server&#x521D;&#x59CB;&#x5316;&#xFF1A;<ul>
+<li>initServerConfig&#xFF1A;&#x521D;&#x59CB;&#x5316;&#x914D;&#x7F6E;</li>
+<li>loadServerConfig&#xFF1A;&#x52A0;&#x8F7D;&#x5E76;&#x89E3;&#x6790;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</li>
+<li>initServer&#xFF1A;&#x521D;&#x59CB;&#x5316;&#x670D;&#x52A1;&#x7AEF;&#x5185;&#x90E8;&#x53D8;&#x91CF;&#xFF08;&#x652F;&#x6301;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x6570;&#x91CF;4064&#xFF09;</li>
+<li>aeCreateEventLoop&#xFF1A;&#x521B;&#x5EFA;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;eventLoop&#xFF08;&#x6BCF;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#x4E00;&#x4E2A;aeFileEvent&#x3001;&#x4E00;&#x4E2A;aeFiredEvent&#xFF09;<ul>
+<li>aeFileEvent&#xFF1A;&#x6587;&#x4EF6;&#x4E8B;&#x4EF6;</li>
+<li>aeFiredEvent&#xFF1A;&#x5DF2;&#x5C31;&#x7EEA;&#x7684;&#x6587;&#x4EF6;&#x4E8B;&#x4EF6;</li>
+<li>&#x5176;&#x4E2D;aeApiCreate()&#x8C03;&#x7528;epoll_create&#x521B;&#x5EFA;&#x4E86;epoll</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x6D41;&#x7A0B;&#x4E4B;&#x542F;&#x52A8;&#x76D1;&#x542C;&#xFF1A;<ul>
+<li>listenToPort&#xFF1A;&#x521B;&#x5EFA;socket&#x5E76;&#x542F;&#x52A8;&#x76D1;&#x542C;&#xFF08;IO&#x591A;&#x8DEF;&#x590D;&#x7528;&#x6A21;&#x5F0F;&#xFF0C;socket&#x8BFB;&#x5199;&#x5FC5;&#x987B;&#x662F;&#x975E;&#x963B;&#x585E;&#x7684;&#xFF09;</li>
+<li>aeCreateFileEvent&#xFF1A;&#x521B;&#x5EFA;&#x6587;&#x4EF6;&#x4E8B;&#x4EF6;&#xFF08;&#x5373;socket&#x4E8B;&#x4EF6;&#xFF09;&#xFF0C;&#x5904;&#x7406;&#x51FD;&#x6570;&#x662F;acceptTcpHandler</li>
+<li>aeCreateTimeEvent&#xFF1A;&#x521B;&#x5EFA;&#x65F6;&#x95F4;&#x4E8B;&#x4EF6;&#xFF08;&#x5168;&#x5C40;&#x53EA;&#x6709;1&#x4E2A;&#xFF09;&#xFF0C;&#x5904;&#x7406;&#x51FD;&#x6570;&#x662F;serverCron</li>
+<li>aeMain&#xFF1A;&#x5F00;&#x542F;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#xFF0C;&#x6B7B;&#x5FAA;&#x73AF;&#x6267;&#x884C;aeProcessEvents()&#xFF0C;&#x5B83;&#x7684;&#x529F;&#x80FD;&#x5982;&#x4E0B;&#xFF1A;<ul>
+<li>&#x8C03;&#x7528;epoll_wait&#x963B;&#x585E;&#x7B49;&#x5F85;&#x6587;&#x4EF6;&#x4E8B;&#x4EF6;&#x7684;&#x65B9;&#x5F0F;&#xFF08;&#x8BBE;&#x6709;&#x8D85;&#x65F6;&#xFF09;</li>
+<li>epoll_wait&#x8FD4;&#x56DE;&#x65F6;&#xFF0C;&#x5148;&#x5904;&#x7406;&#x89E6;&#x53D1;&#x7684;&#x6587;&#x4EF6;&#x4E8B;&#x4EF6;&#xFF0C;&#x518D;&#x5904;&#x7406;&#x4E8B;&#x4EF6;&#x4E8B;&#x4EF6;</li>
+<li>aeCreateFileEvent&#x7684;&#x6587;&#x4EF6;&#x4E8B;&#x4EF6;&#x662F;&#x76D1;&#x542C;&#x65B0;&#x8FDE;&#x63A5;&#xFF0C;acceptTcpHandler&#x8C03;&#x7528;createClient&#x751F;&#x6210;&#x65B0;&#x7684;&#x6587;&#x4EF6;&#x4E8B;&#x4EF6;</li>
+<li>&#x65B0;&#x7684;&#x6587;&#x4EF6;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x51FD;&#x6570;&#x662F;readQueryFromClient</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x6D41;&#x7A0B;&#x4E4B;&#x547D;&#x4EE4;&#x5904;&#x7406;&#x8FC7;&#x7A0B;&#xFF1A;</p>
+<ul>
+<li>processInputBuffer&#xFF1A;&#x547D;&#x4EE4;&#x89E3;&#x6790;&#xFF0C;&#x89E3;&#x6790;&#x7ED3;&#x679C;&#x653E;&#x5728;redisClient&#x7684;argc&#x3001;argv</li>
+<li>processCommand&#xFF1A;<ul>
+<li>&#x5982;&#x679C;&#x662F;quit&#x547D;&#x4EE4;&#x76F4;&#x63A5;addReply&#x5E76;&#x5173;&#x95ED;&#x5BA2;&#x6237;&#x7AEF;</li>
+<li>&#x5982;&#x679C;lookupCommand&#x627E;&#x4E0D;&#x5230;&#x547D;&#x4EE4;&#x5219;addReplyErrorFormat&#xFF0C;&#x5426;&#x5219;&#x8D4B;&#x503C;redisClient&#x7684;cmd</li>
+<li>&#x5982;&#x679C;&#x547D;&#x4EE4;&#x53C2;&#x6570;&#x4E0D;&#x5408;&#x6CD5;&#x5219;addReplyErrorFormat</li>
+<li>&#x5982;&#x679C;&#x9700;&#x8981;auth&#x8BA4;&#x8BC1;&#x5355;&#x8BA4;&#x8BC1;&#x6CA1;&#x6709;&#x901A;&#x8FC7;&#x5219;addReply</li>
+<li>&#x5982;&#x679C;maxmemory&#x76EE;&#x5F55;&#x8BBE;&#x7F6E;&#x7684;&#x5185;&#x5B58;&#x8D85;&#x8FC7;&#x9650;&#x5236;&#x5219;addReply</li>
+<li>&#x5176;&#x4ED6;&#x3002;&#x3002;&#x3002;</li>
+</ul>
+</li>
+<li>&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#xFF1A;<ul>
+<li>&#x72B6;&#x6001;&#x56DE;&#x590D;&#xFF1A;addReply</li>
+<li>&#x9519;&#x8BEF;&#x56DE;&#x590D;&#xFF1A;addReplyErrorFormat</li>
+<li>&#x6574;&#x6570;&#x56DE;&#x590D;&#xFF1A;addReply</li>
+<li>&#x6279;&#x91CF;&#x56DE;&#x590D;&#xFF1A;&#x591A;&#x6B21;addReplyMultiBulkLen&#x548C;addReply</li>
+</ul>
+</li>
+<li><p>&#x53D1;&#x9001;&#x5230;&#x5BA2;&#x6237;&#x7AEF;&#xFF1A;</p>
+<ul>
+<li>&#x5148;&#x5199;&#x5230;&#x8F93;&#x51FA;&#x7F13;&#x51B2;&#x533A;c-&gt;buf&#xFF1A;_addReplyToBuffer()</li>
+<li>&#x5982;&#x679C;&#x4E0D;&#x4E3A;&#x7A7A;&#x5219;&#x5199;&#x5165;&#x8F93;&#x51FA;&#x94FE;&#x8868;c-&gt;reply&#xFF1A;<ul>
+<li>_addReplyObjectToList</li>
+<li>_addReplySdsToList</li>
+<li>_addReplyStringToList</li>
+</ul>
+</li>
+<li>&#x628A;&#x5BA2;&#x6237;&#x7AEF;&#x52A0;&#x5165;&#x5230;redisServer-&gt;clients_pending_write</li>
+<li>aeMain&#x4E2D;&#x7684;beforeSleep&#x904D;&#x5386;clients_pending_write&#xFF0C;&#x5E76;&#x6267;&#x884C;writeToClient<ul>
+<li>&#x5982;&#x679C;writeToClient&#x4E00;&#x6B21;&#x6027;&#x6CA1;&#x6709;&#x53D1;&#x9001;&#x5B8C;&#xFF0C;&#x5219;&#x521B;&#x5EFA;&#x53EF;&#x5199;&#x4E8B;&#x4EF6;</li>
+<li>&#x5F53;&#x53EF;&#x5199;&#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x540E;&#x7EE7;&#x7EED;&#x53D1;&#x9001;
+```
+typedef struct redisDb {
+int id;                    // &#x6570;&#x636E;&#x5E93;&#x53F7;&#x7801;&#xFF0C;&#x4E00;&#x822C;&#x662F;0~15<br>dict <em>dict;                // &#x6570;&#x636E;&#x5E93;&#x952E;&#x7A7A;&#x95F4;&#xFF0C;&#x4FDD;&#x5B58;&#x7740;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x952E;&#x503C;&#x5BF9;
+dict </em>expires;             // &#x952E;&#x7684;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#xFF0C;&#x5B57;&#x5178;&#x7684;&#x952E;&#x4E3A;&#x952E;&#xFF0C;&#x5B57;&#x5178;&#x7684;&#x503C;&#x4E3A;&#x8FC7;&#x671F;&#x4E8B;&#x4EF6; UNIX &#x65F6;&#x95F4;&#x6233;<br>dict <em>blocking_keys;       /</em> Keys with clients waiting for data (BLPOP) <em>/
+dict </em>ready_keys;          /<em> &#x53EF;&#x4EE5;&#x89E3;&#x9664;&#x963B;&#x585E;&#x7684;&#x952E;&#xFF0C;Blocked keys that received a PUSH </em>/<br>dict <em>watched_keys;        // &#x6B63;&#x5728;&#x88AB; WATCH &#x547D;&#x4EE4;&#x76D1;&#x89C6;&#x7684;&#x952E;
+long long avg_ttl;         // &#x6570;&#x636E;&#x5E93;&#x7684;&#x952E;&#x7684;&#x5E73;&#x5747; TTL &#xFF0C;&#x7EDF;&#x8BA1;&#x4FE1;&#x606F;
+} redisDb;
+typedef struct redisObject {
+unsigned type:4;     // &#x7C7B;&#x578B;&#xFF1A;0&#x5B57;&#x7B26;&#x4E32; 1list 2set 3zset 4hash
+unsigned encoding:4; // &#x7F16;&#x7801;&#xFF1A;0sds 1int 2dict 4linkedList 5ziplist 6intset 7skiplist 8sds
+unsigned lru:24;     // &#x5BF9;&#x8C61;&#x6700;&#x540E;&#x4E00;&#x6B21;&#x88AB;&#x8BBF;&#x95EE;&#x7684;&#x65F6;&#x95F4;
+int refcount;        // &#x5F15;&#x7528;&#x8BA1;&#x6570;
+void </em>ptr;           // &#x6307;&#x5411;&#x5B9E;&#x9645;&#x503C;&#x7684;&#x6307;&#x9488;
+} robj;
+typedef struct redisClient {<br>int fd;                // &#x5957;&#x63A5;&#x5B57;&#x63CF;&#x8FF0;&#x7B26;
+redisDb <em>db;           // &#x5F53;&#x524D;&#x6B63;&#x5728;&#x4F7F;&#x7528;&#x7684;&#x6570;&#x636E;&#x5E93;
+robj </em>name;            // &#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x540D;&#x5B57;&#xFF0C;set by CLIENT SETNAME 
+time_t lastinteraction;// &#x6700;&#x540E;&#x4F9D;&#x6B21;&#x4EA4;&#x4E92;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x636E;&#x6B64;&#x5224;&#x65AD;&#x8D85;&#x65F6;</li>
+</ul>
+</li>
+</ul>
+<p>sds querybuf;          // &#x67E5;&#x8BE2;&#x7F13;&#x51B2;&#x533A;
+size_t querybuf_peak;  // &#x67E5;&#x8BE2;&#x7F13;&#x51B2;&#x533A;&#x957F;&#x5EA6;&#x5CF0;&#x503C;&#xFF0C;Recent (100ms or more) peak of querybuf size
+struct redisCommand <em>cmd, </em>lastcmd; // &#x8BB0;&#x5F55;&#x88AB;&#x5BA2;&#x6237;&#x7AEF;&#x6267;&#x884C;&#x7684;&#x547D;&#x4EE4;
+int argc; // &#x53C2;&#x6570;&#x6570;&#x91CF;
+robj **argv; // &#x53C2;&#x6570;&#x5BF9;&#x8C61;&#x6570;&#x7EC4;</p>
+<p>list *reply;               // &#x56DE;&#x590D;&#x94FE;&#x8868;
+unsigned long reply_bytes; // &#x56DE;&#x590D;&#x94FE;&#x8868;&#x4E2D;&#x5BF9;&#x8C61;&#x7684;&#x603B;&#x5927;&#x5C0F;
+int sentlen;               // &#x5DF2;&#x53D1;&#x9001;&#x5B57;&#x8282;&#xFF0C;&#x5904;&#x7406; short write &#x7528;</p>
+<p>int bufpos;        // &#x56DE;&#x590D;&#x504F;&#x79FB;&#x91CF;
+char buf[16<em>1024]; // &#x56DE;&#x590D;&#x7F13;&#x51B2;&#x533A;
+} redisClient;
+struct redisServer {
+char </em>configfile;           // &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;
+int hz;                     // serverCron() &#x6BCF;&#x79D2;&#x8C03;&#x7528;&#x7684;&#x6B21;&#x6570;
+redisDb <em>db;                // &#x6570;&#x636E;&#x5E93;
+dict </em>commands;             // &#x547D;&#x4EE4;&#x8868;&#xFF08;&#x53D7;&#x5230; rename &#x914D;&#x7F6E;&#x9009;&#x9879;&#x7684;&#x4F5C;&#x7528;&#xFF09;
+aeEventLoop *el;            // &#x4E8B;&#x4EF6;&#x72B6;&#x6001;</p>
+<p>int port;                   /<em> TCP listening port </em>/
+int tcp_backlog;            /<em> TCP listen() backlog </em>/
+char <em>bindaddr[16];         /</em> Addresses we should bind to <em>/
+int bindaddr_count;         /</em> Number of addresses in server.bindaddr[] <em>/
+int ipfd[16];               /</em> TCP socket file descriptors <em>/
+int ipfd_count;             /</em> Used slots in ipfd[] */</p>
+<p>list <em>clients;              /</em> List of active clients <em>/
+list </em>clients_to_close;     /<em> Clients to close asynchronously </em>/
+int maxidletime;            /<em> &#x5BA2;&#x6237;&#x7AEF;&#x6700;&#x5927;&#x7A7A;&#x8F6C;&#x65F6;&#x95F4;&#xFF0C;Client timeout in seconds </em>/
+};
+```</p>
+</li>
+</ul>
+</li>
+</ul>
 
                                 
                                 </section>
@@ -485,7 +608,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.Redis 5设计与源码分析","level":"1.9.1","depth":2,"next":{"title":"2.Redis 深度历险","level":"1.9.2","depth":2,"path":"docs/82.md","ref":"docs/82.md","articles":[]},"previous":{"title":"8.Redis","level":"1.9","depth":1,"ref":"","articles":[{"title":"1.Redis 5设计与源码分析","level":"1.9.1","depth":2,"path":"docs/81.md","ref":"docs/81.md","articles":[]},{"title":"2.Redis 深度历险","level":"1.9.2","depth":2,"path":"docs/82.md","ref":"docs/82.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/81.md","mtime":"2021-10-29T01:55:20.507Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-10-29T01:55:52.905Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.Redis 5设计与源码分析","level":"1.9.1","depth":2,"next":{"title":"2.Redis 深度历险","level":"1.9.2","depth":2,"path":"docs/82.md","ref":"docs/82.md","articles":[]},"previous":{"title":"8.Redis","level":"1.9","depth":1,"ref":"","articles":[{"title":"1.Redis 5设计与源码分析","level":"1.9.1","depth":2,"path":"docs/81.md","ref":"docs/81.md","articles":[]},{"title":"2.Redis 深度历险","level":"1.9.2","depth":2,"path":"docs/82.md","ref":"docs/82.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/81.md","mtime":"2021-10-29T08:26:43.704Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-10-29T08:27:12.864Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
