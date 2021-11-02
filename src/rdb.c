@@ -1624,7 +1624,12 @@ int rdbLoad(char *filename) {
     rio rdb;
 
     // 打开 rdb 文件
-    if ((fp = fopen(filename,"r")) == NULL) return REDIS_ERR;
+    if ((fp = fopen(filename,"r")) == NULL) {
+        char cwd[80];
+        getcwd(buf, sizeof(buf));
+        redisLog(REDIS_WARNING,"%s open %s fail errno = %d, %s\n", cwd, filename, errno, strerror(errno));
+        return REDIS_ERR;
+    }
 
     // 初始化写入流
     rioInitWithFile(&rdb,fp);
