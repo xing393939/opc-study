@@ -451,7 +451,8 @@
 <li>&#x5206;&#x5E03;&#x5F0F;&#x9501;&#xFF1A;<ul>
 <li>&#x52A0;&#x9501;&#x7684;&#x539F;&#x5B50;&#x64CD;&#x4F5C;&#xFF08;&#x8BBE;&#x7F6E;key&#x3001;&#x8BBE;&#x7F6E;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#xFF09;</li>
 <li>&#x91CA;&#x653E;&#x9501;&#x7684;&#x539F;&#x5B50;&#x64CD;&#x4F5C;&#xFF08;&#x5339;&#x914D;value&#x3001;&#x5224;&#x65AD;&#x662F;&#x5426;&#x5220;&#x9664;&#xFF09;</li>
-<li>&#x7F3A;&#x70B9;&#xFF1A;T1&#x6267;&#x884C;&#x65F6;&#x95F4;&#x8D85;&#x8FC7;&#x4E86;&#x9501;&#x7684;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#xFF0C;T2&#x52A0;&#x9501;&#x6210;&#x529F;&#x5E76;&#x6267;&#x884C;</li>
+<li>&#x7F3A;&#x70B9;1&#xFF1A;T1&#x6267;&#x884C;&#x65F6;&#x95F4;&#x8D85;&#x8FC7;&#x4E86;&#x9501;&#x7684;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#xFF0C;T2&#x52A0;&#x9501;&#x6210;&#x529F;&#x5E76;&#x6267;&#x884C;</li>
+<li>&#x7F3A;&#x70B9;2&#xFF1A;&#x4E3B;&#x8282;&#x70B9;&#x521A;&#x52A0;&#x9501;key&#x8FD8;&#x6CA1;&#x6709;&#x540C;&#x6B65;&#x5230;&#x4ECE;&#x8282;&#x70B9;&#x5C31;&#x6302;&#x4E86;&#xFF0C;&#x5E76;&#x53D1;&#x751F;&#x4E3B;&#x4ECE;&#x5207;&#x6362;&#xFF0C;&#x6B64;&#x65F6;T2&#x52A0;&#x9501;&#x6210;&#x529F;</li>
 </ul>
 </li>
 <li>&#x5EF6;&#x8FDF;&#x961F;&#x5217;&#x548C;&#x4F4D;&#x56FE;</li>
@@ -479,6 +480,36 @@
 <li>redis&#x4E8B;&#x52A1;&#xFF1A;redis&#x7981;&#x6B62;&#x5728;multi&#x548C;exec&#x4E4B;&#x95F4;&#x6267;&#x884C;watch&#xFF0C;&#x5FC5;&#x987B;&#x5728;multi&#x4E4B;&#x524D;&#x6267;&#x884C;watch</li>
 <li>&#x8BA2;&#x9605;&#xFF1A;subscribe&#x963B;&#x585E;&#x5FAA;&#x73AF;&#x8BFB;&#xFF0C;&#x8BFB;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;publish&#x7684;&#x6D88;&#x606F;</li>
 <li>&#x5C0F;&#x5BF9;&#x8C61;&#x538B;&#x7F29;&#xFF1A;ziplist&#x548C;intset</li>
+</ul>
+<h4 id="&#x7B2C;3&#x7BC7;-&#x96C6;&#x7FA4;&#x7BC7;">&#x7B2C;3&#x7BC7; &#x96C6;&#x7FA4;&#x7BC7;</h4>
+<ul>
+<li>&#x4E3B;&#x4ECE;&#x6A21;&#x5F0F;&#x4E0B;&#x7684;wait {nums} {seconds}&#xFF1A;&#x4E00;&#x76F4;&#x963B;&#x585E;&#x76F4;&#x5230;nums&#x4E2A;&#x4ECE;&#x8282;&#x70B9;&#x540C;&#x6B65;&#x5230;&#x6700;&#x65B0;&#x72B6;&#x6001;&#xFF0C;&#x6700;&#x591A;&#x7B49;&#x5F85;seconds</li>
+<li>&#x54E8;&#x5175;&#xFF1A;&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;&#x54E8;&#x5175;&#x8282;&#x70B9;&#x83B7;&#x53D6;master&#x7684;&#x5730;&#x5740;&#x548C;slaves&#x7684;&#x5730;&#x5740;</li>
+<li>codis&#x7684;&#x4F18;&#x70B9;&#xFF1A;&#x5206;&#x5E03;&#x5F0F;&#x7684;&#x95EE;&#x9898;&#x501F;&#x7528;&#x7684;&#x662F;zookeeper/etcd&#xFF0C;&#x56E0;&#x6B64;&#x4EE3;&#x7801;&#x7B80;&#x5355;</li>
+</ul>
+<h4 id="&#x7B2C;4&#x7BC7;-&#x6269;&#x5C55;&#x7BC7;">&#x7B2C;4&#x7BC7; &#x6269;&#x5C55;&#x7BC7;</h4>
+<ul>
+<li>stream&#x4E0D;&#x501F;&#x7528;&#x6D88;&#x8D39;&#x7EC4;&#xFF1A;<ul>
+<li>xread&#x8BFB;&#x53D6;{nums}&#x6761;&#x6D88;&#x606F;&#xFF0C;&#x963B;&#x585E;{seconds}&#xFF0C;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x4ECE;&#x67D0;&#x4E2A;&#x6D88;&#x606F;id&#x540E;&#x8BFB;&#x53D6;</li>
+</ul>
+</li>
+<li>stream&#x501F;&#x7528;&#x6D88;&#x8D39;&#x7EC4;&#xFF1A;<ul>
+<li>xgroup create {streamName} {groupName}</li>
+<li>xreadgroup {groupName} {consumerName}</li>
+<li>xack {streamName} {groupName} {messageID}&#xFF0C;&#x8FD9;&#x91CC;&#x6CA1;&#x6709;&#x6307;&#x5B9A;consumerName&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;&#x4E4B;&#x524D;&#x6307;&#x5B9A;&#x7684;consumerName</li>
+</ul>
+</li>
+<li>&#x5206;&#x5E03;&#x5F0F;&#x9501;redlock&#xFF1A;<ul>
+<li>&#x5927;&#x591A;&#x6570;&#x673A;&#x5236;&#xFF1A;&#x5411;&#x591A;&#x4E2A;&#x8282;&#x70B9;&#x52A0;&#x9501;&#xFF0C;&#x5927;&#x591A;&#x6570;&#x52A0;&#x9501;&#x6210;&#x529F;&#x5219;&#x4E3A;&#x6210;&#x529F;</li>
+<li>&#x9700;&#x8003;&#x8651;&#x9519;&#x8BEF;&#x91CD;&#x8BD5;&#x3001;&#x65F6;&#x949F;&#x6F02;&#x79FB;</li>
+</ul>
+</li>
+<li>&#x61D2;&#x60F0;&#x5220;&#x9664;&#xFF1A;&#x5F02;&#x6B65;&#x7EBF;&#x7A0B;&#x5220;&#x9664;<ul>
+<li>unlink&#xFF1A;&#x5220;&#x9664;&#x5927;key</li>
+<li>flushdb async</li>
+<li>AOF sync</li>
+</ul>
+</li>
 </ul>
 
                                 
@@ -519,7 +550,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.Redis 深度历险","level":"1.9.2","depth":2,"previous":{"title":"1.Redis 5设计与源码分析","level":"1.9.1","depth":2,"path":"docs/81.md","ref":"docs/81.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/82.md","mtime":"2021-11-05T08:42:29.724Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-11-05T08:42:55.573Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.Redis 深度历险","level":"1.9.2","depth":2,"previous":{"title":"1.Redis 5设计与源码分析","level":"1.9.1","depth":2,"path":"docs/81.md","ref":"docs/81.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/82.md","mtime":"2021-11-07T08:42:26.339Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-11-07T08:42:54.771Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
