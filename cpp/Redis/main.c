@@ -4,6 +4,7 @@
 #include "adlist.h"
 #include "zipmap.h"
 #include "ziplist.h"
+#include "listpack.h"
 #include "sds.h"
 
 unsigned int dictGenCaseHashFunction2(const unsigned char *buf, int len) {
@@ -13,8 +14,9 @@ unsigned int dictGenCaseHashFunction2(const unsigned char *buf, int len) {
         hash = ((hash << 5) + hash) + (*buf++);
     return hash;
 }
+
 unsigned int hashFunction(const void *str) {
-    unsigned char *buf = (unsigned char *)str;
+    unsigned char *buf = (unsigned char *) str;
     return dictGenCaseHashFunction2(buf, strlen(buf));
 }
 
@@ -25,6 +27,15 @@ int main(int argc, char *argv[]) {
     hash_type.valDup = 0;
     hash_type.keyCompare = 0;
     char *arr[] = {"key1", "key2", "key3", "val1", "val2", "val3"};
+
+    // listpack
+    int lp_len = 123451;
+    char lp_str[123451] = {'a'};
+    lp_str[lp_len - 1] = 'a';
+    unsigned char *lp = lpNew(1024);
+    lpAppend(lp, lp_str, lp_len);
+    unsigned char *lp_entry = lpFirst(lp);
+    printf("listpack: %p\n", lp_entry);
 
     // 字典：create
     dict *my_dict = dictCreate(&hash_type, 0);
@@ -38,7 +49,7 @@ int main(int argc, char *argv[]) {
     printf("key2: %s\n", dictFetchValue(my_dict, "key2"));
 
     // 整型集合
-    intset * my_ints = intsetNew();
+    intset *my_ints = intsetNew();
     intsetAdd(my_ints, 97, 0);
     intsetAdd(my_ints, 98, 0);
     printf("intset: %d\n", intsetFind(my_ints, 97));

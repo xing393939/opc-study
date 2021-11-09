@@ -511,6 +511,36 @@
 </ul>
 </li>
 </ul>
+<h4 id="&#x7B2C;5&#x7BC7;-&#x6E90;&#x7801;&#x7BC7;">&#x7B2C;5&#x7BC7; &#x6E90;&#x7801;&#x7BC7;</h4>
+<ul>
+<li>SDS&#x6709;&#x4E24;&#x79CD;&#x7C7B;&#x578B;&#xFF1A;<ul>
+<li>embeded&#xFF1A;&#x5BB9;&#x91CF;&#x56FA;&#x5B9A;&#x662F;44&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x56E0;&#x4E3A;jemalloc&#x9ED8;&#x8BA4;&#x5206;&#x914D;&#x7684;&#x5927;&#x5C0F;&#x662F;64B&#xFF0C;robj(&#x5360;19B)&#x548C;embeded&#x7684;SDS&#x662F;&#x5185;&#x5B58;&#x8FDE;&#x7EED;&#x7684;</li>
+<li>raw&#xFF1A;&#x5BB9;&#x91CF;&#x5927;&#x4E8E;44&#x4E2A;&#x5B57;&#x7B26;&#x4E32;</li>
+</ul>
+</li>
+<li>DICT&#x7684;&#x6E10;&#x8FDB;&#x5F0F;reahsh&#xFF1A;&#x8BBF;&#x95EE;&#x7684;&#x65F6;&#x5019;&#x642C;&#x8FC1;&#xFF0C;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x642C;&#x8FC1;</li>
+<li>&#x5185;&#x5B58;&#x7D27;&#x51D1;&#x578B;&#xFF1A;<ul>
+<li>ziplist&#xFF1A;prevlen&#x53EF;&#x4EE5;&#x662F;1B&#x6216;5B&#xFF0C;encoding&#x53EF;&#x4EE5;&#x662F;1B&#x3001;2B&#x3001;5B</li>
+<li>intset&#xFF1A;length&#x548C;encoding&#x90FD;&#x662F;4B</li>
+</ul>
+</li>
+<li>&#x5FEB;&#x8868;&#xFF1A;ziplist+&#x53CC;&#x5411;&#x94FE;&#x8868;&#xFF0C;&#x538B;&#x7F29;&#x6DF1;&#x5EA6;&#x5982;&#x679C;&#x662F;1&#xFF0C;&#x5219;&#x9996;&#x5C3E;&#x7684;ziplist&#x4E0D;&#x538B;&#x7F29;&#xFF0C;&#x5176;&#x4ED6;&#x90FD;&#x538B;&#x7F29;</li>
+<li>&#x8DF3;&#x8868;&#xFF1A;zadd&#x547D;&#x4EE4;&#x5982;&#x679C;key&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#xFF0C;&#x5148;&#x5220;&#x9664;&#x518D;&#x63D2;&#x5165;</li>
+<li>listpack&#xFF1A;{encoding, content, length}&#xFF0C;&#x6CE8;&#x610F;&#x8BA1;&#x7B97;&#x6574;&#x578B;&#x503C;&#x7684;&#x65F6;&#x5019;&#x662F;&#x5C0F;&#x7AEF;&#x5C3E;&#x5E8F;<ul>
+<li>encoding&#x5DF2;&#x7ECF;&#x5305;&#x542B;&#x4E86;content&#x7684;&#x957F;&#x5EA6;</li>
+<li>length&#x8868;&#x793A;&#x7684;&#x662F;content+encoding&#x7684;&#x957F;&#x5EA6;&#xFF0C;&#x4F7F;&#x7528;varint&#x7F16;&#x7801;</li>
+</ul>
+</li>
+<li>lru&#x548C;lfu&#xFF1A;<ul>
+<li>lru&#xFF1A;lru&#x5B57;&#x6BB5;(3B)&#x5B58;&#x50A8;&#x6700;&#x540E;&#x4E00;&#x6B21;&#x8BBF;&#x95EE;&#x7684;&#x79D2;&#x65F6;&#x95F4;&#x6233;&#xFF0C;&#x5927;&#x7EA6;194&#x5929;&#x6298;&#x8FD4;</li>
+<li>lfu&#xFF1A;lru&#x5B57;&#x6BB5;&#x5206;&#x4E3A;lastDecrementTime(2B)&#x548C;logisticCounter(1B)<ul>
+<li>lastDecrementTime&#x5B58;&#x50A8;&#x5206;&#x65F6;&#x95F4;&#x6233;&#xFF0C;&#x5927;&#x7EA6;45&#x5929;&#x6298;&#x8FD4;&#xFF0C;&#x53EA;&#x5728;&#x68C0;&#x67E5;&#x6DD8;&#x6C70;&#x7684;&#x65F6;&#x5019;&#x66F4;&#x65B0;&#xFF08;&#x5E76;&#x8870;&#x51CF;logisticCounter&#xFF09;</li>
+<li>logisticCounter&#x5B58;&#x50A8;&#x8BBF;&#x95EE;&#x9891;&#x6B21;&#x7684;&#x5BF9;&#x6570;&#x503C;&#xFF0C;&#x6BCF;&#x6B21;&#x8BBF;&#x95EE;key&#x7684;&#x65F6;&#x5019;&#x66F4;&#x65B0;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
                                 
                                 </section>
@@ -550,7 +580,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.Redis 深度历险","level":"1.9.2","depth":2,"previous":{"title":"1.Redis 5设计与源码分析","level":"1.9.1","depth":2,"path":"docs/81.md","ref":"docs/81.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/82.md","mtime":"2021-11-07T08:42:26.339Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-11-07T08:42:54.771Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.Redis 深度历险","level":"1.9.2","depth":2,"previous":{"title":"1.Redis 5设计与源码分析","level":"1.9.1","depth":2,"path":"docs/81.md","ref":"docs/81.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/82.md","mtime":"2021-11-09T09:56:07.711Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-11-09T09:56:36.747Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
