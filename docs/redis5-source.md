@@ -206,6 +206,10 @@ typedef struct zset {
   * xierqi是zset的元素
   * 坐标geohash-int后的值是score
   
+#### 第17章 HyperLogLog
+
+#### 第18章 Stream
+  
 #### 第19章 其他命令
 * 事务
   * multi：开启事务

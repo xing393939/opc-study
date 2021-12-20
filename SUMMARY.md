@@ -19,7 +19,7 @@
   * [2.AWS认证英语学习](docs/saa-2.md)
   * [3.AWS的其他服务](docs/saa-3.md)
   * [4.AWS Github Study Guide](docs/saa-4.md)
-* 4.TiDB PCTA认证
+* 5.TiDB PCTA认证
   * [1.TiDB 基础知识](docs/tidb-1.md)
   * [2.TiDB in Action: 原理和特性](docs/tidb-2.md)
   * [3.TiDB in Action: 部署与管理](docs/tidb-3.md)
