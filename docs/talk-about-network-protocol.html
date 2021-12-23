@@ -494,6 +494,63 @@
 <li>DHCP&#xFF1A;&#x673A;&#x5668;&#x6CA1;&#x6709;&#x914D;&#x7F6E;DHCP&#x5730;&#x5740;&#xFF0C;&#x53D1;&#x9001;DHCP&#x5E7F;&#x64AD;&#xFF0C;DHCP&#x670D;&#x52A1;&#x5668;&#x4F1A;&#x5E94;&#x7B54;&#x5E76;&#x8FD4;&#x56DE;&#x5B83;&#x7684;ip&#x548C;&#x4F60;&#x7684;&#x65B0;ip</li>
 </ul>
 <h4 id="&#x7B2C;2&#x7AE0;-&#x4ECE;&#x4E8C;&#x5C42;&#x5230;&#x4E09;&#x5C42;">&#x7B2C;2&#x7AE0; &#x4ECE;&#x4E8C;&#x5C42;&#x5230;&#x4E09;&#x5C42;</h4>
+<ul>
+<li>mac&#x662F;&#x5C40;&#x57DF;&#x7F51;&#x7684;&#x5B9A;&#x4F4D;&#xFF0C;ip&#x662F;&#x8DE8;&#x7F51;&#x7EDC;&#x7684;&#x5B9A;&#x4F4D;</li>
+<li>&#x5DF2;&#x77E5;&#x5BF9;&#x65B9;ip&#x5730;&#x5740;&#x6C42;mac&#x5730;&#x5740;&#xFF1F;&#x53D1;&#x9001;arp&#x5E7F;&#x64AD;</li>
+<li>&#x4E24;&#x53F0;&#x7535;&#x8111;&#x7F51;&#x7EBF;&#x76F4;&#x8FDE;&#xFF1A;&#x5148;&#x53D1;&#x9001;ARP(&#x5185;&#x6838;&#x5305;&#x542B;&#x6B64;&#x903B;&#x8F91;)&#x83B7;&#x53D6;&#x5230;mac&#x518D;&#x901A;&#x8BAF;</li>
+<li>&#x4E09;&#x53F0;&#x7535;&#x8111;Hub&#x901A;&#x8BAF;&#xFF1A;Hub&#x6BCF;&#x6B21;&#x6536;&#x5230;&#x6570;&#x636E;&#x5C31;&#x8F6C;&#x53D1;&#x7ED9;&#x6240;&#x6709;&#x7684;&#x7535;&#x8111;</li>
+<li>&#x4EA4;&#x6362;&#x673A;&#x5B66;&#x4E60;&#x7684;&#x8FC7;&#x7A0B;&#xFF1A;<ul>
+<li>&#x6700;&#x5F00;&#x59CB;&#x4E0D;&#x77E5;&#x9053;&#x6BCF;&#x53F0;&#x7535;&#x8111;&#x7684;mac&#xFF0C;&#x6240;&#x4EE5;&#x8F6C;&#x53D1;&#x7ED9;&#x6240;&#x6709;&#x7684;&#x7535;&#x8111;&#xFF0C;&#x8BB0;&#x4F4F;&#x53D1;&#x9001;&#x65B9;&#x7684;mac</li>
+<li>&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x540E;&#xFF0C;&#x8BB0;&#x4F4F;&#x4E86;&#x6240;&#x6709;&#x7535;&#x8111;&#x7684;mac&#xFF0C;&#x5B58;&#x5165;&#x8F6C;&#x53D1;&#x8868;</li>
+<li>&#x540E;&#x7EED;&#x6536;&#x5230;&#x6570;&#x636E;&#x5C31;&#x8F6C;&#x53D1;&#x7ED9;&#x6307;&#x5B9A;mac&#x7684;&#x7535;&#x8111;</li>
+</ul>
+</li>
+<li>&#x4EA4;&#x6362;&#x673A;&#x7684;vlan&#xFF1A;<ul>
+<li>vlan&#x662F;&#x4E3A;&#x4E86;&#x4FDD;&#x8BC1;&#x9694;&#x79BB;&#xFF0C;&#x907F;&#x514D;&#x5C40;&#x57DF;&#x7F51;&#x5185;&#x88AB;&#x4EBA;&#x6293;&#x5305;<ul>
+<li><a href="https://songly.blog.csdn.net/article/details/104786319" target="_blank">ARP&#x6B3A;&#x9A97;&#x653B;&#x51FB;</a></li>
+<li><a href="https://blog.csdn.net/qq_35733751/article/details/104139771" target="_blank">MAC&#x5730;&#x5740;&#x6CDB;&#x6D2A;&#x653B;&#x51FB;</a></li>
+</ul>
+</li>
+<li>&#x94FE;&#x8DEF;&#x5C42;&#x7684;mac&#x5934;&#x5305;&#x542B;&#xFF1A;&#x76EE;&#x6807;mac&#x3001;&#x6E90;mac&#x3001;vlan_id</li>
+<li>&#x624B;&#x52A8;&#x8BBE;&#x7F6E;&#x4EA4;&#x6362;&#x673A;&#x4E0A;&#x6BCF;&#x4E2A;&#x7F51;&#x53E3;&#x6240;&#x5C5E;&#x7684;vlan_id&#xFF0C;vlan_id&#x76F8;&#x540C;&#x7684;&#x5305;&#x624D;&#x4F1A;&#x4E92;&#x76F8;&#x8F6C;&#x53D1;</li>
+<li>&#x4EA4;&#x6362;&#x673A;&#x6709;&#x4E2A;&#x7279;&#x6B8A;&#x7684;&#x7F51;&#x53E3;&#x79F0;&#x4E3A;Trunk&#x53E3;&#xFF0C;&#x53EF;&#x4EE5;&#x65E0;&#x89C6;vlan_id&#x8F6C;&#x53D1;&#x5305;&#xFF0C;&#x4E00;&#x822C;&#x7528;&#x4E8E;&#x5BF9;&#x63A5;&#x5176;&#x4ED6;&#x4EA4;&#x6362;&#x673A;</li>
+</ul>
+</li>
+<li>ping&#x547D;&#x4EE4;&#xFF1A;&#x4F7F;&#x7528;&#x4E86;icmp&#x7684;echo request&#x548C;echo reply&#x7C7B;&#x578B;</li>
+<li>traceroute&#x547D;&#x4EE4;&#xFF1A;&#x53D1;&#x9001;&#x5E26;ttl&#x7684;udp&#x5305;&#xFF0C;&#x9014;&#x5F84;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x8DEF;&#x7531;&#x5668;&#xFF0C;&#x8DEF;&#x7531;&#x5668;&#x8FD4;&#x56DE;icmp&#x5305;</li>
+<li>&#x8F6C;&#x53D1;&#x7F51;&#x5173;&#xFF1A;A&#x673A;&#x5668;&#x2014;&#x2014;X&#x7F51;&#x5173;&#x5DE6;&#x624B;&#x2014;&#x2014;X&#x7F51;&#x5173;&#x53F3;&#x624B;&#x2014;&#x2014;B&#x673A;&#x5668;<ul>
+<li>A&#x673A;-&gt;X&#x5DE6;&#xFF1A;macA&#x673A;&#xFF0C;ipA -&gt; macX&#x5DE6;&#xFF0C;ipB</li>
+<li>X&#x5DE6;-&gt;X&#x53F3;&#xFF1A;macX&#x5DE6;&#xFF0C;ipA -&gt; macX&#x53F3;&#xFF0C;ipB</li>
+<li>X&#x53F3;-&gt;B&#x673A;&#xFF1A;macX&#x53F3;&#xFF0C;ipA -&gt; macB&#x673A;&#xFF0C;ipB</li>
+</ul>
+</li>
+<li>NAT&#x7F51;&#x5173;&#xFF1A;A&#x673A;&#x5668;&#x2014;&#x2014;X&#x7F51;&#x5173;&#x2014;&#x2014;Y&#x7F51;&#x5173;&#x2014;&#x2014;B&#x673A;&#x5668;<ul>
+<li>A&#x673A;-&gt;X&#x5173;&#xFF1A;macA&#x673A;&#xFF0C;ipA -&gt; macX&#x5173;&#xFF0C;ipY</li>
+<li>X&#x5173;-&gt;Y&#x5173;&#xFF1A;macX&#x5173;&#xFF0C;ipX -&gt; macY&#x5173;&#xFF0C;ipY</li>
+<li>Y&#x5173;-&gt;B&#x673A;&#xFF1A;macY&#x5173;&#xFF0C;ipY -&gt; macB&#x673A;&#xFF0C;ipB</li>
+<li>&#x5176;&#x4E2D;A&#x673A;&#x5668;&#xFF0C;ipA&#x662F;&#x5B83;&#x7684;&#x5185;&#x7F51;ip&#xFF0C;ipX&#x662F;&#x5B83;&#x7684;&#x5916;&#x7F51;ip&#xFF0C;B&#x673A;&#x5668;&#x540C;&#x7406;</li>
+<li>&#x7B2C;&#x4E8C;&#x6B65;&#x4E2D;X&#x7F51;&#x5173;&#x628A;&#x6E90;ipA&#x53D8;&#x6210;ipX&#x7684;&#x8FC7;&#x7A0B;&#x662F;SNAT&#xFF1A;&#x6E90;&#x5730;&#x5740;&#x8F6C;&#x6362;</li>
+<li>&#x7B2C;&#x4E09;&#x6B65;&#x4E2D;X&#x7F51;&#x5173;&#x628A;&#x76EE;&#x6807;ipY&#x53D8;&#x6210;ipB&#x7684;&#x8FC7;&#x7A0B;&#x662F;DNAT&#xFF1A;&#x76EE;&#x6807;&#x5730;&#x5740;&#x8F6C;&#x6362;</li>
+</ul>
+</li>
+<li>&#x9759;&#x6001;&#x8DEF;&#x7531;&#x914D;&#x7F6E;&#xFF1A;&#x6E90;ip&#x662F;&#xFF1F;&#x76EE;&#x6807;ip&#x662F;&#xFF1F;&#x2014;&#x2014;&gt;&#x7ECF;XX&#x7F51;&#x53E3;&#xFF0C;&#x4E0B;&#x4E00;&#x8DF3;ip&#x662F;XX  </li>
+<li>&#x57FA;&#x4E8E;&#x8DDD;&#x79BB;&#x77E2;&#x91CF;&#x8DEF;&#x7531;&#x7B97;&#x6CD5;&#x7684;BGP&#x534F;&#x8BAE;&#xFF1A;<ul>
+<li>&#x57FA;&#x4E8E;Bellman-Ford&#x7B97;&#x6CD5;</li>
+<li>&#x5982;&#x679C;&#x65B0;&#x8DEF;&#x7531;&#x5668;&#x52A0;&#x5165;&#x5F88;&#x5FEB;&#x5C31;&#x5E7F;&#x64AD;&#x4E86;&#xFF0C;&#x800C;&#x4E0B;&#x7EBF;&#x5219;&#x4E0D;&#x77E5;&#x9053;</li>
+<li>&#x67D0;&#x8DEF;&#x7531;&#x5668;&#x66F4;&#x65B0;&#x65F6;&#x53D1;&#x9001;&#x6574;&#x4E2A;&#x8DEF;&#x7531;&#x8868;</li>
+<li>&#x9002;&#x5408;&#x6570;&#x636E;&#x4E2D;&#x5FC3;&#x4E4B;&#x95F4;&#x7684;&#x8FDE;&#x63A5;</li>
+<li>&#x4F7F;&#x7528;TCP&#x534F;&#x8BAE;&#xFF0C;&#x7AEF;&#x53E3;&#x662F;179</li>
+</ul>
+</li>
+<li>&#x57FA;&#x4E8E;&#x94FE;&#x8DEF;&#x72B6;&#x6001;&#x8DEF;&#x7531;&#x7B97;&#x6CD5;&#x7684;OSPF&#x534F;&#x8BAE;&#xFF1A;<ul>
+<li>&#x57FA;&#x4E8E;Dijkstra&#x7B97;&#x6CD5;</li>
+<li>&#x8DEF;&#x7531;&#x5668;&#x4E0B;&#x7EBF;&#x4E5F;&#x4F1A;&#x5E7F;&#x64AD;</li>
+<li>&#x67D0;&#x8DEF;&#x7531;&#x5668;&#x66F4;&#x65B0;&#x65F6;&#x53D1;&#x9001;&#x53D8;&#x66F4;&#x7684;&#x90E8;&#x5206;</li>
+<li>&#x9002;&#x5408;&#x6570;&#x636E;&#x4E2D;&#x5FC3;&#x5185;&#x90E8;&#x7684;&#x8FDE;&#x63A5;</li>
+<li>&#x4F7F;&#x7528;IP&#x534F;&#x8BAE;&#xFF0C;&#x534F;&#x8BAE;&#x7F16;&#x53F7;&#x662F;89</li>
+</ul>
+</li>
+</ul>
 
                                 
                                 </section>
@@ -533,7 +590,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"趣谈网络协议","level":"1.4.3","depth":2,"next":{"title":"4.AWS SAA认证","level":"1.5","depth":1,"ref":"","articles":[{"title":"1.AWS知识点","level":"1.5.1","depth":2,"path":"docs/saa-1.md","ref":"docs/saa-1.md","articles":[]},{"title":"2.AWS认证英语学习","level":"1.5.2","depth":2,"path":"docs/saa-2.md","ref":"docs/saa-2.md","articles":[]},{"title":"3.AWS的其他服务","level":"1.5.3","depth":2,"path":"docs/saa-3.md","ref":"docs/saa-3.md","articles":[]},{"title":"4.AWS Github Study Guide","level":"1.5.4","depth":2,"path":"docs/saa-4.md","ref":"docs/saa-4.md","articles":[]}]},"previous":{"title":"Head First设计模式","level":"1.4.2","depth":2,"path":"docs/head-first-design-patterns.md","ref":"docs/head-first-design-patterns.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/talk-about-network-protocol.md","mtime":"2021-12-20T12:08:43.771Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-12-20T12:09:19.459Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"趣谈网络协议","level":"1.4.3","depth":2,"next":{"title":"4.AWS SAA认证","level":"1.5","depth":1,"ref":"","articles":[{"title":"1.AWS知识点","level":"1.5.1","depth":2,"path":"docs/saa-1.md","ref":"docs/saa-1.md","articles":[]},{"title":"2.AWS认证英语学习","level":"1.5.2","depth":2,"path":"docs/saa-2.md","ref":"docs/saa-2.md","articles":[]},{"title":"3.AWS的其他服务","level":"1.5.3","depth":2,"path":"docs/saa-3.md","ref":"docs/saa-3.md","articles":[]},{"title":"4.AWS Github Study Guide","level":"1.5.4","depth":2,"path":"docs/saa-4.md","ref":"docs/saa-4.md","articles":[]}]},"previous":{"title":"Head First设计模式","level":"1.4.2","depth":2,"path":"docs/head-first-design-patterns.md","ref":"docs/head-first-design-patterns.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/talk-about-network-protocol.md","mtime":"2021-12-23T08:06:57.181Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-12-23T08:07:32.984Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
