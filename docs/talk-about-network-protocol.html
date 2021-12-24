@@ -551,6 +551,58 @@
 </ul>
 </li>
 </ul>
+<h4 id="&#x7B2C;3&#x7AE0;-&#x6700;&#x91CD;&#x8981;&#x7684;&#x4F20;&#x8F93;&#x5C42;">&#x7B2C;3&#x7AE0; &#x6700;&#x91CD;&#x8981;&#x7684;&#x4F20;&#x8F93;&#x5C42;</h4>
+<ul>
+<li>TCP&#x548C;UDP&#x7684;&#x533A;&#x522B;<ul>
+<li>TCP&#x9762;&#x5411;&#x8FDE;&#x63A5;&#xFF0C;&#x63A5;&#x6536;&#x65B9;&#x548C;&#x53D1;&#x9001;&#x65B9;&#x90FD;&#x8981;&#x7EF4;&#x62A4;&#x5BF9;&#x5E94;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF1B;UDP&#x662F;&#x65E0;&#x8FDE;&#x63A5;&#x7684;&#xFF0C;&#x53D1;&#x9001;&#x6570;&#x636E;&#x4E4B;&#x524D;&#x4E0D;&#x9700;&#x8981;&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;</li>
+<li>TCP&#x4FDD;&#x8BC1;&#x53EF;&#x9760;&#x4F20;&#x8F93;&#xFF1B;UDP&#x4E0D;&#x4FDD;&#x8BC1;&#x53EF;&#x9760;</li>
+<li>TCP&#x9762;&#x5411;&#x5B57;&#x8282;&#x6D41;&#xFF1B;UDP&#x662F;&#x9762;&#x5411;&#x62A5;&#x6587;&#x7684;</li>
+<li>TCP&#x8FDE;&#x63A5;&#x662F;&#x4E00;&#x5BF9;&#x4E00;&#xFF1B;UDP&#x652F;&#x6301;&#x4E00;&#x5BF9;&#x4E00;&#x548C;&#x591A;&#x64AD;</li>
+<li>TCP&#x9996;&#x90E8;&#x5F00;&#x9500;20~60&#x5B57;&#x8282;&#xFF1B;UDP&#x7684;&#x9996;&#x90E8;&#x5F00;&#x9500;&#x53EA;&#x6709;8&#x4E2A;&#x5B57;&#x8282;</li>
+</ul>
+</li>
+<li>UDP&#x5B9A;&#x5236;&#x5316;&#x7684;&#x4E94;&#x4E2A;&#x4F8B;&#x5B50;<ul>
+<li>Google&#x7684;QUIC&#xFF0C;&#x5728;&#x5E94;&#x7528;&#x5C42;&#x5B9E;&#x73B0;&#x53EF;&#x9760;&#x4F20;&#x8F93;&#x3001;&#x62E5;&#x585E;&#x63A7;&#x5236;</li>
+<li>&#x76F4;&#x64AD;&#x534F;&#x8BAE;&#xFF0C;&#x7F51;&#x7EDC;&#x4E0D;&#x597D;&#x5141;&#x8BB8;&#x4E22;&#x5305; </li>
+<li>&#x5B9E;&#x65F6;&#x6E38;&#x620F;&#xFF0C;&#x53EA;&#x5728;&#x4E4E;&#x4E22;&#x5305;&#x4F46;&#x5728;&#x4E4E;&#x5B9E;&#x65F6;&#x54CD;&#x5E94; </li>
+<li>IOT&#x7269;&#x8054;&#x7F51;&#xFF0C;&#x82AF;&#x7247;&#x4E0A;&#x5185;&#x5B58;&#x8D44;&#x6E90;&#x6709;&#x9650;&#xFF0C;UDP&#x5F00;&#x9500;&#x5C0F; </li>
+<li>&#x79FB;&#x52A8;&#x901A;&#x8BAF;&#x9886;&#x57DF;4G&#x7684;GTP-U&#xFF0C;&#x56E0;&#x4E3A;GTP&#x534F;&#x8BAE;&#x672C;&#x8EAB;&#x5C31;&#x4FDD;&#x8BC1;&#x4E86;&#x901A;&#x8BAF;&#x7684;&#x53EF;&#x9760;</li>
+</ul>
+</li>
+<li>TCP&#x7684;&#x56DB;&#x6B21;&#x6325;&#x624B;&#xFF0C;&#x4EE5;A&#x548C;B&#x6253;&#x7535;&#x8BDD;&#x4E3A;&#x4F8B;&#xFF1A;<ul>
+<li>A&#x8BF4;&#x201C;&#x6211;&#x6CA1;&#x5565;&#x8981;&#x8BF4;&#x7684;&#x4E86;&#x201D;&#xFF0C;B&#x56DE;&#x7B54;&#x201C;&#x6211;&#x77E5;&#x9053;&#x4E86;&#x201D;</li>
+<li>B&#x53EF;&#x80FD;&#x8FD8;&#x4F1A;&#x6709;&#x8981;&#x8BF4;&#x7684;&#x8BDD;&#xFF0C;&#x4E8E;&#x662F;B&#x53EF;&#x80FD;&#x53C8;&#x5DF4;&#x62C9;&#x5DF4;&#x62C9;&#x8BF4;&#x4E86;&#x4E00;&#x901A;</li>
+<li>&#x6700;&#x540E;B&#x8BF4;&#x201C;&#x6211;&#x8BF4;&#x5B8C;&#x4E86;&#x201D;&#xFF0C;A&#x56DE;&#x7B54;&#x201C;&#x77E5;&#x9053;&#x4E86;&#x201D;&#x3002;B&#x8BF4;&#x5B8C;&#x9700;&#x8981;&#x7B49;ack&#x540E;&#x624D;&#x80FD;&#x5173;&#x95ED;&#x8FDE;&#x63A5;&#xFF0C;A&#x56DE;&#x7B54;&#x5B8C;&#x8981;&#x7B49;2MSL&#x624D;&#x80FD;&#x5173;&#x95ED;&#xFF1A;<ul>
+<li>B&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6536;&#x5230;ack(ack&#x5305;&#x4E22;&#x4E86;)&#xFF0C;&#x4F1A;&#x518D;&#x53D1;&#x9001;&#x4E00;&#x6B21;&#x201C;&#x6211;&#x8BF4;&#x5B8C;&#x4E86;&#x201D;</li>
+<li>A&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7B49;2MSL&#xFF0C;&#x56E0;&#x4E3A;2MSL&#x5185;B&#x90FD;&#x6CA1;&#x6709;&#x518D;&#x53D1;&#x9001;&#x201C;&#x6211;&#x8BF4;&#x5B8C;&#x4E86;&#x201D;&#xFF0C;&#x8BC1;&#x660E;&#x5DF2;&#x7ECF;&#x6536;&#x5230;ack&#x5305;&#x4E86;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>&#x987A;&#x5E8F;&#x95EE;&#x9898;&#x548C;&#x4E22;&#x5305;&#x95EE;&#x9898;&#xFF1A;<ul>
+<li>&#x7D2F;&#x8BA1;&#x786E;&#x8BA4;&#xFF0C;&#x4E0D;&#x7528;&#x4E00;&#x4E2A;&#x5305;&#x4E00;&#x4E2A;ack</li>
+<li>&#x8D85;&#x65F6;&#x91CD;&#x4F20;&#xFF0C;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#x5E94;&gt;RTT(&#x5F80;&#x8FD4;&#x65F6;&#x95F4;)</li>
+<li>&#x5FEB;&#x901F;&#x91CD;&#x4F20;&#xFF0C;&#x9700;&#x91CD;&#x4F20;&#x5E8F;&#x53F7;7&#x7684;&#x5305;&#xFF1A;<ul>
+<li>&#x8FDE;&#x7EED;&#x4E09;&#x4E2A;&#x5E8F;&#x53F7;6&#x7684;ack</li>
+<li>SACK(&#x9009;&#x62E9;&#x786E;&#x8BA4;)&#xFF1A;&#x5730;&#x56FE;&#x91CC;&#x9762;&#x5305;&#x542B;&#x5E8F;&#x53F7;6&#x3001;8&#x3001;9</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>&#x6D41;&#x91CF;&#x63A7;&#x5236;&#xFF1A;<ul>
+<li>&#x66F4;&#x65B0;&#x6ED1;&#x52A8;&#x7A97;&#x53E3;&#xFF0C;&#x63A5;&#x6536;&#x65B9;&#x8FD4;&#x56DE;ack&#x7684;&#x540C;&#x65F6;&#x8FD4;&#x56DE;AdvertiseWindow</li>
+<li>&#x82E5;&#x63A5;&#x6536;&#x65B9;AdvertiseWindow=0&#xFF0C;&#x53D1;&#x9001;&#x65B9;&#x505C;&#x6B62;&#x53D1;&#x9001;&#xFF0C;&#x5B9A;&#x65F6;&#x53D1;&#x9001;&#x7A97;&#x53E3;&#x63A2;&#x6D4B;&#x5305;&#x770B;&#x662F;&#x5426;&#x4F1A;&#x8C03;&#x6574;&#x7A97;&#x53E3;</li>
+</ul>
+</li>
+<li>&#x62E5;&#x585E;&#x63A7;&#x5236;&#xFF1A;<ul>
+<li>&#x6162;&#x5F00;&#x59CB;&#xFF1A;cwnd=1&#xFF0C;&#x6BCF;&#x6B21;&#x6307;&#x6570;&#x589E;&#x957F;</li>
+<li>&#x62E5;&#x585E;&#x907F;&#x514D;&#xFF1A;&#x7A97;&#x53E3;&#x5185;&#x5305;&#x7684;&#x603B;&#x5927;&#x5C0F;&gt;ssthresh&#xFF0C;&#x6BCF;&#x6B21;cwnd+=1/cwnd</li>
+<li>(&#x91CD;&#x65B0;&#x6162;&#x5F00;&#x59CB;)&#xFF1A;&#x53D1;&#x751F;&#x4E22;&#x5305;&#xFF0C;ssthresh=cwnd/2 &amp;&amp; cwnd=1</li>
+<li>&#x5FEB;&#x91CD;&#x4F20;&#xFF1A;&#x6536;&#x5230;&#x8FDE;&#x7EED;3&#x4E2A;ack&#x63D0;&#x793A;&#x4E22;&#x5305;&#xFF0C;&#x5FEB;&#x901F;&#x91CD;&#x4F20;</li>
+<li>&#x5FEB;&#x6062;&#x590D;&#xFF1A;&#x5FEB;&#x91CD;&#x4F20;&#x65F6;&#x4E22;&#x5305;&#x5E76;&#x4E0D;&#x4E25;&#x91CD;&#xFF0C;cwnd=cwnd/2 &amp;&amp; ssthresh=cwnd</li>
+</ul>
+</li>
+</ul>
 
                                 
                                 </section>
@@ -590,7 +642,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"趣谈网络协议","level":"1.4.3","depth":2,"next":{"title":"4.AWS SAA认证","level":"1.5","depth":1,"ref":"","articles":[{"title":"1.AWS知识点","level":"1.5.1","depth":2,"path":"docs/saa-1.md","ref":"docs/saa-1.md","articles":[]},{"title":"2.AWS认证英语学习","level":"1.5.2","depth":2,"path":"docs/saa-2.md","ref":"docs/saa-2.md","articles":[]},{"title":"3.AWS的其他服务","level":"1.5.3","depth":2,"path":"docs/saa-3.md","ref":"docs/saa-3.md","articles":[]},{"title":"4.AWS Github Study Guide","level":"1.5.4","depth":2,"path":"docs/saa-4.md","ref":"docs/saa-4.md","articles":[]}]},"previous":{"title":"Head First设计模式","level":"1.4.2","depth":2,"path":"docs/head-first-design-patterns.md","ref":"docs/head-first-design-patterns.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/talk-about-network-protocol.md","mtime":"2021-12-23T08:06:57.181Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-12-23T08:07:32.984Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"趣谈网络协议","level":"1.4.3","depth":2,"next":{"title":"4.AWS SAA认证","level":"1.5","depth":1,"ref":"","articles":[{"title":"1.AWS知识点","level":"1.5.1","depth":2,"path":"docs/saa-1.md","ref":"docs/saa-1.md","articles":[]},{"title":"2.AWS认证英语学习","level":"1.5.2","depth":2,"path":"docs/saa-2.md","ref":"docs/saa-2.md","articles":[]},{"title":"3.AWS的其他服务","level":"1.5.3","depth":2,"path":"docs/saa-3.md","ref":"docs/saa-3.md","articles":[]},{"title":"4.AWS Github Study Guide","level":"1.5.4","depth":2,"path":"docs/saa-4.md","ref":"docs/saa-4.md","articles":[]}]},"previous":{"title":"Head First设计模式","level":"1.4.2","depth":2,"path":"docs/head-first-design-patterns.md","ref":"docs/head-first-design-patterns.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/talk-about-network-protocol.md","mtime":"2021-12-24T09:14:57.055Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-12-24T09:15:27.320Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
