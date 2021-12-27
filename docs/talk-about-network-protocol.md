@@ -92,8 +92,24 @@
   * 快重传：收到连续3个ack提示丢包，快速重传
   * 快恢复：快重传时丢包并不严重，cwnd=cwnd/2 && ssthresh=cwnd
   
-
-
+#### 第4章 最重要的应用层
+* Http keep-alive机制：
+  * http 1.0：客户端头带上Connection: Keep-Alive，服务器头带上Connection: Keep-Alive
+  * http 1.1：默认已经是keep-alive，除非指定Connection: Close
+  * Keep-Alive: timeout=5, max=1000 表示空闲时长5秒，可发送的请求量是1000
+* TCP keep-alive机制：可对单个socket设置，否则使用内核默认配置
+  * setsockopt(sockfd, SOL_SOCKET, SO_KEEPALIVE, (void *)&keepAlive, sizeof(keepAlive)); 开启keepalive
+  * setsockopt(sockfd, SOL_TCP, TCP_KEEPIDLE, (void*)&keepIdle, sizeof(keepIdle)); 空闲时长
+  * setsockopt(sockfd, SOL_TCP, TCP_KEEPINTVL, (void *)&keepInterval, sizeof(keepInterval)); 探测包间隔时间
+  * setsockopt(sockfd, SOL_TCP, TCP_KEEPCNT, (void *)&keepCount, sizeof(keepCount); 失败后尝试几次
+* Http 2.0
+  * 解决了Http 1.1队首阻塞问题，同一个连接可并行发送多个请求和响应
+  * 每个请求可以有多个stream
+  * 不同类型的stream的头部固定是9字节(Magic帧除外)：
+    * length(3B)：整个stream的长度
+    * type(1B)：类型，0~9依次是DATA/HEADERS/PRIORITY/RST_STREAM/SETTINGS/PUSH_PROMISE/PING/GOAWAY/WINDOW_UPDATE/CONTINUATION
+    * flags(1B)：stream类型不同代表的含义也不同
+    * streamId(4B)：stream id，最高的1位是预留位
 
 
 
