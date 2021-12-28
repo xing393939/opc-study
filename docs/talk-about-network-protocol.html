@@ -621,13 +621,29 @@
 <li>Http 2.0<ul>
 <li>&#x89E3;&#x51B3;&#x4E86;Http 1.1&#x961F;&#x9996;&#x963B;&#x585E;&#x95EE;&#x9898;&#xFF0C;&#x540C;&#x4E00;&#x4E2A;&#x8FDE;&#x63A5;&#x53EF;&#x5E76;&#x884C;&#x53D1;&#x9001;&#x591A;&#x4E2A;&#x8BF7;&#x6C42;&#x548C;&#x54CD;&#x5E94;</li>
 <li>&#x6BCF;&#x4E2A;&#x8BF7;&#x6C42;&#x53EF;&#x4EE5;&#x6709;&#x591A;&#x4E2A;stream</li>
-<li>&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x7684;stream&#x7684;&#x5934;&#x90E8;&#x56FA;&#x5B9A;&#x662F;9&#x5B57;&#x8282;(Magic&#x5E27;&#x9664;&#x5916;)&#xFF1A;<ul>
+<li>Magic stream&#x662F;&#x53D1;&#x9001;&#x65B9;&#x4E09;&#x6B21;&#x63E1;&#x624B;&#x540E;&#x7684;&#x7B2C;&#x4E00;&#x5E27;&#xFF0C;&#x63A5;&#x6536;&#x65B9;ack&#x540E;&#x610F;&#x5473;&#x7740;H2&#x6B63;&#x5F0F;&#x8FDE;&#x63A5;&#xFF0C;&#x5185;&#x5BB9;&#x56FA;&#x5B9A;24B&#xFF1A;PRI * HTTP/2.0\r\n\r\nSM\r\n\r\n</li>
+<li>&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x7684;stream&#x7684;&#x5934;&#x90E8;&#x56FA;&#x5B9A;&#x662F;9&#x5B57;&#x8282;(Magic&#x7C7B;&#x578B;&#x9664;&#x5916;)&#xFF1A;<ul>
 <li>length(3B)&#xFF1A;&#x6574;&#x4E2A;stream&#x7684;&#x957F;&#x5EA6;</li>
 <li>type(1B)&#xFF1A;&#x7C7B;&#x578B;&#xFF0C;0~9&#x4F9D;&#x6B21;&#x662F;DATA/HEADERS/PRIORITY/RST_STREAM/SETTINGS/PUSH_PROMISE/PING/GOAWAY/WINDOW_UPDATE/CONTINUATION</li>
 <li>flags(1B)&#xFF1A;stream&#x7C7B;&#x578B;&#x4E0D;&#x540C;&#x4EE3;&#x8868;&#x7684;&#x542B;&#x4E49;&#x4E5F;&#x4E0D;&#x540C;</li>
 <li>streamId(4B)&#xFF1A;stream id&#xFF0C;&#x6700;&#x9AD8;&#x7684;1&#x4F4D;&#x662F;&#x9884;&#x7559;&#x4F4D;</li>
 </ul>
 </li>
+</ul>
+</li>
+<li>Http 3.0&#xFF1A;&#x57FA;&#x4E8E;&#x4F7F;&#x7528;UDP&#x7684;QUIC&#x534F;&#x8BAE;<ul>
+<li>H2&#x7684;&#x95EE;&#x9898;1&#xFF1A;&#x53D7;&#x9650;&#x4E8E;<a href="https://blog.csdn.net/jackyzhousales/article/details/78050640" target="_blank">TCP&#x91CD;&#x7EC4;</a>&#xFF0C;&#x867D;&#x7136;stream2&#x548C;stream1&#x6CA1;&#x6709;&#x5173;&#x8054;&#xFF0C;&#x4F46;&#x662F;stream1&#x6CA1;&#x6709;&#x5230;&#x8FBE;stream2&#x4E0D;&#x80FD;&#x63D0;&#x4EA4;&#x7ED9;&#x7528;&#x6237;</li>
+<li>H2&#x7684;&#x95EE;&#x9898;2&#xFF1A;&#x53D7;&#x9650;&#x4E8E;TCP&#x56DB;&#x5143;&#x7EC4;&#xFF0C;&#x5982;&#x679C;&#x53D1;&#x9001;&#x65B9;&#x7F51;&#x7EDC;&#x53D8;&#x5316;&#x5BFC;&#x81F4;IP&#x53D8;&#x5316;&#x5219;&#x9700;&#x8981;&#x91CD;&#x8FDE;&#xFF0C;QUIC&#x4E0D;&#x4F7F;&#x7528;&#x56DB;&#x5143;&#x7EC4;&#x800C;&#x662F;&#x968F;&#x673A;&#x6570;</li>
+<li>H2&#x7684;&#x95EE;&#x9898;3&#xFF1A;&#x5047;&#x8BBE;&#x6709;&#x5305;1&#x3001;&#x5305;2&#x3001;&#x5305;3&#xFF0C;&#x5305;3&#x6700;&#x5148;&#x5230;&#x8FBE;&#x3002;TCP&#x7684;&#x6ED1;&#x52A8;&#x7A97;&#x53E3;&#x5FC5;&#x987B;&#x7B49;&#x5305;1&#x5305;2&#x4E5F;&#x5230;&#x8FBE;&#x624D;&#x80FD;&#x66F4;&#x65B0;&#x6ED1;&#x52A8;&#x7A97;&#x53E3;</li>
+</ul>
+</li>
+<li>HTTPS &#x52A0;&#x5BC6;&#x4F20;&#x8F93;&#x6D41;&#x7A0B;&#xFF1A;<ul>
+<li>&#x5BA2;&#x6237;&#x7AEF;&#x5148;client hello&#x53D1;&#x7ED9;&#x670D;&#x52A1;&#x7AEF;&#x968F;&#x673A;&#x6570;randomClient</li>
+<li>&#x670D;&#x52A1;&#x7AEF;&#x518D;server hello&#x53D1;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;&#x968F;&#x673A;&#x6570;randomServer</li>
+<li>&#x670D;&#x52A1;&#x7AEF;&#x53D1;&#x9001;&#x516C;&#x94A5;&#x8BC1;&#x4E66;</li>
+<li>&#x5BA2;&#x6237;&#x7AEF;&#x5229;&#x7528;&#x6839;&#x8BC1;&#x4E66;&#x9A8C;&#x8BC1;&#x6B64;&#x516C;&#x94A5;&#x8BC1;&#x4E66;</li>
+<li>&#x5BA2;&#x6237;&#x7AEF;&#x4F7F;&#x7528;&#x516C;&#x94A5;&#x8BC1;&#x4E66;&#x52A0;&#x5BC6;&#x4F20;&#x8F93;&#x968F;&#x673A;&#x6570;pre-master&#x7ED9;&#x670D;&#x52A1;&#x7AEF;</li>
+<li>&#x540E;&#x7EED;&#x53CC;&#x65B9;&#x5C31;&#x4F7F;&#x7528;randomClient&#x3001;randomServer&#x3001;pre-master&#x52A0;&#x5BC6;&#x4F20;&#x8F93;&#x6570;&#x636E;</li>
 </ul>
 </li>
 </ul>
@@ -670,7 +686,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"趣谈网络协议","level":"1.4.3","depth":2,"next":{"title":"4.AWS SAA认证","level":"1.5","depth":1,"ref":"","articles":[{"title":"1.AWS知识点","level":"1.5.1","depth":2,"path":"docs/saa-1.md","ref":"docs/saa-1.md","articles":[]},{"title":"2.AWS认证英语学习","level":"1.5.2","depth":2,"path":"docs/saa-2.md","ref":"docs/saa-2.md","articles":[]},{"title":"3.AWS的其他服务","level":"1.5.3","depth":2,"path":"docs/saa-3.md","ref":"docs/saa-3.md","articles":[]},{"title":"4.AWS Github Study Guide","level":"1.5.4","depth":2,"path":"docs/saa-4.md","ref":"docs/saa-4.md","articles":[]}]},"previous":{"title":"Head First设计模式","level":"1.4.2","depth":2,"path":"docs/head-first-design-patterns.md","ref":"docs/head-first-design-patterns.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/talk-about-network-protocol.md","mtime":"2021-12-27T10:11:25.941Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-12-27T10:12:00.345Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"趣谈网络协议","level":"1.4.3","depth":2,"next":{"title":"4.AWS SAA认证","level":"1.5","depth":1,"ref":"","articles":[{"title":"1.AWS知识点","level":"1.5.1","depth":2,"path":"docs/saa-1.md","ref":"docs/saa-1.md","articles":[]},{"title":"2.AWS认证英语学习","level":"1.5.2","depth":2,"path":"docs/saa-2.md","ref":"docs/saa-2.md","articles":[]},{"title":"3.AWS的其他服务","level":"1.5.3","depth":2,"path":"docs/saa-3.md","ref":"docs/saa-3.md","articles":[]},{"title":"4.AWS Github Study Guide","level":"1.5.4","depth":2,"path":"docs/saa-4.md","ref":"docs/saa-4.md","articles":[]}]},"previous":{"title":"Head First设计模式","level":"1.4.2","depth":2,"path":"docs/head-first-design-patterns.md","ref":"docs/head-first-design-patterns.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/talk-about-network-protocol.md","mtime":"2021-12-28T10:21:50.750Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-12-28T10:22:15.934Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
