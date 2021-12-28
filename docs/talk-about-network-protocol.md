@@ -105,14 +105,23 @@
 * Http 2.0
   * 解决了Http 1.1队首阻塞问题，同一个连接可并行发送多个请求和响应
   * 每个请求可以有多个stream
-  * 不同类型的stream的头部固定是9字节(Magic帧除外)：
+  * Magic stream是发送方三次握手后的第一帧，接收方ack后意味着H2正式连接，内容固定24B：PRI * HTTP/2.0\r\n\r\nSM\r\n\r\n
+  * 不同类型的stream的头部固定是9字节(Magic类型除外)：
     * length(3B)：整个stream的长度
     * type(1B)：类型，0~9依次是DATA/HEADERS/PRIORITY/RST_STREAM/SETTINGS/PUSH_PROMISE/PING/GOAWAY/WINDOW_UPDATE/CONTINUATION
     * flags(1B)：stream类型不同代表的含义也不同
     * streamId(4B)：stream id，最高的1位是预留位
-
-
-
+* Http 3.0：基于使用UDP的QUIC协议
+  * H2的问题1：受限于[TCP重组](https://blog.csdn.net/jackyzhousales/article/details/78050640)，虽然stream2和stream1没有关联，但是stream1没有到达stream2不能提交给用户
+  * H2的问题2：受限于TCP四元组，如果发送方网络变化导致IP变化则需要重连，QUIC不使用四元组而是随机数
+  * H2的问题3：假设有包1、包2、包3，包3最先到达。TCP的滑动窗口必须等包1包2也到达才能更新滑动窗口
+* HTTPS 加密传输流程：
+  * 客户端先client hello发给服务端随机数randomClient
+  * 服务端再server hello发给客户端随机数randomServer
+  * 服务端发送公钥证书
+  * 客户端利用根证书验证此公钥证书
+  * 客户端使用公钥证书加密传输随机数pre-master给服务端
+  * 后续双方就使用randomClient、randomServer、pre-master加密传输数据
 
 
 
