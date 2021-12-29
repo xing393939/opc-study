@@ -21,7 +21,7 @@
   * aeCreateTimeEvent：创建时间事件（全局只有1个），处理函数是serverCron
   * aeMain：开启事件循环，死循环执行aeProcessEvents()，它的功能如下：
     * 调用epoll_wait阻塞等待文件事件的方式（设有超时）
-    * epoll_wait返回时，先处理触发的文件事件，再处理事件事件
+    * epoll_wait返回时，先处理触发的文件事件，再处理时间事件
     * aeCreateFileEvent的文件事件是监听新连接，acceptTcpHandler调用createClient生成新的文件事件
     * 新的文件事件处理函数是readQueryFromClient
 * 程序运行流程之命令处理过程：
