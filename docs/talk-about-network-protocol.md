@@ -138,9 +138,29 @@
   * https为什么不用DH算法？DH算法不能验证身份，不能防止中间人攻击
 * 在巴塞罗那手机上网为什么不能访问脸书？上网时巴的运营商中转给国内运营商了
 
-
-
-
-
-
+#### 第6章 云计算中的网络
+* 云计算的网络模式有两种：
+  * 同主机的虚机A和虚机B通讯：A和B分别有虚拟网卡A和B，再建立一个网桥bridge0
+  * 主机1的虚机A和主机2的虚机C通讯：主机1和主机2用交换机连接，A和C处于同一个网段
+  * [网桥与交换机的区别](https://blog.csdn.net/fivedoumi/article/details/51746798)
+* 主机防火墙的五个关卡：
+  * PREROUTING：数据包必过
+  * INPUT：数据包进入主机
+  * FORWARD：转发数据包
+  * OUTPUT：数据包从主机出来
+  * POSTROUTING：数据包比过
+* 主机防火墙的4个规则表优先级高到低：raw –> mangle –> nat –> filter
+  * raw，不常用
+  * mangle，修改数据包
+  * nat，网络地址转换，DNAT和SNAT
+  * filter，过滤数据包
+* 主机防火墙规则有匹配条件和处理动作组成
+  * 链路层匹配条件：源mac、目标mac、vlan_id
+  * 链路层处理动作：源mac、目标mac、vlan_id的修改
+  * 网络层匹配条件：源ip、目标ip
+  * 网络层处理动作：源ip、目标ip的修改
+  * 传输层匹配条件：源port、目标port
+  * 传输层处理动作：源port、目标port的修改
+* k8s的kube-proxy就是利用的iptables做流量转发和负载均衡的
+  * service利用nat将相应的流量转发到对应的pod中，另外iptables有一个probability特性，可以设置probability的百分比是多少，从而实现负载均衡
 
