@@ -667,6 +667,43 @@
 </li>
 <li>&#x5728;&#x5DF4;&#x585E;&#x7F57;&#x90A3;&#x624B;&#x673A;&#x4E0A;&#x7F51;&#x4E3A;&#x4EC0;&#x4E48;&#x4E0D;&#x80FD;&#x8BBF;&#x95EE;&#x8138;&#x4E66;&#xFF1F;&#x4E0A;&#x7F51;&#x65F6;&#x5DF4;&#x7684;&#x8FD0;&#x8425;&#x5546;&#x4E2D;&#x8F6C;&#x7ED9;&#x56FD;&#x5185;&#x8FD0;&#x8425;&#x5546;&#x4E86;</li>
 </ul>
+<h4 id="&#x7B2C;6&#x7AE0;-&#x4E91;&#x8BA1;&#x7B97;&#x4E2D;&#x7684;&#x7F51;&#x7EDC;">&#x7B2C;6&#x7AE0; &#x4E91;&#x8BA1;&#x7B97;&#x4E2D;&#x7684;&#x7F51;&#x7EDC;</h4>
+<ul>
+<li>&#x4E91;&#x8BA1;&#x7B97;&#x7684;&#x7F51;&#x7EDC;&#x6A21;&#x5F0F;&#x6709;&#x4E24;&#x79CD;&#xFF1A;<ul>
+<li>&#x540C;&#x4E3B;&#x673A;&#x7684;&#x865A;&#x673A;A&#x548C;&#x865A;&#x673A;B&#x901A;&#x8BAF;&#xFF1A;A&#x548C;B&#x5206;&#x522B;&#x6709;&#x865A;&#x62DF;&#x7F51;&#x5361;A&#x548C;B&#xFF0C;&#x518D;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x7F51;&#x6865;bridge0</li>
+<li>&#x4E3B;&#x673A;1&#x7684;&#x865A;&#x673A;A&#x548C;&#x4E3B;&#x673A;2&#x7684;&#x865A;&#x673A;C&#x901A;&#x8BAF;&#xFF1A;&#x4E3B;&#x673A;1&#x548C;&#x4E3B;&#x673A;2&#x7528;&#x4EA4;&#x6362;&#x673A;&#x8FDE;&#x63A5;&#xFF0C;A&#x548C;C&#x5904;&#x4E8E;&#x540C;&#x4E00;&#x4E2A;&#x7F51;&#x6BB5;</li>
+<li><a href="https://blog.csdn.net/fivedoumi/article/details/51746798" target="_blank">&#x7F51;&#x6865;&#x4E0E;&#x4EA4;&#x6362;&#x673A;&#x7684;&#x533A;&#x522B;</a></li>
+</ul>
+</li>
+<li>&#x4E3B;&#x673A;&#x9632;&#x706B;&#x5899;&#x7684;&#x4E94;&#x4E2A;&#x5173;&#x5361;&#xFF1A;<ul>
+<li>PREROUTING&#xFF1A;&#x6570;&#x636E;&#x5305;&#x5FC5;&#x8FC7;</li>
+<li>INPUT&#xFF1A;&#x6570;&#x636E;&#x5305;&#x8FDB;&#x5165;&#x4E3B;&#x673A;</li>
+<li>FORWARD&#xFF1A;&#x8F6C;&#x53D1;&#x6570;&#x636E;&#x5305;</li>
+<li>OUTPUT&#xFF1A;&#x6570;&#x636E;&#x5305;&#x4ECE;&#x4E3B;&#x673A;&#x51FA;&#x6765;</li>
+<li>POSTROUTING&#xFF1A;&#x6570;&#x636E;&#x5305;&#x6BD4;&#x8FC7;</li>
+</ul>
+</li>
+<li>&#x4E3B;&#x673A;&#x9632;&#x706B;&#x5899;&#x7684;4&#x4E2A;&#x89C4;&#x5219;&#x8868;&#x4F18;&#x5148;&#x7EA7;&#x9AD8;&#x5230;&#x4F4E;&#xFF1A;raw &#x2013;&gt; mangle &#x2013;&gt; nat &#x2013;&gt; filter<ul>
+<li>raw&#xFF0C;&#x4E0D;&#x5E38;&#x7528;</li>
+<li>mangle&#xFF0C;&#x4FEE;&#x6539;&#x6570;&#x636E;&#x5305;</li>
+<li>nat&#xFF0C;&#x7F51;&#x7EDC;&#x5730;&#x5740;&#x8F6C;&#x6362;&#xFF0C;DNAT&#x548C;SNAT</li>
+<li>filter&#xFF0C;&#x8FC7;&#x6EE4;&#x6570;&#x636E;&#x5305;</li>
+</ul>
+</li>
+<li>&#x4E3B;&#x673A;&#x9632;&#x706B;&#x5899;&#x89C4;&#x5219;&#x6709;&#x5339;&#x914D;&#x6761;&#x4EF6;&#x548C;&#x5904;&#x7406;&#x52A8;&#x4F5C;&#x7EC4;&#x6210;<ul>
+<li>&#x94FE;&#x8DEF;&#x5C42;&#x5339;&#x914D;&#x6761;&#x4EF6;&#xFF1A;&#x6E90;mac&#x3001;&#x76EE;&#x6807;mac&#x3001;vlan_id</li>
+<li>&#x94FE;&#x8DEF;&#x5C42;&#x5904;&#x7406;&#x52A8;&#x4F5C;&#xFF1A;&#x6E90;mac&#x3001;&#x76EE;&#x6807;mac&#x3001;vlan_id&#x7684;&#x4FEE;&#x6539;</li>
+<li>&#x7F51;&#x7EDC;&#x5C42;&#x5339;&#x914D;&#x6761;&#x4EF6;&#xFF1A;&#x6E90;ip&#x3001;&#x76EE;&#x6807;ip</li>
+<li>&#x7F51;&#x7EDC;&#x5C42;&#x5904;&#x7406;&#x52A8;&#x4F5C;&#xFF1A;&#x6E90;ip&#x3001;&#x76EE;&#x6807;ip&#x7684;&#x4FEE;&#x6539;</li>
+<li>&#x4F20;&#x8F93;&#x5C42;&#x5339;&#x914D;&#x6761;&#x4EF6;&#xFF1A;&#x6E90;port&#x3001;&#x76EE;&#x6807;port</li>
+<li>&#x4F20;&#x8F93;&#x5C42;&#x5904;&#x7406;&#x52A8;&#x4F5C;&#xFF1A;&#x6E90;port&#x3001;&#x76EE;&#x6807;port&#x7684;&#x4FEE;&#x6539;</li>
+</ul>
+</li>
+<li>k8s&#x7684;kube-proxy&#x5C31;&#x662F;&#x5229;&#x7528;&#x7684;iptables&#x505A;&#x6D41;&#x91CF;&#x8F6C;&#x53D1;&#x548C;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7684;<ul>
+<li>service&#x5229;&#x7528;nat&#x5C06;&#x76F8;&#x5E94;&#x7684;&#x6D41;&#x91CF;&#x8F6C;&#x53D1;&#x5230;&#x5BF9;&#x5E94;&#x7684;pod&#x4E2D;&#xFF0C;&#x53E6;&#x5916;iptables&#x6709;&#x4E00;&#x4E2A;probability&#x7279;&#x6027;&#xFF0C;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;probability&#x7684;&#x767E;&#x5206;&#x6BD4;&#x662F;&#x591A;&#x5C11;&#xFF0C;&#x4ECE;&#x800C;&#x5B9E;&#x73B0;&#x8D1F;&#x8F7D;&#x5747;&#x8861;</li>
+</ul>
+</li>
+</ul>
 
                                 
                                 </section>
@@ -706,7 +743,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"趣谈网络协议","level":"1.4.3","depth":2,"next":{"title":"4.AWS SAA认证","level":"1.5","depth":1,"ref":"","articles":[{"title":"1.AWS知识点","level":"1.5.1","depth":2,"path":"docs/saa-1.md","ref":"docs/saa-1.md","articles":[]},{"title":"2.AWS认证英语学习","level":"1.5.2","depth":2,"path":"docs/saa-2.md","ref":"docs/saa-2.md","articles":[]},{"title":"3.AWS的其他服务","level":"1.5.3","depth":2,"path":"docs/saa-3.md","ref":"docs/saa-3.md","articles":[]},{"title":"4.AWS Github Study Guide","level":"1.5.4","depth":2,"path":"docs/saa-4.md","ref":"docs/saa-4.md","articles":[]}]},"previous":{"title":"Head First设计模式","level":"1.4.2","depth":2,"path":"docs/head-first-design-patterns.md","ref":"docs/head-first-design-patterns.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/talk-about-network-protocol.md","mtime":"2021-12-29T03:09:31.286Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-12-29T03:10:05.274Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"趣谈网络协议","level":"1.4.3","depth":2,"next":{"title":"4.AWS SAA认证","level":"1.5","depth":1,"ref":"","articles":[{"title":"1.AWS知识点","level":"1.5.1","depth":2,"path":"docs/saa-1.md","ref":"docs/saa-1.md","articles":[]},{"title":"2.AWS认证英语学习","level":"1.5.2","depth":2,"path":"docs/saa-2.md","ref":"docs/saa-2.md","articles":[]},{"title":"3.AWS的其他服务","level":"1.5.3","depth":2,"path":"docs/saa-3.md","ref":"docs/saa-3.md","articles":[]},{"title":"4.AWS Github Study Guide","level":"1.5.4","depth":2,"path":"docs/saa-4.md","ref":"docs/saa-4.md","articles":[]}]},"previous":{"title":"Head First设计模式","level":"1.4.2","depth":2,"path":"docs/head-first-design-patterns.md","ref":"docs/head-first-design-patterns.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/talk-about-network-protocol.md","mtime":"2021-12-31T03:51:59.443Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-12-31T03:52:25.758Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
