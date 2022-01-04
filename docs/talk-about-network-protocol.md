@@ -163,4 +163,9 @@
   * 传输层处理动作：源port、目标port的修改
 * k8s的kube-proxy就是利用的iptables做流量转发和负载均衡的
   * service利用nat将相应的流量转发到对应的pod中，另外iptables有一个probability特性，可以设置probability的百分比是多少，从而实现负载均衡
-
+* underlay和overlay：
+  * underlay是底层网络，由物理网络设备组成
+  * overlay是基于隧道技术实现的，overlay的流量需要跑在underlay之上  
+* overlay的两种技术方案：
+  * GRE：外层IP头 + GRE头 + 内层IP包，缺点是只能点对点通讯
+  * VXLAN：外层UDP头 + UDP主体(VXLAN头 + 内层IP包)，支持组播(多对多通讯)
