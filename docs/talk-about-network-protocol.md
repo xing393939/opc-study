@@ -199,3 +199,27 @@
   * 主机之间用交换机连接
 * Calico项目-主机跨网段：IPIP模式
 
+#### 第7章 微服务相关协议
+* ONE RPC
+  * 协议约定：每次改动都要重写生成stub
+  * 传输协议：二进制
+  * 服务发现：portmapper
+* SOAP(simple object access protocol)
+  * 协议约定：服务地址+?wsdl，xml描述文件
+  * 传输协议：http + post xml 文本
+  * 服务发现：UDDL注册中心
+* Spring Cloud
+  * 协议约定：Restful接口协议
+  * 传输协议：http
+  * 服务发现：eureka
+* Dubbo
+  * 协议约定：Hessian2
+  * 传输协议：Netty网络框架
+  * 服务发现：各种注册中心如Zookeeper、Redis、Etcd
+* gRPC
+  * 协议约定：Protocol Buffers
+  * 传输协议：http2.0
+  * 服务发现：各种注册中心如Envoy
+* Dubbo和SpringCloud的优缺点
+  * 功能：Dubbo只实现了服务治理，而SpringCloud覆盖了微服务架构下的众多部件
+  * 性能：Dubbo使用RPC，SpringCloud使用Http Restful，Dubbo略胜
