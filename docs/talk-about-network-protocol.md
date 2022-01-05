@@ -169,9 +169,11 @@
 * underlay和overlay：
   * underlay是底层网络，由物理网络设备组成
   * overlay是基于隧道技术实现的，overlay的流量需要跑在underlay之上  
-* overlay的两种技术方案：
+* overlay的三种技术方案：
+  * [Calico网络方案](https://www.cnblogs.com/netonline/p/9720279.html)
   * GRE：外层IP头 + GRE头 + 内层IP包，缺点是只能点对点通讯
   * VXLAN：外层UDP头 + UDP主体(VXLAN头 + 内层IP包)，支持组播(多对多通讯)
+  * IPIP：IP in IP，ipip包头较vxlan小，安全性不如vxlan
 
 #### 第7章 容器中的网络
 * Docker的网络模式默认使用NAT
@@ -191,3 +193,9 @@
   * 主机2的flannel.1解VXLAN数据包，把原始数据包发给flannel.1网卡
   * flannel.1读取主机2的路由策略，把包发给docker0，再发给容器B
   * (主机的route表、ARP表、FDB表由flanneld来维护)
+* Calico项目-主机同网段：纯三层网络
+  * 去掉网桥docker0，容器配置路由到主机的网卡
+  * 主机的网卡充当路由器功能
+  * 主机之间用交换机连接
+* Calico项目-主机跨网段：IPIP模式
+
