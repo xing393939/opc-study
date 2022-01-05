@@ -713,9 +713,11 @@
 <li>overlay&#x662F;&#x57FA;&#x4E8E;&#x96A7;&#x9053;&#x6280;&#x672F;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;overlay&#x7684;&#x6D41;&#x91CF;&#x9700;&#x8981;&#x8DD1;&#x5728;underlay&#x4E4B;&#x4E0A;  </li>
 </ul>
 </li>
-<li>overlay&#x7684;&#x4E24;&#x79CD;&#x6280;&#x672F;&#x65B9;&#x6848;&#xFF1A;<ul>
+<li>overlay&#x7684;&#x4E09;&#x79CD;&#x6280;&#x672F;&#x65B9;&#x6848;&#xFF1A;<ul>
+<li><a href="https://www.cnblogs.com/netonline/p/9720279.html" target="_blank">Calico&#x7F51;&#x7EDC;&#x65B9;&#x6848;</a></li>
 <li>GRE&#xFF1A;&#x5916;&#x5C42;IP&#x5934; + GRE&#x5934; + &#x5185;&#x5C42;IP&#x5305;&#xFF0C;&#x7F3A;&#x70B9;&#x662F;&#x53EA;&#x80FD;&#x70B9;&#x5BF9;&#x70B9;&#x901A;&#x8BAF;</li>
 <li>VXLAN&#xFF1A;&#x5916;&#x5C42;UDP&#x5934; + UDP&#x4E3B;&#x4F53;(VXLAN&#x5934; + &#x5185;&#x5C42;IP&#x5305;)&#xFF0C;&#x652F;&#x6301;&#x7EC4;&#x64AD;(&#x591A;&#x5BF9;&#x591A;&#x901A;&#x8BAF;)</li>
+<li>IPIP&#xFF1A;IP in IP&#xFF0C;ipip&#x5305;&#x5934;&#x8F83;vxlan&#x5C0F;&#xFF0C;&#x5B89;&#x5168;&#x6027;&#x4E0D;&#x5982;vxlan</li>
 </ul>
 </li>
 </ul>
@@ -744,6 +746,13 @@
 <li>(&#x4E3B;&#x673A;&#x7684;route&#x8868;&#x3001;ARP&#x8868;&#x3001;FDB&#x8868;&#x7531;flanneld&#x6765;&#x7EF4;&#x62A4;)</li>
 </ul>
 </li>
+<li>Calico&#x9879;&#x76EE;-&#x4E3B;&#x673A;&#x540C;&#x7F51;&#x6BB5;&#xFF1A;&#x7EAF;&#x4E09;&#x5C42;&#x7F51;&#x7EDC;<ul>
+<li>&#x53BB;&#x6389;&#x7F51;&#x6865;docker0&#xFF0C;&#x5BB9;&#x5668;&#x914D;&#x7F6E;&#x8DEF;&#x7531;&#x5230;&#x4E3B;&#x673A;&#x7684;&#x7F51;&#x5361;</li>
+<li>&#x4E3B;&#x673A;&#x7684;&#x7F51;&#x5361;&#x5145;&#x5F53;&#x8DEF;&#x7531;&#x5668;&#x529F;&#x80FD;</li>
+<li>&#x4E3B;&#x673A;&#x4E4B;&#x95F4;&#x7528;&#x4EA4;&#x6362;&#x673A;&#x8FDE;&#x63A5;</li>
+</ul>
+</li>
+<li>Calico&#x9879;&#x76EE;-&#x4E3B;&#x673A;&#x8DE8;&#x7F51;&#x6BB5;&#xFF1A;IPIP&#x6A21;&#x5F0F;</li>
 </ul>
 
                                 
@@ -784,7 +793,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"趣谈网络协议","level":"1.4.3","depth":2,"next":{"title":"4.AWS SAA认证","level":"1.5","depth":1,"ref":"","articles":[{"title":"1.AWS知识点","level":"1.5.1","depth":2,"path":"docs/saa-1.md","ref":"docs/saa-1.md","articles":[]},{"title":"2.AWS认证英语学习","level":"1.5.2","depth":2,"path":"docs/saa-2.md","ref":"docs/saa-2.md","articles":[]},{"title":"3.AWS的其他服务","level":"1.5.3","depth":2,"path":"docs/saa-3.md","ref":"docs/saa-3.md","articles":[]},{"title":"4.AWS Github Study Guide","level":"1.5.4","depth":2,"path":"docs/saa-4.md","ref":"docs/saa-4.md","articles":[]}]},"previous":{"title":"Head First设计模式","level":"1.4.2","depth":2,"path":"docs/head-first-design-patterns.md","ref":"docs/head-first-design-patterns.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/talk-about-network-protocol.md","mtime":"2022-01-04T08:58:15.259Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-01-04T08:58:49.429Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"趣谈网络协议","level":"1.4.3","depth":2,"next":{"title":"4.AWS SAA认证","level":"1.5","depth":1,"ref":"","articles":[{"title":"1.AWS知识点","level":"1.5.1","depth":2,"path":"docs/saa-1.md","ref":"docs/saa-1.md","articles":[]},{"title":"2.AWS认证英语学习","level":"1.5.2","depth":2,"path":"docs/saa-2.md","ref":"docs/saa-2.md","articles":[]},{"title":"3.AWS的其他服务","level":"1.5.3","depth":2,"path":"docs/saa-3.md","ref":"docs/saa-3.md","articles":[]},{"title":"4.AWS Github Study Guide","level":"1.5.4","depth":2,"path":"docs/saa-4.md","ref":"docs/saa-4.md","articles":[]}]},"previous":{"title":"Head First设计模式","level":"1.4.2","depth":2,"path":"docs/head-first-design-patterns.md","ref":"docs/head-first-design-patterns.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/talk-about-network-protocol.md","mtime":"2022-01-05T03:52:55.335Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-01-05T03:53:28.198Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
