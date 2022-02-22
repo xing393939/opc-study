@@ -15,4 +15,6 @@
 * 《七周七并发》：5分，书里介绍了七种并发编程的模型，能让我开阔眼界。
 * [《设计数据密集型应用》](https://book.douban.com/subject/30329536/)，DDIA，豆瓣9.7，不仅仅讲数据库
 * [《计算机程序的构造和解释》](https://book.douban.com/subject/34464721/)，SICP，豆瓣9.6，能更清晰地理解函数式编程
-* [《深入理解LINUX网络内幕》](https://book.douban.com/subject/1834459/)，[Go夜读-第68期网络知识十全大补丸](https://github.com/talkgo/night/issues/506)
+* [《深入理解LINUX网络内幕》](https://book.douban.com/subject/1834459/)，ULNI、豆瓣9.0，[Go夜读-第68期网络知识十全大补丸](https://github.com/talkgo/night/issues/506)
+* [Understanding the Linux Virtual Memory Manager](https://book.douban.com/subject/1610233/)，ULVMM、豆瓣9.7
+* [Linux内核开发进阶书籍推荐](https://www.cnblogs.com/pugang/p/9728983.html)，LKD-> ULK->LDD->ULNI->ULVMM
