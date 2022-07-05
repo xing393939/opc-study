@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class SkipList2 {
+public class SkipList {
 
     private static final int MAX_LEVEL = 16;
     private int levelCount = 1;
@@ -127,7 +127,7 @@ public class SkipList2 {
 
     public static void main(String[] args) {
         // 优化后insert()
-        SkipList2 list2 = new SkipList2();
+        SkipList list2 = new SkipList();
         list2.insert(1);
         list2.insert(2);
         list2.insert(6);
