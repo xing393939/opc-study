@@ -13,6 +13,7 @@
 * 《程序员修炼之道》（The Pragmatic Programmer）
 * 《重构》（Refactoring）
 * 《七周七并发》：5分，书里介绍了七种并发编程的模型，能让我开阔眼界。
+* [《Clean Code》](https://book.douban.com/subject/4199741/)和[Clean Architecture](https://book.douban.com/subject/30333919/)
 * [《设计数据密集型应用》](https://book.douban.com/subject/30329536/)，DDIA，豆瓣9.7，不仅仅讲数据库
 * [《计算机程序的构造和解释》](https://book.douban.com/subject/34464721/)，SICP，豆瓣9.6，能更清晰地理解函数式编程
 * [《深入理解LINUX网络内幕》](https://book.douban.com/subject/1834459/)，ULNI、豆瓣9.0，[Go夜读-第68期网络知识十全大补丸](https://github.com/talkgo/night/issues/506)
