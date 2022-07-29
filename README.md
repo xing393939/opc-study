@@ -8,12 +8,12 @@
 1. [程序员可能必读书单推荐（一）](https://draveness.me/books-1/)
 
 #### 推荐书籍
-* 《Head First 设计模式》：行文极其浅显易懂，例子很有趣和幽默
-* 《编程之美》为什么常居畅销榜？因为它透露了雇主眼中的需求，明确、清晰的需求
-* 《程序员修炼之道》（The Pragmatic Programmer）
-* 《重构》（Refactoring）
-* 《七周七并发》：5分，书里介绍了七种并发编程的模型，能让我开阔眼界。
-* [《Clean Code》](https://book.douban.com/subject/4199741/)和[《Clean Architecture》](https://book.douban.com/subject/30333919/)
+* [《Head First 设计模式》](https://book.douban.com/subject/2243615/)，豆瓣9.2，行文极其浅显易懂，例子有趣幽默
+* [《编程之美》](https://book.douban.com/subject/30351275/)，豆瓣8.5，为什么常居畅销榜？因为它透露了雇主眼中明确清晰的需求
+* [《程序员修炼之道》](https://book.douban.com/subject/35006892/)，豆瓣9.2
+* [《重构》](https://book.douban.com/subject/4262627/)，豆瓣9.1
+* [《七周七并发》](https://book.douban.com/subject/26337939/)，豆瓣7.5，书里介绍了七种并发编程的模型，能让我开阔眼界
+* [《Clean Code》](https://book.douban.com/subject/4199741/)和[《Clean Architecture》](https://book.douban.com/subject/30333919/)，豆瓣8.6
 * [《设计数据密集型应用》](https://book.douban.com/subject/30329536/)，DDIA，豆瓣9.7，不仅仅讲数据库
 * [《计算机程序的构造和解释》](https://book.douban.com/subject/34464721/)，SICP，豆瓣9.6，能更清晰地理解函数式编程
 * [《深入理解LINUX网络内幕》](https://book.douban.com/subject/1834459/)，ULNI、豆瓣9.0，[Go夜读-第68期网络知识十全大补丸](https://github.com/talkgo/night/issues/506)
