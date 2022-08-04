@@ -6,6 +6,7 @@
 1. [读书推荐 - 博主16年毕业](https://zhenbianshu.github.io/book_list.html)
 1. [读书推荐 - 学习资源推荐](https://hanfeng.ink/books/)
 1. [程序员可能必读书单推荐（一）](https://draveness.me/books-1/)
+1. [我的书单 - 潘建锋](https://strikefreedom.top/archives/reading-list)
 
 #### 推荐书籍
 * [《Head First 设计模式》](https://book.douban.com/subject/2243615/)，豆瓣9.2，行文极其浅显易懂，例子有趣幽默
