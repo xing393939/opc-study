@@ -19,6 +19,19 @@
 函数式编程中的变量不再改变。我们的所有并发程序（多核多线程）的问题，如果没有可变变量，就不再出现了。当然，这是不可能的，我们可以通过将需要修改状态的部分和不需要修改的部分分隔成单独的组件，在不需要修改状态的组件中使用函数式编程，提高系统的稳定性和效率。
 ```
 
+#### 第3部分 设计模式
+* 单一职责SRP（Single Responsibility Principle）；
+  * 一个模块有且只能对一个角色负责，不是每个模块都只做一件事。
+  * 例如一个类既被CTO又被COO调用，COO提出修改需求导致CTO的调用出现bug
+* 开闭原则OCP（Open Closed Principle）；
+  * 对扩展开放，对修改关闭
+* 里氏替换LSP（Liskov Substitution Principle）；
+  * 父类出现的地方可以用子类进行替换。具体到架构层面：该原则指导的是接口与其实现方式。
+* 接口隔离ISP（Interface Segregation Principle）；
+  * 不依赖任何不需要的方法、类或组件
+* 依赖反转DIP（Dependency Inversion Principle）；
+  * 组件之间，接口放在边界的哪边，依赖就指向哪边。
+
 
 
 
