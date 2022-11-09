@@ -23,7 +23,7 @@
 * 开闭原则OCP（Open Closed Principle）；
   * 对扩展开放，对修改关闭
 * 里氏替换LSP（Liskov Substitution Principle）；
-  * 父类出现的地方可以用子类进行替换。具体到架构层面：该原则指导的是接口与其实现方式。
+  * 父类出现的地方可以用子类进行替换。具体到架构层面，它指导的是接口与其实现方式。
 * 接口隔离ISP（Interface Segregation Principle）；
   * 不依赖任何不需要的方法、类或组件
 * 依赖反转DIP（Dependency Inversion Principle）；
@@ -56,7 +56,7 @@
     </tr>
     <tr>
         <td>面向对象编程</td>
-        <td>依赖导致基础</td>
+        <td>依赖倒置基础</td>
     </tr>
     <tr>
         <td>函数式编程</td>
