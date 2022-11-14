@@ -11,7 +11,7 @@
 * 机器配置的网关ip必须保证和自己的某一个网卡是同一个网段的
 * net-tools：ifconfig命令，已经停止维护
 * iproute2：ip addr命令
-* CIDR块：如16.158.165.91/22，子网掩码前22位都是1，起始ip是16.158.164.1，某位是16.158.167.255
+* CIDR块：如16.158.165.91/22，子网掩码前22位都是1，则ip是16.158.164.0~16.158.167.255
 * DHCP：机器没有配置DHCP地址，发送DHCP广播，DHCP服务器会应答并返回它的ip和你的新ip
 
 #### 第2章 从二层到三层
@@ -42,7 +42,7 @@
   * Y关->B机：macY关，ipY -> macB机，ipB
   * 其中A机器，ipA是它的内网ip，ipX是它的外网ip，B机器同理
   * 第二步中X网关把源ipA变成ipX的过程是SNAT：源地址转换
-  * 第三步中X网关把目标ipY变成ipB的过程是DNAT：目标地址转换
+  * 第三步中Y网关把目标ipY变成ipB的过程是DNAT：目标地址转换
 * 静态路由配置：源ip是？目标ip是？——>经XX网口，下一跳ip是XX  
 * 基于距离矢量路由算法的BGP协议：
   * 基于Bellman-Ford算法
@@ -112,9 +112,9 @@
     * flags(1B)：stream类型不同代表的含义也不同
     * streamId(4B)：stream id，最高的1位是预留位
 * Http 3.0：基于使用UDP的QUIC协议
-  * H2的问题1：受限于[TCP重组](https://blog.csdn.net/jackyzhousales/article/details/78050640)，虽然stream2和stream1没有关联，但是stream1没有到达stream2不能提交给用户
+  * H2的问题1：受限于[TCP重组](https://blog.csdn.net/jackyzhousales/article/details/78050640)，虽然stream2和stream1没有关联，但是stream1没有到达stream2不能提交给用户，称为TCP层的队首阻塞
   * H2的问题2：受限于TCP四元组，如果发送方网络变化导致IP变化则需要重连，QUIC不使用四元组而是随机数
-  * H2的问题3：假设有包1、包2、包3，包3最先到达。TCP的滑动窗口必须等包1包2也到达才能更新滑动窗口
+  * H2的问题3：受限于TCP，拥塞控制粒度是连接，H3的粒度是连接的stream
 * HTTPS 加密传输流程：
   * 客户端先client hello发给服务端随机数randomClient
   * 服务端再server hello发给客户端随机数randomServer
