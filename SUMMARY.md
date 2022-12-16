@@ -17,6 +17,7 @@
   * [Java工程师进阶知识](docs/advanced-java.md)
   * [整洁代码](docs/clean-code.md)
   * [整洁架构](docs/clean-architecture.md)
+  * [BPF之巅](docs/bpf-performance-tools.md)
 * 4.AWS SAA认证
   * [1.AWS知识点](docs/saa-1.md)
   * [2.AWS认证英语学习](docs/saa-2.md)
