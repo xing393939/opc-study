@@ -547,7 +547,25 @@
 </ul>
 </li>
 </ul>
+<h4 id="&#x7EAF;c&#x5199;&#x7684;bpf&#x7A0B;&#x5E8F;">&#x7EAF;C&#x5199;&#x7684;bpf&#x7A0B;&#x5E8F;</h4>
+<ul>
+<li><a href="http://terenceli.github.io/%E6%8A%80%E6%9C%AF/2020/01/18/ebpf-in-c" target="_blank">Write eBPF program in pure C</a></li>
+</ul>
+<pre><code>1&#xFF0C;&#x5728;ubuntu 22.04&#x5B89;&#x88C5;&#x73AF;&#x5883;
+apt-get install -y make clang llvm libelf-dev libbpf-dev bpfcc-tools libbpfcc-dev linux-tools-$(uname -r) linux-headers-$(uname -r)
 
+2&#xFF0C;&#x628A;&#x4E0B;&#x9762;c&#x7A0B;&#x5E8F;&#x8D2C;&#x4E49;&#x8BCD;bpf&#x6307;&#x4EE4;&#x7A0B;&#x5E8F;&#xFF1A;clang -I/usr/src/linux-aws-headers-5.15.0-1022/include -O2 -c -target bpf -o mybpfobject.o mybpfcode.bpf.c
+#include &lt;uapi/linux/bpf.h&gt;
+#include &quot;bpf/bpf_helpers.h&quot;
+int bpf_prog(void *ctx) {
+    char buf[] = &quot;Hello World!\n&quot;;
+    bpf_trace_printk(buf, sizeof(buf));
+    return 0;
+}
+&#xFF08;&#x5982;&#x679C;&#x62A5;&#x9519;asm/types.h file not found&#x5219;&#x5B89;&#x88C5;apt-get install -y gcc-multilib&#xFF09;
+
+3&#xFF0C;&#x628A;bpf&#x6307;&#x4EE4;&#x7A0B;&#x5E8F;&#x7684;&#x7EAF;&#x6307;&#x4EE4;&#x63D0;&#x53D6;&#x51FA;&#x6765;&#xFF1A;dd if=mybpfobject.o of=test_bpf bs=1 count=104 skip=64
+</code></pre>
                                 
                                 </section>
                             
@@ -586,7 +604,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"BPF之巅","level":"1.4.7","depth":2,"next":{"title":"4.AWS SAA认证","level":"1.5","depth":1,"ref":"","articles":[{"title":"1.AWS知识点","level":"1.5.1","depth":2,"path":"docs/saa-1.md","ref":"docs/saa-1.md","articles":[]},{"title":"2.AWS认证英语学习","level":"1.5.2","depth":2,"path":"docs/saa-2.md","ref":"docs/saa-2.md","articles":[]},{"title":"3.AWS的其他服务","level":"1.5.3","depth":2,"path":"docs/saa-3.md","ref":"docs/saa-3.md","articles":[]},{"title":"4.AWS Github Study Guide","level":"1.5.4","depth":2,"path":"docs/saa-4.md","ref":"docs/saa-4.md","articles":[]}]},"previous":{"title":"整洁架构","level":"1.4.6","depth":2,"path":"docs/clean-architecture.md","ref":"docs/clean-architecture.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/bpf-performance-tools.md","mtime":"2022-12-16T10:10:54.373Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-12-16T10:11:18.996Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"BPF之巅","level":"1.4.7","depth":2,"next":{"title":"4.AWS SAA认证","level":"1.5","depth":1,"ref":"","articles":[{"title":"1.AWS知识点","level":"1.5.1","depth":2,"path":"docs/saa-1.md","ref":"docs/saa-1.md","articles":[]},{"title":"2.AWS认证英语学习","level":"1.5.2","depth":2,"path":"docs/saa-2.md","ref":"docs/saa-2.md","articles":[]},{"title":"3.AWS的其他服务","level":"1.5.3","depth":2,"path":"docs/saa-3.md","ref":"docs/saa-3.md","articles":[]},{"title":"4.AWS Github Study Guide","level":"1.5.4","depth":2,"path":"docs/saa-4.md","ref":"docs/saa-4.md","articles":[]}]},"previous":{"title":"整洁架构","level":"1.4.6","depth":2,"path":"docs/clean-architecture.md","ref":"docs/clean-architecture.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/bpf-performance-tools.md","mtime":"2022-12-19T09:09:01.437Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-12-19T09:09:24.981Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
