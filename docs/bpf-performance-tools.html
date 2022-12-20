@@ -565,7 +565,32 @@ int bpf_prog(void *ctx) {
 &#xFF08;&#x5982;&#x679C;&#x62A5;&#x9519;asm/types.h file not found&#x5219;&#x5B89;&#x88C5;apt-get install -y gcc-multilib&#xFF09;
 
 3&#xFF0C;&#x628A;bpf&#x6307;&#x4EE4;&#x7A0B;&#x5E8F;&#x7684;&#x7EAF;&#x6307;&#x4EE4;&#x63D0;&#x53D6;&#x51FA;&#x6765;&#xFF1A;dd if=mybpfobject.o of=test_bpf bs=1 count=104 skip=64
-</code></pre>
+
+4&#xFF0C;&#x7528;clang&#x7F16;&#x8BD1;c&#x7A0B;&#x5E8F;&#xFF1A;https://github.com/xing393939/ostep-study/blob/master/code/test_bpf.c
+
+5&#xFF0C;&#x8FD0;&#x884C;a.out&#xFF0C;&#x5B83;&#x5C06;&#x6355;&#x83B7;bpf&#x7684;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#xFF0C;&#x5982;&#x4F55;&#x67E5;&#x770B;&#xFF1A;cat /sys/kernel/debug/tracing/trace_pipe
+</code></pre><p><img src="../images/bpf/bpf_syscall.png" alt="img"></p>
+<h4 id="bpf&#x547D;&#x4EE4;">BPF&#x547D;&#x4EE4;</h4>
+<p><img src="../images/bpf/bpf_command.jpg" alt="img"></p>
+<h4 id="&#x8F85;&#x52A9;&#x51FD;&#x6570;">&#x8F85;&#x52A9;&#x51FD;&#x6570;</h4>
+<p><img src="../images/bpf/bpf_helpers.jpg" alt="img"></p>
+<h4 id="&#x6620;&#x5C04;&#x7C7B;&#x578B;">&#x6620;&#x5C04;&#x7C7B;&#x578B;</h4>
+<p><img src="../images/bpf/bpf_map_type.jpg" alt="img"></p>
+<h4 id="&#x7A0B;&#x5E8F;&#x7C7B;&#x578B;">&#x7A0B;&#x5E8F;&#x7C7B;&#x578B;</h4>
+<ul>
+<li><a href="https://www.zadmei.com/sjcfglec.html" target="_blank">06 | &#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#xFF1A;&#x5404;&#x7C7B; eBPF &#x7A0B;&#x5E8F;&#x7684;&#x89E6;&#x53D1;&#x673A;&#x5236;&#x53CA;&#x5176;&#x5E94;&#x7528;&#x573A;&#x666F;</a></li>
+<li>&#x5168;&#x90E8;&#x7C7B;&#x578B;&#xFF1A;bpftool feature probe | grep program_type&#x3002;&#x53EF;&#x5206;&#x4E3A;&#x4E09;&#x7C7B;&#xFF1A;</li>
+<li>&#x4E00;&#xFF0C;&#x8DDF;&#x8E2A;&#x7C7B;&#xFF0C;&#x5E38;&#x7528;&#x7C7B;&#x578B;&#x89C1;<a href="../images/bpf/prog_type1.jpg">&#x8868;&#x683C;</a></li>
+<li>&#x4E8C;&#xFF0C;&#x7F51;&#x7EDC;&#x7C7B;<ul>
+<li>XDP&#x7A0B;&#x5E8F;&#xFF0C;&#x5E38;&#x7528;&#x7C7B;&#x578B;&#x89C1;<a href="../images/bpf/prog_type2_xdp.jpg">&#x8868;&#x683C;</a></li>
+<li>TC&#x7A0B;&#x5E8F;&#xFF0C;&#x7C7B;&#x578B;&#x6709;BPF_PROG_TYPE_SCHED_CLS&#x3001;BPF_PROG_TYPE_SCHED_ACT</li>
+<li>&#x5957;&#x63A5;&#x5B57;&#x7A0B;&#x5E8F;&#xFF0C;&#x5E38;&#x7528;&#x7C7B;&#x578B;&#x89C1;<a href="../images/bpf/prog_type2_socket.jpg">&#x8868;&#x683C;</a></li>
+<li>cgroup&#x7A0B;&#x5E8F;&#xFF0C;&#x5E38;&#x7528;&#x7C7B;&#x578B;&#x89C1;<a href="../images/bpf/prog_type2_cgroup.jpg">&#x8868;&#x683C;</a></li>
+</ul>
+</li>
+<li>&#x4E09;&#xFF0C;&#x5176;&#x4ED6;&#x7C7B;&#xFF0C;&#x5E38;&#x7528;&#x7C7B;&#x578B;&#x89C1;<a href="../images/bpf/prog_type3.jpg">&#x8868;&#x683C;</a></li>
+</ul>
+
                                 
                                 </section>
                             
@@ -604,7 +629,7 @@ int bpf_prog(void *ctx) {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"BPF之巅","level":"1.4.7","depth":2,"next":{"title":"4.AWS SAA认证","level":"1.5","depth":1,"ref":"","articles":[{"title":"1.AWS知识点","level":"1.5.1","depth":2,"path":"docs/saa-1.md","ref":"docs/saa-1.md","articles":[]},{"title":"2.AWS认证英语学习","level":"1.5.2","depth":2,"path":"docs/saa-2.md","ref":"docs/saa-2.md","articles":[]},{"title":"3.AWS的其他服务","level":"1.5.3","depth":2,"path":"docs/saa-3.md","ref":"docs/saa-3.md","articles":[]},{"title":"4.AWS Github Study Guide","level":"1.5.4","depth":2,"path":"docs/saa-4.md","ref":"docs/saa-4.md","articles":[]}]},"previous":{"title":"整洁架构","level":"1.4.6","depth":2,"path":"docs/clean-architecture.md","ref":"docs/clean-architecture.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/bpf-performance-tools.md","mtime":"2022-12-19T09:09:01.437Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-12-19T09:09:24.981Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"BPF之巅","level":"1.4.7","depth":2,"next":{"title":"4.AWS SAA认证","level":"1.5","depth":1,"ref":"","articles":[{"title":"1.AWS知识点","level":"1.5.1","depth":2,"path":"docs/saa-1.md","ref":"docs/saa-1.md","articles":[]},{"title":"2.AWS认证英语学习","level":"1.5.2","depth":2,"path":"docs/saa-2.md","ref":"docs/saa-2.md","articles":[]},{"title":"3.AWS的其他服务","level":"1.5.3","depth":2,"path":"docs/saa-3.md","ref":"docs/saa-3.md","articles":[]},{"title":"4.AWS Github Study Guide","level":"1.5.4","depth":2,"path":"docs/saa-4.md","ref":"docs/saa-4.md","articles":[]}]},"previous":{"title":"整洁架构","level":"1.4.6","depth":2,"path":"docs/clean-architecture.md","ref":"docs/clean-architecture.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/bpf-performance-tools.md","mtime":"2022-12-20T01:31:27.466Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-12-20T01:31:53.488Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
