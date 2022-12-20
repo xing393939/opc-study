@@ -32,7 +32,7 @@ int bpf_prog(void *ctx) {
 
 3，把bpf指令程序的纯指令提取出来：dd if=mybpfobject.o of=test_bpf bs=1 count=104 skip=64
 
-4，用clang编译c程序：https://github.com/xing393939/ostep-study/blob/master/code/test_bpf.c
+4，用clang编译c程序：../bpf/test_bpf.c
 
 5，运行a.out，它将捕获bpf的系统调用，如何查看：cat /sys/kernel/debug/tracing/trace_pipe
 ```
