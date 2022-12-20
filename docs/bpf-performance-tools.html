@@ -590,7 +590,34 @@ int bpf_prog(void *ctx) {
 </li>
 <li>&#x4E09;&#xFF0C;&#x5176;&#x4ED6;&#x7C7B;&#xFF0C;&#x5E38;&#x7528;&#x7C7B;&#x578B;&#x89C1;<a href="../images/bpf/prog_type3.jpg">&#x8868;&#x683C;</a></li>
 </ul>
+<h4 id="&#x5185;&#x6838;&#x8DDF;&#x8E2A;">&#x5185;&#x6838;&#x8DDF;&#x8E2A;</h4>
+<pre><code>// &#x5982;&#x679C;/sys/kernel/debug&#x76EE;&#x5F55;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x6267;&#x884C;
+sudo mount -t debugfs debugfs /sys/kernel/debug
 
+// &#x67E5;&#x770B;&#x53EF;kprobe&#x8DDF;&#x8E2A;&#x7684;&#x5185;&#x6838;&#x51FD;&#x6570;
+cat /sys/kernel/debug/tracing/available_filter_functions | wc -l
+bpftrace -l &apos;kprobe:*&apos; | wc -l
+
+// &#x67E5;&#x770B;tracepoint&#x53EF;&#x8DDF;&#x8E2A;&#x7684;syscall&#x51FD;&#x6570;
+cat /sys/kernel/debug/tracing/available_events |grep syscalls:|wc -l
+bpftrace -l &apos;tracepoint:syscalls:*&apos; | wc -l
+
+// &#x67E5;&#x770B;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;execeve&#x7684;&#x4F20;&#x53C2;
+cat /sys/kernel/debug/tracing/events/syscalls/sys_enter_execve/format // &#x4E0D;&#x63A8;&#x8350;
+bpftrace -lv tracepoint:syscalls:sys_enter_execve
+
+// &#x67E5;&#x770B;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;execeve&#x7684;&#x8FD4;&#x56DE;&#x503C;
+cat /sys/kernel/debug/tracing/events/syscalls/sys_exit_execve/format // &#x4E0D;&#x63A8;&#x8350;
+bpftrace -lv tracepoint:syscalls:sys_exit_execve
+
+&#x5F00;&#x53D1;BPF&#x7A0B;&#x5E8F;&#x7684;&#x4E09;&#x79CD;&#x65B9;&#x5F0F;&#xFF1A;
+bpftrace&#xFF1A;&#x4F9D;&#x8D56;BCC
+BCC&#xFF1A;&#x4F9D;&#x8D56;LLVM&#x548C;&#x5185;&#x6838;&#x5934;&#x6587;&#x4EF6;
+libbpf&#xFF1A;&#x8981;&#x6C42;&#x5185;&#x6838;&gt;=5.2&#xFF0C;&#x5E76;&#x5F00;&#x542F;BTF&#x7279;&#x6027;(RHEL 8.2+&#x548C;Ubuntu 20.10+)&#xFF0C;&#x662F;&#x5426;&#x6709;/sys/kernel/btf/vmlinux
+
+// &#x67E5;&#x8BE2;&#x8C03;&#x7528;execve&#x7684;&#x8FDB;&#x7A0B;id&#x548C;&#x540D;&#x79F0;&#xFF0C;&#x4EE5;&#x53CA;&#x4F20;&#x53C2;argv
+bpftrace -e &apos;tracepoint:syscalls:sys_enter_execve,tracepoint: { printf(&quot;%-6d %-8s&quot;, pid, comm); join(args-&gt;argv);}&apos;
+</code></pre>
                                 
                                 </section>
                             
@@ -629,7 +656,7 @@ int bpf_prog(void *ctx) {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"BPF之巅","level":"1.4.7","depth":2,"next":{"title":"4.AWS SAA认证","level":"1.5","depth":1,"ref":"","articles":[{"title":"1.AWS知识点","level":"1.5.1","depth":2,"path":"docs/saa-1.md","ref":"docs/saa-1.md","articles":[]},{"title":"2.AWS认证英语学习","level":"1.5.2","depth":2,"path":"docs/saa-2.md","ref":"docs/saa-2.md","articles":[]},{"title":"3.AWS的其他服务","level":"1.5.3","depth":2,"path":"docs/saa-3.md","ref":"docs/saa-3.md","articles":[]},{"title":"4.AWS Github Study Guide","level":"1.5.4","depth":2,"path":"docs/saa-4.md","ref":"docs/saa-4.md","articles":[]}]},"previous":{"title":"整洁架构","level":"1.4.6","depth":2,"path":"docs/clean-architecture.md","ref":"docs/clean-architecture.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/bpf-performance-tools.md","mtime":"2022-12-20T01:31:27.466Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-12-20T01:31:53.488Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"BPF之巅","level":"1.4.7","depth":2,"next":{"title":"4.AWS SAA认证","level":"1.5","depth":1,"ref":"","articles":[{"title":"1.AWS知识点","level":"1.5.1","depth":2,"path":"docs/saa-1.md","ref":"docs/saa-1.md","articles":[]},{"title":"2.AWS认证英语学习","level":"1.5.2","depth":2,"path":"docs/saa-2.md","ref":"docs/saa-2.md","articles":[]},{"title":"3.AWS的其他服务","level":"1.5.3","depth":2,"path":"docs/saa-3.md","ref":"docs/saa-3.md","articles":[]},{"title":"4.AWS Github Study Guide","level":"1.5.4","depth":2,"path":"docs/saa-4.md","ref":"docs/saa-4.md","articles":[]}]},"previous":{"title":"整洁架构","level":"1.4.6","depth":2,"path":"docs/clean-architecture.md","ref":"docs/clean-architecture.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/bpf-performance-tools.md","mtime":"2022-12-20T07:52:27.019Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-12-20T07:52:53.013Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
