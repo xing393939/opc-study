@@ -61,3 +61,45 @@ int bpf_prog(void *ctx) {
   * 套接字程序，常用类型见[表格](../images/bpf/prog_type2_socket.jpg)
   * cgroup程序，常用类型见[表格](../images/bpf/prog_type2_cgroup.jpg)
 * 三，其他类，常用类型见[表格](../images/bpf/prog_type3.jpg)
+
+#### 内核跟踪
+```
+// 如果/sys/kernel/debug目录不存在，执行
+sudo mount -t debugfs debugfs /sys/kernel/debug
+
+// 查看可kprobe跟踪的内核函数
+cat /sys/kernel/debug/tracing/available_filter_functions | wc -l
+bpftrace -l 'kprobe:*' | wc -l
+
+// 查看tracepoint可跟踪的syscall函数
+cat /sys/kernel/debug/tracing/available_events |grep syscalls:|wc -l
+bpftrace -l 'tracepoint:syscalls:*' | wc -l
+
+// 查看系统调用execeve的传参
+cat /sys/kernel/debug/tracing/events/syscalls/sys_enter_execve/format // 不推荐
+bpftrace -lv tracepoint:syscalls:sys_enter_execve
+
+// 查看系统调用execeve的返回值
+cat /sys/kernel/debug/tracing/events/syscalls/sys_exit_execve/format // 不推荐
+bpftrace -lv tracepoint:syscalls:sys_exit_execve
+
+开发BPF程序的三种方式：
+bpftrace：依赖BCC
+BCC：依赖LLVM和内核头文件
+libbpf：要求内核>=5.2，并开启BTF特性(RHEL 8.2+和Ubuntu 20.10+)，是否有/sys/kernel/btf/vmlinux
+
+// 查询调用execve的进程id和名称，以及传参argv
+bpftrace -e 'tracepoint:syscalls:sys_enter_execve,tracepoint: { printf("%-6d %-8s", pid, comm); join(args->argv);}'
+```
+
+
+
+
+
+
+
+
+
+
+
+
