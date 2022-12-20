@@ -6,7 +6,7 @@ INCLUDES := -I/usr/include/x86_64-linux-gnu -I.
 all: $(APPS)
 
 $(APPS): %: %.bpf.c $(wildcard %.h)
-	clang -g -O2 -target bpf -D__TARGET_ARCH_x86 $(INCLUDES) -c $@.bpf.c -o $@.bpf.o
+	clang -g -O2 -target bpf $(INCLUDES) -c $@.bpf.c -o $@.bpf.o
 	$(bpftool) gen skeleton $@.bpf.o > $@.skel.h
 	clang -g -O2 -Wall $(INCLUDES) -c $@.c -o $@.o
 	clang -Wall -O2 -g $@.o -static -lbpf -lelf -lz -o $@
