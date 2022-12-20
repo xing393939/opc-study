@@ -32,5 +32,32 @@ int bpf_prog(void *ctx) {
 
 3，把bpf指令程序的纯指令提取出来：dd if=mybpfobject.o of=test_bpf bs=1 count=104 skip=64
 
+4，用clang编译c程序：https://github.com/xing393939/ostep-study/blob/master/code/test_bpf.c
 
+5，运行a.out，它将捕获bpf的系统调用，如何查看：cat /sys/kernel/debug/tracing/trace_pipe
 ```
+
+![img](../images/bpf/bpf_syscall.png)
+
+#### BPF命令
+
+![img](../images/bpf/bpf_command.jpg)
+
+#### 辅助函数
+
+![img](../images/bpf/bpf_helpers.jpg)
+
+#### 映射类型
+
+![img](../images/bpf/bpf_map_type.jpg)
+
+#### 程序类型
+* [06 | 事件触发：各类 eBPF 程序的触发机制及其应用场景](https://www.zadmei.com/sjcfglec.html)
+* 全部类型：bpftool feature probe | grep program_type。可分为三类：
+* 一，跟踪类，常用类型见[表格](../images/bpf/prog_type1.jpg)
+* 二，网络类
+  * XDP程序，常用类型见[表格](../images/bpf/prog_type2_xdp.jpg)
+  * TC程序，类型有BPF_PROG_TYPE_SCHED_CLS、BPF_PROG_TYPE_SCHED_ACT
+  * 套接字程序，常用类型见[表格](../images/bpf/prog_type2_socket.jpg)
+  * cgroup程序，常用类型见[表格](../images/bpf/prog_type2_cgroup.jpg)
+* 三，其他类，常用类型见[表格](../images/bpf/prog_type3.jpg)
