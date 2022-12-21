@@ -1,34 +1,35 @@
 #!/usr/bin/env python2
 from bcc import BPF
-from bcc.utils import printb
+from time import strftime
 
 chmod_prog = """
 #include <uapi/linux/ptrace.h>
 
 // perf event map (sharing data to user space)
 struct data_t {
-	u32 pid;
-	char filename[50];
+	u32 uid;
+	char command[50];
 };
 BPF_PERF_OUTPUT(events);
 
-TRACEPOINT_PROBE(syscalls, sys_enter_fchmodat)
+int bash_readline(struct pt_regs *ctx)
 {
 	struct data_t data = {};
-	data.pid = bpf_get_current_pid_tgid();
-	bpf_probe_read(data.filename, 50, args->filename);
-	events.perf_submit(args, &data, sizeof(data));
+	data.uid = bpf_get_current_uid_gid();
+	bpf_probe_read(data.command, 50, (void *)PT_REGS_RC(ctx));
+	events.perf_submit(ctx, &data, sizeof(data));
 	return 0;
 }
 """
 
 b = BPF(text=chmod_prog)
-print("%-6s %-16s" % ("PID", "COMM"))
+b.attach_uretprobe(name="/bin/bash", sym="readline", fn_name="bash_readline")
+print("%-9s %-6s %s" % ("TIME", "UID", "COMMAND"))
 
 def print_event(cpu, data, size):
     # event data struct is generated from "struct data_t" by bcc
     event = b["events"].event(data)
-    printb(b"%-6d %-16s" % (event.pid, event.filename))
+    print("%-9s %-6d %s" % (strftime("%H:%M:%S"), event.uid, event.command.decode("utf-8")))
 
 b["events"].open_perf_buffer(print_event)
 while 1:
