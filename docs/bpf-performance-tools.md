@@ -92,6 +92,22 @@ libbpf：要求内核>=5.2，并开启BTF特性(RHEL 8.2+和Ubuntu 20.10+)，是
 bpftrace -e 'tracepoint:syscalls:sys_enter_execve,tracepoint: { printf("%-6d %-8s", pid, comm); join(args->argv);}'
 ```
 
+#### 如何开发一个负载均衡器
+* [高性能网络实战（上）：如何开发一个负载均衡器？](https://www.zadmei.com/egxnwlsz.html)
+
+```
+// 将两个 eBPF 程序和映射加载到内核中，并固定到 BPF 文件系统中。
+// 固定到 BPF 文件系统的好处是，即便 bpftool 命令已经执行结束，eBPF 程序还会继续在内核中运行。
+bpftool prog load sockops.bpf.o /sys/fs/bpf/sockops type sockops pinmaps /sys/fs/bpf
+bpftool prog load sockredir.bpf.o /sys/fs/bpf/sockredir type sk_msg map name sock_ops_map pinned /sys/fs/bpf/sock_ops_map
+
+// 把 sockops 程序挂载到 cgroups
+bpftool cgroup attach /sys/fs/cgroup/ sock_ops pinned /sys/fs/bpf/sockops
+bpftool prog attach pinned /sys/fs/bpf/sockredir msg_verdict pinned /sys/fs/bpf/sock_ops_map
+
+sockops 程序类型是 sock_ops；sockredir 程序类型是 sk_msg
+sockops 挂载类型是 cgroup；  sockredir 挂载类型是 msg_verdict
+```
 
 
 
