@@ -120,7 +120,62 @@ bpftrace -e 'uprobe:./test:net.socket {printf("%s\n", ustack); }' -c ./test
 bpftrace -e 'uprobe:./test:net.socket {printf("%s\n", ustack); }' -c ./test | addr2line -e ./test -f -p
 ```
 
+#### BPF之巅的学习
+* [BPF之巅的学习--追踪系统历史与相关技术](https://woodpenker.github.io/2021/12/05/BPF%E4%B9%8B%E5%B7%85%E7%9A%84%E5%AD%A6%E4%B9%A0--%E8%BF%BD%E8%B8%AA%E7%B3%BB%E7%BB%9F%E5%8E%86%E5%8F%B2%E4%B8%8E%E7%9B%B8%E5%85%B3%E6%8A%80%E6%9C%AF/)
 
+```
+1. BPF的前端
+Linux4.15后可以通过bpftool来查看和操作BPF对象
+Linux4.17以后BCC和bpftrace都会使用perf_event_open()进行BPF程序的挂载
+
+2. BPF的辅助函数
+bpf_probe_read() 用于访问BPF之外的内存空间, 这个函数会进行安全检查并且禁止缺页中断的发生以保证probe上文中不会引发内核错误
+x86上内核空间和用户空间没有重叠, 故通过地址读取不会存在问题. 而在SPARC上, 则必须通过bpf_probe_read_kernel()和bpf_probe_read_user()来区别使用
+
+3. BPF并发控制
+Linux5.1中增加了spin lock(bpf_spin_lock和bpf_spin_unlock)来确保并发一致性. 
+之前的版本则需要通过per-CPU的映射表来绕过并发问题. 其并发读写映射表的问题被成为“丢失的更新”问题.
+BPF_XADD(互斥加操作), 映射中的映射机制等都可保证原子操作.
+bpf_map_update_elem对常规的hash和LRU map的操作也是原子的.
+
+4. BTF和BPF CO-RE
+BPF Type Format, 元数据格式, 可以内嵌到vmlinux的二进制中, 使得可以方便获得被跟踪的源代码信息.
+BPF CO-RE是一次编译到处运行的意思, 旨在将BPF一次性编译位字节码分发执行.
+
+5. BPF的限制
+内核中无限循环是不允许的. 解决办法包括循环展开
+BPF栈大小不能超过MAX_BPF_STACK限制, 值为512.
+BPF指令的总数据量早期为4096, 5.2以后限制为100万.
+
+6. 调用栈回溯
+a. 基于帧指针的回溯，gcc默认不启用, 需要通过-fno-omit-frame-pointer开启. BPF支持.
+b. 调试信息debug info. DWARF格式的ELF调试信息, 通过.eh_frame和.debug_frame的ELF文件段提供. BPF不支持. BCC和bpftrace支持
+c. 最后分支记录LBR. Intel处理器的特性, 支持有限深度的回溯4-32个. BPF不支持.
+d. ORC调试格式信息. 相比DWARF对处理器要求低, 使用.orc_unwind和.orc_unwind_ip的ELF段. BPF目前只支持内核态
+
+7. kprobe插桩
+插桩原理参考文章[自己动手写一个GDB](https://cloud.tencent.com/developer/article/2004708)
+如果小于5字节，用int3指令；否则用jmp指令，技术称为蹦床函数，性能比int3好
+3种接口可访问kprobes:
+a. 辅助函数, register_kprobes()等
+b. 基于Ftrace的, 通过/sys/kernel/debug/tracing/kprobe_events写入字符串可起停kprobes
+c. 通过perf_event_open(), 与perf工具一样
+
+8. uprobe插桩
+2种接口:
+a. 基于Ftrace的. 通过/sys/kernel/debug/tracing/uprobe_events写入字符串可起停uprobes
+b. 通过perf_event_open(), 与perf工具一样, 4.17以上版本支持.
+
+9. tracepoints
+跟踪点格式: “子系统:事件名”, 如sched:context_switch.
+BCC中可以通过BPF.tracepoint_exists来测试是否存在某个追踪点.
+原始跟踪点: BPF_RAW_TRACEPOINT, 向跟踪点暴露原始参数, 避免创建跟踪点参数的开销. 其性能要好于kprobes
+工作原理参考文章[认识数据源：Tracepoint](https://www.iserica.com/posts/brief-intro-for-tracepoint/)
+
+10. USDT
+可通过readelf -n来查看目标文件的USDT探针以及获得二进制的偏移量. 
+原理：编译时使用nop, 激活后被修改为int3. 触发后内核会执行中断响应触发BPF程序.
+```
 
 
 
