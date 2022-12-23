@@ -109,7 +109,16 @@ sockops 程序类型是 sock_ops；sockredir 程序类型是 sk_msg
 sockops 挂载类型是 cgroup；  sockredir 挂载类型是 msg_verdict
 ```
 
+#### 追踪go程序的调用栈
 
+```
+// 例如需要追踪net.Listen("tcp", ":6380")的调用栈，假设执行文件是test
+// 下面的命令会显示net.socket的上游调用链，它的上游有net.Listen
+bpftrace -e 'uprobe:./test:net.socket {printf("%s\n", ustack); }' -c ./test
+
+// 如果调用栈只显示了内存地址，则可以用addr2line转换
+bpftrace -e 'uprobe:./test:net.socket {printf("%s\n", ustack); }' -c ./test | addr2line -e ./test -f -p
+```
 
 
 
