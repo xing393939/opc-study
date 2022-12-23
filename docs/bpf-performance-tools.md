@@ -177,7 +177,9 @@ BCC中可以通过BPF.tracepoint_exists来测试是否存在某个追踪点.
 原理：编译时使用nop, 激活后被修改为int3. 触发后内核会执行中断响应触发BPF程序.
 ```
 
-
+#### 符号和调试信息
+* [Linux tracing/profiling 基础：符号表、调用栈、perf/bpftrace 示例等](http://arthurchiao.art/blog/linux-tracing-basis-zh)
+* [Practical Linux tracing ( Part 1/5) : symbols, debug symbols and stack unwinding](https://medium.com/coccoc-engineering-blog/things-you-should-know-to-begin-playing-with-linux-tracing-tools-part-i-x-225aae1aaf13)
 
 
 
