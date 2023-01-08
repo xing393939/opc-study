@@ -10,6 +10,7 @@
   * [Redis 5设计与源码分析](docs/redis5-source.md)
   * [Redis 深度历险](docs/redis-in-depth.md)
   * [MySQL 是怎样运行的](docs/mysql-how-it-works.md)
+  * [DDIA](docs/ddia.md)
 * 3.其他
   * [性能之颠](docs/systems-performance.md)
   * [Head First设计模式](docs/head-first-design-patterns.md)
