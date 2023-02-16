@@ -215,8 +215,9 @@ LWW有不可重复读问题，客户端写入数据后迅速再读，会发现�
 
 ![单副本确定Happens-Before](../images/ddia/fig5-13.png)
 
-
-
+#### 第6章 数据分区
+* 分片(分区)，Partition，有很多别称。通用的有Shard；具体到实际系统，HBase 中叫Region，BigTable中叫tablet
+* 通常在分布式数据库中会有三级划分：数据集(如Database、Bucket)——分片(Partition)——数据条目(Row、KV)
 
 
 
