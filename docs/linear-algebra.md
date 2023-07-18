@@ -2,33 +2,38 @@
 
 #### 向量
 
-```math
-\begin{bmatrix}
-1&0&0 \\   
-0&1&0 \\
-0&0&1 \\
-\end{bmatrix}
-
-\begin{bmatrix}
-1&0&2 \\   
-0&1&0 \\
-0&0&1 \\
-\end{bmatrix}
-```
+列向量：$\begin{vmatrix}1\\2\end{vmatrix}$
 
 $$
-\begin{cases} 
-		a_{11}x_1&+&a_{12}x_2&+&\cdots&+a_{1n}x_n&=&b_1\\
-		&&&&\vdots\\
-		a_{n1}x_1&+&a_{n2}x_2&+&\cdots&+a_{nn}x_n&=&b_n&			
-\end{cases}
-$$
-
-$$
+\tag{向量与常量的乘法}
 \begin{vmatrix}
-	1&2&3\\
-	4&5&6\\
-	7&8&9
+1\\
+9
 \end{vmatrix}
- \tag{8}
+*c
+=
+\begin{vmatrix}
+1*c\\
+9*c
+\end{vmatrix}
 $$
+
+$$
+\tag{向量与向量的加法}
+\begin{vmatrix}
+1\\
+1
+\end{vmatrix}
++
+\begin{vmatrix}
+2\\
+3
+\end{vmatrix}
+=
+\begin{vmatrix}
+1+2\\
+1+3
+\end{vmatrix}
+$$
+
+
