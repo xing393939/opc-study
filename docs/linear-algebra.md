@@ -1,6 +1,6 @@
 ### 线性代数
 
-#### 向量
+#### 1 introduction to vectors
 
 列向量：$\begin{vmatrix}1\\2\end{vmatrix}$
 
@@ -36,6 +36,25 @@ $$
 \end{vmatrix}
 $$
 
-####
+#### 2 Solving Linear Equations
 ![Alt text](image-1.png)
 
+#### 3 Vector Spaces and Subspaces
+
+#### 4 Orthogonality 
+
+#### 5 Determinants 
+
+#### 6 Eigenvalues and Eigenvectors 
+
+#### 7 TheSingularValueDecomposition (SVD) 
+
+#### 8 LinearTransformations 
+
+#### 9 ComplexVectorsand Matrices 
+
+#### 10 Applications 
+
+#### 11 NumericalLinear Algebra 
+
+#### 12 LinearAlgebrain Probability& Statistics 
