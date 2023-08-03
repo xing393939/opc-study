@@ -2,6 +2,7 @@
 
 #### 1 introduction to vectors
 ![Alt text](image.png)
+![Alt text](image-2.png)
 
 #### 2 Solving Linear Equations
 * [线性代数 - Machine Learning](https://machine-learning-from-scratch.readthedocs.io/zh_CN/latest/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0.html)
@@ -13,8 +14,6 @@
   * 剪切矩阵：变换矩阵中的一种，例如把正方形往一边挤压，使之成为平行四边形。
 
 ![Alt text](image-1.png)
-
-![Alt text](image-2.png)
 
 #### 3 Vector Spaces and Subspaces
 
