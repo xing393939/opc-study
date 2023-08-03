@@ -1,42 +1,15 @@
 ### 线性代数
 
 #### 1 introduction to vectors
-
-列向量：$\begin{vmatrix}1\\2\end{vmatrix}$
-
-$$
-\tag{向量与常量的乘法}
-\begin{vmatrix}
-1\\
-9
-\end{vmatrix}
-*c
-=
-\begin{vmatrix}
-1*c\\
-9*c
-\end{vmatrix}
-$$
-
-$$
-\tag{向量与向量的加法}
-\begin{vmatrix}
-1\\
-1
-\end{vmatrix}
-+
-\begin{vmatrix}
-2\\
-3
-\end{vmatrix}
-=
-\begin{vmatrix}
-1+2\\
-1+3
-\end{vmatrix}
-$$
+![Alt text](image-2.png)
 
 #### 2 Solving Linear Equations
+* [线性代数 - Machine Learning](https://machine-learning-from-scratch.readthedocs.io/zh_CN/latest/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0.html)
+  * 线性相关：一个向量能被向量组的其他成员线性组合出来；线性无关则不能。
+  * 基的定义：向量组中的向量互相线性无关，张成空间V，则它们是空间V的一组基。
+  * 选定基之后，向量表示对象，矩阵表示对象的运动，矩阵与向量相乘得到新的向量。一旦理解了这点，线性代数之后的各个主题，包括矩阵乘法、基变换、特征值等都会非常直观易懂。
+  * 旋转矩阵：例如二维旋转矩阵，可以将二维向量按角度旋转，见[https://zhuanlan.zhihu.com/p/98007510](二维旋转矩阵与向量旋转)
+
 ![Alt text](image-1.png)
 
 #### 3 Vector Spaces and Subspaces
