@@ -1,7 +1,6 @@
 ### 线性代数
 
 #### 1 introduction to vectors
-![Alt text](image.png)
 ![Alt text](image-2.png)
 
 #### 2 Solving Linear Equations
