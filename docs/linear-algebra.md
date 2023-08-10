@@ -15,6 +15,7 @@
   * 高斯消元：先得到Ux=b\*，再求解出x
   * LU分解：先由A得到LU，再由Ly=b求解y，再由Ux=y求解x
   * 两者的时间复杂度都是n^3，但在A不变的情况下，LU分解的第2、3步只需要n^2
+* 求A的逆矩阵：将 \[A I] 逐步消元成 \[I A^-1]
 
 ![Alt text](image-1.png)
 
@@ -30,21 +31,26 @@
   * A消元成U后，有r个主元列，n-r个自由列
   * U继续消元成新矩阵：第一行是I F，第二行是0 0。
   * 零空间（最终的解）：第一行是-F，第二行是I。有列交换则要注意还原
+* 求解Ax=b，假设有r个主元列
+  * r=n=m：R=I，唯一解
+  * r=n<m：R=(第一行是I，第二行是0)，唯一解或无解
+  * r=m<n：R=\[I 0]，无穷多解
+  * r<n,r<m：R=(第一行是I F，第二行是0 0)，无穷多解或无解
 
-#### 4 Orthogonality 
+#### 4 Orthogonality(正交) 
 
-#### 5 Determinants 
+#### 5 Determinants(行列式)
 
-#### 6 Eigenvalues and Eigenvectors 
+#### 6 Eigenvalues and Eigenvectors(特征值和特征向量) 
 
-#### 7 TheSingularValueDecomposition (SVD) 
+#### 7 The Singular Value Decomposition(奇异值分解) 
 
-#### 8 LinearTransformations 
+#### 8 Linear Transformations(线性变换) 
 
-#### 9 ComplexVectorsand Matrices 
+#### 9 Complex Vectors and Matrices(复向量和矩阵)
 
-#### 10 Applications 
+#### 10 Applications(应用)
 
-#### 11 NumericalLinear Algebra 
+#### 11 Numerical Linear Algebra(数值线性代数) 
 
-#### 12 LinearAlgebrain Probability& Statistics 
+#### 12 Linear Algebra in Probability & Statistics(概率统计中的线性代数)
