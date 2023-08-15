@@ -58,10 +58,11 @@
 
 ![Alt text](image-3.jpg)
 * 对于上图的三种求解思路：
-  1. 从几何上看：假设直线上有三个点p1、p2、p3离原始三个点最近，根据p1、p2、p3来求C、D
-  2. 另一种看法：向量b投影到矩阵A的列空间得到向量p，投影到矩阵零空间则是e
-  3. 求偏导数法：e1<sup>2</sup>+e2<sup>2</sup>+e3<sup>2</sup>表示三个点最小误差的平方和
-
+  1. 从几何上讨论求解：假设直线上有三个点p1、p2、p3离原始三个点最近，根据p1、p2、p3来求C、D
+  2. 最小二乘法矩阵法：向量b投影到矩阵A的列空间得到向量p，投影到矩阵零空间则是e
+  3. 最小二乘法代数法：e1<sup>2</sup>+e2<sup>2</sup>+e3<sup>2</sup>表示三个点最小误差的平方和，[C代码实现](https://shatang.github.io/2020/09/05/%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95/)
+  4. 梯度下降法，见[机器学习——最小二乘法](https://www.cnblogs.com/BlairGrowing/p/14847772.html)
+  
 #### 5 Determinants(行列式)
 
 #### 6 Eigenvalues and Eigenvectors(特征值和特征向量) 
