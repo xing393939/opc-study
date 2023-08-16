@@ -67,6 +67,7 @@
 * 正交矩阵：必须是标准正交矩阵，必须是方阵。(正交矩阵是可逆矩阵)
 * 如何推导P=Q(Q<sup>T</sup>Q)<sup>-1</sup>Q<sup>T</sup>
   * b向量在空间A的投影是p，b-p=e，e垂直于A，所以有A<sup>T</sup>(b-Ax)=0
+  * 进而得到A<sup>T</sup>Ax=A<sup>T</sup>b
   * 两侧都左乘(A<sup>T</sup>A)<sup>-1</sup>，得到x=(A<sup>T</sup>A)<sup>-1</sup>A<sup>T</sup>b
   * p=Ax，所以p=A(A<sup>T</sup>A)<sup>-1</sup>A<sup>T</sup>b
   * p=Pb，所以P=A(A<sup>T</sup>A)<sup>-1</sup>A<sup>T</sup>
