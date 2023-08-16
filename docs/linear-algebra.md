@@ -58,7 +58,7 @@
 
 ![Alt text](image-3.jpg)
 * 对于上图的三种求解思路：
-  1. 从几何上讨论求解：假设直线上有三个点p1、p2、p3离原始三个点最近，根据p1、p2、p3来求C、D
+  1. 从几何上讨论求解：直线上有三个点p1、p2、p3离原始三个点最近，根据p1、p2、p3来求C、D
   2. 最小二乘法矩阵法：向量b投影到矩阵A的列空间得到向量p，投影到矩阵零空间则是e
   3. 最小二乘法代数法：e1<sup>2</sup>+e2<sup>2</sup>+e3<sup>2</sup>表示三个点最小误差的平方和，[C代码实现](https://shatang.github.io/2020/09/05/%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95/)
   4. 梯度下降法，见[机器学习——最小二乘法](https://www.cnblogs.com/BlairGrowing/p/14847772.html)
@@ -74,6 +74,12 @@
 * 如何简化P=Q(Q<sup>T</sup>Q)<sup>-1</sup>Q<sup>T</sup>
   * Q为可逆矩阵：P=QQ<sup>-1</sup>(Q<sup>T</sup>)<sup>-1</sup>Q<sup>T</sup>，P=I
   * Q为标准正交矩阵：所以有Q<sup>T</sup>Q=I，进而P=QQ<sup>T</sup>
+* 施密特正交化：
+  * 线性无关的a、b、c变成标准正交向量A、B、C
+  * A = a
+  * B = b-xA = b-(A<sup>T</sup>A)<sup>-1</sup>A<sup>T</sup>bA
+  * C = c-xA-yB = c-(A<sup>T</sup>A)<sup>-1</sup>A<sup>T</sup>cA-(B<sup>T</sup>B)<sup>-1</sup>B<sup>T</sup>cB
+  * 最后ABC除以自身的向量长度得到标准正交向量A、B、C
 
 #### 5 Determinants(行列式)
 
