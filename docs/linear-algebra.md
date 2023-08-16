@@ -62,7 +62,18 @@
   2. 最小二乘法矩阵法：向量b投影到矩阵A的列空间得到向量p，投影到矩阵零空间则是e
   3. 最小二乘法代数法：e1<sup>2</sup>+e2<sup>2</sup>+e3<sup>2</sup>表示三个点最小误差的平方和，[C代码实现](https://shatang.github.io/2020/09/05/%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95/)
   4. 梯度下降法，见[机器学习——最小二乘法](https://www.cnblogs.com/BlairGrowing/p/14847772.html)
-  
+* 标准正交矩阵：列向量为标准正交向量
+  * 什么是标准正交向量？向量长度都是1，且彼此正交
+* 正交矩阵：必须是标准正交矩阵，必须是方阵。(正交矩阵是可逆矩阵)
+* 如何推导P=Q(Q<sup>T</sup>Q)<sup>-1</sup>Q<sup>T</sup>
+  * b向量在空间A的投影是p，b-p=e，e垂直于A，所以有A<sup>T</sup>(b-Ax)=0
+  * 两侧都左乘(A<sup>T</sup>A)<sup>-1</sup>，得到x=(A<sup>T</sup>A)<sup>-1</sup>A<sup>T</sup>b
+  * p=Ax，所以p=A(A<sup>T</sup>A)<sup>-1</sup>A<sup>T</sup>b
+  * p=Pb，所以P=A(A<sup>T</sup>A)<sup>-1</sup>A<sup>T</sup>
+* 如何简化P=Q(Q<sup>T</sup>Q)<sup>-1</sup>Q<sup>T</sup>
+  * Q为可逆矩阵：P=QQ<sup>-1</sup>(Q<sup>T</sup>)<sup>-1</sup>Q<sup>T</sup>，P=I
+  * Q为标准正交矩阵：所以有Q<sup>T</sup>Q=I，进而P=QQ<sup>T</sup>
+
 #### 5 Determinants(行列式)
 
 #### 6 Eigenvalues and Eigenvectors(特征值和特征向量) 
