@@ -95,10 +95,18 @@
   1. 有且仅当矩阵不可逆时，行列式为0
   1. det(AB)=det(A)*det(B)
   1. det(A<sup>T</sup>)=det(A)
-* 行列式的公式：∑<sub>n!</sub>±a<sub>1</sub>a<sub>2</sub>...a<sub>n</sub>
-  * 含义是n阶方阵，行列式等于n!个矩阵的行列式之和
-  * 其中列标号（, , ...）是列标号（1, 2, ...n）的某个排列
-  
+* 行列式公式：∑<sub>n!</sub>±a<sub>1α</sub>a<sub>2β</sub>...a<sub>nω</sub>
+  * 表示n阶方阵中，行列式等于n!个矩阵的行列式之和
+  * 其中列标号（α, β, ...ω）是列标号（1, 2, ...n）的某个排列
+* 代数余子式：det(A)=a<sub>11</sub>C<sub>11</sub>+a<sub>12</sub>C<sub>12</sub>+...a<sub>1n</sub>C<sub>1n</sub>
+  * 对于a<sub>ij</sub>而言，C<sub>ij</sub>就是它的代数余子式
+  * C<sub>ij</sub>表示去掉a<sub>ij</sub>的所在行和列得到的新矩阵的行列式*(-1)<sup>i+j</sup>
+  * （C<sub>ij</sub>在i+j为偶数时为正，奇数时为负数。）
+* 行列式计算的三种方法：
+  * 通过消元得到主元，计算简单
+  * 通过行列式公式计算，计算复杂
+  * 通过代数余子式计算，计算适中
+
 #### 6 Eigenvalues and Eigenvectors(特征值和特征向量) 
 
 #### 7 The Singular Value Decomposition(奇异值分解) 
