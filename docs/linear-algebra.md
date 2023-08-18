@@ -106,6 +106,14 @@
   * 通过消元得到主元，计算简单
   * 通过行列式公式计算，计算复杂
   * 通过代数余子式计算，计算适中
+* 如何计算可逆矩阵的逆矩阵
+  1. 高斯消元法：将 \[A I] 逐步消元成 \[I A<sup>-1</sup>]
+  1. LU分解法：根据 A=LU 算出 A<sup>-1</sup>=U<sup>-1</sup>L<sup>-1</sup>
+  1. QR分解法：根据 A=QR 算出 A<sup>-1</sup>=R<sup>-1</sup>Q<sup>-1</sup>
+  1. 代数余子式：A<sup>-1</sup>=C<sup>T</sup>/det(A)
+* 如何证明A<sup>-1</sup>=C<sup>T</sup>/det(A)
+  * 两边都左乘A，得到AC<sup>T</sup>=det(A)I，继续证明这个等式
+  * 可以发现AC<sup>T</sup>对角线都是det(A)，非对角线都是0，所以可证。
 
 #### 6 Eigenvalues and Eigenvectors(特征值和特征向量) 
 
