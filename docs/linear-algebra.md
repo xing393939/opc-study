@@ -114,6 +114,11 @@
 * 如何证明A<sup>-1</sup>=C<sup>T</sup>/det(A)
   * 两边都左乘A，得到AC<sup>T</sup>=det(A)I，继续证明这个等式
   * 可以发现AC<sup>T</sup>对角线都是det(A)，非对角线都是0，所以可证。
+* 克莱姆法则：求解Ax=b
+  * x=A<sup>-1</sup>b=C<sup>T</sup>b/det(A)
+* det(A)=矩阵A构成的几何体的体积
+  * 单位矩阵：不管是几阶矩阵，体积都是1
+  * 正交矩阵：边长为1，且边相互垂直，体积都是1
 
 #### 6 Eigenvalues and Eigenvectors(特征值和特征向量) 
 
