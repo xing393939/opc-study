@@ -95,6 +95,9 @@
   1. 有且仅当矩阵不可逆时，行列式为0
   1. det(AB)=det(A)*det(B)
   1. det(A<sup>T</sup>)=det(A)
+* 行列式的公式：∑<sub>n!</sub>±a<sub>1</sub>a<sub>2</sub>...a<sub>n</sub>
+  * 含义是n阶方阵，行列式等于n!个矩阵的行列式之和
+  * 其中列标号（, , ...）是列标号（1, 2, ...n）的某个排列
   
 #### 6 Eigenvalues and Eigenvectors(特征值和特征向量) 
 
