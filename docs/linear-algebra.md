@@ -116,6 +116,7 @@
   * 可以发现AC<sup>T</sup>对角线都是det(A)，非对角线都是0，所以可证。
 * 克莱姆法则：求解Ax=b
   * x=A<sup>-1</sup>b=C<sup>T</sup>b/det(A)
+  * x<sub>j</sub>=det(B<sub>j</sub>)/det(A)，B<sub>j</sub>表示矩阵A的第j列用b代替
 * det(A)=矩阵A构成的几何体的体积
   * 单位矩阵：不管是几阶矩阵，体积都是1
   * 正交矩阵：边长为1，且边相互垂直，体积都是1
