@@ -40,14 +40,14 @@ span sup, span sub{position:relative;display:block;line-height:0.2em;}
   * （对于mxn矩阵，列空间为R<sup>m</sup>的子空间，零空间为R<sup>n</sup>空间的子空间）
 * 求解Ax=0，参考[【线性代数】矩阵的零空间](https://blog.csdn.net/tengweitw/article/details/40039373)
   * A消元成U后，有r个主元列，n-r个自由列
-  * U继续消元成新矩阵：|<span><sup>I F</sup><sub>0 0</sub><span>|。
-  * 零空间（最终的解）：|<span><sup>-F</sup><sub>I</sub><span>|。有列交换则要注意还原
+  * U继续消元成新矩阵：|<span><sup>I F</sup><sub>0 0</sub></span>|。
+  * 零空间（最终的解）：|<span><sup>-F</sup><sub>I</sub></span>|。有列交换则要注意还原
   * （A的列空间的维度是r，零空间的维度是n-r）
 * 求解Ax=b，假设有r个主元列
   * r=n=m：R=I，唯一解
-  * r=n<m：R=(第一行是I，第二行是0)，唯一解或无解
+  * r=n<m：R=|<span><sup>I</sup><sub>0</sub></span>|，唯一解或无解
   * r=m<n：R=(I 0)，无穷多解
-  * r<n,r<m：R=(第一行是I F，第二行是0 0)，无穷多解或无解
+  * r<n,r<m：R=|<span><sup>I F</sup><sub>0 0</sub></span>|，无穷多解或无解
 
 #### 4 Orthogonality(正交) 
 * 正交向量：若向量x和y正交，则x<sup>T</sup>y=y<sup>T</sup>x=0，xy默认是列向量
