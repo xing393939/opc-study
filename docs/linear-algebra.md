@@ -1,5 +1,10 @@
 ### 线性代数
 
+<style>
+span {display:inline-block;}
+span sup, span sub{position:relative;display:block;}
+</style>
+
 #### 参考资料
 * H<sub>2</sub>，A<sup>1</sup>
 
@@ -127,7 +132,7 @@
   * 若存在Ax=λx，则λ是特征值，x是特征向量。
   * n阶矩阵有n个特征值(特征值可相同)
   * 例1：对于投影矩阵P，它的投影平面和垂直于平面的向量都是特征向量
-  * 例2：2阶矩阵|<sup>0 1</sup><sub>1 0</sub>|，特征向量是(1 1)和(1 -1)
+  * 例2：2阶矩阵|<span><sup>0 1</sup><sub>1 0</sub></span>|，特征向量是(1 1)和(1 -1)
 
 #### 7 The Singular Value Decomposition(奇异值分解) 
 
