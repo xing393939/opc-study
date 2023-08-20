@@ -2,7 +2,7 @@
 
 <style>
 span {display:inline-block;vertical-align:middle;}
-span sup, span sub{position:relative;display:block;line-height:0.2em;}
+span sup, span sub{position:relative;display:block;line-height:0.2em;font-size:0.8em !important;}
 </style>
 
 #### 参考资料
@@ -45,9 +45,9 @@ span sup, span sub{position:relative;display:block;line-height:0.2em;}
   * （A的列空间的维度是r，零空间的维度是n-r）
 * 求解Ax=b，假设有r个主元列
   * r=n=m：R=I，唯一解
-  * r=n<m：R=\|<span><sup>I</sup><sub>0</sub></span>|，唯一解或无解
+  * r=n\<m：R=|<span><sup>I</sup><sub>0</sub></span>|，唯一解或无解
   * r=m<n：R=(I 0)，无穷多解
-  * r<n,r<m：R=\|<span><sup>I F</sup><sub>0 0</sub></span>|，无穷多解或无解
+  * r\<n,r\<m：R=|<span><sup>I F</sup><sub>0 0</sub></span>|，无穷多解或无解
 
 #### 4 Orthogonality(正交) 
 * 正交向量：若向量x和y正交，则x<sup>T</sup>y=y<sup>T</sup>x=0，xy默认是列向量
