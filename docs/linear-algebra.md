@@ -1,7 +1,7 @@
 ### 线性代数
 
 <style>
-span {display:inline-block;}
+span {display:inline-block;vertical-align:middle;}
 span sup, span sub{position:relative;display:block;}
 </style>
 
