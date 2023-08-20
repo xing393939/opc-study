@@ -2,11 +2,11 @@
 
 <style>
 span {display:inline-block;vertical-align:middle;}
-span sup, span sub{position:relative;display:block;}
+span sup, span sub{position:relative;display:block;line-height:0.2em;}
 </style>
 
 #### 参考资料
-* H<sub>2</sub>，A<sup>1</sup>
+* [数学符号及读法大全](https://blog.csdn.net/qq_37212752/article/details/83956265)
 
 #### 1 introduction to vectors
 ![Alt text](image-2.png)
@@ -40,8 +40,8 @@ span sup, span sub{position:relative;display:block;}
   * （对于mxn矩阵，列空间为R<sup>m</sup>的子空间，零空间为R<sup>n</sup>空间的子空间）
 * 求解Ax=0，参考[【线性代数】矩阵的零空间](https://blog.csdn.net/tengweitw/article/details/40039373)
   * A消元成U后，有r个主元列，n-r个自由列
-  * U继续消元成新矩阵：第一行是I F，第二行是0 0。
-  * 零空间（最终的解）：第一行是-F，第二行是I。有列交换则要注意还原
+  * U继续消元成新矩阵：|<span><sup>I F</sup><sub>0 0</sub><span>|。
+  * 零空间（最终的解）：|<span><sup>-F</sup><sub>I</sub><span>|。有列交换则要注意还原
   * （A的列空间的维度是r，零空间的维度是n-r）
 * 求解Ax=b，假设有r个主元列
   * r=n=m：R=I，唯一解
