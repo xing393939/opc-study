@@ -144,7 +144,10 @@ span sup, span sub {position:relative;display:block;line-height:0.2em;}
   * 由于Ax=λx，可得Ax-λx=0，可得Ax-λIx=0，可得(A-λI)x=0
   * 如果A-λI可逆则x只能是零向量，但很显然x可以是其他向量
   * 所以A-λI不可逆，det(A-λI)=0
-* 如何证明A=SΛS<sup>-1</sup>（前提是A的n个特征向量组线性无关）
+* 可对角化：
+  * 假设矩阵A的n个特征向量组成S，存在S<sup>-1</sup>AS=Λ，则表示A可对角化
+  * 如果矩阵A可对角化，则A必定存在n个线性无关的特征向量
+* 如何证明A=SΛS<sup>-1</sup>（前提是A是可对角化的）
   * 假设矩阵A的n个特征向量组成S，则AS=A|x<sub>1</sub> x<sub>2</sub> ... x<sub>n</sub>|
   * 则有AS=|Ax<sub>1</sub> Ax<sub>2</sub> ... Ax<sub>n</sub>|
   * 则有AS=|λ<sub>1</sub>x<sub>1</sub> λ<sub>2</sub>x<sub>2</sub> ... λ<sub>n</sub>x<sub>n</sub>|
@@ -158,9 +161,15 @@ span sup, span sub {position:relative;display:block;line-height:0.2em;}
 * 重特征值
   * A的特征值都不同，则特征向量都线性无关
   * A的特征值有相同，则特征向量不一定线性无关
-* 差分方程：（空白）
+* 差分方程：假设u<sub>k+1</sub>=Au<sub>k</sub>，A是可对角化的
+  * 因为A可对角化，则它存在n个线性无关的列向量，它们可以组成S
+  * 则有u<sub>0</sub>=SC，其中由A可以求出S，SC=u<sub>0</sub>可以求出向量C
+  * 则有u<sub>k</sub>=A<sup>k</sup>u<sub>0</sub>=A<sup>k</sup>SC=SΛ<sup>k</sup>S<sup>-1</sup>SC
+  * 则有u<sub>k</sub>=SΛ<sup>k</sup>C
+  * 则有u<sub>k</sub>=|λ<span><sup>k</sup><sub>1</sub></span>x<sub>1</sub> λ<span><sup>k</sup><sub>2</sub></span>x<sub>2</sub> ... λ<span><sup>k</sup><sub>n</sub></span>x<sub>n</sub>|C
+  * 则有u<sub>k</sub>=λ<span><sup>k</sup><sub>1</sub></span>x<sub>1</sub>c<sub>1</sub> + λ<span><sup>k</sup><sub>2</sub></span>x<sub>2</sub>c<sub>2</sub> ... λ<span><sup>k</sup><sub>n</sub></span>x<sub>n</sub>c<sub>n</sub>
 * 斐波那契数列：F<sub>k+2</sub>=F<sub>k+1</sub>+F<sub>k</sub>
-  * 假定向量u<sub>k</sub>=|<span><sup>Fk+2</sup><sub>Fk+1</sub></span>|，则u<sub>k+1</sub>=|<span><sup>1 1</sup><sub>1 0</sub></span>|u<sub>k</sub>
+  * 假定向量u<sub>k</sub>=|<span><sup>Fk+2</sup><sub>Fk+1</sub></span>|，则u<sub>k+1</sub>=Au<sub>k</sub>，其中A=|<span><sup>1 1</sup><sub>1 0</sub></span>|
   * 则有u<sub>0</sub>=|<span><sup>1</sup><sub>0</sub></span>|，u<sub>k</sub>=A<sup>k</sup>u<sub>0</sub>
 
 #### 7 The Singular Value Decomposition(奇异值分解) 
