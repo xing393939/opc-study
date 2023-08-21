@@ -754,7 +754,12 @@ span sup, span sub {position:relative;display:block;line-height:0.2em;}
 <li>&#x6240;&#x4EE5;A-&#x3BB;I&#x4E0D;&#x53EF;&#x9006;&#xFF0C;det(A-&#x3BB;I)=0</li>
 </ul>
 </li>
-<li>&#x5982;&#x4F55;&#x8BC1;&#x660E;A=S&#x39B;S<sup>-1</sup>&#xFF08;&#x524D;&#x63D0;&#x662F;A&#x7684;n&#x4E2A;&#x7279;&#x5F81;&#x5411;&#x91CF;&#x7EC4;&#x7EBF;&#x6027;&#x65E0;&#x5173;&#xFF09;<ul>
+<li>&#x53EF;&#x5BF9;&#x89D2;&#x5316;&#xFF1A;<ul>
+<li>&#x5047;&#x8BBE;&#x77E9;&#x9635;A&#x7684;n&#x4E2A;&#x7279;&#x5F81;&#x5411;&#x91CF;&#x7EC4;&#x6210;S&#xFF0C;&#x5B58;&#x5728;S<sup>-1</sup>AS=&#x39B;&#xFF0C;&#x5219;&#x8868;&#x793A;A&#x53EF;&#x5BF9;&#x89D2;&#x5316;</li>
+<li>&#x5982;&#x679C;&#x77E9;&#x9635;A&#x53EF;&#x5BF9;&#x89D2;&#x5316;&#xFF0C;&#x5219;A&#x5FC5;&#x5B9A;&#x5B58;&#x5728;n&#x4E2A;&#x7EBF;&#x6027;&#x65E0;&#x5173;&#x7684;&#x7279;&#x5F81;&#x5411;&#x91CF;</li>
+</ul>
+</li>
+<li>&#x5982;&#x4F55;&#x8BC1;&#x660E;A=S&#x39B;S<sup>-1</sup>&#xFF08;&#x524D;&#x63D0;&#x662F;A&#x662F;&#x53EF;&#x5BF9;&#x89D2;&#x5316;&#x7684;&#xFF09;<ul>
 <li>&#x5047;&#x8BBE;&#x77E9;&#x9635;A&#x7684;n&#x4E2A;&#x7279;&#x5F81;&#x5411;&#x91CF;&#x7EC4;&#x6210;S&#xFF0C;&#x5219;AS=A|x<sub>1</sub> x<sub>2</sub> ... x<sub>n</sub>|</li>
 <li>&#x5219;&#x6709;AS=|Ax<sub>1</sub> Ax<sub>2</sub> ... Ax<sub>n</sub>|</li>
 <li>&#x5219;&#x6709;AS=|&#x3BB;<sub>1</sub>x<sub>1</sub> &#x3BB;<sub>2</sub>x<sub>2</sub> ... &#x3BB;<sub>n</sub>x<sub>n</sub>|</li>
@@ -774,9 +779,17 @@ span sup, span sub {position:relative;display:block;line-height:0.2em;}
 <li>A&#x7684;&#x7279;&#x5F81;&#x503C;&#x6709;&#x76F8;&#x540C;&#xFF0C;&#x5219;&#x7279;&#x5F81;&#x5411;&#x91CF;&#x4E0D;&#x4E00;&#x5B9A;&#x7EBF;&#x6027;&#x65E0;&#x5173;</li>
 </ul>
 </li>
-<li>&#x5DEE;&#x5206;&#x65B9;&#x7A0B;&#xFF1A;&#xFF08;&#x7A7A;&#x767D;&#xFF09;</li>
+<li>&#x5DEE;&#x5206;&#x65B9;&#x7A0B;&#xFF1A;&#x5047;&#x8BBE;u<sub>k+1</sub>=Au<sub>k</sub>&#xFF0C;A&#x662F;&#x53EF;&#x5BF9;&#x89D2;&#x5316;&#x7684;<ul>
+<li>&#x56E0;&#x4E3A;A&#x53EF;&#x5BF9;&#x89D2;&#x5316;&#xFF0C;&#x5219;&#x5B83;&#x5B58;&#x5728;n&#x4E2A;&#x7EBF;&#x6027;&#x65E0;&#x5173;&#x7684;&#x5217;&#x5411;&#x91CF;&#xFF0C;&#x5B83;&#x4EEC;&#x53EF;&#x4EE5;&#x7EC4;&#x6210;S</li>
+<li>&#x5219;&#x6709;u<sub>0</sub>=SC&#xFF0C;&#x5176;&#x4E2D;&#x7531;A&#x53EF;&#x4EE5;&#x6C42;&#x51FA;S&#xFF0C;SC=u<sub>0</sub>&#x53EF;&#x4EE5;&#x6C42;&#x51FA;&#x5411;&#x91CF;C</li>
+<li>&#x5219;&#x6709;u<sub>k</sub>=A<sup>k</sup>u<sub>0</sub>=A<sup>k</sup>SC=S&#x39B;<sup>k</sup>S<sup>-1</sup>SC</li>
+<li>&#x5219;&#x6709;u<sub>k</sub>=S&#x39B;<sup>k</sup>C</li>
+<li>&#x5219;&#x6709;u<sub>k</sub>=|&#x3BB;<span><sup>k</sup><sub>1</sub></span>x<sub>1</sub> &#x3BB;<span><sup>k</sup><sub>2</sub></span>x<sub>2</sub> ... &#x3BB;<span><sup>k</sup><sub>n</sub></span>x<sub>n</sub>|C</li>
+<li>&#x5219;&#x6709;u<sub>k</sub>=&#x3BB;<span><sup>k</sup><sub>1</sub></span>x<sub>1</sub>c<sub>1</sub> + &#x3BB;<span><sup>k</sup><sub>2</sub></span>x<sub>2</sub>c<sub>2</sub> ... &#x3BB;<span><sup>k</sup><sub>n</sub></span>x<sub>n</sub>c<sub>n</sub></li>
+</ul>
+</li>
 <li>&#x6590;&#x6CE2;&#x90A3;&#x5951;&#x6570;&#x5217;&#xFF1A;F<sub>k+2</sub>=F<sub>k+1</sub>+F<sub>k</sub><ul>
-<li>&#x5047;&#x5B9A;&#x5411;&#x91CF;u<sub>k</sub>=|<span><sup>Fk+2</sup><sub>Fk+1</sub></span>|&#xFF0C;&#x5219;u<sub>k+1</sub>=|<span><sup>1 1</sup><sub>1 0</sub></span>|u<sub>k</sub></li>
+<li>&#x5047;&#x5B9A;&#x5411;&#x91CF;u<sub>k</sub>=|<span><sup>Fk+2</sup><sub>Fk+1</sub></span>|&#xFF0C;&#x5219;u<sub>k+1</sub>=Au<sub>k</sub>&#xFF0C;&#x5176;&#x4E2D;A=|<span><sup>1 1</sup><sub>1 0</sub></span>|</li>
 <li>&#x5219;&#x6709;u<sub>0</sub>=|<span><sup>1</sup><sub>0</sub></span>|&#xFF0C;u<sub>k</sub>=A<sup>k</sup>u<sub>0</sub></li>
 </ul>
 </li>
@@ -866,7 +879,7 @@ span sup, span sub {position:relative;display:block;line-height:0.2em;}
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"线性代数","level":"1.4.8","depth":2,"next":{"title":"4.AWS SAA认证","level":"1.5","depth":1,"ref":"","articles":[{"title":"1.AWS知识点","level":"1.5.1","depth":2,"path":"docs/saa-1.md","ref":"docs/saa-1.md","articles":[]},{"title":"2.AWS认证英语学习","level":"1.5.2","depth":2,"path":"docs/saa-2.md","ref":"docs/saa-2.md","articles":[]},{"title":"3.AWS的其他服务","level":"1.5.3","depth":2,"path":"docs/saa-3.md","ref":"docs/saa-3.md","articles":[]},{"title":"4.AWS Github Study Guide","level":"1.5.4","depth":2,"path":"docs/saa-4.md","ref":"docs/saa-4.md","articles":[]}]},"previous":{"title":"BPF之巅","level":"1.4.7","depth":2,"path":"docs/bpf-performance-tools.md","ref":"docs/bpf-performance-tools.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/linear-algebra.md","mtime":"2023-08-21T08:44:09.198Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-21T08:44:43.133Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"线性代数","level":"1.4.8","depth":2,"next":{"title":"4.AWS SAA认证","level":"1.5","depth":1,"ref":"","articles":[{"title":"1.AWS知识点","level":"1.5.1","depth":2,"path":"docs/saa-1.md","ref":"docs/saa-1.md","articles":[]},{"title":"2.AWS认证英语学习","level":"1.5.2","depth":2,"path":"docs/saa-2.md","ref":"docs/saa-2.md","articles":[]},{"title":"3.AWS的其他服务","level":"1.5.3","depth":2,"path":"docs/saa-3.md","ref":"docs/saa-3.md","articles":[]},{"title":"4.AWS Github Study Guide","level":"1.5.4","depth":2,"path":"docs/saa-4.md","ref":"docs/saa-4.md","articles":[]}]},"previous":{"title":"BPF之巅","level":"1.4.7","depth":2,"path":"docs/bpf-performance-tools.md","ref":"docs/bpf-performance-tools.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/linear-algebra.md","mtime":"2023-08-21T10:36:09.143Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-21T10:36:41.530Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
