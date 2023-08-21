@@ -154,11 +154,14 @@ span sup, span sub {position:relative;display:block;line-height:0.2em;}
   * 两边右乘S<sup>-1</sup>，得到A=SΛS<sup>-1</sup>
 * 矩阵的幂
   * A<sup>k</sup>和A的特征向量相同，特征值是λ<sup>k</sup>
+  * 已知A求A<sup>k</sup>：A<sup>k</sup>=SΛ<sup>k</sup>S<sup>-1</sup>
 * 重特征值
   * A的特征值都不同，则特征向量都线性无关
   * A的特征值有相同，则特征向量不一定线性无关
 * 差分方程：（空白）
-* 斐波那契数列：
+* 斐波那契数列：F<sub>k+2</sub>=F<sub>k+1</sub>+F<sub>k</sub>
+  * 假定向量u<sub>k</sub>=|<span><sup>Fk+2</sup><sub>Fk+1</sub></span>|，则u<sub>k+1</sub>=|<span><sup>1 1</sup><sub>1 0</sub></span>|u<sub>k</sub>
+  * 则有u<sub>0</sub>=|<span><sup>1</sup><sub>0</sub></span>|，u<sub>k</sub>=A<sup>k</sup>u<sub>0</sub>
 
 #### 7 The Singular Value Decomposition(奇异值分解) 
 * 第29讲
