@@ -81,7 +81,7 @@ span sup, span sub {position:relative;display:block;line-height:0.2em;}
   * Q为可逆矩阵：P=QQ<sup>-1</sup>(Q<sup>T</sup>)<sup>-1</sup>Q<sup>T</sup>，P=I
   * Q为标准正交矩阵：所以有Q<sup>T</sup>Q=I，进而P=QQ<sup>T</sup>
 * 施密特正交化：
-  * 线性无关的a、b、c变成标准正交向量A、B、C
+  * 三阶矩阵的列向量a、b、c变成标准正交向量A、B、C
   * A = a
   * B = b-xA = b-(A<sup>T</sup>A)<sup>-1</sup>A<sup>T</sup>bA
   * C = c-xA-yB = c-(A<sup>T</sup>A)<sup>-1</sup>A<sup>T</sup>cA-(B<sup>T</sup>B)<sup>-1</sup>B<sup>T</sup>cB
@@ -182,7 +182,7 @@ span sup, span sub {position:relative;display:block;line-height:0.2em;}
 #### 10 Applications(应用)
 1. 第31讲 Graphs and Networks(图形和网络)
 2. 第26讲 Matrices in Engineering(工程中的矩阵)
-3. 第24讲 - Markov Matrices, Fourier Series(马尔可夫矩阵、傅立叶级数)
+3. 第24讲 Markov Matrices, Fourier Series(马尔可夫矩阵、傅立叶级数)
 
 #### 11 Numerical Linear Algebra(数值线性代数) 
 1. Gaussian Elimination in Practice
