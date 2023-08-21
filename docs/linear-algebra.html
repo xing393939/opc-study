@@ -766,6 +766,7 @@ span sup, span sub {position:relative;display:block;line-height:0.2em;}
 </li>
 <li>&#x77E9;&#x9635;&#x7684;&#x5E42;<ul>
 <li>A<sup>k</sup>&#x548C;A&#x7684;&#x7279;&#x5F81;&#x5411;&#x91CF;&#x76F8;&#x540C;&#xFF0C;&#x7279;&#x5F81;&#x503C;&#x662F;&#x3BB;<sup>k</sup></li>
+<li>&#x5DF2;&#x77E5;A&#x6C42;A<sup>k</sup>&#xFF1A;A<sup>k</sup>=S&#x39B;<sup>k</sup>S<sup>-1</sup></li>
 </ul>
 </li>
 <li>&#x91CD;&#x7279;&#x5F81;&#x503C;<ul>
@@ -774,7 +775,11 @@ span sup, span sub {position:relative;display:block;line-height:0.2em;}
 </ul>
 </li>
 <li>&#x5DEE;&#x5206;&#x65B9;&#x7A0B;&#xFF1A;&#xFF08;&#x7A7A;&#x767D;&#xFF09;</li>
-<li>&#x6590;&#x6CE2;&#x90A3;&#x5951;&#x6570;&#x5217;&#xFF1A;</li>
+<li>&#x6590;&#x6CE2;&#x90A3;&#x5951;&#x6570;&#x5217;&#xFF1A;F<sub>k+2</sub>=F<sub>k+1</sub>+F<sub>k</sub><ul>
+<li>&#x5047;&#x5B9A;&#x5411;&#x91CF;u<sub>k</sub>=|<span><sup>Fk+2</sup><sub>Fk+1</sub></span>|&#xFF0C;&#x5219;u<sub>k+1</sub>=|<span><sup>1 1</sup><sub>1 0</sub></span>|u<sub>k</sub></li>
+<li>&#x5219;&#x6709;u<sub>0</sub>=|<span><sup>1</sup><sub>0</sub></span>|&#xFF0C;u<sub>k</sub>=A<sup>k</sup>u<sub>0</sub></li>
+</ul>
+</li>
 </ul>
 <h4 id="7-the-singular-value-decomposition&#x5947;&#x5F02;&#x503C;&#x5206;&#x89E3;">7 The Singular Value Decomposition(&#x5947;&#x5F02;&#x503C;&#x5206;&#x89E3;)</h4>
 <ul>
@@ -861,7 +866,7 @@ span sup, span sub {position:relative;display:block;line-height:0.2em;}
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"线性代数","level":"1.4.8","depth":2,"next":{"title":"4.AWS SAA认证","level":"1.5","depth":1,"ref":"","articles":[{"title":"1.AWS知识点","level":"1.5.1","depth":2,"path":"docs/saa-1.md","ref":"docs/saa-1.md","articles":[]},{"title":"2.AWS认证英语学习","level":"1.5.2","depth":2,"path":"docs/saa-2.md","ref":"docs/saa-2.md","articles":[]},{"title":"3.AWS的其他服务","level":"1.5.3","depth":2,"path":"docs/saa-3.md","ref":"docs/saa-3.md","articles":[]},{"title":"4.AWS Github Study Guide","level":"1.5.4","depth":2,"path":"docs/saa-4.md","ref":"docs/saa-4.md","articles":[]}]},"previous":{"title":"BPF之巅","level":"1.4.7","depth":2,"path":"docs/bpf-performance-tools.md","ref":"docs/bpf-performance-tools.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/linear-algebra.md","mtime":"2023-08-21T07:58:01.722Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-21T07:58:29.800Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"线性代数","level":"1.4.8","depth":2,"next":{"title":"4.AWS SAA认证","level":"1.5","depth":1,"ref":"","articles":[{"title":"1.AWS知识点","level":"1.5.1","depth":2,"path":"docs/saa-1.md","ref":"docs/saa-1.md","articles":[]},{"title":"2.AWS认证英语学习","level":"1.5.2","depth":2,"path":"docs/saa-2.md","ref":"docs/saa-2.md","articles":[]},{"title":"3.AWS的其他服务","level":"1.5.3","depth":2,"path":"docs/saa-3.md","ref":"docs/saa-3.md","articles":[]},{"title":"4.AWS Github Study Guide","level":"1.5.4","depth":2,"path":"docs/saa-4.md","ref":"docs/saa-4.md","articles":[]}]},"previous":{"title":"BPF之巅","level":"1.4.7","depth":2,"path":"docs/bpf-performance-tools.md","ref":"docs/bpf-performance-tools.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/linear-algebra.md","mtime":"2023-08-21T08:44:09.198Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-21T08:44:43.133Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
