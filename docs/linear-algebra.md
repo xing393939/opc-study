@@ -167,7 +167,7 @@ span sup, span sub {position:relative;display:block;line-height:0.2em;}
   * 则有u<sub>k</sub>=A<sup>k</sup>u<sub>0</sub>=A<sup>k</sup>SC=SΛ<sup>k</sup>S<sup>-1</sup>SC
   * 则有u<sub>k</sub>=SΛ<sup>k</sup>C
   * 则有u<sub>k</sub>=|λ<span><sup>k</sup><sub>1</sub></span>x<sub>1</sub> λ<span><sup>k</sup><sub>2</sub></span>x<sub>2</sub> ... λ<span><sup>k</sup><sub>n</sub></span>x<sub>n</sub>|C，[S右乘对角阵Λ，即Λ的对角元素作用于S每一列](image-3.png)
-  * 则有u<sub>k</sub>=λ<span><sup>k</sup><sub>1</sub></span>x<sub>1</sub>c<sub>1</sub> + λ<span><sup>k</sup><sub>2</sub></span>x<sub>2</sub>c<sub>2</sub> ... λ<span><sup>k</sup><sub>n</sub></span>x<sub>n</sub>c<sub>n</sub>
+  * 则有u<sub>k</sub>=λ<span><sup>k</sup><sub>1</sub></span>x<sub>1</sub>c<sub>1</sub> + λ<span><sup>k</sup><sub>2</sub></span>x<sub>2</sub>c<sub>2</sub> + ... + λ<span><sup>k</sup><sub>n</sub></span>x<sub>n</sub>c<sub>n</sub>
 * 斐波那契数列：F<sub>k+2</sub>=F<sub>k+1</sub>+F<sub>k</sub>
   * 假定向量u<sub>k</sub>=|<span><sup>Fk+2</sup><sub>Fk+1</sub></span>|，则u<sub>k+1</sub>=Au<sub>k</sub>，其中A=|<span><sup>1 1</sup><sub>1 0</sub></span>|
   * 则有u<sub>0</sub>=|<span><sup>1</sup><sub>0</sub></span>|，u<sub>k</sub>=A<sup>k</sup>u<sub>0</sub>
