@@ -161,29 +161,28 @@ span sup, span sub {position:relative;display:block;line-height:0.2em;}
 * 斐波那契数列：
 
 #### 7 The Singular Value Decomposition(奇异值分解) 
-1. Image Processing by Linear Algebra(图像处理中的线性代数)
-2. Bases and Matrices in the SVD
-3. Principal Component Analysis(主成分分析)
-4. The Geometry of the SVD(SVD中的几何)
+* 第29讲
+  1. Image Processing by Linear Algebra(图像处理中的线性代数)
+  2. Bases and Matrices in the SVD
+  3. Principal Component Analysis(主成分分析)
+  4. The Geometry of the SVD(SVD中的几何)
 
 #### 8 Linear Transformations(线性变换) 
-1. The Idea of a Linear Transformation
-2. The Matrix of a Linear Transformation
-3. The Search for a Good Basis
+* 第30讲
+  1. The Idea of a Linear Transformation
+  2. The Matrix of a Linear Transformation
+  3. The Search for a Good Basis
 
 #### 9 Complex Vectors and Matrices(复向量和矩阵)
-1. Complex Numbers(复数)
-2. Hermitian and Unitary Matrices(厄米矩阵和酉矩阵)
-3. The Fast Fourier Transform(快速傅里叶变换)
+* 第26讲
+  1. Complex Numbers(复数)
+  2. Hermitian and Unitary Matrices(厄米矩阵和酉矩阵)
+  3. The Fast Fourier Transform(快速傅里叶变换)
 
 #### 10 Applications(应用)
-1. Graphs and Networks(图形和网络)
-2. Matrices in Engineering(工程中的矩阵)
-3. Markov Matrices, Population, and Economics(马尔可夫矩阵、人口与经济学)
-4. Linear Programming(线性规划)
-5. Fourier Series: Linear Algebra for Functions(傅立叶级数)
-6. Computer Graphics(计算机图形学)
-7. Linear Algebra for Cryptography(密码学中的线性代数)
+1. 第31讲 Graphs and Networks(图形和网络)
+2. 第26讲 Matrices in Engineering(工程中的矩阵)
+3. 第24讲 - Markov Matrices, Fourier Series(马尔可夫矩阵、傅立叶级数)
 
 #### 11 Numerical Linear Algebra(数值线性代数) 
 1. Gaussian Elimination in Practice
