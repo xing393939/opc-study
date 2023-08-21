@@ -2,7 +2,7 @@
 
 <style>
 span {display:inline-block;vertical-align:middle;}
-sup, sub {font-size:0.8em !important;}
+sup, sub {font-size:0.6em !important;}
 span sup, span sub {position:relative;display:block;line-height:0.2em;}
 </style>
 
@@ -149,18 +149,48 @@ span sup, span sub {position:relative;display:block;line-height:0.2em;}
   * 则有AS=|Ax<sub>1</sub> Ax<sub>2</sub> ... Ax<sub>n</sub>|
   * 则有AS=|λ<sub>1</sub>x<sub>1</sub> λ<sub>2</sub>x<sub>2</sub> ... λ<sub>n</sub>x<sub>n</sub>|
   * 则有AS=S|λ<sub>1</sub> λ<sub>2</sub> ... λ<sub>n</sub>组成的对角阵|
-  * 则有AS=SΛ
+  * 则有AS=SΛ，Λ是由λ<sub>1</sub> λ<sub>2</sub> ... λ<sub>n</sub>组成的对角阵
   * 两边左乘S<sup>-1</sup>，得到S<sup>-1</sup>AS=Λ
   * 两边右乘S<sup>-1</sup>，得到A=SΛS<sup>-1</sup>
+* 矩阵的幂
+  * A<sup>k</sup>和A的特征向量相同，特征值是λ<sup>k</sup>
+* 重特征值
+  * A的特征值都不同，则特征向量都线性无关
+  * A的特征值有相同，则特征向量不一定线性无关
+* 差分方程：（空白）
+* 斐波那契数列：
 
 #### 7 The Singular Value Decomposition(奇异值分解) 
+1. Image Processing by Linear Algebra(图像处理中的线性代数)
+2. Bases and Matrices in the SVD
+3. Principal Component Analysis(主成分分析)
+4. The Geometry of the SVD(SVD中的几何)
 
 #### 8 Linear Transformations(线性变换) 
+1. The Idea of a Linear Transformation
+2. The Matrix of a Linear Transformation
+3. The Search for a Good Basis
 
 #### 9 Complex Vectors and Matrices(复向量和矩阵)
+1. Complex Numbers(复数)
+2. Hermitian and Unitary Matrices(厄米矩阵和酉矩阵)
+3. The Fast Fourier Transform(快速傅里叶变换)
 
 #### 10 Applications(应用)
+1. Graphs and Networks(图形和网络)
+2. Matrices in Engineering(工程中的矩阵)
+3. Markov Matrices, Population, and Economics(马尔可夫矩阵、人口与经济学)
+4. Linear Programming(线性规划)
+5. Fourier Series: Linear Algebra for Functions(傅立叶级数)
+6. Computer Graphics(计算机图形学)
+7. Linear Algebra for Cryptography(密码学中的线性代数)
 
 #### 11 Numerical Linear Algebra(数值线性代数) 
+1. Gaussian Elimination in Practice
+2. Norms and Condition Numbers(标准和条件值)
+3. Iterative Methods and Pre conditioners(迭代方法和预条件)
 
 #### 12 Linear Algebra in Probability & Statistics(概率统计中的线性代数)
+1. Mean, Variance, and Probability(均值、方差和概率)
+2. Covariance Matrices and Joint Probabilities(协方差矩阵与联合概率)
+3. Multivariate Gaussian and Weighted Least Squares(多元高斯和加权最小二乘)
