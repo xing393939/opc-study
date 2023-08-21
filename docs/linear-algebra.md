@@ -2,7 +2,8 @@
 
 <style>
 span {display:inline-block;vertical-align:middle;}
-span sup, span sub{position:relative;display:block;line-height:0.2em;font-size:0.8em !important;}
+sup, sub {font-size:0.8em !important;}
+span sup, span sub {position:relative;display:block;line-height:0.2em;}
 </style>
 
 #### 参考资料
@@ -136,13 +137,21 @@ span sup, span sub{position:relative;display:block;line-height:0.2em;font-size:0
   * 对称矩阵的特征向量正交。
   * 三角阵的特征值就是对角线上的元素(包含上三角和下三角)
   * 例1：对于投影矩阵P，它的投影平面和垂直于平面的向量都是特征向量
-  * 例2：2阶矩阵|<span><sup>0 1</sup><sub>1 0</sub></span>|，特征向量是(1 1)和(1 -1)
+  * 例2：矩阵A|<span><sup>0 1</sup><sub>1 0</sub></span>|，特征向量是(1 1)和(1 -1)
+  * 例3：矩阵A|<span><sup>3 1</sup><sub>0 3</sub></span>|，特征向量是(1 0)和(1 0)，A是退化矩阵
 * 求解特征值和特征向量：先根据det(A-λI)=0求解出λ，再用Ax=λx求解x
   * det(A-λI)=0的论证如下：
   * 由于Ax=λx，可得Ax-λx=0，可得Ax-λIx=0，可得(A-λI)x=0
   * 如果A-λI可逆则x只能是零向量，但很显然x可以是其他向量
   * 所以A-λI不可逆，det(A-λI)=0
-
+* 如何证明A=SΛS<sup>-1</sup>（前提是A的n个特征向量组线性无关）
+  * 假设矩阵A的n个特征向量组成S，则AS=A|x<sub>1</sub> x<sub>2</sub> ... x<sub>n</sub>|
+  * 则有AS=|Ax<sub>1</sub> Ax<sub>2</sub> ... Ax<sub>n</sub>|
+  * 则有AS=|λ<sub>1</sub>x<sub>1</sub> λ<sub>2</sub>x<sub>2</sub> ... λ<sub>n</sub>x<sub>n</sub>|
+  * 则有AS=S|λ<sub>1</sub> λ<sub>2</sub> ... λ<sub>n</sub>组成的对角阵|
+  * 则有AS=SΛ
+  * 两边左乘S<sup>-1</sup>，得到S<sup>-1</sup>AS=Λ
+  * 两边右乘S<sup>-1</sup>，得到A=SΛS<sup>-1</sup>
 
 #### 7 The Singular Value Decomposition(奇异值分解) 
 
