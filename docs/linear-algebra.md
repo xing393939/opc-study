@@ -210,7 +210,12 @@ span sup, span sub {position:relative;display:block;line-height:0.2em;text-align
 * 马尔可夫矩阵与人口流动问题：
   * u<sub>0</sub>=|<span><sup>0</sup><sub>1000</sub></span>|，表示城市1人口是0，城市2是1000
   * u<sub>k+1</sub>=|<span><sup>0.9 0.2</sup><sub>0.1 0.8</sub></span>|u<sub>k</sub>
-    
+  * 经过k次人口流动后：u<sub>k</sub>=c<sub>1</sub>λ<span><sup>k</sup><sub>1</sub></span>x<sub>1</sub> + c<sub>2</sub>λ<span><sup>k</sup><sub>2</sub></span>x<sub>2</sub>
+  * 解得：λ<sub>1</sub>=1，λ<sub>2</sub>=0.7
+  * 解得：x<sub>1</sub>=|<span><sup>2</sup><sub>1</sub></span>|，x<sub>2</sub>=|<span><sup>-1</sup><sub>1</sub></span>|
+  * 由于u<sub>0</sub>=SC，解得c<sub>1</sub>=1000/3，c<sub>2</sub>=2000/3
+  * 最终u<sub>k</sub>会稳定在|<span><sup>2000/3</sup><sub>1000/3</sub></span>|
+
 #### 11 Numerical Linear Algebra(数值线性代数) 
 1. Gaussian Elimination in Practice
 2. Norms and Condition Numbers(标准和条件值)
