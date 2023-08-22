@@ -131,9 +131,10 @@ span sup, span sub {position:relative;display:block;line-height:0.2em;}
 #### 6 Eigenvalues and Eigenvectors(特征值和特征向量) 
 * 矩阵的迹：矩阵主对角线元素之和。
 * 特征值和特征向量(只针对方阵)
-  * 若存在Ax=λx，则λ是特征值，x是特征向量。
+  * 若存在Ax=λx，则λ是特征值，x是特征向量(特征值可为0，特征向量不能是零向量)
   * 任意n阶矩阵有n个特征值(特征值可相同)。
   * 任意n阶矩阵的n个特征值之和等于矩阵的迹。
+  * 任意n阶矩阵与它的转置矩阵特征值相同，特征向量可能不同。
   * 对称矩阵的特征向量正交。
   * 三角阵的特征值就是对角线上的元素(包含上三角和下三角)
   * 例1：对于投影矩阵P，它的投影平面和垂直于平面的向量都是特征向量
@@ -142,8 +143,10 @@ span sup, span sub {position:relative;display:block;line-height:0.2em;}
 * 求解特征值和特征向量：先根据det(A-λI)=0求解出λ，再用Ax=λx求解x
   * det(A-λI)=0的论证如下：
   * 由于Ax=λx，可得Ax-λx=0，可得Ax-λIx=0，可得(A-λI)x=0
-  * 如果A-λI可逆则x只能是零向量，但很显然x可以是其他向量
-  * 所以A-λI不可逆，det(A-λI)=0
+  * 由于x不能是零向量可得A-λI是奇异矩阵，可得det(A-λI)=0
+* 假设A为二阶方阵，由det(A-λI)=0可得特征值λ<sub>1</sub>、λ<sub>2</sub>，[真题](image-4.png)
+  * 则A的特征向量在A-λ<sub>1</sub>I和A-λ<sub>2</sub>I的零空间中
+  * 假设t为标量，A+tI的特征向量和A相同，特征值全部加t。
 * 可对角化：
   * 假设矩阵A的n个特征向量组成S，存在S<sup>-1</sup>AS=Λ，则表示A可对角化
   * 如果矩阵A可对角化，则A必定存在n个线性无关的特征向量
@@ -195,6 +198,7 @@ span sup, span sub {position:relative;display:block;line-height:0.2em;}
 1. 第31讲 Graphs and Networks(图形和网络)
 2. 第26讲 Matrices in Engineering(工程中的矩阵)
 3. 第24讲 Markov Matrices, Fourier Series(马尔可夫矩阵、傅立叶级数)
+  * 马尔可夫矩阵：任何元素非负，且每列的元素之和为1的矩阵
 
 #### 11 Numerical Linear Algebra(数值线性代数) 
 1. Gaussian Elimination in Practice
