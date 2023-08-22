@@ -140,7 +140,7 @@ span sup, span sub {position:relative;display:block;line-height:0.2em;}
   * 例1：对于投影矩阵P，它的投影平面和垂直于平面的向量都是特征向量
   * 例2：矩阵A|<span><sup>0 1</sup><sub>1 0</sub></span>|，特征向量是(1 1)和(1 -1)
   * 例3：矩阵A|<span><sup>3 1</sup><sub>0 3</sub></span>|，特征向量是(1 0)和(1 0)，A是退化矩阵
-* 求解特征值和特征向量：先根据det(A-λI)=0求解出λ，再用Ax=λx求解x
+* 求解特征值和特征向量：先根据det(A-λI)=0求解出λ，再求A-λI的零空间
   * det(A-λI)=0的论证如下：
   * 由于Ax=λx，可得Ax-λx=0，可得Ax-λIx=0，可得(A-λI)x=0
   * 由于x不能是零向量可得A-λI是奇异矩阵，可得det(A-λI)=0
@@ -165,11 +165,11 @@ span sup, span sub {position:relative;display:block;line-height:0.2em;}
   * A的特征值都不同，则特征向量都线性无关
   * A的特征值有相同，则特征向量不一定线性无关
 * 差分方程：假设u<sub>k+1</sub>=Au<sub>k</sub>，A是可对角化的
-  * 因为A可对角化，则它存在n个线性无关的列向量，它们可以组成S
-  * 则有u<sub>0</sub>=SC，其中由A可以求出S，SC=u<sub>0</sub>可以求出向量C
+  * 因为A可对角化，则它存在n个线性无关的特征向量，它们可以组成S
+  * 假设u<sub>0</sub>=SC，其中由A可以求出S，SC=u<sub>0</sub>可以求出向量C
   * 则有u<sub>k</sub>=A<sup>k</sup>u<sub>0</sub>=A<sup>k</sup>SC=SΛ<sup>k</sup>S<sup>-1</sup>SC
   * 则有u<sub>k</sub>=SΛ<sup>k</sup>C
-  * 则有u<sub>k</sub>=|λ<span><sup>k</sup><sub>1</sub></span>x<sub>1</sub> λ<span><sup>k</sup><sub>2</sub></span>x<sub>2</sub> ... λ<span><sup>k</sup><sub>n</sub></span>x<sub>n</sub>|C，[S左乘对角阵Λ，即Λ的对角元素作用于S每一列](image-3.png)
+  * 则有u<sub>k</sub>=|λ<span><sup>k</sup><sub>1</sub></span>x<sub>1</sub> λ<span><sup>k</sup><sub>2</sub></span>x<sub>2</sub> ... λ<span><sup>k</sup><sub>n</sub></span>x<sub>n</sub>|C（[S左乘对角阵Λ，即Λ的对角元素作用于S每一列](image-3.png)）
   * 则有u<sub>k</sub>=c<sub>1</sub>λ<span><sup>k</sup><sub>1</sub></span>x<sub>1</sub> + c<sub>2</sub>λ<span><sup>k</sup><sub>2</sub></span>x<sub>2</sub> + ... + c<sub>n</sub>λ<span><sup>k</sup><sub>n</sub></span>x<sub>n</sub>
 * 斐波那契数列：F<sub>k+2</sub>=F<sub>k+1</sub>+F<sub>k</sub>
   * 假定向量u<sub>k</sub>=|<span><sup>Fk+2</sup><sub>Fk+1</sub></span>|，则u<sub>k+1</sub>=Au<sub>k</sub>，其中A=|<span><sup>1 1</sup><sub>1 0</sub></span>|
@@ -198,8 +198,17 @@ span sup, span sub {position:relative;display:block;line-height:0.2em;}
 1. 第31讲 Graphs and Networks(图形和网络)
 2. 第26讲 Matrices in Engineering(工程中的矩阵)
 3. 第24讲 Markov Matrices, Fourier Series(马尔可夫矩阵、傅立叶级数)
+  * 矩阵的方幂运算能达到稳态的两个条件：
+    * λ<sub>1</sub>=1是特征值之一
+    * 其它特征值的绝对值都比1小
+  * 矩阵的方幂运算能达到稳态的证明：
+    * 由于u<sub>k</sub>=c<sub>1</sub>λ<span><sup>k</sup><sub>1</sub></span>x<sub>1</sub> + c<sub>2</sub>λ<span><sup>k</sup><sub>2</sub></span>x<sub>2</sub> + ... + c<sub>n</sub>λ<span><sup>k</sup><sub>n</sub></span>x<sub>n</sub>
+    * 而λ<sub>1</sub>之外的特征值都比1小，随着k的增大，λ<sup>k</sup>趋向于0
+    * 所以u<sub>k</sub>最终趋向于c<sub>1</sub>x<sub>1</sub>
   * 马尔可夫矩阵：任何元素非负，且每列的元素之和为1的矩阵
+  * 马尔可夫矩阵符合方幂运算能达到稳态的条件
 
+    
 #### 11 Numerical Linear Algebra(数值线性代数) 
 1. Gaussian Elimination in Practice
 2. Norms and Condition Numbers(标准和条件值)
