@@ -3,7 +3,7 @@
 <style>
 span {display:inline-block;vertical-align:middle;}
 sup, sub {font-size:0.6em !important;}
-span sup, span sub {position:relative;display:block;line-height:0.2em;}
+span sup, span sub {position:relative;display:block;line-height:0.2em;text-align:center;}
 </style>
 
 #### 参考资料
@@ -195,9 +195,9 @@ span sup, span sub {position:relative;display:block;line-height:0.2em;}
   3. The Fast Fourier Transform(快速傅里叶变换)
 
 #### 10 Applications(应用)
-1. 第31讲 Graphs and Networks(图形和网络)
-2. 第26讲 Matrices in Engineering(工程中的矩阵)
-3. 第24讲 Markov Matrices, Fourier Series(马尔可夫矩阵、傅立叶级数)
+* 第31讲 Graphs and Networks(图形和网络)
+* 第26讲 Matrices in Engineering(工程中的矩阵)
+* 第24讲 Markov Matrices, Fourier Series(马尔可夫矩阵、傅立叶级数)
   * 矩阵的方幂运算能达到稳态的两个条件：
     * λ<sub>1</sub>=1是特征值之一
     * 其它特征值的绝对值都比1小
@@ -207,7 +207,9 @@ span sup, span sub {position:relative;display:block;line-height:0.2em;}
     * 所以u<sub>k</sub>最终趋向于c<sub>1</sub>x<sub>1</sub>
   * 马尔可夫矩阵：任何元素非负，且每列的元素之和为1的矩阵
   * 马尔可夫矩阵符合方幂运算能达到稳态的条件
-
+* 马尔可夫矩阵与人口流动问题：
+  * u<sub>0</sub>=|<span><sup>0</sup><sub>1000</sub></span>|，表示城市1人口是0，城市2是1000
+  * u<sub>k+1</sub>=|<span><sup>0.9 0.2</sup><sub>0.1 0.8</sub></span>|u<sub>k</sub>
     
 #### 11 Numerical Linear Algebra(数值线性代数) 
 1. Gaussian Elimination in Practice
