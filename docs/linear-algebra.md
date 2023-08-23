@@ -19,14 +19,12 @@ span sup, span sub {position:relative;display:block;line-height:0.2em;text-align
   * `选定基之后，向量表示对象，矩阵表示对象的运动，矩阵与向量相乘得到新的向量。一旦理解了这点，线性代数之后的各个主题，包括矩阵乘法、基变换、特征值等都会非常直观易懂。`
   * 旋转矩阵：例如二维矩阵，可以将二维向量按角度旋转，见[二维旋转矩阵与向量旋转](https://zhuanlan.zhihu.com/p/98007510)
   * 变换矩阵：坐标系xyz中的向量v，坐标系XYZ中的向量V，存在变换矩阵R使得`V = R * v`
-  * 剪切矩阵：变换矩阵中的一种，例如把正方形往一边挤压，使之成为平行四边形。
+  * 剪切矩阵：变换矩阵中的一种，例如[把正方形往一边挤压，使之成为平行四边形](image-1.png)。
 * 线性方程组（Ax=b）求解的两种方法：
   * 高斯消元：先得到Ux=b\*，再求解出x
   * LU分解：先由A得到LU，再由Ly=b求解y，再由Ux=y求解x
   * （两者的时间复杂度都是n<sup>3</sup>，但在A不变的情况下，LU分解的第2、3步只需要n<sup>2</sup>）
 * 求A的逆矩阵：将 \[A I] 逐步消元成 \[I A<sup>-1</sup>]
-
-![Alt text](image-1.png)
 
 #### 3 Vector Spaces and Subspaces
 * 子空间：子空间任意两个向量v和w，它们的线性组合仍然在子空间内。
@@ -61,9 +59,7 @@ span sup, span sub {position:relative;display:block;line-height:0.2em;text-align
 * 在R<sup>3</sup>空间内，A的列空间是一个平面，向量b在此平面的投影是p  
   * 投影矩阵P=A(A<sup>T</sup>A)<sup>-1</sup>A<sup>T</sup>
 * 若A的列向量线性无关时，矩阵A<sup>T</sup>A为可逆矩阵。
-
-![Alt text](image-3.jpg)
-* 对于上图的三种求解思路：
+* 求[b=C+Dt](image-3.jpg)的四种求解思路：
   1. 从几何上讨论求解：直线上有三个点p1、p2、p3离原始三个点最近，根据p1、p2、p3来求C、D
   2. 最小二乘法矩阵法：向量b投影到矩阵A的列空间得到向量p，投影到矩阵零空间则是e
   3. 最小二乘法代数法：e1<sup>2</sup>+e2<sup>2</sup>+e3<sup>2</sup>表示三个点最小误差的平方和，[C代码实现](https://shatang.github.io/2020/09/05/%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95/)
@@ -215,6 +211,8 @@ span sup, span sub {position:relative;display:block;line-height:0.2em;text-align
   * 解得：x<sub>1</sub>=|<span><sup>2</sup><sub>1</sub></span>|，x<sub>2</sub>=|<span><sup>-1</sup><sub>1</sub></span>|
   * 由于u<sub>0</sub>=SC，解得c<sub>1</sub>=1000/3，c<sub>2</sub>=2000/3
   * 最终u<sub>k</sub>会稳定在|<span><sup>2000/3</sup><sub>1000/3</sub></span>|
+* [通俗易懂的傅里叶级数和傅里叶变换(一)](https://www.jianshu.com/p/4d4db620dc9f)
+* [傅里叶系列（一）傅里叶级数的推导](https://zhuanlan.zhihu.com/p/41455378)
 
 #### 11 Numerical Linear Algebra(数值线性代数) 
 1. Gaussian Elimination in Practice
