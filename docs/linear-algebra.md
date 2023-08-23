@@ -170,7 +170,7 @@ span sup, span sub {position:relative;display:block;line-height:0.2em;text-align
 * 斐波那契数列：F<sub>k+2</sub>=F<sub>k+1</sub>+F<sub>k</sub>
   * 假定向量u<sub>k</sub>=|<span><sup>Fk+2</sup><sub>Fk+1</sub></span>|，则u<sub>k+1</sub>=Au<sub>k</sub>，其中A=|<span><sup>1 1</sup><sub>1 0</sub></span>|
   * 则有u<sub>0</sub>=|<span><sup>1</sup><sub>0</sub></span>|，u<sub>k</sub>=A<sup>k</sup>u<sub>0</sub>
-* 第26讲 Symmetric Matrices(对称矩阵)
+* 第25讲 Symmetric Matrices(对称矩阵)
 * 第27讲 Positive definite matrix(正定矩阵)
 
 #### 7 The Singular Value Decomposition(奇异值分解) 
