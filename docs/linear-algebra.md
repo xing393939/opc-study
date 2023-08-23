@@ -136,6 +136,9 @@ span sup, span sub {position:relative;display:block;line-height:0.2em;text-align
   * 例1：对于投影矩阵P，它的投影平面和垂直于平面的向量都是特征向量
   * 例2：矩阵A|<span><sup>0 1</sup><sub>1 0</sub></span>|，特征向量是(1 1)和(1 -1)
   * 例3：矩阵A|<span><sup>3 1</sup><sub>0 3</sub></span>|，特征向量是(1 0)和(1 0)，A是退化矩阵
+* *如果矩阵A可逆*
+  * A的行列式=A的所有特征值的乘积
+  * A<sup>-1</sup>的特征值是A特征值的倒数
 * 求解特征值和特征向量：先根据det(A-λI)=0求解出λ，再求A-λI的零空间
   * det(A-λI)=0的论证如下：
   * 由于Ax=λx，可得Ax-λx=0，可得Ax-λIx=0，可得(A-λI)x=0
