@@ -131,14 +131,15 @@ span sup, span sub {position:relative;display:block;line-height:0.2em;text-align
   * 任意n阶矩阵有n个特征值(特征值可相同)。
   * 任意n阶矩阵的n个特征值之和等于矩阵的迹。
   * 任意n阶矩阵与它的转置矩阵特征值相同，特征向量可能不同。
-  * 对称矩阵的特征向量正交。
   * 三角阵的特征值就是对角线上的元素(包含上三角和下三角)
   * 例1：对于投影矩阵P，它的投影平面和垂直于平面的向量都是特征向量
   * 例2：矩阵A|<span><sup>0 1</sup><sub>1 0</sub></span>|，特征向量是(1 1)和(1 -1)
   * 例3：矩阵A|<span><sup>3 1</sup><sub>0 3</sub></span>|，特征向量是(1 0)和(1 0)，A是退化矩阵
-* *如果矩阵A可逆*
+* **如果矩阵A可逆**
   * A的行列式=A的所有特征值的乘积
   * A<sup>-1</sup>的特征值是A特征值的倒数
+* 复数特征值
+  * |<span><sup>1 1</sup><sub>1 1</sub></span>|的特征值是两个复数：i、-i
 * 求解特征值和特征向量：先根据det(A-λI)=0求解出λ，再求A-λI的零空间
   * det(A-λI)=0的论证如下：
   * 由于Ax=λx，可得Ax-λx=0，可得Ax-λIx=0，可得(A-λI)x=0
@@ -174,6 +175,11 @@ span sup, span sub {position:relative;display:block;line-height:0.2em;text-align
   * 假定向量u<sub>k</sub>=|<span><sup>Fk+2</sup><sub>Fk+1</sub></span>|，则u<sub>k+1</sub>=Au<sub>k</sub>，其中A=|<span><sup>1 1</sup><sub>1 0</sub></span>|
   * 则有u<sub>0</sub>=|<span><sup>1</sup><sub>0</sub></span>|，u<sub>k</sub>=A<sup>k</sup>u<sub>0</sub>
 * 第25讲 Symmetric Matrices(对称矩阵)
+  * 性质1：A=A<sup>T</sup>
+  * 性质2：A不一定可逆，例如|<span><sup>1 1</sup><sub>1 1</sub></span>|
+  * 性质3：A如果是实对称矩阵(元素都是实数)，则A存在n个彼此正交的特征向量
+  * 性质4：A如果是实对称矩阵，A=QΛQ<sup>T</sup>，Q是由特征向量矩阵变的正交矩阵
+  * 性质5：A如果是实对称矩阵，则特征值都是实数并且正负个数和主元的正负数相等
 * 第27讲 Positive definite matrix(正定矩阵)
 
 #### 7 The Singular Value Decomposition(奇异值分解) 
