@@ -180,6 +180,7 @@ span sup, span sub {position:relative;display:block;line-height:0.2em;text-align
   * 性质3：A如果是实对称矩阵(元素都是实数)，则A存在n个彼此正交的特征向量
   * 性质4：A如果是实对称矩阵，A=QΛQ<sup>T</sup>，Q是由特征向量矩阵变的正交矩阵
   * 性质5：A如果是实对称矩阵，则特征值都是实数并且正负个数和主元的正负数相等
+  * 正定矩阵：特征值都是正数的对称矩阵
 * 第27讲 Positive definite matrix(正定矩阵)
 
 #### 7 The Singular Value Decomposition(奇异值分解) 
