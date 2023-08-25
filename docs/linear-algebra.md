@@ -210,6 +210,10 @@ over {text-decoration:overline}
     * 厄米矩阵的性质3：主对角线元素都是实数（如果不是实数无法满足<over>A</over><sup>T</sup>=A）
     * （实数对称矩阵也是厄米矩阵，可以看作元素虚部都是0）
     * 复数向量标准正交，则<over>q</over><span><sup>T</sup><sub>j</sub></span>q<sub>k</sub> = {<span><sup>0 j≠k</sup><sub>1 j=k</sub></span>
+    * 酉矩阵：满足Q<sup>T</sup>Q = I = Q<sup>H</sup>Q
+    * 酉矩阵的性质1：Q<sup>-1</sup> = Q<sup>H</sup>
+    * 酉矩阵的性质2：Q<sup>-1</sup>也是酉矩阵
+    * 酉矩阵的性质3：det(A)=1
   3. The Fast Fourier Transform(快速傅里叶变换)
 
 #### 10 Applications(应用)
