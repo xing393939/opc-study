@@ -200,7 +200,8 @@ over {text-decoration:overline}
 #### 9 Complex Vectors and Matrices(复向量和矩阵)
 * 第26讲
   1. Complex Numbers(复数)
-    * 共轭复数：实部相等，虚部相反。例如λ=a+bi、<over>λ<over>=a-bi
+    * 共轭复数：实部相等，虚部相反。例如λ=a+bi、<over>λ</over>=a-bi
+    * 复向量的长度|z|<sup>2</sup>=<over>z</over><sup>T</sup>z。例如|<span><sup>1</sup><sup></sub>i</span>|<sup>2</sup>=|1 -i||<span><sup>1</sup><sup></sub>i</span>|=2
   2. Hermitian and Unitary Matrices(厄米矩阵和酉矩阵)
   3. The Fast Fourier Transform(快速傅里叶变换)
 
