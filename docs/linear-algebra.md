@@ -4,6 +4,7 @@
 span {display:inline-block;vertical-align:middle;}
 sup, sub {font-size:0.6em !important;}
 span sup, span sub {position:relative;display:block;line-height:0.2em;text-align:center;}
+over {text-decoration:overline}
 </style>
 
 #### 参考资料
@@ -199,6 +200,7 @@ span sup, span sub {position:relative;display:block;line-height:0.2em;text-align
 #### 9 Complex Vectors and Matrices(复向量和矩阵)
 * 第26讲
   1. Complex Numbers(复数)
+    * 共轭复数：实部相等，虚部相反。例如λ=a+bi、<over>λ<over>=a-bi
   2. Hermitian and Unitary Matrices(厄米矩阵和酉矩阵)
   3. The Fast Fourier Transform(快速傅里叶变换)
 
