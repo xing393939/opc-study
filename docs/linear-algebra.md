@@ -201,8 +201,9 @@ over {text-decoration:overline}
 * 第26讲
   1. Complex Numbers(复数)
     * 共轭复数：实部相等，虚部相反。例如λ=a+bi、<over>λ</over>=a-bi
-    * 复向量的长度|z|<sup>2</sup>=<over>z</over><sup>T</sup>z。例如|<span><sup>1</sup><sup></sub>i</span>|<sup>2</sup>=|1 -i||<span><sup>1</sup><sup></sub>i</span>|=2
+    * 复向量的长度|z|<sup>2</sup>=<over>z</over><sup>T</sup>z。例如|<span><sup>1</sup><sub>i</sub></span>|<sup>2</sup>=|1 -i||<span><sup>1</sup><sub>i</sub></span>|=2
   2. Hermitian and Unitary Matrices(厄米矩阵和酉矩阵)
+    * 厄米矩阵：满足<over>A</over><sup>T</sup>=A，例如|<span><sup> 2 3+i</sup><sup></sub>3-i 5 </span>|
   3. The Fast Fourier Transform(快速傅里叶变换)
 
 #### 10 Applications(应用)
