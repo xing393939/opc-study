@@ -204,8 +204,11 @@ over {text-decoration:overline}
     * 复向量的长度|z|<sup>2</sup>=<over>z</over><sup>T</sup>z。例如|<span><sup>1</sup><sub>i</sub></span>|<sup>2</sup>=\[1 -i]\[<span><sup>1</sup><sub>i</sub></span>]=2
   2. Hermitian and Unitary Matrices(厄米矩阵和酉矩阵)
     * A的转置共轭矩阵<over>A</over><sup>T</sup>，可以记作A<sup>H</sup>
-    * 厄米矩阵：对角线均为实数且满足<over>A</over><sup>T</sup>=A，例如|<span><sup>2 3+i</sup><sub>3-i 5</sub></span>|
-    * 厄米矩阵的性质：特征值为实数，特征向量正交
+    * 厄米矩阵：满足<over>A</over><sup>T</sup>=A，例如|<span><sup>2 3+i</sup><sub>3-i 5</sub></span>|
+    * 厄米矩阵的性质1：特征值都是实数
+    * 厄米矩阵的性质2：若特征值不同，则特征向量正交
+    * 厄米矩阵的性质3：主对角线元素都是实数（如果不是实数无法满足<over>A</over><sup>T</sup>=A）
+    * （实数对称矩阵也是厄米矩阵，可以看作元素虚部都是0）
     * 复数向量标准正交，则<over>q</over><span><sup>T</sup><sub>j</sub></span>q<sub>k</sub> = {<span><sup>0 j≠k</sup><sub>1 j=k</sub></span>
   3. The Fast Fourier Transform(快速傅里叶变换)
 
