@@ -203,7 +203,9 @@ over {text-decoration:overline}
     * 共轭复数：实部相等，虚部相反。例如λ=a+bi、<over>λ</over>=a-bi
     * 复向量的长度|z|<sup>2</sup>=<over>z</over><sup>T</sup>z。例如|<span><sup>1</sup><sub>i</sub></span>|<sup>2</sup>=|1 -i||<span><sup>1</sup><sub>i</sub></span>|=2
   2. Hermitian and Unitary Matrices(厄米矩阵和酉矩阵)
-    * 厄米矩阵：满足<over>A</over><sup>T</sup>=A，例如|<span><sup> 2 3+i</sup><sup></sub>3-i 5 </span>|
+    * A的转置共轭矩阵<over>A</over><sup>T</sup>，可以记作A<sup>H</sup>
+    * 厄米矩阵：对角线均为实数且满足<over>A</over><sup>T</sup>=A，例如|<span><sup> 2 3+i</sup><sub>3-i 5 </sub></span>|
+    * 厄米矩阵的性质：特征值为实数
   3. The Fast Fourier Transform(快速傅里叶变换)
 
 #### 10 Applications(应用)
