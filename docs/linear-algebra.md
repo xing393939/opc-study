@@ -181,7 +181,13 @@ over {text-decoration:overline}
   * 性质3：A如果是实对称矩阵(元素都是实数)，则A存在n个彼此正交的特征向量
   * 性质4：A如果是实对称矩阵，A=QΛQ<sup>T</sup>，Q是由特征向量矩阵变的正交矩阵
   * 性质5：A如果是实对称矩阵，则特征值都是实数并且正负个数和主元的正负数相等
-  * 正定矩阵：特征值都是正数的对称矩阵
+  * 正定矩阵：对称矩阵满足一下任意一条即可：
+    * 特征值都是正数
+    * 主元都是正数
+    * 所有子行列式都是正数
+    * （任意一条可以推导出其他两条）
+  * 特征值的乘积等于矩阵的行列式
+  * 主元的乘积等于矩阵的行列式
 * 第27讲 Positive definite matrix(正定矩阵)
 
 #### 7 The Singular Value Decomposition(奇异值分解) 
@@ -210,7 +216,7 @@ over {text-decoration:overline}
     * 厄米矩阵的性质3：主对角线元素都是实数（如果不是实数无法满足<over>A</over><sup>T</sup>=A）
     * （实数对称矩阵也是厄米矩阵，可以看作元素虚部都是0）
     * 复数向量标准正交，则<over>q</over><span><sup>T</sup><sub>j</sub></span>q<sub>k</sub> = {<span><sup>0 j≠k</sup><sub>1 j=k</sub></span>
-    * 酉矩阵：满足Q<sup>T</sup>Q = I = Q<sup>H</sup>Q
+    * 酉矩阵：满足<over>Q</over><sup>T</sup>Q = I = Q<sup>H</sup>Q
     * 酉矩阵的性质1：Q<sup>-1</sup> = Q<sup>H</sup>
     * 酉矩阵的性质2：Q<sup>-1</sup>也是酉矩阵
     * 酉矩阵的性质3：det(A)=1
