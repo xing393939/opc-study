@@ -181,14 +181,16 @@ over {text-decoration:overline}
   * 性质3：A如果是实对称矩阵(元素都是实数)，则A存在n个彼此正交的特征向量
   * 性质4：A如果是实对称矩阵，A=QΛQ<sup>T</sup>，Q是由特征向量矩阵变的正交矩阵
   * 性质5：A如果是实对称矩阵，则特征值都是实数并且正负个数和主元的正负数相等
+  * 特征值的乘积等于矩阵的行列式
+  * 主元的乘积等于矩阵的行列式
+* 第27讲 Positive definite matrix(正定矩阵)
   * 正定矩阵：对称矩阵满足一下任意一条即可：
     * 特征值都是正数
     * 主元都是正数
     * 所有子行列式都是正数
-    * （任意一条可以推导出其他两条）
-  * 特征值的乘积等于矩阵的行列式
-  * 主元的乘积等于矩阵的行列式
-* 第27讲 Positive definite matrix(正定矩阵)
+    * x<sup>T</sup>Ax>0（x=0除外）
+    * （任意一条可以推导出其他条）
+  * |<span><sup>2 6</sup><sub>2 y</sub></span>|，若y>18则是正定矩阵，y<18是非正定，y=18是半正定
 
 #### 7 The Singular Value Decomposition(奇异值分解) 
 * 第29讲
@@ -201,6 +203,7 @@ over {text-decoration:overline}
 * 第30讲
   1. The Idea of a Linear Transformation
   2. The Matrix of a Linear Transformation
+* 第28讲  
   3. The Search for a Good Basis
 
 #### 9 Complex Vectors and Matrices(复向量和矩阵)
