@@ -204,7 +204,15 @@ over {text-decoration:overline}
   1. The Idea of a Linear Transformation
   2. The Matrix of a Linear Transformation
 * 第28讲  
-  3. The Search for a Good Basis
+  * 相似矩阵：对应n阶矩阵A、B，存在可逆矩阵M使得B=M<sup>-1</sup>AM
+    * 例如A=|<span><sup>2 1</sup><sub>1 2</sub></span>|，所有特征值是3、1的矩阵都是A的相似矩阵
+  * 若A有重特征值，则可能无法对角化(特征向量不是线性无关)
+    * 若A=|<span><sup>4 0</sup><sub>0 4</sub></span>|，则相似矩阵只有自己
+    * 若A=|<span><sup>4 1</sup><sub>0 4</sub></span>|，则没有相似矩阵
+  * 若尔当块：
+    * 若主对角线元素都不同，则其他元素都是0
+    * 若主对角线元素都相同，则除了它上一排的对角线元素都是1外，其他元素都是0
+  * 若尔当标准型：对角线是若干个若尔当块组成的
 
 #### 9 Complex Vectors and Matrices(复向量和矩阵)
 * 第26讲
