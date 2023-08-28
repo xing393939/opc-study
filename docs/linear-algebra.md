@@ -114,6 +114,8 @@ over {text-decoration:overline}
   1. LU分解法：根据 A=LU 算出 A<sup>-1</sup>=U<sup>-1</sup>L<sup>-1</sup>
   1. QR分解法：根据 A=QR 算出 A<sup>-1</sup>=R<sup>-1</sup>Q<sup>-1</sup>
   1. 代数余子式：A<sup>-1</sup>=C<sup>T</sup>/det(A)
+  1. 特征值分解：A=SΛS<sup>-1</sup>，A只能是方阵，S是A的特征向量(线性无关)
+  1. 奇异值分解：A=U∑V<sup>T</sup>，A可以是任意矩阵
 * 如何证明A<sup>-1</sup>=C<sup>T</sup>/det(A)
   * 两边都左乘A，得到AC<sup>T</sup>=det(A)I，继续证明这个等式
   * 可以发现AC<sup>T</sup>对角线都是det(A)，非对角线都是0，所以可证。
@@ -194,10 +196,10 @@ over {text-decoration:overline}
 
 #### 7 The Singular Value Decomposition(奇异值分解) 
 * 第29讲
-  1. Image Processing by Linear Algebra(图像处理中的线性代数)
-  2. Bases and Matrices in the SVD
-  3. Principal Component Analysis(主成分分析)
-  4. The Geometry of the SVD(SVD中的几何)
+  * 奇异值分解公式：A=U∑V<sup>T</sup>，其中UV是正交矩阵，∑是对角矩阵
+    * 奇异值分解：A可以是任意矩阵，不一定是方阵
+    * 实对称矩阵：A=QΛQ<sup>T</sup>
+    * 可对角化矩阵：A=SΛS<sup>-1</sup>
 
 #### 8 Linear Transformations(线性变换) 
 * 第30讲
