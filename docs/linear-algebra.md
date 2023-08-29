@@ -200,6 +200,10 @@ over {text-decoration:overline}
     * 奇异值分解：A可以是任意矩阵，不一定是方阵
     * 实对称矩阵：A=QΛQ<sup>T</sup>
     * 可对角化矩阵：A=SΛS<sup>-1</sup>
+  * 奇异值分解步骤：A=|<span><sup>4 4</sup><sub>-3 3</sub></span>|
+    * 假设B=A<sup>T</sup>A，B是对称矩阵，因而B=QΛQ<sup>T</sup>，[见证明](https://www.zhihu.com/question/57072688/answer/310028211)
+    * 由A<sup>T</sup>A=V∑<sup>2</sup>V<sup>T</sup>，可求出∑、V
+    * 由AA<sup>T</sup>=U∑<sup>2</sup>U<sup>T</sup>，可求出∑、U
 
 #### 8 Linear Transformations(线性变换) 
 * 第30讲
