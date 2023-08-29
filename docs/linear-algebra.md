@@ -152,7 +152,7 @@ over {text-decoration:overline}
   * 假设t为标量，A+tI的特征向量和A相同，特征值全部加t。
 * 可对角化：
   * 假设矩阵A的n个特征向量组成S，存在S<sup>-1</sup>AS=Λ，则表示A可对角化
-  * 如果矩阵A可对角化，则A必定存在n个线性无关的特征向量
+  * 如果矩阵A可对角化，则A必定存在n个线性无关的特征向量，反过来也成立
 * 如何证明A=SΛS<sup>-1</sup>（前提是A是可对角化的）
   * 假设矩阵A的n个特征向量组成S，则AS=A|x<sub>1</sub> x<sub>2</sub> ... x<sub>n</sub>|
   * 则有AS=|Ax<sub>1</sub> Ax<sub>2</sub> ... Ax<sub>n</sub>|
@@ -201,9 +201,10 @@ over {text-decoration:overline}
     * 实对称矩阵：A=QΛQ<sup>T</sup>
     * 可对角化矩阵：A=SΛS<sup>-1</sup>
   * 奇异值分解步骤：A=|<span><sup>4 4</sup><sub>-3 3</sub></span>|
-    * 假设B=A<sup>T</sup>A，B是对称矩阵，因而B=QΛQ<sup>T</sup>，[见证明](https://www.zhihu.com/question/57072688/answer/310028211)
+    * （假设B=A<sup>T</sup>A，则B是对称矩阵，因而B=QΛQ<sup>T</sup>，[见证明](https://www.zhihu.com/question/57072688/answer/310028211)）
     * 由A<sup>T</sup>A=V∑<sup>2</sup>V<sup>T</sup>，可求出∑、V
     * 由AA<sup>T</sup>=U∑<sup>2</sup>U<sup>T</sup>，可求出∑、U
+    * 通常不用上一步来求解U，因为可能和∑顺序不匹配，而是通过AV=U∑求解U
 
 #### 8 Linear Transformations(线性变换) 
 * 第30讲
