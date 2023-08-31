@@ -208,8 +208,19 @@ over {text-decoration:overline}
 
 #### 8 Linear Transformations(线性变换) 
 * 第30讲
-  1. The Idea of a Linear Transformation
-  2. The Matrix of a Linear Transformation
+  * 线性变换符合如下规则：对于任意向量v、w和标量c
+    * T(v+w)=T(v)+T(w)，加法不变性
+    * T(cv)=cT(v)，数乘不变性
+  * 反例1：原点不变，沿x轴平移目标，例如向量v(1,1)变成(2,1)
+    * T(2v)=(3,2) 2T(v)=(4,2)，两者不相等，因此不是线性变换
+  * 反例2：T(v)=||v||，表示求v的长度
+    * 若c为正数，例如T(5v)=5*||v||
+    * 若c为负数，例如T(-3v)!=-3*||v||，因此不是线性变换
+  * 正例1：将向量投影
+  * 正例2：矩阵乘法
+  * 正例3：矩阵乘法之将三阶矩阵变成两阶：
+    * 原始向量(c1 c2 c3)，矩阵A是|<span><sup>0 1 0</sup><sub>0 0 2</sub></span>|
+    * 转换后得(c2 2*c3)
 * 第28讲  
   * 相似矩阵：对应n阶矩阵A、B，存在可逆矩阵M使得B=M<sup>-1</sup>AM
     * 例如A=|<span><sup>2 1</sup><sub>1 2</sub></span>|，所有特征值是3、1的矩阵都是A的相似矩阵
