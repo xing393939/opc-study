@@ -2,13 +2,14 @@
 
 #### 一维离散傅里叶变换DFT
 * [2022-04-16 一维离散傅里叶变换DFT - 手算过程](https://juejin.cn/post/7087486616469504036)
+* [使用python进行傅里叶FFT-频谱分析详细教程](https://cloud.tencent.com/developer/article/1441550)
 
 ![Alt text](image-5.png)
 
 ![Alt text](image-6.png)
 
 ```python
-# python实现的一维离散傅里叶变换
+# python实现的一维离散傅里叶变换，结果和上述手算的结果一样
 # DFT_slow等价于np.fft.fft
 import numpy as np
 
