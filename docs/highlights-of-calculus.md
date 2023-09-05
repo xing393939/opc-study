@@ -1,10 +1,11 @@
 ### 微积分重点
 
 <script>
+  // https://static-621585.oss-cn-beijing.aliyuncs.com/mathjax-v3.js
   MathJax = {
     tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']], // 解析行内公式
-      displayMath: [["$$", "$$"], ["\\[", "\\]"]],   //段内公式选择符
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [["$$", "$$"], ["\\[", "\\]"]],
     },
     svg: {
       fontCache: 'global'
