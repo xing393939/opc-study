@@ -20,6 +20,7 @@
   * [整洁架构](docs/clean-architecture.md)
   * [BPF之巅](docs/bpf-performance-tools.md)
   * [线性代数](docs/linear-algebra.md)
+  * [微积分重点](docs/highlights-of-calculus.md)
   * [傅里叶变换](docs/fft.md)
 * 4.AWS SAA认证
   * [1.AWS知识点](docs/saa-1.md)
