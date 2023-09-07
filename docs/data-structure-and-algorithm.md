@@ -49,6 +49,8 @@
   * find、insert、delete 两者都是O(log n)，但zrank、zrange跳表依然是O(log n)
   * 跳表的代码比红黑树容易理解，好实现
 
+![Alt text](image-7.png)
+
 #### 递归、排序、二分查找、哈希算法、图的搜索
 1. 递归：斐波那契数列：F(n)=F(n-1)+F(n-2)
 1. 排序：
