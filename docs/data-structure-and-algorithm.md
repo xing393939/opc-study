@@ -46,7 +46,7 @@
   * 求TopK：先建一个小顶堆，每次insert的时候和堆顶元素对比，小就忽略，大则加入
   * 求50%位的值：一个小顶堆和一个大顶堆，每次insert的时候和小顶堆堆顶元素比较，小则insert，大则insert大顶堆
 1. 跳表：比红黑树的优秀的地方：
-  * find、insert、delete 两者都是O(log n)，但是区间查找跳表依然是O(log n)
+  * find、insert、delete 两者都是O(log n)，但zrank、zrange跳表依然是O(log n)
   * 跳表的代码比红黑树容易理解，好实现
 
 #### 递归、排序、二分查找、哈希算法、图的搜索
