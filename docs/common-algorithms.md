@@ -10,6 +10,7 @@
 #### 数据排序
 
 ![](../images/array-sorting.png)
+（[为什么冒泡排序最优复杂度是O(n)](https://blog.csdn.net/p1279030826/article/details/99072021)）
 
 #### 堆操作
 
