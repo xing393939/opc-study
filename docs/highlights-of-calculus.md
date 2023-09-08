@@ -31,6 +31,6 @@
 * 二阶导数和极值
   * 一阶导数可以找到极值，二阶导数告知它是极大值还是极小值
   * 例：$y = x^2 \to \frac{dy}{dx} = 2x \to \frac{d^2y}{dx^2} = 2 $
-  * 例：$y = \sin x \to y' = \cos x \to y'' = -\sin x $
+  * 例：$y = \sin x \quad\to y' = \cos x \quad\to y'' = -\sin x $
   * 例：$y = x^3 - x^2 \to y' = 3x^2 - 2x \to y'' = 6x -2 $
 
