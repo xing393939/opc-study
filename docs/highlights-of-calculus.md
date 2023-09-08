@@ -23,11 +23,14 @@
 
 #### 课程笔记1
 * 三个重要函数的斜率
-  1. $y = x^n => \frac{dy}{dx} = nx^{n-1}$
+  1. $y = x^n \quad=> \frac{dy}{dx} = nx^{n-1}$
   1. $y = \sin x => \frac{dy}{dx} = \cos x$
-  1. $y = e^x => \frac{dy}{dx} = e^x$
+  1. $y = e^x \quad=> \frac{dy}{dx} = e^x$
 * 自然常数e：e = 2.718...
   * $(1 + \frac{1}{x})^x$无限趋近于e
 * 二阶导数和极值
   * 一阶导数可以找到极值，二阶导数告知它是极大值还是极小值
   * 例：$y = x^2 \to \frac{dy}{dx} = 2x \to \frac{d^2y}{dx^2} = 2 $
+  * 例：$y = \sin x \to y' = \cos x \to y'' = -\sin x $
+  * 例：$y = x^3 - x^2 \to y' = 3x^2 - 2x \to y'' = 6x -2 $
+
