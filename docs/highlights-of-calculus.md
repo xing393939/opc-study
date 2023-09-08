@@ -1,7 +1,6 @@
 ### 微积分重点
 
 <script>
-  // https://static-621585.oss-cn-beijing.aliyuncs.com/mathjax-v3.js
   MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
@@ -13,7 +12,7 @@
   };
 </script>
 <script type="text/javascript" id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+  src="https://static-621585.oss-cn-beijing.aliyuncs.com/mathjax-v3.js">
 </script>
 
 
