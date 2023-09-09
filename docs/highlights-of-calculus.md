@@ -43,14 +43,14 @@
   * 求积分的方法A：例如知道2x的导数是2，则已知导数2就可以反推
   * 求积分的方法B：函数一y的值 = 函数二的面积
 * P6.求sinx和cosx的导数
-  * $f'(\sinx)=\cosx$
-  * $f'(\cosx)=\lim_{\Delta x \to 0}\frac{f(x+\Delta x)-f(x)}{\Delta x}$
-  * $=\lim_{\Delta x \to 0}\frac{\cos(x+\Delta x)-\cos x}{\Delta x}$
-  * $=\lim_{\Delta x \to 0}\frac{\cos x\cos\Delta x-\sin x\sin \Delta x-\cos x}{\Delta x}$
-  * $=\lim_{\Delta x \to 0}\frac{\cos x(\cos\Delta x-1)-\sin x\sin \Delta x}{\Delta x}$
-  * $=\lim_{\Delta x \to 0}\left\[\cos x\frac{(\cos\Delta x-1)}{\Delta x}-\sin x\frac{\sin \Delta x}{\Delta x}\right\]$
-  * $=\cos x\cdot0-\sin x\cdot1$
-  * $=-\sin x$
+  * $f'(\sin x)=\cos x$
+  * $f'(\cos x)=\lim_{\Delta x \to 0} \frac{f(x+\Delta x)-f(x)}{\Delta x}$
+  * $\quad\quad\quad\quad=\lim_{\Delta x \to 0} \frac{\cos(x+\Delta x)-\cos x}{\Delta x}$
+  * $\quad\quad\quad\quad=\lim_{\Delta x \to 0} \frac{\cos x\cos\Delta x-\sin x\sin \Delta x-\cos x}{\Delta x}$
+  * $\quad\quad\quad\quad=\lim_{\Delta x \to 0} \frac{\cos x(\cos\Delta x-1)-\sin x\sin \Delta x}{\Delta x}$
+  * $\quad\quad\quad\quad=\lim_{\Delta x \to 0} \left\[\cos x\frac{(\cos\Delta x-1)}{\Delta x}-\sin x\frac{\sin \Delta x}{\Delta x}\right\]$
+  * $\quad\quad\quad\quad=\cos x\cdot0-\sin x\cdot1$
+  * $\quad\quad\quad\quad=-\sin x$
   
   
   
