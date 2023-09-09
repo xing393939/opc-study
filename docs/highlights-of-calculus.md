@@ -20,6 +20,7 @@
 * [LaTeX公式手册(全网最全)](https://www.cnblogs.com/1024th/p/11623258.html)
 * [学习笔记1](https://www.zhihu.com/column/c_1165312843926171648)
 * [学习笔记2](https://blog.csdn.net/shamozhizhoutx/article/details/125126766)
+* $\lim_{x \to \infty} \frac{1}{n(n+1)}$
 
 #### 课程笔记1
 * P2.三个重要函数的斜率
