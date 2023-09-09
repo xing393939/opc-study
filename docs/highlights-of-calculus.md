@@ -37,11 +37,20 @@
   * $e = (1 + \frac{1}{x})^x$。在银行存￥1，年利率100%，求一年后的复利
   * 假设一年计息4次，最后本息是$(1 + \frac{1}{4})^4$
   * 假设一年计息x次，最后的本息无限趋近于e
+  
+#### 课程笔记2
 * P5.积分总览
-* P6.sinx和cosx
-
-  
-  
+  * 求积分的方法A：例如知道2x的导数是2，则已知导数2就可以反推
+  * 求积分的方法B：函数一y的值 = 函数二的面积
+* P6.求sinx和cosx的导数
+  * $f'(\sinx)=\cosx$
+  * $f'(\cosx)=\lim_{\Delta x \to 0}\frac{f(x+\Delta x)-f(x)}{\Delta x}$
+  * $=\lim_{\Delta x \to 0}\frac{\cos(x+\Delta x)-\cos x}{\Delta x}$
+  * $=\lim_{\Delta x \to 0}\frac{\cos x\cos\Delta x-\sin x\sin \Delta x-\cos x}{\Delta x}$
+  * $=\lim_{\Delta x \to 0}\frac{\cos x(\cos\Delta x-1)-\sin x\sin \Delta x}{\Delta x}$
+  * $=\lim_{\Delta x \to 0}\left\[\cos x\frac{(\cos\Delta x-1)}{\Delta x}-\sin x\frac{\sin \Delta x}{\Delta x}\right\]$
+  * $=\cos x\cdot0-\sin x\cdot1$
+  * $=-\sin x$
   
   
   
