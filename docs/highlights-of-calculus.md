@@ -56,7 +56,7 @@
   * $(f - g)' = f' - g'$
   * $(f * g)' = f'g + g'f$
   * $(f / g)' = \frac{f'g - g'f}{g^2}$
-  
+* P8.链式法则：$z = f(y) y = g(x) => \frac{dz}{dx} = \frac{dz}{dy} \frac{dy}{dx}$
   
   
   
