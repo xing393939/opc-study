@@ -44,11 +44,11 @@
   * 求积分的方法B：函数一y的值 = 函数二的面积
 * P6.求sinx和cosx的导数
   * $f'(\sin x)=\cos x$
-  * $f'(\cos x)=\lim_{\Delta x \to 0} \frac{f(x+\Delta x)-f(x)}{\Delta x}$
-  * $\quad\quad\quad\quad=\lim_{\Delta x \to 0} \frac{\cos(x+\Delta x)-\cos x}{\Delta x}$
-  * $\quad\quad\quad\quad=\lim_{\Delta x \to 0} \frac{\cos x\cos\Delta x-\sin x\sin \Delta x-\cos x}{\Delta x}$
-  * $\quad\quad\quad\quad=\lim_{\Delta x \to 0} \frac{\cos x(\cos\Delta x-1)-\sin x\sin \Delta x}{\Delta x}$
-  * $\quad\quad\quad\quad=\lim_{\Delta x \to 0} \left\[\cos x\frac{(\cos\Delta x-1)}{\Delta x}-\sin x\frac{\sin \Delta x}{\Delta x}\right\]$
+  * $f'(\cos x)=\lim\limits_{\Delta x \to 0} \frac{f(x+\Delta x)-f(x)}{\Delta x}$
+  * $\quad\quad\quad\quad=\lim\limits_{\Delta x \to 0} \frac{\cos(x+\Delta x)-\cos x}{\Delta x}$
+  * $\quad\quad\quad\quad=\lim\limits_{\Delta x \to 0} \frac{\cos x\cos\Delta x-\sin x\sin \Delta x-\cos x}{\Delta x}$
+  * $\quad\quad\quad\quad=\lim\limits_{\Delta x \to 0} \frac{\cos x(\cos\Delta x-1)-\sin x\sin \Delta x}{\Delta x}$
+  * $\quad\quad\quad\quad=\lim\limits_{\Delta x \to 0} \left\[\cos x\frac{(\cos\Delta x-1)}{\Delta x}-\sin x\frac{\sin \Delta x}{\Delta x}\right\]$
   * $\quad\quad\quad\quad=\cos x\cdot0-\sin x\cdot1$
   * $\quad\quad\quad\quad=-\sin x$
 * P7.乘法法则和除法法则
@@ -56,7 +56,7 @@
   * $(f - g)' = f' - g'$
   * $(f * g)' = f'g + g'f$
   * $(f / g)' = \frac{f'g - g'f}{g^2}$
-* P8.链式法则：$z = f(y) y = g(x) => \frac{dz}{dx} = \frac{dz}{dy} \frac{dy}{dx}$
+* P8.链式法则：$z = f(y)\,y = g(x) => \frac{dz}{dx} = \frac{dz}{dy} \frac{dy}{dx}$
   
   
   
