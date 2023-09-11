@@ -20,7 +20,6 @@
 * [LaTeX公式手册(全网最全)](https://www.cnblogs.com/1024th/p/11623258.html)
 * [学习笔记1](https://www.zhihu.com/column/c_1165312843926171648)
 * [学习笔记2](https://blog.csdn.net/shamozhizhoutx/article/details/125126766)
-* $\lim_{x \to \infty} \frac{1}{n(n+1)}$
 
 #### 课程笔记1
 * 自然常数e：e = 2.718...
@@ -52,8 +51,11 @@
   * $\quad\quad\quad\quad=\lim_{\Delta x \to 0} \left\[\cos x\frac{(\cos\Delta x-1)}{\Delta x}-\sin x\frac{\sin \Delta x}{\Delta x}\right\]$
   * $\quad\quad\quad\quad=\cos x\cdot0-\sin x\cdot1$
   * $\quad\quad\quad\quad=-\sin x$
-  
-  
+* P7.乘法法则和除法法则
+  * $(f + g)' = f' + g'$
+  * $(f - g)' = f' - g'$
+  * $(f * g)' = f'g + g'f$
+  * $(f / g)' = \frac{f'g - g'f}{g^2}$
   
   
   
