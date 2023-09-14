@@ -18,6 +18,7 @@
   * [Java工程师进阶知识](docs/advanced-java.md)
   * [整洁代码](docs/clean-code.md)
   * [整洁架构](docs/clean-architecture.md)
+  * [凤凰架构](docs/fenix-architecture.md)
   * [BPF之巅](docs/bpf-performance-tools.md)
   * [线性代数](docs/linear-algebra.md)
   * [微积分重点](docs/highlights-of-calculus.md)
