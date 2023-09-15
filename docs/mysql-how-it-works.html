@@ -648,22 +648,7 @@
 <li>Root of SYS_INDEXES clust index&#x672C;&#x5B57;&#x6BB5;&#x4EE3;&#x8868;SYS_INDEXES&#x8868;&#x805A;&#x7C07;&#x7D22;&#x5F15;&#x7684;&#x6839;&#x9875;&#x9762;&#x7684;&#x9875;&#x53F7;&#x3002;</li>
 <li>Root of SYS_FIELDS clust index&#xFF1A;&#x672C;&#x5B57;&#x6BB5;&#x4EE3;&#x8868;SYS_FIELDS&#x8868;&#x805A;&#x7C07;&#x7D22;&#x5F15;&#x7684;&#x6839;&#x9875;&#x9762;&#x7684;&#x9875;&#x53F7;&#x3002;</li>
 </ul>
-<h4 id="explain&#x5206;&#x6790;&#x7684;type&#x5217;">EXPLAIN&#x5206;&#x6790;&#x7684;type&#x5217;</h4>
-<ul>
-<li>const&#xFF1A;&#x901A;&#x8FC7;&#x4E3B;&#x952E;&#x6216;&#x8005;&#x552F;&#x4E00;&#x7D22;&#x5F15;&#x7B49;&#x503C;&#x67E5;&#x8BE2;&#xFF08;&#x552F;&#x4E00;&#x7D22;&#x5F15;&#x53EF;&#x4EE5;&#x6709;&#x591A;&#x4E2A;null&#x503C;&#xFF0C;&#x6240;&#x4EE5;&#x67E5;null&#x503C;&#x4E0D;&#x7B97;&#xFF09;</li>
-<li>ref&#xFF1A;&#x901A;&#x8FC7;&#x666E;&#x901A;&#x7D22;&#x5F15;&#x7B49;&#x503C;&#x67E5;&#x8BE2;&#xFF0C;&#x6216;&#x8005;&#x552F;&#x4E00;&#x7D22;&#x5F15;&#x67E5;null&#x503C;</li>
-<li>ref_or_null&#xFF1A;where key1=&apos;a&apos; or key1 is null&#x3002;null&#x503C;&#x90FD;&#x5728;&#x7D22;&#x5F15;&#x7684;&#x6700;&#x5DE6;&#x8FB9;&#x3002;</li>
-<li>range&#xFF1A;in&#x67E5;&#x8BE2;&#xFF0C;&gt;&lt;&#x67E5;&#x8BE2;&#xFF0C;like&#x524D;&#x7F00;&#x67E5;&#x8BE2;</li>
-<li>index&#xFF1A;&#x4E0D;&#x80FD;&#x7528;&#x7D22;&#x5F15;&#xFF0C;&#x4F46;&#x662F;&#x53EF;&#x4EE5;&#x7528;&#x8986;&#x76D6;&#x7D22;&#x5F15;</li>
-<li>all&#xFF1A;&#x5168;&#x8868;&#x626B;&#x63CF;</li>
-<li>index_merge&#xFF1A;&#x5982;&#x679C;2&#x4E2A;&#x7D22;&#x5F15;&#x5404;&#x81EA;&#x53D6;&#x5230;&#x7684;&#x7D22;&#x5F15;&#x8BB0;&#x5F55;&#x662F;&#x6309;&#x7167;&#x4E3B;&#x952E;&#x6392;&#x5E8F;&#x7684;&#xFF0C;&#x5219;&#x540C;&#x65F6;&#x4F7F;&#x7528;&#x8FD9;2&#x4E2A;&#x7D22;&#x5F15;&#xFF1A;<ul>
-<li>&#x53D6;&#x4EA4;&#x96C6;&#xFF1A;where key1=&apos;1&apos; and key3=&apos;3&apos;</li>
-<li>&#x53D6;&#x5E76;&#x96C6;&#xFF1A;where key1=&apos;1&apos; or key3=&apos;3&apos;</li>
-<li>&#x5148;&#x6392;&#x5E8F;&#x518D;&#x53D6;&#x5E76;&#x96C6;&#xFF1A;where key1&lt;&apos;1&apos; or key3&gt;&apos;3&apos;&#xFF08;&#x867D;&#x7136;&#x5404;&#x81EA;&#x7684;&#x8BB0;&#x5F55;&#x4E0D;&#x662F;&#x6309;&#x7167;&#x4E3B;&#x952E;&#x6392;&#x5E8F;&#xFF0C;&#x4F46;&#x662F;&#x8BB0;&#x5F55;&#x6570;&#x4E0D;&#x591A;&#xFF09;</li>
-</ul>
-</li>
-</ul>
-<h4 id="&#x4E24;&#x8868;&#x8FDE;&#x63A5;">&#x4E24;&#x8868;&#x8FDE;&#x63A5;</h4>
+<h4 id="&#x7B2C;11&#x7AE0;-&#x4E24;&#x8868;&#x8FDE;&#x63A5;">&#x7B2C;11&#x7AE0; &#x4E24;&#x8868;&#x8FDE;&#x63A5;</h4>
 <ul>
 <li>&#x5185;&#x8FDE;&#x63A5;&#xFF1A;from t1, t2 &#x6216; from t1 inner join t2&#x3002;where &#x6761;&#x4EF6;&#x4F1A;&#x8FC7;&#x6EE4;&#x8BB0;&#x5F55;</li>
 <li>&#x5DE6;&#x8FDE;&#x63A5;&#xFF1A;from t1 left join t2 ON ... WHERE ...&#x3002;where &#x6761;&#x4EF6;&#x4F1A;&#x8FC7;&#x6EE4;&#x8BB0;&#x5F55;&#xFF0C;ON &#x6761;&#x4EF6;&#x4E0D;&#x7B26;&#x5408;&#x7684;&#x8BB0;&#x5F55;&#x4ECD;&#x7136;&#x5C55;&#x793A;&#x3002;</li>
@@ -782,7 +767,22 @@
 </li>
 </ul>
 <h4 id="&#x7B2C;15&#x7AE0;-explain&#x8BE6;&#x89E3;">&#x7B2C;15&#x7AE0; EXPLAIN&#x8BE6;&#x89E3;</h4>
-<pre><code>create table s1 like single_table;
+<pre><code>CREATE TABLE single_table (
+    id INT NOT NULL AUTO_INCREMENT,
+    key1 VARCHAR(100),
+    key2 INT,
+    key3 VARCHAR(100),
+    key_part1 VARCHAR(100),
+    key_part2 VARCHAR(100),
+    key_part3 VARCHAR(100),
+    common_field VARCHAR(100),
+    PRIMARY KEY (id),
+    KEY idx_key1 (key1),
+    UNIQUE KEY idx_key2 (key2),
+    KEY idx_key3 (key3),
+    KEY idx_key_part(key_part1, key_part2, key_part3)
+) Engine=InnoDB CHARSET=utf8;
+create table s1 like single_table;
 create table s2 like single_table;
 DELIMITER //
 create procedure insert_table(in max int(10))
@@ -794,9 +794,8 @@ insert into s1 values(NULL,i%100,i,i%10,i,MD5(i),RAND(),i);
 insert into s2 values(NULL,i%100,i,i%10,i,MD5(i),RAND(),i);
 insert into single_table values(NULL,i%100,i,i%10,i,MD5(i),RAND(),i);
 until i=max end repeat;
-end;
+end//
 call insert_table(5000);
-//
 
 1. select_type: 
 * SIMPLE: EXPLAIN SELECT * FROM s1 INNER JOIN s2; // &#x4E0D;&#x5305;&#x542B;union&#x6216;&#x8005;&#x5B50;&#x67E5;&#x8BE2;
@@ -809,16 +808,19 @@ call insert_table(5000);
 * MATERIALIZED : EXPLAIN SELECT * FROM s1 WHERE key1 IN (SELECT key1 FROM s2); // &#x5305;&#x542B;&#x5B50;&#x67E5;&#x8BE2;&#xFF0C;&#x51B3;&#x5B9A;&#x91C7;&#x7528;&#x5B50;&#x67E5;&#x8BE2;&#x7269;&#x5316;&#x7684;&#x65B9;&#x6848;
 
 2. type
-* const: EXPLAIN SELECT * FROM s1 WHERE id = 5; // &#x4E3B;&#x952E;&#x6216;&#x8005;&#x552F;&#x4E00;&#x7D22;&#x5F15;
+* const: EXPLAIN SELECT * FROM s1 WHERE id = 5; // &#x4E3B;&#x952E;&#x6216;&#x8005;&#x552F;&#x4E00;&#x7D22;&#x5F15;&#xFF08;&#x552F;&#x4E00;&#x7D22;&#x5F15;&#x53EF;&#x4EE5;&#x6709;&#x591A;&#x4E2A;null&#x503C;&#xFF0C;&#x6240;&#x4EE5;&#x67E5;null&#x503C;&#x4E0D;&#x7B97;&#xFF09;
 * eq_ref: EXPLAIN SELECT * FROM s1 INNER JOIN s2 ON s1.id = s2.id; // &#x8FDE;&#x63A5;&#x67E5;&#x8BE2;&#x3001;&#x4E3B;&#x952E;&#x6216;&#x8005;&#x4E0D;&#x4E3A;null&#x7684;&#x552F;&#x4E00;&#x7D22;&#x5F15;
-* ref: EXPLAIN SELECT * FROM s1 WHERE key1 = &apos;a&apos;; // &#x666E;&#x901A;&#x7D22;&#x5F15;
-* ref_or_null: EXPLAIN SELECT * FROM s1 WHERE key1 = &apos;a&apos; OR key1 IS NULL;
-* index_merge: EXPLAIN SELECT * FROM s1 WHERE key1 = &apos;a&apos; OR key3 = &apos;a&apos;; // &#x7D22;&#x5F15;&#x5408;&#x5E76;
+* ref: EXPLAIN SELECT * FROM s1 WHERE key1 = &apos;a&apos;; // &#x901A;&#x8FC7;&#x666E;&#x901A;&#x7D22;&#x5F15;&#x7B49;&#x503C;&#x67E5;&#x8BE2;&#xFF0C;&#x6216;&#x8005;&#x552F;&#x4E00;&#x7D22;&#x5F15;&#x67E5;null&#x503C;
+* ref_or_null: EXPLAIN SELECT * FROM s1 WHERE key1 = &apos;a&apos; OR key1 IS NULL; // null&#x503C;&#x90FD;&#x5728;&#x7D22;&#x5F15;&#x7684;&#x6700;&#x5DE6;&#x8FB9;&#x3002;
 * unique_subquery: EXPLAIN SELECT * FROM s1 WHERE key2 IN (SELECT id FROM s2 where s1.key1 = s2.key1) OR key3 = &apos;a&apos;; // IN&#x67E5;&#x8BE2;&#x8F6C;EXISTS&#xFF0C;&#x53EF;&#x7528;&#x4E3B;&#x952E;&#x6216;&#x8005;&#x4E0D;&#x4E3A;null&#x7684;&#x552F;&#x4E00;&#x7D22;&#x5F15;
 * index_subquery: EXPLAIN SELECT * FROM s1 WHERE key2 IN (SELECT key3 FROM s2 where s1.key1 = s2.key1) OR key3 = &apos;a&apos;; // IN&#x67E5;&#x8BE2;&#x8F6C;EXISTS&#xFF0C;&#x53EF;&#x7528;&#x666E;&#x901A;&#x7D22;&#x5F15;
-* range: EXPLAIN SELECT * FROM s1 WHERE key1 IN (&apos;a&apos;, &apos;b&apos;, &apos;c&apos;);
+* range: EXPLAIN SELECT * FROM s1 WHERE key1 IN (&apos;a&apos;, &apos;b&apos;, &apos;c&apos;); // in&#x67E5;&#x8BE2;&#xFF0C;&gt;&lt;&#x67E5;&#x8BE2;&#xFF0C;like&#x524D;&#x7F00;&#x67E5;&#x8BE2;
 * index: EXPLAIN SELECT key_part2 FROM s1 WHERE key_part3 = &apos;a&apos;; // &#x8986;&#x76D6;&#x7D22;&#x5F15;&#xFF0C;&#x4F46;&#x662F;&#x9700;&#x8981;&#x626B;&#x63CF;&#x5168;&#x90E8;&#x7D22;&#x5F15;
 * all: EXPLAIN SELECT * FROM s1; // &#x5168;&#x8868;&#x626B;&#x63CF;
+* index_merge&#xFF1A;&#x5982;&#x679C;2&#x4E2A;&#x7D22;&#x5F15;&#x5404;&#x81EA;&#x53D6;&#x5230;&#x7684;&#x7D22;&#x5F15;&#x8BB0;&#x5F55;&#x662F;&#x6309;&#x7167;&#x4E3B;&#x952E;&#x6392;&#x5E8F;&#x7684;&#xFF0C;&#x5219;&#x540C;&#x65F6;&#x4F7F;&#x7528;&#x8FD9;2&#x4E2A;&#x7D22;&#x5F15;&#xFF1A;
+  * &#x53D6;&#x4EA4;&#x96C6;&#xFF1A;where key1=&apos;1&apos; and key3=&apos;3&apos;
+  * &#x53D6;&#x5E76;&#x96C6;&#xFF1A;where key1=&apos;1&apos; or key3=&apos;3&apos;
+  * &#x5148;&#x6392;&#x5E8F;&#x518D;&#x53D6;&#x5E76;&#x96C6;&#xFF1A;where key1&lt;&apos;1&apos; or key3&gt;&apos;3&apos;&#xFF08;&#x867D;&#x7136;&#x5404;&#x81EA;&#x7684;&#x8BB0;&#x5F55;&#x4E0D;&#x662F;&#x6309;&#x7167;&#x4E3B;&#x952E;&#x6392;&#x5E8F;&#xFF0C;&#x4F46;&#x662F;&#x8BB0;&#x5F55;&#x6570;&#x4E0D;&#x591A;&#xFF09;
 
 3. key_len:
 * int4&#x5B57;&#x8282;&#x3001;bigint8&#x5B57;&#x8282;
@@ -1083,7 +1085,7 @@ call insert_table(5000);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"MySQL 是怎样运行的","level":"1.3.3","depth":2,"next":{"title":"DDIA","level":"1.3.4","depth":2,"path":"docs/ddia.md","ref":"docs/ddia.md","articles":[]},"previous":{"title":"Redis 深度历险","level":"1.3.2","depth":2,"path":"docs/redis-in-depth.md","ref":"docs/redis-in-depth.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/mysql-how-it-works.md","mtime":"2023-09-14T06:23:59.926Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-14T06:24:25.937Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"MySQL 是怎样运行的","level":"1.3.3","depth":2,"next":{"title":"DDIA","level":"1.3.4","depth":2,"path":"docs/ddia.md","ref":"docs/ddia.md","articles":[]},"previous":{"title":"Redis 深度历险","level":"1.3.2","depth":2,"path":"docs/redis-in-depth.md","ref":"docs/redis-in-depth.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/mysql-how-it-works.md","mtime":"2023-09-15T03:44:54.202Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-15T03:45:25.936Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
