@@ -1,5 +1,28 @@
 ### MySQL 是怎样运行的
 
+#### redo、undo、binlog
+|操作|redo|undo|
+|---|---|---|
+|Tx1 write(x, 1) |x=1   |x=0|
+|Tx1 write(x, 2) |x=2   |x=1|
+|Tx1 commit      |commit|commit|
+
+```
+1.如果只有undo日志，则是undo -> data落盘 -> commit标记
+  假如commit标记前，data没有落盘，此时宕机，data数据丢失
+  假如data落盘后，commit还没有标记都宕机，undo日志回滚此事务
+  因为要求必须在commit标记前让data落盘，所以性能很差
+2.如果只有redo日志，则是redo -> commit标记 -> data落盘
+  假如commit标记后，data没有落盘，此时宕机，redo日志重放恢复
+  假如commit还没有标记，data就落盘了，此时宕机data中会存在提交的数据
+  因为要求必须在commit标记后让data落盘：
+    问题1，同一个page只要有一个事务还未提交，则不能落盘，需要大量内存维持这种场景
+    问题2，假设需要update大表的全部记录，此时产生大量的脏页且不能落盘
+3.undo+redo：undo+redo -> commit标记
+  data可以随心所欲的落盘
+  undo在commit标记后，还不能删除，因为undo还充当mvcc的历史版本，但是可以删除ReadView链最小事务之后的undo
+```
+
 #### 表空间
 * 表空间：1个表对应1个表空间
 * 段：好比一个师，1个索引有2个段（叶子节点段、非叶子节点段），开始表只有2个段，每加1个索引增加2个段，对应的描述是INODE Entry
