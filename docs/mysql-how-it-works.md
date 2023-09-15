@@ -15,7 +15,7 @@
 2.如果只有redo日志，则是redo -> commit标记 -> data落盘
   假如commit标记后，data没有落盘，此时宕机，redo日志重放恢复
   假如commit还没有标记，data就落盘了，此时宕机data中会存在提交的数据
-  因为要求必须在commit标记后让data落盘：
+  因为要求必须在commit标记后data才能落盘：
     问题1，同一个page只要有一个事务还未提交，则不能落盘，需要大量内存维持这种场景
     问题2，假设需要update大表的全部记录，此时产生大量的脏页且不能落盘
 3.undo+redo：undo+redo -> commit标记
