@@ -46,19 +46,7 @@
 * Root of SYS_INDEXES clust index本字段代表SYS_INDEXES表聚簇索引的根页面的页号。
 * Root of SYS_FIELDS clust index：本字段代表SYS_FIELDS表聚簇索引的根页面的页号。
 
-#### EXPLAIN分析的type列
-* const：通过主键或者唯一索引等值查询（唯一索引可以有多个null值，所以查null值不算）
-* ref：通过普通索引等值查询，或者唯一索引查null值
-* ref_or_null：where key1='a' or key1 is null。null值都在索引的最左边。
-* range：in查询，><查询，like前缀查询
-* index：不能用索引，但是可以用覆盖索引
-* all：全表扫描
-* index_merge：如果2个索引各自取到的索引记录是按照主键排序的，则同时使用这2个索引：
-  * 取交集：where key1='1' and key3='3'
-  * 取并集：where key1='1' or key3='3'
-  * 先排序再取并集：where key1<'1' or key3>'3'（虽然各自的记录不是按照主键排序，但是记录数不多）
-
-#### 两表连接
+#### 第11章 两表连接
 * 内连接：from t1, t2 或 from t1 inner join t2。where 条件会过滤记录
 * 左连接：from t1 left join t2 ON ... WHERE ...。where 条件会过滤记录，ON 条件不符合的记录仍然展示。
 * 右连接：from t1 left join t2 ON ... WHERE ...。where 条件会过滤记录，ON 条件不符合的记录仍然展示。
@@ -145,6 +133,21 @@
 #### 第15章 EXPLAIN详解
 
 ```
+CREATE TABLE single_table (
+    id INT NOT NULL AUTO_INCREMENT,
+    key1 VARCHAR(100),
+    key2 INT,
+    key3 VARCHAR(100),
+    key_part1 VARCHAR(100),
+    key_part2 VARCHAR(100),
+    key_part3 VARCHAR(100),
+    common_field VARCHAR(100),
+    PRIMARY KEY (id),
+    KEY idx_key1 (key1),
+    UNIQUE KEY idx_key2 (key2),
+    KEY idx_key3 (key3),
+    KEY idx_key_part(key_part1, key_part2, key_part3)
+) Engine=InnoDB CHARSET=utf8;
 create table s1 like single_table;
 create table s2 like single_table;
 DELIMITER //
@@ -157,9 +160,8 @@ insert into s1 values(NULL,i%100,i,i%10,i,MD5(i),RAND(),i);
 insert into s2 values(NULL,i%100,i,i%10,i,MD5(i),RAND(),i);
 insert into single_table values(NULL,i%100,i,i%10,i,MD5(i),RAND(),i);
 until i=max end repeat;
-end;
+end//
 call insert_table(5000);
-//
 
 1. select_type: 
 * SIMPLE: EXPLAIN SELECT * FROM s1 INNER JOIN s2; // 不包含union或者子查询
@@ -172,16 +174,19 @@ call insert_table(5000);
 * MATERIALIZED : EXPLAIN SELECT * FROM s1 WHERE key1 IN (SELECT key1 FROM s2); // 包含子查询，决定采用子查询物化的方案
 
 2. type
-* const: EXPLAIN SELECT * FROM s1 WHERE id = 5; // 主键或者唯一索引
+* const: EXPLAIN SELECT * FROM s1 WHERE id = 5; // 主键或者唯一索引（唯一索引可以有多个null值，所以查null值不算）
 * eq_ref: EXPLAIN SELECT * FROM s1 INNER JOIN s2 ON s1.id = s2.id; // 连接查询、主键或者不为null的唯一索引
-* ref: EXPLAIN SELECT * FROM s1 WHERE key1 = 'a'; // 普通索引
-* ref_or_null: EXPLAIN SELECT * FROM s1 WHERE key1 = 'a' OR key1 IS NULL;
-* index_merge: EXPLAIN SELECT * FROM s1 WHERE key1 = 'a' OR key3 = 'a'; // 索引合并
+* ref: EXPLAIN SELECT * FROM s1 WHERE key1 = 'a'; // 通过普通索引等值查询，或者唯一索引查null值
+* ref_or_null: EXPLAIN SELECT * FROM s1 WHERE key1 = 'a' OR key1 IS NULL; // null值都在索引的最左边。
 * unique_subquery: EXPLAIN SELECT * FROM s1 WHERE key2 IN (SELECT id FROM s2 where s1.key1 = s2.key1) OR key3 = 'a'; // IN查询转EXISTS，可用主键或者不为null的唯一索引
 * index_subquery: EXPLAIN SELECT * FROM s1 WHERE key2 IN (SELECT key3 FROM s2 where s1.key1 = s2.key1) OR key3 = 'a'; // IN查询转EXISTS，可用普通索引
-* range: EXPLAIN SELECT * FROM s1 WHERE key1 IN ('a', 'b', 'c');
+* range: EXPLAIN SELECT * FROM s1 WHERE key1 IN ('a', 'b', 'c'); // in查询，><查询，like前缀查询
 * index: EXPLAIN SELECT key_part2 FROM s1 WHERE key_part3 = 'a'; // 覆盖索引，但是需要扫描全部索引
 * all: EXPLAIN SELECT * FROM s1; // 全表扫描
+* index_merge：如果2个索引各自取到的索引记录是按照主键排序的，则同时使用这2个索引：
+  * 取交集：where key1='1' and key3='3'
+  * 取并集：where key1='1' or key3='3'
+  * 先排序再取并集：where key1<'1' or key3>'3'（虽然各自的记录不是按照主键排序，但是记录数不多）
 
 3. key_len:
 * int4字节、bigint8字节
