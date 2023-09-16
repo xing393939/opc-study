@@ -10,7 +10,7 @@
 ```
 1.如果只有undo日志，则是undo -> data落盘 -> commit标记
   假如commit标记前，data没有落盘，此时宕机，data数据丢失
-  假如data落盘后，commit还没有标记都宕机，undo日志回滚此事务
+  假如data落盘后，commit还没有标记就宕机，undo日志回滚此事务
   因为要求必须在commit标记前让data落盘，所以性能很差
 2.如果只有redo日志，则是redo -> commit标记 -> data落盘
   假如commit标记后，data没有落盘，此时宕机，redo日志重放恢复
