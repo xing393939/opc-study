@@ -73,15 +73,7 @@
 * 内连接：from t1, t2 或 from t1 inner join t2。where 条件会过滤记录
 * 左连接：from t1 left join t2 ON ... WHERE ...。where 条件会过滤记录，ON 条件不符合的记录仍然展示。
 * 右连接：from t1 left join t2 ON ... WHERE ...。where 条件会过滤记录，ON 条件不符合的记录仍然展示。
-* 驱动表的EXPLAIN分析和上文描述一致
-* 被驱动表EXPLAIN分析的type列：
-  * eq_ref：通过主键或者不能为null的唯一索引
-  * ref：通过普通索引等值查询，或者可以为null的唯一索引
-  * ref_or_null：where key1='a' or key1 is null。null值都在索引的最左边。
-  * range：in查询，><查询，like前缀查询
-  * index：不能用索引，但是可以用覆盖索引
-  * all：全表扫描
-* 从驱动表查到的结果集先放到Join Buffer内(默认256K)，然后再到被驱动表查询
+* 驱动表查到的结果集先放到Join Buffer内(默认256K)，然后再到被驱动表查询
 
 #### 第12章 执行计划的成本计算
 * 成本计算依赖的数据：
@@ -183,7 +175,7 @@ insert into s1 values(NULL,i%100,i,i%10,i,MD5(i),RAND(),i);
 insert into s2 values(NULL,i%100,i,i%10,i,MD5(i),RAND(),i);
 insert into single_table values(NULL,i%100,i,i%10,i,MD5(i),RAND(),i);
 until i=max end repeat;
-end//
+end //
 call insert_table(5000);
 
 1. select_type: 
