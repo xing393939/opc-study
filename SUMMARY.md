@@ -6,11 +6,12 @@
   * [数据结构、数组排序、堆操作](docs/common-algorithms.md)
   * [数据结构和算法之美](docs/data-structure-and-algorithm.md)
   * [剑指Offer](docs/sword-finger-offer.md)
-* 2.数据库
+* 2.数据库和缓存
   * [Redis 5设计与源码分析](docs/redis5-source.md)
   * [Redis 深度历险](docs/redis-in-depth.md)
   * [MySQL 是怎样运行的](docs/mysql-how-it-works.md)
   * [DDIA](docs/ddia.md)
+  * [缓存模式](docs/cache-policies.md)
 * 3.其他
   * [性能之颠](docs/systems-performance.md)
   * [Head First设计模式](docs/head-first-design-patterns.md)
