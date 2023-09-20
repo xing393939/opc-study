@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>傅里叶变换 · GitBook</title>
+        <title>缓存模式 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -58,7 +58,7 @@
 
     
     
-    <link rel="prev" href="highlights-of-calculus.html" />
+    <link rel="prev" href="ddia.html" />
     
 
     </head>
@@ -226,7 +226,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5" data-path="cache-policies.html">
+        <li class="chapter active" data-level="1.3.5" data-path="cache-policies.html">
             
                 <a href="cache-policies.html">
             
@@ -388,7 +388,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4.11" data-path="fft.html">
+        <li class="chapter " data-level="1.4.11" data-path="fft.html">
             
                 <a href="fft.html">
             
@@ -591,7 +591,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >傅里叶变换</a>
+        <a href=".." >缓存模式</a>
     </h1>
 </div>
 
@@ -606,31 +606,25 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="&#x5085;&#x91CC;&#x53F6;&#x53D8;&#x6362;">&#x5085;&#x91CC;&#x53F6;&#x53D8;&#x6362;</h3>
-<h4 id="&#x4E00;&#x7EF4;&#x79BB;&#x6563;&#x5085;&#x91CC;&#x53F6;&#x53D8;&#x6362;dft">&#x4E00;&#x7EF4;&#x79BB;&#x6563;&#x5085;&#x91CC;&#x53F6;&#x53D8;&#x6362;DFT</h4>
+                                <h3 id="&#x7F13;&#x5B58;&#x6A21;&#x5F0F;">&#x7F13;&#x5B58;&#x6A21;&#x5F0F;</h3>
+<h4 id="&#x4E94;&#x79CD;&#x7F13;&#x5B58;&#x6A21;&#x5F0F;">&#x4E94;&#x79CD;&#x7F13;&#x5B58;&#x6A21;&#x5F0F;</h4>
 <ul>
-<li><a href="https://juejin.cn/post/7087486616469504036" target="_blank">2022-04-16 &#x4E00;&#x7EF4;&#x79BB;&#x6563;&#x5085;&#x91CC;&#x53F6;&#x53D8;&#x6362;DFT - &#x624B;&#x7B97;&#x8FC7;&#x7A0B;</a></li>
-<li><a href="https://cloud.tencent.com/developer/article/1441550" target="_blank">&#x4F7F;&#x7528;python&#x8FDB;&#x884C;&#x5085;&#x91CC;&#x53F6;FFT-&#x9891;&#x8C31;&#x5206;&#x6790;&#x8BE6;&#x7EC6;&#x6559;&#x7A0B;</a></li>
+<li><a href="https://xie.infoq.cn/article/49947a60376964f1c16369a8b" target="_blank">&#x7F13;&#x5B58;&#x7684;&#x4E94;&#x79CD;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;</a></li>
+<li>Cache aside&#xFF1A;cache&#x4E0D;&#x5B58;&#x5728;&#x65F6;&#x53BB;&#x8BFB;db&#xFF1B;&#x5199;db&#xFF0C;&#x5199;&#x5B8C;&#x5220;cache</li>
+<li>Read Through&#xFF1A;cache&#x4E0D;&#x5B58;&#x5728;&#x65F6;cache&#x53BB;&#x8BFB;db</li>
+<li>Write through&#xFF1A;&#x5148;&#x66F4;&#x65B0;cache&#x518D;&#x66F4;&#x65B0;db&#xFF0C;&#x90FD;&#x6210;&#x529F;&#x540E;&#x8FD4;&#x56DE;</li>
+<li>Write Behind&#xFF1A;&#x5148;&#x66F4;&#x65B0;cache&#xFF0C;&#x518D;&#x5F02;&#x6B65;&#x66F4;&#x65B0;db&#xFF0C;&#x4E5F;&#x79F0;Write Back</li>
+<li>Write Around&#xFF1A;&#x7ED5;&#x8FC7;cache&#x76F4;&#x63A5;&#x66F4;&#x65B0;db</li>
 </ul>
-<p><img src="image-5.png" alt="Alt text"></p>
-<p><img src="image-6.png" alt="Alt text"></p>
-<pre><code class="lang-python"><span class="hljs-comment"># python&#x5B9E;&#x73B0;&#x7684;&#x4E00;&#x7EF4;&#x79BB;&#x6563;&#x5085;&#x91CC;&#x53F6;&#x53D8;&#x6362;&#xFF0C;&#x7ED3;&#x679C;&#x548C;&#x4E0A;&#x8FF0;&#x624B;&#x7B97;&#x7684;&#x7ED3;&#x679C;&#x4E00;&#x6837;</span>
-<span class="hljs-comment"># DFT_slow&#x7B49;&#x4EF7;&#x4E8E;np.fft.fft</span>
-<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
-
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">DFT_slow</span><span class="hljs-params">(x)</span>:</span>
-    x = np.asarray(x, dtype=float)
-    N = x.shape[<span class="hljs-number">0</span>]
-    n = np.arange(N)
-    k = n.reshape((N, <span class="hljs-number">1</span>))
-    M = np.exp(<span class="hljs-number">-2j</span> * np.pi * k * n / N)
-    <span class="hljs-keyword">return</span> np.dot(M, x)
-
-x = np.array([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>])
-y = DFT_slow(x)
-print(y)
-print(np.fft.fft(x))
-</code></pre>
+<h4 id="cpu-cache">CPU Cache</h4>
+<ul>
+<li>write-invalidate&#xFF0C;Core1&#x4FEE;&#x6539;x=3&#xFF0C;&#x5219;&#x9700;&#x66F4;&#x65B0;L3&#x7F13;&#x5B58;&#xFF0C;&#x540C;&#x65F6;&#x901A;&#x77E5;&#x5176;&#x4ED6;Core&#x7684;L1&#x3001;L2&#x5931;&#x6548;</li>
+<li></li>
+</ul>
+<h4 id="server-cache">Server Cache</h4>
+<ul>
+<li></li>
+</ul>
 
                                 
                                 </section>
@@ -658,7 +652,7 @@ print(np.fft.fft(x))
 
             
                 
-                <a href="highlights-of-calculus.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 微积分重点">
+                <a href="ddia.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: DDIA">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -670,7 +664,7 @@ print(np.fft.fft(x))
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"傅里叶变换","level":"1.4.11","depth":2,"next":{"title":"4.AWS SAA认证","level":"1.5","depth":1,"ref":"","articles":[{"title":"1.AWS知识点","level":"1.5.1","depth":2,"path":"docs/saa-1.md","ref":"docs/saa-1.md","articles":[]},{"title":"2.AWS认证英语学习","level":"1.5.2","depth":2,"path":"docs/saa-2.md","ref":"docs/saa-2.md","articles":[]},{"title":"3.AWS的其他服务","level":"1.5.3","depth":2,"path":"docs/saa-3.md","ref":"docs/saa-3.md","articles":[]},{"title":"4.AWS Github Study Guide","level":"1.5.4","depth":2,"path":"docs/saa-4.md","ref":"docs/saa-4.md","articles":[]}]},"previous":{"title":"微积分重点","level":"1.4.10","depth":2,"path":"docs/highlights-of-calculus.md","ref":"docs/highlights-of-calculus.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/fft.md","mtime":"2023-09-20T04:02:03.985Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-20T04:02:31.354Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"缓存模式","level":"1.3.5","depth":2,"next":{"title":"3.其他","level":"1.4","depth":1,"ref":"","articles":[{"title":"性能之颠","level":"1.4.1","depth":2,"path":"docs/systems-performance.md","ref":"docs/systems-performance.md","articles":[]},{"title":"Head First设计模式","level":"1.4.2","depth":2,"path":"docs/head-first-design-patterns.md","ref":"docs/head-first-design-patterns.md","articles":[]},{"title":"趣谈网络协议","level":"1.4.3","depth":2,"path":"docs/talk-about-network-protocol.md","ref":"docs/talk-about-network-protocol.md","articles":[]},{"title":"Java工程师进阶知识","level":"1.4.4","depth":2,"path":"docs/advanced-java.md","ref":"docs/advanced-java.md","articles":[]},{"title":"整洁代码","level":"1.4.5","depth":2,"path":"docs/clean-code.md","ref":"docs/clean-code.md","articles":[]},{"title":"整洁架构","level":"1.4.6","depth":2,"path":"docs/clean-architecture.md","ref":"docs/clean-architecture.md","articles":[]},{"title":"凤凰架构","level":"1.4.7","depth":2,"path":"docs/fenix-architecture.md","ref":"docs/fenix-architecture.md","articles":[]},{"title":"BPF之巅","level":"1.4.8","depth":2,"path":"docs/bpf-performance-tools.md","ref":"docs/bpf-performance-tools.md","articles":[]},{"title":"线性代数","level":"1.4.9","depth":2,"path":"docs/linear-algebra.md","ref":"docs/linear-algebra.md","articles":[]},{"title":"微积分重点","level":"1.4.10","depth":2,"path":"docs/highlights-of-calculus.md","ref":"docs/highlights-of-calculus.md","articles":[]},{"title":"傅里叶变换","level":"1.4.11","depth":2,"path":"docs/fft.md","ref":"docs/fft.md","articles":[]}]},"previous":{"title":"DDIA","level":"1.3.4","depth":2,"path":"docs/ddia.md","ref":"docs/ddia.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/cache-policies.md","mtime":"2023-09-20T04:02:03.985Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-20T04:02:31.354Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
