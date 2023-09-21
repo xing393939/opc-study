@@ -20,6 +20,8 @@
 
 #### Server Cache
 * [缓存模式以及缓存的数据一致性](https://stephanietang.github.io/2020/04/13/cache-pattern/)
+* [dtm-labs缓存一致性](https://www.dtm.pub/app/cache.html)
+* [携程最终一致和强一致性缓存实践](https://www.infoq.cn/article/hh4iouiijhwb4x46vxeo)
 * 方案一：Cache aside
   * 优点：仅在cacheMiss时更新缓存
   * 缺点：cacheMiss时读取耗时长，且存在[缓存不一致问题](../images/cache-aside-trouble.png)
@@ -40,6 +42,8 @@
 * 基于方案一的优化2：[Facebook的方案](../images/cache-facebook.png)
   * 请求1：cacheMiss并得到leaseId->读v1->set(v1, leaseId)
   * 请求2：writeDB(v2)->delCache并使leaseId失效
-
+* 基于方案一的优化3：[携程的方案](../images/cache-ctrip.png)
+  * 请求1：加锁（cacheMiss->读v1->set）
+  * 请求2：加锁（writeDB(v2)->delCache）
 
 
