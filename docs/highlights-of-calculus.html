@@ -696,7 +696,7 @@
 <li>P10.&#x9006;&#x51FD;&#x6570;&#x548C;&#x5BF9;&#x6570;&#x51FD;&#x6570;<ul>
 <li>&#x9006;&#x51FD;&#x6570;&#xFF1A;y=f(x)&#x7684;&#x9006;&#x51FD;&#x6570;&#x662F;x=f<sup>&#x2212;1</sup>(y)<ul>
 <li>&#x4F8B;1&#xFF1A;$y=x^2 \quad=&gt; x=\sqrt{y}$</li>
-<li>&#x4F8B;2&#xFF1A;$A=&#x3C0;r^2 =&gt; \; r=\sqrt{\frac{A}{&#x3C0;}} $ </li>
+<li>&#x4F8B;2&#xFF1A;$A=&#x3C0;r^2 \; =&gt; r=\sqrt{\frac{A}{&#x3C0;}} $ </li>
 <li>&#x4F8B;3&#xFF1A;$y=e^x \quad=&gt; x=\ln y$</li>
 </ul>
 </li>
@@ -709,14 +709,17 @@
 </li>
 <li>P11.&#x5BF9;&#x6570;&#x51FD;&#x6570;&#x548C;&#x53CD;&#x4E09;&#x89D2;&#x51FD;&#x6570;&#x7684;&#x5BFC;&#x6570;<ul>
 <li>&#x5BF9;&#x6570;&#x51FD;&#x6570;&#xFF1A;$\frac{d}{dx} (\ln x) = \frac{1}{x}$&#xFF0C;&#x63A8;&#x5BFC;&#x5982;&#x4E0B;&#xFF1A;<ul>
-<li>$y=ln x$&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF1A;$y=e^x$&#xFF0C;&#x5176;&#x4E2D;$x=\ln y$&#xFF0C;&#x53EF;&#x5F97;$y=e^{\ln y}$&#xFF0C;&#x4E24;&#x8FB9;&#x5206;&#x522B;&#x6C42;&#x5BFC;&#x53EF;&#x5F97;</li>
+<li>$x=ln y$&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF1A;$y=e^x$&#xFF0C;&#x56E0;&#x4E3A;$x=\ln y$&#xFF0C;&#x53EF;&#x5F97;$y=e^{\ln y}$&#xFF0C;&#x4E24;&#x8FB9;&#x5206;&#x522B;&#x6C42;&#x5BFC;&#x53EF;&#x5F97;</li>
 <li>$1 = \frac{d}{dy} (e^{\ln y})$</li>
 <li>$e^{\ln y} \frac{d}{dy} (\ln y) = 1$</li>
 <li>$y \frac{d}{dy} (\ln y) = 1$</li>
 <li>$\frac{d}{dy} (\ln y) = \frac{1}{y}$</li>
 </ul>
 </li>
-<li>&#x53CD;&#x4E09;&#x89D2;&#x51FD;&#x6570;1&#xFF1A;$\frac{d}{dx}(\sin^{-1}x)=\frac{1}{\sqrt{1-x^2}}$&#xFF0C;&#x63A8;&#x5BFC;&#x5982;&#x4E0B;&#xFF1A;</li>
+<li>&#x53CD;&#x4E09;&#x89D2;&#x51FD;&#x6570;1&#xFF1A;$\frac{d}{dx}(\sin^{-1}x)=\frac{1}{\sqrt{1-x^2}}$&#xFF0C;&#x63A8;&#x5BFC;&#x5982;&#x4E0B;&#xFF1A;<ul>
+<li>$x = \sin^{-1}y$&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF1A;$y = \sin x$&#xFF0C;&#x56E0;&#x4E3A;$x = \sin^{-1}y$&#xFF0C;&#x53EF;&#x5F97;$y = \sin(\sin^{-1}y)$&#xFF0C;&#x4E24;&#x8FB9;&#x5206;&#x522B;&#x6C42;&#x5BFC;&#x53EF;&#x5F97;</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -763,7 +766,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"微积分重点","level":"1.4.10","depth":2,"next":{"title":"傅里叶变换","level":"1.4.11","depth":2,"path":"docs/fft.md","ref":"docs/fft.md","articles":[]},"previous":{"title":"线性代数","level":"1.4.9","depth":2,"path":"docs/linear-algebra.md","ref":"docs/linear-algebra.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/highlights-of-calculus.md","mtime":"2023-09-24T10:04:23.784Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-24T10:04:50.457Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"微积分重点","level":"1.4.10","depth":2,"next":{"title":"傅里叶变换","level":"1.4.11","depth":2,"path":"docs/fft.md","ref":"docs/fft.md","articles":[]},"previous":{"title":"线性代数","level":"1.4.9","depth":2,"path":"docs/linear-algebra.md","ref":"docs/linear-algebra.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/highlights-of-calculus.md","mtime":"2023-09-24T11:48:29.778Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-24T11:48:57.327Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
