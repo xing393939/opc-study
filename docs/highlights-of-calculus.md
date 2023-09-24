@@ -74,13 +74,14 @@
     * 性质2：$\ln (y^n) = n\ln y$
 * P11.对数函数和反三角函数的导数
   * 对数函数：$\frac{d}{dx} (\ln x) = \frac{1}{x}$，推导如下：
-    * $x=ln y$的构造函数：$y=e^x$，因为$x=\ln y$，可得$y=e^{\ln y}$，两边分别求导可得
+    * $x=ln y$的构造函数：$y=e^x => y=e^{\ln y}$，两边分别求导可得
     * $1 = \frac{d}{dy} (e^{\ln y})$
     * $e^{\ln y} \frac{d}{dy} (\ln y) = 1$
     * $y \frac{d}{dy} (\ln y) = 1$
     * $\frac{d}{dy} (\ln y) = \frac{1}{y}$
   * 反三角函数1：$\frac{d}{dx}(\sin^{-1}x)=\frac{1}{\sqrt{1-x^2}}$，推导如下：
-    * $x = \sin^{-1}y$的构造函数：$y = \sin x$，因为$x = \sin^{-1}y$，可得$y = \sin(\sin^{-1}y)$，两边分别求导可得
+    * $x = \sin^{-1}y$的构造函数：$y = \sin x => y = \sin(\sin^{-1}y)$，两边分别求导可得
+    
     
   
   
