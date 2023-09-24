@@ -58,22 +58,28 @@
   * $(f / g)' = \frac{f'g - g'f}{g^2}$
 * P8.链式法则：$z = f(y)\,y = g(x) => \frac{dz}{dx} = \frac{dz}{dy} \frac{dy}{dx}$
 * P9.极限和连续
-  * 四种极限的特性情况：
+  * 四种极限的特殊情况：
     * $a_n - b_n$：∞ - ∞
     * $a_n \* b_n$：0 \* ∞
     * $a_n / b_n$：0 / 0 或者 ∞ / ∞
-    * $a_n^{b_n}$：0 ^ 0 或者 1 ^ ∞
+    * $(a_n)^{b_n}$：0 ^ 0 或者 1 ^ ∞
   * 函数连续性的定义：对于任意的ϵ > 0，存在δ > 0，如果∣x − a∣ < δ，那么∣f(x) − f(a)∣ < ϵ 
 * P10.逆函数和对数函数
   * 逆函数：y=f(x)的逆函数是x=f<sup>−1</sup>(y)
     * 例1：$y=x^2 \quad=> x=\sqrt{y}$
-    * 例2：$A=πr^2 => r=\sqrt{\frac{A}{π}} $ 
+    * 例2：$A=πr^2 => \, r=\sqrt{\frac{A}{π}} $ 
     * 例3：$y=e^x \quad=> x=\ln y$
   * 对数函数
     * 性质1：$\ln (AB) = \ln A + \ln B$
     * 性质2：$\ln (y^n) = n\ln y$
 * P11.对数函数和反三角函数的导数
-  * 对数函数：$\frac{d}{dx} (\ln x) = \frac{1}{x}$
+  * 对数函数：$\frac{d}{dx} (\ln x) = \frac{1}{x}$，推导如下：
+    * $\ln y = \ln e^x = x$，对两边同时求导：
+    * $\frac{d}{dx} (\ln e^x) = 1$
+    * $\frac{d}{dy} (\ln y) \frac{d}{dx} (e^x) = 1$
+    * $\frac{d}{dy} (\ln y) (e^x) = 1$
+    * $\frac{d}{dy} (\ln y) = \frac{1}{e^x}$
+    * $\frac{d}{dy} (\ln y) = \frac{1}{y}$
     
   
   
