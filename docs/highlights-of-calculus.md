@@ -67,19 +67,20 @@
 * P10.逆函数和对数函数
   * 逆函数：y=f(x)的逆函数是x=f<sup>−1</sup>(y)
     * 例1：$y=x^2 \quad=> x=\sqrt{y}$
-    * 例2：$A=πr^2 => \, r=\sqrt{\frac{A}{π}} $ 
+    * 例2：$A=πr^2 => \; r=\sqrt{\frac{A}{π}} $ 
     * 例3：$y=e^x \quad=> x=\ln y$
   * 对数函数
     * 性质1：$\ln (AB) = \ln A + \ln B$
     * 性质2：$\ln (y^n) = n\ln y$
 * P11.对数函数和反三角函数的导数
   * 对数函数：$\frac{d}{dx} (\ln x) = \frac{1}{x}$，推导如下：
-    * $\ln y = \ln e^x = x$，对两边同时求导：
-    * $\frac{d}{dx} (\ln e^x) = 1$
-    * $\frac{d}{dy} (\ln y) \frac{d}{dx} (e^x) = 1$
-    * $\frac{d}{dy} (\ln y) (e^x) = 1$
-    * $\frac{d}{dy} (\ln y) = \frac{1}{e^x}$
+    * $y=ln x$的构造函数：$y=e^x$，其中$x=\ln y$，可得$y=e^{\ln y}$，两边分别求导可得
+    * $1 = \frac{d}{dy} (e^{\ln y})$
+    * $e^{\ln y} \frac{d}{dy} (\ln y) = 1$
+    * $y \frac{d}{dy} (\ln y) = 1$
     * $\frac{d}{dy} (\ln y) = \frac{1}{y}$
+  * 反三角函数1：$\frac{d}{dx}(\sin^{-1}x)=\frac{1}{\sqrt{1-x^2}}$，推导如下：
+    
     
   
   
