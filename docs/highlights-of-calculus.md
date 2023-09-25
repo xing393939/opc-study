@@ -85,6 +85,9 @@
     * $1 = \sqrt{1-y^2} \frac{d}{dy} \sin^{-1}y $
     * $\frac{d}{dy}(\sin^{-1}y)=\frac{1}{\sqrt{1-y^2}}$
   * （证明$\cos(\sin^{-1}y) = \sqrt{1-y^2}$）  
+    * $(\sin θ)^2 + (\cos θ)^2 = 1$，令sinθ=y，则cosθ=cos(sin<sup>-1</sup>y)
+    * 可得：$\cos(\sin^{-1}y) = \sqrt{1-y^2}$
+  * 反三角函数2：$\frac{d}{dx}(\cos^{-1}x)=-\frac{1}{\sqrt{1-x^2}}$
   
   
   
