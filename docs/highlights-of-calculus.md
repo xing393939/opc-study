@@ -82,8 +82,9 @@
   * 反三角函数1：$\frac{d}{dx}(\sin^{-1}x)=\frac{1}{\sqrt{1-x^2}}$，推导如下：
     * $x = \sin^{-1}y$的构造函数：$y = \sin x => y = \sin(\sin^{-1}y)$，两边分别求导可得
     * $1 = \cos(\sin^{-1}y) \frac{d}{dy} \sin^{-1}y $
-    * $1 = \sqrt{1}{1-y^2} \frac{d}{dy} \sin^{-1}y $
+    * $1 = \sqrt{1-y^2} \frac{d}{dy} \sin^{-1}y $
     * $\frac{d}{dy}(\sin^{-1}y)=\frac{1}{\sqrt{1-y^2}}$
+  * （证明$\cos(\sin^{-1}y) = \sqrt{1-y^2}$）  
   
   
   
