@@ -30,9 +30,9 @@
   1. $y = e^x \quad=> \frac{dy}{dx} = e^x$
 * P3.极值和二阶导数
   * 一阶导数可以找到极值，二阶导数告知它是极大值还是极小值
-  * 例：$y = x^2 \to \frac{dy}{dx} = 2x \to \frac{d^2y}{dx^2} = 2 $
-  * 例：$y = \sin x \quad\to y' = \cos x \quad\quad\to y'' = -\sin x $
-  * 例：$y = x^3 - x^2 \to y' = 3x^2 - 2x \to y'' = 6x -2 $
+  * 例：$y = x^2 \quad\quad=> \frac{dy}{dx} = 2x => \frac{d^2y}{dx^2} = 2 $
+  * 例：$y = \sin x \quad=> y' = \cos x \quad\quad=> y'' = -\sin x $
+  * 例：$y = x^3 - x^2 => y' = 3x^2 - 2x => y'' = 6x -2 $
 * P4.指数函数
   * $e = (1 + \frac{1}{x})^x$。在银行存￥1，年利率100%，求一年后的复利
   * 假设一年计息4次，最后本息是$(1 + \frac{1}{4})^4$
