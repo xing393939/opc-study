@@ -30,7 +30,7 @@
   1. $y = e^x \quad=> \frac{dy}{dx} = e^x$
 * P3.极值和二阶导数
   * 一阶导数可以找到极值，二阶导数告知它是极大值还是极小值
-  * 例：$y = x^2 \quad\quad=> \frac{dy}{dx} = 2x => \frac{d^2y}{dx^2} = 2 $
+  * 例：$y = x^2 \quad\quad=> \frac{dy}{dx} = 2x \quad\quad=> \frac{d^2y}{dx^2} = 2 $
   * 例：$y = \sin x \quad=> y' = \cos x \quad\quad=> y'' = -\sin x $
   * 例：$y = x^3 - x^2 => y' = 3x^2 - 2x => y'' = 6x -2 $
 * P4.指数函数
@@ -81,8 +81,9 @@
     * $\frac{d}{dy} (\ln y) = \frac{1}{y}$
   * 反三角函数1：$\frac{d}{dx}(\sin^{-1}x)=\frac{1}{\sqrt{1-x^2}}$，推导如下：
     * $x = \sin^{-1}y$的构造函数：$y = \sin x => y = \sin(\sin^{-1}y)$，两边分别求导可得
-    
-    
+    * $1 = \cos(\sin^{-1}y) \frac{d}{dy} \sin^{-1}y $
+    * $1 = \sqrt{1}{1-y^2} \frac{d}{dy} \sin^{-1}y $
+    * $\frac{d}{dy}(\sin^{-1}y)=\frac{1}{\sqrt{1-y^2}}$
   
   
   
