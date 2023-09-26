@@ -91,10 +91,10 @@
   
 #### 课程笔记3
 * P12.增长率和对数图
-  * y=x<sup>1.5</sup>，两边同时求对：logy=1.5 * logx
-    * 对数图：x轴是logx，y轴是logy，是一条直线
-  * y=B * 10<sup>cx</sup>，两边同时求对：logy=logB + cx
-    * 对数图：x轴是x，y轴是logy，是一条直线
+  * y=x<sup>1.5</sup>，两边同时求对：log y=1.5 * log x
+    * 对数图：x轴是log x，y轴是log y，是一条直线
+  * y=B * 10<sup>cx</sup>，两边同时求对：log y=log B + cx
+    * 对数图：x轴是x，y轴是log y，是一条直线
 * P13.线性近似和牛顿法
   * 线性近似：假设选定一个x，求f(x)的值
     * $f'(a) ≈ \frac{f(x) - f(a)}{x - a}$，a为x附近的一个点
