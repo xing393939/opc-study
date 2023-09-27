@@ -56,7 +56,7 @@
   * $(f - g)' = f' - g'$
   * $(f * g)' = f'g + g'f$
   * $(f / g)' = \frac{f'g - g'f}{g^2}$
-* P8.链式法则：$z = f(y) \And\And y = g(x) => \frac{dz}{dx} = \frac{dz}{dy} \frac{dy}{dx}$
+* P8.链式法则：$z = f(y) \quad y = g(x) => \frac{dz}{dx} = \frac{dz}{dy} \frac{dy}{dx}$
 * P9.极限和连续
   * 四种极限的特殊情况：
     * $a_n - b_n$：∞ - ∞
@@ -131,7 +131,8 @@
     * 常系数：指y和n阶导数前的系数都是常数
     * 线性：指y和n阶导数的幂都是1
     * 二阶微分：最多是二阶导数
-  * 当m=0时，$\frac{dy}{dt} = ay$，改微分方程的解为：$y = Ce^{at}$，C为任意值
+  * 当m=0时，$\frac{dy}{dt} = ay$，该微分方程的解为：$y = Ce^{at}$，C为任意值
+  * 当r=0时，$\frac{d^2y}{dt^2} = -ω^2y$，该微分方程的解为：$y = C\cos (wt)$或$y = D\sin (wt)$
   
   
   
