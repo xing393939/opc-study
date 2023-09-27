@@ -768,6 +768,20 @@
 <li>P14.&#x5E42;&#x7EA7;&#x6570;&#x53CA;&#x6B27;&#x62C9;&#x516C;&#x5F0F;<ul>
 <li>x=a&#x7684;&#x5E42;&#x7EA7;&#x6570;&#xFF1A;$a_0 + a_1(x - a) + a_2(x - a)^2 + a_3(x - a)^3 + ...$</li>
 <li>x=0&#x7684;&#x5E42;&#x7EA7;&#x6570;&#xFF1A;$a_0 + a_1(x) + a_2(x)^2 + a_3(x)^3 + ...$</li>
+<li>&#x6CF0;&#x52D2;&#x7EA7;&#x6570;&#x7684;<a href="../images/taylor-series.jpg">&#x5B9A;&#x4E49;</a></li>
+<li>f(x)&#x5173;&#x4E8E;x=0&#x7684;&#x6CF0;&#x52D2;&#x7EA7;&#x6570;&#xFF1A;$f(x) = f(0) + f&apos;(0)x + \frac{f&apos;&apos;(x)}{2!}x^2 + \frac{f&apos;&apos;&apos;(x)}{3!}x^3 + ...$<ul>
+<li>$e^x = 1 + x + \frac{1}{2!}x^2 + \frac{1}{3!}x^3 + ...$&#xFF0C;e<sup>x</sup>&#x7684;&#x6240;&#x6709;&#x5BFC;&#x6570;&#x5728;x=0&#x5904;&#x90FD;&#x662F;1</li>
+<li>$\sin x = x - \frac{1}{3!}x^3 + \frac{1}{5!}x^5 - \frac{1}{7!}x^7 + ...$</li>
+<li>$\cos x = 1 - \frac{1}{2!}x^2 + \frac{1}{4!}x^4 - \frac{1}{6!}x^6 + ...$</li>
+</ul>
+</li>
+<li>&#x6B27;&#x62C9;&#x516C;&#x5F0F;&#xFF1A;$e^{ix} = \cos x + i\sin x$&#xFF0C;&#x63A8;&#x5BFC;&#x5982;&#x4E0B;&#xFF1A;<ul>
+<li>$e^{ix} = 1 + ix + \frac{1}{2!}(ix)^2 + \frac{1}{3!}(ix)^3 + \frac{1}{4!}(ix)^4 + ...$</li>
+<li>$e^{ix} = 1 + ix - \frac{1}{2!}x^2 - \frac{i}{3!}x^3 + \frac{1}{4!}x^4 + ...$</li>
+<li>$e^{ix} = (1 - \frac{1}{2!}x^2 + \frac{1}{4!}x^4 + ...) + i(x - \frac{1}{3!}x^3 + ...) $</li>
+<li>$e^{ix} = \cos x + i\sin x$</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -814,7 +828,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"微积分重点","level":"1.4.10","depth":2,"next":{"title":"傅里叶变换","level":"1.4.11","depth":2,"path":"docs/fft.md","ref":"docs/fft.md","articles":[]},"previous":{"title":"线性代数","level":"1.4.9","depth":2,"path":"docs/linear-algebra.md","ref":"docs/linear-algebra.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/highlights-of-calculus.md","mtime":"2023-09-27T03:23:01.475Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-27T03:23:27.912Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"微积分重点","level":"1.4.10","depth":2,"next":{"title":"傅里叶变换","level":"1.4.11","depth":2,"path":"docs/fft.md","ref":"docs/fft.md","articles":[]},"previous":{"title":"线性代数","level":"1.4.9","depth":2,"path":"docs/linear-algebra.md","ref":"docs/linear-algebra.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/highlights-of-calculus.md","mtime":"2023-09-27T06:45:08.234Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-27T06:45:39.714Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
