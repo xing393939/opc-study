@@ -160,5 +160,6 @@
     * 令$y = \frac{1}{P}$可得：$\frac{dy}{dt} = \frac{dy}{dP}\frac{dP}{dt} = -\frac{1}{P^2}(cP - sP^2)$
     * $\frac{dy}{dt} = -(\frac{c}{P} - s) = -(cy - s)$
     * $y = \frac{s}{c} + (y(0) - \frac{s}{c})e^{ct}$，再带入$y = \frac{1}{P}$可得P
-  
+  1. 捕食-猎物模型：$\frac{du}{dt} = -cu + suv \quad \frac{dv}{dt} = cv - suv$
+    * u(t)：捕食者的种族数量变化；v(t)：猎物的种族数量变化
 
