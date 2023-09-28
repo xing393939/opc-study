@@ -152,7 +152,13 @@
     * $y(0) = A$，可得$y = y(0)e^{ct}$
     * y(t)：存储账号的钱；y(0)初始金额；c：年利息
     * 假设y(0)=10000, c=0.03，则y(1)=10304.545
-  1. 增长可积累或者有消耗：$\frac{dy}{dt} = cy + s$，s>0表示增长可积累的，s<0表示增长有消耗
-  
+  1. 增长可积累或者有消耗：$\frac{dy}{dt} = cy + s$，s>0表示增长可积累，s<0表示增长有消耗
+    * $\frac{d}{dt}(y + \frac{s}{c}) = c(y + \frac{s}{c})$
+    * $y + \frac{s}{c} = (y(0) + \frac{s}{c})e^{ct}$
+    * $y = -\frac{s}{c} + (y(0) + \frac{s}{c})e^{ct}$
+  1. 人口增长模型：$\frac{dP}{dt} = cP - sP^2$，c是出生率-死亡率，s是人口因竞争而减少的系数
+    * 令$y = \frac{1}{P}$可得：$\frac{dy}{dt} = \frac{dy}{dP}\frac{dP}{dt} = -\frac{1}{P^2}(cP - sP^2)$
+    * $\frac{dy}{dt} = -(\frac{c}{P} - s) = -(cy - s)$
+    * $y = \frac{s}{c} + (y(0) - \frac{s}{c})e^{ct}$，再带入$y = \frac{1}{P}$可得P
   
 
