@@ -112,7 +112,7 @@
   * x=a的幂级数：$a_0 + a_1(x - a) + a_2(x - a)^2 + a_3(x - a)^3 + ...$
   * x=0的幂级数：$a_0 + a_1(x) + a_2(x)^2 + a_3(x)^3 + ...$
   * 泰勒级数的[定义](../images/taylor-series.jpg)
-  * f(x)关于x=0的泰勒级数：$f(x) = f(0) + f'(0)x + \frac{f''(x)}{2!}x^2 + \frac{f'''(x)}{3!}x^3 + ...$
+  * f(x)关于x=0的泰勒级数：$f(x) = f(0) + f'(0)x + \frac{f''(0)}{2!}x^2 + \frac{f'''(0)}{3!}x^3 + ...$
     * $e^x = 1 + x + \frac{1}{2!}x^2 + \frac{1}{3!}x^3 + ...$，e<sup>x</sup>的所有导数在x=0处都是1
     * $\sin x = x - \frac{1}{3!}x^3 + \frac{1}{5!}x^5 - \frac{1}{7!}x^7 + ...$
     * $\cos x = 1 - \frac{1}{2!}x^2 + \frac{1}{4!}x^4 - \frac{1}{6!}x^6 + ...$
@@ -184,6 +184,6 @@
   1. 微积分的第一基本定理：若$f(x)=\int^x_a s(t)dt$，则$\frac{df}{dx}=s(x)$，$\int$是[积分符号](https://baike.baidu.com/item/%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F/8556651)
   1. 微积分的第二基本定理：若$\frac{df}{dx}=s(x)$，则$\int^b_a s(t)dt=f(b)-f(a)$
   1. 全值定理：假设函数f(x)在闭区间\[a,b]内连续，f(x)可以取到的最大值M最小值m，那么f(x)可以取到M和m之间的所有值。
-  1. 中值定理：假设函数f(x)在闭区间\[a,b]内连续，在[开区间](https://www.runoob.com/w3cnote/programming-range.html)\(a,b)可导，则\(a,b)内至少有一点c：
-    * $f'(c)=\frac{f(b)-f(a)}{b-a}$
-
+  1. 中值定理：假设函数f(x)在闭区间\[a,b]内连续，在[开区间](https://www.runoob.com/w3cnote/programming-range.html)\(a,b)可导，则\(a,b)内至少有一点c使得$f'(c)=\frac{f(b)-f(a)}{b-a}$
+  1. 泰勒级数：f(x)关于x=a的泰勒级数：$f(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \frac{f'''(a)}{3!}(x-a)^3 + ...$
+  1. 两项式定理：
