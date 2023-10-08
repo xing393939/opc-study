@@ -12,7 +12,12 @@
   * [MySQL 是怎样运行的](docs/mysql-how-it-works.md)
   * [DDIA](docs/ddia.md)
   * [缓存模式](docs/cache-policies.md)
-* 3.其他
+* 3.机器学习
+  * [线性代数](docs/linear-algebra.md)
+  * [微积分重点](docs/highlights-of-calculus.md)
+  * [刘二大人](docs/liu-er.md)
+  * [傅里叶变换](docs/fft.md)
+* 4.其他
   * [性能之颠](docs/systems-performance.md)
   * [Head First设计模式](docs/head-first-design-patterns.md)
   * [趣谈网络协议](docs/talk-about-network-protocol.md)
@@ -21,15 +26,12 @@
   * [整洁架构](docs/clean-architecture.md)
   * [凤凰架构](docs/fenix-architecture.md)
   * [BPF之巅](docs/bpf-performance-tools.md)
-  * [线性代数](docs/linear-algebra.md)
-  * [微积分重点](docs/highlights-of-calculus.md)
-  * [傅里叶变换](docs/fft.md)
-* 4.AWS SAA认证
+* 5.AWS SAA认证
   * [1.AWS知识点](docs/saa-1.md)
   * [2.AWS认证英语学习](docs/saa-2.md)
   * [3.AWS的其他服务](docs/saa-3.md)
   * [4.AWS Github Study Guide](docs/saa-4.md)
-* 5.TiDB PCTA认证
+* 6.TiDB PCTA认证
   * [1.TiDB 基础知识](docs/tidb-1.md)
   * [2.TiDB in Action: 原理和特性](docs/tidb-2.md)
   * [3.TiDB in Action: 部署与管理](docs/tidb-3.md)
