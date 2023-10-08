@@ -163,3 +163,12 @@
   1. 捕食-猎物模型：$\frac{du}{dt} = -cu + suv \quad \frac{dv}{dt} = cv - suv$
     * u(t)：捕食者的种族数量变化；v(t)：猎物的种族数量变化
 
+#### 课程笔记6
+| 积分 | 六函数 | 导数 |
+|------|-------|------|
+| $x^{n+1}/(n+1)$ | $x^n$ | $nx^{n-1}$ |
+| $-\cos x$ | $\sin x$ | $\cos x$ |
+| $\sin x$ | $\cos x$ | $-\sin x$ |
+| $\rm e^{cx}/c$ | $\rm e^{cx}$ | $c\rm e^{cx}$ |
+| $x\ln x - x$ | $\ln x$ | $1/x$ |
+| 斜坡函数<br>Ramp function | 阶跃函数<br>Step function | 冲激函数<br>Delta function |
