@@ -179,6 +179,7 @@
   3. 除法法则：$f(x)/g(x)$ 的导数为$(\frac{df}{dx}g - f\frac{dg}{dx})/{g^2}$
   4. 链式法则：$f(g(x))$ 的导数为$\frac{df}{dy}\frac{dy}{dx}$，其中y=g(x)
   5. 逆函数法则：$x=f^{-1}(y)$ 的导数为$\frac{dx}{dy}=\frac{1}{dy/dx}$
-  6. 洛必达法则：当x→a，f(x)→0和g(x)→0时，如何求f(x)/g(x)：$\lim_{x\to a}\frac{f(x)}{g(x)}=\frac{df/dx}{dg/dx}=\frac{f'(x)}{g'(x)}$
-  
+  6. 洛必达法则：当x→a，f(x)→0和g(x)→0时，如何求f(x)/g(x)：$\lim\limits_{x\to a}\frac{f(x)}{g(x)}=\frac{df/dx}{dg/dx}=\frac{f'(x)}{g'(x)}$
+* 六定理
+  1. 微积分的第一基本定理：若$f(x)=\int^x_a s(t)dt$，则$\frac{df}{dx}=f(x)$，$\int$是[积分符号](https://baike.baidu.com/item/%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F/8556651)
 
