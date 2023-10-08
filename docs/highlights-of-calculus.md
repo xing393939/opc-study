@@ -172,3 +172,12 @@
 | $\rm e^{cx}/c$ | $\rm e^{cx}$ | $c\rm e^{cx}$ |
 | $x\ln x - x$ | $\ln x$ | $1/x$ |
 | 斜坡函数<br>Ramp function | 阶跃函数<br>Step function | 冲激函数<br>Delta function |
+
+  
+* 六法则
+  1. 加法法则： $af(x)+bg(x)$ 的导数为$a\frac{df}{dx} + b\frac{dg}{dx}$
+  2. 乘法法则： $f(x)g(x)$ 的导数为$\frac{df}{dx}g(x) + f(x)\frac{dg}{dx}$
+  3. 除法法则： $f(x)/g(x)$ 的导数为$(\frac{df}{dx}g - f\frac{dg}{dx})/{g^2}$
+
+  
+
