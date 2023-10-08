@@ -181,5 +181,9 @@
   5. 逆函数法则：$x=f^{-1}(y)$ 的导数为$\frac{dx}{dy}=\frac{1}{dy/dx}$
   6. 洛必达法则：当x→a，f(x)→0和g(x)→0时，如何求f(x)/g(x)：$\lim\limits_{x\to a}\frac{f(x)}{g(x)}=\frac{df/dx}{dg/dx}=\frac{f'(x)}{g'(x)}$
 * 六定理
-  1. 微积分的第一基本定理：若$f(x)=\int^x_a s(t)dt$，则$\frac{df}{dx}=f(x)$，$\int$是[积分符号](https://baike.baidu.com/item/%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F/8556651)
+  1. 微积分的第一基本定理：若$f(x)=\int^x_a s(t)dt$，则$\frac{df}{dx}=s(x)$，$\int$是[积分符号](https://baike.baidu.com/item/%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F/8556651)
+  1. 微积分的第二基本定理：若$\frac{df}{dx}=s(x)$，则$\int^b_a s(t)dt=f(b)-f(a)$
+  1. 全值定理：假设函数f(x)在闭区间\[a,b]内连续，f(x)可以取到的最大值M最小值m，那么f(x)可以取到M和m之间的所有值。
+  1. 中值定理：假设函数f(x)在闭区间\[a,b]内连续，在[开区间](https://www.runoob.com/w3cnote/programming-range.html)\(a,b)可导，则\(a,b)内至少有一点c：
+    * $f'(c)=\frac{f(b)-f(a)}{b-a}$
 
