@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>傅里叶变换 · GitBook</title>
+        <title>刘二大人 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,8 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="fft.html" />
     
-    <link rel="prev" href="liu-er.html" />
+    
+    <link rel="prev" href="highlights-of-calculus.html" />
     
 
     </head>
@@ -284,7 +286,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="liu-er.html">
+        <li class="chapter active" data-level="1.4.3" data-path="liu-er.html">
             
                 <a href="liu-er.html">
             
@@ -297,7 +299,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4.4" data-path="fft.html">
+        <li class="chapter " data-level="1.4.4" data-path="fft.html">
             
                 <a href="fft.html">
             
@@ -623,7 +625,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >傅里叶变换</a>
+        <a href=".." >刘二大人</a>
     </h1>
 </div>
 
@@ -638,31 +640,26 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="&#x5085;&#x91CC;&#x53F6;&#x53D8;&#x6362;">&#x5085;&#x91CC;&#x53F6;&#x53D8;&#x6362;</h3>
-<h4 id="&#x4E00;&#x7EF4;&#x79BB;&#x6563;&#x5085;&#x91CC;&#x53F6;&#x53D8;&#x6362;dft">&#x4E00;&#x7EF4;&#x79BB;&#x6563;&#x5085;&#x91CC;&#x53F6;&#x53D8;&#x6362;DFT</h4>
+                                <h3 id="&#x5218;&#x4E8C;&#x5927;&#x4EBA;">&#x5218;&#x4E8C;&#x5927;&#x4EBA;</h3>
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [["$$", "$$"], ["\\[", "\\]"]],
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+</script>
+<script type="text/javascript" id="MathJax-script" async src="https://static-621585.oss-cn-beijing.aliyuncs.com/mathjax-v3.js">
+</script>
+
+<h4 id="&#x53C2;&#x8003;&#x8D44;&#x6599;">&#x53C2;&#x8003;&#x8D44;&#x6599;</h4>
 <ul>
-<li><a href="https://juejin.cn/post/7087486616469504036" target="_blank">2022-04-16 &#x4E00;&#x7EF4;&#x79BB;&#x6563;&#x5085;&#x91CC;&#x53F6;&#x53D8;&#x6362;DFT - &#x624B;&#x7B97;&#x8FC7;&#x7A0B;</a></li>
-<li><a href="https://cloud.tencent.com/developer/article/1441550" target="_blank">&#x4F7F;&#x7528;python&#x8FDB;&#x884C;&#x5085;&#x91CC;&#x53F6;FFT-&#x9891;&#x8C31;&#x5206;&#x6790;&#x8BE6;&#x7EC6;&#x6559;&#x7A0B;</a></li>
+<li><a href="https://www.cnblogs.com/zhouyeqin/category/2231506.html" target="_blank">&#x5218;&#x4E8C;&#x5927;&#x4EBA;-cnblog</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/166104074" target="_blank">&#x5218;&#x4E8C;&#x5927;&#x4EBA;-zhihu</a></li>
 </ul>
-<p><img src="image-5.png" alt="Alt text"></p>
-<p><img src="image-6.png" alt="Alt text"></p>
-<pre><code class="lang-python"><span class="hljs-comment"># python&#x5B9E;&#x73B0;&#x7684;&#x4E00;&#x7EF4;&#x79BB;&#x6563;&#x5085;&#x91CC;&#x53F6;&#x53D8;&#x6362;&#xFF0C;&#x7ED3;&#x679C;&#x548C;&#x4E0A;&#x8FF0;&#x624B;&#x7B97;&#x7684;&#x7ED3;&#x679C;&#x4E00;&#x6837;</span>
-<span class="hljs-comment"># DFT_slow&#x7B49;&#x4EF7;&#x4E8E;np.fft.fft</span>
-<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
-
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">DFT_slow</span><span class="hljs-params">(x)</span>:</span>
-    x = np.asarray(x, dtype=float)
-    N = x.shape[<span class="hljs-number">0</span>]
-    n = np.arange(N)
-    k = n.reshape((N, <span class="hljs-number">1</span>))
-    M = np.exp(<span class="hljs-number">-2j</span> * np.pi * k * n / N)
-    <span class="hljs-keyword">return</span> np.dot(M, x)
-
-x = np.array([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>])
-y = DFT_slow(x)
-print(y)
-print(np.fft.fft(x))
-</code></pre>
 
                                 
                                 </section>
@@ -690,10 +687,14 @@ print(np.fft.fft(x))
 
             
                 
-                <a href="liu-er.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 刘二大人">
+                <a href="highlights-of-calculus.html" class="navigation navigation-prev " aria-label="Previous page: 微积分重点">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="fft.html" class="navigation navigation-next " aria-label="Next page: 傅里叶变换">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -702,7 +703,7 @@ print(np.fft.fft(x))
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"傅里叶变换","level":"1.4.4","depth":2,"next":{"title":"4.其他","level":"1.5","depth":1,"ref":"","articles":[{"title":"性能之颠","level":"1.5.1","depth":2,"path":"docs/systems-performance.md","ref":"docs/systems-performance.md","articles":[]},{"title":"Head First设计模式","level":"1.5.2","depth":2,"path":"docs/head-first-design-patterns.md","ref":"docs/head-first-design-patterns.md","articles":[]},{"title":"趣谈网络协议","level":"1.5.3","depth":2,"path":"docs/talk-about-network-protocol.md","ref":"docs/talk-about-network-protocol.md","articles":[]},{"title":"Java工程师进阶知识","level":"1.5.4","depth":2,"path":"docs/advanced-java.md","ref":"docs/advanced-java.md","articles":[]},{"title":"整洁代码","level":"1.5.5","depth":2,"path":"docs/clean-code.md","ref":"docs/clean-code.md","articles":[]},{"title":"整洁架构","level":"1.5.6","depth":2,"path":"docs/clean-architecture.md","ref":"docs/clean-architecture.md","articles":[]},{"title":"凤凰架构","level":"1.5.7","depth":2,"path":"docs/fenix-architecture.md","ref":"docs/fenix-architecture.md","articles":[]},{"title":"BPF之巅","level":"1.5.8","depth":2,"path":"docs/bpf-performance-tools.md","ref":"docs/bpf-performance-tools.md","articles":[]}]},"previous":{"title":"刘二大人","level":"1.4.3","depth":2,"path":"docs/liu-er.md","ref":"docs/liu-er.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/fft.md","mtime":"2023-10-08T09:07:37.778Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-10-08T09:08:10.881Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"刘二大人","level":"1.4.3","depth":2,"next":{"title":"傅里叶变换","level":"1.4.4","depth":2,"path":"docs/fft.md","ref":"docs/fft.md","articles":[]},"previous":{"title":"微积分重点","level":"1.4.2","depth":2,"path":"docs/highlights-of-calculus.md","ref":"docs/highlights-of-calculus.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/liu-er.md","mtime":"2023-10-08T09:07:37.782Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-10-08T09:08:10.881Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
