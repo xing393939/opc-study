@@ -19,3 +19,5 @@
 * [刘二大人-cnblog](https://www.cnblogs.com/zhouyeqin/category/2231506.html)
 * [刘二大人-zhihu](https://zhuanlan.zhihu.com/p/166104074)
 
+#### 第二讲-线性模型
+* MSE：均值平方误差(Mean Square Error)，$MSE=\sum_{n=1}^N (\hat{y}_n - y_n)^2$
