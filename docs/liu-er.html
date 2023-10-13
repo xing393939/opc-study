@@ -663,6 +663,23 @@
 <h4 id="&#x7B2C;&#x4E8C;&#x8BB2;-&#x7EBF;&#x6027;&#x6A21;&#x578B;">&#x7B2C;&#x4E8C;&#x8BB2;-&#x7EBF;&#x6027;&#x6A21;&#x578B;</h4>
 <ul>
 <li>MSE&#xFF1A;&#x5747;&#x503C;&#x5E73;&#x65B9;&#x8BEF;&#x5DEE;(Mean Square Error)&#xFF0C;$MSE=\frac{1}{N} \sum\limits_{n=1}^N (\hat{y}_n - y_n)^2$</li>
+<li>&#x8BAD;&#x7EC3;&#x96C6;(1,2)&#x3001;(2,4)&#x3001;(3,6)&#xFF0C;&#x7528;&#x7A77;&#x4E3E;&#x6CD5;&#x9884;&#x6D4B;x=4&#x65F6;&#xFF0C;y&#x7684;&#x503C;&#xFF1A;<ul>
+<li>&#x5047;&#x8BBE;&#x6A21;&#x578B;&#x662F;y = &#x1D714; * x&#xFF0C;&#x6C42;&#x1D714;&#x7684;&#x503C;</li>
+<li>for (&#x1D714;=0; &#x1D714;&lt;4.1; &#x1D714;+=0.1)&#xFF0C;&#x4F9D;&#x6B21;&#x6C42;&#x51FA;MSE&#xFF0C;&#x53D6;MSE&#x6700;&#x4F4E;&#x65F6;&#x1D714;&#x7684;&#x503C;</li>
+</ul>
+</li>
+</ul>
+<h4 id="&#x7B2C;&#x4E09;&#x8BB2;-&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x6CD5;">&#x7B2C;&#x4E09;&#x8BB2;-&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x6CD5;</h4>
+<ul>
+<li>&#x8BAD;&#x7EC3;&#x96C6;(1,2)&#x3001;(2,4)&#x3001;(3,6)&#xFF0C;&#x7528;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x6CD5;&#x9884;&#x6D4B;x=4&#x65F6;&#xFF0C;y&#x7684;&#x503C;&#xFF1A;</li>
+<li>batch&#x65B9;&#x6CD5;&#xFF1A;<ul>
+<li>&#x5047;&#x8BBE;&#x6A21;&#x578B;&#x662F;y = &#x1D714; * x&#xFF0C;&#x6C42;&#x1D714;&#x7684;&#x503C;</li>
+<li>&#x5148;&#x9009;&#x5B9A;&#x1D714;=1</li>
+<li>&#x4E0B;&#x4E00;&#x4E2A;$&#x1D714;=&#x1D714;-&#x3B1;\frac{&#x1D715;cost}{&#x1D715;&#x1D714;}$&#xFF0C;&#x5176;&#x4E2D;&#x3B1;&#x8868;&#x793A;&#x6B65;&#x957F;&#xFF0C;cost&#x5373;MSE</li>
+<li>&#x4E0B;&#x4E00;&#x4E2A;$&#x1D714;=&#x1D714;-&#x3B1;\frac{1}{N}\sum\limits_{n=1}^N 2.x_n.(x_n.&#x1D714; - y_n)$</li>
+<li>&#x6B65;&#x957F;&#x5B9A;&#x4E3A;0.01&#xFF0C;&#x8FED;&#x4EE3;100&#x6B21;&#xFF0C;&#x89C2;&#x5BDF;MSE&#x503C;&#x662F;&#x5426;&#x4F1A;&#x6536;&#x655B;</li>
+</ul>
+</li>
 </ul>
 
                                 
@@ -707,7 +724,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"刘二大人","level":"1.4.3","depth":2,"next":{"title":"傅里叶变换","level":"1.4.4","depth":2,"path":"docs/fft.md","ref":"docs/fft.md","articles":[]},"previous":{"title":"微积分重点","level":"1.4.2","depth":2,"path":"docs/highlights-of-calculus.md","ref":"docs/highlights-of-calculus.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/liu-er.md","mtime":"2023-10-12T00:39:05.605Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-10-12T00:39:33.680Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"刘二大人","level":"1.4.3","depth":2,"next":{"title":"傅里叶变换","level":"1.4.4","depth":2,"path":"docs/fft.md","ref":"docs/fft.md","articles":[]},"previous":{"title":"微积分重点","level":"1.4.2","depth":2,"path":"docs/highlights-of-calculus.md","ref":"docs/highlights-of-calculus.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/liu-er.md","mtime":"2023-10-13T03:19:36.422Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-10-13T03:20:09.601Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
