@@ -25,7 +25,7 @@ def gradient_b(x, y):
 epoch_list = []
 loss_list = []
 print('predict (before training)', 4, forward(4))
-for epoch in range(2000):
+for epoch in range(1500):
     rc = random.randrange(0, 3)
     x1 = x_data[rc]
     y1 = y_data[rc]
