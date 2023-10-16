@@ -36,7 +36,7 @@ for epoch in range(100):
         b.grad.data.zero_()
     epoch_list.append(epoch)
     l_lost.append(l.item())
-    print('Epoch:',epoch,l.item())
+    print('Epoch:', epoch, l.item())
 
 print('Predict(after training)', 4, forward(4).item())
 plt.plot(epoch_list, l_lost)
