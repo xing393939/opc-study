@@ -9,12 +9,27 @@ def get_beans(counts):  #构造吃豆豆的函数
 m=100
 xs,ys=get_beans(m)  #获取100个豆子数据
 
-print(xs)
+w=0.1
+b=0.1
+for m in range(500):#调整500次全部，0-99的整数，用range 函数进行for循环
+   for i in range(100):#调整1次全部，可能会导致线不拟合
+      x=xs[i]
+      y=ys[i]
+      #a=x^2
+      #b=-2*x*y
+      #c=y^2
+      #斜率k=2aw+b
+      alpha=0.01  #学习率，学习率不可过大也不可过小
+      dw=2*x**2*w+2*x*(b-y)#对w求偏导
+      db=2*b+2*x*w-2*y#对b求偏导
+      w=w-alpha*dw#梯度下降
+      b=b-alpha*db#梯度下降
 
-#配置图像，坐标信息
-plt.title("Size-Toxicity Function", fontsize=12) #设置图像名称
-plt.xlabel("Bean Size")                          #设置横坐标的名字
-plt.ylabel("Toxicity")                           #设置纵坐标的名字
-plt.scatter(xs,ys)                               #画散点图
+plt.scatter(xs,ys)
+
+y_pre = w*xs+b
+plt.xlim(0,1) #plt.xlim()函数限制x轴范围
+plt.ylim(0,1.5) #plt.ylim()函数限制y轴范围
+plt.plot(xs,y_pre)
+
 plt.show()
-
