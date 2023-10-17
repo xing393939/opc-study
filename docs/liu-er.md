@@ -62,7 +62,11 @@
   * $\frac{𝜕loss}{𝜕b} = \frac{𝜕loss}{𝜕\hat{y}}.\frac{𝜕\hat{y}}{𝜕b} = 2(\hat{y} - y).1$
 
 #### 第五讲-PyTorch线性回归
-
+* PyTorch的四个步骤：准备数据、定义模型、定义损失函数和优化器、训练周期
+* 训练周期的三个步骤：
+  * 前馈forward：计算$\hat{y} \quad loss$
+  * 反馈backward：反向传播、计算梯度
+  * 更新update：更新参数
 
 
 
