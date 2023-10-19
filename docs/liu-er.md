@@ -72,6 +72,7 @@
 * [一篇文章搞懂logit, logistic和sigmoid的区别](https://zhuanlan.zhihu.com/p/358223959)
 * sigmoid函数是指某一类形如"S"的函数，例如[这些函数](../images/sigmoid-function.jpg)
 * logistic函数也是sigmoid函数，在PyTorch中sigmoid函数即是logistic函数
+* logistic回归虽然名为回归，但实际用于分类问题。
 
 
 
