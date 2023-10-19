@@ -55,8 +55,8 @@
   * $loss = (\hat{y} - y)^2 \quad \hat{y} = 𝜔 * x + b$
   * $\frac{𝜕loss}{𝜕𝜔} = \frac{𝜕loss}{𝜕\hat{y}}.\frac{𝜕\hat{y}}{𝜕𝜔} = 2(\hat{y} - y).x$
   * $\frac{𝜕loss}{𝜕b} = \frac{𝜕loss}{𝜕\hat{y}}.\frac{𝜕\hat{y}}{𝜕b} = 2(\hat{y} - y).1$
-* 假设模型是$y = 𝜔_1.x^2 * 𝜔_2.x + b$
-  * $loss = (\hat{y} - y)^2 \quad \hat{y} = 𝜔_1.x^2 * 𝜔_2.x + b$
+* 假设模型是$y = 𝜔_1.x^2 + 𝜔_2.x + b$
+  * $loss = (\hat{y} - y)^2 \quad \hat{y} = 𝜔_1.x^2 + 𝜔_2.x + b$
   * $\frac{𝜕loss}{𝜕𝜔_1} = \frac{𝜕loss}{𝜕\hat{y}}.\frac{𝜕\hat{y}}{𝜕𝜔_1} = 2(\hat{y} - y).x^2$
   * $\frac{𝜕loss}{𝜕𝜔_2} = \frac{𝜕loss}{𝜕\hat{y}}.\frac{𝜕\hat{y}}{𝜕𝜔_2} = 2(\hat{y} - y).x$
   * $\frac{𝜕loss}{𝜕b} = \frac{𝜕loss}{𝜕\hat{y}}.\frac{𝜕\hat{y}}{𝜕b} = 2(\hat{y} - y).1$
