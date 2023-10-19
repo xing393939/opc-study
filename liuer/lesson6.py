@@ -10,9 +10,8 @@ def load_dataset():
         lines = file_object.readlines()
         for line in lines:
             line_array = line.strip().split()
-            dataMat = np.append(
-                dataMat, [[1.0, float(line_array[0]), float(line_array[1])]], axis=0
-            )
+            line_np = np.array([1.0, line_array[0], line_array[1]]).astype(np.float32)
+            dataMat = np.append(dataMat, [line_np], axis=0)
             labelMat = np.append(labelMat, [[int(line_array[2])]], axis=0)
     return dataMat, labelMat
 
