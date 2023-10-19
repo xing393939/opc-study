@@ -74,7 +74,7 @@
 * sigmoid函数是指某一类形如"S"的函数，例如[这些函数](../images/sigmoid-function.jpg)
 * logistic函数也是sigmoid函数，在PyTorch中sigmoid函数即是logistic函数
 * logistic回归虽然名为回归，但实际用于分类问题。
-* 
-
-
+* 代码liuer/lesson6.py：[机器学习之逻辑回归Logistic Regression](https://blog.csdn.net/qq_41750911/article/details/124889545)
+* 代码liuer/lesson6_1.py：[逻辑回归手动实现（logistic regression）](https://blog.csdn.net/qq_37055672/article/details/124779634)
+* torch.nn.BCELoss是CrossEntropyLoss的一个特例，只用于二分类问题，而CrossEntropyLoss可以用于二分类，也可以用于多分类。
 
