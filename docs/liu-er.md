@@ -44,7 +44,7 @@
   * 折中的办法是mini_batch
 
 #### 第四讲-反向传播
-* 假设模型是$y = 𝜔 * x$，求𝜔的值，[见图](../images/back_propagation.png)
+* 假设模型是$y = 𝜔 * x$，求𝜔的值，[见图](../images/back-propagation.png)
 * 假设模型是$y = 𝜔 * x + b$，[人工智能原理-曲面梯度下降和反向传播](https://blog.csdn.net/wanlin_yang/article/details/129263378)
   * $loss = (𝜔x + b - y)^2 = x^2𝜔^2 + (2x.b - 2x.y)𝜔 + (y^2 + b^2 - 2y.b)$
   * $\frac{𝜕loss}{𝜕𝜔} = 2x(𝜔x + b - y)$
@@ -68,6 +68,10 @@
   * 反馈backward：反向传播、计算梯度
   * 更新update：更新参数
 
+#### 第六讲-逻辑斯谛回归
+* [一篇文章搞懂logit, logistic和sigmoid的区别](https://zhuanlan.zhihu.com/p/358223959)
+* sigmoid函数是指某一类形如"S"的函数，例如[这些函数](../images/sigmoid-function.jpg)
+* logistic函数也是sigmoid函数，在PyTorch中sigmoid函数即是logistic函数
 
 
 
