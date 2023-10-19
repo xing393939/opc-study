@@ -18,6 +18,7 @@
 #### 参考资料
 * [刘二大人-cnblog](https://www.cnblogs.com/zhouyeqin/category/2231506.html)
 * [刘二大人-zhihu](https://zhuanlan.zhihu.com/p/166104074)
+* [numpy在线运行](https://onecompiler.com/python/3zqwrqg2r)
 
 #### 第二讲-线性模型
 * MSE：均值平方误差(Mean Square Error)，$MSE=\frac{1}{N} \sum\limits_{n=1}^N (\hat{y}_n - y_n)^2$
@@ -73,7 +74,7 @@
 * sigmoid函数是指某一类形如"S"的函数，例如[这些函数](../images/sigmoid-function.jpg)
 * logistic函数也是sigmoid函数，在PyTorch中sigmoid函数即是logistic函数
 * logistic回归虽然名为回归，但实际用于分类问题。
-
+* 
 
 
 

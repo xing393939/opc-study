@@ -2,24 +2,22 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def load_dataset(file):
-    with open(file, "r", encoding="utf-8") as f:
-        lines = f.read().splitlines()
-
-    # 取 lab 维度为 N x 1
-    labs = [line.split("\t")[-1] for line in lines]
-    labs = np.array(labs).astype(np.float32)
-    labs = np.expand_dims(labs, axis=-1)  # Nx1
-
-    # 取数据 增加 一维全是1的特征
-    datas = [line.split("\t")[:-1] for line in lines]
-    datas = np.array(datas).astype(np.float32)
-    N, D = np.shape(datas)
-    # 增加一个维度
-    datas = np.c_[np.ones([N, 1]), datas]
-    return datas, labs
+# 数据集加载
+def load_dataset():
+    dataMat = np.empty(shape=(0, 3))
+    labelMat = np.empty(shape=(0, 1))
+    with open("testset.txt", "r+") as file_object:
+        lines = file_object.readlines()
+        for line in lines:
+            line_array = line.strip().split()
+            dataMat = np.append(
+                dataMat, [[1.0, float(line_array[0]), float(line_array[1])]], axis=0
+            )
+            labelMat = np.append(labelMat, [[int(line_array[2])]], axis=0)
+    return dataMat, labelMat
 
 
+# sigmod函数，即得分函数,计算数据的概率是0还是1；得到y大于等于0.5是1，y小于等于0.5为0。
 def sigmoid(z):
     return 1.0 / (1 + np.exp(-z))
 
@@ -39,7 +37,7 @@ def test_accuracy(datas, labs, w):
     N, D = np.shape(datas)
     z = np.dot(datas, w)  # Nx1
     h = sigmoid(z)  # Nx1
-    lab_det = (h > 0.5).astype(float)
+    lab_det = (h > 0.5).astype(np.float32)
     error_rate = np.sum(np.abs(labs - lab_det)) / N
     return error_rate
 
@@ -55,14 +53,14 @@ def train_LR(datas, labs, n_epoch=2, alpha=0.005):
     return w
 
 
-def draw_desion_line(datas, labs, w):
-    dic_colors = {0: (0.8, 0, 0), 1: (0, 0.8, 0)}
+def draw_decision_line(datas, labs, w):
+    dic_colors = ["g", "r"]
 
     # 画数据点
     for i in range(2):
         index = np.where(labs == i)[0]
         sub_datas = datas[index]
-        plt.scatter(sub_datas[:, 1], sub_datas[:, 2], s=16.0, color=dic_colors[i])
+        plt.scatter(sub_datas[:, 1], sub_datas[:, 2], s=16.0, c=dic_colors[i])
 
     # 画判决线
     min_x = np.min(datas[:, 1])
@@ -75,9 +73,7 @@ def draw_desion_line(datas, labs, w):
 
 
 if __name__ == "__main__":
-    file = "testset.txt"
-    datas, labs = load_dataset(file)
-
+    datas, labs = load_dataset()
     weights = train_LR(datas, labs, alpha=0.001, n_epoch=100)
     print(weights)
-    draw_desion_line(datas, labs, weights)
+    draw_decision_line(datas, labs, weights)

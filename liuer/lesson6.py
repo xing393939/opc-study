@@ -2,6 +2,21 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
+# 数据集加载
+def load_dataset():
+    dataMat = np.empty(shape=(0, 3))
+    labelMat = np.empty(shape=(0, 1))
+    with open("testset.txt", "r+") as file_object:
+        lines = file_object.readlines()
+        for line in lines:
+            line_array = line.strip().split()
+            dataMat = np.append(
+                dataMat, [[1.0, float(line_array[0]), float(line_array[1])]], axis=0
+            )
+            labelMat = np.append(labelMat, [[int(line_array[2])]], axis=0)
+    return dataMat, labelMat
+
+
 # sigmod函数，即得分函数,计算数据的概率是0还是1；得到y大于等于0.5是1，y小于等于0.5为0。
 def sigmod(x):
     return 1 / (1 + np.exp(-x))
@@ -41,52 +56,28 @@ def error(para, x, y):
     return error_num / total
 
 
-# 数据集加载
-def load_dataset():
-    dataMat = []
-    labelMat = []
-    with open("testset.txt", "r+") as file_object:
-        lines = file_object.readlines()
-        for line in lines:
-            line_array = line.strip().split()
-            dataMat.append([1.0, float(line_array[0]), float(line_array[1])])  # 数据
-            labelMat.append(int(line_array[2]))  # 标签
-    return dataMat, labelMat
-
-
 # 绘制图形
-def plotBestFit(wei, data, label):
-    if type(wei).__name__ == "ndarray":
-        weights = wei
-    else:
-        weights = wei.getA()
-    fig = plt.figure(0)
-    ax = fig.add_subplot(111)
-    xxx = np.arange(-3, 3, 0.1)
-    yyy = -weights[0] / weights[2] - weights[1] / weights[2] * xxx
-    ax.plot(xxx, yyy)
-    cord1 = []
-    cord0 = []
-    for i in range(len(label)):
-        if label[i] == 1:
-            cord1.append(data[i][1:3])
-        else:
-            cord0.append(data[i][1:3])
-    cord1 = np.array(cord1)
-    cord0 = np.array(cord0)
-    ax.scatter(cord1[:, 0], cord1[:, 1], c="g")
-    ax.scatter(cord0[:, 0], cord0[:, 1], c="r")
+def draw_decision_line(datas, labs, w):
+    dic_colors = ["g", "r"]
+
+    # 画数据点
+    for i in range(2):
+        index = np.where(labs == i)[0]
+        sub_datas = datas[index]
+        plt.scatter(sub_datas[:, 1], sub_datas[:, 2], s=16.0, c=dic_colors[i])
+
+    # 画判决线
+    min_x = np.min(datas[:, 1])
+    max_x = np.max(datas[:, 1])
+    x = np.arange(min_x, max_x, 0.01)
+    y = -(x * w[1] + w[0]) / w[2]
+    plt.plot(x, y)
     plt.show()
 
 
-x, y = load_dataset()
-n = len(x[0])
-initial_para = np.ones(n)
-print("初始参数：", initial_para)
-
-dataMat = np.asarray(x)
-labelMat = np.asarray(y)
-para = initial_para
+dataMat, labelMat = load_dataset()
+para = np.ones(3)
+print("初始参数：", para)
 for i in range(1000):
     para = gradient(para, dataMat, labelMat)  # 梯度下降法
     if i % 100 == 0:
@@ -94,4 +85,4 @@ for i in range(1000):
         print("iter:" + str(i) + " ; error:" + str(err))
 
 print("训练所得参数：", para)
-plotBestFit(para, x, y)
+draw_decision_line(dataMat, labelMat, para)
