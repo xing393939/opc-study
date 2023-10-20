@@ -82,7 +82,10 @@
   * $loss = -y\log(\hat{y}) - (1 - y)\log(1 - \hat{y})$
   * $cost = -\frac{1}{N}\sum\limits_{n=1}^N y\log(\hat{y}) + (1 - y)\log(1 - \hat{y})$，从这里开始省略下标n
   * $\frac{𝜕cost}{𝜕𝜔} = \frac{𝜕cost}{𝜕\hat{y}}.\frac{𝜕\hat{y}}{𝜕𝜔}$，其中$\hat{y} = \frac{1}{1 + e^{-z}}$
-  * $\frac{𝜕cost}{𝜕𝜔} = -\frac{1}{N}\sum\limits_{n=1}^N (\frac{y}{\hat{y}} - \frac{1-y}{1-\hat{y}}) . (\frac{𝜕\hat{y}}{𝜕z}.\frac{𝜕z}{𝜕𝜔})$
+  * $\frac{𝜕cost}{𝜕𝜔} = -\frac{1}{N}\sum\limits_{n=1}^N (\frac{y}{\hat{y}} - \frac{1-y}{1-\hat{y}}) . (\frac{𝜕\hat{y}}{𝜕z}.\frac{𝜕z}{𝜕𝜔})$，其中σ'(x)=σ(x)(1-σ(x))
+  * $\frac{𝜕cost}{𝜕𝜔} = -\frac{1}{N}\sum\limits_{n=1}^N (\frac{y}{\hat{y}} - \frac{1-y}{1-\hat{y}}) . (\hat{y} . (1 - \hat{y})).x$
+  * $\frac{𝜕cost}{𝜕𝜔} = -\frac{1}{N}\sum\limits_{n=1}^N (y - \hat{y}).x$
+  * $\frac{𝜕cost}{𝜕𝜔} = \frac{1}{N}\sum\limits_{n=1}^N (\hat{y} - y).x$
 * $z = 𝜔_0.x_0 + 𝜔_1.x_1 + 𝜔_2.x_2$，其中$x_0$恒为1
 
 
