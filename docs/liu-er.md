@@ -77,4 +77,21 @@
 * 代码liuer/lesson6.py：[机器学习之逻辑回归Logistic Regression](https://blog.csdn.net/qq_41750911/article/details/124889545)
 * 代码liuer/lesson6_1.py：[逻辑回归手动实现（logistic regression）](https://blog.csdn.net/qq_37055672/article/details/124779634)
 * torch.nn.BCELoss是CrossEntropyLoss的一个特例，只用于二分类问题，而CrossEntropyLoss可以用于二分类，也可以用于多分类。
+* sigmoid函数的输入记为z，$z = 𝜔_0.x_0 + 𝜔_1.x_1 + ... + 𝜔_n.x_n$，z=0为决策边界，z>0为真，z<0为假
+  * 上述公式的向量写法是$z = 𝜔_T.x$
+  * $loss = -y\log(\hat{y}) - (1 - y)\log(1 - \hat{y})$
+* $z = 𝜔_0.x_0 + 𝜔_1.x_1 + 𝜔_2.x_2$，其中$x_0$恒为1
+
+
+
+
+
+
+
+
+
+
+
+
+
 
