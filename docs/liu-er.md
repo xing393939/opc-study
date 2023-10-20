@@ -71,14 +71,13 @@
 
 #### 第六讲-逻辑斯谛回归
 * [一篇文章搞懂logit, logistic和sigmoid的区别](https://zhuanlan.zhihu.com/p/358223959)
+* 逻辑斯谛回归(Logistic Regression)，简称LR
 * sigmoid函数是指某一类形如"S"的函数，例如[这些函数](../images/sigmoid-function.jpg)
 * logistic函数也是sigmoid函数，在PyTorch中sigmoid函数即是logistic函数
 * logistic回归虽然名为回归，但实际用于分类问题。
-* 代码liuer/lesson6.py：[机器学习之逻辑回归Logistic Regression](https://blog.csdn.net/qq_41750911/article/details/124889545)
-* 代码liuer/lesson6_1.py：[逻辑回归手动实现（logistic regression）](https://blog.csdn.net/qq_37055672/article/details/124779634)
 * torch.nn.BCELoss是CrossEntropyLoss的一个特例，只用于二分类问题，而CrossEntropyLoss可以用于二分类，也可以用于多分类。
 * sigmoid函数的输入记为z，$z = 𝜔_0.x_0 + 𝜔_1.x_1 + ... + 𝜔_n.x_n$，z=0为决策边界，z>0为真，z<0为假
-  * 上述公式的向量写法是$z = 𝜔^T.x$
+  * 上述公式的向量写法是$z = 𝜔^T.x$，梯度下降公式推导见[逻辑回归(LR)算法详解和实战](https://blog.csdn.net/Mr_Robert/article/details/88888973)
   * $loss = -y\log(\hat{y}) - (1 - y)\log(1 - \hat{y})$
   * $cost = -\frac{1}{N}\sum\limits_{n=1}^N y\log(\hat{y}) + (1 - y)\log(1 - \hat{y})$，从这里开始省略下标n
   * $\frac{𝜕cost}{𝜕𝜔} = \frac{𝜕cost}{𝜕\hat{y}}.\frac{𝜕\hat{y}}{𝜕𝜔}$，其中$\hat{y} = \frac{1}{1 + e^{-z}}$
@@ -87,7 +86,8 @@
   * $\frac{𝜕cost}{𝜕𝜔} = -\frac{1}{N}\sum\limits_{n=1}^N (y - \hat{y}).x$
   * $\frac{𝜕cost}{𝜕𝜔} = \frac{1}{N}\sum\limits_{n=1}^N (\hat{y} - y).x$
 * $z = 𝜔_0.x_0 + 𝜔_1.x_1 + 𝜔_2.x_2$，其中$x_0$恒为1
-
+  * 代码liuer/lesson6.py：[机器学习之逻辑回归Logistic Regression](https://blog.csdn.net/qq_41750911/article/details/124889545)
+  * 代码liuer/lesson6_1.py：[逻辑回归手动实现（logistic regression）](https://blog.csdn.net/qq_37055672/article/details/124779634)
 
 
 
