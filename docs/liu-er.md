@@ -90,9 +90,11 @@
   * 代码liuer/lesson6_1.py：[逻辑回归手动实现（logistic regression）](https://blog.csdn.net/qq_37055672/article/details/124779634)
 
 #### 第七讲-处理多维输入
-
-
-
+* 线性模型：y = Ax。线性也就是直线，是一次方程。
+* torch.nn.Linear(8, 1)表示输入是8维，输出是1维，即A是1x8，x是8x1，y是1x1
+* torch.nn.Linear(8, 6)表示输入是8维，输出是6维，即A是6x8，x是8x1，y是6x1
+* 非线性激活函数使得神经网络可以逼近任何非线性函数
+* 非线性激活函数[见](https://pytorch.org/docs/stable/nn.html#non-linear-activations-weighted-sum-nonlinearity)，其中有torch.nn.Sigmoid
 
 
 
