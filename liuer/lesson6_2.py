@@ -1,12 +1,12 @@
 import torch
 import torch.nn.functional as F
 
-# 1prepare dataset
+# 1.prepare dataset
 x_data = torch.Tensor([[1.0], [2.0], [3.0]])
 y_data = torch.Tensor([[0], [0], [1]])
 
 
-# 2design model using class
+# 2.design model using class
 class LogisticRegressionModel(torch.nn.Module):
     def __init__(self):
         super(LogisticRegressionModel, self).__init__()
@@ -19,14 +19,14 @@ class LogisticRegressionModel(torch.nn.Module):
 
 model = LogisticRegressionModel()
 
-# 3construct loss and optimizer
+# 3.construct loss and optimizer
 # 默认情况下，loss会基于element平均，如果size_average=False的话，loss会被累加。
 # pytorch版本更新，损失函数更改size_average=False为reduction='sum'
 # BCELoss是CrossEntropyLoss的一个特例，只用于二分类问题，而CrossEntropyLoss可以用于二分类，也可以用于多分类。
 criterion = torch.nn.BCELoss(reduction="sum")
 optimizer = torch.optim.SGD(model.parameters(), lr=0.01)
 
-# 4training cycle forward, backward, update
+# 4.training cycle forward, backward, update
 for epoch in range(1000):
     y_pred = model(x_data)
     loss = criterion(y_pred, y_data)
