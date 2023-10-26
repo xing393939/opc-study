@@ -37,7 +37,7 @@ y_data = y_data.to(device)
 
 # 3.construct loss and optimizer
 criterion = torch.nn.BCELoss(reduction="mean")
-optimizer = torch.optim.SGD(model.parameters(), lr=0.1)
+optimizer = torch.optim.SGD(model.parameters(), lr=0.01)
 
 epoch_list = []
 loss_list = []
