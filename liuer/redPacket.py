@@ -51,19 +51,18 @@ optimizer = torch.optim.SGD(model.parameters(), lr=0.01)
 epoch_list = []
 loss_list = []
 # 4.training cycle forward, backward, update
-for epoch in range(100000):
+for epoch in range(10000):
     for i, data in enumerate(train_loader, 0):
         inputs, labels = data
         y_pred = model(inputs)
         loss = criterion(y_pred, labels)
-        if epoch % 1000 == 0 and i == 0:
-            print(epoch, loss.item())
+        if epoch % 100 == 0 and i == 0:
+            print("epoch %9d error %.3f" % (epoch, loss.item()), model.linear.weight.data, model.linear.bias.data)
             epoch_list.append(epoch)
             loss_list.append(loss.item())
 
         optimizer.zero_grad()
         loss.backward()
-
         optimizer.step()
 
 # 5.test
