@@ -71,7 +71,7 @@ def train(epoch):
 
 
 # 名字不能设为test会被识别为程序入口
-def test():
+def test_model():
     correct = 0
     total = 0
     with torch.no_grad():
@@ -87,4 +87,4 @@ def test():
 if __name__ == "__main__":
     for epoch in range(10):
         train(epoch)
-        test()
+        test_model()
