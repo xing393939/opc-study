@@ -26,7 +26,7 @@ class DiabetesDataset(Dataset):
         return self.len
 
 
-dataset = DiabetesDataset("redPacket.csv")
+dataset = DiabetesDataset("redPacket_2.csv")
 train_loader = DataLoader(dataset=dataset, batch_size=1024, shuffle=True)
 
 
@@ -57,7 +57,11 @@ for epoch in range(10000):
         y_pred = model(inputs)
         loss = criterion(y_pred, labels)
         if epoch % 100 == 0 and i == 0:
-            print("epoch %9d error %.3f" % (epoch, loss.item()), model.linear.weight.data, model.linear.bias.data)
+            print(
+                "epoch %9d error %.3f" % (epoch, loss.item()),
+                model.linear.weight.data,
+                model.linear.bias.data,
+            )
             epoch_list.append(epoch)
             loss_list.append(loss.item())
 

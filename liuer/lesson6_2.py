@@ -30,7 +30,11 @@ optimizer = torch.optim.SGD(model.parameters(), lr=0.01)
 for epoch in range(1000):
     y_pred = model(x_data)
     loss = criterion(y_pred, y_data)
-    print(epoch, loss.item())
+    print(
+        "epoch %9d error %.3f" % (epoch, loss.item()),
+        model.linear.weight.data,
+        model.linear.bias.data,
+    )
 
     optimizer.zero_grad()
     loss.backward()
