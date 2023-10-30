@@ -17,3 +17,6 @@ print(img_tensor[2]) # B层，B数值 / 255
 trans_func = transforms.Normalize((0.1307,), (0.3081,)) # C = (C - mean) / std
 img_tensor = trans_func(img_tensor)
 print(img_tensor)
+
+img_tensor = img_tensor.view(-1, 12)
+print(img_tensor)
