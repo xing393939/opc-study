@@ -102,7 +102,7 @@
 
 #### 第九讲-多分类问题
 * 关于把图片转成tensor格式，参考liuer/image2tensor.py
-
+* 为什么要执行transforms.Normalize((0.1307,), (0.3081,))？
 
 
 
