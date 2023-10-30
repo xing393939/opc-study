@@ -55,9 +55,9 @@ def train(epoch):
         # 获得一个批次的数据和标签
         inputs, target = data
         optimizer.zero_grad()
-        # 获得模型预测结果(64, 10)
+        # 获得模型预测结果64x10
         outputs = model(inputs)
-        # 交叉熵代价函数outputs(64,10),target（64）
+        # 交叉熵代价函数criterion(64x10, 64x1)
         loss = criterion(outputs, target)
         loss.backward()
         optimizer.step()
