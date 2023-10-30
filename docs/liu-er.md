@@ -101,8 +101,7 @@
 * DataLoader需要一个Dataset具体类，生成一个迭代对象
 
 #### 第九讲-多分类问题
-
-
+* 关于把图片转成tensor格式，参考liuer/image2tensor.py
 
 
 
