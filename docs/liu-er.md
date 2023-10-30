@@ -96,7 +96,11 @@
 * 非线性激活函数使得神经网络可以逼近任何非线性函数
 * 非线性激活函数[见](https://pytorch.org/docs/stable/nn.html#non-linear-activations-weighted-sum-nonlinearity)，其中有torch.nn.Sigmoid
 
+#### 第八讲-Dataset和DataLoader
+* Dataset是抽象类，需要用户编写具体类
+* DataLoader需要一个Dataset具体类，生成一个迭代对象
 
+#### 第九讲-多分类问题
 
 
 
