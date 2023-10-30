@@ -19,7 +19,7 @@ class DiabetesDataset(Dataset):
         return self.len
 
 
-dataset = DiabetesDataset("redPacket.csv")
+dataset = DiabetesDataset("redPacket_2.csv")
 train_loader = DataLoader(dataset=dataset, batch_size=1024, shuffle=True)
 
 
