@@ -113,11 +113,13 @@
 * [卷积神经网络中的激活函数sigmoid、tanh、relu](https://blog.csdn.net/qq_39751352/article/details/124649762)
   * 激活函数的目的：将神经网络非线性化，即提升神经网络的拟合能力，能拟合更复杂的函数。
   * 如果模型只有线性操作，则永远只能表示超平面，无法表示曲面等
+* [网络层：池化层、全连接层和激活函数层](https://yey.world/2020/12/16/Pytorch-13/)  
 * 卷积神经网络除了输入和输出层之外还有四个基本的神经元层：
-  * 卷积层（Convolution）
+  * 卷积层（Convolution）：[torch.nn.Conv2d](https://pytorch.apachecn.org/1.0/nn/#conv2d)
+  * 池化层（Pooling）：[torch.nn.MaxPool2d](https://pytorch.apachecn.org/1.0/nn/#maxpool2d)
+  * 完全连接层（Fully connected）：每个神经元与上一层所有神经元相连，如果不考虑激活函数的非线性性质，那么全连接层就是对输入数据进行一个线性组合
   * 激活层（Activation）
-  * 池化层（Pooling）
-  * 完全连接层（Fully connected）
+
 
 
 
