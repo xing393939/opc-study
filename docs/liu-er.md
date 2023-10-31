@@ -19,6 +19,10 @@
 * [刘二大人-cnblog](https://www.cnblogs.com/zhouyeqin/category/2231506.html)
 * [刘二大人-zhihu](https://zhuanlan.zhihu.com/p/166104074)
 * [numpy在线运行](https://onecompiler.com/python/3zqwrqg2r)
+* [float的表示](https://zhuanlan.zhihu.com/p/503336736)：符号(1b)、阶码(8b)、尾数(23b)
+  * 0.875：0.111，需要左移1位，阶码=127+(-1)，尾数=11
+  * 6.360：110.01011100，需要右移2位，阶码=127+2，尾数=10010111000010100011111
+  * 2^23 = 8388608。也就是说，有效数字在±8388608内的整数和小数，精度不会损失
 
 #### 第二讲-线性模型
 * MSE：均值平方误差(Mean Square Error)，$MSE=\frac{1}{N} \sum\limits_{n=1}^N (\hat{y}_n - y_n)^2$

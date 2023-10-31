@@ -6,7 +6,7 @@ import os
 os.environ["KMP_DUPLICATE_LIB_OK"] = "True"
 
 # 1.prepare dataset
-xy = np.loadtxt("redPacket_2.csv", skiprows=1, delimiter=",", dtype=np.float32)
+xy = np.loadtxt("redPacket_3.csv", skiprows=1, delimiter=",", dtype=np.float32)
 x_data = torch.from_numpy(xy[:, :-1])  # 第一个‘：’是指读取所有行，第二个‘：’是指从第一列开始，最后一列不要
 y_data = torch.from_numpy(xy[:, [-1]])  # [-1] 最后得到的是个矩阵
 
