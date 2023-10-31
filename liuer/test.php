@@ -1,7 +1,9 @@
 <?php
 
-$a = file_get_contents("111.csv");
+$a = file_get_contents("000.csv");
 $arr = explode("\n", $a);
+
+$min = 1000000;
 
 $data = "";
 foreach ($arr as $i => $str) {
@@ -11,7 +13,8 @@ foreach ($arr as $i => $str) {
     }
     $survivalTime = strtotime($row[5]) - strtotime($row[2]);
     $averageAnswerTime = $row[6] / $row[7] / 1000;
-    $data .= ip2long($row[0]) . ",$row[1],$survivalTime,$averageAnswerTime,1\n";
+    $phone = $row[1] / $min;
+    $data .= ip2long($row[0]) / $min . ",$phone,$survivalTime,$averageAnswerTime,0\n";
 }
 
-file_put_contents("1.csv", $data);
+file_put_contents("0.csv", $data);
