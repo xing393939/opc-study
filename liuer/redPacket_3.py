@@ -2,7 +2,7 @@ import numpy as np
 import torch
 
 # 1.prepare dataset
-xy = np.loadtxt("redPacket_2.csv", skiprows=1, delimiter=",", dtype=np.float32)
+xy = np.loadtxt("0.csv", skiprows=1, delimiter=",", dtype=np.float32)
 x_data = torch.from_numpy(xy[:, :-1])
 y_data = torch.from_numpy(xy[:, [-1]])
 
@@ -16,7 +16,7 @@ class Model(torch.nn.Module):
         self.sigmoid = torch.nn.Sigmoid()
 
     def forward(self, x):
-        x = self.activate(self.linear1(x))
+        x = self.sigmoid(self.linear1(x))
         x = self.sigmoid(self.linear2(x))
         return x
 
@@ -30,10 +30,10 @@ criterion = torch.nn.BCELoss(reduction="mean")
 optimizer = torch.optim.SGD(model.parameters(), lr=0.01)
 
 # 4.training cycle forward, backward, update
-for epoch in range(10000):
+for epoch in range(100000):
     y_pred = model(x_data)
     loss = criterion(y_pred, y_data)
-    if epoch % 100 == 0:
+    if epoch % 1000 == 0:
         print(
             "epoch %9d loss %.3f" % (epoch, loss.item()),
             model.linear2.weight.data,

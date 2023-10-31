@@ -8,7 +8,7 @@ import os
 
 os.environ["KMP_DUPLICATE_LIB_OK"] = "True"
 start = timer()
-device = torch.device("cpu")
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
 # 1.prepare dataset
@@ -26,7 +26,7 @@ class DiabetesDataset(Dataset):
         return self.len
 
 
-dataset = DiabetesDataset("redPacket_3.csv")
+dataset = DiabetesDataset("redPacket_2.csv")
 train_loader = DataLoader(dataset=dataset, batch_size=32, shuffle=True)
 
 
@@ -34,14 +34,14 @@ train_loader = DataLoader(dataset=dataset, batch_size=32, shuffle=True)
 class Model(torch.nn.Module):
     def __init__(self):
         super(Model, self).__init__()
-        self.linear0 = torch.nn.Linear(4, 2)
-        self.linear = torch.nn.Linear(2, 1)
+        self.linear1 = torch.nn.Linear(4, 2)
+        self.linear2 = torch.nn.Linear(2, 1)
         self.activate = torch.nn.ReLU()
         self.sigmoid = torch.nn.Sigmoid()
 
     def forward(self, x):
-        x = self.activate(self.linear0(x))
-        y_pred = self.sigmoid(self.linear(x))
+        x = self.activate(self.linear1(x))
+        y_pred = self.sigmoid(self.linear2(x))
         return y_pred
 
 
@@ -68,17 +68,18 @@ for epoch in range(10000):
         loss.backward()
         optimizer.step()
         #print(inputs)
-    print(
-        "%d %d loss: %.3f" % (epoch, running_i, running_loss / running_i),
-        model.linear.weight.data,
-        model.linear.bias.data,
-    )
-    epoch_list.append(epoch)
-    loss_list.append(loss.item())
+    if epoch % 100 == 0:
+        print(
+            "%d %d loss: %.3f" % (epoch, running_i, running_loss / running_i),
+            model.linear2.weight.data,
+            model.linear2.bias.data,
+        )
+        epoch_list.append(epoch)
+        loss_list.append(loss.item())
 
 # 5.test
-print("w = ", model.linear.weight.data)
-print("b = ", model.linear.bias.data)
+print("w = ", model.linear2.weight.data)
+print("b = ", model.linear2.bias.data)
 x_test = torch.Tensor([1903610565, 17100051503, 41, 8.7]).to(device)
 y_test = model(x_test)
 print("y_pred = ", y_test.data)
