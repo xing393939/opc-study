@@ -117,9 +117,15 @@
 * 卷积神经网络除了输入和输出层之外还有四个基本的神经元层：
   * 卷积层（Convolution）：[torch.nn.Conv2d](https://pytorch.apachecn.org/1.0/nn/#conv2d)
   * 池化层（Pooling）：[torch.nn.MaxPool2d](https://pytorch.apachecn.org/1.0/nn/#maxpool2d)
-  * 完全连接层（Fully connected）：每个神经元与上一层所有神经元相连，如果不考虑激活函数的非线性性质，那么全连接层就是对输入数据进行一个线性组合
   * 激活层（Activation）
+  * 完全连接层（Fully connected）：每个神经元与上一层所有神经元相连，如果不考虑激活函数的非线性性质，那么全连接层就是对输入数据进行一个线性组合
+
+#### 第十一讲-卷积神经网络-高级篇
 
 
+#### 第十二讲-循环神经网络-基础篇
+
+
+#### 第十三讲-循环神经网络-基础篇
 
 
