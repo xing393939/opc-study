@@ -67,7 +67,7 @@ for epoch in range(10000):
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
-        #print(inputs)
+        # print(inputs)
     if epoch % 100 == 0:
         print(
             "%d %d loss: %.3f" % (epoch, running_i, running_loss / running_i),

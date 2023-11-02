@@ -666,6 +666,10 @@
 <li>2^23 = 8388608&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x6709;&#x6548;&#x6570;&#x5B57;&#x5728;&#xB1;8388608&#x5185;&#x7684;&#x6574;&#x6570;&#x548C;&#x5C0F;&#x6570;&#xFF0C;&#x7CBE;&#x5EA6;&#x4E0D;&#x4F1A;&#x635F;&#x5931;</li>
 </ul>
 </li>
+<li>torch.optim.SGD(net.parameters(), lr=lr, momentum=0.9, weight_decay=wd)  <ul>
+<li>lr&#x662F;&#x5B66;&#x4E60;&#x7387;&#xFF0C;momentum&#x662F;&#x51B2;&#x91CF;&#xFF0C;weight_decay&#x662F;&#x9632;&#x6B62;&#x8FC7;&#x62DF;&#x5408;</li>
+</ul>
+</li>
 </ul>
 <h4 id="&#x7B2C;&#x4E8C;&#x8BB2;-&#x7EBF;&#x6027;&#x6A21;&#x578B;">&#x7B2C;&#x4E8C;&#x8BB2;-&#x7EBF;&#x6027;&#x6A21;&#x578B;</h4>
 <ul>
@@ -777,7 +781,21 @@
 <h4 id="&#x7B2C;&#x4E5D;&#x8BB2;-&#x591A;&#x5206;&#x7C7B;&#x95EE;&#x9898;">&#x7B2C;&#x4E5D;&#x8BB2;-&#x591A;&#x5206;&#x7C7B;&#x95EE;&#x9898;</h4>
 <ul>
 <li>&#x5173;&#x4E8E;&#x628A;&#x56FE;&#x7247;&#x8F6C;&#x6210;tensor&#x683C;&#x5F0F;&#xFF0C;&#x53C2;&#x8003;liuer/image2tensor.py</li>
-<li>&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x6267;&#x884C;transforms.Normalize((0.1307,), (0.3081,))&#xFF1F;</li>
+<li>&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x6267;&#x884C;transforms.Normalize((0.1307,), (0.3081,))&#xFF1F;<ul>
+<li>&#x56E0;&#x4E3A;ToTensor&#x662F;&#x628A;&#x6570;&#x636E;&#x5F52;&#x4E00;&#x5316;&#x5230;0,1&#x533A;&#x95F4;&#xFF0C;&#x800C;Normalize&#x662F;&#x8BA9;&#x6570;&#x636E;&#x6210;&#x6B63;&#x6001;&#x5206;&#x5E03;&#xFF0C;<a href="https://zhuanlan.zhihu.com/p/476297637" target="_blank">&#x52A0;&#x5FEB;&#x6A21;&#x578B;&#x7684;&#x6536;&#x655B;&#x901F;&#x5EA6;</a></li>
+<li>transforms.Normalize(mean, std)&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5BF9;&#x8F93;&#x5165;&#x8FDB;&#x884C;torch.mean(x)&#x548C;torch.std(x)&#x5F97;&#x5230;</li>
+</ul>
+</li>
+<li>&#x6A21;&#x578B;&#x7CBE;&#x786E;&#x5EA6;97%&#xFF0C;&#x8BAD;&#x7EC3;&#x8FC7;&#x7A0B;&#xFF1A;<ul>
+<li>x&#xFF1A;&#x6837;&#x672C;&#x662F;(0,28,28)</li>
+<li>x = x.view(-1, 784)&#xFF1A;&#x8F93;&#x51FA;&#x53D8;&#x6210;784</li>
+<li>x = F.relu(self.l1(x))&#xFF1A;&#x8F93;&#x51FA;&#x53D8;&#x6210;512</li>
+<li>x = F.relu(self.l2(x))&#xFF1A;&#x8F93;&#x51FA;&#x53D8;&#x6210;256</li>
+<li>x = F.relu(self.l3(x))&#xFF1A;&#x8F93;&#x51FA;&#x53D8;&#x6210;128</li>
+<li>x = F.relu(self.l4(x))&#xFF1A;&#x8F93;&#x51FA;&#x53D8;&#x6210;64</li>
+<li>x = self.l5(x)&#xFF1A;&#x8F93;&#x51FA;&#x53D8;&#x6210;10</li>
+</ul>
+</li>
 </ul>
 <h4 id="&#x7B2C;&#x5341;&#x8BB2;-&#x5377;&#x79EF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;-&#x57FA;&#x7840;&#x7BC7;">&#x7B2C;&#x5341;&#x8BB2;-&#x5377;&#x79EF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;-&#x57FA;&#x7840;&#x7BC7;</h4>
 <ul>
@@ -795,8 +813,19 @@
 <li>&#x5B8C;&#x5168;&#x8FDE;&#x63A5;&#x5C42;&#xFF08;Fully connected&#xFF09;&#xFF1A;&#x6BCF;&#x4E2A;&#x795E;&#x7ECF;&#x5143;&#x4E0E;&#x4E0A;&#x4E00;&#x5C42;&#x6240;&#x6709;&#x795E;&#x7ECF;&#x5143;&#x76F8;&#x8FDE;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x8003;&#x8651;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;&#x7684;&#x975E;&#x7EBF;&#x6027;&#x6027;&#x8D28;&#xFF0C;&#x90A3;&#x4E48;&#x5168;&#x8FDE;&#x63A5;&#x5C42;&#x5C31;&#x662F;&#x5BF9;&#x8F93;&#x5165;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x4E00;&#x4E2A;&#x7EBF;&#x6027;&#x7EC4;&#x5408;</li>
 </ul>
 </li>
+<li>&#x6A21;&#x578B;&#x7CBE;&#x786E;&#x5EA6;98%&#xFF0C;&#x8BAD;&#x7EC3;&#x8FC7;&#x7A0B;&#xFF1A;<ul>
+<li>x&#xFF1A;&#x6837;&#x672C;&#x662F;(0,28,28)</li>
+<li>x = F.relu(self.pooling(self.conv1(x)))&#xFF1A;&#x5377;&#x79EF;&#x540E;&#x662F;(10,24,24)&#xFF0C;&#x6C60;&#x5316;&#x540E;&#x662F;(10,12,12)</li>
+<li>x = F.relu(self.pooling(self.conv2(x)))&#xFF1A;&#x5377;&#x79EF;&#x540E;&#x662F;(20,8,8)&#xFF0C;&#x6C60;&#x5316;&#x540E;&#x662F;(20,4,4)</li>
+<li>x = x.view(x.size(0), -1)&#xFF1A;&#x8F93;&#x51FA;&#x53D8;&#x6210;320</li>
+<li>x = self.fc(x)&#xFF1A;&#x8F93;&#x51FA;&#x53D8;&#x6210;10</li>
+</ul>
+</li>
 </ul>
 <h4 id="&#x7B2C;&#x5341;&#x4E00;&#x8BB2;-&#x5377;&#x79EF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;-&#x9AD8;&#x7EA7;&#x7BC7;">&#x7B2C;&#x5341;&#x4E00;&#x8BB2;-&#x5377;&#x79EF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;-&#x9AD8;&#x7EA7;&#x7BC7;</h4>
+<ul>
+<li>&#x6A21;&#x578B;&#x7CBE;&#x786E;&#x5EA6;99%&#xFF0C;&#x8BAD;&#x7EC3;&#x8FC7;&#x7A0B;&#xFF1A;</li>
+</ul>
 <h4 id="&#x7B2C;&#x5341;&#x4E8C;&#x8BB2;-&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;-&#x57FA;&#x7840;&#x7BC7;">&#x7B2C;&#x5341;&#x4E8C;&#x8BB2;-&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;-&#x57FA;&#x7840;&#x7BC7;</h4>
 <h4 id="&#x7B2C;&#x5341;&#x4E09;&#x8BB2;-&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;-&#x57FA;&#x7840;&#x7BC7;">&#x7B2C;&#x5341;&#x4E09;&#x8BB2;-&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;-&#x57FA;&#x7840;&#x7BC7;</h4>
 
@@ -842,7 +871,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"刘二大人","level":"1.4.3","depth":2,"next":{"title":"傅里叶变换","level":"1.4.4","depth":2,"path":"docs/fft.md","ref":"docs/fft.md","articles":[]},"previous":{"title":"微积分重点","level":"1.4.2","depth":2,"path":"docs/highlights-of-calculus.md","ref":"docs/highlights-of-calculus.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/liu-er.md","mtime":"2023-11-02T01:01:10.163Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-11-02T01:01:41.933Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"刘二大人","level":"1.4.3","depth":2,"next":{"title":"傅里叶变换","level":"1.4.4","depth":2,"path":"docs/fft.md","ref":"docs/fft.md","articles":[]},"previous":{"title":"微积分重点","level":"1.4.2","depth":2,"path":"docs/highlights-of-calculus.md","ref":"docs/highlights-of-calculus.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/liu-er.md","mtime":"2023-11-02T03:55:01.742Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-11-02T03:55:41.159Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
