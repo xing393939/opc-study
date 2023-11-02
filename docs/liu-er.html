@@ -825,6 +825,10 @@
 <h4 id="&#x7B2C;&#x5341;&#x4E00;&#x8BB2;-&#x5377;&#x79EF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;-&#x9AD8;&#x7EA7;&#x7BC7;">&#x7B2C;&#x5341;&#x4E00;&#x8BB2;-&#x5377;&#x79EF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;-&#x9AD8;&#x7EA7;&#x7BC7;</h4>
 <ul>
 <li>nn.Conv2d(1, 16, kernel_size=1)&#xFF0C;1x1&#x5377;&#x79EF;&#x6838;&#x7684;&#x4F5C;&#x7528;&#xFF1A;&#x878D;&#x5408;&#x4E86;&#x6BCF;&#x4E2A;&#x901A;&#x9053;&#x7684;&#x4FE1;&#x606F;</li>
+<li>ResidualBlock&#x5C42;&#x662F;&#x628A;&#x8F93;&#x5165;&#x548C;&#x8F93;&#x51FA;&#x76F8;&#x52A0;&#xFF0C;&#x5373;z(x) = f(x) + x<ul>
+<li>&#x597D;&#x5904;&#x662F;&#x4E0D;&#x4F1A;&#x5B58;&#x5728;&#x68AF;&#x5EA6;&#x6D88;&#x5931;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x56E0;&#x4E3A;&#x5373;&#x4F7F;f&apos;(x)&#x662F;0&#xFF0C;z&apos;(x)&#x662F;1</li>
+</ul>
+</li>
 <li>&#x6A21;&#x578B;&#x7CBE;&#x786E;&#x5EA6;98%&#xFF0C;&#x8BAD;&#x7EC3;&#x8FC7;&#x7A0B;&#xFF1A;<ul>
 <li>x&#xFF1A;&#x6837;&#x672C;&#x662F;(0,28,28)</li>
 <li>x = F.relu(self.mp(self.conv1(x)))&#xFF1A;&#x5377;&#x79EF;&#x540E;&#x662F;(10,24,24)&#xFF0C;&#x6C60;&#x5316;&#x540E;&#x662F;(10,12,12)</li>
@@ -844,6 +848,16 @@
 </ul>
 </li>
 <li>x = x.view(x.size(0), -1)&#xFF1A;&#x8F93;&#x51FA;&#x53D8;&#x6210;1408</li>
+<li>x = self.fc(x)&#xFF1A;&#x8F93;&#x51FA;&#x53D8;&#x6210;10</li>
+</ul>
+</li>
+<li>&#x6A21;&#x578B;&#x7CBE;&#x786E;&#x5EA6;99%&#xFF0C;&#x8BAD;&#x7EC3;&#x8FC7;&#x7A0B;&#xFF1A;<ul>
+<li>x&#xFF1A;&#x6837;&#x672C;&#x662F;(0,28,28)</li>
+<li>x = F.relu(self.mp(self.conv1(x)))&#xFF1A;&#x5377;&#x79EF;&#x540E;&#x662F;(16,24,24)&#xFF0C;&#x6C60;&#x5316;&#x540E;&#x662F;(16,12,12)</li>
+<li>x = self.rblock1(x)&#xFF1A;ResidualBlock&#x7684;&#x8F93;&#x5165;&#x548C;&#x8F93;&#x51FA;&#x7684;&#x5F20;&#x91CF;&#x76F8;&#x540C;</li>
+<li>x = self.mp(F.relu(self.conv2(x)))&#xFF1A;&#x5377;&#x79EF;&#x540E;&#x662F;(32,8,8)&#xFF0C;&#x6C60;&#x5316;&#x540E;&#x662F;(32,4,4)</li>
+<li>x = self.rblock2(x)&#xFF1A;ResidualBlock&#x7684;&#x8F93;&#x5165;&#x548C;&#x8F93;&#x51FA;&#x7684;&#x5F20;&#x91CF;&#x76F8;&#x540C;</li>
+<li>x = x.view(in_size, -1)&#xFF1A;&#x8F93;&#x51FA;&#x53D8;&#x6210;512</li>
 <li>x = self.fc(x)&#xFF1A;&#x8F93;&#x51FA;&#x53D8;&#x6210;10</li>
 </ul>
 </li>
@@ -893,7 +907,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"刘二大人","level":"1.4.3","depth":2,"next":{"title":"傅里叶变换","level":"1.4.4","depth":2,"path":"docs/fft.md","ref":"docs/fft.md","articles":[]},"previous":{"title":"微积分重点","level":"1.4.2","depth":2,"path":"docs/highlights-of-calculus.md","ref":"docs/highlights-of-calculus.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/liu-er.md","mtime":"2023-11-02T07:34:32.010Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-11-02T07:35:02.456Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"刘二大人","level":"1.4.3","depth":2,"next":{"title":"傅里叶变换","level":"1.4.4","depth":2,"path":"docs/fft.md","ref":"docs/fft.md","articles":[]},"previous":{"title":"微积分重点","level":"1.4.2","depth":2,"path":"docs/highlights-of-calculus.md","ref":"docs/highlights-of-calculus.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/liu-er.md","mtime":"2023-11-02T08:18:28.643Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-11-02T08:18:58.187Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
