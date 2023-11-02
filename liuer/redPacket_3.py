@@ -6,6 +6,7 @@ xy = np.loadtxt("0.csv", skiprows=1, delimiter=",", dtype=np.float32)
 x_data = torch.from_numpy(xy[:, :-1])
 y_data = torch.from_numpy(xy[:, [-1]])
 
+
 # 2.design model using class
 class Model(torch.nn.Module):
     def __init__(self):
@@ -19,6 +20,7 @@ class Model(torch.nn.Module):
         x = self.sigmoid(self.linear1(x))
         x = self.sigmoid(self.linear2(x))
         return x
+
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = Model().to(device)

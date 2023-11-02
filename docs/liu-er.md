@@ -23,6 +23,8 @@
   * 0.875：0.111，需要右移1位，阶码=127+(-1)，尾数=11
   * 6.360：110.01011100，需要左移2位，阶码=127+2，尾数=10010111000010100011111
   * 2^23 = 8388608。也就是说，有效数字在±8388608内的整数和小数，精度不会损失
+* torch.optim.SGD(net.parameters(), lr=lr, momentum=0.9, weight_decay=wd)  
+  * lr是学习率，momentum是冲量，weight_decay是防止过拟合
 
 #### 第二讲-线性模型
 * MSE：均值平方误差(Mean Square Error)，$MSE=\frac{1}{N} \sum\limits_{n=1}^N (\hat{y}_n - y_n)^2$
@@ -107,6 +109,16 @@
 #### 第九讲-多分类问题
 * 关于把图片转成tensor格式，参考liuer/image2tensor.py
 * 为什么要执行transforms.Normalize((0.1307,), (0.3081,))？
+  * 因为ToTensor是把数据归一化到0,1区间，而Normalize是让数据成正态分布，[加快模型的收敛速度](https://zhuanlan.zhihu.com/p/476297637)
+  * transforms.Normalize(mean, std)可以通过对输入进行torch.mean(x)和torch.std(x)得到
+* 模型精确度97%，训练过程：
+  * x：样本是(0,28,28)
+  * x = x.view(-1, 784)：输出变成784
+  * x = F.relu(self.l1(x))：输出变成512
+  * x = F.relu(self.l2(x))：输出变成256
+  * x = F.relu(self.l3(x))：输出变成128
+  * x = F.relu(self.l4(x))：输出变成64
+  * x = self.l5(x)：输出变成10
 
 #### 第十讲-卷积神经网络-基础篇
 * CNN(Convolution Neural Network)：卷积神经网络
@@ -119,8 +131,15 @@
   * 池化层（Pooling）：[torch.nn.MaxPool2d](https://pytorch.apachecn.org/1.0/nn/#maxpool2d)
   * 激活层（Activation）
   * 完全连接层（Fully connected）：每个神经元与上一层所有神经元相连，如果不考虑激活函数的非线性性质，那么全连接层就是对输入数据进行一个线性组合
+* 模型精确度98%，训练过程：
+  * x：样本是(0,28,28)
+  * x = F.relu(self.pooling(self.conv1(x)))：卷积后是(10,24,24)，池化后是(10,12,12)
+  * x = F.relu(self.pooling(self.conv2(x)))：卷积后是(20,8,8)，池化后是(20,4,4)
+  * x = x.view(x.size(0), -1)：输出变成320
+  * x = self.fc(x)：输出变成10
 
 #### 第十一讲-卷积神经网络-高级篇
+* 模型精确度99%，训练过程：
 
 
 #### 第十二讲-循环神经网络-基础篇
