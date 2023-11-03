@@ -52,7 +52,6 @@ target = "Survived"
 train_X = np.array(train[features])
 train_Y = np.array(train[target])
 test_X = np.array(test[features])
-test_Y = np.array(test[target])
 
 # Normalization
 Scaler = StandardScaler()
@@ -62,8 +61,7 @@ test_X = Scaler.fit_transform(test_X)
 # numpy to torch
 train_X = torch.FloatTensor(train_X[:])
 train_Y = torch.LongTensor(train_Y[:])
-val_X = torch.FloatTensor(test_X[:])
-val_Y = torch.LongTensor(test_Y[:])
+test_X = torch.FloatTensor(test_X[:])
 
 
 class Net(nn.Module):
@@ -118,8 +116,8 @@ for epoch in loop:
 
 
 with torch.no_grad():
-    test_result = model(val_X.to(device))
+    test_result = model(test_X.to(device))
     values, labels = torch.max(test_result, 1)
-    print(labels, val_Y)
-    num_right = np.sum(labels.cpu().numpy() == val_Y.cpu().numpy())
-    print(num_right / len(val_Y))
+    answers = sub.to_numpy()[:, -1]
+    num_right = np.sum(labels.cpu().numpy() == answers)
+    print(num_right / len(answers))
