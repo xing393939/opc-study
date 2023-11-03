@@ -71,9 +71,11 @@ class Model(torch.nn.Module):
         self.sigmoid = torch.nn.Sigmoid()
 
     def forward(self, x):
-        x = self.activate(self.linear1(x))
-        y_pred = self.sigmoid(self.linear2(x))
-        return y_pred
+        x = self.linear1(x)
+        x = self.activate(x)
+        x = self.linear2(x)
+        x = self.sigmoid(x)
+        return x
 
 
 model = Model().to(device)
