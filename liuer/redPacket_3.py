@@ -1,47 +1,91 @@
 import numpy as np
 import torch
+from torch.utils.data import Dataset
+from torch.utils.data import DataLoader
+from timeit import default_timer as timer
+import matplotlib.pyplot as plt
+import os
+
+os.environ["KMP_DUPLICATE_LIB_OK"] = "True"
+start = timer()
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+
 
 # 1.prepare dataset
-xy = np.loadtxt("0.csv", skiprows=1, delimiter=",", dtype=np.float32)
-x_data = torch.from_numpy(xy[:, :-1])
-y_data = torch.from_numpy(xy[:, [-1]])
+class DiabetesDataset(Dataset):
+    def __init__(self, filepath):
+        xy = np.loadtxt(filepath, skiprows=1, delimiter=",", dtype=np.float32)
+        self.len = xy.shape[0]
+        self.x_data = torch.from_numpy(xy[:, :-1]).to(device)
+        self.y_data = torch.from_numpy(xy[:, [-1]]).to(device)
+
+    def __getitem__(self, index):
+        return self.x_data[index], self.y_data[index]
+
+    def __len__(self):
+        return self.len
+
+
+dataset = DiabetesDataset("redPacket_2.csv")
+train_loader = DataLoader(dataset=dataset, batch_size=64, shuffle=True)
 
 
 # 2.design model using class
 class Model(torch.nn.Module):
     def __init__(self):
         super(Model, self).__init__()
-        self.linear1 = torch.nn.Linear(4, 2)
-        self.linear2 = torch.nn.Linear(2, 1)
+        self.linear1 = torch.nn.Linear(7, 4)
+        self.linear2 = torch.nn.Linear(4, 1)
         self.activate = torch.nn.ReLU()
         self.sigmoid = torch.nn.Sigmoid()
 
     def forward(self, x):
-        x = self.sigmoid(self.linear1(x))
-        x = self.sigmoid(self.linear2(x))
-        return x
+        x = self.activate(self.linear1(x))
+        y_pred = self.sigmoid(self.linear2(x))
+        return y_pred
 
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = Model().to(device)
-x_data = x_data.to(device)
-y_data = y_data.to(device)
+
 
 # 3.construct loss and optimizer
 criterion = torch.nn.BCELoss(reduction="mean")
-optimizer = torch.optim.SGD(model.parameters(), lr=0.01)
+optimizer = torch.optim.SGD(model.parameters(), lr=0.01, momentum=0.9)
 
+epoch_list = []
+loss_list = []
 # 4.training cycle forward, backward, update
-for epoch in range(100000):
-    y_pred = model(x_data)
-    loss = criterion(y_pred, y_data)
-    if epoch % 1000 == 0:
+for epoch in range(10000):
+    running_loss = 0.0
+    running_i = 0
+    for i, data in enumerate(train_loader, 0):
+        inputs, labels = data
+        y_pred = model(inputs)
+        loss = criterion(y_pred, labels)
+        running_loss += loss.item()
+        running_i = i + 1
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+        # print(inputs)
+    if epoch % 100 == 0:
         print(
-            "epoch %9d loss %.3f" % (epoch, loss.item()),
+            "%d %d loss: %.3f" % (epoch, running_i, running_loss / running_i),
             model.linear2.weight.data,
             model.linear2.bias.data,
         )
+        epoch_list.append(epoch)
+        loss_list.append(loss.item())
 
-    optimizer.zero_grad()
-    loss.backward()
-    optimizer.step()
+# 5.test
+print("w = ", model.linear2.weight.data)
+print("b = ", model.linear2.bias.data)
+x_test = torch.Tensor([113,118,202,197,16750,40,1.9]).to(device)
+y_test = model(x_test)
+print("y_pred = ", y_test.data)
+print("cost = ", timer() - start)
+
+plt.plot(epoch_list, loss_list)
+plt.ylabel("loss")
+plt.xlabel("epoch")
+plt.show()
