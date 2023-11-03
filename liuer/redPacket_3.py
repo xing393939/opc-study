@@ -80,7 +80,7 @@ for epoch in range(10000):
 # 5.test
 print("w = ", model.linear2.weight.data)
 print("b = ", model.linear2.bias.data)
-x_test = torch.Tensor([113,118,202,197,16750,40,1.9]).to(device)
+x_test = torch.Tensor([113, 118, 202, 197, 16750, 40, 1.9]).to(device)
 y_test = model(x_test)
 print("y_pred = ", y_test.data)
 print("cost = ", timer() - start)
