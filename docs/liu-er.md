@@ -172,7 +172,9 @@
 * [深度学习实战教程(五)：循环神经网络](https://cuijiahua.com/blog/2018/12/dl-11.html)
 * 基本循环神经网络，解决“我昨天上学迟到了，老师批评了____。”，见[结构图](../images/simple-rnn.jpg)
   * $o_t = g(V.s_t)$，g是激活函数。
-  * $s_t = f(U.x_t + W.s_{t-1})$，U是x<sub>t</sub>的权重矩阵，W是s<sub>t-1</sub>的权重矩阵。
+  * $s\_t = f(U.x_t + W.s\_{t-1})$，U是x<sub>t</sub>的权重矩阵，W是s<sub>t-1</sub>的权重矩阵。
+* 双向循环神经网络，解决“我的手机坏了，我打算____一部新手机。”，见[结构图](../images/two-way-rnn.png)
+  * $o_t = g(V.s_t + V'.s_t^')$
 
 #### 第十三讲-循环神经网络-高级篇
 
