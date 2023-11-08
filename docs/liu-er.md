@@ -169,7 +169,10 @@
 
 #### 第十二讲-循环神经网络-基础篇
 * RNN(Recurrent Neural Network)：循环神经网络
-
+* [深度学习实战教程(五)：循环神经网络](https://cuijiahua.com/blog/2018/12/dl-11.html)
+* 基本循环神经网络，解决“我昨天上学迟到了，老师批评了____。”，见[结构图](../images/simple-rnn.jpg)
+  * $o_t = g(V.s_t)$
+  * $s_t = f(U.x_t + W.s_{t-1})$
 
 #### 第十三讲-循环神经网络-高级篇
 
