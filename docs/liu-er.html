@@ -866,12 +866,12 @@
 <ul>
 <li>RNN(Recurrent Neural Network)&#xFF1A;&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;</li>
 <li><a href="https://cuijiahua.com/blog/2018/12/dl-11.html" target="_blank">&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x5B9E;&#x6218;&#x6559;&#x7A0B;(&#x4E94;)&#xFF1A;&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;</a></li>
-<li>&#x57FA;&#x672C;&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#xFF0C;&#x89E3;&#x51B3;&#x201C;&#x6211;&#x6628;&#x5929;&#x4E0A;&#x5B66;&#x8FDF;&#x5230;&#x4E86;&#xFF0C;&#x8001;&#x5E08;&#x6279;&#x8BC4;&#x4E86;<em>__</em>&#x3002;&#x201D;&#xFF0C;&#x89C1;<a href="../images/simple-rnn.jpg">&#x7ED3;&#x6784;&#x56FE;</a><ul>
+<li>&#x57FA;&#x672C;&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#xFF0C;&#x89E3;&#x51B3;&#x201C;&#x6211;&#x6628;&#x5929;&#x4E0A;&#x5B66;&#x8FDF;&#x5230;&#x4E86;&#xFF0C;&#x8001;&#x5E08;&#x6279;&#x8BC4;&#x4E86;<em>__</em>&#x201D;&#xFF0C;&#x89C1;<a href="../images/simple-rnn.jpg">&#x7ED3;&#x6784;&#x56FE;</a><ul>
 <li>$o_t = g(V.s_t)$&#xFF0C;g&#x662F;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;&#x3002;</li>
 <li>$s_t = f(U.x_t + W.s_{t-1})$&#xFF0C;U&#x662F;x<sub>t</sub>&#x7684;&#x6743;&#x91CD;&#x77E9;&#x9635;&#xFF0C;W&#x662F;s<sub>t-1</sub>&#x7684;&#x6743;&#x91CD;&#x77E9;&#x9635;&#x3002;</li>
 </ul>
 </li>
-<li>&#x53CC;&#x5411;&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#xFF0C;&#x89E3;&#x51B3;&#x201C;&#x6211;&#x7684;&#x624B;&#x673A;&#x574F;&#x4E86;&#xFF0C;&#x6211;&#x6253;&#x7B97;<em>__</em>&#x4E00;&#x90E8;&#x65B0;&#x624B;&#x673A;&#x3002;&#x201D;&#xFF0C;&#x89C1;<a href="../images/two-way-rnn.png">&#x7ED3;&#x6784;&#x56FE;</a><ul>
+<li>&#x53CC;&#x5411;&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#xFF0C;&#x89E3;&#x51B3;&#x201C;&#x6211;&#x7684;&#x624B;&#x673A;&#x574F;&#x4E86;&#xFF0C;&#x6211;&#x6253;&#x7B97;<em>__</em>&#x4E00;&#x90E8;&#x65B0;&#x624B;&#x673A;&#x201D;&#xFF0C;&#x89C1;<a href="../images/two-way-rnn.png">&#x7ED3;&#x6784;&#x56FE;</a><ul>
 <li>$o_t = g(V.s_t + V&apos;.s_t&apos;)$</li>
 <li>$s_t = f(U.x_t + W.s_{t-1})$</li>
 <li>$s_t&apos; = f(U&apos;.x_t + W&apos;.s_{t+1}&apos;)$</li>
@@ -883,6 +883,11 @@
 <li>$o_t = g(V^{(i)}.s_t^{(i)} + V^{&apos;(i)}.s_t^{&apos;(i)})$</li>
 <li>$s_t^{(i)} = f(U^{(i)}.x_t^{(i-1)} + W^{(i)}.s_{t-1}^{(i)})$</li>
 <li>$s_t^{&apos;(i)} = f(U^{&apos;(i)}.x_t^{&apos;(i-1)} + W^{&apos;(i)}.s_{t+1}^{&apos;(i)})$</li>
+</ul>
+</li>
+<li>RNN&#x7684;&#x68AF;&#x5EA6;&#x7206;&#x70B8;&#x548C;&#x6D88;&#x5931;&#x95EE;&#x9898;<ul>
+<li>&#x68AF;&#x5EA6;&#x7206;&#x70B8;&#xFF1A;&#x7A0B;&#x5E8F;&#x4F1A;&#x62A5;NaN&#x9519;&#x8BEF;&#xFF0C;&#x89E3;&#x51B3;&#x529E;&#x6CD5;&#x662F;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x68AF;&#x5EA6;&#x9608;&#x503C;&#xFF0C;&#x68AF;&#x5EA6;&#x4E0D;&#x80FD;&#x9AD8;&#x4E8E;&#x5B83;</li>
+<li>&#x68AF;&#x5EA6;&#x6D88;&#x5931;&#xFF1A;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x957F;&#x77ED;&#x65F6;&#x8BB0;&#x5FC6;&#x7F51;&#x7EDC;&#xFF08;LTSM&#xFF09;&#x548C;Gated Recurrent Unit&#xFF08;GRU&#xFF09;</li>
 </ul>
 </li>
 </ul>
@@ -930,7 +935,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"刘二大人","level":"1.4.3","depth":2,"next":{"title":"傅里叶变换","level":"1.4.4","depth":2,"path":"docs/fft.md","ref":"docs/fft.md","articles":[]},"previous":{"title":"微积分重点","level":"1.4.2","depth":2,"path":"docs/highlights-of-calculus.md","ref":"docs/highlights-of-calculus.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/liu-er.md","mtime":"2023-11-09T02:09:24.054Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-11-09T02:10:06.746Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"刘二大人","level":"1.4.3","depth":2,"next":{"title":"傅里叶变换","level":"1.4.4","depth":2,"path":"docs/fft.md","ref":"docs/fft.md","articles":[]},"previous":{"title":"微积分重点","level":"1.4.2","depth":2,"path":"docs/highlights-of-calculus.md","ref":"docs/highlights-of-calculus.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/liu-er.md","mtime":"2023-11-09T08:06:33.156Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-11-09T08:06:59.959Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
