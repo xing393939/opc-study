@@ -29,7 +29,7 @@ class Model(torch.nn.Module):
         self.batch_size = batch_size
         self.input_size = input_size
         self.hidden_size = hidden_size
-        self.emb = torch.nn.Embedding(input_size, 5)
+        self.emb = torch.nn.Embedding(num_embeddings=input_size, embedding_dim=5)
         self.rnn = torch.nn.RNN(
             input_size=5,
             hidden_size=self.hidden_size,
