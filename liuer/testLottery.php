@@ -1,10 +1,10 @@
 <?php
 
 $config = [
-    ['sentNum' => 0, 'prob' => 10],
-    ['sentNum' => 0, 'prob' => 20],
-    ['sentNum' => 0, 'prob' => 30],
-    ['sentNum' => 0, 'prob' => 40],
+    ['sentNum' => 0, 'prob' => 0.10],
+    ['sentNum' => 0, 'prob' => 0.20],
+    ['sentNum' => 0, 'prob' => 0.30],
+    ['sentNum' => 0, 'prob' => 0.40],
 ];
 
 $probArr = [];
@@ -41,8 +41,8 @@ function getFairRand($probArr)
     $waitedArr = [];
     foreach ($config as $i => $item) {
         // 当前是否满足了中奖概率
-        if ($sentNum > 0 && ($item['sentNum'] / $sentNum) * 100 < $item['prob']) {
-            $waitedArr[$i] = $item['prob'];
+        if ($sentNum > 0 && $item['sentNum'] / $sentNum < $item['prob']) {
+            $waitedArr[$i] = round($item["prob"] * 100);
         }
     }
     if (empty($waitedArr)) {
