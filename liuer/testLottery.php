@@ -9,7 +9,7 @@ $config = [
 
 $probArr = [];
 foreach ($config as $i => $item) {
-    $probArr[$i] = round($item["prob"] * 100);
+    $probArr[$i] = round($item["prob"] * 10000);
 }
 
 testCase(100, 'getRand');
@@ -29,7 +29,7 @@ function testCase($count, $func)
         }
     }
 
-    for ($i = 0; $i < 4; $i++) {
+    for ($i = 0; $i < count($probArr); $i++) {
         echo "item$i sentNum=", $winArr[$i], " prob=", $winArr[$i] / $count, "\n";
     }
 }
@@ -42,7 +42,7 @@ function getFairRand($probArr)
     foreach ($config as $i => $item) {
         // 当前是否满足了中奖概率
         if ($sentNum > 0 && $item['sentNum'] / $sentNum < $item['prob']) {
-            $waitedArr[$i] = round($item["prob"] * 100);
+            $waitedArr[$i] = round($item["prob"] * 10000);
         }
     }
     if (empty($waitedArr)) {
