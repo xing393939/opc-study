@@ -192,5 +192,5 @@
   * 而使用torch.nn.Embedding(89, 5)来编码，则需要3 * 5
 
 #### 第十三讲-循环神经网络-高级篇
-
+* [循环神经网络 RNN、长短时记忆网络LSTM、门控循环单元GRU原理和应用详解](https://www.heywhale.com/mw/project/646d7cb1946100f2ccb8cee9)
 
