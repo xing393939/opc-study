@@ -111,7 +111,9 @@ class RNNClassifier(torch.nn.Module):
         embedding = self.embedding(input)  # （seqLen,batchSize,hiddenSize)
 
         # PackedSequence：把为0的填充量去除，把每个样本的长度记录下来，按长度排序后拼接在一起
-        gru_input = pack_padded_sequence(embedding, seq_lengths)
+        gru_input = pack_padded_sequence(
+            embedding, seq_lengths
+        )  # (len(seq_lengths),hiddenSize)
         output, hidden = self.gru(gru_input, hidden)
         if self.n_directions == 2:
             # 双向循环神经网络有两个hidden
