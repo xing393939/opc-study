@@ -16,6 +16,7 @@
 </script>
 
 #### 参考资料
+* [PyTorch-1.8.0文档](https://devdocs.io/pytorch)
 * [刘二大人-cnblog](https://www.cnblogs.com/zhouyeqin/category/2231506.html)
 * [刘二大人-zhihu](https://zhuanlan.zhihu.com/p/166104074)
 * [numpy在线运行](https://onecompiler.com/python/3zqwrqg2r)
@@ -193,4 +194,14 @@
 
 #### 第十三讲-循环神经网络-高级篇
 * [循环神经网络 RNN、长短时记忆网络LSTM、门控循环单元GRU原理和应用详解](https://www.heywhale.com/mw/project/646d7cb1946100f2ccb8cee9)
+* RNN的几种常见模式
+  * 序列到类别模式：liuer/lesson13.py
+  * 同步的序列到序列模式：liuer/lesson13_2.py
+  * 异步的序列到序列模式：
+
+
+
+
+
+
 
