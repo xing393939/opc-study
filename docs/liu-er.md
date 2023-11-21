@@ -201,8 +201,17 @@
     * [德语到英语](https://lifanchen-simm.github.io/2019/03/10/seq2seq/)
     * [英语到法语](https://blog.csdn.net/qq_43941037/article/details/133958279)
     * [英语到法语](https://zhuanlan.zhihu.com/p/476849075)
-
-
+* [torch.nn.GRU的输入及输出示例](https://blog.csdn.net/jiuweideqixu/article/details/109492863)
+  * batch_first=False时：
+    * `input:  (seq_len, batch, embedding_dim)`
+    * `h_0:    (num_layers * num_directions, batch, hidden_size)`
+    * `output: (seq_len, batch, num_directions * hidden_size)`
+    * `h_n:    (num_layers * num_directions, batch, hidden_size)`
+  * batch_first=True时：
+    * `input:  (batch, seq_len, embedding_dim)`
+    * `h_0:    (batch, num_layers * num_directions, hidden_size)`
+    * `output: (batch, seq_len, num_directions * hidden_size)`
+    * `h_n:    (batch, num_layers * num_directions, hidden_size)`
 
 
 
