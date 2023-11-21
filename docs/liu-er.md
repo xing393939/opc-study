@@ -196,8 +196,11 @@
 * [循环神经网络 RNN、长短时记忆网络LSTM、门控循环单元GRU原理和应用详解](https://www.heywhale.com/mw/project/646d7cb1946100f2ccb8cee9)
 * RNN的几种常见模式
   * 序列到类别模式：liuer/lesson13.py
-  * 同步的序列到序列模式：liuer/lesson13_2.py
+  * 同步的序列到序列模式：liuer/lesson13_2.py、liuer/lesson13_3.py
   * 异步的序列到序列模式：
+    * [德语到英语](https://lifanchen-simm.github.io/2019/03/10/seq2seq/)
+    * [英语到法语](https://blog.csdn.net/qq_43941037/article/details/133958279)
+    * [英语到法语](https://zhuanlan.zhihu.com/p/476849075)
 
 
 

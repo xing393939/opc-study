@@ -14,20 +14,7 @@ class DefaultConfig(object):
     max_vocab = 8000
     begin = "天青色等烟雨"  # begin word of text
     predict_len = 50  # predict length
-
-    # Store result and save models.
-    result_file = "result.txt"
-    save_file = "./checkpoints/"
-    save_freq = 30  # save model every N epochs
-    save_best = True
-
-    # Predict mode and generate contexts
-    load_model = "./checkpoints/CharRNN_best_model.pth"
-    write_file = "./write_context.txt"
-
-    # Visualization parameters.
-    vis_dir = "./vis/"
-    plot_freq = 100  # plot in tensorboard every N iterations
+    load_model = "./dataset/CharRNN_best_model.pth"
 
     # Model parameters.
     embed_dim = 512
@@ -42,23 +29,6 @@ class DefaultConfig(object):
     num_workers = 4  # how many workers for loading data
     max_epoch = 5
     lr = 1e-3  # initial learning rate
-    weight_decay = 1e-4
-
-    def _parse(self, kwargs):
-        for k, v in kwargs.items():
-            if not hasattr(self, k):
-                warnings.warn("Warning: opt has not attribut %s" % k)
-            setattr(self, k, v)
-        print("=========user config==========")
-        print(self._state_dict())
-        print("============end===============")
-
-    def _state_dict(self):
-        return {
-            k: getattr(self, k)
-            for k, _ in DefaultConfig.__dict__.items()
-            if not k.startswith("_")
-        }
 
 
 opt = DefaultConfig()
@@ -244,7 +214,7 @@ class CharRNNTrainer:
             self.optimizer.step()
 
             # Update to tensorboard.
-            if (self.n_iter + 1) % opt.plot_freq == 0:
+            if (self.n_iter + 1) % 100 == 0:
                 self.n_plot += 1
             self.n_iter += 1
 
