@@ -204,14 +204,14 @@
 * [torch.nn.GRU的输入及输出示例](https://blog.csdn.net/jiuweideqixu/article/details/109492863)
   * batch_first=False时：
     * input:&nbsp; (seq_len, batch, embedding_dim)
-    * h_0:&nbsp;&nbsp; (num_layers * num_directions, batch, hidden_size)
+    * h_0:&nbsp;&nbsp;&nbsp; (num_layers * num_directions, batch, hidden_size)
     * output: (seq_len, batch, num_directions * hidden_size)
-    * h_n:&nbsp;&nbsp; (num_layers * num_directions, batch, hidden_size)
+    * h_n:&nbsp;&nbsp;&nbsp; (num_layers * num_directions, batch, hidden_size)
   * batch_first=True时：
     * input:&nbsp; (batch, seq_len, embedding_dim)
-    * h_0:&nbsp;&nbsp; (batch, num_layers * num_directions, hidden_size)
+    * h_0:&nbsp;&nbsp;&nbsp; (batch, num_layers * num_directions, hidden_size)
     * output: (batch, seq_len, num_directions * hidden_size)
-    * h_n:&nbsp;&nbsp; (batch, num_layers * num_directions, hidden_size)
+    * h_n:&nbsp;&nbsp;&nbsp; (batch, num_layers * num_directions, hidden_size)
 
 
 
