@@ -3,11 +3,10 @@
 #### 资料
 1. udemy.com 网站排名127
 1. ACloudGuru 的视频依然是最好的学习材料，它把它的竞争对手 Linux Academy 收购了。
-1. Learning Path - https://jayendrapatil.com/aws-certified-solution-architect-professional-exam-learning-path/
+1. Learning Path - [(SAP-C01) Exam Learning Path](https://jayendrapatil.com/aws-certified-solution-architect-professional-exam-learning-path/)
 1. AWS Github Study Guide - https://github.com/keenanromain/AWS-SAA-C02-Study-Guide
 1. AWS FAQs https://aws.amazon.com/faqs/
 1. WhitePapers https://aws.amazon.com/cn/whitepapers/
-1. HTML转PDF：先转word，再用wps转pdf
 1. [中国区AWS价格计算器](https://cloud.engineerdraft.com/ec2)
 1. 视频：https://www.udemy.com/course/aws-certified-solutions-architect-associate-saa-c02/
 1. 练习1：https://www.udemy.com/course/aws-certified-solutions-architect-associate-amazon-practice-exams-saa-c02/

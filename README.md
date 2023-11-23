@@ -20,3 +20,11 @@
 * [《深入理解LINUX网络技术内幕》](https://book.douban.com/subject/4015134/)，ULNI、豆瓣8.3，[Go夜读-第68期网络知识十全大补丸](https://github.com/talkgo/night/issues/506)
 * [《Understanding the Linux Virtual Memory Manager》](https://book.douban.com/subject/1610233/)，ULVMM、豆瓣9.7
 * [Linux内核开发进阶书籍推荐](https://www.cnblogs.com/pugang/p/9728983.html)，LKD->ULK->LDD->ULNI->ULVMM
+
+#### 视频平台
+* Coursera，重视中国市场，部分有汉语字幕
+* 优达学城（Udacity），重视中国市场，部分有汉语字幕
+* 可汗学院（KhanAcademy），数学课非常有名，连比尔·盖茨都推荐给他子女
+* edX
+* Udemy
+* 网易公开课
