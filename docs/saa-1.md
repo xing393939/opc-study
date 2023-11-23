@@ -9,8 +9,7 @@
 1. WhitePapers https://aws.amazon.com/cn/whitepapers/
 1. [中国区AWS价格计算器](https://cloud.engineerdraft.com/ec2)
 1. 视频：https://www.udemy.com/course/aws-certified-solutions-architect-associate-saa-c02/
-1. 练习1：https://www.udemy.com/course/aws-certified-solutions-architect-associate-amazon-practice-exams-saa-c02/
-1. 练习2：https://www.udemy.com/course/practice-exams-aws-certified-solutions-architect-associate
+1. [练习1](https://www.udemy.com/course/aws-certified-solutions-architect-associate-amazon-practice-exams-saa-c02/)、[练习2](https://www.udemy.com/course/practice-exams-aws-certified-solutions-architect-associate)
 1. 如何通过console的System Managers登录ec2：
   * ec2需要附加一个role（带2个policy），[参考](https://wangfeng.live/2020/09/aws-uses-session-manager-to-log-in-and-manage-ec2-hosts)
   * ec2需要安装amazon-ssm-agent，[参考](https://aws.amazon.com/cn/premiumsupport/knowledge-center/install-ssm-agent-ec2-linux/)
