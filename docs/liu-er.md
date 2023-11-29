@@ -214,6 +214,15 @@
     * h_n:&nbsp;&nbsp;&nbsp; (batch, num_layers * num_directions, hidden_size)
   * input_size一般等于hidden_size，也可以不同
 
+#### 时间序列问题
+
+| data | label | 方案 |
+|---|---|---|
+| x1~xn | z  | liuer/lesson13.py |
+| x1    | x2 | liuer/lesson13_3.py |
+| x1,y1 | x2,y2 | |
+| x1,y1 | z1    | |
+| x1,y1,z1 | z1 | . |
 
 
 
