@@ -220,6 +220,7 @@
 |---|---|---|
 | x1~xn | z  | liuer/lesson13.py |
 | x1    | x2 | liuer/lesson13_3.py |
+| x1~xn<br/>y1~yn | z  |  |
 | x1,y1 | x2,y2 | |
 | x1,y1 | z1    | |
 | x1,y1,z1 | z1 | liuer/Myself-forecast.py |
