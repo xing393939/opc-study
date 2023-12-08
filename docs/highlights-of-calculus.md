@@ -12,7 +12,7 @@
   };
 </script>
 <script type="text/javascript" id="MathJax-script" async
-  src="https://static-621585.oss-cn-beijing.aliyuncs.com/mathjax-v3.js">
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
 </script>
 
 #### 参考资料
