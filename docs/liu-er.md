@@ -83,11 +83,11 @@
 * logistic函数也是sigmoid函数，在PyTorch中sigmoid函数即是logistic函数
 * logistic回归虽然名为回归，但实际用于分类问题。
 * torch.nn.BCELoss是CrossEntropyLoss的一个特例，只用于二分类问题，而CrossEntropyLoss可以用于二分类，也可以用于多分类。
-* sigmoid函数的输入记为z，$z = 𝜔_0.x_0 + 𝜔_1.x_1 + ... + 𝜔_n.x_n$，z=0为决策边界，z>0为真，z<0为假
-  * 上述公式的向量写法是$z = 𝜔^T.x$，梯度下降公式推导见[逻辑回归(LR)算法详解和实战](https://blog.csdn.net/Mr_Robert/article/details/88888973)
+* sigmoid的前馈流程：$z = 𝜔.x \quad \hat{y} = \frac{1}{1 + e^{-z}}$
+* sigmoid的反馈流程：[细品 - 逻辑回归（LR）](https://www.cnblogs.com/lianyingteng/p/7701801.html)
   * $loss = -y\log(\hat{y}) - (1 - y)\log(1 - \hat{y})$
-  * $cost = -\frac{1}{N}\sum\limits_{n=1}^N y\log(\hat{y}) + (1 - y)\log(1 - \hat{y})$，从这里开始省略下标n
-  * $\frac{𝜕cost}{𝜕𝜔} = \frac{𝜕cost}{𝜕\hat{y}}.\frac{𝜕\hat{y}}{𝜕𝜔}$，其中$\hat{y} = \frac{1}{1 + e^{-z}}$
+  * $cost = -\frac{1}{N}\sum\limits_{n=1}^N y_n\log(\hat{y}_n) + (1 - y_n)\log(1 - \hat{y}_n)$，从这里开始省略下标n
+  * $\frac{𝜕cost}{𝜕𝜔} = \frac{𝜕cost}{𝜕\hat{y}}.\frac{𝜕\hat{y}}{𝜕𝜔}$
   * $\frac{𝜕cost}{𝜕𝜔} = -\frac{1}{N}\sum\limits_{n=1}^N (\frac{y}{\hat{y}} - \frac{1-y}{1-\hat{y}}) . (\frac{𝜕\hat{y}}{𝜕z}.\frac{𝜕z}{𝜕𝜔})$，其中$\frac{𝜕\hat{y}}{𝜕z} = \hat{y} . (1 - \hat{y})$
   * $\frac{𝜕cost}{𝜕𝜔} = -\frac{1}{N}\sum\limits_{n=1}^N (\frac{y}{\hat{y}} - \frac{1-y}{1-\hat{y}}) . \hat{y} . (1 - \hat{y}) . x$
   * $\frac{𝜕cost}{𝜕𝜔} = -\frac{1}{N}\sum\limits_{n=1}^N (y - \hat{y}).x$
