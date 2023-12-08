@@ -652,292 +652,291 @@
     }
   };
 </script>
-<script type="text/javascript" id="MathJax-script" async src="https://static-621585.oss-cn-beijing.aliyuncs.com/mathjax-v3.js">
-</script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" <="" script="">
 
-<h4 id="&#x53C2;&#x8003;&#x8D44;&#x6599;">&#x53C2;&#x8003;&#x8D44;&#x6599;</h4>
+<h4>参考资料</h4>
 <ul>
-<li><a href="https://devdocs.io/pytorch" target="_blank">PyTorch-1.8.0&#x6587;&#x6863;</a></li>
-<li><a href="https://www.cnblogs.com/zhouyeqin/category/2231506.html" target="_blank">&#x5218;&#x4E8C;&#x5927;&#x4EBA;-cnblog</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/166104074" target="_blank">&#x5218;&#x4E8C;&#x5927;&#x4EBA;-zhihu</a></li>
-<li><a href="https://onecompiler.com/python/3zqwrqg2r" target="_blank">numpy&#x5728;&#x7EBF;&#x8FD0;&#x884C;</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/503336736" target="_blank">float&#x7684;&#x8868;&#x793A;</a>&#xFF1A;&#x7B26;&#x53F7;(1b)&#x3001;&#x9636;&#x7801;(8b)&#x3001;&#x5C3E;&#x6570;(23b)<ul>
-<li>0.875&#xFF1A;0.111&#xFF0C;&#x9700;&#x8981;&#x53F3;&#x79FB;1&#x4F4D;&#xFF0C;&#x9636;&#x7801;=127+(-1)&#xFF0C;&#x5C3E;&#x6570;=11</li>
-<li>6.360&#xFF1A;110.01011100&#xFF0C;&#x9700;&#x8981;&#x5DE6;&#x79FB;2&#x4F4D;&#xFF0C;&#x9636;&#x7801;=127+2&#xFF0C;&#x5C3E;&#x6570;=10010111000010100011111</li>
-<li>2^23 = 8388608&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x6709;&#x6548;&#x6570;&#x5B57;&#x5728;&#xB1;8388608&#x5185;&#x7684;&#x6574;&#x6570;&#x548C;&#x5C0F;&#x6570;&#xFF0C;&#x7CBE;&#x5EA6;&#x4E0D;&#x4F1A;&#x635F;&#x5931;</li>
+<li><a href="https://devdocs.io/pytorch">PyTorch-1.8.0文档</a></li>
+<li><a href="https://www.cnblogs.com/zhouyeqin/category/2231506.html">刘二大人-cnblog</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/166104074">刘二大人-zhihu</a></li>
+<li><a href="https://onecompiler.com/python/3zqwrqg2r">numpy在线运行</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/503336736">float的表示</a>：符号(1b)、阶码(8b)、尾数(23b)<ul>
+<li>0.875：0.111，需要右移1位，阶码=127+(-1)，尾数=11</li>
+<li>6.360：110.01011100，需要左移2位，阶码=127+2，尾数=10010111000010100011111</li>
+<li>2^23 = 8388608。也就是说，有效数字在±8388608内的整数和小数，精度不会损失</li>
 </ul>
 </li>
 <li>torch.optim.SGD(net.parameters(), lr=lr, momentum=0.9, weight_decay=wd)  <ul>
-<li>lr&#x662F;&#x5B66;&#x4E60;&#x7387;&#xFF0C;momentum&#x662F;&#x51B2;&#x91CF;&#xFF0C;weight_decay&#x662F;&#x9632;&#x6B62;&#x8FC7;&#x62DF;&#x5408;</li>
+<li>lr是学习率，momentum是冲量，weight_decay是防止过拟合</li>
 </ul>
 </li>
 </ul>
-<h4 id="&#x7B2C;&#x4E8C;&#x8BB2;-&#x7EBF;&#x6027;&#x6A21;&#x578B;">&#x7B2C;&#x4E8C;&#x8BB2;-&#x7EBF;&#x6027;&#x6A21;&#x578B;</h4>
+<h4>第二讲-线性模型</h4>
 <ul>
-<li>MSE&#xFF1A;&#x5747;&#x503C;&#x5E73;&#x65B9;&#x8BEF;&#x5DEE;(Mean Square Error)&#xFF0C;$MSE=\frac{1}{N} \sum\limits_{n=1}^N (\hat{y}_n - y_n)^2$</li>
-<li>&#x8BAD;&#x7EC3;&#x96C6;(1,2)&#x3001;(2,4)&#x3001;(3,6)&#xFF0C;&#x7528;&#x7A77;&#x4E3E;&#x6CD5;&#x9884;&#x6D4B;x=4&#x65F6;&#xFF0C;y&#x7684;&#x503C;&#xFF1A;<ul>
-<li>&#x5047;&#x8BBE;&#x6A21;&#x578B;&#x662F;y = &#x1D714; * x&#xFF0C;&#x6C42;&#x1D714;&#x7684;&#x503C;</li>
-<li>for (&#x1D714;=0; &#x1D714;&lt;4.1; &#x1D714;+=0.1)&#xFF0C;&#x4F9D;&#x6B21;&#x6C42;&#x51FA;MSE&#xFF0C;&#x53D6;MSE&#x6700;&#x4F4E;&#x65F6;&#x1D714;&#x7684;&#x503C;</li>
+<li>MSE：均值平方误差(Mean Square Error)，$MSE=\frac{1}{N} \sum\limits_{n=1}^N (\hat{y}_n - y_n)^2$</li>
+<li>训练集(1,2)、(2,4)、(3,6)，用穷举法预测x=4时，y的值：<ul>
+<li>假设模型是y = 𝜔 * x，求𝜔的值</li>
+<li>for (𝜔=0; 𝜔&lt;4.1; 𝜔+=0.1)，依次求出MSE，取MSE最低时𝜔的值</li>
 </ul>
 </li>
 </ul>
-<h4 id="&#x7B2C;&#x4E09;&#x8BB2;-&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x6CD5;">&#x7B2C;&#x4E09;&#x8BB2;-&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x6CD5;</h4>
+<h4>第三讲-梯度下降法</h4>
 <ul>
-<li>&#x8BAD;&#x7EC3;&#x96C6;(1,2)&#x3001;(2,4)&#x3001;(3,6)&#xFF0C;&#x7528;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x6CD5;&#x9884;&#x6D4B;x=4&#x65F6;&#xFF0C;y&#x7684;&#x503C;&#xFF1A;</li>
-<li>&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#xFF1A;<ul>
-<li>&#x5047;&#x8BBE;&#x6A21;&#x578B;&#x662F;y = &#x1D714; * x&#xFF0C;&#x6C42;&#x1D714;&#x7684;&#x503C;</li>
-<li>&#x5148;&#x9009;&#x5B9A;&#x1D714;=1</li>
-<li>&#x4E0B;&#x4E00;&#x4E2A;$&#x1D714;=&#x1D714;-&#x3B1;\frac{&#x1D715;cost}{&#x1D715;&#x1D714;}$&#xFF0C;&#x5176;&#x4E2D;&#x3B1;&#x8868;&#x793A;&#x6B65;&#x957F;&#xFF0C;cost&#x5373;MSE</li>
-<li>&#x4E0B;&#x4E00;&#x4E2A;$&#x1D714;=&#x1D714;-&#x3B1;\frac{1}{N}\sum\limits_{n=1}^N 2.x_n.(x_n.&#x1D714; - y_n)$</li>
-<li>&#x6B65;&#x957F;&#x5B9A;&#x4E3A;0.01&#xFF0C;&#x8FED;&#x4EE3;100&#x6B21;&#xFF0C;&#x89C2;&#x5BDF;MSE&#x503C;&#x662F;&#x5426;&#x4F1A;&#x6536;&#x655B;</li>
+<li>训练集(1,2)、(2,4)、(3,6)，用梯度下降法预测x=4时，y的值：</li>
+<li>梯度下降：<ul>
+<li>假设模型是y = 𝜔 * x，求𝜔的值</li>
+<li>先选定𝜔=1</li>
+<li>下一个$𝜔=𝜔-α\frac{𝜕cost}{𝜕𝜔}$，其中α表示步长，cost即MSE</li>
+<li>下一个$𝜔=𝜔-α\frac{1}{N}\sum\limits_{n=1}^N 2.x_n.(x_n.𝜔 - y_n)$</li>
+<li>步长定为0.01，迭代100次，观察MSE值是否会收敛</li>
 </ul>
 </li>
-<li>&#x968F;&#x673A;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#xFF1A;<ul>
-<li>&#x5047;&#x8BBE;&#x6A21;&#x578B;&#x662F;y = &#x1D714; * x&#xFF0C;&#x6C42;&#x1D714;&#x7684;&#x503C;</li>
-<li>&#x5148;&#x9009;&#x5B9A;&#x1D714;=1</li>
-<li>&#x4E0B;&#x4E00;&#x4E2A;$&#x1D714;=&#x1D714;-&#x3B1;\frac{&#x1D715;loss}{&#x1D715;&#x1D714;}$&#xFF0C;&#x5176;&#x4E2D;&#x3B1;&#x8868;&#x793A;&#x6B65;&#x957F;&#xFF0C;$loss = (\hat{y}_n - y_n)^2 \quad \frac{&#x1D715;loss}{&#x1D715;&#x1D714;} = 2.x_n.(x_n.&#x1D714; - y_n)$</li>
-<li>&#x6B65;&#x957F;&#x5B9A;&#x4E3A;0.01&#xFF0C;&#x8FED;&#x4EE3;100&#x6B21;&#xFF0C;&#x89C2;&#x5BDF;loss&#x503C;&#x662F;&#x5426;&#x4F1A;&#x6536;&#x655B;</li>
+<li>随机梯度下降：<ul>
+<li>假设模型是y = 𝜔 * x，求𝜔的值</li>
+<li>先选定𝜔=1</li>
+<li>下一个$𝜔=𝜔-α\frac{𝜕loss}{𝜕𝜔}$，其中α表示步长，$loss = (\hat{y}_n - y_n)^2 \quad \frac{𝜕loss}{𝜕𝜔} = 2.x_n.(x_n.𝜔 - y_n)$</li>
+<li>步长定为0.01，迭代100次，观察loss值是否会收敛</li>
 </ul>
 </li>
-<li>&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x548C;&#x968F;&#x673A;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;<ul>
-<li>&#x968F;&#x673A;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x9700;&#x8981;&#x7B49;&#x5F85;&#x4E0A;&#x4E00;&#x4E2A;&#x503C;&#x8FD0;&#x884C;&#x5B8C;&#x624D;&#x80FD;&#x66F4;&#x65B0;&#x4E0B;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x65E0;&#x6CD5;&#x5E76;&#x884C;&#x8BA1;&#x7B97;</li>
-<li>&#x968F;&#x673A;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x53EF;&#x4EE5;&#x6709;&#x6548;&#x89E3;&#x51B3;&#x978D;&#x70B9;&#x95EE;&#x9898;</li>
-<li>&#x6298;&#x4E2D;&#x7684;&#x529E;&#x6CD5;&#x662F;mini_batch</li>
+<li>梯度下降和随机梯度下降<ul>
+<li>随机梯度下降需要等待上一个值运行完才能更新下一个值，无法并行计算</li>
+<li>随机梯度下降可以有效解决鞍点问题</li>
+<li>折中的办法是mini_batch</li>
 </ul>
 </li>
 </ul>
-<h4 id="&#x7B2C;&#x56DB;&#x8BB2;-&#x53CD;&#x5411;&#x4F20;&#x64AD;">&#x7B2C;&#x56DB;&#x8BB2;-&#x53CD;&#x5411;&#x4F20;&#x64AD;</h4>
+<h4>第四讲-反向传播</h4>
 <ul>
-<li>&#x5047;&#x8BBE;&#x6A21;&#x578B;&#x662F;$y = &#x1D714; * x$&#xFF0C;&#x6C42;&#x1D714;&#x7684;&#x503C;&#xFF0C;<a href="../images/back-propagation.png">&#x89C1;&#x56FE;</a></li>
-<li>&#x5047;&#x8BBE;&#x6A21;&#x578B;&#x662F;$y = &#x1D714; * x + b$&#xFF0C;<a href="https://blog.csdn.net/wanlin_yang/article/details/129263378" target="_blank">&#x4EBA;&#x5DE5;&#x667A;&#x80FD;&#x539F;&#x7406;-&#x66F2;&#x9762;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x548C;&#x53CD;&#x5411;&#x4F20;&#x64AD;</a><ul>
-<li>$loss = (&#x1D714;x + b - y)^2 = x^2&#x1D714;^2 + (2x.b - 2x.y)&#x1D714; + (y^2 + b^2 - 2y.b)$</li>
-<li>$\frac{&#x1D715;loss}{&#x1D715;&#x1D714;} = 2x(&#x1D714;x + b - y)$</li>
-<li>$\frac{&#x1D715;loss}{&#x1D715;b} = 2(&#x1D714;x + b - y)$</li>
-<li>&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x89E3;&#x6CD5;&#xFF1A;liuer/lesson4_2.py</li>
-<li>&#x968F;&#x673A;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#xFF1A;liuer/lesson4_3.py</li>
+<li>假设模型是$y = 𝜔 * x$，求𝜔的值，<a href="../images/back-propagation.png">见图</a></li>
+<li>假设模型是$y = 𝜔 * x + b$，<a href="https://blog.csdn.net/wanlin_yang/article/details/129263378">人工智能原理-曲面梯度下降和反向传播</a><ul>
+<li>$loss = (𝜔x + b - y)^2 = x^2𝜔^2 + (2x.b - 2x.y)𝜔 + (y^2 + b^2 - 2y.b)$</li>
+<li>$\frac{𝜕loss}{𝜕𝜔} = 2x(𝜔x + b - y)$</li>
+<li>$\frac{𝜕loss}{𝜕b} = 2(𝜔x + b - y)$</li>
+<li>梯度下降解法：liuer/lesson4_2.py</li>
+<li>随机梯度下降：liuer/lesson4_3.py</li>
 </ul>
 </li>
-<li>&#x5047;&#x8BBE;&#x6A21;&#x578B;&#x662F;$y = &#x1D714; * x + b$&#xFF0C;&#x8BA1;&#x7B97;&#x635F;&#x5931;&#x51FD;&#x6570;&#x76F8;&#x5BF9;&#x4E8E;&#x5404;&#x4E2A;&#x53C2;&#x6570;&#x7684;&#x504F;&#x5BFC;&#x6570;&#x6765;&#x6C42;&#x89E3;&#x68AF;&#x5EA6;&#x3002;<ul>
-<li>$loss = (\hat{y} - y)^2 \quad \hat{y} = &#x1D714; * x + b$</li>
-<li>$\frac{&#x1D715;loss}{&#x1D715;&#x1D714;} = \frac{&#x1D715;loss}{&#x1D715;\hat{y}}.\frac{&#x1D715;\hat{y}}{&#x1D715;&#x1D714;} = 2(\hat{y} - y).x$</li>
-<li>$\frac{&#x1D715;loss}{&#x1D715;b} = \frac{&#x1D715;loss}{&#x1D715;\hat{y}}.\frac{&#x1D715;\hat{y}}{&#x1D715;b} = 2(\hat{y} - y).1$</li>
+<li>假设模型是$y = 𝜔 * x + b$，计算损失函数相对于各个参数的偏导数来求解梯度。<ul>
+<li>$loss = (\hat{y} - y)^2 \quad \hat{y} = 𝜔 * x + b$</li>
+<li>$\frac{𝜕loss}{𝜕𝜔} = \frac{𝜕loss}{𝜕\hat{y}}.\frac{𝜕\hat{y}}{𝜕𝜔} = 2(\hat{y} - y).x$</li>
+<li>$\frac{𝜕loss}{𝜕b} = \frac{𝜕loss}{𝜕\hat{y}}.\frac{𝜕\hat{y}}{𝜕b} = 2(\hat{y} - y).1$</li>
 </ul>
 </li>
-<li>&#x5047;&#x8BBE;&#x6A21;&#x578B;&#x662F;$y = &#x1D714;_1.x^2 + &#x1D714;_2.x + b$<ul>
-<li>$loss = (\hat{y} - y)^2 \quad \hat{y} = &#x1D714;_1.x^2 + &#x1D714;_2.x + b$</li>
-<li>$\frac{&#x1D715;loss}{&#x1D715;&#x1D714;_1} = \frac{&#x1D715;loss}{&#x1D715;\hat{y}}.\frac{&#x1D715;\hat{y}}{&#x1D715;&#x1D714;_1} = 2(\hat{y} - y).x^2$</li>
-<li>$\frac{&#x1D715;loss}{&#x1D715;&#x1D714;_2} = \frac{&#x1D715;loss}{&#x1D715;\hat{y}}.\frac{&#x1D715;\hat{y}}{&#x1D715;&#x1D714;_2} = 2(\hat{y} - y).x$</li>
-<li>$\frac{&#x1D715;loss}{&#x1D715;b} = \frac{&#x1D715;loss}{&#x1D715;\hat{y}}.\frac{&#x1D715;\hat{y}}{&#x1D715;b} = 2(\hat{y} - y).1$</li>
+<li>假设模型是$y = 𝜔_1.x^2 + 𝜔_2.x + b$<ul>
+<li>$loss = (\hat{y} - y)^2 \quad \hat{y} = 𝜔_1.x^2 + 𝜔_2.x + b$</li>
+<li>$\frac{𝜕loss}{𝜕𝜔_1} = \frac{𝜕loss}{𝜕\hat{y}}.\frac{𝜕\hat{y}}{𝜕𝜔_1} = 2(\hat{y} - y).x^2$</li>
+<li>$\frac{𝜕loss}{𝜕𝜔_2} = \frac{𝜕loss}{𝜕\hat{y}}.\frac{𝜕\hat{y}}{𝜕𝜔_2} = 2(\hat{y} - y).x$</li>
+<li>$\frac{𝜕loss}{𝜕b} = \frac{𝜕loss}{𝜕\hat{y}}.\frac{𝜕\hat{y}}{𝜕b} = 2(\hat{y} - y).1$</li>
 </ul>
 </li>
 </ul>
-<h4 id="&#x7B2C;&#x4E94;&#x8BB2;-pytorch&#x7EBF;&#x6027;&#x56DE;&#x5F52;">&#x7B2C;&#x4E94;&#x8BB2;-PyTorch&#x7EBF;&#x6027;&#x56DE;&#x5F52;</h4>
+<h4>第五讲-PyTorch线性回归</h4>
 <ul>
-<li>PyTorch&#x7684;&#x56DB;&#x4E2A;&#x6B65;&#x9AA4;&#xFF1A;&#x51C6;&#x5907;&#x6570;&#x636E;&#x3001;&#x5B9A;&#x4E49;&#x6A21;&#x578B;&#x3001;&#x5B9A;&#x4E49;&#x635F;&#x5931;&#x51FD;&#x6570;&#x548C;&#x4F18;&#x5316;&#x5668;&#x3001;&#x8BAD;&#x7EC3;&#x5468;&#x671F;</li>
-<li>&#x8BAD;&#x7EC3;&#x5468;&#x671F;&#x7684;&#x4E09;&#x4E2A;&#x6B65;&#x9AA4;&#xFF1A;<ul>
-<li>&#x524D;&#x9988;forward&#xFF1A;&#x8BA1;&#x7B97;$\hat{y} \quad loss$</li>
-<li>&#x53CD;&#x9988;backward&#xFF1A;&#x53CD;&#x5411;&#x4F20;&#x64AD;&#x3001;&#x8BA1;&#x7B97;&#x68AF;&#x5EA6;</li>
-<li>&#x66F4;&#x65B0;update&#xFF1A;&#x66F4;&#x65B0;&#x53C2;&#x6570;</li>
+<li>PyTorch的四个步骤：准备数据、定义模型、定义损失函数和优化器、训练周期</li>
+<li>训练周期的三个步骤：<ul>
+<li>前馈forward：计算$\hat{y} \quad loss$</li>
+<li>反馈backward：反向传播、计算梯度</li>
+<li>更新update：更新参数</li>
 </ul>
 </li>
 </ul>
-<h4 id="&#x7B2C;&#x516D;&#x8BB2;-&#x903B;&#x8F91;&#x65AF;&#x8C1B;&#x56DE;&#x5F52;">&#x7B2C;&#x516D;&#x8BB2;-&#x903B;&#x8F91;&#x65AF;&#x8C1B;&#x56DE;&#x5F52;</h4>
+<h4>第六讲-逻辑斯谛回归</h4>
 <ul>
-<li><a href="https://zhuanlan.zhihu.com/p/358223959" target="_blank">&#x4E00;&#x7BC7;&#x6587;&#x7AE0;&#x641E;&#x61C2;logit, logistic&#x548C;sigmoid&#x7684;&#x533A;&#x522B;</a></li>
-<li>&#x903B;&#x8F91;&#x65AF;&#x8C1B;&#x56DE;&#x5F52;(Logistic Regression)&#xFF0C;&#x7B80;&#x79F0;LR</li>
-<li>sigmoid&#x51FD;&#x6570;&#x662F;&#x6307;&#x67D0;&#x4E00;&#x7C7B;&#x5F62;&#x5982;&quot;S&quot;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x4F8B;&#x5982;<a href="../images/sigmoid-function.jpg">&#x8FD9;&#x4E9B;&#x51FD;&#x6570;</a></li>
-<li>logistic&#x51FD;&#x6570;&#x4E5F;&#x662F;sigmoid&#x51FD;&#x6570;&#xFF0C;&#x5728;PyTorch&#x4E2D;sigmoid&#x51FD;&#x6570;&#x5373;&#x662F;logistic&#x51FD;&#x6570;</li>
-<li>logistic&#x56DE;&#x5F52;&#x867D;&#x7136;&#x540D;&#x4E3A;&#x56DE;&#x5F52;&#xFF0C;&#x4F46;&#x5B9E;&#x9645;&#x7528;&#x4E8E;&#x5206;&#x7C7B;&#x95EE;&#x9898;&#x3002;</li>
-<li>torch.nn.BCELoss&#x662F;CrossEntropyLoss&#x7684;&#x4E00;&#x4E2A;&#x7279;&#x4F8B;&#xFF0C;&#x53EA;&#x7528;&#x4E8E;&#x4E8C;&#x5206;&#x7C7B;&#x95EE;&#x9898;&#xFF0C;&#x800C;CrossEntropyLoss&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x4E8C;&#x5206;&#x7C7B;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x591A;&#x5206;&#x7C7B;&#x3002;</li>
-<li>sigmoid&#x51FD;&#x6570;&#x7684;&#x8F93;&#x5165;&#x8BB0;&#x4E3A;z&#xFF0C;$z = &#x1D714;_0.x_0 + &#x1D714;_1.x_1 + ... + &#x1D714;_n.x_n$&#xFF0C;z=0&#x4E3A;&#x51B3;&#x7B56;&#x8FB9;&#x754C;&#xFF0C;z&gt;0&#x4E3A;&#x771F;&#xFF0C;z&lt;0&#x4E3A;&#x5047;<ul>
-<li>&#x4E0A;&#x8FF0;&#x516C;&#x5F0F;&#x7684;&#x5411;&#x91CF;&#x5199;&#x6CD5;&#x662F;$z = &#x1D714;^T.x$&#xFF0C;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x516C;&#x5F0F;&#x63A8;&#x5BFC;&#x89C1;<a href="https://blog.csdn.net/Mr_Robert/article/details/88888973" target="_blank">&#x903B;&#x8F91;&#x56DE;&#x5F52;(LR)&#x7B97;&#x6CD5;&#x8BE6;&#x89E3;&#x548C;&#x5B9E;&#x6218;</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/358223959">一篇文章搞懂logit, logistic和sigmoid的区别</a></li>
+<li>逻辑斯谛回归(Logistic Regression)，简称LR</li>
+<li>sigmoid函数是指某一类形如&quot;S&quot;的函数，例如<a href="../images/sigmoid-function.jpg">这些函数</a></li>
+<li>logistic函数也是sigmoid函数，在PyTorch中sigmoid函数即是logistic函数</li>
+<li>logistic回归虽然名为回归，但实际用于分类问题。</li>
+<li>torch.nn.BCELoss是CrossEntropyLoss的一个特例，只用于二分类问题，而CrossEntropyLoss可以用于二分类，也可以用于多分类。</li>
+<li>sigmoid函数的输入记为z，$z = 𝜔_0.x_0 + 𝜔_1.x_1 + ... + 𝜔_n.x_n$，z=0为决策边界，z&gt;0为真，z&lt;0为假<ul>
+<li>上述公式的向量写法是$z = 𝜔^T.x$，梯度下降公式推导见<a href="https://blog.csdn.net/Mr_Robert/article/details/88888973">逻辑回归(LR)算法详解和实战</a></li>
 <li>$loss = -y\log(\hat{y}) - (1 - y)\log(1 - \hat{y})$</li>
-<li>$cost = -\frac{1}{N}\sum\limits_{n=1}^N y\log(\hat{y}) + (1 - y)\log(1 - \hat{y})$&#xFF0C;&#x4ECE;&#x8FD9;&#x91CC;&#x5F00;&#x59CB;&#x7701;&#x7565;&#x4E0B;&#x6807;n</li>
-<li>$\frac{&#x1D715;cost}{&#x1D715;&#x1D714;} = \frac{&#x1D715;cost}{&#x1D715;\hat{y}}.\frac{&#x1D715;\hat{y}}{&#x1D715;&#x1D714;}$&#xFF0C;&#x5176;&#x4E2D;$\hat{y} = \frac{1}{1 + e^{-z}}$</li>
-<li>$\frac{&#x1D715;cost}{&#x1D715;&#x1D714;} = -\frac{1}{N}\sum\limits_{n=1}^N (\frac{y}{\hat{y}} - \frac{1-y}{1-\hat{y}}) . (\frac{&#x1D715;\hat{y}}{&#x1D715;z}.\frac{&#x1D715;z}{&#x1D715;&#x1D714;})$&#xFF0C;&#x5176;&#x4E2D;$\frac{&#x1D715;\hat{y}}{&#x1D715;z} = \hat{y} . (1 - \hat{y})$</li>
-<li>$\frac{&#x1D715;cost}{&#x1D715;&#x1D714;} = -\frac{1}{N}\sum\limits_{n=1}^N (\frac{y}{\hat{y}} - \frac{1-y}{1-\hat{y}}) . \hat{y} . (1 - \hat{y}) . x$</li>
-<li>$\frac{&#x1D715;cost}{&#x1D715;&#x1D714;} = -\frac{1}{N}\sum\limits_{n=1}^N (y - \hat{y}).x$</li>
-<li>$\frac{&#x1D715;cost}{&#x1D715;&#x1D714;} = \frac{1}{N}\sum\limits_{n=1}^N (\hat{y} - y).x$</li>
+<li>$cost = -\frac{1}{N}\sum\limits_{n=1}^N y\log(\hat{y}) + (1 - y)\log(1 - \hat{y})$，从这里开始省略下标n</li>
+<li>$\frac{𝜕cost}{𝜕𝜔} = \frac{𝜕cost}{𝜕\hat{y}}.\frac{𝜕\hat{y}}{𝜕𝜔}$，其中$\hat{y} = \frac{1}{1 + e^{-z}}$</li>
+<li>$\frac{𝜕cost}{𝜕𝜔} = -\frac{1}{N}\sum\limits_{n=1}^N (\frac{y}{\hat{y}} - \frac{1-y}{1-\hat{y}}) . (\frac{𝜕\hat{y}}{𝜕z}.\frac{𝜕z}{𝜕𝜔})$，其中$\frac{𝜕\hat{y}}{𝜕z} = \hat{y} . (1 - \hat{y})$</li>
+<li>$\frac{𝜕cost}{𝜕𝜔} = -\frac{1}{N}\sum\limits_{n=1}^N (\frac{y}{\hat{y}} - \frac{1-y}{1-\hat{y}}) . \hat{y} . (1 - \hat{y}) . x$</li>
+<li>$\frac{𝜕cost}{𝜕𝜔} = -\frac{1}{N}\sum\limits_{n=1}^N (y - \hat{y}).x$</li>
+<li>$\frac{𝜕cost}{𝜕𝜔} = \frac{1}{N}\sum\limits_{n=1}^N (\hat{y} - y).x$</li>
 </ul>
 </li>
-<li>$z = &#x1D714;_0.x_0 + &#x1D714;_1.x_1 + &#x1D714;_2.x_2$&#xFF0C;&#x5176;&#x4E2D;$x_0$&#x6052;&#x4E3A;1<ul>
-<li>&#x4EE3;&#x7801;liuer/lesson6.py&#xFF1A;<a href="https://blog.csdn.net/qq_41750911/article/details/124889545" target="_blank">&#x673A;&#x5668;&#x5B66;&#x4E60;&#x4E4B;&#x903B;&#x8F91;&#x56DE;&#x5F52;Logistic Regression</a></li>
-<li>&#x4EE3;&#x7801;liuer/lesson6_1.py&#xFF1A;<a href="https://blog.csdn.net/qq_37055672/article/details/124779634" target="_blank">&#x903B;&#x8F91;&#x56DE;&#x5F52;&#x624B;&#x52A8;&#x5B9E;&#x73B0;&#xFF08;logistic regression&#xFF09;</a></li>
+<li>$z = 𝜔_0.x_0 + 𝜔_1.x_1 + 𝜔_2.x_2$，其中$x_0$恒为1<ul>
+<li>代码liuer/lesson6.py：<a href="https://blog.csdn.net/qq_41750911/article/details/124889545">机器学习之逻辑回归Logistic Regression</a></li>
+<li>代码liuer/lesson6_1.py：<a href="https://blog.csdn.net/qq_37055672/article/details/124779634">逻辑回归手动实现（logistic regression）</a></li>
 </ul>
 </li>
 </ul>
-<h4 id="&#x7B2C;&#x4E03;&#x8BB2;-&#x5904;&#x7406;&#x591A;&#x7EF4;&#x8F93;&#x5165;">&#x7B2C;&#x4E03;&#x8BB2;-&#x5904;&#x7406;&#x591A;&#x7EF4;&#x8F93;&#x5165;</h4>
+<h4>第七讲-处理多维输入</h4>
 <ul>
-<li>&#x7EBF;&#x6027;&#x6A21;&#x578B;&#xFF1A;y = Ax&#x3002;&#x7EBF;&#x6027;&#x4E5F;&#x5C31;&#x662F;&#x76F4;&#x7EBF;&#xFF0C;&#x662F;&#x4E00;&#x6B21;&#x65B9;&#x7A0B;&#x3002;</li>
-<li>torch.nn.Linear(8, 1)&#x8868;&#x793A;&#x8F93;&#x5165;&#x662F;8&#x7EF4;&#xFF0C;&#x8F93;&#x51FA;&#x662F;1&#x7EF4;&#xFF0C;&#x5373;A&#x662F;1x8&#xFF0C;x&#x662F;8x1&#xFF0C;y&#x662F;1x1</li>
-<li>torch.nn.Linear(8, 6)&#x8868;&#x793A;&#x8F93;&#x5165;&#x662F;8&#x7EF4;&#xFF0C;&#x8F93;&#x51FA;&#x662F;6&#x7EF4;&#xFF0C;&#x5373;A&#x662F;6x8&#xFF0C;x&#x662F;8x1&#xFF0C;y&#x662F;6x1</li>
-<li>&#x975E;&#x7EBF;&#x6027;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;&#x4F7F;&#x5F97;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x53EF;&#x4EE5;&#x903C;&#x8FD1;&#x4EFB;&#x4F55;&#x975E;&#x7EBF;&#x6027;&#x51FD;&#x6570;</li>
-<li>&#x975E;&#x7EBF;&#x6027;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;<a href="https://pytorch.org/docs/stable/nn.html#non-linear-activations-weighted-sum-nonlinearity" target="_blank">&#x89C1;</a>&#xFF0C;&#x5176;&#x4E2D;&#x6709;torch.nn.Sigmoid</li>
+<li>线性模型：y = Ax。线性也就是直线，是一次方程。</li>
+<li>torch.nn.Linear(8, 1)表示输入是8维，输出是1维，即A是1x8，x是8x1，y是1x1</li>
+<li>torch.nn.Linear(8, 6)表示输入是8维，输出是6维，即A是6x8，x是8x1，y是6x1</li>
+<li>非线性激活函数使得神经网络可以逼近任何非线性函数</li>
+<li>非线性激活函数<a href="https://pytorch.org/docs/stable/nn.html#non-linear-activations-weighted-sum-nonlinearity">见</a>，其中有torch.nn.Sigmoid</li>
 </ul>
-<h4 id="&#x7B2C;&#x516B;&#x8BB2;-dataset&#x548C;dataloader">&#x7B2C;&#x516B;&#x8BB2;-Dataset&#x548C;DataLoader</h4>
+<h4>第八讲-Dataset和DataLoader</h4>
 <ul>
-<li>Dataset&#x662F;&#x62BD;&#x8C61;&#x7C7B;&#xFF0C;&#x9700;&#x8981;&#x7528;&#x6237;&#x7F16;&#x5199;&#x5177;&#x4F53;&#x7C7B;</li>
-<li>DataLoader&#x9700;&#x8981;&#x4E00;&#x4E2A;Dataset&#x5177;&#x4F53;&#x7C7B;&#xFF0C;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x8FED;&#x4EE3;&#x5BF9;&#x8C61;</li>
+<li>Dataset是抽象类，需要用户编写具体类</li>
+<li>DataLoader需要一个Dataset具体类，生成一个迭代对象</li>
 </ul>
-<h4 id="&#x7B2C;&#x4E5D;&#x8BB2;-&#x591A;&#x5206;&#x7C7B;&#x95EE;&#x9898;">&#x7B2C;&#x4E5D;&#x8BB2;-&#x591A;&#x5206;&#x7C7B;&#x95EE;&#x9898;</h4>
+<h4>第九讲-多分类问题</h4>
 <ul>
-<li>&#x5173;&#x4E8E;&#x628A;&#x56FE;&#x7247;&#x8F6C;&#x6210;tensor&#x683C;&#x5F0F;&#xFF0C;&#x53C2;&#x8003;liuer/image2tensor.py</li>
-<li>&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x6267;&#x884C;transforms.Normalize((0.1307,), (0.3081,))&#xFF1F;<ul>
-<li>&#x56E0;&#x4E3A;ToTensor&#x662F;&#x628A;&#x6570;&#x636E;&#x5F52;&#x4E00;&#x5316;&#x5230;0,1&#x533A;&#x95F4;&#xFF0C;&#x800C;Normalize&#x662F;&#x8BA9;&#x6570;&#x636E;&#x6210;&#x6B63;&#x6001;&#x5206;&#x5E03;&#xFF0C;<a href="https://zhuanlan.zhihu.com/p/476297637" target="_blank">&#x52A0;&#x5FEB;&#x6A21;&#x578B;&#x7684;&#x6536;&#x655B;&#x901F;&#x5EA6;</a></li>
-<li>transforms.Normalize(mean, std)&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5BF9;&#x8F93;&#x5165;&#x8FDB;&#x884C;torch.mean(x)&#x548C;torch.std(x)&#x5F97;&#x5230;</li>
+<li>关于把图片转成tensor格式，参考liuer/image2tensor.py</li>
+<li>为什么要执行transforms.Normalize((0.1307,), (0.3081,))？<ul>
+<li>因为ToTensor是把数据归一化到0,1区间，而Normalize是让数据成正态分布，<a href="https://zhuanlan.zhihu.com/p/476297637">加快模型的收敛速度</a></li>
+<li>transforms.Normalize(mean, std)可以通过对输入进行torch.mean(x)和torch.std(x)得到</li>
 </ul>
 </li>
-<li>&#x6A21;&#x578B;&#x7CBE;&#x786E;&#x5EA6;97%&#xFF0C;&#x8BAD;&#x7EC3;&#x8FC7;&#x7A0B;&#xFF1A;<ul>
-<li>x&#xFF1A;&#x6837;&#x672C;&#x662F;(0,28,28)</li>
-<li>x = x.view(-1, 784)&#xFF1A;&#x8F93;&#x51FA;&#x53D8;&#x6210;784</li>
-<li>x = F.relu(self.l1(x))&#xFF1A;&#x8F93;&#x51FA;&#x53D8;&#x6210;512</li>
-<li>x = F.relu(self.l2(x))&#xFF1A;&#x8F93;&#x51FA;&#x53D8;&#x6210;256</li>
-<li>x = F.relu(self.l3(x))&#xFF1A;&#x8F93;&#x51FA;&#x53D8;&#x6210;128</li>
-<li>x = F.relu(self.l4(x))&#xFF1A;&#x8F93;&#x51FA;&#x53D8;&#x6210;64</li>
-<li>x = self.l5(x)&#xFF1A;&#x8F93;&#x51FA;&#x53D8;&#x6210;10</li>
+<li>模型精确度97%，训练过程：<ul>
+<li>x：样本是(0,28,28)</li>
+<li>x = x.view(-1, 784)：输出变成784</li>
+<li>x = F.relu(self.l1(x))：输出变成512</li>
+<li>x = F.relu(self.l2(x))：输出变成256</li>
+<li>x = F.relu(self.l3(x))：输出变成128</li>
+<li>x = F.relu(self.l4(x))：输出变成64</li>
+<li>x = self.l5(x)：输出变成10</li>
 </ul>
 </li>
 </ul>
-<h4 id="&#x7B2C;&#x5341;&#x8BB2;-&#x5377;&#x79EF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;-&#x57FA;&#x7840;&#x7BC7;">&#x7B2C;&#x5341;&#x8BB2;-&#x5377;&#x79EF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;-&#x57FA;&#x7840;&#x7BC7;</h4>
+<h4>第十讲-卷积神经网络-基础篇</h4>
 <ul>
-<li>CNN(Convolution Neural Network)&#xFF1A;&#x5377;&#x79EF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;</li>
-<li><a href="https://blog.csdn.net/qq_39751352/article/details/124649762" target="_blank">&#x5377;&#x79EF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x4E2D;&#x7684;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;sigmoid&#x3001;tanh&#x3001;relu</a><ul>
-<li>&#x6FC0;&#x6D3B;&#x51FD;&#x6570;&#x7684;&#x76EE;&#x7684;&#xFF1A;&#x5C06;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x975E;&#x7EBF;&#x6027;&#x5316;&#xFF0C;&#x5373;&#x63D0;&#x5347;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x7684;&#x62DF;&#x5408;&#x80FD;&#x529B;&#xFF0C;&#x80FD;&#x62DF;&#x5408;&#x66F4;&#x590D;&#x6742;&#x7684;&#x51FD;&#x6570;&#x3002;</li>
-<li>&#x5982;&#x679C;&#x6A21;&#x578B;&#x53EA;&#x6709;&#x7EBF;&#x6027;&#x64CD;&#x4F5C;&#xFF0C;&#x5219;&#x6C38;&#x8FDC;&#x53EA;&#x80FD;&#x8868;&#x793A;&#x8D85;&#x5E73;&#x9762;&#xFF0C;&#x65E0;&#x6CD5;&#x8868;&#x793A;&#x66F2;&#x9762;&#x7B49;</li>
+<li>CNN(Convolution Neural Network)：卷积神经网络</li>
+<li><a href="https://blog.csdn.net/qq_39751352/article/details/124649762">卷积神经网络中的激活函数sigmoid、tanh、relu</a><ul>
+<li>激活函数的目的：将神经网络非线性化，即提升神经网络的拟合能力，能拟合更复杂的函数。</li>
+<li>如果模型只有线性操作，则永远只能表示超平面，无法表示曲面等</li>
 </ul>
 </li>
-<li><a href="https://yey.world/2020/12/16/Pytorch-13/" target="_blank">&#x7F51;&#x7EDC;&#x5C42;&#xFF1A;&#x6C60;&#x5316;&#x5C42;&#x3001;&#x5168;&#x8FDE;&#x63A5;&#x5C42;&#x548C;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;&#x5C42;</a>  </li>
-<li>&#x5377;&#x79EF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x9664;&#x4E86;&#x8F93;&#x5165;&#x548C;&#x8F93;&#x51FA;&#x5C42;&#x4E4B;&#x5916;&#x8FD8;&#x6709;&#x56DB;&#x4E2A;&#x57FA;&#x672C;&#x7684;&#x795E;&#x7ECF;&#x5143;&#x5C42;&#xFF1A;<ul>
-<li>&#x5377;&#x79EF;&#x5C42;&#xFF08;Convolution&#xFF09;&#xFF1A;<a href="https://pytorch.apachecn.org/1.0/nn/#conv2d" target="_blank">torch.nn.Conv2d</a></li>
-<li>&#x6C60;&#x5316;&#x5C42;&#xFF08;Pooling&#xFF09;&#xFF1A;<a href="https://pytorch.apachecn.org/1.0/nn/#maxpool2d" target="_blank">torch.nn.MaxPool2d</a></li>
-<li>&#x6FC0;&#x6D3B;&#x5C42;&#xFF08;Activation&#xFF09;</li>
-<li>&#x5B8C;&#x5168;&#x8FDE;&#x63A5;&#x5C42;&#xFF08;Fully connected&#xFF09;&#xFF1A;&#x6BCF;&#x4E2A;&#x795E;&#x7ECF;&#x5143;&#x4E0E;&#x4E0A;&#x4E00;&#x5C42;&#x6240;&#x6709;&#x795E;&#x7ECF;&#x5143;&#x76F8;&#x8FDE;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x8003;&#x8651;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;&#x7684;&#x975E;&#x7EBF;&#x6027;&#x6027;&#x8D28;&#xFF0C;&#x90A3;&#x4E48;&#x5168;&#x8FDE;&#x63A5;&#x5C42;&#x5C31;&#x662F;&#x5BF9;&#x8F93;&#x5165;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x4E00;&#x4E2A;&#x7EBF;&#x6027;&#x7EC4;&#x5408;</li>
+<li><a href="https://yey.world/2020/12/16/Pytorch-13/">网络层：池化层、全连接层和激活函数层</a>  </li>
+<li>卷积神经网络除了输入和输出层之外还有四个基本的神经元层：<ul>
+<li>卷积层（Convolution）：<a href="https://pytorch.apachecn.org/1.0/nn/#conv2d">torch.nn.Conv2d</a></li>
+<li>池化层（Pooling）：<a href="https://pytorch.apachecn.org/1.0/nn/#maxpool2d">torch.nn.MaxPool2d</a></li>
+<li>激活层（Activation）</li>
+<li>完全连接层（Fully connected）：每个神经元与上一层所有神经元相连，如果不考虑激活函数的非线性性质，那么全连接层就是对输入数据进行一个线性组合</li>
 </ul>
 </li>
-<li>&#x6A21;&#x578B;&#x7CBE;&#x786E;&#x5EA6;98%&#xFF0C;&#x8BAD;&#x7EC3;&#x8FC7;&#x7A0B;&#xFF1A;<ul>
-<li>x&#xFF1A;&#x6837;&#x672C;&#x662F;(0,28,28)</li>
-<li>x = F.relu(self.pooling(self.conv1(x)))&#xFF1A;&#x5377;&#x79EF;&#x540E;&#x662F;(10,24,24)&#xFF0C;&#x6C60;&#x5316;&#x540E;&#x662F;(10,12,12)</li>
-<li>x = F.relu(self.pooling(self.conv2(x)))&#xFF1A;&#x5377;&#x79EF;&#x540E;&#x662F;(20,8,8)&#xFF0C;&#x6C60;&#x5316;&#x540E;&#x662F;(20,4,4)</li>
-<li>x = x.view(x.size(0), -1)&#xFF1A;&#x8F93;&#x51FA;&#x53D8;&#x6210;320</li>
-<li>x = self.fc(x)&#xFF1A;&#x8F93;&#x51FA;&#x53D8;&#x6210;10</li>
+<li>模型精确度98%，训练过程：<ul>
+<li>x：样本是(0,28,28)</li>
+<li>x = F.relu(self.pooling(self.conv1(x)))：卷积后是(10,24,24)，池化后是(10,12,12)</li>
+<li>x = F.relu(self.pooling(self.conv2(x)))：卷积后是(20,8,8)，池化后是(20,4,4)</li>
+<li>x = x.view(x.size(0), -1)：输出变成320</li>
+<li>x = self.fc(x)：输出变成10</li>
 </ul>
 </li>
 </ul>
-<h4 id="&#x7B2C;&#x5341;&#x4E00;&#x8BB2;-&#x5377;&#x79EF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;-&#x9AD8;&#x7EA7;&#x7BC7;">&#x7B2C;&#x5341;&#x4E00;&#x8BB2;-&#x5377;&#x79EF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;-&#x9AD8;&#x7EA7;&#x7BC7;</h4>
+<h4>第十一讲-卷积神经网络-高级篇</h4>
 <ul>
-<li>nn.Conv2d(1, 16, kernel_size=1)&#xFF0C;1x1&#x5377;&#x79EF;&#x6838;&#x7684;&#x4F5C;&#x7528;&#xFF1A;&#x878D;&#x5408;&#x4E86;&#x6BCF;&#x4E2A;&#x901A;&#x9053;&#x7684;&#x4FE1;&#x606F;</li>
-<li>ResidualBlock&#x5C42;&#x662F;&#x628A;&#x8F93;&#x5165;&#x548C;&#x8F93;&#x51FA;&#x76F8;&#x52A0;&#xFF0C;&#x5373;z(x) = f(x) + x<ul>
-<li>&#x597D;&#x5904;&#x662F;&#x4E0D;&#x4F1A;&#x5B58;&#x5728;&#x68AF;&#x5EA6;&#x6D88;&#x5931;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x56E0;&#x4E3A;&#x5373;&#x4F7F;f&apos;(x)&#x662F;0&#xFF0C;z&apos;(x)&#x662F;1</li>
+<li>nn.Conv2d(1, 16, kernel_size=1)，1x1卷积核的作用：融合了每个通道的信息</li>
+<li>ResidualBlock层是把输入和输出相加，即z(x) = f(x) + x<ul>
+<li>好处是不会存在梯度消失的问题，因为即使f&#39;(x)是0，z&#39;(x)是1</li>
 </ul>
 </li>
-<li>&#x6A21;&#x578B;&#x7CBE;&#x786E;&#x5EA6;98%&#xFF0C;&#x8BAD;&#x7EC3;&#x8FC7;&#x7A0B;&#xFF1A;<ul>
-<li>x&#xFF1A;&#x6837;&#x672C;&#x662F;(0,28,28)</li>
-<li>x = F.relu(self.mp(self.conv1(x)))&#xFF1A;&#x5377;&#x79EF;&#x540E;&#x662F;(10,24,24)&#xFF0C;&#x6C60;&#x5316;&#x540E;&#x662F;(10,12,12)</li>
-<li>x = self.incep1(x)&#xFF1A;(88,12,12)<ul>
-<li>&#x5206;&#x652F;1&#xFF0C;(16,12,12)</li>
-<li>&#x5206;&#x652F;2&#xFF0C;(24,12,12)</li>
-<li>&#x5206;&#x652F;3&#xFF0C;(24,12,12)</li>
-<li>&#x5206;&#x652F;4&#xFF0C;(24,12,12)</li>
+<li>模型精确度98%，训练过程：<ul>
+<li>x：样本是(0,28,28)</li>
+<li>x = F.relu(self.mp(self.conv1(x)))：卷积后是(10,24,24)，池化后是(10,12,12)</li>
+<li>x = self.incep1(x)：(88,12,12)<ul>
+<li>分支1，(16,12,12)</li>
+<li>分支2，(24,12,12)</li>
+<li>分支3，(24,12,12)</li>
+<li>分支4，(24,12,12)</li>
 </ul>
 </li>
-<li>x = F.relu(self.mp(self.conv2(x)))&#xFF1A;&#x5377;&#x79EF;&#x540E;&#x662F;(20,8,8)&#xFF0C;&#x6C60;&#x5316;&#x540E;&#x662F;(20,4,4)</li>
-<li>x = self.incep2(x)&#xFF1A;(88,4,4)<ul>
-<li>&#x5206;&#x652F;1&#xFF0C;(16,4,4)</li>
-<li>&#x5206;&#x652F;2&#xFF0C;(24,4,4)</li>
-<li>&#x5206;&#x652F;3&#xFF0C;(24,4,4)</li>
-<li>&#x5206;&#x652F;4&#xFF0C;(24,4,4)</li>
+<li>x = F.relu(self.mp(self.conv2(x)))：卷积后是(20,8,8)，池化后是(20,4,4)</li>
+<li>x = self.incep2(x)：(88,4,4)<ul>
+<li>分支1，(16,4,4)</li>
+<li>分支2，(24,4,4)</li>
+<li>分支3，(24,4,4)</li>
+<li>分支4，(24,4,4)</li>
 </ul>
 </li>
-<li>x = x.view(x.size(0), -1)&#xFF1A;&#x8F93;&#x51FA;&#x53D8;&#x6210;1408</li>
-<li>x = self.fc(x)&#xFF1A;&#x8F93;&#x51FA;&#x53D8;&#x6210;10</li>
+<li>x = x.view(x.size(0), -1)：输出变成1408</li>
+<li>x = self.fc(x)：输出变成10</li>
 </ul>
 </li>
-<li>&#x6A21;&#x578B;&#x7CBE;&#x786E;&#x5EA6;99%&#xFF0C;&#x8BAD;&#x7EC3;&#x8FC7;&#x7A0B;&#xFF1A;<ul>
-<li>x&#xFF1A;&#x6837;&#x672C;&#x662F;(0,28,28)</li>
-<li>x = F.relu(self.mp(self.conv1(x)))&#xFF1A;&#x5377;&#x79EF;&#x540E;&#x662F;(16,24,24)&#xFF0C;&#x6C60;&#x5316;&#x540E;&#x662F;(16,12,12)</li>
-<li>x = self.rblock1(x)&#xFF1A;ResidualBlock&#x7684;&#x8F93;&#x5165;&#x548C;&#x8F93;&#x51FA;&#x7684;&#x5F20;&#x91CF;&#x76F8;&#x540C;</li>
-<li>x = self.mp(F.relu(self.conv2(x)))&#xFF1A;&#x5377;&#x79EF;&#x540E;&#x662F;(32,8,8)&#xFF0C;&#x6C60;&#x5316;&#x540E;&#x662F;(32,4,4)</li>
-<li>x = self.rblock2(x)&#xFF1A;ResidualBlock&#x7684;&#x8F93;&#x5165;&#x548C;&#x8F93;&#x51FA;&#x7684;&#x5F20;&#x91CF;&#x76F8;&#x540C;</li>
-<li>x = x.view(in_size, -1)&#xFF1A;&#x8F93;&#x51FA;&#x53D8;&#x6210;512</li>
-<li>x = self.fc(x)&#xFF1A;&#x8F93;&#x51FA;&#x53D8;&#x6210;10</li>
+<li>模型精确度99%，训练过程：<ul>
+<li>x：样本是(0,28,28)</li>
+<li>x = F.relu(self.mp(self.conv1(x)))：卷积后是(16,24,24)，池化后是(16,12,12)</li>
+<li>x = self.rblock1(x)：ResidualBlock的输入和输出的张量相同</li>
+<li>x = self.mp(F.relu(self.conv2(x)))：卷积后是(32,8,8)，池化后是(32,4,4)</li>
+<li>x = self.rblock2(x)：ResidualBlock的输入和输出的张量相同</li>
+<li>x = x.view(in_size, -1)：输出变成512</li>
+<li>x = self.fc(x)：输出变成10</li>
 </ul>
 </li>
 </ul>
-<h4 id="&#x7B2C;&#x5341;&#x4E8C;&#x8BB2;-&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;-&#x57FA;&#x7840;&#x7BC7;">&#x7B2C;&#x5341;&#x4E8C;&#x8BB2;-&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;-&#x57FA;&#x7840;&#x7BC7;</h4>
+<h4>第十二讲-循环神经网络-基础篇</h4>
 <ul>
-<li>RNN(Recurrent Neural Network)&#xFF1A;&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;</li>
-<li><a href="https://cuijiahua.com/blog/2018/12/dl-11.html" target="_blank">&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x5B9E;&#x6218;&#x6559;&#x7A0B;(&#x4E94;)&#xFF1A;&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;</a></li>
-<li>&#x57FA;&#x672C;&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#xFF1A;&#x89E3;&#x51B3;&#x201C;&#x6211;&#x6628;&#x5929;&#x4E0A;&#x5B66;&#x8FDF;&#x5230;&#x4E86;&#xFF0C;&#x8001;&#x5E08;&#x6279;&#x8BC4;&#x4E86;<em>__</em>&#x201D;&#xFF0C;&#x89C1;<a href="../images/simple-rnn.jpg">&#x7ED3;&#x6784;&#x56FE;</a><ul>
-<li>$o_t = g(V.s_t)$&#xFF0C;g&#x662F;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;&#x3002;</li>
-<li>$s_t = f(U.x_t + W.s_{t-1})$&#xFF0C;U&#x662F;x<sub>t</sub>&#x7684;&#x6743;&#x91CD;&#x77E9;&#x9635;&#xFF0C;W&#x662F;s<sub>t-1</sub>&#x7684;&#x6743;&#x91CD;&#x77E9;&#x9635;&#x3002;</li>
+<li>RNN(Recurrent Neural Network)：循环神经网络</li>
+<li><a href="https://cuijiahua.com/blog/2018/12/dl-11.html">深度学习实战教程(五)：循环神经网络</a></li>
+<li>基本循环神经网络：解决“我昨天上学迟到了，老师批评了<em>__</em>”，见<a href="../images/simple-rnn.jpg">结构图</a><ul>
+<li>$o_t = g(V.s_t)$，g是激活函数。</li>
+<li>$s_t = f(U.x_t + W.s_{t-1})$，U是x<sub>t</sub>的权重矩阵，W是s<sub>t-1</sub>的权重矩阵。</li>
 </ul>
 </li>
-<li>&#x53CC;&#x5411;&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#xFF1A;&#x89E3;&#x51B3;&#x201C;&#x6211;&#x7684;&#x624B;&#x673A;&#x574F;&#x4E86;&#xFF0C;&#x6211;&#x6253;&#x7B97;<em>__</em>&#x4E00;&#x90E8;&#x65B0;&#x624B;&#x673A;&#x201D;&#xFF0C;&#x89C1;<a href="../images/two-way-rnn.png">&#x7ED3;&#x6784;&#x56FE;</a><ul>
-<li>$o_t = g(V.s_t + V&apos;.s_t&apos;)$</li>
+<li>双向循环神经网络：解决“我的手机坏了，我打算<em>__</em>一部新手机”，见<a href="../images/two-way-rnn.png">结构图</a><ul>
+<li>$o_t = g(V.s_t + V&#39;.s_t&#39;)$</li>
 <li>$s_t = f(U.x_t + W.s_{t-1})$</li>
-<li>$s_t&apos; = f(U&apos;.x_t + W&apos;.s_{t+1}&apos;)$</li>
-<li>&#x6B63;&#x5411;&#x8BA1;&#x7B97;&#x548C;&#x53CD;&#x5411;&#x8BA1;&#x7B97;&#x4E0D;&#x5171;&#x4EAB;&#x6743;&#x91CD;&#xFF0C;&#x50CF;U&#x548C;U&apos;&#x3001;W&#x548C;W&apos;&#x3001;V&#x548C;V&apos;</li>
+<li>$s_t&#39; = f(U&#39;.x_t + W&#39;.s_{t+1}&#39;)$</li>
+<li>正向计算和反向计算不共享权重，像U和U&#39;、W和W&#39;、V和V&#39;</li>
 </ul>
 </li>
-<li>&#x6DF1;&#x5EA6;&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#xFF1A;&#x66F4;&#x5F3A;&#x5927;&#x7684;&#x8868;&#x8FBE;&#x4E0E;&#x5B66;&#x4E60;&#x80FD;&#x529B;&#xFF0C;&#x4F46;&#x590D;&#x6742;&#x6027;&#x63D0;&#x9AD8;&#xFF0C;&#x9700;&#x66F4;&#x591A;&#x8BAD;&#x7EC3;&#x6570;&#x636E;&#x3002;&#x89C1;<a href="../images/deep-rnn.png">&#x7ED3;&#x6784;&#x56FE;</a><ul>
-<li>&#x5047;&#x8BBE;&#x7B2C;i&#x4E2A;&#x9690;&#x85CF;&#x5C42;&#x7684;&#x503C;&#x5206;&#x522B;&#x662F;$s_t^{(i)} \quad s_t^{&apos;(i)}$</li>
-<li>$o_t = g(V^{(i)}.s_t^{(i)} + V^{&apos;(i)}.s_t^{&apos;(i)})$</li>
+<li>深度循环神经网络：更强大的表达与学习能力，但复杂性提高，需更多训练数据。见<a href="../images/deep-rnn.png">结构图</a><ul>
+<li>假设第i个隐藏层的值分别是$s_t^{(i)} \quad s_t^{&#39;(i)}$</li>
+<li>$o_t = g(V^{(i)}.s_t^{(i)} + V^{&#39;(i)}.s_t^{&#39;(i)})$</li>
 <li>$s_t^{(i)} = f(U^{(i)}.x_t^{(i-1)} + W^{(i)}.s_{t-1}^{(i)})$</li>
-<li>$s_t^{&apos;(i)} = f(U^{&apos;(i)}.x_t^{&apos;(i-1)} + W^{&apos;(i)}.s_{t+1}^{&apos;(i)})$</li>
+<li>$s_t^{&#39;(i)} = f(U^{&#39;(i)}.x_t^{&#39;(i-1)} + W^{&#39;(i)}.s_{t+1}^{&#39;(i)})$</li>
 </ul>
 </li>
-<li>RNN&#x7684;&#x68AF;&#x5EA6;&#x7206;&#x70B8;&#x548C;&#x6D88;&#x5931;&#x95EE;&#x9898;<ul>
-<li>&#x68AF;&#x5EA6;&#x7206;&#x70B8;&#xFF1A;&#x7A0B;&#x5E8F;&#x4F1A;&#x62A5;NaN&#x9519;&#x8BEF;&#xFF0C;&#x89E3;&#x51B3;&#x529E;&#x6CD5;&#x662F;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x68AF;&#x5EA6;&#x9608;&#x503C;&#xFF0C;&#x68AF;&#x5EA6;&#x4E0D;&#x80FD;&#x9AD8;&#x4E8E;&#x5B83;</li>
-<li>&#x68AF;&#x5EA6;&#x6D88;&#x5931;&#xFF1A;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x957F;&#x77ED;&#x65F6;&#x8BB0;&#x5FC6;&#x7F51;&#x7EDC;&#xFF08;LTSM&#xFF09;&#x548C;Gated Recurrent Unit&#xFF08;GRU&#xFF09;</li>
+<li>RNN的梯度爆炸和消失问题<ul>
+<li>梯度爆炸：程序会报NaN错误，解决办法是设置一个梯度阈值，梯度不能高于它</li>
+<li>梯度消失：需要使用长短时记忆网络（LTSM）和Gated Recurrent Unit（GRU）</li>
 </ul>
 </li>
-<li>&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;&#x7528;tanh&#x7528;&#x7684;&#x591A;</li>
-<li>torch.nn.Embedding&#x7684;&#x597D;&#x5904;&#xFF1A;<ul>
-<li>&#x5BF9;&#x4E8E;&#x6837;&#x672C;&#xFF08;0, 1, 88&#xFF09;&#xFF0C;&#x82E5;&#x4F7F;&#x7528;one-hot&#x7F16;&#x7801;&#xFF0C;&#x5219;&#x9700;&#x8981;3 * 89</li>
-<li>&#x800C;&#x4F7F;&#x7528;torch.nn.Embedding(89, 5)&#x6765;&#x7F16;&#x7801;&#xFF0C;&#x5219;&#x9700;&#x8981;3 * 5</li>
+<li>循环神经网络激活函数用tanh用的多</li>
+<li>torch.nn.Embedding的好处：<ul>
+<li>对于样本（0, 1, 88），若使用one-hot编码，则需要3 * 89</li>
+<li>而使用torch.nn.Embedding(89, 5)来编码，则需要3 * 5</li>
 </ul>
 </li>
 </ul>
-<h4 id="&#x7B2C;&#x5341;&#x4E09;&#x8BB2;-&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;-&#x9AD8;&#x7EA7;&#x7BC7;">&#x7B2C;&#x5341;&#x4E09;&#x8BB2;-&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;-&#x9AD8;&#x7EA7;&#x7BC7;</h4>
+<h4>第十三讲-循环神经网络-高级篇</h4>
 <ul>
-<li><a href="https://www.heywhale.com/mw/project/646d7cb1946100f2ccb8cee9" target="_blank">&#x5FAA;&#x73AF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC; RNN&#x3001;&#x957F;&#x77ED;&#x65F6;&#x8BB0;&#x5FC6;&#x7F51;&#x7EDC;LSTM&#x3001;&#x95E8;&#x63A7;&#x5FAA;&#x73AF;&#x5355;&#x5143;GRU&#x539F;&#x7406;&#x548C;&#x5E94;&#x7528;&#x8BE6;&#x89E3;</a></li>
-<li>RNN&#x7684;&#x51E0;&#x79CD;&#x5E38;&#x89C1;&#x6A21;&#x5F0F;<ul>
-<li>&#x5E8F;&#x5217;&#x5230;&#x7C7B;&#x522B;&#x6A21;&#x5F0F;&#xFF1A;liuer/lesson13.py</li>
-<li>&#x540C;&#x6B65;&#x7684;&#x5E8F;&#x5217;&#x5230;&#x5E8F;&#x5217;&#x6A21;&#x5F0F;&#xFF1A;liuer/lesson13_2.py&#x3001;liuer/lesson13_3.py</li>
-<li>&#x5F02;&#x6B65;&#x7684;&#x5E8F;&#x5217;&#x5230;&#x5E8F;&#x5217;&#x6A21;&#x5F0F;&#xFF1A;<ul>
-<li><a href="https://lifanchen-simm.github.io/2019/03/10/seq2seq/" target="_blank">&#x5FB7;&#x8BED;&#x5230;&#x82F1;&#x8BED;</a></li>
-<li><a href="https://blog.csdn.net/qq_43941037/article/details/133958279" target="_blank">&#x82F1;&#x8BED;&#x5230;&#x6CD5;&#x8BED;</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/476849075" target="_blank">&#x82F1;&#x8BED;&#x5230;&#x6CD5;&#x8BED;</a></li>
+<li><a href="https://www.heywhale.com/mw/project/646d7cb1946100f2ccb8cee9">循环神经网络 RNN、长短时记忆网络LSTM、门控循环单元GRU原理和应用详解</a></li>
+<li>RNN的几种常见模式<ul>
+<li>序列到类别模式：liuer/lesson13.py</li>
+<li>同步的序列到序列模式：liuer/lesson13_2.py、liuer/lesson13_3.py</li>
+<li>异步的序列到序列模式：<ul>
+<li><a href="https://lifanchen-simm.github.io/2019/03/10/seq2seq/">德语到英语</a></li>
+<li><a href="https://blog.csdn.net/qq_43941037/article/details/133958279">英语到法语</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/476849075">英语到法语</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="https://blog.csdn.net/jiuweideqixu/article/details/109492863" target="_blank">torch.nn.GRU&#x7684;&#x8F93;&#x5165;&#x53CA;&#x8F93;&#x51FA;&#x793A;&#x4F8B;</a><ul>
-<li>batch_first=False&#x65F6;&#xFF1A;<ul>
-<li>input:&#xA0; (seq_len, batch, input_size)&#xFF0C;&#x4E5F;&#x5373;embedding_dim</li>
-<li>h_0:&#xA0;&#xA0;&#xA0; (num_layers * num_directions, batch, hidden_size)</li>
+<li><a href="https://blog.csdn.net/jiuweideqixu/article/details/109492863">torch.nn.GRU的输入及输出示例</a><ul>
+<li>batch_first=False时：<ul>
+<li>input:&nbsp; (seq_len, batch, input_size)，也即embedding_dim</li>
+<li>h_0:&nbsp;&nbsp;&nbsp; (num_layers * num_directions, batch, hidden_size)</li>
 <li>output:(seq_len, batch, num_directions * hidden_size)</li>
-<li>h_n:&#xA0;&#xA0;&#xA0; (num_layers * num_directions, batch, hidden_size)</li>
+<li>h_n:&nbsp;&nbsp;&nbsp; (num_layers * num_directions, batch, hidden_size)</li>
 </ul>
 </li>
-<li>batch_first=True&#x65F6;&#xFF1A;<ul>
-<li>input:&#xA0; (batch, seq_len, input_size)</li>
-<li>h_0:&#xA0;&#xA0;&#xA0; (batch, num_layers * num_directions, hidden_size)</li>
+<li>batch_first=True时：<ul>
+<li>input:&nbsp; (batch, seq_len, input_size)</li>
+<li>h_0:&nbsp;&nbsp;&nbsp; (batch, num_layers * num_directions, hidden_size)</li>
 <li>output:(batch, seq_len, num_directions * hidden_size)</li>
-<li>h_n:&#xA0;&#xA0;&#xA0; (batch, num_layers * num_directions, hidden_size)</li>
+<li>h_n:&nbsp;&nbsp;&nbsp; (batch, num_layers * num_directions, hidden_size)</li>
 </ul>
 </li>
-<li>input_size&#x4E00;&#x822C;&#x7B49;&#x4E8E;hidden_size&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4E0D;&#x540C;</li>
+<li>input_size一般等于hidden_size，也可以不同</li>
 </ul>
 </li>
 </ul>
-<h4 id="&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x95EE;&#x9898;">&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x95EE;&#x9898;</h4>
+<h4>时间序列问题</h4>
 <table>
 <thead>
 <tr>
 <th>data</th>
 <th>label</th>
-<th>&#x65B9;&#x6848;</th>
+<th>方案</th>
 </tr>
 </thead>
 <tbody>
@@ -952,7 +951,7 @@
 <td>liuer/lesson13_3.py</td>
 </tr>
 <tr>
-<td>x1~xn<br>y1~yn</td>
+<td>x1~xn<br/>y1~yn</td>
 <td>z</td>
 <td></td>
 </tr>
@@ -973,7 +972,7 @@
 </tr>
 </tbody>
 </table>
-
+</script>
                                 
                                 </section>
                             
@@ -1016,7 +1015,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"刘二大人","level":"1.4.3","depth":2,"next":{"title":"傅里叶变换","level":"1.4.4","depth":2,"path":"docs/fft.md","ref":"docs/fft.md","articles":[]},"previous":{"title":"微积分重点","level":"1.4.2","depth":2,"path":"docs/highlights-of-calculus.md","ref":"docs/highlights-of-calculus.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/liu-er.md","mtime":"2023-12-07T06:22:56.186Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-12-07T06:23:20.255Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"刘二大人","level":"1.4.3","depth":2,"next":{"title":"傅里叶变换","level":"1.4.4","depth":2,"path":"docs/fft.md","ref":"docs/fft.md","articles":[]},"previous":{"title":"微积分重点","level":"1.4.2","depth":2,"path":"docs/highlights-of-calculus.md","ref":"docs/highlights-of-calculus.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/liu-er.md","mtime":"2023-12-08T03:10:42.575Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-12-08T03:11:07.029Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
