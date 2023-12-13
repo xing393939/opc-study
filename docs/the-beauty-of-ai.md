@@ -9,3 +9,8 @@
 * 03巧用提示语
 * 04情感分类对比谷歌的T5
 * 05文本多分类
+* 06部署聊天应用：
+  * [大模型之Chat Markup Language](https://blog.csdn.net/fzcoolbaby/article/details/133970545)
+  * 使用tiktoken计算token个数
+
+
