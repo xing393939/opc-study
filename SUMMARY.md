@@ -17,6 +17,7 @@
   * [微积分重点](docs/highlights-of-calculus.md)
   * [刘二大人](docs/liu-er.md)
   * [傅里叶变换](docs/fft.md)
+  * [AI大模型之美](docs/the-beauty-of-ai.md)
 * 4.其他
   * [性能之颠](docs/systems-performance.md)
   * [Head First设计模式](docs/head-first-design-patterns.md)
