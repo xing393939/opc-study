@@ -1,6 +1,6 @@
 ### AI大模型之美
 
-#### 课程
+#### 基础知识篇
 * 01学会和AI对话，问了两个问题：
   * 把中文标题变成英文，写5个卖点，估一个卖价
   * 把英文标题中的人名找出来
@@ -13,5 +13,10 @@
   * [大模型之Chat Markup Language](https://blog.csdn.net/fzcoolbaby/article/details/133970545)
   * 使用tiktoken计算token个数
 * 07标题聚类、文本归类、利用文章摘要压缩提示语
+* 08文本改写、屏蔽字词、moderation接口
+
+#### 实战提高(一)
+* 09通过向量化进行语义搜索
+* 10使用llama_index来扩充知识库
 
 
