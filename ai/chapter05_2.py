@@ -1,4 +1,5 @@
 import pandas as pd
+
 datafile_path = "data/fine_food_reviews_with_embeddings_1k.parquet"
 df = pd.read_parquet(datafile_path)
 df["category"] = df.Score.replace(
