@@ -12,5 +12,6 @@
 * 06部署聊天应用：
   * [大模型之Chat Markup Language](https://blog.csdn.net/fzcoolbaby/article/details/133970545)
   * 使用tiktoken计算token个数
+* 07标题聚类、文本归类、利用文章摘要压缩提示语
 
 
