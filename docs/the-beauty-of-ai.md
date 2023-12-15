@@ -28,4 +28,9 @@
   * langchain.LLMMathChain，问数学题得到python代码，执行python代码
   * langchain.chains.LLMRequestsChain，先请求网页，再组成prompt问llm
   * langchain.chains.TransformChain，转换数据
-
+* 16使用langchain的工具
+  * langchain.memory.ConversationBufferWindowMemory，控制保留几轮对话
+  * langchain.memory.ConversationSummaryMemory，把历史对话生成英文摘要
+  * langchain.memory.ConversationSummaryBufferMemory，即保留几轮对话，又生成摘要
+  
+  
