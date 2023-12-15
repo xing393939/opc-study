@@ -24,4 +24,8 @@
 * 12使用ai写excel插件
 * 13使用ai写单元测试
 * 14使用langchain进行链式调用
+* 15使用langchain的工具
+  * langchain.LLMMathChain，问数学题得到python代码，执行python代码
+  * langchain.chains.LLMRequestsChain，先请求网页，再组成prompt问llm
+  * langchain.chains.TransformChain，转换数据
 
