@@ -36,3 +36,7 @@ index = VectorStoreIndex.from_vector_store(
 query_engine = index.as_query_engine(similarity_top_k=5, retriever_mode="embedding")
 response = query_engine.query("请问你们海南能发货吗？")
 print(response)
+response = query_engine.query("你们用哪些快递公司送货？")
+print(response)
+response = query_engine.query("你们的退货政策是怎么样的？")
+print(response)

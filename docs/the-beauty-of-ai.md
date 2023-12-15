@@ -18,5 +18,10 @@
 #### 实战提高(一)
 * 09通过向量化进行语义搜索
 * 10使用llama_index来扩充知识库
-* 11使用开源向量化模型
+* 11使用开源向量化模型；开源模型的不足之处：
+  * paraphrase-multilingual-mpnet-base-v2最多只支持128个token
+  * 开源模型的推理能力不如chatgpt
+* 12使用ai写excel插件
+* 13使用ai写单元测试
+* 14使用langchain进行链式调用
 
