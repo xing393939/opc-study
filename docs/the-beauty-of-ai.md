@@ -33,4 +33,4 @@
   * langchain.memory.ConversationSummaryMemory，把历史对话生成英文摘要
   * langchain.memory.ConversationSummaryBufferMemory，即保留几轮对话，又生成摘要
 * 17利用prompt做决策
-  
+* 18使用openai的[模型微调接口](https://www.eula.club/blogs/%E5%AF%B9OpenAI%E7%9A%84ChatGPT%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%BF%9B%E8%A1%8C%E5%BE%AE%E8%B0%83.html)
