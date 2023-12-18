@@ -1,5 +1,5 @@
 from transformers import T5Tokenizer, T5Model
-from openai.embeddings_utils import cosine_similarity, get_embedding
+from util import cosine_similarity, get_embedding
 import torch
 
 tokenizer = T5Tokenizer.from_pretrained("t5-base", model_max_length=512, legacy=False)

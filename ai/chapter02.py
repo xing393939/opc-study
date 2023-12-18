@@ -1,6 +1,6 @@
 import openai
 import os
-from openai.embeddings_utils import cosine_similarity, get_embedding
+from util import cosine_similarity, get_embedding
 
 # 获取访问open ai的密钥
 openai.api_base = "https://api.aiproxy.io/v1"
