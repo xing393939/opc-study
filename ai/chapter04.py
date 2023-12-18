@@ -1,5 +1,5 @@
 from transformers import AutoTokenizer, AutoModelForCausalLM
-from openai.embeddings_utils import cosine_similarity, get_embedding
+from util import cosine_similarity, get_embedding
 import torch
 
 tokenizer = AutoTokenizer.from_pretrained("cerebras/Cerebras-GPT-111M")

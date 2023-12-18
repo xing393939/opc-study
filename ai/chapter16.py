@@ -15,14 +15,8 @@ prompt_template = """你是一个中国厨师，用中文回答做菜的问题�
 {history}
 Human: {input}
 AI:"""
-prompt = PromptTemplate(
-    input_variables=["history", "input"], template=prompt_template
-)
-conversation_with_summary = ConversationChain(
-    llm=llm,
-    memory=memory,
-    prompt=prompt
-)
+prompt = PromptTemplate(input_variables=["history", "input"], template=prompt_template)
+conversation_with_summary = ConversationChain(llm=llm, memory=memory, prompt=prompt)
 conversation_with_summary.predict(input="你好")
 conversation_with_summary.predict(input="鱼香肉丝怎么做？")
 conversation_with_summary.predict(input="那宫保鸡丁呢？")
