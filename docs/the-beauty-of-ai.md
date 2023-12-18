@@ -32,5 +32,5 @@
   * langchain.memory.ConversationBufferWindowMemory，控制保留几轮对话
   * langchain.memory.ConversationSummaryMemory，把历史对话生成英文摘要
   * langchain.memory.ConversationSummaryBufferMemory，即保留几轮对话，又生成摘要
-  
+* 17利用prompt做决策
   
