@@ -27,7 +27,8 @@ tools = [
          description="useful for when you need to answer questions about product recommendations"
          ),
     Tool(name="FAQ", func=faq,
-         description="useful for when you need to answer questions about shopping policies, like return policy, shipping policy, etc."
+         description="useful for when you need to answer questions about shopping policies, like return policy, "
+                     "shipping policy, etc."
          )
 ]
 
