@@ -46,7 +46,10 @@
   * 用Midjourney生成图片
   * 用D-ID将图片+文本生成对应口型的视频
   * 百度开源的PaddleBobo
-
+* 22HuggingFace
+  * Pipeline指定task，会选择默认的model，也可以指定model
+  * Inference API（带闪电符号的model），第一次访问可能需要预热
+  * Inference Endpoint把大模型部署到云端
 
 
 
