@@ -42,7 +42,10 @@
 * 20文本转语音
   * Azure云azure.cognitiveservices.speech
   * 百度开源的paddlepaddle
-* 21
+* 21数字人方案
+  * 用Midjourney生成图片
+  * 用D-ID将图片+文本生成对应口型的视频
+  * 百度开源的PaddleBobo
 
 
 
