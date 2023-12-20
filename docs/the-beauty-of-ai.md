@@ -50,7 +50,7 @@
   * Pipeline指定task，会选择默认的model，也可以指定model
   * Inference API（带闪电符号的model），第一次访问可能需要预热
   * Inference Endpoint把大模型部署到云端
-* 23，HuggingFace
+* 23，OpenClip
   * openai/clip-vit-base-patch32：零样本图片分类，文搜图，图搜图
   * google/owlvit-base-patch32：零样本图片目标检测
 * 24，文生图
@@ -63,7 +63,9 @@
   * fusing/stable-diffusion-v1-5-controlnet-openpose，模拟原图的人物动作
   * lllyasviel/sd-controlnet-scribble，根据简笔画生成图片
   * 出来以上3种，还有5种
-
+* 26，Visual ChatGPT：已更名为Task Matrix
+  * ai/visual_chatgpt.py：上传图片后尝试“detect the edges of this image”、“what is inside the photo”
+  * [架构图](../images/visual-chatgpt-figure.jpg)
 
 
 
