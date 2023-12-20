@@ -62,7 +62,7 @@
   * lllyasviel/sd-controlnet-canny，原图的边缘检测
   * fusing/stable-diffusion-v1-5-controlnet-openpose，模拟原图的人物动作
   * lllyasviel/sd-controlnet-scribble，根据简笔画生成图片
-  * 出来以上3种，还有5种
+  * 除了以上3种，还有5种
 * 26，Visual ChatGPT：已更名为Task Matrix
   * ai/visual_chatgpt.py：上传图片后尝试“detect the edges of this image”、“what is inside the photo”
   * [架构图](../images/visual-chatgpt-figure.jpg)
