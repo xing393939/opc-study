@@ -253,84 +253,24 @@ class Image2Canny:
         return updated_image_path
 
 
-class Image2Depth:
+class Image2Thin:
     def __init__(self, device):
-        print("Initializing Image2Depth")
-        self.depth_estimator = pipeline('depth-estimation')
+        print("Initializing Image2Thin")
 
-    @prompts(name="Predict Depth On Image",
-             description="useful when you want to detect depth of the image. like: generate the depth from this image, "
-                         "or detect the depth map on this image, or predict the depth for this image. "
-                         "The input to this tool should be a string, representing the image_path")
+    @prompts(name="Make the picture thinner",
+             description="useful when you want to make the image thinner. like: make the image thinner, or narrow the "
+                         "picture. The input to this tool should be a string, representing the image_path")
     def inference(self, inputs):
         image = Image.open(inputs)
-        depth = self.depth_estimator(image)['depth']
-        depth = np.array(depth)
-        depth = depth[:, :, None]
-        depth = np.concatenate([depth, depth, depth], axis=2)
-        depth = Image.fromarray(depth)
-        updated_image_path = get_new_image_name(inputs, func_name="depth")
-        depth.save(updated_image_path)
-        print(f"\nProcessed Image2Depth, Input Image: {inputs}, Output Depth: {updated_image_path}")
+        width, height = image.size
+        width_new = int(np.round(width / 2))
+        height_new = height
+        img = image.resize((width_new, height_new))
+        img = img.convert('RGB')
+        updated_image_path = get_new_image_name(inputs, func_name="thin")
+        img.save(updated_image_path)
+        print(f"\nProcessed Image2Thin, Input Image: {inputs}, Output Thin: {updated_image_path}")
         return updated_image_path
-
-
-class Image2Normal:
-    def __init__(self, device):
-        print("Initializing Image2Normal")
-        self.depth_estimator = pipeline("depth-estimation", model="Intel/dpt-hybrid-midas")
-        self.bg_threhold = 0.4
-
-    @prompts(name="Predict Normal Map On Image",
-             description="useful when you want to detect norm map of the image. "
-                         "like: generate normal map from this image, or predict normal map of this image. "
-                         "The input to this tool should be a string, representing the image_path")
-    def inference(self, inputs):
-        image = Image.open(inputs)
-        original_size = image.size
-        image = self.depth_estimator(image)['predicted_depth'][0]
-        image = image.numpy()
-        image_depth = image.copy()
-        image_depth -= np.min(image_depth)
-        image_depth /= np.max(image_depth)
-        x = cv2.Sobel(image, cv2.CV_32F, 1, 0, ksize=3)
-        x[image_depth < self.bg_threhold] = 0
-        y = cv2.Sobel(image, cv2.CV_32F, 0, 1, ksize=3)
-        y[image_depth < self.bg_threhold] = 0
-        z = np.ones_like(x) * np.pi * 2.0
-        image = np.stack([x, y, z], axis=2)
-        image /= np.sum(image ** 2.0, axis=2, keepdims=True) ** 0.5
-        image = (image * 127.5 + 127.5).clip(0, 255).astype(np.uint8)
-        image = Image.fromarray(image)
-        image = image.resize(original_size)
-        updated_image_path = get_new_image_name(inputs, func_name="normal-map")
-        image.save(updated_image_path)
-        print(f"\nProcessed Image2Normal, Input Image: {inputs}, Output Depth: {updated_image_path}")
-        return updated_image_path
-
-
-class VisualQuestionAnswering:
-    def __init__(self, device):
-        print(f"Initializing VisualQuestionAnswering to {device}")
-        self.torch_dtype = torch.float16 if 'cuda' in device else torch.float32
-        self.device = device
-        self.processor = BlipProcessor.from_pretrained("Salesforce/blip-vqa-base")
-        self.model = BlipForQuestionAnswering.from_pretrained(
-            "Salesforce/blip-vqa-base", torch_dtype=self.torch_dtype).to(self.device)
-
-    @prompts(name="Answer Question About The Image",
-             description="useful when you need an answer for a question based on an image. "
-                         "like: what is the background color of the last image, how many cats in this figure, what is in this figure. "
-                         "The input to this tool should be a comma separated string of two, representing the image_path and the question")
-    def inference(self, inputs):
-        image_path, question = inputs.split(",")[0], ','.join(inputs.split(',')[1:])
-        raw_image = Image.open(image_path).convert('RGB')
-        inputs = self.processor(raw_image, question, return_tensors="pt").to(self.device, self.torch_dtype)
-        out = self.model.generate(**inputs)
-        answer = self.processor.decode(out[0], skip_special_tokens=True)
-        print(f"\nProcessed VisualQuestionAnswering, Input Image: {image_path}, Input Question: {question}, "
-              f"Output Answer: {answer}")
-        return answer
 
 
 class ConversationBot:
@@ -364,7 +304,7 @@ class ConversationBot:
                 if e.startswith('inference'):
                     func = getattr(instance, e)
                     self.tools.append(Tool(name=func.name, description=func.description, func=func))
-        self.llm = ChatOpenAI(temperature=0, max_tokens=3000)
+        self.llm = ChatOpenAI(temperature=0, max_tokens=2048)
         self.memory = ConversationBufferMemory(memory_key="chat_history", input_key='input', output_key="output",
                                                return_messages=True)
 
@@ -434,7 +374,7 @@ if __name__ == '__main__':
     if not os.path.exists("checkpoints"):
         os.mkdir("checkpoints")
     parser = argparse.ArgumentParser()
-    parser.add_argument('--load', type=str, default="ImageCaptioning_cuda:0,Image2Canny_cuda:0")
+    parser.add_argument('--load', type=str, default="ImageCaptioning_cuda:0,Image2Canny_cuda:0,Image2Thin_cuda:0")
     args = parser.parse_args()
     load_dict = {e.split('_')[0].strip(): e.split('_')[1].strip() for e in args.load.split(',')}
     bot = ConversationBot(load_dict=load_dict)
