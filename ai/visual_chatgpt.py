@@ -6,8 +6,7 @@ import torch
 import cv2
 import re
 import uuid
-from PIL import Image, ImageOps
-import math
+from PIL import Image
 import numpy as np
 import argparse
 import inspect
@@ -205,7 +204,9 @@ def get_new_image_name(org_img_name, func_name="update"):
         most_org_file_name = name_split[3]
     recent_prev_file_name = name_split[0]
     new_file_name = f'{this_new_uuid}_{func_name}_{recent_prev_file_name}_{most_org_file_name}.png'
-    return os.path.join(head, new_file_name)
+    image_filename = os.path.join(head, new_file_name)
+    image_filename = image_filename.replace("\\", "/")
+    return image_filename
 
 
 class ImageCaptioning:
@@ -363,7 +364,7 @@ class ConversationBot:
                 if e.startswith('inference'):
                     func = getattr(instance, e)
                     self.tools.append(Tool(name=func.name, description=func.description, func=func))
-        self.llm = ChatOpenAI(temperature=0)
+        self.llm = ChatOpenAI(temperature=0, max_tokens=3000)
         self.memory = ConversationBufferMemory(memory_key="chat_history", input_key='input', output_key="output",
                                                return_messages=True)
 

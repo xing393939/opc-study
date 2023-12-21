@@ -64,7 +64,7 @@
   * lllyasviel/sd-controlnet-scribble，根据简笔画生成图片
   * 除了以上3种，还有5种
 * 26，Visual ChatGPT：已更名为Task Matrix
-  * ai/visual_chatgpt.py：上传图片后尝试“detect the edges of this image”、“what is inside the photo”
+  * ai/visual_chatgpt.py：上传图片后尝试“Tell me about the image and detect the edges of it”
   * [架构图](../images/visual-chatgpt-figure.jpg)
 
 
