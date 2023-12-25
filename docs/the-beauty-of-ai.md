@@ -66,7 +66,10 @@
 * 26，Visual ChatGPT：已更名为Task Matrix
   * ai/visual_chatgpt.py：上传图片后尝试“Make the picture thinner, then detect the edges of it”
   * [架构图](../images/visual-chatgpt-figure.jpg)
-
+* 27.Midjourney
+  * 新手频道对新用户的引导很友好
+  * 等待的过程也出图
+  * 通过用户的反馈来强化训练
 
 
 
