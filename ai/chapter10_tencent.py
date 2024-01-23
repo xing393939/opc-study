@@ -18,7 +18,7 @@ documents = SimpleDirectoryReader("./data/mr_fujino").load_data()
 vector_store = TencentVectorDB(
     url=os.getenv("TENCENT_VECTOR_DB_URL"),
     key="WGefITvf9mQDNBSJ0VBkluqEjciiXNiwfUWp07Hk",
-    collection_params=CollectionParams(dimension=1536, drop_exists=False),
+    collection_params=CollectionParams(dimension=1536, drop_exists=False, collection_name="dimension1536",),
 )
 storage_context = StorageContext.from_defaults(vector_store=vector_store)
 index = VectorStoreIndex.from_documents(documents, storage_context=storage_context)
