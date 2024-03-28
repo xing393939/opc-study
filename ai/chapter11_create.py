@@ -1,4 +1,5 @@
-import openai, os
+import os
+
 from llama_index import (
     VectorStoreIndex,
     SimpleDirectoryReader,
@@ -9,9 +10,7 @@ from llama_index.text_splitter import SentenceSplitter
 from llama_index.vector_stores import TencentVectorDB
 from llama_index.vector_stores.tencentvectordb import (
     CollectionParams,
-    FilterField,
 )
-import tcvectordb
 
 # 加载 documents
 documents = SimpleDirectoryReader("./data/faq").load_data()
