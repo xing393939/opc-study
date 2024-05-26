@@ -21,7 +21,6 @@
 * 4.其他
   * [性能之颠](docs/systems-performance.md)
   * [Head First设计模式](docs/head-first-design-patterns.md)
-  * [趣谈网络协议](docs/talk-about-network-protocol.md)
   * [Java工程师进阶知识](docs/advanced-java.md)
   * [整洁代码](docs/clean-code.md)
   * [整洁架构](docs/clean-architecture.md)
