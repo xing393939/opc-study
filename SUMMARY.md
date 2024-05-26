@@ -19,13 +19,11 @@
   * [傅里叶变换](docs/fft.md)
   * [AI大模型之美](docs/the-beauty-of-ai.md)
 * 4.其他
-  * [性能之颠](docs/systems-performance.md)
   * [Head First设计模式](docs/head-first-design-patterns.md)
   * [Java工程师进阶知识](docs/advanced-java.md)
   * [整洁代码](docs/clean-code.md)
   * [整洁架构](docs/clean-architecture.md)
   * [凤凰架构](docs/fenix-architecture.md)
-  * [BPF之巅](docs/bpf-performance-tools.md)
 * 5.AWS SAA认证
   * [1.AWS知识点](docs/saa-1.md)
   * [2.AWS认证英语学习](docs/saa-2.md)
