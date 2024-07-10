@@ -19,6 +19,7 @@
   * [傅里叶变换](docs/fft.md)
   * [AI大模型之美](docs/the-beauty-of-ai.md)
 * 4.架构设计
+  * [DDD 学习](docs/go-ddd.md)
   * [Head First设计模式](docs/head-first-design-patterns.md)
   * [Java工程师进阶知识](docs/advanced-java.md)
   * [整洁代码](docs/clean-code.md)
