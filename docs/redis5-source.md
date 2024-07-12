@@ -1,8 +1,8 @@
-### Redis 5设计与源码分析（我分析的源码是redis 2.9）
+### Redis 5设计与源码分析
 
 #### 前言
 * [Redis 5设计与源码分析](https://book.douban.com/subject/34804798/)
-* 源码版本：redis 2.9
+* 源码版本：redis 2.9.11
 
 #### 第9章 命令处理周期
 * 一个数据库有16个redisDb
