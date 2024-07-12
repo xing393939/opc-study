@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Redis 深度历险 · GitBook</title>
+        <title>Elasticsearch 基础 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="mysql-how-it-works.html" />
+    <link rel="next" href="ddia.html" />
     
     
-    <link rel="prev" href="redis5-source.html" />
+    <link rel="prev" href="mysql-how-it-works.html" />
     
 
     </head>
@@ -189,7 +189,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.2" data-path="redis-in-depth.html">
+        <li class="chapter " data-level="1.3.2" data-path="redis-in-depth.html">
             
                 <a href="redis-in-depth.html">
             
@@ -215,7 +215,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" data-path="elasticsearch-basics.html">
+        <li class="chapter active" data-level="1.3.4" data-path="elasticsearch-basics.html">
             
                 <a href="elasticsearch-basics.html">
             
@@ -625,7 +625,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Redis 深度历险</a>
+        <a href=".." >Elasticsearch 基础</a>
     </h1>
 </div>
 
@@ -640,104 +640,108 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="redis-&#x6DF1;&#x5EA6;&#x5386;&#x9669;">Redis &#x6DF1;&#x5EA6;&#x5386;&#x9669;</h3>
-<h4 id="&#x7B2C;1&#x7BC7;-&#x57FA;&#x7840;&#x548C;&#x5E94;&#x7528;&#x7BC7;">&#x7B2C;1&#x7BC7; &#x57FA;&#x7840;&#x548C;&#x5E94;&#x7528;&#x7BC7;</h4>
+                                <h3 id="elasticsearch-&#x57FA;&#x7840;">Elasticsearch &#x57FA;&#x7840;</h3>
+<h4 id="&#x53C2;&#x8003;&#x8D44;&#x6599;">&#x53C2;&#x8003;&#x8D44;&#x6599;</h4>
 <ul>
-<li>5&#x79CD;&#x57FA;&#x7840;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF1A;string&#x3001;list&#x3001;hash&#x3001;set&#x3001;zset</li>
-<li>&#x5206;&#x5E03;&#x5F0F;&#x9501;&#xFF1A;<ul>
-<li>&#x52A0;&#x9501;&#x7684;&#x539F;&#x5B50;&#x64CD;&#x4F5C;&#xFF08;&#x8BBE;&#x7F6E;key&#x3001;&#x8BBE;&#x7F6E;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#xFF09;</li>
-<li>&#x91CA;&#x653E;&#x9501;&#x7684;&#x539F;&#x5B50;&#x64CD;&#x4F5C;&#xFF08;&#x5339;&#x914D;value&#x3001;&#x5224;&#x65AD;&#x662F;&#x5426;&#x5220;&#x9664;&#xFF09;</li>
-<li>&#x7F3A;&#x70B9;1&#xFF1A;T1&#x6267;&#x884C;&#x65F6;&#x95F4;&#x8D85;&#x8FC7;&#x4E86;&#x9501;&#x7684;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#xFF0C;T2&#x52A0;&#x9501;&#x6210;&#x529F;&#x5E76;&#x6267;&#x884C;</li>
-<li>&#x7F3A;&#x70B9;2&#xFF1A;&#x4E3B;&#x8282;&#x70B9;&#x521A;&#x52A0;&#x9501;key&#x8FD8;&#x6CA1;&#x6709;&#x540C;&#x6B65;&#x5230;&#x4ECE;&#x8282;&#x70B9;&#x5C31;&#x6302;&#x4E86;&#xFF0C;&#x5E76;&#x53D1;&#x751F;&#x4E3B;&#x4ECE;&#x5207;&#x6362;&#xFF0C;&#x6B64;&#x65F6;T2&#x52A0;&#x9501;&#x6210;&#x529F;</li>
+<li><a href="https://juejin.cn/post/6998403625982623780" target="_blank">Elasticsearch&#x590D;&#x6742;&#x67E5;&#x8BE2;&#x8BED;&#x6CD5;&#x603B;&#x7ED3;</a></li>
+<li><a href="https://codeshellme.github.io/2021/02/es-mappings/" target="_blank">ElasticSearch &#x4E2D;&#x7684; Mapping</a></li>
+<li><a href="https://cloud.tencent.com/developer/article/1746883" target="_blank">ES&#x7CFB;&#x5217;06&#xFF1A;ik&#x5206;&#x8BCD;+Full text queries</a></li>
 </ul>
-</li>
-<li>&#x5EF6;&#x8FDF;&#x961F;&#x5217;&#x548C;&#x4F4D;&#x56FE;</li>
-<li>HyperLogLog&#x7684;&#x539F;&#x7406;&#xFF1A;<ul>
-<li>N&#x4E2A;&#x968F;&#x673A;&#x6574;&#x6570;&#x3001;&#x4F4E;&#x4F4D;&#x8FDE;&#x7EED;0&#x7684;&#x6700;&#x5927;&#x957F;&#x5EA6;K&#xFF1A;N = 2 ^ K</li>
-<li>&#x5047;&#x8BBE;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x6876;&#x6765;&#x5B58;&#x50A8;&#xFF0C;&#x53EF;&#x80FD;&#x56E0;&#x4E3A;&#x4E2A;&#x522B;&#x79BB;&#x7FA4;&#x503C;&#x5BFC;&#x81F4;&#x8BEF;&#x5DEE;</li>
-<li>&#x5047;&#x8BBE;&#x9884;&#x7F6E;1024&#x4E2A;&#x6876;&#xFF0C;&#x628A;N&#x4E2A;&#x6574;&#x6570;&#x5206;&#x6563;&#x5230;&#x8FD9;1024&#x4E2A;&#x6876;&#xFF0C;&#x6700;&#x540E;&#x5BF9;1024&#x4E2A;&#x6876;&#x6C42;&#x548C;&#xFF0C;&#x53EF;&#x4EE5;&#x51CF;&#x5C11;&#x8BEF;&#x5DEE;</li>
-<li>redis&#x7684;HyperLogLog&#x6709;16384&#x4E2A;&#x6876;&#xFF0C;&#x6BCF;&#x4E2A;&#x6876;&#x7528;6b&#x5B58;&#x50A8;K&#x503C;&#xFF0C;&#x5360;&#x7528;&#x5185;&#x5B58;&#xFF1A;16384 * 6 / 8 = 12K</li>
-</ul>
-</li>
-<li>BloomFilter&#xFF1A;<ul>
-<li>&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x7684;&#x6307;&#x7EB9;&#x7A7A;&#x95F4;&#x5982;&#x679C;&#x5360;8b&#xFF0C;&#x9519;&#x8BEF;&#x7387;&#x7EA6;2%&#xFF0C;&#x6700;&#x4F73;hash&#x6570;&#x91CF;&#x662F;8 * 0.7</li>
-<li>&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x7684;&#x6307;&#x7EB9;&#x7A7A;&#x95F4;&#x5982;&#x679C;&#x5360;15b&#xFF0C;&#x9519;&#x8BEF;&#x7387;&#x7EA6;0.1%&#xFF0C;&#x6700;&#x4F73;hash&#x6570;&#x91CF;&#x662F;15 * 0.7</li>
-<li>&#x4F7F;&#x7528;&#x65F6;&#x5148;&#x9884;&#x7F6E;&#x597D;&#x5185;&#x5B58;&#xFF08;&#x6700;&#x5927;&#x6570;&#x636E;&#x5BB9;&#x91CF;&#x5DF2;&#x786E;&#x5B9A;&#xFF09;&#xFF0C;&#x82E5;&#x540E;&#x7EED;&#x6570;&#x636E;&#x91CF;&#x8D85;&#x8FC7;&#x6700;&#x5927;&#x5BB9;&#x91CF;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x91CD;&#x5EFA;BloomFilter</li>
-</ul>
-</li>
-<li>Redis-Cell&#xFF1A;&#x9650;&#x6D41;&#x6A21;&#x5757;</li>
-<li>GeoHash&#xFF1A;&#x5730;&#x7406;&#x4F4D;&#x7F6E;</li>
-<li>scan&#xFF1A;&#x5206;&#x9875;&#x626B;&#x63CF;&#x65F6;&#xFF0C;&#x91C7;&#x7528;&#x201C;&#x9AD8;&#x4F4D;&#x8FDB;&#x4F4D;&#x52A0;&#x6CD5;&#x201D;&#xFF0C;&#x4FDD;&#x8BC1;&#x4E86;&#x4E0D;&#x53D7;&#x6269;&#x5BB9;&#x7F29;&#x5BB9;&#x7684;&#x5F71;&#x54CD;&#x800C;&#x5BFC;&#x81F4;&#x6F0F;&#x4E86;key&#xFF08;&#x4F46;&#x53EF;&#x80FD;&#x4F1A;&#x91CD;&#x590D;&#xFF09;</li>
-</ul>
-<h4 id="&#x7B2C;2&#x7BC7;-&#x539F;&#x7406;&#x7BC7;">&#x7B2C;2&#x7BC7; &#x539F;&#x7406;&#x7BC7;</h4>
-<ul>
-<li>&#x7EBF;&#x7A0B;IO&#x6A21;&#x578B;&#xFF1A;&#x591A;&#x8DEF;&#x590D;&#x7528;I/O&#x6A21;&#x578B;Linux&#x4F7F;&#x7528;epoll&#x3001;Unix&#x4F7F;&#x7528;kqueue</li>
-<li>&#x5BA2;&#x6237;&#x7AEF;&#x7BA1;&#x9053;&#xFF1A;echo -e &quot;PING\r\nPING\r\nPING\r\n&quot;|nc localhost 6379</li>
-<li>redis&#x4E8B;&#x52A1;&#xFF1A;redis&#x7981;&#x6B62;&#x5728;multi&#x548C;exec&#x4E4B;&#x95F4;&#x6267;&#x884C;watch&#xFF0C;&#x5FC5;&#x987B;&#x5728;multi&#x4E4B;&#x524D;&#x6267;&#x884C;watch</li>
-<li>&#x8BA2;&#x9605;&#xFF1A;subscribe&#x963B;&#x585E;&#x5FAA;&#x73AF;&#x8BFB;&#xFF0C;&#x8BFB;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;publish&#x7684;&#x6D88;&#x606F;</li>
-<li>&#x5C0F;&#x5BF9;&#x8C61;&#x538B;&#x7F29;&#xFF1A;ziplist&#x548C;intset</li>
-</ul>
-<h4 id="&#x7B2C;3&#x7BC7;-&#x96C6;&#x7FA4;&#x7BC7;">&#x7B2C;3&#x7BC7; &#x96C6;&#x7FA4;&#x7BC7;</h4>
-<ul>
-<li>&#x4E3B;&#x4ECE;&#x6A21;&#x5F0F;&#x4E0B;&#x7684;wait {nums} {seconds}&#xFF1A;&#x4E00;&#x76F4;&#x963B;&#x585E;&#x76F4;&#x5230;nums&#x4E2A;&#x4ECE;&#x8282;&#x70B9;&#x540C;&#x6B65;&#x5230;&#x6700;&#x65B0;&#x72B6;&#x6001;&#xFF0C;&#x6700;&#x591A;&#x7B49;&#x5F85;seconds</li>
-<li>&#x54E8;&#x5175;&#xFF1A;&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;&#x54E8;&#x5175;&#x8282;&#x70B9;&#x83B7;&#x53D6;master&#x7684;&#x5730;&#x5740;&#x548C;slaves&#x7684;&#x5730;&#x5740;</li>
-<li>codis&#x7684;&#x4F18;&#x70B9;&#xFF1A;&#x5206;&#x5E03;&#x5F0F;&#x7684;&#x95EE;&#x9898;&#x501F;&#x7528;&#x7684;&#x662F;zookeeper/etcd&#xFF0C;&#x56E0;&#x6B64;&#x4EE3;&#x7801;&#x7B80;&#x5355;</li>
-</ul>
-<h4 id="&#x7B2C;4&#x7BC7;-&#x6269;&#x5C55;&#x7BC7;">&#x7B2C;4&#x7BC7; &#x6269;&#x5C55;&#x7BC7;</h4>
-<ul>
-<li>stream&#x4E0D;&#x501F;&#x7528;&#x6D88;&#x8D39;&#x7EC4;&#xFF1A;<ul>
-<li>xread&#x8BFB;&#x53D6;{nums}&#x6761;&#x6D88;&#x606F;&#xFF0C;&#x963B;&#x585E;{seconds}&#xFF0C;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x4ECE;&#x67D0;&#x4E2A;&#x6D88;&#x606F;id&#x540E;&#x8BFB;&#x53D6;</li>
-</ul>
-</li>
-<li>stream&#x501F;&#x7528;&#x6D88;&#x8D39;&#x7EC4;&#xFF1A;<ul>
-<li>xgroup create {streamName} {groupName}</li>
-<li>xreadgroup {groupName} {consumerName}</li>
-<li>xack {streamName} {groupName} {messageID}&#xFF0C;&#x8FD9;&#x91CC;&#x6CA1;&#x6709;&#x6307;&#x5B9A;consumerName&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;&#x4E4B;&#x524D;&#x6307;&#x5B9A;&#x7684;consumerName</li>
-</ul>
-</li>
-<li>&#x5206;&#x5E03;&#x5F0F;&#x9501;redlock&#xFF1A;<ul>
-<li>&#x5927;&#x591A;&#x6570;&#x673A;&#x5236;&#xFF1A;&#x5411;&#x591A;&#x4E2A;&#x8282;&#x70B9;&#x52A0;&#x9501;&#xFF0C;&#x5927;&#x591A;&#x6570;&#x52A0;&#x9501;&#x6210;&#x529F;&#x5219;&#x4E3A;&#x6210;&#x529F;</li>
-<li>&#x9700;&#x8003;&#x8651;&#x9519;&#x8BEF;&#x91CD;&#x8BD5;&#x3001;&#x65F6;&#x949F;&#x6F02;&#x79FB;</li>
-</ul>
-</li>
-<li>&#x61D2;&#x60F0;&#x5220;&#x9664;&#xFF1A;&#x5F02;&#x6B65;&#x7EBF;&#x7A0B;&#x5220;&#x9664;<ul>
-<li>unlink&#xFF1A;&#x5220;&#x9664;&#x5927;key</li>
-<li>flushdb async</li>
-<li>AOF sync</li>
-</ul>
-</li>
-</ul>
-<h4 id="&#x7B2C;5&#x7BC7;-&#x6E90;&#x7801;&#x7BC7;">&#x7B2C;5&#x7BC7; &#x6E90;&#x7801;&#x7BC7;</h4>
-<ul>
-<li>SDS&#x6709;&#x4E24;&#x79CD;&#x7C7B;&#x578B;&#xFF1A;<ul>
-<li>embeded&#xFF1A;&#x5BB9;&#x91CF;&#x56FA;&#x5B9A;&#x662F;44&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x56E0;&#x4E3A;jemalloc&#x9ED8;&#x8BA4;&#x5206;&#x914D;&#x7684;&#x5927;&#x5C0F;&#x662F;64B&#xFF0C;robj(&#x5360;19B)&#x548C;embeded&#x7684;SDS&#x662F;&#x5185;&#x5B58;&#x8FDE;&#x7EED;&#x7684;</li>
-<li>raw&#xFF1A;&#x5BB9;&#x91CF;&#x5927;&#x4E8E;44&#x4E2A;&#x5B57;&#x7B26;&#x4E32;</li>
-</ul>
-</li>
-<li>DICT&#x7684;&#x6E10;&#x8FDB;&#x5F0F;reahsh&#xFF1A;&#x8BBF;&#x95EE;&#x7684;&#x65F6;&#x5019;&#x642C;&#x8FC1;&#xFF0C;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x642C;&#x8FC1;</li>
-<li>&#x5185;&#x5B58;&#x7D27;&#x51D1;&#x578B;&#xFF1A;<ul>
-<li>ziplist&#xFF1A;prevlen&#x53EF;&#x4EE5;&#x662F;1B&#x6216;5B&#xFF0C;encoding&#x53EF;&#x4EE5;&#x662F;1B&#x3001;2B&#x3001;5B</li>
-<li>intset&#xFF1A;length&#x548C;encoding&#x90FD;&#x662F;4B</li>
-</ul>
-</li>
-<li>&#x5FEB;&#x8868;&#xFF1A;ziplist+&#x53CC;&#x5411;&#x94FE;&#x8868;&#xFF0C;&#x538B;&#x7F29;&#x6DF1;&#x5EA6;&#x5982;&#x679C;&#x662F;1&#xFF0C;&#x5219;&#x9996;&#x5C3E;&#x7684;ziplist&#x4E0D;&#x538B;&#x7F29;&#xFF0C;&#x5176;&#x4ED6;&#x90FD;&#x538B;&#x7F29;</li>
-<li>&#x8DF3;&#x8868;&#xFF1A;zadd&#x547D;&#x4EE4;&#x5982;&#x679C;key&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#xFF0C;&#x5148;&#x5220;&#x9664;&#x518D;&#x63D2;&#x5165;</li>
-<li>listpack&#xFF1A;{encoding, content, length}&#xFF0C;&#x6CE8;&#x610F;&#x8BA1;&#x7B97;&#x6574;&#x578B;&#x503C;&#x7684;&#x65F6;&#x5019;&#x662F;&#x5C0F;&#x7AEF;&#x5C3E;&#x5E8F;<ul>
-<li>encoding&#x5DF2;&#x7ECF;&#x5305;&#x542B;&#x4E86;content&#x7684;&#x957F;&#x5EA6;</li>
-<li>length&#x8868;&#x793A;&#x7684;&#x662F;content+encoding&#x7684;&#x957F;&#x5EA6;&#xFF0C;&#x4F7F;&#x7528;varint&#x7F16;&#x7801;</li>
-</ul>
-</li>
-<li>lru&#x548C;lfu&#xFF1A;<ul>
-<li>lru&#xFF1A;lru&#x5B57;&#x6BB5;(3B)&#x5B58;&#x50A8;&#x6700;&#x540E;&#x4E00;&#x6B21;&#x8BBF;&#x95EE;&#x7684;&#x79D2;&#x65F6;&#x95F4;&#x6233;&#xFF0C;&#x5927;&#x7EA6;194&#x5929;&#x6298;&#x8FD4;</li>
-<li>lfu&#xFF1A;lru&#x5B57;&#x6BB5;&#x5206;&#x4E3A;lastDecrementTime(2B)&#x548C;logisticCounter(1B)<ul>
-<li>lastDecrementTime&#x5B58;&#x50A8;&#x5206;&#x65F6;&#x95F4;&#x6233;&#xFF0C;&#x5927;&#x7EA6;45&#x5929;&#x6298;&#x8FD4;&#xFF0C;&#x53EA;&#x5728;&#x68C0;&#x67E5;&#x6DD8;&#x6C70;&#x7684;&#x65F6;&#x5019;&#x66F4;&#x65B0;&#xFF08;&#x5E76;&#x8870;&#x51CF;logisticCounter&#xFF09;</li>
-<li>logisticCounter&#x5B58;&#x50A8;&#x8BBF;&#x95EE;&#x9891;&#x6B21;&#x7684;&#x5BF9;&#x6570;&#x503C;&#xFF0C;&#x6BCF;&#x6B21;&#x8BBF;&#x95EE;key&#x7684;&#x65F6;&#x5019;&#x66F4;&#x65B0;</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+<h4 id="&#x67E5;&#x8BE2;&#x8BED;&#x6CD5;">&#x67E5;&#x8BE2;&#x8BED;&#x6CD5;</h4>
+<pre><code>// select * from user where name=&quot;wxx&quot;
+{
+  &quot;query&quot;: {
+    &quot;term&quot;: {
+      &quot;name&quot;: {
+        &quot;value&quot;: &quot;wxx&quot;
+      }
+    }
+  }
+}
 
+// select * from user where address=&quot;&#x629A;&#x5DDE;&quot; &#x8FD9;&#x91CC;&#x7684;match&#x652F;&#x6301;&#x5206;&#x8BCD;
+{
+  &quot;query&quot;: {
+    &quot;match&quot;: {
+      &quot;address&quot;: {
+        &quot;value&quot;: &quot;&#x629A;&#x5DDE;&quot;
+      }
+    }
+  }
+}
+
+// select * from user where name in (&quot;wxx&quot;, &quot;zhangxianbo&quot;)
+{
+  &quot;query&quot;: {
+    &quot;terms&quot;: {
+      &quot;name&quot;: [
+        &quot;zhangxianbo&quot;,
+        &quot;wxx&quot;
+      ]
+    }
+  }
+}
+
+// select * from user where age between 10 and 26
+{
+  &quot;query&quot;: {
+    &quot;range&quot;: {
+      &quot;age&quot;: {
+        &quot;gte&quot;: 10,
+        &quot;lte&quot;: 26
+      }
+    }
+  }
+}
+
+// select * from user where name=&quot;wxx&quot; or age =26
+{
+  &quot;query&quot;: {
+    &quot;bool&quot;: {
+      &quot;should&quot;: [
+        {
+          &quot;term&quot;: {
+            &quot;name&quot;: {
+              &quot;value&quot;: &quot;wxx&quot;
+            }
+          }
+        },
+        {
+          &quot;term&quot;: {
+            &quot;age&quot;: {
+              &quot;value&quot;: &quot;26&quot;
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+
+// select * from user where name=&quot;liujing&quot; and age =18
+{
+  &quot;query&quot;: {
+    &quot;bool&quot;: {
+      &quot;must&quot;: [
+        {
+          &quot;term&quot;: {
+            &quot;name&quot;: {
+              &quot;value&quot;: &quot;liujing&quot;
+            }
+          }
+        },
+        {
+          &quot;term&quot;: {
+            &quot;age&quot;: {
+              &quot;value&quot;: &quot;18&quot;
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+</code></pre>
                                 
                                 </section>
                             
@@ -764,12 +768,12 @@
 
             
                 
-                <a href="redis5-source.html" class="navigation navigation-prev " aria-label="Previous page: Redis 5设计与源码分析">
+                <a href="mysql-how-it-works.html" class="navigation navigation-prev " aria-label="Previous page: MySQL 是怎样运行的">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="mysql-how-it-works.html" class="navigation navigation-next " aria-label="Next page: MySQL 是怎样运行的">
+                <a href="ddia.html" class="navigation navigation-next " aria-label="Next page: DDIA">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -780,7 +784,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Redis 深度历险","level":"1.3.2","depth":2,"next":{"title":"MySQL 是怎样运行的","level":"1.3.3","depth":2,"path":"docs/mysql-how-it-works.md","ref":"docs/mysql-how-it-works.md","articles":[]},"previous":{"title":"Redis 5设计与源码分析","level":"1.3.1","depth":2,"path":"docs/redis5-source.md","ref":"docs/redis5-source.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/redis-in-depth.md","mtime":"2024-07-12T03:15:02.942Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-07-12T03:15:28.435Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Elasticsearch 基础","level":"1.3.4","depth":2,"next":{"title":"DDIA","level":"1.3.5","depth":2,"path":"docs/ddia.md","ref":"docs/ddia.md","articles":[]},"previous":{"title":"MySQL 是怎样运行的","level":"1.3.3","depth":2,"path":"docs/mysql-how-it-works.md","ref":"docs/mysql-how-it-works.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/elasticsearch-basics.md","mtime":"2024-07-12T03:15:02.938Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-07-12T03:15:28.435Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
