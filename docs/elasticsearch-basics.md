@@ -6,6 +6,9 @@
 * [ES系列06：ik分词+Full text queries](https://cloud.tencent.com/developer/article/1746883)
 
 #### 查询语法
+* [Elasticsearch Query Examples – Hands-on Tutorial](https://coralogix.com/blog/42-elasticsearch-query-examples-hands-on-tutorial/)
+* [用法图表](../images/elasticsearch-query-guide.jpg)
+
 ```
 // select * from user where name="wxx"
 {
