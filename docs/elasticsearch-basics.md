@@ -109,3 +109,4 @@
 * [ElasticSearch 中的 Mapping](https://codeshellme.github.io/2021/02/es-mappings/)
 * ES 中的 Mapping 相当于传统数据库中的表定义
 * 创建索引时，request body的mappings.properties下是字段定义
+* 字段是keyword类型则不会被分词，text类型可以
