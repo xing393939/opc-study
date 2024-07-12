@@ -2,7 +2,7 @@
 
 #### 参考资料
 * [Elasticsearch复杂查询语法总结](https://juejin.cn/post/6998403625982623780)
-* [ElasticSearch 中的 Mapping](https://codeshellme.github.io/2021/02/es-mappings/)
+* [Elasticsearch Index APIs](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices.html)
 * [ES系列06：ik分词+Full text queries](https://cloud.tencent.com/developer/article/1746883)
 
 #### 查询语法
@@ -56,7 +56,7 @@
   }
 }
 
-// select * from user where name="wxx" or age =26
+// select * from user where name="wxx" or age=26
 {
   "query": {
     "bool": {
@@ -80,7 +80,7 @@
   }
 }
 
-// select * from user where name="liujing" and age =18
+// select * from user where name="liujing" and age=18
 {
   "query": {
     "bool": {
@@ -103,5 +103,9 @@
     }
   }
 }
-
 ```
+
+#### Mapping
+* [ElasticSearch 中的 Mapping](https://codeshellme.github.io/2021/02/es-mappings/)
+* ES 中的 Mapping 相当于传统数据库中的表定义
+* 创建索引时，request body的mappings.properties下是字段定义
