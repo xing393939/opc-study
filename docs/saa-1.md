@@ -122,7 +122,7 @@
 #### SQS、SNS、SWF、Step functions
 1. SQS retention period is from 1 minute to 14 days
 1. SQS 的 ReceiveMessageWaitTimeSeconds 默认是0，表示 Short polling，如果大于0，则是 Long polling
-1. SQS FIFO support 3000 messages per second with batching, or up to 300 messages per second；可以消息分组(最多100组)
+1. SQS 有两种类型Standard和FIFO，FIFO一秒最多3000个消息，见[对比图](../images/SQS-Standard-vs-FIFO-Queues.jpg)
 1. SNS 也能触发lambda，也有FIFO类型
 1. Simple Workflow Service (SWF)：creating a decoupled architecture in AWS；不会重复消费任务；适合ec2，已过时，除非有父子进程信号才用
 1. Step functions：适合lambda、ECS、API Gateway；替代SWF
