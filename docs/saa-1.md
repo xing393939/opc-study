@@ -48,7 +48,7 @@
   * 不停机的更换 type, size, IOPS capacity
 1. S3 生命周期
   * 标准 > IA > IT > One-Zone-IA > Glacier > Glacier-Deep，低层不能转换到高层
-  * 转换到 IA 和 One-Zone-IA 需要文件大于128K、30天后才能转
+  * 转换到 IA 和 One-Zone-IA 需要文件大于128K、30天后才能转，详细见[对比表](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html#sc-compare)
 
 #### Auto Scaling Group
 1. Auto Scaling Group 特性
