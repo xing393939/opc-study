@@ -10,6 +10,7 @@
   * [Redis 5设计与源码分析](docs/redis5-source.md)
   * [Redis 深度历险](docs/redis-in-depth.md)
   * [MySQL 是怎样运行的](docs/mysql-how-it-works.md)
+  * [Elasticsearch 基础](docs/elasticsearch-basics.md)
   * [DDIA](docs/ddia.md)
   * [缓存模式](docs/cache-policies.md)
 * 3.机器学习
