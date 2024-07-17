@@ -45,7 +45,8 @@ def train():
     # 转化为概率
     for w in range(10):
         for n in range(784):
-            conditional_pro[w, n] = (conditional_pro[w, n] + 1) / (prior_pro[w] + 2)
+            # 避免分母为0，通常要进行平滑处理，常用拉普拉斯修正的方法
+            conditional_pro[w, n] = (conditional_pro[w, n] + 1) / (prior_pro[w] + 10)
 
     prior_pro = prior_pro / len(train_dataset)
     return prior_pro, conditional_pro
