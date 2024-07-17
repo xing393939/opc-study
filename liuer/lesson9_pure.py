@@ -67,6 +67,7 @@ def predict(prior_pro, conditional_pro):
                     pro_y *= conditional_pro[j][m]
                 else:
                     pro_y *= (1 - conditional_pro[j][m])
+            # 为什么没有除P(X)，因为当向量X已知，P(X)相当于常量
             result[j] = prior_pro[j] * pro_y
         if label == np.argmax(result):
             acc += 1
