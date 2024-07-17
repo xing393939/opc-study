@@ -4,17 +4,18 @@ from tqdm import tqdm
 from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
 
-transform = transforms.Compose(
-    [transforms.ToTensor()]
-)
-train_dataset = datasets.MNIST(
-    root="C:/Users/bookan/data/", train=True, download=True, transform=transform
-)
-train_loader = DataLoader(train_dataset, shuffle=True, batch_size=1)
-test_dataset = datasets.MNIST(
-    root="C:/Users/bookan/data/", train=False, download=True, transform=transform
-)
-test_loader = DataLoader(test_dataset, shuffle=False, batch_size=1)
+
+def get_train_and_test():
+    transform = transforms.Compose([transforms.ToTensor()])
+    train_dataset = datasets.MNIST(
+        root="C:/Users/bookan/data/", train=True, download=True, transform=transform
+    )
+    train_loader = DataLoader(train_dataset, batch_size=1)
+    test_dataset = datasets.MNIST(
+        root="C:/Users/bookan/data/", train=False, download=True, transform=transform
+    )
+    test_loader = DataLoader(test_dataset, batch_size=1)
+    return train_loader, test_loader
 
 
 def binary(img):
@@ -29,7 +30,7 @@ def binary(img):
     return img_data
 
 
-def train():
+def train(train_loader):
     # prior_pro(先验概率）
     prior_pro = np.zeros(10)
     # conditional_pro(条件概率)
@@ -48,11 +49,11 @@ def train():
             # 避免分母为0，通常要进行平滑处理，常用拉普拉斯修正的方法
             conditional_pro[w, n] = (conditional_pro[w, n] + 1) / (prior_pro[w] + 10)
 
-    prior_pro = prior_pro / len(train_dataset)
+    prior_pro = prior_pro / len(train_loader.dataset)
     return prior_pro, conditional_pro
 
 
-def predict(prior_pro, conditional_pro):
+def predict(test_loader, prior_pro, conditional_pro):
     acc = 0
 
     for data in tqdm(test_loader):
@@ -71,9 +72,11 @@ def predict(prior_pro, conditional_pro):
             result[j] = prior_pro[j] * pro_y
         if label == np.argmax(result):
             acc += 1
-    return acc / len(test_dataset)
+    return acc / len(test_loader.dataset)
 
 
-prior_pro, conditional_pro = train()
-test_out = predict(prior_pro, conditional_pro)
-print("测试集的准确率为：{}".format(test_out))
+if __name__ == "__main__":
+    loader_tran, loader_test = get_train_and_test()
+    pro_prior, pro_cond = train(loader_tran)
+    test_out = predict(loader_test, pro_prior, pro_cond)
+    print("测试集的准确率为：{}".format(test_out))
