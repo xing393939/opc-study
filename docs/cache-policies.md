@@ -20,8 +20,6 @@
 * 一般采用write-through和no-write-allocate、write-back和write-allocate
 
 #### Server Cache
-* [缓存模式以及缓存的数据一致性](https://stephanietang.github.io/2020/04/13/cache-pattern/)
-* [dtm-labs缓存一致性](https://www.dtm.pub/app/cache.html)
 * [携程最终一致和强一致性缓存实践](https://www.infoq.cn/article/hh4iouiijhwb4x46vxeo)
 * 常见方案：Cache-Aside和Write-Invalidate
   * 缺点A：cacheMiss时读取耗时长
@@ -36,11 +34,15 @@
 * Facebook方案：[见图](https://www.plantuml.com/plantuml/duml/L8wzIiL048NxUOefjGYQW8s4u8-5ZPtTac989d79_YoxewBYkryckSNUwSwSxuFpK8IoV7e7PRCXKIQFcS9ME65tMptdPB7jxgfFeccZbT-jE7vqTWsUWw3ZHQ0lykDu0D4E_rvZjhyn2BbBxX_wcpC9PgBfWzziAMFJ32OppIzFLr_jzGXrQFGKA2pFQXm861nH2pJVsGehtQbQ9zLcTeUc4eGel2_1k62r0E_Hiz_pQK_sp7hQqVQojJSdDR4urJC5LG-ACq3QNivfUB6iyUcEPKzsTC5qG8A1wyNobgSTCmsj59wlMMFuPCUgvxlsFr_H3RVq-QoMPzEtFMsOYMwZXg71y-MJNknlVpPdlkRxFJrF9_GztxqMJVUpJGkVpUc4wNY-jlFfljQdExUzREzziNwg9jHk8oi5c7lXjZtTt_fouMw4Ng05JtPCUJPZFL3esTGEe3gePcCh1LZW8Powi_jfP-_J_eb04QZ-fnlQdYxP2DG9TocoCv_shqSDpTIy50L8y3W0cS1q2000)
   * 请求1：cacheMiss并得到leaseId->readDB(v1)->set(v1, leaseId)
   * 请求2：writeDB(v2)->delCache并使leaseId失效
+* rockscache方案，Cache-Aside和Write-Invalidate，[链接](https://www.dtm.pub/app/cache.html)
+  * 请求1：cacheMiss->readDB(v1)->set(v1)
+  * 请求2：writeDB(v2)->TagDeleted
+  * 通过二阶段消息保证DB和cache的一致性
 
-| 缺点 | 常见方案 | 携程 | B站 | Facebook |
-| --- | --- | --- | --- | --- |
-| 缺点A | √  |  √  |     |  √  |
-| 缺点B | √  |     |     |     |
-| 缺点C |    |  √  |     |     |
-| 缺点D |    |     |  √  |     |
-| 缺点E | √  |  √  |  √  |  √  |
+| 缺点 | 常见方案 | 携程 | B站 | Facebook | rockscache |
+| --- | --- | --- | --- | --- | --- |
+| 缺点A | √  |  √  |     |  √  | √   |
+| 缺点B | √  |     |     |     |     |
+| 缺点C |    |  √  |     |     | √   |
+| 缺点D |    |     |  √  |     |     |
+| 缺点E | √  |  √  |  √  |  √  |     |
