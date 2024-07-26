@@ -37,4 +37,10 @@
   * 请求1：cacheMiss并得到leaseId->读v1->set(v1, leaseId)
   * 请求2：writeDB(v2)->delCache并使leaseId失效
 
-
+| 缺点 | 常见方案 | 携程 | B站 | Facebook |
+| --- | --- | --- | --- | --- |
+| 缺点A | √  |  √  |     |     |
+| 缺点B | √  |     |     |     |
+| 缺点C |    |  √  |     |     |
+| 缺点D |    |     |  √  |     |
+| 缺点E | √  |  √  |  √  |  √  |
