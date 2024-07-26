@@ -2,11 +2,11 @@
 
 #### 五种缓存模式
 * [缓存的五种设计模式](https://xie.infoq.cn/article/49947a60376964f1c16369a8b)
-* Cache aside：cache不存在时去读db；写db，写完删cache
-* Read Through：cache不存在时cache去读db
-* Write through：先更新cache再更新db，都成功后返回
-* Write Behind：先更新cache，再异步更新db，也称Write Back
-* Write Around：绕过cache直接更新db
+* Cache-Aside：&nbsp;&nbsp;userRead(cache)——userRead(db)——userManage(cache)
+* Read-Through：&nbsp;userRead(cache)——cacheRead(db)——cacheManage(cache)
+* Write-Through：userWrite(cache)——cacheWrite(db)
+* Write-Behind：&nbsp;userWrite(cache)——cacheWrite(db)(Async)
+* Write-Around：&nbsp;userWrite(db)
 
 #### CPU Cache
 * [关于 CPU 上的高速缓存](https://www.junmajinlong.com/os/cpu_cache/)
