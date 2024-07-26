@@ -25,9 +25,8 @@
 * [携程最终一致和强一致性缓存实践](https://www.infoq.cn/article/hh4iouiijhwb4x46vxeo)
 * 常见方案：Cache-Aside和Write-Invalidate
   * 缺点A：cacheMiss时读取耗时长
-  * 缺点B：存在[缓存不一致问题](../images/cache-aside-trouble.png)
+  * 缺点B：读写场景下，set(v1)在del()之后执行，[见图](../images/cache-aside-trouble.png)
 * 携程的方案：Cache-Aside和Write-Invalidate，[见图](../images/cache-ctrip.png)
-  * 缺点A
   * 缺点C：读DB和写DB有锁
 * B站的方案：Cache-Aside和Write-Allocate，[见图](../images/cache-bilibili.png)
   * 缺点D：写写场景下，set(v1)在set(v2)之后执行
