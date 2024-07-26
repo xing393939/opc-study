@@ -23,27 +23,16 @@
 * [缓存模式以及缓存的数据一致性](https://stephanietang.github.io/2020/04/13/cache-pattern/)
 * [dtm-labs缓存一致性](https://www.dtm.pub/app/cache.html)
 * [携程最终一致和强一致性缓存实践](https://www.infoq.cn/article/hh4iouiijhwb4x46vxeo)
-* 方案一：Cache aside
+* 方案一：Cache-Aside和Write-Invalidate
   * 优点：仅在cacheMiss时更新缓存
   * 缺点：cacheMiss时读取耗时长，且存在[缓存不一致问题](../images/cache-aside-trouble.png)
-* 方案二：Read Through/Write Through
-  * 优点：cacheMiss时读取耗时短
-  * 缺点：对于读少写多的场景不友好
-* 方案三：Read Through/Write Behind
-  * 优点：没有方案二的缺点
-  * 缺点：因为是异步更新db，可能导致数据丢失
-* 方案四：Read Through/Write Around
-  * 优点：没有方案二的缺点
-  * 缺点：存在缓存不一致问题
-* 基于方案一的优化1：[B站的方案](../images/cache-bilibili.png)
-  * 请求1：cacheMiss->读v1->setNX
-  * 请求2：writeDB(v2)->setEX
-  * 写写场景的方案1：binlog异步任务补偿cache
-  * 写写场景的方案2：更新锁
-* 基于方案一的优化2：[Facebook的方案](../images/cache-facebook.png)
+* B站的方案：Cache-Aside和Write-Allocate，[见图](../images/cache-bilibili.png)
+  * 写写场景的优化方法1：binlog异步任务补偿cache
+  * 写写场景的优化方法2：更新锁
+* Facebook的方案：[见图](../images/cache-facebook.png)
   * 请求1：cacheMiss并得到leaseId->读v1->set(v1, leaseId)
   * 请求2：writeDB(v2)->delCache并使leaseId失效
-* 基于方案一的优化3：[携程的方案](../images/cache-ctrip.png)
+* 携程的方案：[见图](../images/cache-ctrip.png)
   * 请求1：加锁（cacheMiss->读v1->set）
   * 请求2：加锁（writeDB(v2)->delCache）
 
