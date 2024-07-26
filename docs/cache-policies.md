@@ -31,8 +31,8 @@
 * B站的方案：Cache-Aside和Write-Allocate，[见图](../images/cache-bilibili.png)
   * 缺点D：写写场景下，set(v1)在set(v2)之后执行
   * 缺点E：写写场景下，set(v2)失败导致缓存仍然是v1版本
-  * 缺点D的优化：更新锁
-  * 缺点E的优化：binlog异步任务补偿cache
+  * 优化缺点D：更新锁
+  * 优化缺点E：binlog异步任务补偿cache
 * Facebook的方案：[见图](../images/cache-facebook.png)
   * 请求1：cacheMiss并得到leaseId->读v1->set(v1, leaseId)
   * 请求2：writeDB(v2)->delCache并使leaseId失效
