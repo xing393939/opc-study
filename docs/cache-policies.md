@@ -33,7 +33,7 @@
   * 缺点E：写写场景下，set(v2)失败导致缓存仍然是v1版本
   * 优化缺点D：写DB有锁
   * 优化缺点E：binlog异步任务补偿cache
-* Facebook的方案：[见图](../images/cache-facebook.png)
+* Facebook的方案：[见图](https://www.plantuml.com/plantuml/duml/L8wzIiL048NxUOefjGYQW8s4u8-5ZPtTac989d79_YoxewBYkryckSNUwSwSxuFpK8IoV7e7PRCXKIQFcS9ME65tMptdPB7jxgfFeccZbT-jE7vqTWsUWw3ZHQ0lykDu0D4E_rvZjhyn2BbBxX_wcpC9PgBfWzziAMFJ32OppIzFLr_jzGXrQFGKA2pFQXm861nH2pJVsGehtQbQ9zLcTeUc4eGel2_1k62r0E_Hiz_pQK_sp7hQqVQojJSdDR4urJC5LG-ACq3QNivfUB6iyUcEPKzsTC5qG8A1wyNobgSTCmsj59wlMMFuPCUgvxlsFr_H3RVq-QoMPzEtFMsOYMwZXg71y-MJNknlVpPdlkRxFJrF9_GztxqMJVUpJGkVpUc4wNY-jlFfljQdExUzREzziNwg9jHk8oi5c7lXjZtTt_fouMw4Ng05JtPCUJPZFL3esTGEe3gePcCh1LZW8Powi_jfP-_J_eb04QZ-fnlQdYxP2DG9TocoCv_shqSDpTIy50L8y3W0cS1q2000)
   * 请求1：cacheMiss并得到leaseId->读v1->set(v1, leaseId)
   * 请求2：writeDB(v2)->delCache并使leaseId失效
 
