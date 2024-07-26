@@ -10,13 +10,14 @@
 
 #### CPU Cache
 * [关于 CPU 上的高速缓存](https://www.junmajinlong.com/os/cpu_cache/)
-* write-invalidate，Core1修改x=3，则需更新L3缓存，同时通知其他Core的L1、L2失效
-* 写缓存策略
-  * write through + write allocate：未命中时先cache数据再修改
-  * write through + no write allocate：未命中则只修改下游缓存
-  * write back + write allocate
-  * write back + no write allocate
-  * （一般采用write through + no write allocate和write back + write allocate）
+* write-invalidate，Core1修改x=3，则需更新L3，同时通知其他Core的L1、L2失效
+* 如果发生cacheHit，有两个策略：
+  * write-through: 更新L3，同时写入内存
+  * write-back: 更新L3，需要被置换出去时写入内存
+* 如果发生cacheMiss，有两个策略：
+  * write-allocate: 先载入L3再操作
+  * no-write-allocate: 不载入L3直接操作
+* 一般采用write-through和no-write-allocate、write-back和write-allocate
 
 #### Server Cache
 * [缓存模式以及缓存的数据一致性](https://stephanietang.github.io/2020/04/13/cache-pattern/)
