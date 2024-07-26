@@ -5,7 +5,7 @@
 * Cache-Aside：&nbsp;&nbsp;userRead(cache)——userRead(db)——userManage(cache)
 * Read-Through：userRead(cache)——cacheRead(db)——cacheManage(cache)
 * Write-Through：userWrite(cache)——cacheWrite(db)
-* Write-Behind：&nbsp;&nbsp;userWrite(cache)——cacheWrite(db)(Async)
+* Write-Behind：&nbsp;&nbsp;userWrite(cache)——cacheWrite(db)(Async)，也称Write-Back
 * Write-Around：&nbsp;&nbsp;userWrite(db)
 
 #### CPU Cache
