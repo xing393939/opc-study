@@ -29,7 +29,7 @@
 * 携程方案：Cache-Aside和Write-Invalidate，[见图](../images/cache-ctrip.png)
   * 缺点C：读写场景和写写场景需要加锁
 * B站方案：Cache-Aside和Write-Allocate，[见图](https://www.plantuml.com/plantuml/duml/SoWkIImgAStDuIhEpimhI2nAp5KeIipBBaujK30oG19CASXKC3GoHH8fI4pEJanF3SaioKbrpCbCpyjDpIjHo4bDA-7YAafDBadCIyz9LL1wiNxtqxQPJ-ViUZPplP92DPU2GdHoOd96gczcSN6ihgvTT55gOegBaqQPeMOiK1APgmi282N5gIL-5J0LIa2egwiGNLwKMP8AKca44aRbGpL1v6fHt0Dq39fx43gDaNGQevbgWYHd0ZRL8JKl1HXo0000)
-  * 缺点D：写写场景下，set(v1)在set(v2)之后执行
+  * 缺点D：写写场景下，set(v3)在set(v4)之后执行
   * 缺点E：写DB成功，操作cache失败
   * 优化缺点D：写写场景需要加锁
   * 优化缺点E：binlog异步任务补偿cache
@@ -39,7 +39,7 @@
 
 | 缺点 | 常见方案 | 携程 | B站 | Facebook |
 | --- | --- | --- | --- | --- |
-| 缺点A | √  |  √  |     |     |
+| 缺点A | √  |  √  |     |  √  |
 | 缺点B | √  |     |     |     |
 | 缺点C |    |  √  |     |     |
 | 缺点D |    |     |  √  |     |
