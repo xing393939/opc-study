@@ -11,9 +11,7 @@
     }
   };
 </script>
-<script type="text/javascript" id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
+<script id="MathJax-script" type=text/javascript src="../images/js/tex-mml-chtml.js"></script>
 
 #### 参考资料
 * 如果要认真学微积分，其实应该学MIT的1801和1802，但是两门课加起来有70节课，所以选择了本课，本课主要涉及单变量微积分。
