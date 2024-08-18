@@ -5,7 +5,7 @@ from tqdm import tqdm
 
 
 def get_train_and_test():
-    transform = transforms.Compose([transforms.ToTensor()])
+    transform = transforms.Compose([transforms.PILToTensor()])
     train_dataset = datasets.MNIST(
         root="C:/Users/bookan/data/", train=True, download=True, transform=transform
     )
@@ -23,6 +23,7 @@ def binary(img):
         if i % 28 == 0:
             print()
         print("{} ".format(w), end='')
+    print()
     """
     return img_data
 
