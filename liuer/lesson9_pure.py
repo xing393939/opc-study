@@ -1,8 +1,7 @@
 # https://blog.csdn.net/m0_58058919/article/details/126919767
 import numpy as np
-from tqdm import tqdm
 from torchvision import datasets, transforms
-from torch.utils.data import DataLoader
+from tqdm import tqdm
 
 
 def get_train_and_test():
@@ -10,12 +9,10 @@ def get_train_and_test():
     train_dataset = datasets.MNIST(
         root="C:/Users/bookan/data/", train=True, download=True, transform=transform
     )
-    train_loader = DataLoader(train_dataset, batch_size=1)
     test_dataset = datasets.MNIST(
         root="C:/Users/bookan/data/", train=False, download=True, transform=transform
     )
-    test_loader = DataLoader(test_dataset, batch_size=1)
-    return train_loader, test_loader
+    return train_dataset, test_dataset
 
 
 def binary(img):
@@ -49,7 +46,7 @@ def train(train_loader):
             # 避免分母为0，通常要进行平滑处理，常用拉普拉斯修正的方法
             conditional_pro[w, n] = (conditional_pro[w, n] + 1) / (prior_pro[w] + 10)
 
-    prior_pro = prior_pro / len(train_loader.dataset)
+    prior_pro = prior_pro / len(train_loader)
     return prior_pro, conditional_pro
 
 
@@ -72,7 +69,7 @@ def predict(test_loader, prior_pro, conditional_pro):
             result[j] = prior_pro[j] * pro_y
         if label == np.argmax(result):
             acc += 1
-    return acc / len(test_loader.dataset)
+    return acc / len(test_loader)
 
 
 if __name__ == "__main__":
