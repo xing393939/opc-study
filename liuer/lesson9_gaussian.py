@@ -3,6 +3,7 @@ import collections
 import math
 
 import numpy as np
+from sklearn.metrics import classification_report
 from torchvision import datasets
 from tqdm import tqdm
 
@@ -57,19 +58,14 @@ class GaussianNBV2(object):
 
 if __name__ == "__main__":
     loader_tran, loader_test = get_train_and_test()
-    # Train model
-    clf = GaussianNBV2()
     data_train, label_train = loader_tran.data.numpy(), loader_tran.targets.numpy()
     data_train = data_train.reshape(len(data_train), -1)
-    clf.fit(data_train, label_train)
-    # Model evaluation
     data_test, label_test = loader_test.data.numpy(), loader_test.targets.numpy()
     data_test = data_test.reshape(len(data_test), -1)
 
-    y_hat = []
-    for a in tqdm(data_test):
-        b = clf.predict(a)
-        y_hat.append(b)
-    y_hat = np.array(y_hat)
-    acc = (label_test == y_hat).sum() / len(label_test)
-    print("测试集的准确率为：{}".format(acc))
+    clf = GaussianNBV2()
+    clf.fit(data_train, label_train)
+    predictions = np.array([])
+    for x in tqdm(data_test):
+        predictions = np.append(predictions, clf.predict(x))
+    print(classification_report(label_test, predictions))
