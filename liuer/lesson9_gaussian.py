@@ -42,8 +42,8 @@ class GaussianNBV2(object):
         self._get_vars(xx, y)
 
     @staticmethod
-    def _get_gaussian(x, u, var):
-        return -(x - u) ** 2 / (2 * var) - math.log(math.sqrt(2 * math.pi * var))
+    def _get_gaussian(xj, u, var):
+        return -(xj - u) ** 2 / (2 * var) - math.log(math.sqrt(2 * math.pi * var))
 
     def predict(self, x):
         dims = len(x)
