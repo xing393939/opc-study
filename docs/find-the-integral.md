@@ -1,15 +1,18 @@
 ### 求积分
 
 <script>
-  MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [["$$", "$$"], ["\\[", "\\]"]],
-    },
-    svg: {
-      fontCache: 'global'
-    }
-  };
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [["$$", "$$"], ["\\[", "\\]"]],
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre','code', 'a', 'annotation', 'annotation-xml']
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
 </script>
 <script id="MathJax-script" type=text/javascript src="../images/js/tex-mml-chtml.js"></script>
 
