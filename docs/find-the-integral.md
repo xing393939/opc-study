@@ -40,7 +40,7 @@
 
 #### 分部积分法
 * 即乘法则：$∫u.v dx = u∫v dx - ∫u'(∫v dx) dx$
-
+```
 $$
 \begin{align*}
 A &= B + C \\
@@ -48,3 +48,4 @@ A &= B + C \\
 &= 2C + D
 \end{align*}
 $$
+```
