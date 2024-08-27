@@ -58,7 +58,7 @@ $$
 ```
 $$
 \begin{flalign}
-∫x \cos(x^2)2x dx &= ∫\cos(u)du \qquad u=x^2 \\
+∫\cos(x^2)2x dx &= ∫\cos(u)du \qquad u=x^2 \\
 &= \sin(u) + C \\
 &= \sin(x^2) + C &
 \end{flalign}
