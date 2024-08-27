@@ -7,7 +7,7 @@
       displayMath: [["$$", "$$"], ["\\[", "\\]"]],
     },
     options: {
-      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre','code', 'a', 'annotation', 'annotation-xml']
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'a', 'annotation', 'annotation-xml']
     },
     svg: {
       fontCache: 'global'
