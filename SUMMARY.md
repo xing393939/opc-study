@@ -16,6 +16,7 @@
 * 3.机器学习
   * [线性代数](docs/linear-algebra.md)
   * [微积分重点](docs/highlights-of-calculus.md)
+  * [求积分](docs/find-the-integral.md)
   * [刘二大人](docs/liu-er.md)
   * [傅里叶变换](docs/fft.md)
   * [AI大模型之美](docs/the-beauty-of-ai.md)
