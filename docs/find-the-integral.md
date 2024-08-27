@@ -42,13 +42,12 @@
 | 乘法则  | $∫u.v dx$     | $u∫v dx - ∫u'(∫v dx) dx$ |
 
 #### 分部积分法
-* 即乘法则：$∫u.v dx = u∫v dx - ∫u'(∫v dx) dx$
+* 也称乘法则：$∫u.v dx = u∫v dx - ∫u'(∫v dx) dx$
 ```
 $$
-\begin{align*}
-A &= B + C \\
-&= C + D + C \\
-&= 2C + D
-\end{align*}
+\begin{flalign}
+∫x \cos(x) dx &= x.\sin(x) - ∫\sin(x)dx \qquad u=x \;\; v=\cos(x)\\
+&= x\sin(x) + \cos(x) + C &
+\end{flalign}
 $$
 ```
