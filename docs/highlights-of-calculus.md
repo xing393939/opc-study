@@ -15,6 +15,7 @@
 
 #### 参考资料
 * 如果要认真学微积分，其实应该学MIT的1801和1802，但是两门课加起来有70节课，所以选择了本课，本课主要涉及单变量微积分。
+* [MIT 微积分重点](https://www.bilibili.com/video/BV13Z4y1Z7zm/)
 * [LaTeX公式手册(全网最全)](https://www.cnblogs.com/1024th/p/11623258.html)
 * [学习笔记1](https://www.zhihu.com/column/c_1165312843926171648)
 * [学习笔记2](https://blog.csdn.net/shamozhizhoutx/article/details/125126766)
