@@ -8,6 +8,8 @@ over {text-decoration:overline}
 </style>
 
 #### 参考资料
+* [线性代数 (第5版)](https://book.douban.com/subject/34820335/)
+* [MIT 18.06视频](https://www.bilibili.com/video/BV16Z4y1U7oU/)
 * [数学符号及读法大全](https://blog.csdn.net/qq_37212752/article/details/83956265)
 
 #### 1 introduction to vectors
