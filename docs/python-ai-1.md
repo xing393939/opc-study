@@ -4,6 +4,7 @@
 1. 点击这里下载软件包，解压后运行starter.exe，若显示success则说明环境没有问题。
 2. 点击这里下载示例的excel，放到上一步解压的目录。
 3. 打开kimi或者文心一言，发送如下内容给AI助手：
+
 ```
 我有一个Excel，文件名是input_file.xlsx。请写一个python程序，使用pandas包生成一个新的Excel，文件名是output_file.xlsx。要求如下：
 
