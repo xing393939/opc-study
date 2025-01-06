@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>求积分 · GitBook</title>
+        <title>2.基于excel生成图表 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="liu-er.html" />
     
-    
-    <link rel="prev" href="highlights-of-calculus.html" />
+    <link rel="prev" href="python-ai-1.html" />
     
 
     </head>
@@ -299,7 +297,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4.3" data-path="find-the-integral.html">
+        <li class="chapter " data-level="1.4.3" data-path="find-the-integral.html">
             
                 <a href="find-the-integral.html">
             
@@ -635,7 +633,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.8.2" data-path="python-ai-2.html">
+        <li class="chapter active" data-level="1.8.2" data-path="python-ai-2.html">
             
                 <a href="python-ai-2.html">
             
@@ -683,7 +681,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >求积分</a>
+        <a href=".." >2.基于excel生成图表</a>
     </h1>
 </div>
 
@@ -698,125 +696,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="&#x6C42;&#x79EF;&#x5206;">&#x6C42;&#x79EF;&#x5206;</h3>
-<script>
-  MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [["$$", "$$"], ["\\[", "\\]"]],
-    },
-    options: {
-      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'a', 'annotation', 'annotation-xml']
-    },
-    svg: {
-      fontCache: 'global'
-    }
-  };
-</script>
-<script id="MathJax-script" type="text/javascript" src="../images/js/tex-mml-chtml.js"></script>
-
-<h4 id="&#x53C2;&#x8003;&#x8D44;&#x6599;">&#x53C2;&#x8003;&#x8D44;&#x6599;</h4>
-<ul>
-<li><a href="https://www.shuxuele.com/calculus/integration-rules.html" target="_blank">&#x79EF;&#x5206;&#x6CD5;&#x5219;</a></li>
-<li><a href="https://www.shuxuele.com/calculus/integration-by-parts.html" target="_blank">&#x5206;&#x90E8;&#x79EF;&#x5206;&#x6CD5;</a></li>
-<li><a href="https://www.shuxuele.com/calculus/integration-by-substitution.html" target="_blank">&#x6362;&#x5143;&#x79EF;&#x5206;&#x6CD5;</a></li>
-</ul>
-<h4 id="&#x5E38;&#x7528;&#x51FD;&#x6570;">&#x5E38;&#x7528;&#x51FD;&#x6570;</h4>
-<ul>
-<li>$\ln x$&#x8868;&#x793A;&#x4EE5;&#x81EA;&#x7136;&#x6570;e&#x4E3A;&#x5E95;&#x7684;&#x5BF9;&#x6570;</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>&#x51FD;&#x6570;</th>
-<th>&#x79EF;&#x5206;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$&#x222B;1/x dx$</td>
-<td>$ln |x| + C$ <a href="https://www.zhihu.com/question/457713705" target="_blank">&#x89E3;&#x91CA;</a></td>
-</tr>
-<tr>
-<td>$&#x222B;x^n dx$</td>
-<td>$x^{n+1}/(n+1) + C$</td>
-</tr>
-<tr>
-<td>$&#x222B;\sin x dx$</td>
-<td>$-\cos x + C$</td>
-</tr>
-<tr>
-<td>$&#x222B;\cos x dx$</td>
-<td>$\sin x + C$</td>
-</tr>
-<tr>
-<td>$&#x222B;\rm e^{cx} dx$</td>
-<td>$\rm e^{cx}/c + C$</td>
-</tr>
-<tr>
-<td>$&#x222B;\ln x dx$</td>
-<td>$x\ln x - x + C$</td>
-</tr>
-</tbody>
-</table>
-<h4 id="&#x5E38;&#x7528;&#x6CD5;&#x5219;">&#x5E38;&#x7528;&#x6CD5;&#x5219;</h4>
-<table>
-<thead>
-<tr>
-<th>&#x6CD5;&#x5219;</th>
-<th>&#x51FD;&#x6570;</th>
-<th>&#x79EF;&#x5206;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>&#x4E58;&#x4EE5;&#x5E38;&#x91CF;</td>
-<td>$&#x222B;cf(x) dx$</td>
-<td>$c&#x222B;f(x) dx$</td>
-</tr>
-<tr>
-<td>&#x548C;&#x6CD5;&#x5219;</td>
-<td>$&#x222B;(f + g) dx$</td>
-<td>$&#x222B;f dx + &#x222B;g dx$</td>
-</tr>
-<tr>
-<td>&#x5DEE;&#x6CD5;&#x5219;</td>
-<td>$&#x222B;(f - g) dx$</td>
-<td>$&#x222B;f dx - &#x222B;g dx$</td>
-</tr>
-<tr>
-<td>&#x5206;&#x90E8;&#x79EF;&#x5206;&#x6CD5;</td>
-<td>$&#x222B;u.v dx$</td>
-<td>$u&#x222B;v dx - &#x222B;u&apos;(&#x222B;v dx) dx$</td>
-</tr>
-<tr>
-<td>&#x6362;&#x5143;&#x79EF;&#x5206;&#x6CD5;</td>
-<td>$&#x222B;f(u)u&apos; dx$</td>
-<td>$&#x222B;f(u) du$</td>
-</tr>
-</tbody>
-</table>
-<h4 id="&#x5206;&#x90E8;&#x79EF;&#x5206;&#x6CD5;">&#x5206;&#x90E8;&#x79EF;&#x5206;&#x6CD5;</h4>
-<ul>
-<li>&#x5206;&#x90E8;&#x79EF;&#x5206;&#x6CD5;&#xFF1A;$&#x222B;u.v dx = u&#x222B;v dx - &#x222B;u&apos;(&#x222B;v dx) dx$<pre><code>$$
-\begin{flalign}
-&#x222B;x \cos(x) dx &amp;= x.\sin(x) - &#x222B;\sin(x)dx \qquad u=x \;\; v=\cos(x)\\
-&amp;= x\sin(x) + \cos(x) + C &amp;
-\end{flalign}
-$$
-</code></pre></li>
-</ul>
-<h4 id="&#x6362;&#x5143;&#x79EF;&#x5206;&#x6CD5;">&#x6362;&#x5143;&#x79EF;&#x5206;&#x6CD5;</h4>
-<ul>
-<li>&#x6362;&#x5143;&#x79EF;&#x5206;&#x6CD5;&#xFF1A;$&#x222B;f(u)u&apos; dx = &#x222B;f(u) du$<pre><code>$$
-\begin{flalign}
-&#x222B;\cos(x^2)2x dx &amp;= &#x222B;\cos(u)du \qquad u=x^2 \\
-&amp;= \sin(u) + C \\
-&amp;= \sin(x^2) + C &amp;
-\end{flalign}
-$$
-</code></pre></li>
-</ul>
+                                <h3 id="pythonai&#x5C0F;&#x767D;&#x6559;&#x7A0B;2&#xFF1A;&#x57FA;&#x4E8E;excel&#x751F;&#x6210;&#x56FE;&#x8868;">Python+AI&#x5C0F;&#x767D;&#x6559;&#x7A0B;2&#xFF1A;&#x57FA;&#x4E8E;excel&#x751F;&#x6210;&#x56FE;&#x8868;</h3>
 
                                 
                                 </section>
@@ -844,14 +724,10 @@ $$
 
             
                 
-                <a href="highlights-of-calculus.html" class="navigation navigation-prev " aria-label="Previous page: 微积分重点">
+                <a href="python-ai-1.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 1.excel的分组统计">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="liu-er.html" class="navigation navigation-next " aria-label="Next page: 刘二大人">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -860,7 +736,7 @@ $$
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"求积分","level":"1.4.3","depth":2,"next":{"title":"刘二大人","level":"1.4.4","depth":2,"path":"docs/liu-er.md","ref":"docs/liu-er.md","articles":[]},"previous":{"title":"微积分重点","level":"1.4.2","depth":2,"path":"docs/highlights-of-calculus.md","ref":"docs/highlights-of-calculus.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","website":"styles/website.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"docs/find-the-integral.md","mtime":"2025-01-06T03:49:51.078Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-01-06T03:50:15.846Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.基于excel生成图表","level":"1.8.2","depth":2,"previous":{"title":"1.excel的分组统计","level":"1.8.1","depth":2,"path":"docs/python-ai-1.md","ref":"docs/python-ai-1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","website":"styles/website.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"docs/python-ai-2.md","mtime":"2025-01-06T03:49:51.082Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-01-06T03:50:15.846Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
