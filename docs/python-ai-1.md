@@ -1,7 +1,7 @@
 ### Python+AI小白教程1：excel的分组统计
 
 #### 背景说明
-本文以一个实际例子来演示如何使用kimi或者文心一言生成python代码，来操作excel，得到我们想要的数据。假设我们有一个excel，现在我们利用Python+AI工具，基于excel第二列进行分组归类，然后把同分组下的分数进行累加，得到一个新的excel。原excel和新的excel如下图：
+本文通过一个实际示例演示如何使用Kimi或文心一言生成Python代码来操作Excel并获取所需数据。假设我们有一个Excel文件，我们将利用Python和AI工具，基于Excel的第二列进行分组归类，并对同一分组下的分数进行累加，最终生成一个新的Excel文件。原Excel和新的Excel如下图：
 
 ![](../python-ai/example01.png)
 
