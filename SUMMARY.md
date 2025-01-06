@@ -38,3 +38,6 @@
   * [3.TiDB in Action: 部署与管理](docs/tidb-3.md)
   * [4.TiDB in Action: 故障排查](docs/tidb-4.md)
   * [5.TiDB in Action: 最佳实践](docs/tidb-5.md)
+* 7.Python+AI小白教程
+  * [1.excel的分组统计](docs/python-ai-1.md)
+  * [2.基于excel生成图表](docs/python-ai-2.md)
