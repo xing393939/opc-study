@@ -46,4 +46,4 @@
  output_file = 'output_file.html'  # 输出的HTML文件
  generate_chart(input_file, output_file)
  ```
-5. 再次运行starter.exe，如果生成一个output_file.xlsx则说明成功了。打开output_file.xlsx就是最终想要的excel。
+5. 再次运行starter.exe，如果生成一个output_file.xlsx则说明成功了。用浏览器打开output_file.html就可以看到生成的图表了。
