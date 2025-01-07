@@ -19,9 +19,9 @@
 4. AI助手会提供python代码给你，复制代码然后替换第1步解压的目录里面的index.py的内容。这里提供一份示例代码：
  ```
  import pandas as pd
- df = pd.read_excel('input_file.xlsx', skiprows=2)
- df = df.iloc[:, :3]
- df_grouped = df.groupby(df.columns[1])[df.columns[2]].sum().reset_index()
- df_grouped.to_excel('output_file.xlsx', index=False)
+ df = pd.read_excel('input_file.xlsx', skiprows=2, usecols=[0, 1, 2], header=None)
+ df.columns = ['未知列', '游戏类型', '分数']
+ grouped = df.groupby('游戏类型')['分数'].sum().reset_index()
+ grouped.to_excel('output_file.xlsx', index=False)
  ```
 5. 再次运行starter.exe，如果生成一个output_file.xlsx则说明成功了。打开output_file.xlsx就是最终想要的excel。
