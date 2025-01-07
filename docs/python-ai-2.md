@@ -16,7 +16,7 @@
  2. 第1行是表头，请忽略。
  3. 生成图表，x轴是月份，请展示降水量、蒸发量、平均温度随月份的变化折线图。
  ```
-4. AI助手会提供python代码给你，复制代码然后替换第1步解压的目录里面的index.py的内容。这里提供一份示例代码：
+4. AI助手会提供python代码给你，复制代码然后替换第1步解压的目录里面的python_code.txt的内容。这里提供一份示例代码：
  ```
  import pandas as pd
  from pyecharts.charts import Line
@@ -46,4 +46,4 @@
  output_file = 'output_file.html'  # 输出的HTML文件
  generate_chart(input_file, output_file)
  ```
-5. 再次运行starter.exe，如果生成一个output_file.xlsx则说明成功了。用浏览器打开output_file.html就可以看到生成的图表了。
+5. 再次运行starter.exe，如果生成一个output_file.html则说明成功了。用浏览器打开output_file.html就可以看到生成的图表了。

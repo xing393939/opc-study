@@ -16,7 +16,7 @@
  2. 第2列是游戏类型，第3列是分数，请以游戏类型为分组，累加同类型的分数。
  3. 第1行和第2行是表头，请忽略。
  ```
-4. AI助手会提供python代码给你，复制代码然后替换第1步解压的目录里面的index.py的内容。这里提供一份示例代码：
+4. AI助手会提供python代码给你，复制代码然后替换第1步解压的目录里面的python_code.txt的内容。这里提供一份示例代码：
  ```
  import pandas as pd
  df = pd.read_excel('input_file.xlsx', skiprows=2, usecols=[0, 1, 2], header=None)
