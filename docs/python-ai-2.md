@@ -3,7 +3,7 @@
 #### 背景说明
 本文通过一个实际示例演示如何使用Kimi或文心一言生成Python代码来操作Excel并生成图表。原Excel和图表如下图：
 
-![](../python-ai/example01.png)
+![](../python-ai/example02.jpg)
 
 #### 具体步骤
 1. 点击[这里](https://static-621585.oss-cn-beijing.aliyuncs.com/python-ai/2025-01-07-example02.rar)下载软件包，解压后里面的input_file.xlsx就是原始excel。
