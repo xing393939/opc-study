@@ -18,10 +18,42 @@
  ```
 4. AI助手会提供python代码给你，复制代码然后替换第1步解压的目录里面的index.py的内容。这里提供一份示例代码：
  ```
- import pandas as pd
- df = pd.read_excel('input_file.xlsx', skiprows=2, usecols=[0, 1, 2], header=None)
- df.columns = ['未知列', '游戏类型', '分数']
- grouped = df.groupby('游戏类型')['分数'].sum().reset_index()
- grouped.to_excel('output_file.xlsx', index=False)
+import pandas as pd
+from pyecharts.charts import Line
+from pyecharts import options as opts
+
+def generate_chart(input_file, output_file):
+    # 读取Excel文件，跳过第1行表头
+    df = pd.read_excel(input_file, skiprows=1)
+
+    # 假设第1列是月份，第2列是降水量，第3列是蒸发量，第4列是平均温度
+    months = df.iloc[:, 0].tolist()  # 获取月份
+    precipitation = df.iloc[:, 1].tolist()  # 获取降水量
+    evaporation = df.iloc[:, 2].tolist()  # 获取蒸发量
+    temperature = df.iloc[:, 3].tolist()  # 获取平均温度
+
+    # 创建折线图
+    line = (
+        Line()
+        .add_xaxis(months)  # 设置x轴为月份
+        .add_yaxis("降水量", precipitation)  # 添加降水量折线
+        .add_yaxis("蒸发量", evaporation)  # 添加蒸发量折线
+        .add_yaxis("平均温度", temperature)  # 添加平均温度折线
+        .set_global_opts(
+            title_opts=opts.TitleOpts(title="降水量、蒸发量、平均温度变化折线图"),  # 设置图表标题
+            tooltip_opts=opts.TooltipOpts(trigger="axis"),  # 鼠标悬停显示数据
+            yaxis_opts=opts.AxisOpts(name="数值"),
+            xaxis_opts=opts.AxisOpts(name="月份")
+        )
+    )
+
+    # 将图表渲染为HTML文件
+    line.render(output_file)
+    print(f"图表已保存到 {output_file}")
+
+# 调用函数生成图表
+input_file = 'input_file.xlsx'  # 输入的Excel文件
+output_file = 'output_file.html'  # 输出的HTML文件
+generate_chart(input_file, output_file)
  ```
 5. 再次运行starter.exe，如果生成一个output_file.xlsx则说明成功了。打开output_file.xlsx就是最终想要的excel。
