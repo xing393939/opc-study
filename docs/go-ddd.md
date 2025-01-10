@@ -51,7 +51,8 @@
 
 #### DDD的分层模型
 
-| |接口层|应用层|领域层|基础设施层|
-|---|---|---|---|---|
-|元素|  | Application service<br/>ACL接口 | Entity <br/>Domain Primitive<br/>Domain Service<br/>Repository接口<br/>ACL接口 | ACL具体类<br/>Repository具体类 |
+| |应用层|领域层|基础设施层|
+|---|---|---|---|
+|元素| Application service<br/>ACL接口 | Entity <br/>Domain Primitive<br/>Domain Service<br/>Repository接口<br/>ACL接口 | ACL具体类<br/>Repository具体类 |
 
+![](../images/onion-framework.jpg)
